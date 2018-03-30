@@ -1,4 +1,4 @@
-# Ada-WinRT
+ ## Ada-WinRT
 
 This project provides a set of Ada bindings (aka language projection) to the Microsoft Windows WinRT API
 and is targeted at two distinct use cases
@@ -23,11 +23,13 @@ From a command prompt that has your gcc/gnat x64 distribution/build environments
 
 ### Examples
 
-Please see the appropriate readme within each of the appropiate directory. The following samples are provided
+Please see the appropriate readme within the appropiate directory. The following samples are provided
 
 * Desktop Examples
 
-  * Ocr - demonstrates how to use the Optical Character Recognition API (via the Storage/Streams/Bitmap API's)
+  * Ocr - demonstrates how to use the Optical Character Recognition API (via the Storage/Streams/Bitmap API's) Also demonstrates a possible approach to handling **async** functions/procedures from within Ada (aka C#'s async/await) The other alternative approach is to use delegates/callbacks, which is demonstrated in the **Network** example.
+  
+  * Network - demonstrates the use of the tcp/ip Steam socket to connect to a server
 
 * Store Examples
 
