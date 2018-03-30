@@ -1,4 +1,4 @@
-### Build instructions
+*### Build instructions
 
 * Initial build (from an command prompt that has your gcc/gnat **bin** directory in its path)
   
@@ -8,9 +8,10 @@
 If you have Visual Studio 2017 (any edition) installed you can debug the application via the IDE,
 provided you have the following features installed
 
-1. **Linux development with C++** Workload
-  1.1 Optional sub feature - **Visual C++ tools for CMake and Linux**
-  1.2 Optional sub feature - **Embedded and IoT Development**
+* **Linux development with C++** Workload
+
+  * Optional sub feature - **Visual C++ tools for CMake and Linux**
+  * Optional sub feature - **Embedded and IoT Development**
 
 * Subsequent builds using Visual Studio 2017 IDE
 
@@ -22,3 +23,5 @@ provided you have the following features installed
     (If you have *GNU Make* installed on your path, you could change the *tasks.vs.json* configuration file)
 
 * Subsequent debuging using Visual Studio 2017 IDE
+  
+  **Note:** Your gcc/gnat x64 distribution/build environment must include GDB
