@@ -1,4 +1,4 @@
-*### Build instructions
+### Build instructions
 
 * Initial build (from an command prompt that has your gcc/gnat **bin** directory in its path)
   
