@@ -1,0 +1,54 @@
+with "WinRT.gpr";
+project Network is
+
+   for Main use ("Network");
+
+   type Build_Type is ("Debug", "Release");
+   Build : Build_Type := external ("BUILD", "Debug");
+
+   for Object_Dir use "x64\" & Build & "\Build\";
+   for Exec_Dir use "x64\" & Build & "\";
+   for Source_Dirs use
+   (
+      "./"
+   );
+
+   package Naming is
+      for Dot_Replacement use ".";
+   End Naming;
+
+   package Builder is
+       Common_Switches := ("");
+       for Default_Switches ("Ada") use Common_Switches & (); 
+   end Builder;
+
+   package Compiler is
+       Common_Switches := ("-gnat2012");
+	   case Build is
+          when "Debug" => for Default_Switches ("Ada") use Common_Switches & ("-g", "-O0"); 
+          when "Release" => for Default_Switches ("Ada") use Common_Switches & ("-O2"); 
+       end case;
+   end Compiler;
+
+   package Binder is
+       Common_Switches := ("");
+       for Default_Switches ("Ada") use Common_Switches & ("-static", "-E"); 
+   end Binder;
+
+   package Linker is
+       Common_Switches := ("-lruntimeobject", "-lole32");
+	   case Build is
+          when "Debug" => for Default_Switches ("Ada") use Common_Switches & ("-g"); 
+          when "Release" => for Default_Switches ("Ada") use Common_Switches; 
+       end case;
+   end Linker;
+
+   package Clean is
+       Common_Switches := ("-q");
+       for Switches use Common_Switches; 
+   end Clean;
+
+   package Install is
+   end Install;
+
+end Network;
