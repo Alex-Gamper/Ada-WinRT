@@ -1,4 +1,4 @@
- ## Ada-WinRT
+## Ada-WinRT
 
 This project provides a set of Ada bindings (aka language projection) to the Microsoft Windows WinRT API
 and is targeted at two distinct use cases
@@ -37,3 +37,4 @@ Please see the appropriate readme within the appropiate directory. The following
 
 ### Feedback
 
+Welcome
