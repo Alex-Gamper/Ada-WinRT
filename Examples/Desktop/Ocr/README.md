@@ -1,6 +1,6 @@
 ### Build instructions
 
-* Initial build (from an command prompt that has your gcc/gnat x64 distribution/build environments **bin** directory in its path)
+* Initial build (from a command prompt that has your gcc/gnat x64 distribution/build environments **bin** directory in its path)
   
   * gprbuild -p -P Ocr.gpr
   * .\x64\debug\Ocr.exe
