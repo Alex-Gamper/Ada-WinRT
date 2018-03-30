@@ -1,6 +1,6 @@
 # Ada-WinRT
 
-This project provides a set of ADA bindings (aka language projection) to the Microsoft Windows WinRT API
+This project provides a set of Ada bindings (aka language projection) to the Microsoft Windows WinRT API
 and is targeted at two distinct use cases
 
 - Windows **Store** applications
@@ -17,11 +17,21 @@ Details/scripts on how to do this can be found on thw mingw64 website.
 
 ### Build instructions
 
-tba
+From a command prompt that has your gcc/gnat x64 distribution/build environments bin directory in its path, simply run the following command. This will do a gprbuild & gprinstall of the WinRT.gpr
+
+* .\Build.cmd
 
 ### Examples
 
-tba
+Please see the appropriate readme within each of the appropiate directory. The following samples are provided
+
+* Desktop Examples
+
+  * Ocr - demonstrates how to use the Optical Character Recognition API (via the Storage/Streams/Bitmap API's)
+
+* Store Examples
+
+  tba
 
 ### Feedback
 
