@@ -1,0 +1,17 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "cppdbg",
+      "name": "ocr.exe",
+      "project": "x64\\Debug\\ocr.exe",
+      "cwd": "${workspaceRoot}",
+      "program": "${debugInfo.target}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb.exe",
+      "externalConsole": true
+    }
+  ]
+}
+}

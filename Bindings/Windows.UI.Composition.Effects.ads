@@ -1,0 +1,188 @@
+--------------------------------------------------------------------------------
+--    Copywrite : 2018 - Alexander Gamper                                     --
+--    Version   : 0.1.0.0                                                     --
+--------------------------------------------------------------------------------
+limited with Windows.Graphics.Effects;
+--------------------------------------------------------------------------------
+package Windows.UI.Composition.Effects is
+
+   pragma preelaborate;
+   
+   ------------------------------------------------------------------------
+   -- Enums
+   ------------------------------------------------------------------------
+   
+   type SceneLightingEffectReflectanceModel is (
+      BlinnPhong,
+      PhysicallyBasedBlinnPhong
+   );
+   for SceneLightingEffectReflectanceModel use (
+      BlinnPhong => 0,
+      PhysicallyBasedBlinnPhong => 1
+   );
+   for SceneLightingEffectReflectanceModel'Size use 32;
+   
+   type SceneLightingEffectReflectanceModel_Ptr is access SceneLightingEffectReflectanceModel;
+   
+   ------------------------------------------------------------------------
+   -- Record types
+   ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   -- Forward Declaration - Interfaces
+   ------------------------------------------------------------------------
+   
+   type ISceneLightingEffect_Interface;
+   type ISceneLightingEffect is access all ISceneLightingEffect_Interface'Class;
+   type ISceneLightingEffect_Ptr is access all ISceneLightingEffect;
+   type ISceneLightingEffect2_Interface;
+   type ISceneLightingEffect2 is access all ISceneLightingEffect2_Interface'Class;
+   type ISceneLightingEffect2_Ptr is access all ISceneLightingEffect2;
+   type IGraphicsEffect_Imported_Interface;
+   type IGraphicsEffect_Imported is access all IGraphicsEffect_Imported_Interface'Class;
+   type IGraphicsEffect_Imported_Ptr is access all IGraphicsEffect_Imported;
+   type IGraphicsEffectSource_Imported_Interface;
+   type IGraphicsEffectSource_Imported is access all IGraphicsEffectSource_Imported_Interface'Class;
+   type IGraphicsEffectSource_Imported_Ptr is access all IGraphicsEffectSource_Imported;
+   
+   ------------------------------------------------------------------------
+   -- generic packages/types
+   ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   -- generic instantiations
+   ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   -- Interfaces
+   ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   type ISceneLightingEffect_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AmbientAmount
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AmbientAmount
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DiffuseAmount
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DiffuseAmount
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NormalMapSource
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; RetVal : access Windows.Graphics.Effects.IGraphicsEffectSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_NormalMapSource
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; value : Windows.Graphics.Effects.IGraphicsEffectSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SpecularAmount
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SpecularAmount
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SpecularShine
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SpecularShine
+   (
+      This       : access ISceneLightingEffect_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   IID_ISceneLightingEffect : aliased constant Windows.IID := (2444975698, 38353, 20363, (154, 90, 100, 8, 178, 75, 140, 106 ));
+   
+   ------------------------------------------------------------------------
+   type ISceneLightingEffect2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReflectanceModel
+   (
+      This       : access ISceneLightingEffect2_Interface
+      ; RetVal : access Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ReflectanceModel
+   (
+      This       : access ISceneLightingEffect2_Interface
+      ; value : Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   IID_ISceneLightingEffect2 : aliased constant Windows.IID := (2653359745, 29424, 19548, (149, 248, 138, 110, 0, 36, 244, 9 ));
+   
+   ------------------------------------------------------------------------
+   type IGraphicsEffect_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Name
+   (
+      This       : access IGraphicsEffect_Imported_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Name
+   (
+      This       : access IGraphicsEffect_Imported_Interface
+      ; name : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   type IGraphicsEffectSource_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   -- Classes
+   ------------------------------------------------------------------------
+   
+   subtype SceneLightingEffect is Windows.UI.Composition.Effects.ISceneLightingEffect;
+   
+   function CreateSceneLightingEffect return Windows.UI.Composition.Effects.ISceneLightingEffect;
+   
+   
+   ------------------------------------------------------------------------
+   -- Static Procedures/functions
+   ------------------------------------------------------------------------
+   
+
+end;

@@ -1,0 +1,479 @@
+--------------------------------------------------------------------------------
+--    Copywrite : 2018 - Alexander Gamper                                     --
+--    Version   : 0.1.0.0                                                     --
+--------------------------------------------------------------------------------
+with Windows.Security.Credentials;
+with Windows.System;
+with Ada.Unchecked_Conversion;
+--------------------------------------------------------------------------------
+package body Windows.Security.Authentication.Web.Core is
+
+   ------------------------------------------------------------------------
+   -- Delegates/Events
+   ------------------------------------------------------------------------
+   
+   
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown_Base;
+      RefCount   : Windows.UInt32;
+      pragma suppress(all_checks);
+   begin
+      if riid.all = IID_AsyncOperationCompletedHandler_IWebTokenRequestResult or riid.all = IID_IUnknown then
+         RefCount := This.AddRef;
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface
+      ; asyncInfo : Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function QueryInterface(This : access TypedEventHandler_IWebAccountMonitor_add_Updated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown_Base;
+      RefCount   : Windows.UInt32;
+      pragma suppress(all_checks);
+   begin
+      if riid.all = IID_TypedEventHandler_IWebAccountMonitor_add_Updated or riid.all = IID_IUnknown then
+         RefCount := This.AddRef;
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebAccountMonitor_add_Updated_Interface
+      ; sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor
+      ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Security.Authentication.Web.Core.IWebAccountMonitor(sender), Windows.Security.Authentication.Web.Core.IWebAccountEventArgs(args));
+      return Hr;
+   end;
+   
+   function QueryInterface(This : access TypedEventHandler_IWebAccountMonitor_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown_Base;
+      RefCount   : Windows.UInt32;
+      pragma suppress(all_checks);
+   begin
+      if riid.all = IID_TypedEventHandler_IWebAccountMonitor_add_Removed or riid.all = IID_IUnknown then
+         RefCount := This.AddRef;
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebAccountMonitor_add_Removed_Interface
+      ; sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor
+      ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Security.Authentication.Web.Core.IWebAccountMonitor(sender), Windows.Security.Authentication.Web.Core.IWebAccountEventArgs(args));
+      return Hr;
+   end;
+   
+   function QueryInterface(This : access TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown_Base;
+      RefCount   : Windows.UInt32;
+      pragma suppress(all_checks);
+   begin
+      if riid.all = IID_TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged or riid.all = IID_IUnknown then
+         RefCount := This.AddRef;
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface
+      ; sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Security.Authentication.Web.Core.IWebAccountMonitor(sender), args);
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   -- Create functions (for activatable classes)
+   ------------------------------------------------------------------------
+   
+   
+   function Create
+   (
+      provider : Windows.Security.Credentials.IWebAccountProvider
+      ; scope : Windows.String
+      ; clientId : Windows.String
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenRequest is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebTokenRequest");
+      m_Factory     : Windows.Security.Authentication.Web.Core.IWebTokenRequestFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebTokenRequest := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebTokenRequestFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(provider, scope, clientId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithPromptType
+   (
+      provider : Windows.Security.Credentials.IWebAccountProvider
+      ; scope : Windows.String
+      ; clientId : Windows.String
+      ; promptType : Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenRequest is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebTokenRequest");
+      m_Factory     : Windows.Security.Authentication.Web.Core.IWebTokenRequestFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebTokenRequest := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebTokenRequestFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithPromptType(provider, scope, clientId, promptType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithProvider
+   (
+      provider : Windows.Security.Credentials.IWebAccountProvider
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenRequest is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebTokenRequest");
+      m_Factory     : Windows.Security.Authentication.Web.Core.IWebTokenRequestFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebTokenRequest := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebTokenRequestFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithProvider(provider, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithScope
+   (
+      provider : Windows.Security.Credentials.IWebAccountProvider
+      ; scope : Windows.String
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenRequest is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebTokenRequest");
+      m_Factory     : Windows.Security.Authentication.Web.Core.IWebTokenRequestFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebTokenRequest := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebTokenRequestFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithScope(provider, scope, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      errorCode : Windows.UInt32
+      ; errorMessage : Windows.String
+   )
+   return Windows.Security.Authentication.Web.Core.IWebProviderError is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebProviderError");
+      m_Factory     : Windows.Security.Authentication.Web.Core.IWebProviderErrorFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebProviderError := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebProviderErrorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(errorCode, errorMessage, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWebTokenResponse return Windows.Security.Authentication.Web.Core.IWebTokenResponse is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebTokenResponse");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebTokenResponse := null;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Security.Authentication.Web.Core.IID_IWebTokenResponse'Access, RetVal'Address);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   ------------------------------------------------------------------------
+   -- Override Implementations
+   ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   -- Static procedures/functions
+   ------------------------------------------------------------------------
+   
+   
+   function GetTokenSilentlyAsync
+   (
+      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager");
+      m_Factory     : IWebAuthenticationCoreManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationCoreManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTokenSilentlyAsync(request, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetTokenSilentlyWithWebAccountAsync
+   (
+      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager");
+      m_Factory     : IWebAuthenticationCoreManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationCoreManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTokenSilentlyWithWebAccountAsync(request, webAccount, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestTokenAsync
+   (
+      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager");
+      m_Factory     : IWebAuthenticationCoreManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationCoreManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestTokenAsync(request, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestTokenWithWebAccountAsync
+   (
+      request : Windows.Security.Authentication.Web.Core.IWebTokenRequest
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager");
+      m_Factory     : IWebAuthenticationCoreManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationCoreManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestTokenWithWebAccountAsync(request, webAccount, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindAccountAsync
+   (
+      provider : Windows.Security.Credentials.IWebAccountProvider
+      ; webAccountId : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccount is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager");
+      m_Factory     : IWebAuthenticationCoreManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccount;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationCoreManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindAccountAsync(provider, webAccountId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindAccountProviderAsync
+   (
+      webAccountProviderId : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager");
+      m_Factory     : IWebAuthenticationCoreManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationCoreManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindAccountProviderAsync(webAccountProviderId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindAccountProviderWithAuthorityAsync
+   (
+      webAccountProviderId : Windows.String
+      ; authority : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager");
+      m_Factory     : IWebAuthenticationCoreManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationCoreManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindAccountProviderWithAuthorityAsync(webAccountProviderId, authority, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWebAccountMonitor
+   (
+      webAccounts : Windows.Security.Credentials.IIterable_IWebAccount
+   )
+   return Windows.Security.Authentication.Web.Core.IWebAccountMonitor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager");
+      m_Factory     : IWebAuthenticationCoreManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebAccountMonitor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationCoreManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWebAccountMonitor(webAccounts, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindAccountProviderWithAuthorityForUserAsync
+   (
+      webAccountProviderId : Windows.String
+      ; authority : Windows.String
+      ; user : Windows.System.IUser
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager");
+      m_Factory     : IWebAuthenticationCoreManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebAuthenticationCoreManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindAccountProviderWithAuthorityForUserAsync(webAccountProviderId, authority, user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+
+end;
