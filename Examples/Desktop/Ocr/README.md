@@ -32,4 +32,5 @@ provided you have the following features installed
   * Set a breakpoint in the appropriate Ada source file and then press either F5, F10 or F11, Note that F11 will step into the Ada initialization code within b_Ocr.adb (specificaly the main function, which does the call to the elaboration code, before entering Ocr's main procedure)
 
   **Note:** The integration with Visual Studio was tailored from the following Microsoft document
+  
   https://docs.microsoft.com/en-us/visualstudio/ide/develop-code-in-visual-studio-without-projects-or-solutions
