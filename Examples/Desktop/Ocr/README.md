@@ -1,6 +1,6 @@
 ### Build instructions
 
-* Initial build (from an command prompt that has your gcc/gnat **bin** directory in its path)
+* Initial build (from an command prompt that has your gcc/gnat x64 distribution/build environments **bin** directory in its path)
   
   * gprbuild -p -P Ocr.gpr
   * .\x64\debug\Ocr.exe
@@ -29,5 +29,5 @@ provided you have the following features installed
   * Start Visual Studio 2017
   * File->Open->Folder and select the Ocr directory (you should see the x64\debug\Ocr.exe in *Solution Explorer*)
   * Select Ocr.exe from the **Select Startup Item** drop down (next to the green arrow on the toolbar)
-  * Set a breakpoint in the appropriate Ada source file and then press either F5, F10 or F11, Note that F11 will step into the Ada initialization code within b_Ocr.adb (specificaly the main function, which does all the elaboration code)
+  * Set a breakpoint in the appropriate Ada source file and then press either F5, F10 or F11, Note that F11 will step into the Ada initialization code within b_Ocr.adb (specificaly the main function, which does the call to the elaboration code, before entering the Ocr)
 
