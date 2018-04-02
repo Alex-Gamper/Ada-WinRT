@@ -13,7 +13,7 @@ Microsoft Windows 10 SDK *Fall Creators Update (10.0.16299.91)*
 
 You will need a working gcc/gnat **x64** Windows build environment. This release has **NOT** yet been
 tested against 32 bit environments. So you may need to build gcc/gnat **x64** from source if required.
-Details/scripts on how to do this can be found on thw mingw64 website.
+Details/scripts on how to do this can be found on the mingw64 website.
 
 ### Build instructions
 
