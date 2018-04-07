@@ -1,0 +1,43 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-ocr",
+      "appliesTo": "x64/Debug/ocr.exe",
+      "type": "launch"
+    },
+    {
+      "taskName": "makefile-build",
+      "appliesTo": "makefile",
+      "type": "launch",
+      "contextType": "build",
+      "command": "nmake",
+      "args": [ "build" ],
+      "envVars": {
+        "VSCMD_START_DIR": "\"${workspaceRoot}\""
+      }
+    },
+    {
+      "taskName": "makefile-clean",
+      "appliesTo": "makefile",
+      "type": "launch",
+      "contextType": "clean",
+      "command": "nmake",
+      "args": [ "clean" ],
+      "envVars": {
+        "VSCMD_START_DIR": "\"${workspaceRoot}\""
+      }
+    },
+    {
+      "taskName": "makefile-rebuild",
+      "appliesTo": "makefile",
+      "type": "launch",
+      "contextType": "rebuild",
+      "command": "nmake",
+      "args": [ "rebuild" ],
+      "envVars": {
+        "VSCMD_START_DIR": "\"${workspaceRoot}\""
+      }
+    }
+  ]
+}

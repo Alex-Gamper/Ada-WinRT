@@ -1,0 +1,17 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "cppdbg",
+      "name": "network.exe",
+      "project": "x64\\Debug\\network.exe",
+      "cwd": "${workspaceRoot}",
+      "program": "${debugInfo.target}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb.exe",
+      "externalConsole": true
+    }
+  ]
+}
+}
