@@ -484,7 +484,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -499,7 +499,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -514,7 +514,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -529,7 +529,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -544,7 +544,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -559,7 +559,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -574,7 +574,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -589,7 +589,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -604,7 +604,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -619,7 +619,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -634,7 +634,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -649,7 +649,7 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

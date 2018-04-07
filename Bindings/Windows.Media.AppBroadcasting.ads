@@ -231,7 +231,7 @@ package Windows.Media.AppBroadcasting is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged_Interface(Callback : access procedure (sender : Windows.Media.AppBroadcasting.IAppBroadcastingMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

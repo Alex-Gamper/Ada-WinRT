@@ -520,7 +520,7 @@ package Windows.UI.Xaml.Navigation is
    ------------------------------------------------------------------------
    type LoadCompletedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access LoadCompletedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access LoadCompletedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -535,7 +535,7 @@ package Windows.UI.Xaml.Navigation is
    ------------------------------------------------------------------------
    type NavigatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigatedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access NavigatedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -550,7 +550,7 @@ package Windows.UI.Xaml.Navigation is
    ------------------------------------------------------------------------
    type NavigatingCancelEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigatingCancelEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigatingCancelEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access NavigatingCancelEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -565,7 +565,7 @@ package Windows.UI.Xaml.Navigation is
    ------------------------------------------------------------------------
    type NavigationFailedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigationFailedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access NavigationFailedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -580,7 +580,7 @@ package Windows.UI.Xaml.Navigation is
    ------------------------------------------------------------------------
    type NavigationStoppedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigationStoppedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access NavigationStoppedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

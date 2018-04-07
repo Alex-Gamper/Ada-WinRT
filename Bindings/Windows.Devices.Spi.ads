@@ -417,7 +417,7 @@ package Windows.Devices.Spi is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISpiDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Spi.IAsyncOperation_ISpiDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpiDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpiDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -432,7 +432,7 @@ package Windows.Devices.Spi is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISpiController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Spi.IAsyncOperation_ISpiController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpiController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpiController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

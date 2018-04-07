@@ -29,11 +29,11 @@ package body Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAccelerometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IAccelerometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IAccelerometer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -64,11 +64,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAccelerometer_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -99,11 +99,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAccelerometer_add_Shaken_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAccelerometer_add_Shaken_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAccelerometer_add_Shaken or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -134,11 +134,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IInclinometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IInclinometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IInclinometer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -169,11 +169,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInclinometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInclinometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInclinometer_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -204,11 +204,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGyrometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGyrometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGyrometer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -239,11 +239,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGyrometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGyrometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGyrometer_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -274,11 +274,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ICompass_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ICompass_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ICompass or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -309,11 +309,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICompass_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICompass_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICompass_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -344,11 +344,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ILightSensor_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ILightSensor_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ILightSensor or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -379,11 +379,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ILightSensor_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ILightSensor_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ILightSensor_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -414,11 +414,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IOrientationSensor_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IOrientationSensor_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IOrientationSensor or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -449,11 +449,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IOrientationSensor_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IOrientationSensor_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IOrientationSensor_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -484,11 +484,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -519,11 +519,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMagnetometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMagnetometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMagnetometer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -554,11 +554,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMagnetometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMagnetometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMagnetometer_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -589,11 +589,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IActivitySensor_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IActivitySensor_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IActivitySensor or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -624,11 +624,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IActivitySensorReading_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IActivitySensorReading_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IActivitySensorReading or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -659,11 +659,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IActivitySensor_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IActivitySensor_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IActivitySensor_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -694,11 +694,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IBarometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IBarometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IBarometer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -729,11 +729,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBarometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBarometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBarometer_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -764,11 +764,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPedometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPedometer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPedometer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -799,11 +799,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPedometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPedometer_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPedometer_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -834,11 +834,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IProximitySensor_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IProximitySensor_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IProximitySensor_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -869,11 +869,11 @@ package body Windows.Devices.Sensors is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAltimeter_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAltimeter_add_ReadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAltimeter_add_ReadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

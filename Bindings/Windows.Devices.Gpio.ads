@@ -780,7 +780,7 @@ package Windows.Devices.Gpio is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGpioController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Gpio.IAsyncOperation_IGpioController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGpioController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGpioController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -795,7 +795,7 @@ package Windows.Devices.Gpio is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGpioPin_add_ValueChanged_Interface(Callback : access procedure (sender : Windows.Devices.Gpio.IGpioPin ; args : Windows.Devices.Gpio.IGpioPinValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGpioPin_add_ValueChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGpioPin_add_ValueChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -4661,7 +4661,7 @@ package Windows.UI.Composition is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICompositionCapabilities_add_Changed_Interface(Callback : access procedure (sender : Windows.UI.Composition.ICompositionCapabilities ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICompositionCapabilities_add_Changed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICompositionCapabilities_add_Changed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4676,7 +4676,7 @@ package Windows.UI.Composition is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICompositionCommitBatch_add_Completed_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Composition.ICompositionBatchCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICompositionCommitBatch_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICompositionCommitBatch_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4691,7 +4691,7 @@ package Windows.UI.Composition is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced_Interface(Callback : access procedure (sender : Windows.UI.Composition.ICompositionGraphicsDevice ; args : Windows.UI.Composition.IRenderingDeviceReplacedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4706,7 +4706,7 @@ package Windows.UI.Composition is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICompositionScopedBatch_add_Completed_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Composition.ICompositionBatchCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICompositionScopedBatch_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICompositionScopedBatch_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

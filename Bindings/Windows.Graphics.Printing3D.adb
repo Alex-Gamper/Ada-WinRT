@@ -30,11 +30,11 @@ package body Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access Print3DTaskSourceRequestedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access Print3DTaskSourceRequestedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_Print3DTaskSourceRequestedHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -64,11 +64,11 @@ package body Windows.Graphics.Printing3D is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrint3DTask_add_Submitting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrint3DTask_add_Submitting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrint3DTask_add_Submitting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -99,11 +99,11 @@ package body Windows.Graphics.Printing3D is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrint3DTask_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrint3DTask_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrint3DTask_add_Completed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -134,11 +134,11 @@ package body Windows.Graphics.Printing3D is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrint3DTask_add_SourceChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrint3DTask_add_SourceChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrint3DTask_add_SourceChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -169,11 +169,11 @@ package body Windows.Graphics.Printing3D is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrint3DManager_add_TaskRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrint3DManager_add_TaskRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrint3DManager_add_TaskRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -204,11 +204,11 @@ package body Windows.Graphics.Printing3D is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -239,11 +239,11 @@ package body Windows.Graphics.Printing3D is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPrinting3D3MFPackage_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPrinting3D3MFPackage_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPrinting3D3MFPackage or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -274,11 +274,11 @@ package body Windows.Graphics.Printing3D is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPrinting3DModel_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPrinting3DModel_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPrinting3DModel or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

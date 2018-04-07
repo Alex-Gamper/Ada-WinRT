@@ -36,11 +36,11 @@ package body Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access DragCompletedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DragCompletedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DragCompletedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -71,11 +71,11 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access DragDeltaEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DragDeltaEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DragDeltaEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -106,11 +106,11 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access DragStartedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DragStartedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DragStartedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -141,11 +141,11 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access ItemsChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ItemsChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ItemsChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -176,11 +176,11 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access RangeBaseValueChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access RangeBaseValueChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_RangeBaseValueChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -211,11 +211,11 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access ScrollEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ScrollEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ScrollEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -246,11 +246,11 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IColorSpectrum_add_ColorChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IColorSpectrum_add_ColorChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IColorSpectrum_add_ColorChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -281,11 +281,11 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IFlyoutBase2_add_Closing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IFlyoutBase2_add_Closing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IFlyoutBase2_add_Closing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

@@ -680,7 +680,7 @@ package Windows.Security.Authentication.Web.Core is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -695,7 +695,7 @@ package Windows.Security.Authentication.Web.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebAccountMonitor_add_Updated_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebAccountMonitor_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebAccountMonitor_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -710,7 +710,7 @@ package Windows.Security.Authentication.Web.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebAccountMonitor_add_Removed_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebAccountMonitor_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebAccountMonitor_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -725,7 +725,7 @@ package Windows.Security.Authentication.Web.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

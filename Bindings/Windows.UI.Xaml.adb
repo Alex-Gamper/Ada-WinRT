@@ -47,11 +47,11 @@ package body Windows.UI.Xaml is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access ApplicationInitializationCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ApplicationInitializationCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ApplicationInitializationCallback or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -81,11 +81,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access CreateDefaultValueCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access CreateDefaultValueCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_CreateDefaultValueCallback or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -115,11 +115,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access DependencyPropertyChangedCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DependencyPropertyChangedCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DependencyPropertyChangedCallback or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -150,11 +150,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access DependencyPropertyChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DependencyPropertyChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DependencyPropertyChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -185,11 +185,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access DragEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DragEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DragEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -220,11 +220,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access EnteredBackgroundEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EnteredBackgroundEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EnteredBackgroundEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -255,11 +255,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access ExceptionRoutedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ExceptionRoutedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ExceptionRoutedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -290,11 +290,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access LeavingBackgroundEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access LeavingBackgroundEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_LeavingBackgroundEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -325,11 +325,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access PropertyChangedCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access PropertyChangedCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_PropertyChangedCallback or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -360,11 +360,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access RoutedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access RoutedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_RoutedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -395,11 +395,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access SizeChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SizeChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SizeChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -430,11 +430,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access SuspendingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SuspendingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SuspendingEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -465,11 +465,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access UnhandledExceptionEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access UnhandledExceptionEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_UnhandledExceptionEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -500,11 +500,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access VisualStateChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access VisualStateChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_VisualStateChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -535,11 +535,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access WindowActivatedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access WindowActivatedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_WindowActivatedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -570,11 +570,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access WindowClosedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access WindowClosedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_WindowClosedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -605,11 +605,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access WindowSizeChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access WindowSizeChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_WindowSizeChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -640,11 +640,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access WindowVisibilityChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access WindowVisibilityChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_WindowVisibilityChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -675,11 +675,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access BindingFailedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access BindingFailedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_BindingFailedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -710,11 +710,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement3_add_DragStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement3_add_DragStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement3_add_DragStarting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -745,11 +745,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement3_add_DropCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement3_add_DropCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement3_add_DropCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -780,11 +780,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_ContextRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_ContextRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement4_add_ContextRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -815,11 +815,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_ContextCanceled_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_ContextCanceled_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement4_add_ContextCanceled or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -850,11 +850,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_AccessKeyDisplayRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_AccessKeyDisplayRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement4_add_AccessKeyDisplayRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -885,11 +885,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_AccessKeyDisplayDismissed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_AccessKeyDisplayDismissed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement4_add_AccessKeyDisplayDismissed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -920,11 +920,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_AccessKeyInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement4_add_AccessKeyInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement4_add_AccessKeyInvoked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -955,11 +955,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement5_add_GettingFocus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement5_add_GettingFocus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement5_add_GettingFocus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -990,11 +990,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement5_add_LosingFocus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement5_add_LosingFocus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement5_add_LosingFocus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1025,11 +1025,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement5_add_NoFocusCandidateFound_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement5_add_NoFocusCandidateFound_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement5_add_NoFocusCandidateFound or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1060,11 +1060,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement7_add_CharacterReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement7_add_CharacterReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement7_add_CharacterReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1095,11 +1095,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1130,11 +1130,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IFrameworkElement2_add_DataContextChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IFrameworkElement2_add_DataContextChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IFrameworkElement2_add_DataContextChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1165,11 +1165,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IFrameworkElement3_add_Loading_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IFrameworkElement3_add_Loading_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IFrameworkElement3_add_Loading or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1200,11 +1200,11 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

@@ -436,7 +436,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDnssdServiceWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher ; args : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDnssdServiceWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDnssdServiceWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -451,7 +451,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDnssdServiceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDnssdServiceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDnssdServiceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -466,7 +466,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDnssdServiceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDnssdServiceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDnssdServiceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -481,7 +481,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.ServiceDiscovery.Dnssd.IAsyncOperation_IDnssdRegistrationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

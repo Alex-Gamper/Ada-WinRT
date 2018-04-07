@@ -6735,7 +6735,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IContactStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6750,7 +6750,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IContact_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContact ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContact_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContact_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6765,7 +6765,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IContactAnnotationStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactAnnotationStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactAnnotationStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6780,7 +6780,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IContactAnnotationList_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactAnnotationList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactAnnotationList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6795,7 +6795,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IContactAnnotation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactAnnotation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactAnnotation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6810,7 +6810,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactStore2_add_ContactChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactStore ; args : Windows.ApplicationModel.Contacts.IContactChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactStore2_add_ContactChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactStore2_add_ContactChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6825,7 +6825,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IContactList_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6840,7 +6840,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactList_add_ContactChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactList ; args : Windows.ApplicationModel.Contacts.IContactChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactList_add_ContactChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactList_add_ContactChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6855,7 +6855,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactListSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactListSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactListSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactListSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6870,7 +6870,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IContactBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6885,7 +6885,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IContactInformation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactInformation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactInformation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactInformation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6900,7 +6900,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IPinnedContactIdsQueryResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6915,7 +6915,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactPanel_add_LaunchFullAppRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactPanel ; args : Windows.ApplicationModel.Contacts.IContactPanelLaunchFullAppRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactPanel_add_LaunchFullAppRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactPanel_add_LaunchFullAppRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6930,7 +6930,7 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactPanel_add_Closing_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactPanel ; args : Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactPanel_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactPanel_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

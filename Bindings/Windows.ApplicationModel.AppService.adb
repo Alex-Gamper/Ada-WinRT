@@ -31,11 +31,11 @@ package body Windows.ApplicationModel.AppService is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_AppServiceConnectionStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_AppServiceConnectionStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_AppServiceConnectionStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -66,11 +66,11 @@ package body Windows.ApplicationModel.AppService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAppServiceResponse_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IAppServiceResponse_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IAppServiceResponse or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -101,11 +101,11 @@ package body Windows.ApplicationModel.AppService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppServiceConnection_add_RequestReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -136,11 +136,11 @@ package body Windows.ApplicationModel.AppService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppServiceConnection_add_ServiceClosed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppServiceConnection_add_ServiceClosed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppServiceConnection_add_ServiceClosed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -171,11 +171,11 @@ package body Windows.ApplicationModel.AppService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_AppServiceResponseStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

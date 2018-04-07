@@ -811,7 +811,7 @@ package Windows.Devices.WiFi is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWiFiAdapter_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFi.IAsyncOperation_IWiFiAdapter ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiAdapter_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiAdapter_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -826,7 +826,7 @@ package Windows.Devices.WiFi is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_WiFiAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFi.IAsyncOperation_WiFiAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_WiFiAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_WiFiAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -841,7 +841,7 @@ package Windows.Devices.WiFi is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiAdapter_add_AvailableNetworksChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFi.IWiFiAdapter ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiAdapter_add_AvailableNetworksChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiAdapter_add_AvailableNetworksChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -856,7 +856,7 @@ package Windows.Devices.WiFi is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWiFiConnectionResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFi.IAsyncOperation_IWiFiConnectionResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiConnectionResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiConnectionResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -871,7 +871,7 @@ package Windows.Devices.WiFi is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWiFiWpsConfigurationResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFi.IAsyncOperation_IWiFiWpsConfigurationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiWpsConfigurationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiWpsConfigurationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

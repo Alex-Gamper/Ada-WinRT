@@ -1729,7 +1729,7 @@ package Windows.Networking.XboxLive is
    ------------------------------------------------------------------------
    type TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface(Callback : access procedure (sender : Windows.Networking.XboxLive.IXboxLiveDeviceAddress ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1744,7 +1744,7 @@ package Windows.Networking.XboxLive is
    ------------------------------------------------------------------------
    type TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface(Callback : access procedure (sender : Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate ; args : Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1759,7 +1759,7 @@ package Windows.Networking.XboxLive is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.XboxLive.IAsyncOperation_IXboxLiveEndpointPairCreationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1774,7 +1774,7 @@ package Windows.Networking.XboxLive is
    ------------------------------------------------------------------------
    type TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Networking.XboxLive.IXboxLiveEndpointPair ; args : Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -29,11 +29,11 @@ package body Windows.UI.Notifications.Management is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -64,11 +64,11 @@ package body Windows.UI.Notifications.Management is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUserNotificationListener_add_NotificationChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUserNotificationListener_add_NotificationChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUserNotificationListener_add_NotificationChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

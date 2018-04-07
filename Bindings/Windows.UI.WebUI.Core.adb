@@ -29,11 +29,11 @@ package body Windows.UI.WebUI.Core is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access MenuOpenedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access MenuOpenedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_MenuOpenedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -62,11 +62,11 @@ package body Windows.UI.WebUI.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access MenuClosedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access MenuClosedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_MenuClosedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -95,11 +95,11 @@ package body Windows.UI.WebUI.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access SizeChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SizeChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SizeChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -129,11 +129,11 @@ package body Windows.UI.WebUI.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebUICommandBarIconButton_add_ItemInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebUICommandBarIconButton_add_ItemInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebUICommandBarIconButton_add_ItemInvoked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -164,11 +164,11 @@ package body Windows.UI.WebUI.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebUICommandBarConfirmationButton_add_ItemInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebUICommandBarConfirmationButton_add_ItemInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebUICommandBarConfirmationButton_add_ItemInvoked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -199,11 +199,11 @@ package body Windows.UI.WebUI.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access VectorChangedEventHandler_IWebUICommandBarElement_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access VectorChangedEventHandler_IWebUICommandBarElement_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_VectorChangedEventHandler_IWebUICommandBarElement or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

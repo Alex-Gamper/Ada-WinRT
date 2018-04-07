@@ -1834,7 +1834,7 @@ package Windows.Media.Import is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPhotoImportSource_Interface(Callback : access procedure (asyncInfo : Windows.Media.Import.IAsyncOperation_IPhotoImportSource ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhotoImportSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhotoImportSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1849,7 +1849,7 @@ package Windows.Media.Import is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPhotoImportFindItemsResult_add_SelectionChanged_Interface(Callback : access procedure (sender : Windows.Media.Import.IPhotoImportFindItemsResult ; args : Windows.Media.Import.IPhotoImportSelectionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhotoImportFindItemsResult_add_SelectionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPhotoImportFindItemsResult_add_SelectionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1864,7 +1864,7 @@ package Windows.Media.Import is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPhotoImportFindItemsResult_add_ItemImported_Interface(Callback : access procedure (sender : Windows.Media.Import.IPhotoImportFindItemsResult ; args : Windows.Media.Import.IPhotoImportItemImportedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhotoImportFindItemsResult_add_ItemImported_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPhotoImportFindItemsResult_add_ItemImported_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

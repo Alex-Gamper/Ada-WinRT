@@ -910,7 +910,7 @@ package Windows.Graphics.Printing.PrintTicket is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicketValidationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -925,7 +925,7 @@ package Windows.Graphics.Printing.PrintTicket is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWorkflowPrintTicket_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicket ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWorkflowPrintTicket_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWorkflowPrintTicket_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

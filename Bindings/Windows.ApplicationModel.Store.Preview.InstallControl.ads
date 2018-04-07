@@ -947,7 +947,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppInstallItem_add_Completed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppInstallItem_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppInstallItem_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -962,7 +962,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppInstallItem_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppInstallItem_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppInstallItem_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -977,7 +977,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppInstallManager_add_ItemCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager ; args : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManagerItemEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppInstallManager_add_ItemCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppInstallManager_add_ItemCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -992,7 +992,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager ; args : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManagerItemEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1007,7 +1007,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAppInstallItem_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IAppInstallItem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppInstallItem_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppInstallItem_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1022,7 +1022,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGetEntitlementResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IGetEntitlementResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGetEntitlementResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGetEntitlementResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

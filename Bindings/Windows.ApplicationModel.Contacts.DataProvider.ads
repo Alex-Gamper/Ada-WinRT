@@ -420,7 +420,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactDataProviderConnection_add_SyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactDataProviderConnection_add_SyncRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactDataProviderConnection_add_SyncRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -435,7 +435,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactDataProviderConnection_add_ServerSearchReadBatchRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListServerSearchReadBatchRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactDataProviderConnection_add_ServerSearchReadBatchRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactDataProviderConnection_add_ServerSearchReadBatchRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -450,7 +450,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactDataProviderConnection2_add_CreateOrUpdateContactRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListCreateOrUpdateContactRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactDataProviderConnection2_add_CreateOrUpdateContactRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactDataProviderConnection2_add_CreateOrUpdateContactRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -465,7 +465,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactDataProviderConnection2_add_DeleteContactRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListDeleteContactRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactDataProviderConnection2_add_DeleteContactRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactDataProviderConnection2_add_DeleteContactRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

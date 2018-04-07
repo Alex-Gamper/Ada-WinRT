@@ -3459,7 +3459,7 @@ package Windows.UI.Xaml.Documents is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.ITextElement ; args : Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3474,7 +3474,7 @@ package Windows.UI.Xaml.Documents is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.ITextElement ; args : Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3489,7 +3489,7 @@ package Windows.UI.Xaml.Documents is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.ITextElement ; args : Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3504,7 +3504,7 @@ package Windows.UI.Xaml.Documents is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHyperlink_add_Click_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.IHyperlink ; args : Windows.UI.Xaml.Documents.IHyperlinkClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHyperlink_add_Click_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHyperlink_add_Click_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

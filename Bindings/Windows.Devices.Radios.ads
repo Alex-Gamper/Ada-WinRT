@@ -269,7 +269,7 @@ package Windows.Devices.Radios is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRadio_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Radios.IAsyncOperation_IRadio ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRadio_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRadio_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -284,7 +284,7 @@ package Windows.Devices.Radios is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_RadioAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Radios.IAsyncOperation_RadioAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_RadioAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_RadioAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -299,7 +299,7 @@ package Windows.Devices.Radios is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadio_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Radios.IRadio ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadio_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadio_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

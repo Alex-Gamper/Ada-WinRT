@@ -1184,7 +1184,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1199,7 +1199,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1214,7 +1214,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1229,7 +1229,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1244,7 +1244,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1259,7 +1259,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1274,7 +1274,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1289,7 +1289,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextCompositionStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1304,7 +1304,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1319,7 +1319,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1334,7 +1334,7 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextServicesManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

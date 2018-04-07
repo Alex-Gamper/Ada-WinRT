@@ -31,11 +31,11 @@ package body Windows.Security.Credentials is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -66,11 +66,11 @@ package body Windows.Security.Credentials is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IKeyCredentialOperationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IKeyCredentialOperationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IKeyCredentialOperationResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -101,11 +101,11 @@ package body Windows.Security.Credentials is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IKeyCredentialAttestationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IKeyCredentialAttestationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IKeyCredentialAttestationResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -136,11 +136,11 @@ package body Windows.Security.Credentials is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IWebAccount_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IWebAccount_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IWebAccount or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -171,11 +171,11 @@ package body Windows.Security.Credentials is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IWebAccountProvider_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IWebAccountProvider_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IWebAccountProvider or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

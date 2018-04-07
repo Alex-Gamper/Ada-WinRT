@@ -524,7 +524,7 @@ package Windows.ApplicationModel.Search.Core is
    ------------------------------------------------------------------------
    type VectorChangedEventHandler_ISearchSuggestion_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.Core.IObservableVector_ISearchSuggestion ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access VectorChangedEventHandler_ISearchSuggestion_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access VectorChangedEventHandler_ISearchSuggestion_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -539,7 +539,7 @@ package Windows.ApplicationModel.Search.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchSuggestionManager_add_SuggestionsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.Core.ISearchSuggestionManager ; args : Windows.ApplicationModel.Search.Core.ISearchSuggestionsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchSuggestionManager_add_SuggestionsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchSuggestionManager_add_SuggestionsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -554,7 +554,7 @@ package Windows.ApplicationModel.Search.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchSuggestionManager_add_RequestingFocusOnKeyboardInput_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.Core.ISearchSuggestionManager ; args : Windows.ApplicationModel.Search.Core.IRequestingFocusOnKeyboardInputEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchSuggestionManager_add_RequestingFocusOnKeyboardInput_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchSuggestionManager_add_RequestingFocusOnKeyboardInput_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -434,7 +434,7 @@ package Windows.Storage.Pickers.Provider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI ; args : Windows.Storage.Pickers.Provider.IFileRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -449,7 +449,7 @@ package Windows.Storage.Pickers.Provider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI ; args : Windows.Storage.Pickers.Provider.IPickerClosingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -464,7 +464,7 @@ package Windows.Storage.Pickers.Provider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IFileSavePickerUI_add_FileNameChanged_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileSavePickerUI ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileSavePickerUI_add_FileNameChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IFileSavePickerUI_add_FileNameChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -479,7 +479,7 @@ package Windows.Storage.Pickers.Provider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IFileSavePickerUI_add_TargetFileRequested_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileSavePickerUI ; args : Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileSavePickerUI_add_TargetFileRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IFileSavePickerUI_add_TargetFileRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -1530,7 +1530,7 @@ package Windows.UI.WebUI is
    ------------------------------------------------------------------------
    type ActivatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; eventArgs : Windows.ApplicationModel.Activation.IActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ActivatedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ActivatedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1545,7 +1545,7 @@ package Windows.UI.WebUI is
    ------------------------------------------------------------------------
    type ResumingEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ResumingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ResumingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1559,7 +1559,7 @@ package Windows.UI.WebUI is
    ------------------------------------------------------------------------
    type SuspendingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.ISuspendingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SuspendingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access SuspendingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1574,7 +1574,7 @@ package Windows.UI.WebUI is
    ------------------------------------------------------------------------
    type LeavingBackgroundEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.ILeavingBackgroundEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access LeavingBackgroundEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access LeavingBackgroundEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1589,7 +1589,7 @@ package Windows.UI.WebUI is
    ------------------------------------------------------------------------
    type EnteredBackgroundEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.IEnteredBackgroundEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EnteredBackgroundEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EnteredBackgroundEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1604,7 +1604,7 @@ package Windows.UI.WebUI is
    ------------------------------------------------------------------------
    type NavigatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.WebUI.IWebUINavigatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigatedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access NavigatedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

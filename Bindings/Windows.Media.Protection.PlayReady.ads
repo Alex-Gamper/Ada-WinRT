@@ -2224,7 +2224,7 @@ package Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_INDSendResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDSendResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_INDSendResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_INDSendResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2239,7 +2239,7 @@ package Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    type TypedEventHandler_INDClient_add_RegistrationCompleted_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_RegistrationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INDClient_add_RegistrationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2254,7 +2254,7 @@ package Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    type TypedEventHandler_INDClient_add_ProximityDetectionCompleted_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_ProximityDetectionCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INDClient_add_ProximityDetectionCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2269,7 +2269,7 @@ package Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    type TypedEventHandler_INDClient_add_LicenseFetchCompleted_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDLicenseFetchCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_LicenseFetchCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INDClient_add_LicenseFetchCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2284,7 +2284,7 @@ package Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    type TypedEventHandler_INDClient_add_ReRegistrationNeeded_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_ReRegistrationNeeded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INDClient_add_ReRegistrationNeeded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2299,7 +2299,7 @@ package Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    type TypedEventHandler_INDClient_add_ClosedCaptionDataReceived_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_ClosedCaptionDataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INDClient_add_ClosedCaptionDataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2314,7 +2314,7 @@ package Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_INDStartResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDStartResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_INDStartResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_INDStartResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2329,7 +2329,7 @@ package Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_INDLicenseFetchResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDLicenseFetchResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_INDLicenseFetchResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_INDLicenseFetchResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

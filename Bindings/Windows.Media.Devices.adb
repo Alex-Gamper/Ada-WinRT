@@ -32,11 +32,11 @@ package body Windows.Media.Devices is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access CallControlEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access CallControlEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_CallControlEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -66,11 +66,11 @@ package body Windows.Media.Devices is
       return Hr;
    end;
    
-   function QueryInterface(This : access DialRequestedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DialRequestedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DialRequestedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -101,11 +101,11 @@ package body Windows.Media.Devices is
       return Hr;
    end;
    
-   function QueryInterface(This : access RedialRequestedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access RedialRequestedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_RedialRequestedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -136,11 +136,11 @@ package body Windows.Media.Devices is
       return Hr;
    end;
    
-   function QueryInterface(This : access KeypadPressedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access KeypadPressedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_KeypadPressedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -171,11 +171,11 @@ package body Windows.Media.Devices is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -206,11 +206,11 @@ package body Windows.Media.Devices is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -241,11 +241,11 @@ package body Windows.Media.Devices is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IModuleCommandResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IModuleCommandResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IModuleCommandResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -276,11 +276,11 @@ package body Windows.Media.Devices is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

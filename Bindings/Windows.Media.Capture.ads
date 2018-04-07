@@ -6654,7 +6654,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type MediaCaptureFailedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; errorEventArgs : Windows.Media.Capture.IMediaCaptureFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access MediaCaptureFailedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access MediaCaptureFailedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6669,7 +6669,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type RecordLimitationExceededEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access RecordLimitationExceededEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access RecordLimitationExceededEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6683,7 +6683,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppCapture_add_CapturingChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppCapture_add_CapturingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppCapture_add_CapturingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6698,7 +6698,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ILowLagMediaRecording_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_ILowLagMediaRecording ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILowLagMediaRecording_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILowLagMediaRecording_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6713,7 +6713,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ILowLagPhotoCapture_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_ILowLagPhotoCapture ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILowLagPhotoCapture_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILowLagPhotoCapture_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6728,7 +6728,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ILowLagPhotoSequenceCapture_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_ILowLagPhotoSequenceCapture ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILowLagPhotoSequenceCapture_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILowLagPhotoSequenceCapture_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6743,7 +6743,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaCapture3_add_FocusChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Media.Capture.IMediaCaptureFocusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaCapture3_add_FocusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaCapture3_add_FocusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6758,7 +6758,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaCapture3_add_PhotoConfirmationCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Media.Capture.IPhotoConfirmationCapturedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaCapture3_add_PhotoConfirmationCaptured_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaCapture3_add_PhotoConfirmationCaptured_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6773,7 +6773,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaCapture4_add_CameraStreamStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaCapture4_add_CameraStreamStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaCapture4_add_CameraStreamStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6788,7 +6788,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaCapture4_add_ThermalStatusChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaCapture4_add_ThermalStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaCapture4_add_ThermalStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6803,7 +6803,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAdvancedPhotoCapture_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_IAdvancedPhotoCapture ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAdvancedPhotoCapture_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAdvancedPhotoCapture_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6818,7 +6818,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMediaCapturePauseResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_IMediaCapturePauseResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaCapturePauseResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaCapturePauseResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6833,7 +6833,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMediaCaptureStopResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_IMediaCaptureStopResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaCaptureStopResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaCaptureStopResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6848,7 +6848,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Media.Capture.IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6863,7 +6863,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICapturedPhoto_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_ICapturedPhoto ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICapturedPhoto_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICapturedPhoto_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6878,7 +6878,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAdvancedCapturedPhoto_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_IAdvancedCapturedPhoto ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAdvancedCapturedPhoto_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAdvancedCapturedPhoto_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6893,7 +6893,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAdvancedPhotoCapture_add_OptionalReferencePhotoCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAdvancedPhotoCapture ; args : Windows.Media.Capture.IOptionalReferencePhotoCapturedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAdvancedPhotoCapture_add_OptionalReferencePhotoCaptured_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAdvancedPhotoCapture_add_OptionalReferencePhotoCaptured_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6908,7 +6908,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAdvancedPhotoCapture_add_AllPhotosCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAdvancedPhotoCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAdvancedPhotoCapture_add_AllPhotosCaptured_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAdvancedPhotoCapture_add_AllPhotosCaptured_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6923,7 +6923,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILowLagPhotoSequenceCapture_add_PhotoCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.ILowLagPhotoSequenceCapture ; args : Windows.Media.Capture.IPhotoCapturedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILowLagPhotoSequenceCapture_add_PhotoCaptured_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILowLagPhotoSequenceCapture_add_PhotoCaptured_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6938,7 +6938,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo_add_SignInStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo ; args : Windows.Media.Capture.IAppBroadcastSignInStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo_add_SignInStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo_add_SignInStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6953,7 +6953,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo2_add_UserNameChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo2_add_UserNameChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo2_add_UserNameChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6968,7 +6968,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_StreamStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo ; args : Windows.Media.Capture.IAppBroadcastStreamStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_StreamStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_StreamStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6983,7 +6983,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingResolutionChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingResolutionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingResolutionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6998,7 +6998,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingBitrateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingBitrateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingBitrateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7013,7 +7013,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastBackgroundService_add_HeartbeatRequested_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundService ; args : Windows.Media.Capture.IAppBroadcastHeartbeatRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundService_add_HeartbeatRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundService_add_HeartbeatRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7028,7 +7028,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastTitleChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundService ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastTitleChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastTitleChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7043,7 +7043,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastLanguageChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundService ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastLanguageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastLanguageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7058,7 +7058,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastChannelChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundService ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastChannelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastChannelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7073,7 +7073,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastStreamReader_add_AudioFrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastStreamReader ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastStreamReader_add_AudioFrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastStreamReader_add_AudioFrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7088,7 +7088,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastStreamReader_add_VideoFrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastStreamReader ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastStreamReader_add_VideoFrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastStreamReader_add_VideoFrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7103,7 +7103,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastState_add_ViewerCountChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastViewerCountChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_ViewerCountChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_ViewerCountChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7118,7 +7118,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastState_add_MicrophoneCaptureStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastMicrophoneCaptureStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_MicrophoneCaptureStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_MicrophoneCaptureStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7133,7 +7133,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastState_add_CameraCaptureStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastCameraCaptureStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_CameraCaptureStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_CameraCaptureStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7148,7 +7148,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastState_add_PlugInStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastPlugInStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_PlugInStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_PlugInStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7163,7 +7163,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastState_add_StreamStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastStreamStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_StreamStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_StreamStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7178,7 +7178,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastState_add_CaptureTargetClosed_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_CaptureTargetClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastState_add_CaptureTargetClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7193,7 +7193,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastPreview_add_PreviewStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastPreview ; args : Windows.Media.Capture.IAppBroadcastPreviewStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastPreview_add_PreviewStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastPreview_add_PreviewStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7208,7 +7208,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppBroadcastPreviewStreamReader_add_VideoFrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastPreviewStreamReader ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastPreviewStreamReader_add_VideoFrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastPreviewStreamReader_add_VideoFrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7223,7 +7223,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppCaptureState_add_MicrophoneCaptureStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureState ; args : Windows.Media.Capture.IAppCaptureMicrophoneCaptureStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppCaptureState_add_MicrophoneCaptureStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppCaptureState_add_MicrophoneCaptureStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7238,7 +7238,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppCaptureState_add_CaptureTargetClosed_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureState ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppCaptureState_add_CaptureTargetClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppCaptureState_add_CaptureTargetClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7253,7 +7253,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppCaptureRecordOperation_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureRecordOperation ; args : Windows.Media.Capture.IAppCaptureRecordingStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppCaptureRecordOperation_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppCaptureRecordOperation_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7268,7 +7268,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppCaptureRecordOperation_add_DurationGenerated_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureRecordOperation ; args : Windows.Media.Capture.IAppCaptureDurationGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppCaptureRecordOperation_add_DurationGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppCaptureRecordOperation_add_DurationGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7283,7 +7283,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppCaptureRecordOperation_add_FileGenerated_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureRecordOperation ; args : Windows.Media.Capture.IAppCaptureFileGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppCaptureRecordOperation_add_FileGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppCaptureRecordOperation_add_FileGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7298,7 +7298,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppCaptureMetadataWriter_add_MetadataPurged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureMetadataWriter ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppCaptureMetadataWriter_add_MetadataPurged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppCaptureMetadataWriter_add_MetadataPurged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7313,7 +7313,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGameBarServicesManager_add_GameBarServicesCreated_Interface(Callback : access procedure (sender : Windows.Media.Capture.IGameBarServicesManager ; args : Windows.Media.Capture.IGameBarServicesManagerGameBarServicesCreatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGameBarServicesManager_add_GameBarServicesCreated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGameBarServicesManager_add_GameBarServicesCreated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7328,7 +7328,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGameBarServices_add_CommandReceived_Interface(Callback : access procedure (sender : Windows.Media.Capture.IGameBarServices ; args : Windows.Media.Capture.IGameBarServicesCommandEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGameBarServices_add_CommandReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGameBarServices_add_CommandReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -7343,7 +7343,7 @@ package Windows.Media.Capture is
    ------------------------------------------------------------------------
    type TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IScreenCapture ; args : Windows.Media.Capture.ISourceSuspensionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

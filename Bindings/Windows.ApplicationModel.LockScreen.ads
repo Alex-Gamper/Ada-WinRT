@@ -390,7 +390,7 @@ package Windows.ApplicationModel.LockScreen is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -405,7 +405,7 @@ package Windows.ApplicationModel.LockScreen is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILockScreenInfo_add_BadgesChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_BadgesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_BadgesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -420,7 +420,7 @@ package Windows.ApplicationModel.LockScreen is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILockScreenInfo_add_DetailTextChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_DetailTextChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_DetailTextChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -435,7 +435,7 @@ package Windows.ApplicationModel.LockScreen is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -450,7 +450,7 @@ package Windows.ApplicationModel.LockScreen is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILockApplicationHost_add_Unlocking_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockApplicationHost ; args : Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockApplicationHost_add_Unlocking_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILockApplicationHost_add_Unlocking_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

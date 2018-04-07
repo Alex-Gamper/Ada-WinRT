@@ -31,11 +31,11 @@ package body Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IBarcodeScanner_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IBarcodeScanner_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IBarcodeScanner or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -66,11 +66,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedBarcodeScanner_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedBarcodeScanner_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IClaimedBarcodeScanner or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -101,11 +101,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBarcodeScanner_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBarcodeScanner_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBarcodeScanner_add_StatusUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -136,11 +136,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -171,11 +171,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access EventHandler_IClaimedBarcodeScanner_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EventHandler_IClaimedBarcodeScanner_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EventHandler_IClaimedBarcodeScanner or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -206,11 +206,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -241,11 +241,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -276,11 +276,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -311,11 +311,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -346,11 +346,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -381,11 +381,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -416,11 +416,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access EventHandler_IClaimedMagneticStripeReader_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EventHandler_IClaimedMagneticStripeReader_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EventHandler_IClaimedMagneticStripeReader or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -451,11 +451,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -486,11 +486,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMagneticStripeReader_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMagneticStripeReader_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMagneticStripeReader or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -521,11 +521,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedMagneticStripeReader_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedMagneticStripeReader_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IClaimedMagneticStripeReader or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -556,11 +556,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMagneticStripeReader_add_StatusUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -591,11 +591,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPosPrinter_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPosPrinter_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPosPrinter or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -626,11 +626,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedPosPrinter_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedPosPrinter_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IClaimedPosPrinter or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -661,11 +661,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPosPrinter_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPosPrinter_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPosPrinter_add_StatusUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -696,11 +696,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -731,11 +731,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -766,11 +766,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -801,11 +801,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ICashDrawer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ICashDrawer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ICashDrawer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -836,11 +836,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedCashDrawer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedCashDrawer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IClaimedCashDrawer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -871,11 +871,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICashDrawer_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICashDrawer_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICashDrawer_add_StatusUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -906,11 +906,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -941,11 +941,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -976,11 +976,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ILineDisplay_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ILineDisplay_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ILineDisplay or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1011,11 +1011,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedLineDisplay_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IClaimedLineDisplay_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IClaimedLineDisplay or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1046,11 +1046,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_LineDisplayPowerStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_LineDisplayPowerStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_LineDisplayPowerStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1081,11 +1081,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1116,11 +1116,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1151,11 +1151,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ILineDisplayWindow_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ILineDisplayWindow_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ILineDisplayWindow or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1186,11 +1186,11 @@ package body Windows.Devices.PointOfService is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ILineDisplayStoredBitmap_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ILineDisplayStoredBitmap_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ILineDisplayStoredBitmap or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

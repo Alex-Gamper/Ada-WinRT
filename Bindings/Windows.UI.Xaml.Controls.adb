@@ -56,11 +56,11 @@ package body Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access BackClickEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access BackClickEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_BackClickEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -91,11 +91,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access CleanUpVirtualizedItemEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access CleanUpVirtualizedItemEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_CleanUpVirtualizedItemEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -126,11 +126,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access ContextMenuOpeningEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ContextMenuOpeningEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ContextMenuOpeningEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -161,11 +161,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access DragItemsStartingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DragItemsStartingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DragItemsStartingEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -196,11 +196,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access ItemClickEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ItemClickEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ItemClickEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -231,11 +231,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access NotifyEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access NotifyEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_NotifyEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -266,11 +266,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access SelectionChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SelectionChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SelectionChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -301,11 +301,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access SemanticZoomViewChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SemanticZoomViewChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SemanticZoomViewChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -336,11 +336,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TextChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TextChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TextChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -371,11 +371,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TextControlPasteEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TextControlPasteEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TextControlPasteEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -406,11 +406,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access CalendarViewDayItemChangingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access CalendarViewDayItemChangingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_CalendarViewDayItemChangingEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -441,11 +441,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access HubSectionHeaderClickEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access HubSectionHeaderClickEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_HubSectionHeaderClickEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -476,11 +476,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access ListViewItemToKeyHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ListViewItemToKeyHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ListViewItemToKeyHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -511,11 +511,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access ListViewKeyToItemHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ListViewKeyToItemHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ListViewKeyToItemHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -546,11 +546,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access SectionsInViewChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SectionsInViewChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SectionsInViewChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -581,11 +581,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access WebViewNavigationFailedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access WebViewNavigationFailedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_WebViewNavigationFailedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -616,11 +616,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IColorPicker_add_ColorChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IColorPicker_add_ColorChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IColorPicker_add_ColorChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -651,11 +651,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_INavigationView_add_SelectionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_INavigationView_add_SelectionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_INavigationView_add_SelectionChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -686,11 +686,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_INavigationView_add_ItemInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_INavigationView_add_ItemInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_INavigationView_add_ItemInvoked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -721,11 +721,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_INavigationView_add_DisplayModeChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_INavigationView_add_DisplayModeChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_INavigationView_add_DisplayModeChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -756,11 +756,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRatingControl_add_ValueChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRatingControl_add_ValueChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRatingControl_add_ValueChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -791,11 +791,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISwipeItem_add_Invoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISwipeItem_add_Invoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISwipeItem_add_Invoked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -826,11 +826,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallback or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -861,11 +861,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallbackWithPhase or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -896,11 +896,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -931,11 +931,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -966,11 +966,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextBlock6_add_IsTextTrimmedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITextBlock6_add_IsTextTrimmedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITextBlock6_add_IsTextTrimmedChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1001,11 +1001,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access VectorChangedEventHandler_IGroupStyle_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access VectorChangedEventHandler_IGroupStyle_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_VectorChangedEventHandler_IGroupStyle or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1036,11 +1036,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaTransportControls2_add_ThumbnailRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaTransportControls2_add_ThumbnailRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaTransportControls2_add_ThumbnailRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1071,11 +1071,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPasswordBox4_add_PasswordChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPasswordBox4_add_PasswordChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPasswordBox4_add_PasswordChanging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1106,11 +1106,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_TextCompositionStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_TextCompositionStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITextBox3_add_TextCompositionStarted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1141,11 +1141,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_TextCompositionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_TextCompositionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITextBox3_add_TextCompositionChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1176,11 +1176,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_TextCompositionEnded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_TextCompositionEnded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITextBox3_add_TextCompositionEnded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1211,11 +1211,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_CandidateWindowBoundsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_CandidateWindowBoundsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITextBox3_add_CandidateWindowBoundsChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1246,11 +1246,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_TextChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITextBox3_add_TextChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITextBox3_add_TextChanging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1281,11 +1281,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextBox6_add_CopyingToClipboard_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITextBox6_add_CopyingToClipboard_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITextBox6_add_CopyingToClipboard or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1316,11 +1316,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextBox6_add_CuttingToClipboard_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITextBox6_add_CuttingToClipboard_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITextBox6_add_CuttingToClipboard or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1351,11 +1351,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextBox6_add_BeforeTextChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITextBox6_add_BeforeTextChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITextBox6_add_BeforeTextChanging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1386,11 +1386,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IListViewBase2_add_ContainerContentChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IListViewBase2_add_ContainerContentChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IListViewBase2_add_ContainerContentChanging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1421,11 +1421,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IListViewBase4_add_DragItemsCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IListViewBase4_add_DragItemsCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IListViewBase4_add_DragItemsCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1456,11 +1456,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IListViewBase4_add_ChoosingItemContainer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IListViewBase4_add_ChoosingItemContainer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IListViewBase4_add_ChoosingItemContainer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1491,11 +1491,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IListViewBase4_add_ChoosingGroupHeaderContainer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IListViewBase4_add_ChoosingGroupHeaderContainer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IListViewBase4_add_ChoosingGroupHeaderContainer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1526,11 +1526,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallback_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallback or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1561,11 +1561,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallbackWithPhase or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1596,11 +1596,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaElement3_add_PartialMediaFailureDetected_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaElement3_add_PartialMediaFailureDetected_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaElement3_add_PartialMediaFailureDetected or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1631,11 +1631,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_NavigationStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_NavigationStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_NavigationStarting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1666,11 +1666,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_ContentLoading_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_ContentLoading_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_ContentLoading or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1701,11 +1701,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_DOMContentLoaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_DOMContentLoaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_DOMContentLoaded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1736,11 +1736,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_NavigationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_NavigationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_NavigationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1771,11 +1771,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_FrameNavigationStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_FrameNavigationStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_FrameNavigationStarting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1806,11 +1806,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_FrameContentLoading_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_FrameContentLoading_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_FrameContentLoading or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1841,11 +1841,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_FrameDOMContentLoaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_FrameDOMContentLoaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_FrameDOMContentLoaded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1876,11 +1876,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_FrameNavigationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_FrameNavigationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_FrameNavigationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1911,11 +1911,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_LongRunningScriptDetected_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_LongRunningScriptDetected_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_LongRunningScriptDetected or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1946,11 +1946,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_UnsafeContentWarningDisplaying_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_UnsafeContentWarningDisplaying_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_UnsafeContentWarningDisplaying or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1981,11 +1981,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView2_add_UnviewableContentIdentified_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView2_add_UnviewableContentIdentified_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView2_add_UnviewableContentIdentified or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2016,11 +2016,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView3_add_ContainsFullScreenElementChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView3_add_ContainsFullScreenElementChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView3_add_ContainsFullScreenElementChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2051,11 +2051,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView4_add_UnsupportedUriSchemeIdentified_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView4_add_UnsupportedUriSchemeIdentified_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView4_add_UnsupportedUriSchemeIdentified or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2086,11 +2086,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView4_add_NewWindowRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView4_add_NewWindowRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView4_add_NewWindowRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2121,11 +2121,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebView4_add_PermissionRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebView4_add_PermissionRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebView4_add_PermissionRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2156,11 +2156,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICalendarDatePicker_add_DateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICalendarDatePicker_add_DateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICalendarDatePicker_add_DateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2191,11 +2191,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2226,11 +2226,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICalendarView_add_SelectedDatesChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICalendarView_add_SelectedDatesChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICalendarView_add_SelectedDatesChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2261,11 +2261,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access EventHandler_IDatePickerValueChangedEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EventHandler_IDatePickerValueChangedEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EventHandler_IDatePickerValueChangedEventArgs or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2296,11 +2296,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_TextCompositionStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_TextCompositionStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRichEditBox3_add_TextCompositionStarted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2331,11 +2331,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_TextCompositionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_TextCompositionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRichEditBox3_add_TextCompositionChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2366,11 +2366,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_TextCompositionEnded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_TextCompositionEnded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRichEditBox3_add_TextCompositionEnded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2401,11 +2401,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_CandidateWindowBoundsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_CandidateWindowBoundsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRichEditBox3_add_CandidateWindowBoundsChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2436,11 +2436,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_TextChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRichEditBox3_add_TextChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRichEditBox3_add_TextChanging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2471,11 +2471,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRichEditBox6_add_CopyingToClipboard_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRichEditBox6_add_CopyingToClipboard_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRichEditBox6_add_CopyingToClipboard or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2506,11 +2506,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRichEditBox6_add_CuttingToClipboard_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRichEditBox6_add_CuttingToClipboard_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRichEditBox6_add_CuttingToClipboard or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2541,11 +2541,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_QueryChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_QueryChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISearchBox_add_QueryChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2576,11 +2576,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_SuggestionsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_SuggestionsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISearchBox_add_SuggestionsRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2611,11 +2611,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_QuerySubmitted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_QuerySubmitted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISearchBox_add_QuerySubmitted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2646,11 +2646,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_ResultSuggestionChosen_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_ResultSuggestionChosen_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISearchBox_add_ResultSuggestionChosen or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2681,11 +2681,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2716,11 +2716,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISplitView_add_PaneClosing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISplitView_add_PaneClosing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISplitView_add_PaneClosing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2751,11 +2751,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISplitView_add_PaneClosed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISplitView_add_PaneClosed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISplitView_add_PaneClosed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2786,11 +2786,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISplitView3_add_PaneOpening_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISplitView3_add_PaneOpening_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISplitView3_add_PaneOpening or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2821,11 +2821,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISplitView3_add_PaneOpened_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISplitView3_add_PaneOpened_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISplitView3_add_PaneOpened or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2856,11 +2856,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access EventHandler_ITimePickerValueChangedEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EventHandler_ITimePickerValueChangedEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EventHandler_ITimePickerValueChangedEventArgs or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2891,11 +2891,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAutoSuggestBox_add_SuggestionChosen_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAutoSuggestBox_add_SuggestionChosen_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAutoSuggestBox_add_SuggestionChosen or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2926,11 +2926,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAutoSuggestBox_add_TextChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAutoSuggestBox_add_TextChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAutoSuggestBox_add_TextChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2961,11 +2961,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAutoSuggestBox2_add_QuerySubmitted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAutoSuggestBox2_add_QuerySubmitted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAutoSuggestBox2_add_QuerySubmitted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -2996,11 +2996,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_Closing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_Closing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IContentDialog_add_Closing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3031,11 +3031,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IContentDialog_add_Closed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3066,11 +3066,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_Opened_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_Opened_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IContentDialog_add_Opened or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3101,11 +3101,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_PrimaryButtonClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_PrimaryButtonClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IContentDialog_add_PrimaryButtonClick or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3136,11 +3136,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_SecondaryButtonClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IContentDialog_add_SecondaryButtonClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IContentDialog_add_SecondaryButtonClick or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3171,11 +3171,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ContentDialogResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ContentDialogResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ContentDialogResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3206,11 +3206,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IContentDialog2_add_CloseButtonClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IContentDialog2_add_CloseButtonClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IContentDialog2_add_CloseButtonClick or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3241,11 +3241,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access EventHandler_IScrollViewerViewChangedEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EventHandler_IScrollViewerViewChangedEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EventHandler_IScrollViewerViewChangedEventArgs or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3276,11 +3276,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access EventHandler_IScrollViewerViewChangingEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EventHandler_IScrollViewerViewChangingEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EventHandler_IScrollViewerViewChangingEventArgs or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3311,11 +3311,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3346,11 +3346,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access VectorChangedEventHandler_ICommandBarElement_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access VectorChangedEventHandler_ICommandBarElement_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_VectorChangedEventHandler_ICommandBarElement or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3381,11 +3381,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3416,11 +3416,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IControl4_add_FocusEngaged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IControl4_add_FocusEngaged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IControl4_add_FocusEngaged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3451,11 +3451,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IControl4_add_FocusDisengaged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IControl4_add_FocusDisengaged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IControl4_add_FocusDisengaged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3486,11 +3486,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkToolbar_add_ActiveToolChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInkToolbar_add_ActiveToolChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInkToolbar_add_ActiveToolChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3521,11 +3521,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3556,11 +3556,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkToolbar_add_EraseAllClicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInkToolbar_add_EraseAllClicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInkToolbar_add_EraseAllClicked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3591,11 +3591,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3626,11 +3626,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkToolbar2_add_IsStencilButtonCheckedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInkToolbar2_add_IsStencilButtonCheckedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInkToolbar2_add_IsStencilButtonCheckedChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3661,11 +3661,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkToolbarFlyoutItem_add_Checked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInkToolbarFlyoutItem_add_Checked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInkToolbarFlyoutItem_add_Checked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3696,11 +3696,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkToolbarFlyoutItem_add_Unchecked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInkToolbarFlyoutItem_add_Unchecked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInkToolbarFlyoutItem_add_Unchecked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3731,11 +3731,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDatePickerFlyout_add_DatePicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDatePickerFlyout_add_DatePicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDatePickerFlyout_add_DatePicked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3766,11 +3766,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IListPickerFlyout_add_ItemsPicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IListPickerFlyout_add_ItemsPicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IListPickerFlyout_add_ItemsPicked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3801,11 +3801,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPickerFlyout_add_Confirmed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPickerFlyout_add_Confirmed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPickerFlyout_add_Confirmed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3836,11 +3836,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITimePickerFlyout_add_TimePicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITimePickerFlyout_add_TimePicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITimePickerFlyout_add_TimePicked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3871,11 +3871,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPivot_add_PivotItemLoading_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPivot_add_PivotItemLoading_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPivot_add_PivotItemLoading or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3906,11 +3906,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPivot_add_PivotItemLoaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPivot_add_PivotItemLoaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPivot_add_PivotItemLoaded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3941,11 +3941,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPivot_add_PivotItemUnloading_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPivot_add_PivotItemUnloading_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPivot_add_PivotItemUnloading or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -3976,11 +3976,11 @@ package body Windows.UI.Xaml.Controls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPivot_add_PivotItemUnloaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPivot_add_PivotItemUnloaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPivot_add_PivotItemUnloaded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

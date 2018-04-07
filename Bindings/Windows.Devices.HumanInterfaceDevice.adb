@@ -30,11 +30,11 @@ package body Windows.Devices.HumanInterfaceDevice is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IHidDevice_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IHidDevice_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IHidDevice or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -65,11 +65,11 @@ package body Windows.Devices.HumanInterfaceDevice is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IHidInputReport_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IHidInputReport_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IHidInputReport or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -100,11 +100,11 @@ package body Windows.Devices.HumanInterfaceDevice is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IHidFeatureReport_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IHidFeatureReport_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IHidFeatureReport or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -135,11 +135,11 @@ package body Windows.Devices.HumanInterfaceDevice is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IHidDevice_add_InputReportReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IHidDevice_add_InputReportReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IHidDevice_add_InputReportReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

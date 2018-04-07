@@ -181,7 +181,7 @@ package Windows.System.Diagnostics.DevicePortal is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDevicePortalConnection_add_Closed_Interface(Callback : access procedure (sender : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection ; args : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionClosedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDevicePortalConnection_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDevicePortalConnection_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -196,7 +196,7 @@ package Windows.System.Diagnostics.DevicePortal is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDevicePortalConnection_add_RequestReceived_Interface(Callback : access procedure (sender : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection ; args : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDevicePortalConnection_add_RequestReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDevicePortalConnection_add_RequestReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

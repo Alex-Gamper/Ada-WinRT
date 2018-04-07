@@ -1428,7 +1428,7 @@ package Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISpeechRecognitionCompilationResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.SpeechRecognition.IAsyncOperation_ISpeechRecognitionCompilationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpeechRecognitionCompilationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpeechRecognitionCompilationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1443,7 +1443,7 @@ package Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISpeechRecognitionResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.SpeechRecognition.IAsyncOperation_ISpeechRecognitionResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpeechRecognitionResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpeechRecognitionResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1458,7 +1458,7 @@ package Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpeechRecognizer_add_RecognitionQualityDegrading_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechRecognizer ; args : Windows.Media.SpeechRecognition.ISpeechRecognitionQualityDegradingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpeechRecognizer_add_RecognitionQualityDegrading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpeechRecognizer_add_RecognitionQualityDegrading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1473,7 +1473,7 @@ package Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpeechRecognizer_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechRecognizer ; args : Windows.Media.SpeechRecognition.ISpeechRecognizerStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpeechRecognizer_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpeechRecognizer_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1488,7 +1488,7 @@ package Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpeechRecognizer2_add_HypothesisGenerated_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechRecognizer ; args : Windows.Media.SpeechRecognition.ISpeechRecognitionHypothesisGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpeechRecognizer2_add_HypothesisGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpeechRecognizer2_add_HypothesisGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1503,7 +1503,7 @@ package Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpeechContinuousRecognitionSession_add_Completed_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession ; args : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpeechContinuousRecognitionSession_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpeechContinuousRecognitionSession_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1518,7 +1518,7 @@ package Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpeechContinuousRecognitionSession_add_ResultGenerated_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession ; args : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionResultGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpeechContinuousRecognitionSession_add_ResultGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpeechContinuousRecognitionSession_add_ResultGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

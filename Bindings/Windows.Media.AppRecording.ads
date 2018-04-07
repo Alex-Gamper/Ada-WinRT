@@ -498,7 +498,7 @@ package Windows.Media.AppRecording is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAppRecordingResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.AppRecording.IAsyncOperation_IAppRecordingResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppRecordingResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppRecordingResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -513,7 +513,7 @@ package Windows.Media.AppRecording is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAppRecordingSaveScreenshotResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.AppRecording.IAsyncOperation_IAppRecordingSaveScreenshotResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppRecordingSaveScreenshotResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppRecordingSaveScreenshotResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

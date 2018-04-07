@@ -677,7 +677,7 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    type DisplayPropertiesEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DisplayPropertiesEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DisplayPropertiesEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -691,7 +691,7 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -706,7 +706,7 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDisplayInformation_add_OrientationChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_OrientationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_OrientationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -721,7 +721,7 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDisplayInformation_add_DpiChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_DpiChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_DpiChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -736,7 +736,7 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -751,7 +751,7 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDisplayInformation_add_ColorProfileChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_ColorProfileChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_ColorProfileChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -766,7 +766,7 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IBrightnessOverride ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -781,7 +781,7 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBrightnessOverride_add_IsOverrideActiveChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IBrightnessOverride ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBrightnessOverride_add_IsOverrideActiveChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBrightnessOverride_add_IsOverrideActiveChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -796,7 +796,7 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IBrightnessOverride ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

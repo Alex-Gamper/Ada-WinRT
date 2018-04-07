@@ -33933,7 +33933,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type BackClickEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.IBackClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access BackClickEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access BackClickEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -33948,7 +33948,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type CleanUpVirtualizedItemEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.ICleanUpVirtualizedItemEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access CleanUpVirtualizedItemEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access CleanUpVirtualizedItemEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -33963,7 +33963,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type ContextMenuOpeningEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.IContextMenuEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ContextMenuOpeningEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ContextMenuOpeningEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -33978,7 +33978,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type DragItemsStartingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DragItemsStartingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DragItemsStartingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -33993,7 +33993,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type ItemClickEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.IItemClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ItemClickEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ItemClickEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34008,7 +34008,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type NotifyEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.INotifyEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NotifyEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access NotifyEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34023,7 +34023,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type SelectionChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.ISelectionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SelectionChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access SelectionChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34038,7 +34038,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type SemanticZoomViewChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.ISemanticZoomViewChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SemanticZoomViewChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access SemanticZoomViewChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34053,7 +34053,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TextChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.ITextChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TextChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TextChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34068,7 +34068,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TextControlPasteEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.ITextControlPasteEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TextControlPasteEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TextControlPasteEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34083,7 +34083,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type CalendarViewDayItemChangingEventHandler_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ICalendarView ; e : Windows.UI.Xaml.Controls.ICalendarViewDayItemChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access CalendarViewDayItemChangingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access CalendarViewDayItemChangingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34098,7 +34098,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type HubSectionHeaderClickEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.IHubSectionHeaderClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access HubSectionHeaderClickEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access HubSectionHeaderClickEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34113,7 +34113,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type ListViewItemToKeyHandler_Interface(Callback : access procedure (item : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ListViewItemToKeyHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ListViewItemToKeyHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34128,7 +34128,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type ListViewKeyToItemHandler_Interface(Callback : access procedure (key : Windows.String)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ListViewKeyToItemHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ListViewKeyToItemHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34143,7 +34143,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type SectionsInViewChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.ISectionsInViewChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SectionsInViewChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access SectionsInViewChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34158,7 +34158,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type WebViewNavigationFailedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access WebViewNavigationFailedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access WebViewNavigationFailedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34173,7 +34173,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IColorPicker_add_ColorChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IColorPicker ; args : Windows.UI.Xaml.Controls.IColorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IColorPicker_add_ColorChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IColorPicker_add_ColorChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34188,7 +34188,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_INavigationView_add_SelectionChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.INavigationView ; args : Windows.UI.Xaml.Controls.INavigationViewSelectionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INavigationView_add_SelectionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INavigationView_add_SelectionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34203,7 +34203,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_INavigationView_add_ItemInvoked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.INavigationView ; args : Windows.UI.Xaml.Controls.INavigationViewItemInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INavigationView_add_ItemInvoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INavigationView_add_ItemInvoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34218,7 +34218,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_INavigationView_add_DisplayModeChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.INavigationView ; args : Windows.UI.Xaml.Controls.INavigationViewDisplayModeChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INavigationView_add_DisplayModeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INavigationView_add_DisplayModeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34233,7 +34233,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRatingControl_add_ValueChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRatingControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRatingControl_add_ValueChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRatingControl_add_ValueChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34248,7 +34248,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISwipeItem_add_Invoked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISwipeItem ; args : Windows.UI.Xaml.Controls.ISwipeItemInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISwipeItem_add_Invoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISwipeItem_add_Invoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34263,7 +34263,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallback_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IListViewBase ; args : Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallback_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallback_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34278,7 +34278,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IListViewBase ; args : Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContainerContentChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34293,7 +34293,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichTextBlock ; args : Windows.UI.Xaml.Controls.IIsTextTrimmedChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34308,7 +34308,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichTextBlockOverflow ; args : Windows.UI.Xaml.Controls.IIsTextTrimmedChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34323,7 +34323,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextBlock6_add_IsTextTrimmedChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBlock ; args : Windows.UI.Xaml.Controls.IIsTextTrimmedChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextBlock6_add_IsTextTrimmedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextBlock6_add_IsTextTrimmedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34338,7 +34338,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type VectorChangedEventHandler_IGroupStyle_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IObservableVector_IGroupStyle ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access VectorChangedEventHandler_IGroupStyle_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access VectorChangedEventHandler_IGroupStyle_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34353,7 +34353,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaTransportControls2_add_ThumbnailRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IMediaTransportControls ; args : Windows.UI.Xaml.Media.IMediaTransportControlsThumbnailRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaTransportControls2_add_ThumbnailRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaTransportControls2_add_ThumbnailRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34368,7 +34368,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPasswordBox4_add_PasswordChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IPasswordBox ; args : Windows.UI.Xaml.Controls.IPasswordBoxPasswordChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPasswordBox4_add_PasswordChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPasswordBox4_add_PasswordChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34383,7 +34383,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextBox3_add_TextCompositionStarted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBox ; args : Windows.UI.Xaml.Controls.ITextCompositionStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_TextCompositionStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_TextCompositionStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34398,7 +34398,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextBox3_add_TextCompositionChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBox ; args : Windows.UI.Xaml.Controls.ITextCompositionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_TextCompositionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_TextCompositionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34413,7 +34413,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextBox3_add_TextCompositionEnded_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBox ; args : Windows.UI.Xaml.Controls.ITextCompositionEndedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_TextCompositionEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_TextCompositionEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34428,7 +34428,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextBox3_add_CandidateWindowBoundsChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBox ; args : Windows.UI.Xaml.Controls.ICandidateWindowBoundsChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_CandidateWindowBoundsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_CandidateWindowBoundsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34443,7 +34443,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextBox3_add_TextChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBox ; args : Windows.UI.Xaml.Controls.ITextBoxTextChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_TextChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextBox3_add_TextChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34458,7 +34458,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextBox6_add_CopyingToClipboard_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBox ; args : Windows.UI.Xaml.Controls.ITextControlCopyingToClipboardEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextBox6_add_CopyingToClipboard_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextBox6_add_CopyingToClipboard_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34473,7 +34473,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextBox6_add_CuttingToClipboard_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBox ; args : Windows.UI.Xaml.Controls.ITextControlCuttingToClipboardEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextBox6_add_CuttingToClipboard_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextBox6_add_CuttingToClipboard_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34488,7 +34488,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITextBox6_add_BeforeTextChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBox ; args : Windows.UI.Xaml.Controls.ITextBoxBeforeTextChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextBox6_add_BeforeTextChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITextBox6_add_BeforeTextChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34503,7 +34503,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IListViewBase2_add_ContainerContentChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IListViewBase ; args : Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IListViewBase2_add_ContainerContentChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IListViewBase2_add_ContainerContentChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34518,7 +34518,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IListViewBase4_add_DragItemsCompleted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IListViewBase ; args : Windows.UI.Xaml.Controls.IDragItemsCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IListViewBase4_add_DragItemsCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IListViewBase4_add_DragItemsCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34533,7 +34533,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IListViewBase4_add_ChoosingItemContainer_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IListViewBase ; args : Windows.UI.Xaml.Controls.IChoosingItemContainerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IListViewBase4_add_ChoosingItemContainer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IListViewBase4_add_ChoosingItemContainer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34548,7 +34548,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IListViewBase4_add_ChoosingGroupHeaderContainer_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IListViewBase ; args : Windows.UI.Xaml.Controls.IChoosingGroupHeaderContainerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IListViewBase4_add_ChoosingGroupHeaderContainer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IListViewBase4_add_ChoosingGroupHeaderContainer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34563,7 +34563,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallback_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ICalendarView ; args : Windows.UI.Xaml.Controls.ICalendarViewDayItemChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallback_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallback_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34578,7 +34578,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ICalendarView ; args : Windows.UI.Xaml.Controls.ICalendarViewDayItemChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICalendarViewDayItemChangingEventArgs_RegisterUpdateCallbackWithPhase_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34593,7 +34593,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaElement3_add_PartialMediaFailureDetected_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IMediaElement ; args : Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaElement3_add_PartialMediaFailureDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaElement3_add_PartialMediaFailureDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34608,7 +34608,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_NavigationStarting_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_NavigationStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_NavigationStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34623,7 +34623,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_ContentLoading_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_ContentLoading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_ContentLoading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34638,7 +34638,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_DOMContentLoaded_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_DOMContentLoaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_DOMContentLoaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34653,7 +34653,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_NavigationCompleted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_NavigationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_NavigationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34668,7 +34668,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_FrameNavigationStarting_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewNavigationStartingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_FrameNavigationStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_FrameNavigationStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34683,7 +34683,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_FrameContentLoading_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_FrameContentLoading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_FrameContentLoading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34698,7 +34698,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_FrameDOMContentLoaded_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewDOMContentLoadedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_FrameDOMContentLoaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_FrameDOMContentLoaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34713,7 +34713,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_FrameNavigationCompleted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewNavigationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_FrameNavigationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_FrameNavigationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34728,7 +34728,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_LongRunningScriptDetected_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewLongRunningScriptDetectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_LongRunningScriptDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_LongRunningScriptDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34743,7 +34743,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_UnsafeContentWarningDisplaying_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_UnsafeContentWarningDisplaying_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_UnsafeContentWarningDisplaying_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34758,7 +34758,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView2_add_UnviewableContentIdentified_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_UnviewableContentIdentified_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView2_add_UnviewableContentIdentified_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34773,7 +34773,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView3_add_ContainsFullScreenElementChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView3_add_ContainsFullScreenElementChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView3_add_ContainsFullScreenElementChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34788,7 +34788,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView4_add_UnsupportedUriSchemeIdentified_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView4_add_UnsupportedUriSchemeIdentified_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView4_add_UnsupportedUriSchemeIdentified_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34803,7 +34803,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView4_add_NewWindowRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewNewWindowRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView4_add_NewWindowRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView4_add_NewWindowRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34818,7 +34818,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebView4_add_PermissionRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewPermissionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebView4_add_PermissionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebView4_add_PermissionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34833,7 +34833,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICalendarDatePicker_add_DateChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ICalendarDatePicker ; args : Windows.UI.Xaml.Controls.ICalendarDatePickerDateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICalendarDatePicker_add_DateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICalendarDatePicker_add_DateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34848,7 +34848,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ICalendarView ; args : Windows.UI.Xaml.Controls.ICalendarViewDayItemChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34863,7 +34863,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICalendarView_add_SelectedDatesChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ICalendarView ; args : Windows.UI.Xaml.Controls.ICalendarViewSelectedDatesChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICalendarView_add_SelectedDatesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICalendarView_add_SelectedDatesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34878,7 +34878,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type EventHandler_IDatePickerValueChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Controls.IDatePickerValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IDatePickerValueChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IDatePickerValueChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34893,7 +34893,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRichEditBox3_add_TextCompositionStarted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichEditBox ; args : Windows.UI.Xaml.Controls.ITextCompositionStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_TextCompositionStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_TextCompositionStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34908,7 +34908,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRichEditBox3_add_TextCompositionChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichEditBox ; args : Windows.UI.Xaml.Controls.ITextCompositionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_TextCompositionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_TextCompositionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34923,7 +34923,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRichEditBox3_add_TextCompositionEnded_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichEditBox ; args : Windows.UI.Xaml.Controls.ITextCompositionEndedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_TextCompositionEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_TextCompositionEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34938,7 +34938,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRichEditBox3_add_CandidateWindowBoundsChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichEditBox ; args : Windows.UI.Xaml.Controls.ICandidateWindowBoundsChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_CandidateWindowBoundsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_CandidateWindowBoundsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34953,7 +34953,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRichEditBox3_add_TextChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichEditBox ; args : Windows.UI.Xaml.Controls.IRichEditBoxTextChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_TextChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRichEditBox3_add_TextChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34968,7 +34968,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRichEditBox6_add_CopyingToClipboard_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichEditBox ; args : Windows.UI.Xaml.Controls.ITextControlCopyingToClipboardEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRichEditBox6_add_CopyingToClipboard_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRichEditBox6_add_CopyingToClipboard_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34983,7 +34983,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRichEditBox6_add_CuttingToClipboard_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichEditBox ; args : Windows.UI.Xaml.Controls.ITextControlCuttingToClipboardEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRichEditBox6_add_CuttingToClipboard_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRichEditBox6_add_CuttingToClipboard_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -34998,7 +34998,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchBox_add_QueryChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISearchBox ; args : Windows.UI.Xaml.Controls.ISearchBoxQueryChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_QueryChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_QueryChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35013,7 +35013,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchBox_add_SuggestionsRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISearchBox ; args : Windows.UI.Xaml.Controls.ISearchBoxSuggestionsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_SuggestionsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_SuggestionsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35028,7 +35028,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchBox_add_QuerySubmitted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISearchBox ; args : Windows.UI.Xaml.Controls.ISearchBoxQuerySubmittedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_QuerySubmitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_QuerySubmitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35043,7 +35043,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchBox_add_ResultSuggestionChosen_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISearchBox ; args : Windows.UI.Xaml.Controls.ISearchBoxResultSuggestionChosenEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_ResultSuggestionChosen_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_ResultSuggestionChosen_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35058,7 +35058,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISearchBox ; args : Windows.UI.Xaml.IRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35073,7 +35073,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISplitView_add_PaneClosing_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISplitView ; args : Windows.UI.Xaml.Controls.ISplitViewPaneClosingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISplitView_add_PaneClosing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISplitView_add_PaneClosing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35088,7 +35088,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISplitView_add_PaneClosed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISplitView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISplitView_add_PaneClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISplitView_add_PaneClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35103,7 +35103,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISplitView3_add_PaneOpening_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISplitView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISplitView3_add_PaneOpening_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISplitView3_add_PaneOpening_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35118,7 +35118,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISplitView3_add_PaneOpened_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISplitView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISplitView3_add_PaneOpened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISplitView3_add_PaneOpened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35133,7 +35133,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type EventHandler_ITimePickerValueChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Controls.ITimePickerValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_ITimePickerValueChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_ITimePickerValueChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35148,7 +35148,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAutoSuggestBox_add_SuggestionChosen_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IAutoSuggestBox ; args : Windows.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAutoSuggestBox_add_SuggestionChosen_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAutoSuggestBox_add_SuggestionChosen_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35163,7 +35163,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAutoSuggestBox_add_TextChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IAutoSuggestBox ; args : Windows.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAutoSuggestBox_add_TextChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAutoSuggestBox_add_TextChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35178,7 +35178,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAutoSuggestBox2_add_QuerySubmitted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IAutoSuggestBox ; args : Windows.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAutoSuggestBox2_add_QuerySubmitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAutoSuggestBox2_add_QuerySubmitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35193,7 +35193,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContentDialog_add_Closing_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IContentDialog ; args : Windows.UI.Xaml.Controls.IContentDialogClosingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35208,7 +35208,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContentDialog_add_Closed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IContentDialog ; args : Windows.UI.Xaml.Controls.IContentDialogClosedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35223,7 +35223,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContentDialog_add_Opened_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IContentDialog ; args : Windows.UI.Xaml.Controls.IContentDialogOpenedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_Opened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_Opened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35238,7 +35238,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContentDialog_add_PrimaryButtonClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IContentDialog ; args : Windows.UI.Xaml.Controls.IContentDialogButtonClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_PrimaryButtonClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_PrimaryButtonClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35253,7 +35253,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContentDialog_add_SecondaryButtonClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IContentDialog ; args : Windows.UI.Xaml.Controls.IContentDialogButtonClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_SecondaryButtonClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContentDialog_add_SecondaryButtonClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35268,7 +35268,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ContentDialogResult_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Controls.IAsyncOperation_ContentDialogResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ContentDialogResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ContentDialogResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35283,7 +35283,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContentDialog2_add_CloseButtonClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IContentDialog ; args : Windows.UI.Xaml.Controls.IContentDialogButtonClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContentDialog2_add_CloseButtonClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContentDialog2_add_CloseButtonClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35298,7 +35298,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type EventHandler_IScrollViewerViewChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IScrollViewerViewChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IScrollViewerViewChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35313,7 +35313,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type EventHandler_IScrollViewerViewChangingEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Controls.IScrollViewerViewChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IScrollViewerViewChangingEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IScrollViewerViewChangingEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35328,7 +35328,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISwapChainPanel ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35343,7 +35343,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type VectorChangedEventHandler_ICommandBarElement_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IObservableVector_ICommandBarElement ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access VectorChangedEventHandler_ICommandBarElement_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access VectorChangedEventHandler_ICommandBarElement_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35358,7 +35358,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ICommandBar ; args : Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35373,7 +35373,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IControl4_add_FocusEngaged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IControl ; args : Windows.UI.Xaml.Controls.IFocusEngagedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IControl4_add_FocusEngaged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IControl4_add_FocusEngaged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35388,7 +35388,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IControl4_add_FocusDisengaged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IControl ; args : Windows.UI.Xaml.Controls.IFocusDisengagedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IControl4_add_FocusDisengaged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IControl4_add_FocusDisengaged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35403,7 +35403,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInkToolbar_add_ActiveToolChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IInkToolbar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInkToolbar_add_ActiveToolChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInkToolbar_add_ActiveToolChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35418,7 +35418,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IInkToolbar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35433,7 +35433,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInkToolbar_add_EraseAllClicked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IInkToolbar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInkToolbar_add_EraseAllClicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInkToolbar_add_EraseAllClicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35448,7 +35448,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IInkToolbar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35463,7 +35463,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInkToolbar2_add_IsStencilButtonCheckedChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IInkToolbar ; args : Windows.UI.Xaml.Controls.IInkToolbarIsStencilButtonCheckedChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInkToolbar2_add_IsStencilButtonCheckedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInkToolbar2_add_IsStencilButtonCheckedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35478,7 +35478,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInkToolbarFlyoutItem_add_Checked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IInkToolbarFlyoutItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInkToolbarFlyoutItem_add_Checked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInkToolbarFlyoutItem_add_Checked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35493,7 +35493,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInkToolbarFlyoutItem_add_Unchecked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IInkToolbarFlyoutItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInkToolbarFlyoutItem_add_Unchecked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInkToolbarFlyoutItem_add_Unchecked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35508,7 +35508,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDatePickerFlyout_add_DatePicked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IDatePickerFlyout ; args : Windows.UI.Xaml.Controls.IDatePickedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDatePickerFlyout_add_DatePicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDatePickerFlyout_add_DatePicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35523,7 +35523,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IListPickerFlyout_add_ItemsPicked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IListPickerFlyout ; args : Windows.UI.Xaml.Controls.IItemsPickedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IListPickerFlyout_add_ItemsPicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IListPickerFlyout_add_ItemsPicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35538,7 +35538,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPickerFlyout_add_Confirmed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IPickerFlyout ; args : Windows.UI.Xaml.Controls.IPickerConfirmedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPickerFlyout_add_Confirmed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPickerFlyout_add_Confirmed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35553,7 +35553,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITimePickerFlyout_add_TimePicked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITimePickerFlyout ; args : Windows.UI.Xaml.Controls.ITimePickedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITimePickerFlyout_add_TimePicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITimePickerFlyout_add_TimePicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35568,7 +35568,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPivot_add_PivotItemLoading_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IPivot ; args : Windows.UI.Xaml.Controls.IPivotItemEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPivot_add_PivotItemLoading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPivot_add_PivotItemLoading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35583,7 +35583,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPivot_add_PivotItemLoaded_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IPivot ; args : Windows.UI.Xaml.Controls.IPivotItemEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPivot_add_PivotItemLoaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPivot_add_PivotItemLoaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35598,7 +35598,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPivot_add_PivotItemUnloading_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IPivot ; args : Windows.UI.Xaml.Controls.IPivotItemEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPivot_add_PivotItemUnloading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPivot_add_PivotItemUnloading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -35613,7 +35613,7 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPivot_add_PivotItemUnloaded_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IPivot ; args : Windows.UI.Xaml.Controls.IPivotItemEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPivot_add_PivotItemUnloaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPivot_add_PivotItemUnloaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

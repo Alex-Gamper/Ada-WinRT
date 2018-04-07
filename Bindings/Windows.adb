@@ -28,7 +28,6 @@ package body Windows is
       Hr        : Windows.HResult;
       riid      : Windows.GUID_Ptr := I3;
       RetVal    : aliased I2;  
-      pragma suppress(all_checks);
    begin
       Hr := Object.QueryInterface(riid, RetVal'Address);
       return RetVal;
@@ -36,7 +35,7 @@ package body Windows is
    
    --------------------------------------------------------------------------------
    
-   function QueryInterface(This : access IMulticastDelegate_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HResult is
+   function QueryInterface(This : access IMulticastDelegate_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HResult is
       Hr : Windows.HResult := E_NOTIMPL;
    begin
       if riid.all = IID_IUnknown then

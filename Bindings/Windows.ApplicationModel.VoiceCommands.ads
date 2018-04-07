@@ -895,7 +895,7 @@ package Windows.ApplicationModel.VoiceCommands is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IVoiceCommand_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.VoiceCommands.IAsyncOperation_IVoiceCommand ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVoiceCommand_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVoiceCommand_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -910,7 +910,7 @@ package Windows.ApplicationModel.VoiceCommands is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IVoiceCommandConfirmationResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.VoiceCommands.IAsyncOperation_IVoiceCommandConfirmationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVoiceCommandConfirmationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVoiceCommandConfirmationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -925,7 +925,7 @@ package Windows.ApplicationModel.VoiceCommands is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IVoiceCommandDisambiguationResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.VoiceCommands.IAsyncOperation_IVoiceCommandDisambiguationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVoiceCommandDisambiguationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVoiceCommandDisambiguationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -940,7 +940,7 @@ package Windows.ApplicationModel.VoiceCommands is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVoiceCommandServiceConnection_add_VoiceCommandCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnection ; args : Windows.ApplicationModel.VoiceCommands.IVoiceCommandCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoiceCommandServiceConnection_add_VoiceCommandCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVoiceCommandServiceConnection_add_VoiceCommandCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

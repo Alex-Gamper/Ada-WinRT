@@ -672,7 +672,7 @@ package Windows.ApplicationModel.Search is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchPane_add_VisibilityChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_VisibilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_VisibilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -687,7 +687,7 @@ package Windows.ApplicationModel.Search is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchPane_add_QueryChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_QueryChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_QueryChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -702,7 +702,7 @@ package Windows.ApplicationModel.Search is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchPane_add_SuggestionsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_SuggestionsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_SuggestionsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -717,7 +717,7 @@ package Windows.ApplicationModel.Search is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchPane_add_QuerySubmitted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneQuerySubmittedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_QuerySubmitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_QuerySubmitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -732,7 +732,7 @@ package Windows.ApplicationModel.Search is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISearchPane_add_ResultSuggestionChosen_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneResultSuggestionChosenEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_ResultSuggestionChosen_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_ResultSuggestionChosen_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -34,11 +34,11 @@ package body Windows.Devices.Bluetooth is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IBluetoothAdapter_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IBluetoothAdapter_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IBluetoothAdapter or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -69,11 +69,11 @@ package body Windows.Devices.Bluetooth is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IBluetoothDevice_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IBluetoothDevice_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IBluetoothDevice or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -104,11 +104,11 @@ package body Windows.Devices.Bluetooth is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBluetoothDevice_add_NameChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBluetoothDevice_add_NameChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBluetoothDevice_add_NameChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -139,11 +139,11 @@ package body Windows.Devices.Bluetooth is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -174,11 +174,11 @@ package body Windows.Devices.Bluetooth is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -209,11 +209,11 @@ package body Windows.Devices.Bluetooth is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IBluetoothLEDevice or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -244,11 +244,11 @@ package body Windows.Devices.Bluetooth is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBluetoothLEDevice_add_NameChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -279,11 +279,11 @@ package body Windows.Devices.Bluetooth is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -314,11 +314,11 @@ package body Windows.Devices.Bluetooth is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

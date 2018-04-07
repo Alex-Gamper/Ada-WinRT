@@ -1789,7 +1789,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type DataProviderHandler_Interface(Callback : access procedure (request : Windows.ApplicationModel.DataTransfer.IDataProviderRequest)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DataProviderHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DataProviderHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1803,7 +1803,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type ShareProviderHandler_Interface(Callback : access procedure (operation : Windows.ApplicationModel.DataTransfer.IShareProviderOperation)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ShareProviderHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ShareProviderHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1817,7 +1817,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDataPackage_add_OperationCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDataPackage_add_OperationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDataPackage_add_OperationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1832,7 +1832,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDataPackage_add_Destroyed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDataPackage_add_Destroyed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDataPackage_add_Destroyed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1847,7 +1847,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1862,7 +1862,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_DataPackageOperation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_DataPackageOperation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_DataPackageOperation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1877,7 +1877,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDataTransferManager_add_DataRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataTransferManager ; args : Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDataTransferManager_add_DataRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDataTransferManager_add_DataRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1892,7 +1892,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataTransferManager ; args : Windows.ApplicationModel.DataTransfer.ITargetApplicationChosenEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1907,7 +1907,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataTransferManager ; args : Windows.ApplicationModel.DataTransfer.IShareProvidersRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1922,7 +1922,7 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDataPackage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IDataPackage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDataPackage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDataPackage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -431,7 +431,7 @@ package Windows.Web.Http.Filters is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested_Interface(Callback : access procedure (sender : Windows.Web.Http.Filters.IHttpBaseProtocolFilter ; args : Windows.Web.Http.Filters.IHttpServerCustomValidationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

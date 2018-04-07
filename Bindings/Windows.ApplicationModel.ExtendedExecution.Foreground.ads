@@ -210,7 +210,7 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    ------------------------------------------------------------------------
    type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -225,7 +225,7 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.ExtendedExecution.Foreground.IAsyncOperation_ExtendedExecutionForegroundResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

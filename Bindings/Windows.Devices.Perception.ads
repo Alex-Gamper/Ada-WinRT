@@ -2465,7 +2465,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceAdded_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionColorFrameSourceAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2480,7 +2480,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceRemoved_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionColorFrameSourceRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2495,7 +2495,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2510,7 +2510,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2525,7 +2525,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceAdded_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionDepthFrameSourceAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2540,7 +2540,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceRemoved_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionDepthFrameSourceRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2555,7 +2555,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2570,7 +2570,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2585,7 +2585,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceAdded_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionInfraredFrameSourceAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2600,7 +2600,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceRemoved_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionInfraredFrameSourceRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2615,7 +2615,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2630,7 +2630,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2645,7 +2645,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionControlSession_add_ControlLost_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionControlSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionControlSession_add_ControlLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionControlSession_add_ControlLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2660,7 +2660,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPerceptionFrameSourcePropertyChangeResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionFrameSourcePropertyChangeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionFrameSourcePropertyChangeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionFrameSourcePropertyChangeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2675,7 +2675,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPerceptionInfraredFrameSource_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionInfraredFrameSource ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionInfraredFrameSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionInfraredFrameSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2690,7 +2690,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_PerceptionFrameSourceAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_PerceptionFrameSourceAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_PerceptionFrameSourceAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_PerceptionFrameSourceAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2705,7 +2705,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPerceptionDepthFrameSource_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionDepthFrameSource ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionDepthFrameSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionDepthFrameSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2720,7 +2720,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPerceptionColorFrameSource_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionColorFrameSource ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionColorFrameSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionColorFrameSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2735,7 +2735,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameSource_add_AvailableChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_AvailableChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_AvailableChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2750,7 +2750,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameSource_add_ActiveChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_ActiveChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_ActiveChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2765,7 +2765,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameSource_add_PropertiesChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Devices.Perception.IPerceptionFrameSourcePropertiesChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_PropertiesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_PropertiesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2780,7 +2780,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameSource_add_VideoProfileChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_VideoProfileChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_VideoProfileChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2795,7 +2795,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameSource_add_CameraIntrinsicsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_CameraIntrinsicsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameSource_add_CameraIntrinsicsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2810,7 +2810,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCameraIntrinsics_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionDepthCorrelatedCameraIntrinsics ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCameraIntrinsics_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCameraIntrinsics_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2825,7 +2825,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCoordinateMapper_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionDepthCorrelatedCoordinateMapper ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCoordinateMapper_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCoordinateMapper_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2840,7 +2840,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameSource_add_AvailableChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_AvailableChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_AvailableChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2855,7 +2855,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameSource_add_ActiveChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_ActiveChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_ActiveChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2870,7 +2870,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameSource_add_PropertiesChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Devices.Perception.IPerceptionFrameSourcePropertiesChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_PropertiesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_PropertiesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2885,7 +2885,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameSource_add_VideoProfileChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_VideoProfileChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_VideoProfileChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2900,7 +2900,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameSource_add_CameraIntrinsicsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_CameraIntrinsicsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameSource_add_CameraIntrinsicsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2915,7 +2915,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_AvailableChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_AvailableChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_AvailableChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2930,7 +2930,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_ActiveChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_ActiveChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_ActiveChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2945,7 +2945,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_PropertiesChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Devices.Perception.IPerceptionFrameSourcePropertiesChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_PropertiesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_PropertiesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2960,7 +2960,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_VideoProfileChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_VideoProfileChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_VideoProfileChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2975,7 +2975,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_CameraIntrinsicsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_CameraIntrinsicsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameSource_add_CameraIntrinsicsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2990,7 +2990,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionColorFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameReader ; args : Windows.Devices.Perception.IPerceptionColorFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionColorFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3005,7 +3005,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionDepthFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameReader ; args : Windows.Devices.Perception.IPerceptionDepthFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionDepthFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3020,7 +3020,7 @@ package Windows.Devices.Perception is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPerceptionInfraredFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameReader ; args : Windows.Devices.Perception.IPerceptionInfraredFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPerceptionInfraredFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

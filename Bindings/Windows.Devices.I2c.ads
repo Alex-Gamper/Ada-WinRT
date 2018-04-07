@@ -384,7 +384,7 @@ package Windows.Devices.I2c is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_II2cDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_II2cDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_II2cDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -399,7 +399,7 @@ package Windows.Devices.I2c is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_II2cController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_II2cController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_II2cController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

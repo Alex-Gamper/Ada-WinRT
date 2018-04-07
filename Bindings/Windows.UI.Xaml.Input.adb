@@ -33,11 +33,11 @@ package body Windows.UI.Xaml.Input is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access DoubleTappedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DoubleTappedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DoubleTappedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -68,11 +68,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access HoldingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access HoldingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_HoldingEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -103,11 +103,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access KeyEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access KeyEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_KeyEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -138,11 +138,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access ManipulationCompletedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ManipulationCompletedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ManipulationCompletedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -173,11 +173,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access ManipulationDeltaEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ManipulationDeltaEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ManipulationDeltaEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -208,11 +208,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access ManipulationInertiaStartingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ManipulationInertiaStartingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ManipulationInertiaStartingEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -243,11 +243,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access ManipulationStartedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ManipulationStartedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ManipulationStartedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -278,11 +278,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access ManipulationStartingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ManipulationStartingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ManipulationStartingEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -313,11 +313,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access PointerEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access PointerEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_PointerEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -348,11 +348,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access RightTappedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access RightTappedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_RightTappedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -383,11 +383,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TappedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TappedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TappedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -418,11 +418,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -453,11 +453,11 @@ package body Windows.UI.Xaml.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IKeyboardAccelerator_add_Invoked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

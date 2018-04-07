@@ -986,7 +986,7 @@ package Windows.ApplicationModel.Store is
    ------------------------------------------------------------------------
    type LicenseChangedEventHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access LicenseChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access LicenseChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -999,7 +999,7 @@ package Windows.ApplicationModel.Store is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IListingInformation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IListingInformation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IListingInformation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1014,7 +1014,7 @@ package Windows.ApplicationModel.Store is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_FulfillmentResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_FulfillmentResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_FulfillmentResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1029,7 +1029,7 @@ package Windows.ApplicationModel.Store is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPurchaseResults_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPurchaseResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPurchaseResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

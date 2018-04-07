@@ -572,7 +572,7 @@ package Windows.ApplicationModel.UserDataAccounts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUserDataAccount_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccount ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataAccount_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataAccount_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -587,7 +587,7 @@ package Windows.ApplicationModel.UserDataAccounts is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore ; args : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -602,7 +602,7 @@ package Windows.ApplicationModel.UserDataAccounts is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUserDataAccountStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataAccountStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataAccountStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

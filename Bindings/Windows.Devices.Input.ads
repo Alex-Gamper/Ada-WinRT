@@ -509,7 +509,7 @@ package Windows.Devices.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMouseDevice_add_MouseMoved_Interface(Callback : access procedure (sender : Windows.Devices.Input.IMouseDevice ; args : Windows.Devices.Input.IMouseEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMouseDevice_add_MouseMoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMouseDevice_add_MouseMoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

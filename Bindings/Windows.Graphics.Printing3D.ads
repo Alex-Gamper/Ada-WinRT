@@ -4582,7 +4582,7 @@ package Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    type Print3DTaskSourceRequestedHandler_Interface(Callback : access procedure (args : Windows.Graphics.Printing3D.IPrint3DTaskSourceRequestedArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access Print3DTaskSourceRequestedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access Print3DTaskSourceRequestedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4596,7 +4596,7 @@ package Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrint3DTask_add_Submitting_Interface(Callback : access procedure (sender : Windows.Graphics.Printing3D.IPrint3DTask ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrint3DTask_add_Submitting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrint3DTask_add_Submitting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4611,7 +4611,7 @@ package Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrint3DTask_add_Completed_Interface(Callback : access procedure (sender : Windows.Graphics.Printing3D.IPrint3DTask ; args : Windows.Graphics.Printing3D.IPrint3DTaskCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrint3DTask_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrint3DTask_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4626,7 +4626,7 @@ package Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrint3DTask_add_SourceChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Printing3D.IPrint3DTask ; args : Windows.Graphics.Printing3D.IPrint3DTaskSourceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrint3DTask_add_SourceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrint3DTask_add_SourceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4641,7 +4641,7 @@ package Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrint3DManager_add_TaskRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing3D.IPrint3DManager ; args : Windows.Graphics.Printing3D.IPrint3DTaskRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrint3DManager_add_TaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrint3DManager_add_TaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4656,7 +4656,7 @@ package Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3DMeshVerificationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4671,7 +4671,7 @@ package Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPrinting3D3MFPackage_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPrinting3D3MFPackage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPrinting3D3MFPackage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4686,7 +4686,7 @@ package Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPrinting3DModel_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3DModel ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPrinting3DModel_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPrinting3DModel_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

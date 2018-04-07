@@ -1685,7 +1685,7 @@ package Windows.Media.Editing is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMediaClip_Interface(Callback : access procedure (asyncInfo : Windows.Media.Editing.IAsyncOperation_IMediaClip ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaClip_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaClip_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1700,7 +1700,7 @@ package Windows.Media.Editing is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMediaComposition_Interface(Callback : access procedure (asyncInfo : Windows.Media.Editing.IAsyncOperation_IMediaComposition ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaComposition_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaComposition_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1715,7 +1715,7 @@ package Windows.Media.Editing is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBackgroundAudioTrack_Interface(Callback : access procedure (asyncInfo : Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBackgroundAudioTrack_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBackgroundAudioTrack_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -34,11 +34,11 @@ package body Windows.UI.Composition is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_ICompositionCapabilities_add_Changed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICompositionCapabilities_add_Changed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICompositionCapabilities_add_Changed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -69,11 +69,11 @@ package body Windows.UI.Composition is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICompositionCommitBatch_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICompositionCommitBatch_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICompositionCommitBatch_add_Completed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -104,11 +104,11 @@ package body Windows.UI.Composition is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -139,11 +139,11 @@ package body Windows.UI.Composition is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICompositionScopedBatch_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICompositionScopedBatch_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICompositionScopedBatch_add_Completed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

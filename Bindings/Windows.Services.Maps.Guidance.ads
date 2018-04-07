@@ -1438,7 +1438,7 @@ package Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Services.Maps.Guidance.IGuidanceUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1453,7 +1453,7 @@ package Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGuidanceNavigator_add_DestinationReached_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_DestinationReached_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_DestinationReached_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1468,7 +1468,7 @@ package Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGuidanceNavigator_add_Rerouting_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_Rerouting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_Rerouting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1483,7 +1483,7 @@ package Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGuidanceNavigator_add_Rerouted_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Services.Maps.Guidance.IGuidanceReroutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_Rerouted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_Rerouted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1498,7 +1498,7 @@ package Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGuidanceNavigator_add_RerouteFailed_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_RerouteFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_RerouteFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1513,7 +1513,7 @@ package Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGuidanceNavigator_add_UserLocationLost_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_UserLocationLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_UserLocationLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1528,7 +1528,7 @@ package Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1543,7 +1543,7 @@ package Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Services.Maps.Guidance.IGuidanceAudioNotificationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

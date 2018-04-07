@@ -30,11 +30,11 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IAppInstallItem_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppInstallItem_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppInstallItem_add_Completed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -65,11 +65,11 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppInstallItem_add_StatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppInstallItem_add_StatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppInstallItem_add_StatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -100,11 +100,11 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppInstallManager_add_ItemCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppInstallManager_add_ItemCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppInstallManager_add_ItemCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -135,11 +135,11 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppInstallManager_add_ItemStatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -170,11 +170,11 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAppInstallItem_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IAppInstallItem_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IAppInstallItem or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -205,11 +205,11 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGetEntitlementResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGetEntitlementResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGetEntitlementResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

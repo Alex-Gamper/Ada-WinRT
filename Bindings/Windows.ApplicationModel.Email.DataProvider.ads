@@ -1382,7 +1382,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1397,7 +1397,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1412,7 +1412,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1427,7 +1427,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxCreateFolderRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1442,7 +1442,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDeleteFolderRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1457,7 +1457,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1472,7 +1472,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1487,7 +1487,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1502,7 +1502,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxForwardMeetingRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1517,7 +1517,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1532,7 +1532,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1547,7 +1547,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1562,7 +1562,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxResolveRecipientsRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1577,7 +1577,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1592,7 +1592,7 @@ package Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

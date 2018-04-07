@@ -1067,7 +1067,7 @@ package Windows.Devices.WiFiDirect is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWiFiDirectDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFiDirect.IAsyncOperation_IWiFiDirectDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiDirectDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiDirectDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1082,7 +1082,7 @@ package Windows.Devices.WiFiDirect is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.IWiFiDirectDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1097,7 +1097,7 @@ package Windows.Devices.WiFiDirect is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisher ; args : Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisherStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1112,7 +1112,7 @@ package Windows.Devices.WiFiDirect is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiDirectConnectionListener_add_ConnectionRequested_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.IWiFiDirectConnectionListener ; args : Windows.Devices.WiFiDirect.IWiFiDirectConnectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectConnectionListener_add_ConnectionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectConnectionListener_add_ConnectionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

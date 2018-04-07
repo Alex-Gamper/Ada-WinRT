@@ -152,7 +152,7 @@ package Windows is
    (
       This       : access IUnknown_Base_Interface;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : access IUnknown_Base
+      pvObject   : not null access IUnknown_Base
    )
    return Windows.HResult is abstract;
    
@@ -180,7 +180,7 @@ package Windows is
    (
       This       : access IMulticastDelegate_Interface;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : access IUnknown_Base
+      pvObject   : not null access IUnknown_Base
    )
    return Windows.HResult;
    

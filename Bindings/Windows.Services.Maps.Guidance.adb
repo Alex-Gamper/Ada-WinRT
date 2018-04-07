@@ -31,11 +31,11 @@ package body Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -66,11 +66,11 @@ package body Windows.Services.Maps.Guidance is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_DestinationReached_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_DestinationReached_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGuidanceNavigator_add_DestinationReached or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -101,11 +101,11 @@ package body Windows.Services.Maps.Guidance is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_Rerouting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_Rerouting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGuidanceNavigator_add_Rerouting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -136,11 +136,11 @@ package body Windows.Services.Maps.Guidance is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_Rerouted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_Rerouted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGuidanceNavigator_add_Rerouted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -171,11 +171,11 @@ package body Windows.Services.Maps.Guidance is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_RerouteFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_RerouteFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGuidanceNavigator_add_RerouteFailed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -206,11 +206,11 @@ package body Windows.Services.Maps.Guidance is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_UserLocationLost_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_UserLocationLost_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGuidanceNavigator_add_UserLocationLost or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -241,11 +241,11 @@ package body Windows.Services.Maps.Guidance is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -276,11 +276,11 @@ package body Windows.Services.Maps.Guidance is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

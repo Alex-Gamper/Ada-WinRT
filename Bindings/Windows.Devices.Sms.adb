@@ -29,11 +29,11 @@ package body Windows.Devices.Sms is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access SmsMessageReceivedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SmsMessageReceivedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SmsMessageReceivedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -64,11 +64,11 @@ package body Windows.Devices.Sms is
       return Hr;
    end;
    
-   function QueryInterface(This : access SmsDeviceStatusChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SmsDeviceStatusChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SmsDeviceStatusChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -98,11 +98,11 @@ package body Windows.Devices.Sms is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmsMessage_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmsMessage_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmsMessage or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -133,11 +133,11 @@ package body Windows.Devices.Sms is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmsDevice_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmsDevice_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmsDevice or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -168,11 +168,11 @@ package body Windows.Devices.Sms is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmsSendMessageResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmsSendMessageResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmsSendMessageResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -203,11 +203,11 @@ package body Windows.Devices.Sms is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -238,11 +238,11 @@ package body Windows.Devices.Sms is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISmsMessageRegistration_add_MessageReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISmsMessageRegistration_add_MessageReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISmsMessageRegistration_add_MessageReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

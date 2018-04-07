@@ -810,7 +810,7 @@ package Windows.Security.Authentication.Identity.Provider is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -825,7 +825,7 @@ package Windows.Security.Authentication.Identity.Provider is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -840,7 +840,7 @@ package Windows.Security.Authentication.Identity.Provider is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -855,7 +855,7 @@ package Windows.Security.Authentication.Identity.Provider is
    ------------------------------------------------------------------------
    type EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -870,7 +870,7 @@ package Windows.Security.Authentication.Identity.Provider is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -885,7 +885,7 @@ package Windows.Security.Authentication.Identity.Provider is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -383,7 +383,7 @@ package Windows.Storage.AccessCache is
    ------------------------------------------------------------------------
    type TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved_Interface(Callback : access procedure (sender : Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList ; args : Windows.Storage.AccessCache.IItemRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

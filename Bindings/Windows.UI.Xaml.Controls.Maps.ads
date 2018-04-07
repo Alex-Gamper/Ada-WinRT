@@ -6135,7 +6135,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMapModel3D_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IMapModel3D ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMapModel3D_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMapModel3D_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6150,7 +6150,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapScene_add_TargetCameraChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapScene ; args : Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapScene_add_TargetCameraChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapScene_add_TargetCameraChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6165,7 +6165,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IStreetsidePanorama_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStreetsidePanorama_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStreetsidePanorama_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6180,7 +6180,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSource ; args : Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6195,7 +6195,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource ; args : Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6210,7 +6210,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILocalMapTileDataSource_add_UriRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource ; args : Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILocalMapTileDataSource_add_UriRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILocalMapTileDataSource_add_UriRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6225,7 +6225,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6240,7 +6240,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6255,7 +6255,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6270,7 +6270,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapElementsLayer_add_MapContextRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapContextRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapContextRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6285,7 +6285,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl_add_CenterChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_CenterChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_CenterChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6300,7 +6300,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl_add_HeadingChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_HeadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_HeadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6315,7 +6315,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6330,7 +6330,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl_add_MapDoubleTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_MapDoubleTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_MapDoubleTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6345,7 +6345,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl_add_MapHolding_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_MapHolding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_MapHolding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6360,7 +6360,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl_add_MapTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_MapTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_MapTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6375,7 +6375,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl_add_PitchChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_PitchChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_PitchChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6390,7 +6390,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl_add_TransformOriginChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_TransformOriginChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_TransformOriginChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6405,7 +6405,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6420,7 +6420,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl2_add_MapElementClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_MapElementClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_MapElementClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6435,7 +6435,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6450,7 +6450,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl2_add_MapElementPointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_MapElementPointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_MapElementPointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6465,7 +6465,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6480,7 +6480,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl2_add_ActualCameraChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_ActualCameraChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_ActualCameraChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6495,7 +6495,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6510,7 +6510,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl2_add_CustomExperienceChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_CustomExperienceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_CustomExperienceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6525,7 +6525,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl3_add_MapRightTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl3_add_MapRightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl3_add_MapRightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6540,7 +6540,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControl5_add_MapContextRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl5_add_MapContextRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControl5_add_MapContextRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6555,7 +6555,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6570,7 +6570,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6585,7 +6585,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6600,7 +6600,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6615,7 +6615,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6630,7 +6630,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6645,7 +6645,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6660,7 +6660,7 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

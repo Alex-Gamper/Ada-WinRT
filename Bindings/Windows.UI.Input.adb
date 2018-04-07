@@ -32,11 +32,11 @@ package body Windows.UI.Input is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IEdgeGesture_add_Starting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEdgeGesture_add_Starting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEdgeGesture_add_Starting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -67,11 +67,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEdgeGesture_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEdgeGesture_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEdgeGesture_add_Completed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -102,11 +102,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEdgeGesture_add_Canceled_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEdgeGesture_add_Canceled_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEdgeGesture_add_Canceled or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -137,11 +137,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -172,11 +172,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -207,11 +207,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_Tapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_Tapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGestureRecognizer_add_Tapped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -242,11 +242,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_RightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_RightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGestureRecognizer_add_RightTapped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -277,11 +277,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_Holding_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_Holding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGestureRecognizer_add_Holding or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -312,11 +312,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_Dragging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_Dragging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGestureRecognizer_add_Dragging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -347,11 +347,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_ManipulationStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_ManipulationStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGestureRecognizer_add_ManipulationStarted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -382,11 +382,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -417,11 +417,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -452,11 +452,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -487,11 +487,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_CrossSliding_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGestureRecognizer_add_CrossSliding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGestureRecognizer_add_CrossSliding or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -522,11 +522,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ScreenContactStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ScreenContactStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController_add_ScreenContactStarted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -557,11 +557,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ScreenContactEnded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ScreenContactEnded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController_add_ScreenContactEnded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -592,11 +592,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ScreenContactContinued_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ScreenContactContinued_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController_add_ScreenContactContinued or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -627,11 +627,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ControlLost_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ControlLost_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController_add_ControlLost or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -662,11 +662,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController_add_RotationChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController_add_RotationChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController_add_RotationChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -697,11 +697,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ButtonClicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ButtonClicked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController_add_ButtonClicked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -732,11 +732,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ControlAcquired_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController_add_ControlAcquired_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController_add_ControlAcquired or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -767,11 +767,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController2_add_ButtonPressed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController2_add_ButtonPressed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController2_add_ButtonPressed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -802,11 +802,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController2_add_ButtonHolding_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController2_add_ButtonHolding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController2_add_ButtonHolding or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -837,11 +837,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialController2_add_ButtonReleased_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialController2_add_ButtonReleased_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialController2_add_ButtonReleased or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -872,11 +872,11 @@ package body Windows.UI.Input is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRadialControllerMenuItem_add_Invoked or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

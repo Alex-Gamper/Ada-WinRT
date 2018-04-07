@@ -206,7 +206,7 @@ package Windows.System.Threading is
    ------------------------------------------------------------------------
    type TimerElapsedHandler_Interface(Callback : access procedure (timer : Windows.System.Threading.IThreadPoolTimer)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TimerElapsedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TimerElapsedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -220,7 +220,7 @@ package Windows.System.Threading is
    ------------------------------------------------------------------------
    type TimerDestroyedHandler_Interface(Callback : access procedure (timer : Windows.System.Threading.IThreadPoolTimer)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TimerDestroyedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TimerDestroyedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -234,7 +234,7 @@ package Windows.System.Threading is
    ------------------------------------------------------------------------
    type WorkItemHandler_Interface(Callback : access procedure (operation : Windows.Foundation.IAsyncAction)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access WorkItemHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access WorkItemHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

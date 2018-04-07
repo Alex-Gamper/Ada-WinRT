@@ -1791,7 +1791,7 @@ package Windows.ApplicationModel.Payments is
    ------------------------------------------------------------------------
    type PaymentRequestChangedHandler_Interface(Callback : access procedure (paymentRequest : Windows.ApplicationModel.Payments.IPaymentRequest ; args : Windows.ApplicationModel.Payments.IPaymentRequestChangedArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access PaymentRequestChangedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access PaymentRequestChangedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1806,7 +1806,7 @@ package Windows.ApplicationModel.Payments is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPaymentRequestChangedResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentRequestChangedResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentRequestChangedResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentRequestChangedResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1821,7 +1821,7 @@ package Windows.ApplicationModel.Payments is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPaymentRequestSubmitResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentRequestSubmitResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentRequestSubmitResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentRequestSubmitResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1836,7 +1836,7 @@ package Windows.ApplicationModel.Payments is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPaymentCanMakePaymentResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentCanMakePaymentResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentCanMakePaymentResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentCanMakePaymentResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

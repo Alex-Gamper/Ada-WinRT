@@ -604,7 +604,7 @@ package Windows.Devices.Bluetooth.Rfcomm is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRfcommDeviceServicesResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceServicesResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRfcommDeviceServicesResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRfcommDeviceServicesResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -619,7 +619,7 @@ package Windows.Devices.Bluetooth.Rfcomm is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRfcommDeviceService_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRfcommDeviceService_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRfcommDeviceService_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -634,7 +634,7 @@ package Windows.Devices.Bluetooth.Rfcomm is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRfcommServiceProvider_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommServiceProvider ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRfcommServiceProvider_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRfcommServiceProvider_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

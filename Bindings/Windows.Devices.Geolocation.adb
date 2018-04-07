@@ -28,11 +28,11 @@ package body Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGeopoint_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGeopoint_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGeopoint or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -63,11 +63,11 @@ package body Windows.Devices.Geolocation is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGeoposition_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGeoposition_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGeoposition or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -98,11 +98,11 @@ package body Windows.Devices.Geolocation is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGeolocator_add_PositionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGeolocator_add_PositionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGeolocator_add_PositionChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -133,11 +133,11 @@ package body Windows.Devices.Geolocation is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGeolocator_add_StatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGeolocator_add_StatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGeolocator_add_StatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -168,11 +168,11 @@ package body Windows.Devices.Geolocation is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_GeolocationAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_GeolocationAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_GeolocationAccessStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -203,11 +203,11 @@ package body Windows.Devices.Geolocation is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -238,11 +238,11 @@ package body Windows.Devices.Geolocation is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGeovisit_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGeovisit_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGeovisit or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

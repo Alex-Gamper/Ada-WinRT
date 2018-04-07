@@ -31,11 +31,11 @@ package body Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IPhoneLine_add_LineChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPhoneLine_add_LineChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPhoneLine_add_LineChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -66,11 +66,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneLine_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneLine_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPhoneLine or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -101,11 +101,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_LineAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_LineAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPhoneLineWatcher_add_LineAdded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -136,11 +136,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_LineRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_LineRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPhoneLineWatcher_add_LineRemoved or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -171,11 +171,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_LineUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_LineUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPhoneLineWatcher_add_LineUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -206,11 +206,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -241,11 +241,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPhoneLineWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPhoneLineWatcher_add_Stopped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -276,11 +276,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneCallStore_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneCallStore_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPhoneCallStore or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -311,11 +311,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -346,11 +346,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_EndRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_EndRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IVoipPhoneCall_add_EndRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -381,11 +381,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_HoldRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_HoldRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IVoipPhoneCall_add_HoldRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -416,11 +416,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IVoipPhoneCall_add_ResumeRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -451,11 +451,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IVoipPhoneCall_add_AnswerRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -486,11 +486,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_RejectRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IVoipPhoneCall_add_RejectRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IVoipPhoneCall_add_RejectRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -521,11 +521,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -556,11 +556,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -591,11 +591,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ILockScreenCallUI_add_EndRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -626,11 +626,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ILockScreenCallUI_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ILockScreenCallUI_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ILockScreenCallUI_add_Closed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -661,11 +661,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPhoneCallHistoryEntry or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -696,11 +696,11 @@ package body Windows.ApplicationModel.Calls is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPhoneCallHistoryStore or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

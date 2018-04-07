@@ -1414,7 +1414,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMediaFrameReader_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaFrameReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaFrameReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1429,7 +1429,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMultiSourceMediaFrameReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1444,7 +1444,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMediaFrameSourceGroup_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameSourceGroup ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaFrameSourceGroup_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaFrameSourceGroup_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1459,7 +1459,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaFrameSource_add_FormatChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.Frames.IMediaFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaFrameSource_add_FormatChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaFrameSource_add_FormatChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1474,7 +1474,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.Frames.IMediaFrameReader ; args : Windows.Media.Capture.Frames.IMediaFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1489,7 +1489,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_MediaFrameReaderStartStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MediaFrameReaderStartStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MediaFrameReaderStartStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_MediaFrameReaderStartStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1504,7 +1504,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.Frames.IMultiSourceMediaFrameReader ; args : Windows.Media.Capture.Frames.IMultiSourceMediaFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1519,7 +1519,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MultiSourceMediaFrameReaderStartStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1534,7 +1534,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameSourceGetPropertyResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1549,7 +1549,7 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_MediaFrameSourceSetPropertyStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MediaFrameSourceSetPropertyStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MediaFrameSourceSetPropertyStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_MediaFrameSourceSetPropertyStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

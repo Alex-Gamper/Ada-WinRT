@@ -551,7 +551,7 @@ package Windows.Graphics.Printing.Workflow is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSetupRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -566,7 +566,7 @@ package Windows.Graphics.Printing.Workflow is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintWorkflowBackgroundSession_add_Submitted_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowBackgroundSession_add_Submitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowBackgroundSession_add_Submitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -581,7 +581,7 @@ package Windows.Graphics.Printing.Workflow is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintWorkflowForegroundSession_add_SetupRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSetupRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowForegroundSession_add_SetupRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowForegroundSession_add_SetupRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -596,7 +596,7 @@ package Windows.Graphics.Printing.Workflow is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintWorkflowForegroundSession_add_XpsDataAvailable_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowForegroundSession_add_XpsDataAvailable_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowForegroundSession_add_XpsDataAvailable_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

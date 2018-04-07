@@ -1320,7 +1320,7 @@ package Windows.ApplicationModel.UserDataTasks is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUserDataTaskStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTaskStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataTaskStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataTaskStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1335,7 +1335,7 @@ package Windows.ApplicationModel.UserDataTasks is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUserDataTaskList_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTaskList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataTaskList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataTaskList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1350,7 +1350,7 @@ package Windows.ApplicationModel.UserDataTasks is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUserDataTask_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTask ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataTask_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataTask_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1365,7 +1365,7 @@ package Windows.ApplicationModel.UserDataTasks is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUserDataTaskBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTaskBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataTaskBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataTaskBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1380,7 +1380,7 @@ package Windows.ApplicationModel.UserDataTasks is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserDataTaskListSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.IUserDataTaskListSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskListSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskListSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

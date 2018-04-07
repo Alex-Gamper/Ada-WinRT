@@ -342,7 +342,7 @@ package Windows.Media.Transcoding is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_TranscodeFailureReason_Interface(Callback : access procedure (asyncInfo : Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_TranscodeFailureReason_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_TranscodeFailureReason_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -357,7 +357,7 @@ package Windows.Media.Transcoding is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPrepareTranscodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Transcoding.IAsyncOperation_IPrepareTranscodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPrepareTranscodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPrepareTranscodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

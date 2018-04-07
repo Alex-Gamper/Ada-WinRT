@@ -3146,7 +3146,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IChatMessage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatMessage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatMessage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3161,7 +3161,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type TypedEventHandler_IChatMessageStore_add_MessageChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IChatMessageStore ; args : Windows.ApplicationModel.Chat.IChatMessageChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IChatMessageStore_add_MessageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IChatMessageStore_add_MessageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3176,7 +3176,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IChatConversation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatConversation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatConversation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatConversation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3191,7 +3191,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type TypedEventHandler_IChatMessageStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IChatMessageStore ; args : Windows.ApplicationModel.Chat.IChatMessageStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IChatMessageStore2_add_StoreChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IChatMessageStore2_add_StoreChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3206,7 +3206,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IChatMessageStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessageStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatMessageStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatMessageStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3221,7 +3221,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IChatMessageTransport_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessageTransport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatMessageTransport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatMessageTransport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3236,7 +3236,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IChatSyncManager_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatSyncManager_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatSyncManager_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3251,7 +3251,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IChatCapabilities_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatCapabilities_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IChatCapabilities_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3266,7 +3266,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IChatConversation ; args : Windows.ApplicationModel.Chat.IRemoteParticipantComposingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3281,7 +3281,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRcsTransport_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IRcsTransport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRcsTransport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRcsTransport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3296,7 +3296,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IRcsTransport ; args : Windows.ApplicationModel.Chat.IRcsServiceKindSupportedChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3311,7 +3311,7 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRcsEndUserMessageManager_add_MessageAvailableChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IRcsEndUserMessageManager ; args : Windows.ApplicationModel.Chat.IRcsEndUserMessageAvailableEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRcsEndUserMessageManager_add_MessageAvailableChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRcsEndUserMessageManager_add_MessageAvailableChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

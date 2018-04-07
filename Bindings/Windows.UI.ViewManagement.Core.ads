@@ -283,7 +283,7 @@ package Windows.UI.ViewManagement.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.Core.ICoreInputView ; args : Windows.UI.ViewManagement.Core.ICoreInputViewOcclusionsChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

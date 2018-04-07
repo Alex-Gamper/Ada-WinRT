@@ -30,11 +30,11 @@ package body Windows.Devices.Bluetooth.Advertisement is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Received_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Received_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Received or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -65,11 +65,11 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Stopped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -100,11 +100,11 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBluetoothLEAdvertisementPublisher_add_StatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBluetoothLEAdvertisementPublisher_add_StatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBluetoothLEAdvertisementPublisher_add_StatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

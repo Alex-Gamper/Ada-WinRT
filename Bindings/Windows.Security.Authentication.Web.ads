@@ -254,7 +254,7 @@ package Windows.Security.Authentication.Web is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWebAuthenticationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Web.IAsyncOperation_IWebAuthenticationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebAuthenticationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebAuthenticationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

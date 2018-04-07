@@ -2541,7 +2541,7 @@ package Windows.Web.Syndication is
    ------------------------------------------------------------------------
    type AsyncActionProgressHandler_TransferProgress_Interface(Callback : access procedure (asyncInfo : Windows.Web.Syndication.IAsyncActionWithProgress_TransferProgress ; progressInfo : Windows.Web.Syndication.TransferProgress)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncActionProgressHandler_TransferProgress_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncActionProgressHandler_TransferProgress_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2556,7 +2556,7 @@ package Windows.Web.Syndication is
    ------------------------------------------------------------------------
    type AsyncActionWithProgressCompletedHandler_TransferProgress_Interface(Callback : access procedure (asyncInfo : Windows.Web.Syndication.IAsyncActionWithProgress_TransferProgress ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncActionWithProgressCompletedHandler_TransferProgress_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncActionWithProgressCompletedHandler_TransferProgress_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

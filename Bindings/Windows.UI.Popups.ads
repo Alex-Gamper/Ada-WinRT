@@ -560,7 +560,7 @@ package Windows.UI.Popups is
    ------------------------------------------------------------------------
    type UICommandInvokedHandler_Interface(Callback : access procedure (command : Windows.UI.Popups.IUICommand)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access UICommandInvokedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access UICommandInvokedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -574,7 +574,7 @@ package Windows.UI.Popups is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUICommand_Interface(Callback : access procedure (asyncInfo : Windows.UI.Popups.IAsyncOperation_IUICommand ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUICommand_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUICommand_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

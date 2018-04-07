@@ -2281,7 +2281,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type DispatchedHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DispatchedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DispatchedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2294,7 +2294,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type IdleDispatchedHandler_Interface(Callback : access procedure (e : Windows.UI.Core.IIdleDispatchedHandlerArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access IdleDispatchedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access IdleDispatchedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2308,7 +2308,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type EventHandler_IBackRequestedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IBackRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IBackRequestedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IBackRequestedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2323,7 +2323,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_Activated_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IWindowActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_Activated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_Activated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2338,7 +2338,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_AutomationProviderRequested_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IAutomationProviderRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_AutomationProviderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_AutomationProviderRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2353,7 +2353,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_CharacterReceived_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ICharacterReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_CharacterReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_CharacterReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2368,7 +2368,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_Closed_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ICoreWindowEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2383,7 +2383,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_InputEnabled_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IInputEnabledEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_InputEnabled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_InputEnabled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2398,7 +2398,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_KeyDown_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_KeyDown_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_KeyDown_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2413,7 +2413,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_KeyUp_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_KeyUp_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_KeyUp_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2428,7 +2428,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_PointerCaptureLost_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerCaptureLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerCaptureLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2443,7 +2443,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_PointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2458,7 +2458,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_PointerExited_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2473,7 +2473,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_PointerMoved_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerMoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerMoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2488,7 +2488,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_PointerPressed_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerPressed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerPressed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2503,7 +2503,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_PointerReleased_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2518,7 +2518,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_TouchHitTesting_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ITouchHitTestingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_TouchHitTesting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_TouchHitTesting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2533,7 +2533,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_PointerWheelChanged_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerWheelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_PointerWheelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2548,7 +2548,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_SizeChanged_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IWindowSizeChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_SizeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_SizeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2563,7 +2563,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow_add_VisibilityChanged_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IVisibilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_VisibilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow_add_VisibilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2578,7 +2578,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow3_add_ClosestInteractiveBoundsRequested_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IClosestInteractiveBoundsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow3_add_ClosestInteractiveBoundsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow3_add_ClosestInteractiveBoundsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2593,7 +2593,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow4_add_ResizeStarted_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow4_add_ResizeStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow4_add_ResizeStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2608,7 +2608,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindow4_add_ResizeCompleted_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindow4_add_ResizeCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindow4_add_ResizeCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2623,7 +2623,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreAcceleratorKeys_add_AcceleratorKeyActivated_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreDispatcher ; args : Windows.UI.Core.IAcceleratorKeyEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreAcceleratorKeys_add_AcceleratorKeyActivated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreAcceleratorKeys_add_AcceleratorKeyActivated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2638,7 +2638,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreInputSourceBase_add_InputEnabled_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IInputEnabledEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInputSourceBase_add_InputEnabled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreInputSourceBase_add_InputEnabled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2653,7 +2653,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerInputSource_add_PointerCaptureLost_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerCaptureLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerCaptureLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2668,7 +2668,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerInputSource_add_PointerEntered_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2683,7 +2683,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerInputSource_add_PointerExited_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2698,7 +2698,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerInputSource_add_PointerMoved_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerMoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerMoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2713,7 +2713,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerInputSource_add_PointerPressed_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerPressed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerPressed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2728,7 +2728,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerInputSource_add_PointerReleased_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2743,7 +2743,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerInputSource_add_PointerWheelChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerWheelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerInputSource_add_PointerWheelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2758,7 +2758,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreKeyboardInputSource_add_CharacterReceived_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.ICharacterReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreKeyboardInputSource_add_CharacterReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreKeyboardInputSource_add_CharacterReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2773,7 +2773,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreKeyboardInputSource_add_KeyDown_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreKeyboardInputSource_add_KeyDown_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreKeyboardInputSource_add_KeyDown_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2788,7 +2788,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreKeyboardInputSource_add_KeyUp_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreKeyboardInputSource_add_KeyUp_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreKeyboardInputSource_add_KeyUp_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2803,7 +2803,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreComponentFocusable_add_GotFocus_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.ICoreWindowEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreComponentFocusable_add_GotFocus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreComponentFocusable_add_GotFocus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2818,7 +2818,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreComponentFocusable_add_LostFocus_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.ICoreWindowEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreComponentFocusable_add_LostFocus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreComponentFocusable_add_LostFocus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2833,7 +2833,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreTouchHitTesting_add_TouchHitTesting_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.ITouchHitTestingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTouchHitTesting_add_TouchHitTesting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreTouchHitTesting_add_TouchHitTesting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2848,7 +2848,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreClosestInteractiveBoundsRequested_add_ClosestInteractiveBoundsRequested_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreInputSourceBase ; args : Windows.UI.Core.IClosestInteractiveBoundsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreClosestInteractiveBoundsRequested_add_ClosestInteractiveBoundsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreClosestInteractiveBoundsRequested_add_ClosestInteractiveBoundsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2863,7 +2863,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerRedirector_add_PointerRoutedAway_Interface(Callback : access procedure (sender : Windows.UI.Core.ICorePointerRedirector ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedAway_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedAway_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2878,7 +2878,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerRedirector_add_PointerRoutedTo_Interface(Callback : access procedure (sender : Windows.UI.Core.ICorePointerRedirector ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedTo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedTo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2893,7 +2893,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICorePointerRedirector_add_PointerRoutedReleased_Interface(Callback : access procedure (sender : Windows.UI.Core.ICorePointerRedirector ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2908,7 +2908,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindowDialog_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ICoreWindowPopupShowingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindowDialog_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindowDialog_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2923,7 +2923,7 @@ package Windows.UI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreWindowFlyout_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ICoreWindowPopupShowingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWindowFlyout_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreWindowFlyout_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

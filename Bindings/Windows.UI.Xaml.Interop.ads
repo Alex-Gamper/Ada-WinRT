@@ -376,7 +376,7 @@ package Windows.UI.Xaml.Interop is
    ------------------------------------------------------------------------
    type BindableVectorChangedEventHandler_Interface(Callback : access procedure (vector : Windows.UI.Xaml.Interop.IBindableObservableVector ; e : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access BindableVectorChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access BindableVectorChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -391,7 +391,7 @@ package Windows.UI.Xaml.Interop is
    ------------------------------------------------------------------------
    type NotifyCollectionChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NotifyCollectionChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access NotifyCollectionChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

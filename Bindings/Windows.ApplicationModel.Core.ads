@@ -864,7 +864,7 @@ package Windows.ApplicationModel.Core is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_AppRestartFailureReason_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_AppRestartFailureReason_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_AppRestartFailureReason_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -879,7 +879,7 @@ package Windows.ApplicationModel.Core is
    ------------------------------------------------------------------------
    type EventHandler_IUnhandledErrorDetectedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.Core.IUnhandledErrorDetectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IUnhandledErrorDetectedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IUnhandledErrorDetectedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -894,7 +894,7 @@ package Windows.ApplicationModel.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreApplicationView_add_Activated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationView ; args : Windows.ApplicationModel.Activation.IActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationView_add_Activated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationView_add_Activated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -909,7 +909,7 @@ package Windows.ApplicationModel.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreApplicationView3_add_HostedViewClosing_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationView ; args : Windows.ApplicationModel.Core.IHostedViewClosingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationView3_add_HostedViewClosing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationView3_add_HostedViewClosing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -924,7 +924,7 @@ package Windows.ApplicationModel.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -939,7 +939,7 @@ package Windows.ApplicationModel.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

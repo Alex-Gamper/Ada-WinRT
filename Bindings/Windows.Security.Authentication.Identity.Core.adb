@@ -28,11 +28,11 @@ package body Windows.Security.Authentication.Identity.Core is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -63,11 +63,11 @@ package body Windows.Security.Authentication.Identity.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -98,11 +98,11 @@ package body Windows.Security.Authentication.Identity.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -133,11 +133,11 @@ package body Windows.Security.Authentication.Identity.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

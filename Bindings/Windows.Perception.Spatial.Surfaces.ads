@@ -402,7 +402,7 @@ package Windows.Perception.Spatial.Surfaces is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISpatialSurfaceMesh_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.Surfaces.IAsyncOperation_ISpatialSurfaceMesh ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpatialSurfaceMesh_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpatialSurfaceMesh_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -417,7 +417,7 @@ package Windows.Perception.Spatial.Surfaces is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialSurfaceObserver_add_ObservedSurfacesChanged_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialSurfaceObserver_add_ObservedSurfacesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialSurfaceObserver_add_ObservedSurfacesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

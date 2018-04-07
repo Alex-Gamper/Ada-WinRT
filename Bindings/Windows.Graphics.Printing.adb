@@ -30,11 +30,11 @@ package body Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access PrintTaskSourceRequestedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access PrintTaskSourceRequestedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_PrintTaskSourceRequestedHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -64,11 +64,11 @@ package body Windows.Graphics.Printing is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrintTask_add_Previewing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrintTask_add_Previewing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrintTask_add_Previewing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -99,11 +99,11 @@ package body Windows.Graphics.Printing is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrintTask_add_Submitting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrintTask_add_Submitting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrintTask_add_Submitting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -134,11 +134,11 @@ package body Windows.Graphics.Printing is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrintTask_add_Progressing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrintTask_add_Progressing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrintTask_add_Progressing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -169,11 +169,11 @@ package body Windows.Graphics.Printing is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrintTask_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrintTask_add_Completed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrintTask_add_Completed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -204,11 +204,11 @@ package body Windows.Graphics.Printing is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrintManager_add_PrintTaskRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrintManager_add_PrintTaskRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrintManager_add_PrintTaskRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

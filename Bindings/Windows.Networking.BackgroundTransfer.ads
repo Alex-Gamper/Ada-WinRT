@@ -1765,7 +1765,7 @@ package Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1780,7 +1780,7 @@ package Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDownloadOperation_Interface(Callback : access procedure (asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IDownloadOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDownloadOperation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDownloadOperation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1795,7 +1795,7 @@ package Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUploadOperation_Interface(Callback : access procedure (asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IUploadOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUploadOperation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUploadOperation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1810,7 +1810,7 @@ package Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDownloadOperation3_add_RangesDownloaded_Interface(Callback : access procedure (sender : Windows.Networking.BackgroundTransfer.IDownloadOperation ; args : Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDownloadOperation3_add_RangesDownloaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDownloadOperation3_add_RangesDownloaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

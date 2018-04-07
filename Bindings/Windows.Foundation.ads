@@ -2608,7 +2608,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncActionCompletedHandler_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncAction ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncActionCompletedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncActionCompletedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2623,7 +2623,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type DeferralCompletedHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DeferralCompletedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DeferralCompletedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2636,7 +2636,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_Object_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Object ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_Object_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_Object_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2651,7 +2651,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_UInt8_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt8 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_UInt8_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_UInt8_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2666,7 +2666,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_UInt16_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt16 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_UInt16_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_UInt16_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2681,7 +2681,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_UInt32_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt32 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_UInt32_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_UInt32_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2696,7 +2696,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_UInt64_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_UInt64_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2711,7 +2711,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_Int8_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int8 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_Int8_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_Int8_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2726,7 +2726,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_Int16_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int16 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_Int16_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_Int16_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2741,7 +2741,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_Int32_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int32 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_Int32_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_Int32_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2756,7 +2756,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_Int64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_Int64_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_Int64_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2771,7 +2771,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_Guid_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Guid ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_Guid_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_Guid_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2786,7 +2786,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_Single_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Single ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_Single_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_Single_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2801,7 +2801,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Double ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_Double_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_Double_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2816,7 +2816,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_String_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_String ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_String_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_String_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2831,7 +2831,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_Boolean_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Boolean ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_Boolean_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_Boolean_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2846,7 +2846,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_DateTime_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_DateTime ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_DateTime_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_DateTime_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2861,7 +2861,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_TimeSpan_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_TimeSpan ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_TimeSpan_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_TimeSpan_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2876,7 +2876,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type EventHandler_Object_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_Object_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_Object_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2891,7 +2891,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMemoryBufferReference_add_Closed_Interface(Callback : access procedure (sender : Windows.Foundation.IMemoryBufferReference ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMemoryBufferReference_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMemoryBufferReference_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2906,7 +2906,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUriRuntimeClass_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_IUriRuntimeClass ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUriRuntimeClass_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUriRuntimeClass_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2921,7 +2921,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncActionProgressHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double ; progressInfo : Windows.Double)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncActionProgressHandler_Double_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncActionProgressHandler_Double_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2936,7 +2936,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncActionWithProgressCompletedHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncActionWithProgressCompletedHandler_Double_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncActionWithProgressCompletedHandler_Double_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2951,7 +2951,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncActionProgressHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64 ; progressInfo : Windows.UInt64)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncActionProgressHandler_UInt64_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncActionProgressHandler_UInt64_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2966,7 +2966,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type AsyncActionWithProgressCompletedHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncActionWithProgressCompletedHandler_UInt64_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncActionWithProgressCompletedHandler_UInt64_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2981,7 +2981,7 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    type VectorChangedEventHandler_Object_Interface(Callback : access procedure (sender : Windows.Foundation.IObservableVector_Object ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access VectorChangedEventHandler_Object_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access VectorChangedEventHandler_Object_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

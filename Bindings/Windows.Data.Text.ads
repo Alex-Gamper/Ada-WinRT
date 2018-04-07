@@ -1135,7 +1135,7 @@ package Windows.Data.Text is
    ------------------------------------------------------------------------
    type WordSegmentsTokenizingHandler_Interface(Callback : access procedure (precedingWords : Windows.Data.Text.IIterable_IWordSegment ; words : Windows.Data.Text.IIterable_IWordSegment)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access WordSegmentsTokenizingHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access WordSegmentsTokenizingHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1150,7 +1150,7 @@ package Windows.Data.Text is
    ------------------------------------------------------------------------
    type SelectableWordSegmentsTokenizingHandler_Interface(Callback : access procedure (precedingWords : Windows.Data.Text.IIterable_ISelectableWordSegment ; words : Windows.Data.Text.IIterable_ISelectableWordSegment)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SelectableWordSegmentsTokenizingHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access SelectableWordSegmentsTokenizingHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

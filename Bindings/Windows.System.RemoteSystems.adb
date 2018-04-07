@@ -29,11 +29,11 @@ package body Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IRemoteSystem_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IRemoteSystem_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IRemoteSystem or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -64,11 +64,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_RemoteSystemAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_RemoteSystemAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_RemoteSystemAccessStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -99,11 +99,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -134,11 +134,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -169,11 +169,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -204,11 +204,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -239,11 +239,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Added or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -274,11 +274,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -309,11 +309,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -344,11 +344,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -379,11 +379,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -414,11 +414,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -449,11 +449,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -484,11 +484,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -519,11 +519,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -554,11 +554,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSession_add_Disconnected or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -589,11 +589,11 @@ package body Windows.System.RemoteSystems is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

@@ -610,7 +610,7 @@ package Windows.Security.Authentication.OnlineId is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.OnlineId.IAsyncOperation_IOnlineIdSystemTicketResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

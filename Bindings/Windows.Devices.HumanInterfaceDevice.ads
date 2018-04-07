@@ -1318,7 +1318,7 @@ package Windows.Devices.HumanInterfaceDevice is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IHidDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHidDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHidDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1333,7 +1333,7 @@ package Windows.Devices.HumanInterfaceDevice is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IHidInputReport_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidInputReport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHidInputReport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHidInputReport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1348,7 +1348,7 @@ package Windows.Devices.HumanInterfaceDevice is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IHidFeatureReport_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidFeatureReport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHidFeatureReport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHidFeatureReport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1363,7 +1363,7 @@ package Windows.Devices.HumanInterfaceDevice is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHidDevice_add_InputReportReceived_Interface(Callback : access procedure (sender : Windows.Devices.HumanInterfaceDevice.IHidDevice ; args : Windows.Devices.HumanInterfaceDevice.IHidInputReportReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHidDevice_add_InputReportReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHidDevice_add_InputReportReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -30,11 +30,11 @@ package body Windows.Storage.Streams is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -65,11 +65,11 @@ package body Windows.Storage.Streams is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IBuffer_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IBuffer_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IBuffer or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -100,11 +100,11 @@ package body Windows.Storage.Streams is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IRandomAccessStreamReference or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -135,11 +135,11 @@ package body Windows.Storage.Streams is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IRandomAccessStream_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IRandomAccessStream_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IRandomAccessStream or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -170,11 +170,11 @@ package body Windows.Storage.Streams is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IInputStream_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IInputStream_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IInputStream or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -205,11 +205,11 @@ package body Windows.Storage.Streams is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IOutputStream_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IOutputStream_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IOutputStream or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

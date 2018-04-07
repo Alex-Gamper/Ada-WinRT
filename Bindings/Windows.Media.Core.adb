@@ -44,11 +44,11 @@ package body Windows.Media.Core is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaStreamSource_add_Closed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -79,11 +79,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_Starting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_Starting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaStreamSource_add_Starting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -114,11 +114,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_Paused_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_Paused_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaStreamSource_add_Paused or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -149,11 +149,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_SampleRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_SampleRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaStreamSource_add_SampleRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -184,11 +184,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_SwitchStreamsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource_add_SwitchStreamsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaStreamSource_add_SwitchStreamsRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -219,11 +219,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource2_add_SampleRendered_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaStreamSource2_add_SampleRendered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaStreamSource2_add_SampleRendered or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -254,11 +254,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaStreamSample_add_Processed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaStreamSample_add_Processed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaStreamSample_add_Processed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -289,11 +289,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMediaStreamSample_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMediaStreamSample_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMediaStreamSample or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -324,11 +324,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseStreamSource_add_Opened_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseStreamSource_add_Opened_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseStreamSource_add_Opened or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -359,11 +359,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseStreamSource_add_Ended_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseStreamSource_add_Ended_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseStreamSource_add_Ended or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -394,11 +394,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseStreamSource_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseStreamSource_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseStreamSource_add_Closed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -429,11 +429,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_UpdateStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_UpdateStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseSourceBuffer_add_UpdateStarting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -464,11 +464,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_Updated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_Updated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseSourceBuffer_add_Updated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -499,11 +499,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_UpdateEnded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_UpdateEnded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseSourceBuffer_add_UpdateEnded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -534,11 +534,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_ErrorOccurred_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_ErrorOccurred_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseSourceBuffer_add_ErrorOccurred or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -569,11 +569,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_Aborted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseSourceBuffer_add_Aborted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseSourceBuffer_add_Aborted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -604,11 +604,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseSourceBufferList_add_SourceBufferAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseSourceBufferList_add_SourceBufferAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseSourceBufferList_add_SourceBufferAdded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -639,11 +639,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMseSourceBufferList_add_SourceBufferRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMseSourceBufferList_add_SourceBufferRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMseSourceBufferList_add_SourceBufferRemoved or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -674,11 +674,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaSourceAppServiceConnection_add_InitializeMediaStreamSourceRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaSourceAppServiceConnection_add_InitializeMediaStreamSourceRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaSourceAppServiceConnection_add_InitializeMediaStreamSourceRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -709,11 +709,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISceneAnalysisEffect_add_SceneAnalyzed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISceneAnalysisEffect_add_SceneAnalyzed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISceneAnalysisEffect_add_SceneAnalyzed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -744,11 +744,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IFaceDetectionEffect_add_FaceDetected_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IFaceDetectionEffect_add_FaceDetected_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IFaceDetectionEffect_add_FaceDetected or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -779,11 +779,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IVideoStabilizationEffect_add_EnabledChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IVideoStabilizationEffect_add_EnabledChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IVideoStabilizationEffect_add_EnabledChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -814,11 +814,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaBinder_add_Binding_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaBinder_add_Binding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaBinder_add_Binding or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -849,11 +849,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaBindingEventArgs_add_Canceled_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaBindingEventArgs_add_Canceled_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaBindingEventArgs_add_Canceled or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -884,11 +884,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaSource2_add_OpenOperationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaSource2_add_OpenOperationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaSource2_add_OpenOperationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -919,11 +919,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access VectorChangedEventHandler_ITimedTextSource_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access VectorChangedEventHandler_ITimedTextSource_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_VectorChangedEventHandler_ITimedTextSource or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -954,11 +954,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access VectorChangedEventHandler_ITimedMetadataTrack_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access VectorChangedEventHandler_ITimedMetadataTrack_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_VectorChangedEventHandler_ITimedMetadataTrack or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -989,11 +989,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMediaSource3_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMediaSource3_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMediaSource3_add_StateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1024,11 +1024,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISingleSelectMediaTrackList_add_SelectedIndexChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISingleSelectMediaTrackList_add_SelectedIndexChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISingleSelectMediaTrackList_add_SelectedIndexChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1059,11 +1059,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITimedMetadataTrack_add_CueEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITimedMetadataTrack_add_CueEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITimedMetadataTrack_add_CueEntered or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1094,11 +1094,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITimedMetadataTrack_add_CueExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITimedMetadataTrack_add_CueExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITimedMetadataTrack_add_CueExited or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1129,11 +1129,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITimedMetadataTrack_add_TrackFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITimedMetadataTrack_add_TrackFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITimedMetadataTrack_add_TrackFailed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1164,11 +1164,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITimedTextSource_add_Resolved_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ITimedTextSource_add_Resolved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ITimedTextSource_add_Resolved or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1199,11 +1199,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IVideoTrack_add_OpenFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IVideoTrack_add_OpenFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IVideoTrack_add_OpenFailed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1234,11 +1234,11 @@ package body Windows.Media.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAudioTrack_add_OpenFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAudioTrack_add_OpenFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAudioTrack_add_OpenFailed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

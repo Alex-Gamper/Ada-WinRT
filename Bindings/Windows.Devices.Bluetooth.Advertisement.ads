@@ -1566,7 +1566,7 @@ package Windows.Devices.Bluetooth.Advertisement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Received_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher ; args : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Received_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Received_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1581,7 +1581,7 @@ package Windows.Devices.Bluetooth.Advertisement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher ; args : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcherStoppedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1596,7 +1596,7 @@ package Windows.Devices.Bluetooth.Advertisement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBluetoothLEAdvertisementPublisher_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher ; args : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBluetoothLEAdvertisementPublisher_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBluetoothLEAdvertisementPublisher_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

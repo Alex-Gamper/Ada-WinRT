@@ -1172,7 +1172,7 @@ package Windows.Management.Deployment is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPackageVolume_Interface(Callback : access procedure (asyncInfo : Windows.Management.Deployment.IAsyncOperation_IPackageVolume ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPackageVolume_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPackageVolume_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

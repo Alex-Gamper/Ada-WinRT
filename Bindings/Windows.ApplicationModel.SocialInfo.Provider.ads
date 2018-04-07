@@ -290,7 +290,7 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -305,7 +305,7 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -1224,7 +1224,7 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1239,7 +1239,7 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1254,7 +1254,7 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1269,7 +1269,7 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1284,7 +1284,7 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1299,7 +1299,7 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1314,7 +1314,7 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnostics ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -2271,7 +2271,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPhoneLine_add_LineChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLine ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLine_add_LineChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPhoneLine_add_LineChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2286,7 +2286,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPhoneLine_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneLine_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneLine_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2301,7 +2301,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPhoneLineWatcher_add_LineAdded_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_LineAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_LineAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2316,7 +2316,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPhoneLineWatcher_add_LineRemoved_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_LineRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_LineRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2331,7 +2331,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPhoneLineWatcher_add_LineUpdated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_LineUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_LineUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2346,7 +2346,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2361,7 +2361,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPhoneLineWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2376,7 +2376,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPhoneCallStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2391,7 +2391,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallVideoCapabilities ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2406,7 +2406,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVoipPhoneCall_add_EndRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_EndRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_EndRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2421,7 +2421,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVoipPhoneCall_add_HoldRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_HoldRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_HoldRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2436,7 +2436,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2451,7 +2451,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallAnswerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2466,7 +2466,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVoipPhoneCall_add_RejectRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallRejectEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_RejectRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_RejectRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2481,7 +2481,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_VoipPhoneCallResourceReservationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2496,7 +2496,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipCallCoordinator ; args : Windows.ApplicationModel.Calls.IMuteChangeEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2511,7 +2511,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.ILockScreenCallUI ; args : Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2526,7 +2526,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILockScreenCallUI_add_Closed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.ILockScreenCallUI ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenCallUI_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILockScreenCallUI_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2541,7 +2541,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryEntry ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2556,7 +2556,7 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

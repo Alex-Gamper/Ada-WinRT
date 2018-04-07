@@ -776,7 +776,7 @@ package Windows.ApplicationModel.Store.Preview is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IStorePreviewPurchaseResults_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorePreviewPurchaseResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorePreviewPurchaseResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

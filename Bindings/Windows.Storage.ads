@@ -3846,7 +3846,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type StreamedFileDataRequestedHandler_Interface(Callback : access procedure (stream : Windows.Storage.Streams.IOutputStream)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access StreamedFileDataRequestedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access StreamedFileDataRequestedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3860,7 +3860,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type ApplicationDataSetVersionHandler_Interface(Callback : access procedure (setVersionRequest : Windows.Storage.ISetVersionRequest)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ApplicationDataSetVersionHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ApplicationDataSetVersionHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3874,7 +3874,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IStorageLibrary_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageLibrary ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageLibrary_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageLibrary_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3889,7 +3889,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IStorageFolder_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageFolder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageFolder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageFolder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3904,7 +3904,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type VectorChangedEventHandler_IStorageFolder_Interface(Callback : access procedure (sender : Windows.Storage.IObservableVector_IStorageFolder ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access VectorChangedEventHandler_IStorageFolder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access VectorChangedEventHandler_IStorageFolder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3919,7 +3919,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type TypedEventHandler_IStorageLibrary_add_DefinitionChanged_Interface(Callback : access procedure (sender : Windows.Storage.IStorageLibrary ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStorageLibrary_add_DefinitionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IStorageLibrary_add_DefinitionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3934,7 +3934,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IStorageFile_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageFile ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageFile_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageFile_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3949,7 +3949,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IStorageItem_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageItem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageItem_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageItem_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3964,7 +3964,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IStorageStreamTransaction_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageStreamTransaction ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageStreamTransaction_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorageStreamTransaction_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3979,7 +3979,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IApplicationData_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IApplicationData ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IApplicationData_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IApplicationData_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3994,7 +3994,7 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    type TypedEventHandler_IApplicationData_add_DataChanged_Interface(Callback : access procedure (sender : Windows.Storage.IApplicationData ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IApplicationData_add_DataChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IApplicationData_add_DataChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -29,11 +29,11 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -64,11 +64,11 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_CreateOrUpdateAppointmentRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_CreateOrUpdateAppointmentRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppointmentDataProviderConnection_add_CreateOrUpdateAppointmentRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -99,11 +99,11 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_CancelMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_CancelMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppointmentDataProviderConnection_add_CancelMeetingRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -134,11 +134,11 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_ForwardMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_ForwardMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppointmentDataProviderConnection_add_ForwardMeetingRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -169,11 +169,11 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppointmentDataProviderConnection_add_ProposeNewTimeForMeetingRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -204,11 +204,11 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_UpdateMeetingResponseRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppointmentDataProviderConnection_add_UpdateMeetingResponseRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppointmentDataProviderConnection_add_UpdateMeetingResponseRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

@@ -773,7 +773,7 @@ package Windows.Media.Casting is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICastingConnection_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.Casting.ICastingConnection ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICastingConnection_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICastingConnection_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -788,7 +788,7 @@ package Windows.Media.Casting is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICastingConnection_add_ErrorOccurred_Interface(Callback : access procedure (sender : Windows.Media.Casting.ICastingConnection ; args : Windows.Media.Casting.ICastingConnectionErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICastingConnection_add_ErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICastingConnection_add_ErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -803,7 +803,7 @@ package Windows.Media.Casting is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_CastingConnectionErrorStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Casting.IAsyncOperation_CastingConnectionErrorStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_CastingConnectionErrorStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_CastingConnectionErrorStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -818,7 +818,7 @@ package Windows.Media.Casting is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_CastingPlaybackTypes_Interface(Callback : access procedure (asyncInfo : Windows.Media.Casting.IAsyncOperation_CastingPlaybackTypes ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_CastingPlaybackTypes_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_CastingPlaybackTypes_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -833,7 +833,7 @@ package Windows.Media.Casting is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICastingDevice_Interface(Callback : access procedure (asyncInfo : Windows.Media.Casting.IAsyncOperation_ICastingDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICastingDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICastingDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -848,7 +848,7 @@ package Windows.Media.Casting is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICastingDevicePicker_add_CastingDeviceSelected_Interface(Callback : access procedure (sender : Windows.Media.Casting.ICastingDevicePicker ; args : Windows.Media.Casting.ICastingDeviceSelectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICastingDevicePicker_add_CastingDeviceSelected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICastingDevicePicker_add_CastingDeviceSelected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -863,7 +863,7 @@ package Windows.Media.Casting is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICastingDevicePicker_add_CastingDevicePickerDismissed_Interface(Callback : access procedure (sender : Windows.Media.Casting.ICastingDevicePicker ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICastingDevicePicker_add_CastingDevicePickerDismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICastingDevicePicker_add_CastingDevicePickerDismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

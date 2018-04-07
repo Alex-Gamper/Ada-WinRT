@@ -208,7 +208,7 @@ package Windows.Devices.Power is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBattery_add_ReportUpdated_Interface(Callback : access procedure (sender : Windows.Devices.Power.IBattery ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBattery_add_ReportUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBattery_add_ReportUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -223,7 +223,7 @@ package Windows.Devices.Power is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBattery_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Power.IAsyncOperation_IBattery ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBattery_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBattery_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

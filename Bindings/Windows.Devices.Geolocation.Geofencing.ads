@@ -644,7 +644,7 @@ package Windows.Devices.Geolocation.Geofencing is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGeofenceMonitor_add_GeofenceStateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGeofenceMonitor_add_GeofenceStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGeofenceMonitor_add_GeofenceStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -659,7 +659,7 @@ package Windows.Devices.Geolocation.Geofencing is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGeofenceMonitor_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGeofenceMonitor_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGeofenceMonitor_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -44,11 +44,11 @@ package body Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access BackgroundTaskCanceledEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access BackgroundTaskCanceledEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_BackgroundTaskCanceledEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -79,11 +79,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access BackgroundTaskProgressEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access BackgroundTaskProgressEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_BackgroundTaskProgressEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -114,11 +114,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access BackgroundTaskCompletedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access BackgroundTaskCompletedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_BackgroundTaskCompletedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -149,11 +149,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_AlarmAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_AlarmAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_AlarmAccessStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -184,11 +184,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_BackgroundAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_BackgroundAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_BackgroundAccessStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -219,11 +219,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ApplicationTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ApplicationTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ApplicationTriggerResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -254,11 +254,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_MediaProcessingTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_MediaProcessingTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_MediaProcessingTriggerResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -289,11 +289,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -324,11 +324,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_DeviceTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_DeviceTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_DeviceTriggerResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -359,11 +359,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -394,11 +394,11 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

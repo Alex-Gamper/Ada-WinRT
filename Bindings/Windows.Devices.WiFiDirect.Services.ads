@@ -1061,7 +1061,7 @@ package Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1076,7 +1076,7 @@ package Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AutoAcceptSessionConnected_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AutoAcceptSessionConnected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AutoAcceptSessionConnected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1091,7 +1091,7 @@ package Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AdvertisementStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AdvertisementStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AdvertisementStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1106,7 +1106,7 @@ package Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWiFiDirectServiceSession_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectServiceSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiDirectServiceSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiDirectServiceSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1121,7 +1121,7 @@ package Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWiFiDirectService_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiDirectService_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiDirectService_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1136,7 +1136,7 @@ package Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiDirectService_add_SessionDeferred_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectService ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionDeferredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectService_add_SessionDeferred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectService_add_SessionDeferred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1151,7 +1151,7 @@ package Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWiFiDirectServiceProvisioningInfo_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectServiceProvisioningInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiDirectServiceProvisioningInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiDirectServiceProvisioningInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1166,7 +1166,7 @@ package Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiDirectServiceSession_add_SessionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceSession_add_SessionStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceSession_add_SessionStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1181,7 +1181,7 @@ package Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWiFiDirectServiceSession_add_RemotePortAdded_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceRemotePortAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceSession_add_RemotePortAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectServiceSession_add_RemotePortAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

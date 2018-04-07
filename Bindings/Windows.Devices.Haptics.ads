@@ -550,7 +550,7 @@ package Windows.Devices.Haptics is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_VibrationAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_VibrationAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_VibrationAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -565,7 +565,7 @@ package Windows.Devices.Haptics is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IVibrationDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Haptics.IAsyncOperation_IVibrationDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVibrationDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVibrationDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -34,11 +34,11 @@ package body Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -69,11 +69,11 @@ package body Windows.Networking.BackgroundTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IDownloadOperation_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IDownloadOperation_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IDownloadOperation or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -104,11 +104,11 @@ package body Windows.Networking.BackgroundTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IUploadOperation_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IUploadOperation_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IUploadOperation or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -139,11 +139,11 @@ package body Windows.Networking.BackgroundTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDownloadOperation3_add_RangesDownloaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDownloadOperation3_add_RangesDownloaded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDownloadOperation3_add_RangesDownloaded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

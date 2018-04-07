@@ -51,11 +51,11 @@ package body Windows.UI.WebUI is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access ActivatedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ActivatedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ActivatedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -86,11 +86,11 @@ package body Windows.UI.WebUI is
       return Hr;
    end;
    
-   function QueryInterface(This : access ResumingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ResumingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ResumingEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -120,11 +120,11 @@ package body Windows.UI.WebUI is
       return Hr;
    end;
    
-   function QueryInterface(This : access SuspendingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SuspendingEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SuspendingEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -155,11 +155,11 @@ package body Windows.UI.WebUI is
       return Hr;
    end;
    
-   function QueryInterface(This : access LeavingBackgroundEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access LeavingBackgroundEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_LeavingBackgroundEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -190,11 +190,11 @@ package body Windows.UI.WebUI is
       return Hr;
    end;
    
-   function QueryInterface(This : access EnteredBackgroundEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EnteredBackgroundEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EnteredBackgroundEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -225,11 +225,11 @@ package body Windows.UI.WebUI is
       return Hr;
    end;
    
-   function QueryInterface(This : access NavigatedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access NavigatedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_NavigatedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

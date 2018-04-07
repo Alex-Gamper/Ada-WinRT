@@ -1478,7 +1478,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1493,7 +1493,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_FileProtectionStatus_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_FileProtectionStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_FileProtectionStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1508,7 +1508,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IFileProtectionInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IFileProtectionInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IFileProtectionInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1523,7 +1523,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IProtectedContainerExportResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProtectedContainerExportResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProtectedContainerExportResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1538,7 +1538,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IProtectedContainerImportResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProtectedContainerImportResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProtectedContainerImportResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1553,7 +1553,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IProtectedFileCreateResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProtectedFileCreateResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProtectedFileCreateResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1568,7 +1568,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBufferProtectUnprotectResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBufferProtectUnprotectResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBufferProtectUnprotectResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1583,7 +1583,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDataProtectionInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDataProtectionInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDataProtectionInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1598,7 +1598,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type EventHandler_IProtectedAccessSuspendingEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.EnterpriseData.IProtectedAccessSuspendingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IProtectedAccessSuspendingEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IProtectedAccessSuspendingEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1613,7 +1613,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type EventHandler_IProtectedAccessResumedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.EnterpriseData.IProtectedAccessResumedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IProtectedAccessResumedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IProtectedAccessResumedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1628,7 +1628,7 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    type EventHandler_IProtectedContentRevokedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.EnterpriseData.IProtectedContentRevokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IProtectedContentRevokedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IProtectedContentRevokedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

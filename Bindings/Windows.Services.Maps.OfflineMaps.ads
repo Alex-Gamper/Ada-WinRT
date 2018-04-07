@@ -399,7 +399,7 @@ package Windows.Services.Maps.OfflineMaps is
    ------------------------------------------------------------------------
    type TypedEventHandler_IOfflineMapPackage_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Services.Maps.OfflineMaps.IOfflineMapPackage ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IOfflineMapPackage_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IOfflineMapPackage_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -414,7 +414,7 @@ package Windows.Services.Maps.OfflineMaps is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IOfflineMapPackageStartDownloadResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageStartDownloadResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOfflineMapPackageStartDownloadResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOfflineMapPackageStartDownloadResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -429,7 +429,7 @@ package Windows.Services.Maps.OfflineMaps is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageQueryResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -530,7 +530,7 @@ package Windows.Web.Http.Diagnostics is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -545,7 +545,7 @@ package Windows.Web.Http.Diagnostics is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -560,7 +560,7 @@ package Windows.Web.Http.Diagnostics is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

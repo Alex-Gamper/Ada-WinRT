@@ -33,11 +33,11 @@ package body Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandCellsInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandCellsInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMobileBroadbandCellsInfo or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -68,11 +68,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_INetworkOperatorTetheringOperationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_INetworkOperatorTetheringOperationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_INetworkOperatorTetheringOperationResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -103,11 +103,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountAdded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -138,11 +138,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountUpdated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountUpdated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -173,11 +173,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountRemoved or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -208,11 +208,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMobileBroadbandAccountWatcher_add_EnumerationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -243,11 +243,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandAccountWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMobileBroadbandAccountWatcher_add_Stopped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -278,11 +278,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandModemConfiguration_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandModemConfiguration_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMobileBroadbandModemConfiguration or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -313,11 +313,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_MobileBroadbandModemStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_MobileBroadbandModemStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_MobileBroadbandModemStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -348,11 +348,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -383,11 +383,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandDeviceServiceDataSession_add_DataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandDeviceServiceDataSession_add_DataReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMobileBroadbandDeviceServiceDataSession_add_DataReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -418,11 +418,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandDeviceServiceCommandResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandDeviceServiceCommandResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMobileBroadbandDeviceServiceCommandResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -453,11 +453,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMobileBroadbandUiccAppsResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -488,11 +488,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppRecordDetailsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppRecordDetailsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMobileBroadbandUiccAppRecordDetailsResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -523,11 +523,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppReadRecordResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppReadRecordResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMobileBroadbandUiccAppReadRecordResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -558,11 +558,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -593,11 +593,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -628,11 +628,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IProvisionFromXmlDocumentResults_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IProvisionFromXmlDocumentResults_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IProvisionFromXmlDocumentResults or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -663,11 +663,11 @@ package body Windows.Networking.NetworkOperators is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IUssdReply_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IUssdReply_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IUssdReply or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

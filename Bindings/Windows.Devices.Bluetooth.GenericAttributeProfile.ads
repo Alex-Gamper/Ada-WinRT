@@ -4643,7 +4643,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceServicesResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4658,7 +4658,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattSession_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4673,7 +4673,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4688,7 +4688,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4703,7 +4703,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattDeviceService_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattDeviceService_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattDeviceService_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4718,7 +4718,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_GattOpenStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattOpenStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_GattOpenStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_GattOpenStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4733,7 +4733,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4748,7 +4748,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattReadResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattReadResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattReadResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4763,7 +4763,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_GattCommunicationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattCommunicationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_GattCommunicationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_GattCommunicationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4778,7 +4778,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadClientCharacteristicConfigurationDescriptorResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4793,7 +4793,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4808,7 +4808,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattDescriptorsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDescriptorsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattDescriptorsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattDescriptorsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4823,7 +4823,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattWriteResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattWriteResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattWriteResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4838,7 +4838,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattServiceProviderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4853,7 +4853,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisementStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4868,7 +4868,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattLocalCharacteristicResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattLocalCharacteristicResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattLocalCharacteristicResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattLocalCharacteristicResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4883,7 +4883,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattLocalDescriptorResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattLocalDescriptorResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattLocalDescriptorResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattLocalDescriptorResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4898,7 +4898,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4913,7 +4913,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4928,7 +4928,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4943,7 +4943,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattClientNotificationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4958,7 +4958,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSubscribedClient ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4973,7 +4973,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattLocalDescriptor_add_ReadRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptor ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalDescriptor_add_ReadRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattLocalDescriptor_add_ReadRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4988,7 +4988,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattLocalDescriptor_add_WriteRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptor ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalDescriptor_add_WriteRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattLocalDescriptor_add_WriteRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5003,7 +5003,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattReadRequest_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequest ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattRequestStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattReadRequest_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattReadRequest_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5018,7 +5018,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGattWriteRequest_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequest ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattRequestStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattWriteRequest_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGattWriteRequest_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5033,7 +5033,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattReadRequest_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadRequest ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattReadRequest_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattReadRequest_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5048,7 +5048,7 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattWriteRequest_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteRequest ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattWriteRequest_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattWriteRequest_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

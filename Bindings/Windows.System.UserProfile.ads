@@ -667,7 +667,7 @@ package Windows.System.UserProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SetAccountPictureResult_Interface(Callback : access procedure (asyncInfo : Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SetAccountPictureResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SetAccountPictureResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -682,7 +682,7 @@ package Windows.System.UserProfile is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SetImageFeedResult_Interface(Callback : access procedure (asyncInfo : Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SetImageFeedResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SetImageFeedResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

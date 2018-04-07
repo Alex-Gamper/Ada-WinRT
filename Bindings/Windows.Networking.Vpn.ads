@@ -3435,7 +3435,7 @@ package Windows.Networking.Vpn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVpnChannel_add_ActivityChange_Interface(Callback : access procedure (sender : Windows.Networking.Vpn.IVpnChannel ; args : Windows.Networking.Vpn.IVpnChannelActivityEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVpnChannel_add_ActivityChange_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVpnChannel_add_ActivityChange_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3450,7 +3450,7 @@ package Windows.Networking.Vpn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVpnChannel2_add_ActivityStateChange_Interface(Callback : access procedure (sender : Windows.Networking.Vpn.IVpnChannel ; args : Windows.Networking.Vpn.IVpnChannelActivityStateChangedArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVpnChannel2_add_ActivityStateChange_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVpnChannel2_add_ActivityStateChange_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3465,7 +3465,7 @@ package Windows.Networking.Vpn is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IVpnCredential_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Vpn.IAsyncOperation_IVpnCredential ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVpnCredential_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVpnCredential_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3480,7 +3480,7 @@ package Windows.Networking.Vpn is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_VpnManagementErrorStatus_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Vpn.IAsyncOperation_VpnManagementErrorStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_VpnManagementErrorStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_VpnManagementErrorStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

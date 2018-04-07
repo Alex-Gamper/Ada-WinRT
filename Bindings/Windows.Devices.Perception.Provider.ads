@@ -687,7 +687,7 @@ package Windows.Devices.Perception.Provider is
    ------------------------------------------------------------------------
    type PerceptionStartFaceAuthenticationHandler_Interface(Callback : access procedure (sender : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access PerceptionStartFaceAuthenticationHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access PerceptionStartFaceAuthenticationHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -702,7 +702,7 @@ package Windows.Devices.Perception.Provider is
    ------------------------------------------------------------------------
    type PerceptionStopFaceAuthenticationHandler_Interface(Callback : access procedure (sender : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access PerceptionStopFaceAuthenticationHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access PerceptionStopFaceAuthenticationHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

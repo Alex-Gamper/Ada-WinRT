@@ -1265,7 +1265,7 @@ package Windows.Media.Effects is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface(Callback : access procedure (sender : Windows.Media.Effects.IAudioRenderEffectsManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1280,7 +1280,7 @@ package Windows.Media.Effects is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged_Interface(Callback : access procedure (sender : Windows.Media.Effects.IAudioCaptureEffectsManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

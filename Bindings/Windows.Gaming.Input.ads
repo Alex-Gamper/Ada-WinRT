@@ -1879,7 +1879,7 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGameController_add_HeadsetConnected_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.Gaming.Input.IHeadset)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGameController_add_HeadsetConnected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGameController_add_HeadsetConnected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1894,7 +1894,7 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.Gaming.Input.IHeadset)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1909,7 +1909,7 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGameController_add_UserChanged_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGameController_add_UserChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGameController_add_UserChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1924,7 +1924,7 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    type EventHandler_IArcadeStick_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IArcadeStick)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IArcadeStick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IArcadeStick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1939,7 +1939,7 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    type EventHandler_IFlightStick_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IFlightStick)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IFlightStick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IFlightStick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1954,7 +1954,7 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    type EventHandler_IGamepad_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IGamepad)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IGamepad_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IGamepad_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1969,7 +1969,7 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    type EventHandler_IRacingWheel_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IRacingWheel)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IRacingWheel_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IRacingWheel_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1984,7 +1984,7 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    type EventHandler_IRawGameController_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IRawGameController)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IRawGameController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IRawGameController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1999,7 +1999,7 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    type EventHandler_IUINavigationController_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IUINavigationController)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IUINavigationController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IUINavigationController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

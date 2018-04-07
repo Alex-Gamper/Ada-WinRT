@@ -6290,7 +6290,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBarcodeScanner_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBarcodeScanner_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBarcodeScanner_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6305,7 +6305,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IClaimedBarcodeScanner_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedBarcodeScanner ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedBarcodeScanner_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedBarcodeScanner_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6320,7 +6320,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBarcodeScanner_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IBarcodeScanner ; args : Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBarcodeScanner_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBarcodeScanner_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6335,7 +6335,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner ; args : Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6350,7 +6350,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type EventHandler_IClaimedBarcodeScanner_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Devices.PointOfService.IClaimedBarcodeScanner)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IClaimedBarcodeScanner_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IClaimedBarcodeScanner_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6365,7 +6365,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner ; args : Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6380,7 +6380,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner ; args : Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6395,7 +6395,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IBarcodeSymbologyAttributes ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6410,7 +6410,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6425,7 +6425,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6440,7 +6440,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6455,7 +6455,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type EventHandler_IClaimedMagneticStripeReader_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Devices.PointOfService.IClaimedMagneticStripeReader)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IClaimedMagneticStripeReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IClaimedMagneticStripeReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6470,7 +6470,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6485,7 +6485,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMagneticStripeReader_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMagneticStripeReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMagneticStripeReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6500,7 +6500,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IClaimedMagneticStripeReader_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedMagneticStripeReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedMagneticStripeReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedMagneticStripeReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6515,7 +6515,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6530,7 +6530,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPosPrinter_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPosPrinter_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPosPrinter_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6545,7 +6545,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IClaimedPosPrinter_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedPosPrinter ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedPosPrinter_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedPosPrinter_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6560,7 +6560,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPosPrinter_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IPosPrinter ; args : Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPosPrinter_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPosPrinter_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6575,7 +6575,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedPosPrinter ; args : Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6590,7 +6590,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.ICashDrawerEventSource ; args : Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6605,7 +6605,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.ICashDrawerEventSource ; args : Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6620,7 +6620,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICashDrawer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICashDrawer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICashDrawer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6635,7 +6635,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IClaimedCashDrawer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedCashDrawer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedCashDrawer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedCashDrawer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6650,7 +6650,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICashDrawer_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.ICashDrawer ; args : Windows.Devices.PointOfService.ICashDrawerStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICashDrawer_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICashDrawer_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6665,7 +6665,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.ICashDrawerCloseAlarm ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6680,7 +6680,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedCashDrawer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6695,7 +6695,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ILineDisplay_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplay ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILineDisplay_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILineDisplay_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6710,7 +6710,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IClaimedLineDisplay_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedLineDisplay ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedLineDisplay_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IClaimedLineDisplay_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6725,7 +6725,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_LineDisplayPowerStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_LineDisplayPowerStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_LineDisplayPowerStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_LineDisplayPowerStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6740,7 +6740,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedLineDisplay ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6755,7 +6755,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedLineDisplay ; args : Windows.Devices.PointOfService.ILineDisplayStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6770,7 +6770,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ILineDisplayWindow_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayWindow ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILineDisplayWindow_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILineDisplayWindow_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6785,7 +6785,7 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ILineDisplayStoredBitmap_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayStoredBitmap ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILineDisplayStoredBitmap_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILineDisplayStoredBitmap_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

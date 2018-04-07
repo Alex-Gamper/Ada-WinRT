@@ -3641,7 +3641,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type SmartCardPinResetHandler_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardProvisioning ; request : Windows.Devices.SmartCards.ISmartCardPinResetRequest)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SmartCardPinResetHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access SmartCardPinResetHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3656,7 +3656,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardEmulator_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardEmulator_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardEmulator_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3671,7 +3671,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardAppletIdGroupRegistration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3686,7 +3686,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISmartCardEmulator2_add_ApduReceived_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardEmulator ; args : Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmartCardEmulator2_add_ApduReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISmartCardEmulator2_add_ApduReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3701,7 +3701,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardEmulator ; args : Windows.Devices.SmartCards.ISmartCardEmulatorConnectionDeactivatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3716,7 +3716,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardActivationPolicyChangeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3731,7 +3731,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardCryptogramGeneratorOperationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3746,7 +3746,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3761,7 +3761,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramStorageKeyInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3776,7 +3776,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramMaterialPossessionProof ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3791,7 +3791,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3806,7 +3806,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3821,7 +3821,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3836,7 +3836,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardReader_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3851,7 +3851,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SmartCardReaderStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardReaderStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardReaderStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardReaderStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3866,7 +3866,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISmartCardReader_add_CardAdded_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardReader ; args : Windows.Devices.SmartCards.ICardAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmartCardReader_add_CardAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISmartCardReader_add_CardAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3881,7 +3881,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISmartCardReader_add_CardRemoved_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardReader ; args : Windows.Devices.SmartCards.ICardRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmartCardReader_add_CardRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISmartCardReader_add_CardRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3896,7 +3896,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SmartCardStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3911,7 +3911,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardProvisioning_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardProvisioning_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardProvisioning_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3926,7 +3926,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardChallengeContext_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardChallengeContext ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardChallengeContext_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardChallengeContext_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3941,7 +3941,7 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISmartCardConnection_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardConnection ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardConnection_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardConnection_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

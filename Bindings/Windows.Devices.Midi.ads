@@ -842,7 +842,7 @@ package Windows.Devices.Midi is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMidiInPort_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiInPort ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMidiInPort_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMidiInPort_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -857,7 +857,7 @@ package Windows.Devices.Midi is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMidiOutPort_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiOutPort ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMidiOutPort_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMidiOutPort_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -872,7 +872,7 @@ package Windows.Devices.Midi is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMidiInPort_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Devices.Midi.IMidiInPort ; args : Windows.Devices.Midi.IMidiMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMidiInPort_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMidiInPort_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -887,7 +887,7 @@ package Windows.Devices.Midi is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMidiSynthesizer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiSynthesizer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMidiSynthesizer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMidiSynthesizer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -2403,7 +2403,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type BackgroundTaskCanceledEventHandler_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Background.IBackgroundTaskInstance ; reason : Windows.ApplicationModel.Background.BackgroundTaskCancellationReason)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access BackgroundTaskCanceledEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access BackgroundTaskCanceledEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2418,7 +2418,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type BackgroundTaskProgressEventHandler_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Background.IBackgroundTaskRegistration ; args : Windows.ApplicationModel.Background.IBackgroundTaskProgressEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access BackgroundTaskProgressEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access BackgroundTaskProgressEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2433,7 +2433,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type BackgroundTaskCompletedEventHandler_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Background.IBackgroundTaskRegistration ; args : Windows.ApplicationModel.Background.IBackgroundTaskCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access BackgroundTaskCompletedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access BackgroundTaskCompletedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2448,7 +2448,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_AlarmAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_AlarmAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_AlarmAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_AlarmAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2463,7 +2463,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_BackgroundAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_BackgroundAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_BackgroundAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_BackgroundAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2478,7 +2478,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ApplicationTriggerResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_ApplicationTriggerResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ApplicationTriggerResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ApplicationTriggerResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2493,7 +2493,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_MediaProcessingTriggerResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_MediaProcessingTriggerResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MediaProcessingTriggerResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_MediaProcessingTriggerResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2508,7 +2508,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup ; args : Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2523,7 +2523,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_DeviceTriggerResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_DeviceTriggerResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_DeviceTriggerResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_DeviceTriggerResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2538,7 +2538,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_IDeviceConnectionChangeTrigger ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2553,7 +2553,7 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_IGattServiceProviderTriggerResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

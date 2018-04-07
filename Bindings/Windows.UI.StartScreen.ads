@@ -1391,7 +1391,7 @@ package Windows.UI.StartScreen is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IJumpList_Interface(Callback : access procedure (asyncInfo : Windows.UI.StartScreen.IAsyncOperation_IJumpList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IJumpList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IJumpList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1406,7 +1406,7 @@ package Windows.UI.StartScreen is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISecondaryTile2_add_VisualElementsRequested_Interface(Callback : access procedure (sender : Windows.UI.StartScreen.ISecondaryTile ; args : Windows.UI.StartScreen.IVisualElementsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISecondaryTile2_add_VisualElementsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISecondaryTile2_add_VisualElementsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

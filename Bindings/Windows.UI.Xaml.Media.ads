@@ -5413,7 +5413,7 @@ package Windows.UI.Xaml.Media is
    ------------------------------------------------------------------------
    type RateChangedRoutedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access RateChangedRoutedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access RateChangedRoutedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5428,7 +5428,7 @@ package Windows.UI.Xaml.Media is
    ------------------------------------------------------------------------
    type TimelineMarkerRoutedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TimelineMarkerRoutedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TimelineMarkerRoutedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5443,7 +5443,7 @@ package Windows.UI.Xaml.Media is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.ILoadedImageSurface ; args : Windows.UI.Xaml.Media.ILoadedImageSourceLoadCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -31,11 +31,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattDeviceServicesResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -66,11 +66,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattSession_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattSession_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattSession or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -101,11 +101,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattSession_add_MaxPduSizeChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -136,11 +136,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattSession_add_SessionStatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -171,11 +171,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattDeviceService_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattDeviceService_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattDeviceService or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -206,11 +206,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_GattOpenStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_GattOpenStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_GattOpenStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -241,11 +241,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattCharacteristicsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattCharacteristicsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattCharacteristicsResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -276,11 +276,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattReadResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattReadResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattReadResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -311,11 +311,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_GattCommunicationStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_GattCommunicationStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_GattCommunicationStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -346,11 +346,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -381,11 +381,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattCharacteristic_add_ValueChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -416,11 +416,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattDescriptorsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattDescriptorsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattDescriptorsResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -451,11 +451,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattWriteResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattWriteResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattWriteResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -486,11 +486,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattServiceProviderResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -521,11 +521,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -556,11 +556,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattLocalCharacteristicResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattLocalCharacteristicResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattLocalCharacteristicResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -591,11 +591,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattLocalDescriptorResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattLocalDescriptorResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattLocalDescriptorResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -626,11 +626,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -661,11 +661,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -696,11 +696,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -731,11 +731,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattClientNotificationResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -766,11 +766,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -801,11 +801,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattLocalDescriptor_add_ReadRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattLocalDescriptor_add_ReadRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattLocalDescriptor_add_ReadRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -836,11 +836,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattLocalDescriptor_add_WriteRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattLocalDescriptor_add_WriteRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattLocalDescriptor_add_WriteRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -871,11 +871,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattReadRequest_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattReadRequest_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattReadRequest_add_StateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -906,11 +906,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IGattWriteRequest_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IGattWriteRequest_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IGattWriteRequest_add_StateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -941,11 +941,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattReadRequest_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattReadRequest_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattReadRequest or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -976,11 +976,11 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattWriteRequest_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattWriteRequest_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IGattWriteRequest or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

@@ -214,7 +214,7 @@ package Windows.Management.Policies is
    ------------------------------------------------------------------------
    type TypedEventHandler_INamedPolicyData_add_Changed_Interface(Callback : access procedure (sender : Windows.Management.Policies.INamedPolicyData ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INamedPolicyData_add_Changed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INamedPolicyData_add_Changed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

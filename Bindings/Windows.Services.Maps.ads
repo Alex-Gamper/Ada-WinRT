@@ -2023,7 +2023,7 @@ package Windows.Services.Maps is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMapLocationFinderResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMapLocationFinderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMapLocationFinderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2038,7 +2038,7 @@ package Windows.Services.Maps is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMapRouteFinderResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMapRouteFinderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMapRouteFinderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

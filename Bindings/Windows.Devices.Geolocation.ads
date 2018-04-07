@@ -1681,7 +1681,7 @@ package Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGeopoint_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_IGeopoint ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGeopoint_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGeopoint_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1696,7 +1696,7 @@ package Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGeoposition_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_IGeoposition ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGeoposition_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGeoposition_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1711,7 +1711,7 @@ package Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGeolocator_add_PositionChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.IGeolocator ; args : Windows.Devices.Geolocation.IPositionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGeolocator_add_PositionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGeolocator_add_PositionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1726,7 +1726,7 @@ package Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGeolocator_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.IGeolocator ; args : Windows.Devices.Geolocation.IStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGeolocator_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGeolocator_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1741,7 +1741,7 @@ package Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_GeolocationAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_GeolocationAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_GeolocationAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_GeolocationAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1756,7 +1756,7 @@ package Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.IGeovisitMonitor ; args : Windows.Devices.Geolocation.IGeovisitStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1771,7 +1771,7 @@ package Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGeovisit_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_IGeovisit ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGeovisit_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGeovisit_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

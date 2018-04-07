@@ -2363,7 +2363,7 @@ package Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IStreamSocket_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Sockets.IAsyncOperation_IStreamSocket ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStreamSocket_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStreamSocket_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2378,7 +2378,7 @@ package Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDatagramSocket_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IDatagramSocket ; args : Windows.Networking.Sockets.IDatagramSocketMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDatagramSocket_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDatagramSocket_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2393,7 +2393,7 @@ package Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IStreamSocketListener ; args : Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2408,7 +2408,7 @@ package Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebSocket_add_Closed_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IWebSocket ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebSocket_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebSocket_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2423,7 +2423,7 @@ package Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IMessageWebSocket ; args : Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2438,7 +2438,7 @@ package Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IMessageWebSocket ; args : Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2453,7 +2453,7 @@ package Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IStreamWebSocket ; args : Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

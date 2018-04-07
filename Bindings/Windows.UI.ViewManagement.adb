@@ -32,11 +32,11 @@ package body Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IApplicationView_add_Consolidated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IApplicationView_add_Consolidated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IApplicationView_add_Consolidated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -67,11 +67,11 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -102,11 +102,11 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInputPane_add_Showing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInputPane_add_Showing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInputPane_add_Showing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -137,11 +137,11 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInputPane_add_Hiding_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IInputPane_add_Hiding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IInputPane_add_Hiding or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -172,11 +172,11 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -207,11 +207,11 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUISettings2_add_TextScaleFactorChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUISettings2_add_TextScaleFactorChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUISettings2_add_TextScaleFactorChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -242,11 +242,11 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUISettings3_add_ColorValuesChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -277,11 +277,11 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -312,11 +312,11 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IStatusBar_add_Showing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IStatusBar_add_Showing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IStatusBar_add_Showing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -347,11 +347,11 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IStatusBar_add_Hiding_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IStatusBar_add_Hiding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IStatusBar_add_Hiding or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

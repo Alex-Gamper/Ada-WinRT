@@ -763,7 +763,7 @@ package Windows.Media.Protection is
    ------------------------------------------------------------------------
    type ServiceRequestedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Protection.IMediaProtectionManager ; e : Windows.Media.Protection.IServiceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ServiceRequestedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ServiceRequestedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -778,7 +778,7 @@ package Windows.Media.Protection is
    ------------------------------------------------------------------------
    type RebootNeededEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Protection.IMediaProtectionManager)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access RebootNeededEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access RebootNeededEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -792,7 +792,7 @@ package Windows.Media.Protection is
    ------------------------------------------------------------------------
    type ComponentLoadFailedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Protection.IMediaProtectionManager ; e : Windows.Media.Protection.IComponentLoadFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ComponentLoadFailedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ComponentLoadFailedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -807,7 +807,7 @@ package Windows.Media.Protection is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_HdcpSetProtectionResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.IAsyncOperation_HdcpSetProtectionResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_HdcpSetProtectionResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_HdcpSetProtectionResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -822,7 +822,7 @@ package Windows.Media.Protection is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHdcpSession_add_ProtectionChanged_Interface(Callback : access procedure (sender : Windows.Media.Protection.IHdcpSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHdcpSession_add_ProtectionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHdcpSession_add_ProtectionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

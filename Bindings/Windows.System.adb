@@ -36,11 +36,11 @@ package body Windows.System is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access DispatcherQueueHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DispatcherQueueHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DispatcherQueueHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -69,11 +69,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDispatcherQueue_add_ShutdownStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDispatcherQueue_add_ShutdownStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDispatcherQueue_add_ShutdownStarting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -104,11 +104,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -139,11 +139,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDispatcherQueueTimer_add_Tick_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDispatcherQueueTimer_add_Tick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDispatcherQueueTimer_add_Tick or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -174,11 +174,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUserWatcher_add_Added or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -209,11 +209,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUserWatcher_add_Removed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -244,11 +244,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_Updated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_Updated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUserWatcher_add_Updated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -279,11 +279,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -314,11 +314,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -349,11 +349,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUserWatcher_add_EnumerationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -384,11 +384,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IUserWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IUserWatcher_add_Stopped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -419,11 +419,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IUser_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IUser_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IUser or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -454,11 +454,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access EventHandler_IUserDeviceAssociationChangedEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EventHandler_IUserDeviceAssociationChangedEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EventHandler_IUserDeviceAssociationChangedEventArgs or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -489,11 +489,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access EventHandler_IAppMemoryUsageLimitChangingEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access EventHandler_IAppMemoryUsageLimitChangingEventArgs_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_EventHandler_IAppMemoryUsageLimitChangingEventArgs or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -524,11 +524,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_DiagnosticAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_DiagnosticAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_DiagnosticAccessStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -559,11 +559,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -594,11 +594,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -629,11 +629,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -664,11 +664,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -699,11 +699,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -734,11 +734,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -769,11 +769,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -804,11 +804,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -839,11 +839,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -874,11 +874,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ILaunchUriResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ILaunchUriResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ILaunchUriResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -909,11 +909,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_LaunchQuerySupportStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_LaunchQuerySupportStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_LaunchQuerySupportStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -944,11 +944,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_LaunchUriStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_LaunchUriStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_LaunchUriStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -979,11 +979,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_RemoteLaunchUriStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_RemoteLaunchUriStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_RemoteLaunchUriStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1014,11 +1014,11 @@ package body Windows.System is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IProcessLauncherResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IProcessLauncherResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IProcessLauncherResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

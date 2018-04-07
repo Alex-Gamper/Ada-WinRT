@@ -30,11 +30,11 @@ package body Windows.Networking.XboxLive is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -65,11 +65,11 @@ package body Windows.Networking.XboxLive is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -100,11 +100,11 @@ package body Windows.Networking.XboxLive is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -135,11 +135,11 @@ package body Windows.Networking.XboxLive is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

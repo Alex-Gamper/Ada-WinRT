@@ -380,7 +380,7 @@ package Windows.Devices.Printers.Extensions is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrintTaskConfiguration ; args : Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -395,7 +395,7 @@ package Windows.Devices.Printers.Extensions is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrint3DWorkflow ; args : Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrintRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -410,7 +410,7 @@ package Windows.Devices.Printers.Extensions is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrint3DWorkflow ; args : Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrinterChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

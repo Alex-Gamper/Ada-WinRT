@@ -31,11 +31,11 @@ package body Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -66,11 +66,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -101,11 +101,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -136,11 +136,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -171,11 +171,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -206,11 +206,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -241,11 +241,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -276,11 +276,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -311,11 +311,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -346,11 +346,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -381,11 +381,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -416,11 +416,11 @@ package body Windows.UI.Input.Inking.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

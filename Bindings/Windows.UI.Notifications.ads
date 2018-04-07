@@ -3296,7 +3296,7 @@ package Windows.UI.Notifications is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IToastCollection_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastCollection ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IToastCollection_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IToastCollection_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3311,7 +3311,7 @@ package Windows.UI.Notifications is
    ------------------------------------------------------------------------
    type TypedEventHandler_IToastNotification_add_Dismissed_Interface(Callback : access procedure (sender : Windows.UI.Notifications.IToastNotification ; args : Windows.UI.Notifications.IToastDismissedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IToastNotification_add_Dismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IToastNotification_add_Dismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3326,7 +3326,7 @@ package Windows.UI.Notifications is
    ------------------------------------------------------------------------
    type TypedEventHandler_IToastNotification_add_Activated_Interface(Callback : access procedure (sender : Windows.UI.Notifications.IToastNotification ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IToastNotification_add_Activated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IToastNotification_add_Activated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3341,7 +3341,7 @@ package Windows.UI.Notifications is
    ------------------------------------------------------------------------
    type TypedEventHandler_IToastNotification_add_Failed_Interface(Callback : access procedure (sender : Windows.UI.Notifications.IToastNotification ; args : Windows.UI.Notifications.IToastFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IToastNotification_add_Failed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IToastNotification_add_Failed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3356,7 +3356,7 @@ package Windows.UI.Notifications is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IToastNotifier_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotifier ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IToastNotifier_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IToastNotifier_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3371,7 +3371,7 @@ package Windows.UI.Notifications is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IToastNotificationHistory_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IToastNotificationHistory_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IToastNotificationHistory_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

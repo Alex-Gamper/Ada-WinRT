@@ -30,11 +30,11 @@ package body Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access SmartCardPinResetHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access SmartCardPinResetHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_SmartCardPinResetHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -65,11 +65,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardEmulator_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardEmulator_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardEmulator or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -100,11 +100,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -135,11 +135,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISmartCardEmulator2_add_ApduReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISmartCardEmulator2_add_ApduReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISmartCardEmulator2_add_ApduReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -170,11 +170,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -205,11 +205,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -240,11 +240,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -275,11 +275,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -310,11 +310,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -345,11 +345,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -380,11 +380,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -415,11 +415,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -450,11 +450,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -485,11 +485,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardReader_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardReader_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardReader or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -520,11 +520,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_SmartCardReaderStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_SmartCardReaderStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_SmartCardReaderStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -555,11 +555,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISmartCardReader_add_CardAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISmartCardReader_add_CardAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISmartCardReader_add_CardAdded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -590,11 +590,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISmartCardReader_add_CardRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISmartCardReader_add_CardRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISmartCardReader_add_CardRemoved or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -625,11 +625,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_SmartCardStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_SmartCardStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_SmartCardStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -660,11 +660,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardProvisioning_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardProvisioning_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardProvisioning or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -695,11 +695,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardChallengeContext_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardChallengeContext_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardChallengeContext or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -730,11 +730,11 @@ package body Windows.Devices.SmartCards is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardConnection_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ISmartCardConnection_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ISmartCardConnection or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

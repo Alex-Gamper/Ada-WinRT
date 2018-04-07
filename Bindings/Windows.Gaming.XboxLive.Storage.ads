@@ -939,7 +939,7 @@ package Windows.Gaming.XboxLive.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGameSaveOperationResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveOperationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveOperationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveOperationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -954,7 +954,7 @@ package Windows.Gaming.XboxLive.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGameSaveProviderGetResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveProviderGetResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveProviderGetResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveProviderGetResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -969,7 +969,7 @@ package Windows.Gaming.XboxLive.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGameSaveBlobGetResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveBlobGetResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveBlobGetResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveBlobGetResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -984,7 +984,7 @@ package Windows.Gaming.XboxLive.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGameSaveContainerInfoGetResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveContainerInfoGetResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveContainerInfoGetResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveContainerInfoGetResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -999,7 +999,7 @@ package Windows.Gaming.XboxLive.Storage is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGameSaveBlobInfoGetResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveBlobInfoGetResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveBlobInfoGetResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameSaveBlobInfoGetResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

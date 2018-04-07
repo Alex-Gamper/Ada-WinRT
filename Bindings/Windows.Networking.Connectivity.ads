@@ -1772,7 +1772,7 @@ package Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    type NetworkStatusChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NetworkStatusChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access NetworkStatusChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1786,7 +1786,7 @@ package Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IProxyConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProxyConfiguration_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProxyConfiguration_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1801,7 +1801,7 @@ package Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IConnectionProfile_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IConnectionProfile ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IConnectionProfile_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IConnectionProfile_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1816,7 +1816,7 @@ package Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IConnectionSession_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IConnectionSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IConnectionSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

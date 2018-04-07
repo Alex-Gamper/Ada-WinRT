@@ -445,7 +445,7 @@ package Windows.Devices.Enumeration.Pnp is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPnpObjectWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Devices.Enumeration.Pnp.IPnpObject)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -460,7 +460,7 @@ package Windows.Devices.Enumeration.Pnp is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPnpObjectWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -475,7 +475,7 @@ package Windows.Devices.Enumeration.Pnp is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPnpObjectWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -490,7 +490,7 @@ package Windows.Devices.Enumeration.Pnp is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPnpObjectWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -505,7 +505,7 @@ package Windows.Devices.Enumeration.Pnp is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPnpObjectWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPnpObjectWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -520,7 +520,7 @@ package Windows.Devices.Enumeration.Pnp is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPnpObject_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.Pnp.IAsyncOperation_IPnpObject ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPnpObject_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPnpObject_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -535,7 +535,7 @@ package Windows.Devices.Enumeration.Pnp is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IVectorView_PnpObject_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVectorView_PnpObject_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVectorView_PnpObject_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

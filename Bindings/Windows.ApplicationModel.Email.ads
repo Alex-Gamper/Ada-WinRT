@@ -5023,7 +5023,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5038,7 +5038,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailMailbox_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailbox ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMailbox_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMailbox_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5053,7 +5053,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailConversation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailConversation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailConversation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailConversation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5068,7 +5068,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailFolder_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailFolder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailFolder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailFolder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5083,7 +5083,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailMessage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMessage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMessage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5098,7 +5098,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.IEmailMailbox ; args : Windows.ApplicationModel.Email.IEmailMailboxChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5113,7 +5113,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxAutoReplySettings ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5128,7 +5128,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_EmailMailboxEmptyFolderStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5143,7 +5143,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxCreateFolderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5158,7 +5158,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_EmailMailboxDeleteFolderStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5173,7 +5173,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.IEmailMailboxSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5188,7 +5188,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailItemCounts_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailItemCounts ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailItemCounts_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailItemCounts_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5203,7 +5203,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailConversationBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailConversationBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailConversationBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailConversationBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5218,7 +5218,7 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IEmailMessageBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessageBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMessageBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMessageBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

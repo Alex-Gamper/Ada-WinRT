@@ -30,11 +30,11 @@ package body Windows.UI.ApplicationSettings is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access WebAccountProviderCommandInvokedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access WebAccountProviderCommandInvokedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_WebAccountProviderCommandInvokedHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -64,11 +64,11 @@ package body Windows.UI.ApplicationSettings is
       return Hr;
    end;
    
-   function QueryInterface(This : access WebAccountCommandInvokedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access WebAccountCommandInvokedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_WebAccountCommandInvokedHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -99,11 +99,11 @@ package body Windows.UI.ApplicationSettings is
       return Hr;
    end;
    
-   function QueryInterface(This : access CredentialCommandCredentialDeletedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access CredentialCommandCredentialDeletedHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_CredentialCommandCredentialDeletedHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -133,11 +133,11 @@ package body Windows.UI.ApplicationSettings is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -168,11 +168,11 @@ package body Windows.UI.ApplicationSettings is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISettingsPane_add_CommandsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ISettingsPane_add_CommandsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ISettingsPane_add_CommandsRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

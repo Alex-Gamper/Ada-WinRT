@@ -6129,7 +6129,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaStreamSource_add_Closed_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaStreamSource ; args : Windows.Media.Core.IMediaStreamSourceClosedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6144,7 +6144,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaStreamSource_add_Starting_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaStreamSource ; args : Windows.Media.Core.IMediaStreamSourceStartingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_Starting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_Starting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6159,7 +6159,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaStreamSource_add_Paused_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaStreamSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_Paused_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_Paused_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6174,7 +6174,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaStreamSource_add_SampleRequested_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaStreamSource ; args : Windows.Media.Core.IMediaStreamSourceSampleRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_SampleRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_SampleRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6189,7 +6189,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaStreamSource_add_SwitchStreamsRequested_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaStreamSource ; args : Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_SwitchStreamsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource_add_SwitchStreamsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6204,7 +6204,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaStreamSource2_add_SampleRendered_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaStreamSource ; args : Windows.Media.Core.IMediaStreamSourceSampleRenderedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource2_add_SampleRendered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSource2_add_SampleRendered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6219,7 +6219,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaStreamSample_add_Processed_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaStreamSample ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSample_add_Processed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaStreamSample_add_Processed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6234,7 +6234,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMediaStreamSample_Interface(Callback : access procedure (asyncInfo : Windows.Media.Core.IAsyncOperation_IMediaStreamSample ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaStreamSample_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaStreamSample_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6249,7 +6249,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseStreamSource_add_Opened_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseStreamSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseStreamSource_add_Opened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseStreamSource_add_Opened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6264,7 +6264,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseStreamSource_add_Ended_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseStreamSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseStreamSource_add_Ended_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseStreamSource_add_Ended_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6279,7 +6279,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseStreamSource_add_Closed_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseStreamSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseStreamSource_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseStreamSource_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6294,7 +6294,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseSourceBuffer_add_UpdateStarting_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseSourceBuffer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_UpdateStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_UpdateStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6309,7 +6309,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseSourceBuffer_add_Updated_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseSourceBuffer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6324,7 +6324,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseSourceBuffer_add_UpdateEnded_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseSourceBuffer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_UpdateEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_UpdateEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6339,7 +6339,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseSourceBuffer_add_ErrorOccurred_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseSourceBuffer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_ErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_ErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6354,7 +6354,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseSourceBuffer_add_Aborted_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseSourceBuffer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_Aborted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseSourceBuffer_add_Aborted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6369,7 +6369,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseSourceBufferList_add_SourceBufferAdded_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseSourceBufferList ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseSourceBufferList_add_SourceBufferAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseSourceBufferList_add_SourceBufferAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6384,7 +6384,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMseSourceBufferList_add_SourceBufferRemoved_Interface(Callback : access procedure (sender : Windows.Media.Core.IMseSourceBufferList ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMseSourceBufferList_add_SourceBufferRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMseSourceBufferList_add_SourceBufferRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6399,7 +6399,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaSourceAppServiceConnection_add_InitializeMediaStreamSourceRequested_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaSourceAppServiceConnection ; args : Windows.Media.Core.IInitializeMediaStreamSourceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaSourceAppServiceConnection_add_InitializeMediaStreamSourceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaSourceAppServiceConnection_add_InitializeMediaStreamSourceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6414,7 +6414,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISceneAnalysisEffect_add_SceneAnalyzed_Interface(Callback : access procedure (sender : Windows.Media.Core.ISceneAnalysisEffect ; args : Windows.Media.Core.ISceneAnalyzedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISceneAnalysisEffect_add_SceneAnalyzed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISceneAnalysisEffect_add_SceneAnalyzed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6429,7 +6429,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IFaceDetectionEffect_add_FaceDetected_Interface(Callback : access procedure (sender : Windows.Media.Core.IFaceDetectionEffect ; args : Windows.Media.Core.IFaceDetectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFaceDetectionEffect_add_FaceDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IFaceDetectionEffect_add_FaceDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6444,7 +6444,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVideoStabilizationEffect_add_EnabledChanged_Interface(Callback : access procedure (sender : Windows.Media.Core.IVideoStabilizationEffect ; args : Windows.Media.Core.IVideoStabilizationEffectEnabledChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVideoStabilizationEffect_add_EnabledChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVideoStabilizationEffect_add_EnabledChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6459,7 +6459,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaBinder_add_Binding_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaBinder ; args : Windows.Media.Core.IMediaBindingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaBinder_add_Binding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaBinder_add_Binding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6474,7 +6474,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaBindingEventArgs_add_Canceled_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaBindingEventArgs ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaBindingEventArgs_add_Canceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaBindingEventArgs_add_Canceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6489,7 +6489,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaSource2_add_OpenOperationCompleted_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaSource2 ; args : Windows.Media.Core.IMediaSourceOpenOperationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaSource2_add_OpenOperationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaSource2_add_OpenOperationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6504,7 +6504,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type VectorChangedEventHandler_ITimedTextSource_Interface(Callback : access procedure (sender : Windows.Media.Core.IObservableVector_ITimedTextSource ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access VectorChangedEventHandler_ITimedTextSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access VectorChangedEventHandler_ITimedTextSource_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6519,7 +6519,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type VectorChangedEventHandler_ITimedMetadataTrack_Interface(Callback : access procedure (sender : Windows.Media.Core.IObservableVector_ITimedMetadataTrack ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access VectorChangedEventHandler_ITimedMetadataTrack_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access VectorChangedEventHandler_ITimedMetadataTrack_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6534,7 +6534,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaSource3_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaSource2 ; args : Windows.Media.Core.IMediaSourceStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaSource3_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaSource3_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6549,7 +6549,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISingleSelectMediaTrackList_add_SelectedIndexChanged_Interface(Callback : access procedure (sender : Windows.Media.Core.ISingleSelectMediaTrackList ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISingleSelectMediaTrackList_add_SelectedIndexChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISingleSelectMediaTrackList_add_SelectedIndexChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6564,7 +6564,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITimedMetadataTrack_add_CueEntered_Interface(Callback : access procedure (sender : Windows.Media.Core.ITimedMetadataTrack ; args : Windows.Media.Core.IMediaCueEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITimedMetadataTrack_add_CueEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITimedMetadataTrack_add_CueEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6579,7 +6579,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITimedMetadataTrack_add_CueExited_Interface(Callback : access procedure (sender : Windows.Media.Core.ITimedMetadataTrack ; args : Windows.Media.Core.IMediaCueEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITimedMetadataTrack_add_CueExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITimedMetadataTrack_add_CueExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6594,7 +6594,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITimedMetadataTrack_add_TrackFailed_Interface(Callback : access procedure (sender : Windows.Media.Core.ITimedMetadataTrack ; args : Windows.Media.Core.ITimedMetadataTrackFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITimedMetadataTrack_add_TrackFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITimedMetadataTrack_add_TrackFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6609,7 +6609,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITimedTextSource_add_Resolved_Interface(Callback : access procedure (sender : Windows.Media.Core.ITimedTextSource ; args : Windows.Media.Core.ITimedTextSourceResolveResultEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITimedTextSource_add_Resolved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITimedTextSource_add_Resolved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6624,7 +6624,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IVideoTrack_add_OpenFailed_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaTrack ; args : Windows.Media.Core.IVideoTrackOpenFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVideoTrack_add_OpenFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IVideoTrack_add_OpenFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -6639,7 +6639,7 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioTrack_add_OpenFailed_Interface(Callback : access procedure (sender : Windows.Media.Core.IMediaTrack ; args : Windows.Media.Core.IAudioTrackOpenFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioTrack_add_OpenFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioTrack_add_OpenFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

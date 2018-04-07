@@ -498,7 +498,7 @@ package Windows.Security.Credentials.UI is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICredentialPickerResults_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICredentialPickerResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICredentialPickerResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -513,7 +513,7 @@ package Windows.Security.Credentials.UI is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerifierAvailability ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -528,7 +528,7 @@ package Windows.Security.Credentials.UI is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

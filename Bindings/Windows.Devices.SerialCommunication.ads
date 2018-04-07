@@ -496,7 +496,7 @@ package Windows.Devices.SerialCommunication is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISerialDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISerialDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISerialDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -511,7 +511,7 @@ package Windows.Devices.SerialCommunication is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISerialDevice_add_ErrorReceived_Interface(Callback : access procedure (sender : Windows.Devices.SerialCommunication.ISerialDevice ; args : Windows.Devices.SerialCommunication.IErrorReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISerialDevice_add_ErrorReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISerialDevice_add_ErrorReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -526,7 +526,7 @@ package Windows.Devices.SerialCommunication is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISerialDevice_add_PinChanged_Interface(Callback : access procedure (sender : Windows.Devices.SerialCommunication.ISerialDevice ; args : Windows.Devices.SerialCommunication.IPinChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISerialDevice_add_PinChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISerialDevice_add_PinChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

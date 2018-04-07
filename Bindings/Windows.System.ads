@@ -3499,7 +3499,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type DispatcherQueueHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DispatcherQueueHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DispatcherQueueHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3512,7 +3512,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDispatcherQueue_add_ShutdownStarting_Interface(Callback : access procedure (sender : Windows.System.IDispatcherQueue ; args : Windows.System.IDispatcherQueueShutdownStartingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDispatcherQueue_add_ShutdownStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDispatcherQueue_add_ShutdownStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3527,7 +3527,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted_Interface(Callback : access procedure (sender : Windows.System.IDispatcherQueue ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3542,7 +3542,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDispatcherQueueTimer_add_Tick_Interface(Callback : access procedure (sender : Windows.System.IDispatcherQueueTimer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDispatcherQueueTimer_add_Tick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDispatcherQueueTimer_add_Tick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3557,7 +3557,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3572,7 +3572,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3587,7 +3587,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3602,7 +3602,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3617,7 +3617,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserAuthenticationStatusChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3632,7 +3632,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3647,7 +3647,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3662,7 +3662,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUser_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_IUser ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUser_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUser_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3677,7 +3677,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type EventHandler_IUserDeviceAssociationChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.System.IUserDeviceAssociationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IUserDeviceAssociationChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IUserDeviceAssociationChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3692,7 +3692,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type EventHandler_IAppMemoryUsageLimitChangingEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.System.IAppMemoryUsageLimitChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IAppMemoryUsageLimitChangingEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IAppMemoryUsageLimitChangingEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3707,7 +3707,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_DiagnosticAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_DiagnosticAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_DiagnosticAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_DiagnosticAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3722,7 +3722,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.IAppDiagnosticInfoWatcher ; args : Windows.System.IAppDiagnosticInfoWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3737,7 +3737,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.IAppDiagnosticInfoWatcher ; args : Windows.System.IAppDiagnosticInfoWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3752,7 +3752,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.IAppDiagnosticInfoWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3767,7 +3767,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.System.IAppDiagnosticInfoWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3782,7 +3782,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.System.IAppResourceGroupInfoWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3797,7 +3797,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.System.IAppResourceGroupInfoWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3812,7 +3812,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3827,7 +3827,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3842,7 +3842,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.System.IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3857,7 +3857,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ILaunchUriResult_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_ILaunchUriResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILaunchUriResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILaunchUriResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3872,7 +3872,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_LaunchQuerySupportStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_LaunchQuerySupportStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_LaunchQuerySupportStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_LaunchQuerySupportStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3887,7 +3887,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_LaunchUriStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_LaunchUriStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_LaunchUriStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_LaunchUriStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3902,7 +3902,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_RemoteLaunchUriStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_RemoteLaunchUriStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_RemoteLaunchUriStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_RemoteLaunchUriStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3917,7 +3917,7 @@ package Windows.System is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IProcessLauncherResult_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_IProcessLauncherResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProcessLauncherResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProcessLauncherResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

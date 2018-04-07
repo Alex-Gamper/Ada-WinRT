@@ -4907,7 +4907,7 @@ package Windows.UI.Xaml.Media.Animation is
    ------------------------------------------------------------------------
    type TypedEventHandler_IConnectedAnimation_add_Completed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.Animation.IConnectedAnimation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IConnectedAnimation_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IConnectedAnimation_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -2764,7 +2764,7 @@ package Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAppointmentStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointmentStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointmentStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2779,7 +2779,7 @@ package Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAppointment_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointment ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointment_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointment_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2794,7 +2794,7 @@ package Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2809,7 +2809,7 @@ package Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAppointmentCalendar_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentCalendar ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointmentCalendar_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointmentCalendar_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2824,7 +2824,7 @@ package Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAppointmentConflictResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentConflictResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointmentConflictResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointmentConflictResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2839,7 +2839,7 @@ package Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppointmentStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.IAppointmentStore ; args : Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppointmentStore2_add_StoreChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppointmentStore2_add_StoreChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

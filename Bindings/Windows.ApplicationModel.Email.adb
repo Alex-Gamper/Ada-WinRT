@@ -32,11 +32,11 @@ package body Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailStore_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailStore_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailStore or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -67,11 +67,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMailbox_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMailbox_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailMailbox or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -102,11 +102,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailConversation_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailConversation_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailConversation or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -137,11 +137,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailFolder_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailFolder_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailFolder or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -172,11 +172,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMessage_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMessage_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailMessage or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -207,11 +207,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailMailbox_add_MailboxChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -242,11 +242,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -277,11 +277,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -312,11 +312,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -347,11 +347,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -382,11 +382,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -417,11 +417,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailItemCounts_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailItemCounts_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailItemCounts or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -452,11 +452,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailConversationBatch_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailConversationBatch_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailConversationBatch or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -487,11 +487,11 @@ package body Windows.ApplicationModel.Email is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMessageBatch_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IEmailMessageBatch_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IEmailMessageBatch or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

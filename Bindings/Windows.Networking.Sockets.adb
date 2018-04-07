@@ -35,11 +35,11 @@ package body Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IStreamSocket_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IStreamSocket_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IStreamSocket or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -70,11 +70,11 @@ package body Windows.Networking.Sockets is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDatagramSocket_add_MessageReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDatagramSocket_add_MessageReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDatagramSocket_add_MessageReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -105,11 +105,11 @@ package body Windows.Networking.Sockets is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IStreamSocketListener_add_ConnectionReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -140,11 +140,11 @@ package body Windows.Networking.Sockets is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebSocket_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IWebSocket_add_Closed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IWebSocket_add_Closed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -175,11 +175,11 @@ package body Windows.Networking.Sockets is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMessageWebSocket_add_MessageReceived or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -210,11 +210,11 @@ package body Windows.Networking.Sockets is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -245,11 +245,11 @@ package body Windows.Networking.Sockets is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

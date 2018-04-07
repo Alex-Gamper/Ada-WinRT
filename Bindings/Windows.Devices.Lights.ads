@@ -222,7 +222,7 @@ package Windows.Devices.Lights is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ILamp_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Lights.IAsyncOperation_ILamp ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILamp_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILamp_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -237,7 +237,7 @@ package Windows.Devices.Lights is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILamp_add_AvailabilityChanged_Interface(Callback : access procedure (sender : Windows.Devices.Lights.ILamp ; args : Windows.Devices.Lights.ILampAvailabilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILamp_add_AvailabilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILamp_add_AvailabilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

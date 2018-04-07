@@ -937,7 +937,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -952,7 +952,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -967,7 +967,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ISourceChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -982,7 +982,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -997,7 +997,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1012,7 +1012,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IMuteChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1027,7 +1027,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1042,7 +1042,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1057,7 +1057,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1072,7 +1072,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToConnection_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToConnection_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToConnection_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1087,7 +1087,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToConnection_add_Transferred_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionTransferredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToConnection_add_Transferred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToConnection_add_Transferred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1102,7 +1102,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToConnection_add_Error_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToConnection_add_Error_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToConnection_add_Error_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1117,7 +1117,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToManager_add_SourceRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToManager ; args : Windows.Media.PlayTo.IPlayToSourceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToManager_add_SourceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToManager_add_SourceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1132,7 +1132,7 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPlayToManager_add_SourceSelected_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToManager ; args : Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToManager_add_SourceSelected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPlayToManager_add_SourceSelected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

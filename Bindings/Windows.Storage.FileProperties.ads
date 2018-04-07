@@ -1143,7 +1143,7 @@ package Windows.Storage.FileProperties is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMusicProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IMusicProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMusicProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMusicProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1158,7 +1158,7 @@ package Windows.Storage.FileProperties is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IVideoProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IVideoProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVideoProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVideoProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1173,7 +1173,7 @@ package Windows.Storage.FileProperties is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IImageProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IImageProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IImageProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IImageProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1188,7 +1188,7 @@ package Windows.Storage.FileProperties is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDocumentProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDocumentProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDocumentProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1203,7 +1203,7 @@ package Windows.Storage.FileProperties is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBasicProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IBasicProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBasicProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBasicProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

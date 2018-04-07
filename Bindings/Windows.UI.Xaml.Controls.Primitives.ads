@@ -5299,7 +5299,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    type DragCompletedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DragCompletedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DragCompletedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5314,7 +5314,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    type DragDeltaEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DragDeltaEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DragDeltaEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5329,7 +5329,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    type DragStartedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DragStartedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DragStartedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5344,7 +5344,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    type ItemsChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IItemsChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ItemsChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ItemsChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5359,7 +5359,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    type RangeBaseValueChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IRangeBaseValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access RangeBaseValueChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access RangeBaseValueChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5374,7 +5374,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    type ScrollEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ScrollEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access ScrollEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5389,7 +5389,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    type TypedEventHandler_IColorSpectrum_add_ColorChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Primitives.IColorSpectrum ; args : Windows.UI.Xaml.Controls.IColorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IColorSpectrum_add_ColorChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IColorSpectrum_add_ColorChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5404,7 +5404,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    type TypedEventHandler_IFlyoutBase2_add_Closing_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Primitives.IFlyoutBase ; args : Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseClosingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFlyoutBase2_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IFlyoutBase2_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -32,11 +32,11 @@ package body Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access DataProviderHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access DataProviderHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_DataProviderHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -66,11 +66,11 @@ package body Windows.ApplicationModel.DataTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access ShareProviderHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access ShareProviderHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_ShareProviderHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -100,11 +100,11 @@ package body Windows.ApplicationModel.DataTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDataPackage_add_OperationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDataPackage_add_OperationCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDataPackage_add_OperationCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -135,11 +135,11 @@ package body Windows.ApplicationModel.DataTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDataPackage_add_Destroyed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDataPackage_add_Destroyed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDataPackage_add_Destroyed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -170,11 +170,11 @@ package body Windows.ApplicationModel.DataTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDataPackage3_add_ShareCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -205,11 +205,11 @@ package body Windows.ApplicationModel.DataTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_DataPackageOperation_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_DataPackageOperation_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_DataPackageOperation or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -240,11 +240,11 @@ package body Windows.ApplicationModel.DataTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDataTransferManager_add_DataRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDataTransferManager_add_DataRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDataTransferManager_add_DataRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -275,11 +275,11 @@ package body Windows.ApplicationModel.DataTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -310,11 +310,11 @@ package body Windows.ApplicationModel.DataTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -345,11 +345,11 @@ package body Windows.ApplicationModel.DataTransfer is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IDataPackage_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IDataPackage_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IDataPackage or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

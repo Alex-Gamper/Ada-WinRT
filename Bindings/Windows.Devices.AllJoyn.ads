@@ -1943,7 +1943,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1958,7 +1958,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynCredentialsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1973,7 +1973,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynCredentialsVerificationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1988,7 +1988,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynAuthenticationCompleteEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2003,7 +2003,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface(Callback : access procedure (asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2018,7 +2018,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2033,7 +2033,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2048,7 +2048,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynSession_add_MemberAdded_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynSession ; args : Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynSession_add_MemberAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynSession_add_MemberAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2063,7 +2063,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynSession_add_MemberRemoved_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynSession ; args : Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynSession_add_MemberRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynSession_add_MemberRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2078,7 +2078,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynSession_add_Lost_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynSession ; args : Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynSession_add_Lost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynSession_add_Lost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2093,7 +2093,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAllJoynSession_Interface(Callback : access procedure (asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAllJoynSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAllJoynSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2108,7 +2108,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusObject ; args : Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2123,7 +2123,7 @@ package Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface(Callback : access procedure (asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

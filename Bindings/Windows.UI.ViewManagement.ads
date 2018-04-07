@@ -1874,7 +1874,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IApplicationView_add_Consolidated_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IApplicationView ; args : Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IApplicationView_add_Consolidated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IApplicationView_add_Consolidated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1889,7 +1889,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IApplicationView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1904,7 +1904,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInputPane_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IInputPane ; args : Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInputPane_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInputPane_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1919,7 +1919,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInputPane_add_Hiding_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IInputPane ; args : Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInputPane_add_Hiding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInputPane_add_Hiding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1934,7 +1934,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IAccessibilitySettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1949,7 +1949,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUISettings2_add_TextScaleFactorChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUISettings2_add_TextScaleFactorChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUISettings2_add_TextScaleFactorChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1964,7 +1964,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1979,7 +1979,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1994,7 +1994,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IStatusBar_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IStatusBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStatusBar_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IStatusBar_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2009,7 +2009,7 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    type TypedEventHandler_IStatusBar_add_Hiding_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IStatusBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStatusBar_add_Hiding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IStatusBar_add_Hiding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

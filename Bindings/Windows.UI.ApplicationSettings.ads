@@ -1152,7 +1152,7 @@ package Windows.UI.ApplicationSettings is
    ------------------------------------------------------------------------
    type WebAccountProviderCommandInvokedHandler_Interface(Callback : access procedure (command : Windows.UI.ApplicationSettings.IWebAccountProviderCommand)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access WebAccountProviderCommandInvokedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access WebAccountProviderCommandInvokedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1166,7 +1166,7 @@ package Windows.UI.ApplicationSettings is
    ------------------------------------------------------------------------
    type WebAccountCommandInvokedHandler_Interface(Callback : access procedure (command : Windows.UI.ApplicationSettings.IWebAccountCommand ; args : Windows.UI.ApplicationSettings.IWebAccountInvokedArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access WebAccountCommandInvokedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access WebAccountCommandInvokedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1181,7 +1181,7 @@ package Windows.UI.ApplicationSettings is
    ------------------------------------------------------------------------
    type CredentialCommandCredentialDeletedHandler_Interface(Callback : access procedure (command : Windows.UI.ApplicationSettings.ICredentialCommand)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access CredentialCommandCredentialDeletedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access CredentialCommandCredentialDeletedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1195,7 +1195,7 @@ package Windows.UI.ApplicationSettings is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested_Interface(Callback : access procedure (sender : Windows.UI.ApplicationSettings.IAccountsSettingsPane ; args : Windows.UI.ApplicationSettings.IAccountsSettingsPaneCommandsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1210,7 +1210,7 @@ package Windows.UI.ApplicationSettings is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISettingsPane_add_CommandsRequested_Interface(Callback : access procedure (sender : Windows.UI.ApplicationSettings.ISettingsPane ; args : Windows.UI.ApplicationSettings.ISettingsPaneCommandsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISettingsPane_add_CommandsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISettingsPane_add_CommandsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

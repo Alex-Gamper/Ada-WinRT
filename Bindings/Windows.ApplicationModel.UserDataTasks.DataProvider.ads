@@ -466,7 +466,7 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -481,7 +481,7 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -496,7 +496,7 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSkipOccurrenceRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -511,7 +511,7 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -526,7 +526,7 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

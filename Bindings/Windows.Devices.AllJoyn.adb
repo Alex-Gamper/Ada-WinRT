@@ -33,11 +33,11 @@ package body Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment_add_StateChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -68,11 +68,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -103,11 +103,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -138,11 +138,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -173,11 +173,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IAllJoynAboutDataView or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -208,11 +208,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -243,11 +243,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -278,11 +278,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynSession_add_MemberAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynSession_add_MemberAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynSession_add_MemberAdded or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -313,11 +313,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynSession_add_MemberRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynSession_add_MemberRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynSession_add_MemberRemoved or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -348,11 +348,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynSession_add_Lost_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynSession_add_Lost_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynSession_add_Lost or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -383,11 +383,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAllJoynSession_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IAllJoynSession_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IAllJoynSession or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -418,11 +418,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAllJoynBusObject_add_Stopped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -453,11 +453,11 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IAllJoynServiceInfo or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

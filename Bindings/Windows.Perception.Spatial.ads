@@ -1254,7 +1254,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialAnchor ; args : Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1269,7 +1269,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1284,7 +1284,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SpatialPerceptionAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SpatialPerceptionAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SpatialPerceptionAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1299,7 +1299,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialLocator_add_LocatabilityChanged_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialLocator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialLocator_add_LocatabilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialLocator_add_LocatabilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1314,7 +1314,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialLocator_add_PositionalTrackingDeactivating_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialLocator ; args : Windows.Perception.Spatial.ISpatialLocatorPositionalTrackingDeactivatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialLocator_add_PositionalTrackingDeactivating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialLocator_add_PositionalTrackingDeactivating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1329,7 +1329,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISpatialStageFrameOfReference_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialStageFrameOfReference ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpatialStageFrameOfReference_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpatialStageFrameOfReference_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1344,7 +1344,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialEntityWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Perception.Spatial.ISpatialEntityAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1359,7 +1359,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialEntityWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Perception.Spatial.ISpatialEntityUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1374,7 +1374,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialEntityWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Perception.Spatial.ISpatialEntityRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1389,7 +1389,7 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

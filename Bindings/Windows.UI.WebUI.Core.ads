@@ -738,7 +738,7 @@ package Windows.UI.WebUI.Core is
    ------------------------------------------------------------------------
    type MenuOpenedEventHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access MenuOpenedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access MenuOpenedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -751,7 +751,7 @@ package Windows.UI.WebUI.Core is
    ------------------------------------------------------------------------
    type MenuClosedEventHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access MenuClosedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access MenuClosedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -764,7 +764,7 @@ package Windows.UI.WebUI.Core is
    ------------------------------------------------------------------------
    type SizeChangedEventHandler_Interface(Callback : access procedure (eventArgs : Windows.UI.WebUI.Core.IWebUICommandBarSizeChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SizeChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access SizeChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -778,7 +778,7 @@ package Windows.UI.WebUI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebUICommandBarIconButton_add_ItemInvoked_Interface(Callback : access procedure (sender : Windows.UI.WebUI.Core.IWebUICommandBarIconButton ; args : Windows.UI.WebUI.Core.IWebUICommandBarItemInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebUICommandBarIconButton_add_ItemInvoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebUICommandBarIconButton_add_ItemInvoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -793,7 +793,7 @@ package Windows.UI.WebUI.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWebUICommandBarConfirmationButton_add_ItemInvoked_Interface(Callback : access procedure (sender : Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton ; args : Windows.UI.WebUI.Core.IWebUICommandBarItemInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebUICommandBarConfirmationButton_add_ItemInvoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWebUICommandBarConfirmationButton_add_ItemInvoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -808,7 +808,7 @@ package Windows.UI.WebUI.Core is
    ------------------------------------------------------------------------
    type VectorChangedEventHandler_IWebUICommandBarElement_Interface(Callback : access procedure (sender : Windows.UI.WebUI.Core.IObservableVector_IWebUICommandBarElement ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access VectorChangedEventHandler_IWebUICommandBarElement_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access VectorChangedEventHandler_IWebUICommandBarElement_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -467,7 +467,7 @@ package Windows.ApplicationModel.AppExtensions is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageInstalledEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -482,7 +482,7 @@ package Windows.ApplicationModel.AppExtensions is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -497,7 +497,7 @@ package Windows.ApplicationModel.AppExtensions is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -512,7 +512,7 @@ package Windows.ApplicationModel.AppExtensions is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUninstallingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -527,7 +527,7 @@ package Windows.ApplicationModel.AppExtensions is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

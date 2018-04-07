@@ -631,7 +631,7 @@ package Windows.Security.Authentication.Identity.Core is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -646,7 +646,7 @@ package Windows.Security.Authentication.Identity.Core is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -661,7 +661,7 @@ package Windows.Security.Authentication.Identity.Core is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -676,7 +676,7 @@ package Windows.Security.Authentication.Identity.Core is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

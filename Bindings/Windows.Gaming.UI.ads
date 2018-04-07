@@ -409,7 +409,7 @@ package Windows.Gaming.UI is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_GameMonitoringPermission_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.UI.IAsyncOperation_GameMonitoringPermission ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_GameMonitoringPermission_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_GameMonitoringPermission_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -424,7 +424,7 @@ package Windows.Gaming.UI is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Gaming.UI.IGameChatOverlayMessageSource ; args : Windows.Gaming.UI.IGameChatMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

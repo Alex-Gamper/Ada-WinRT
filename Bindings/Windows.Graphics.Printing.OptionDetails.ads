@@ -399,7 +399,7 @@ package Windows.Graphics.Printing.OptionDetails is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails ; args : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -414,7 +414,7 @@ package Windows.Graphics.Printing.OptionDetails is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

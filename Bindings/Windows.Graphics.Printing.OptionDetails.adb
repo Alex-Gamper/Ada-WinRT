@@ -29,11 +29,11 @@ package body Windows.Graphics.Printing.OptionDetails is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -64,11 +64,11 @@ package body Windows.Graphics.Printing.OptionDetails is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

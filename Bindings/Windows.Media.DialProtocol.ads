@@ -603,7 +603,7 @@ package Windows.Media.DialProtocol is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_DialAppLaunchResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.DialProtocol.IAsyncOperation_DialAppLaunchResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_DialAppLaunchResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_DialAppLaunchResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -618,7 +618,7 @@ package Windows.Media.DialProtocol is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_DialAppStopResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.DialProtocol.IAsyncOperation_DialAppStopResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_DialAppStopResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_DialAppStopResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -633,7 +633,7 @@ package Windows.Media.DialProtocol is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDialAppStateDetails_Interface(Callback : access procedure (asyncInfo : Windows.Media.DialProtocol.IAsyncOperation_IDialAppStateDetails ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDialAppStateDetails_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDialAppStateDetails_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -648,7 +648,7 @@ package Windows.Media.DialProtocol is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDialDevice_Interface(Callback : access procedure (asyncInfo : Windows.Media.DialProtocol.IAsyncOperation_IDialDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDialDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDialDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -663,7 +663,7 @@ package Windows.Media.DialProtocol is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected_Interface(Callback : access procedure (sender : Windows.Media.DialProtocol.IDialDevicePicker ; args : Windows.Media.DialProtocol.IDialDeviceSelectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDialDevicePicker_add_DialDeviceSelected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -678,7 +678,7 @@ package Windows.Media.DialProtocol is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDialDevicePicker_add_DisconnectButtonClicked_Interface(Callback : access procedure (sender : Windows.Media.DialProtocol.IDialDevicePicker ; args : Windows.Media.DialProtocol.IDialDisconnectButtonClickedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDialDevicePicker_add_DisconnectButtonClicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDialDevicePicker_add_DisconnectButtonClicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -693,7 +693,7 @@ package Windows.Media.DialProtocol is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface(Callback : access procedure (sender : Windows.Media.DialProtocol.IDialDevicePicker ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDialDevicePicker_add_DialDevicePickerDismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

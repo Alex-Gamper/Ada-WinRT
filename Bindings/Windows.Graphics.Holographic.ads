@@ -1284,7 +1284,7 @@ package Windows.Graphics.Holographic is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHolographicSpace_add_CameraAdded_Interface(Callback : access procedure (sender : Windows.Graphics.Holographic.IHolographicSpace ; args : Windows.Graphics.Holographic.IHolographicSpaceCameraAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHolographicSpace_add_CameraAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHolographicSpace_add_CameraAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1299,7 +1299,7 @@ package Windows.Graphics.Holographic is
    ------------------------------------------------------------------------
    type TypedEventHandler_IHolographicSpace_add_CameraRemoved_Interface(Callback : access procedure (sender : Windows.Graphics.Holographic.IHolographicSpace ; args : Windows.Graphics.Holographic.IHolographicSpaceCameraRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHolographicSpace_add_CameraRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IHolographicSpace_add_CameraRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

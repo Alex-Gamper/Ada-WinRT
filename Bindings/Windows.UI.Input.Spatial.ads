@@ -1611,7 +1611,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialRecognitionStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1626,7 +1626,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionEnded_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialRecognitionEndedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1641,7 +1641,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_Tapped_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialTappedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_Tapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_Tapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1656,7 +1656,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_HoldStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialHoldStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_HoldStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_HoldStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1671,7 +1671,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_HoldCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialHoldCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_HoldCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_HoldCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1686,7 +1686,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_HoldCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialHoldCanceledEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_HoldCanceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_HoldCanceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1701,7 +1701,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialManipulationStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1716,7 +1716,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationUpdated_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialManipulationUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1731,7 +1731,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialManipulationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1746,7 +1746,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialManipulationCanceledEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCanceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCanceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1761,7 +1761,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_NavigationStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialNavigationStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1776,7 +1776,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_NavigationUpdated_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialNavigationUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1791,7 +1791,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialNavigationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1806,7 +1806,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialNavigationCanceledEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCanceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCanceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1821,7 +1821,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialInteractionManager_add_SourceDetected_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourceDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourceDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1836,7 +1836,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialInteractionManager_add_SourceLost_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourceLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourceLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1851,7 +1851,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialInteractionManager_add_SourceUpdated_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourceUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourceUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1866,7 +1866,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialInteractionManager_add_SourcePressed_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourcePressed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourcePressed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1881,7 +1881,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialInteractionManager_add_SourceReleased_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourceReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_SourceReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1896,7 +1896,7 @@ package Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISpatialInteractionManager_add_InteractionDetected_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionDetectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_InteractionDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISpatialInteractionManager_add_InteractionDetected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

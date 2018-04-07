@@ -1072,7 +1072,7 @@ package Windows.Security.Credentials is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1087,7 +1087,7 @@ package Windows.Security.Credentials is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IKeyCredentialOperationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialOperationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IKeyCredentialOperationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IKeyCredentialOperationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1102,7 +1102,7 @@ package Windows.Security.Credentials is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IKeyCredentialAttestationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialAttestationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IKeyCredentialAttestationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IKeyCredentialAttestationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1117,7 +1117,7 @@ package Windows.Security.Credentials is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWebAccount_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IWebAccount ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebAccount_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebAccount_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1132,7 +1132,7 @@ package Windows.Security.Credentials is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWebAccountProvider_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebAccountProvider_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebAccountProvider_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

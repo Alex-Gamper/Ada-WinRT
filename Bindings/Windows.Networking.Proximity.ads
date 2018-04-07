@@ -759,7 +759,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type MessageReceivedHandler_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IProximityDevice ; message : Windows.Networking.Proximity.IProximityMessage)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access MessageReceivedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access MessageReceivedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -774,7 +774,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type MessageTransmittedHandler_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IProximityDevice ; messageId : Windows.Int64)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access MessageTransmittedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access MessageTransmittedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -789,7 +789,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type DeviceArrivedEventHandler_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IProximityDevice)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DeviceArrivedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DeviceArrivedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -803,7 +803,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type DeviceDepartedEventHandler_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IProximityDevice)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DeviceDepartedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DeviceDepartedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -817,7 +817,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPeerWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Networking.Proximity.IPeerInformation)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -832,7 +832,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPeerWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Networking.Proximity.IPeerInformation)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -847,7 +847,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPeerWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Networking.Proximity.IPeerInformation)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -862,7 +862,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPeerWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -877,7 +877,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPeerWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPeerWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -892,7 +892,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -907,7 +907,7 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Networking.Proximity.IConnectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

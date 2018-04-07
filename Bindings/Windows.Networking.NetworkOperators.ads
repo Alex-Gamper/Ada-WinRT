@@ -4808,7 +4808,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMobileBroadbandCellsInfo_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandCellsInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandCellsInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandCellsInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4823,7 +4823,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_INetworkOperatorTetheringOperationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_INetworkOperatorTetheringOperationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_INetworkOperatorTetheringOperationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_INetworkOperatorTetheringOperationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4838,7 +4838,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountAdded_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher ; args : Windows.Networking.NetworkOperators.IMobileBroadbandAccountEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4853,7 +4853,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountUpdated_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher ; args : Windows.Networking.NetworkOperators.IMobileBroadbandAccountUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4868,7 +4868,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountRemoved_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher ; args : Windows.Networking.NetworkOperators.IMobileBroadbandAccountEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_AccountRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4883,7 +4883,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMobileBroadbandAccountWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4898,7 +4898,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMobileBroadbandAccountWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandAccountWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4913,7 +4913,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMobileBroadbandModemConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandModemConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandModemConfiguration_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandModemConfiguration_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4928,7 +4928,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_MobileBroadbandModemStatus_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_MobileBroadbandModemStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MobileBroadbandModemStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_MobileBroadbandModemStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4943,7 +4943,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandPinOperationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4958,7 +4958,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMobileBroadbandDeviceServiceDataSession_add_DataReceived_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceDataSession ; args : Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandDeviceServiceDataSession_add_DataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandDeviceServiceDataSession_add_DataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4973,7 +4973,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMobileBroadbandDeviceServiceCommandResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandDeviceServiceCommandResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandDeviceServiceCommandResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandDeviceServiceCommandResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4988,7 +4988,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMobileBroadbandUiccAppsResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandUiccAppsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5003,7 +5003,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMobileBroadbandUiccAppRecordDetailsResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandUiccAppRecordDetailsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppRecordDetailsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppRecordDetailsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5018,7 +5018,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMobileBroadbandUiccAppReadRecordResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandUiccAppReadRecordResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppReadRecordResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMobileBroadbandUiccAppReadRecordResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5033,7 +5033,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IMobileBroadbandSarManager ; args : Windows.Networking.NetworkOperators.IMobileBroadbandTransmissionStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5048,7 +5048,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IHotspotCredentialsAuthenticationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5063,7 +5063,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IProvisionFromXmlDocumentResults_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IProvisionFromXmlDocumentResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProvisionFromXmlDocumentResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProvisionFromXmlDocumentResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -5078,7 +5078,7 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUssdReply_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IUssdReply ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUssdReply_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUssdReply_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

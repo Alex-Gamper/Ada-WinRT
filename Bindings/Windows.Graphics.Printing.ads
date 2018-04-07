@@ -1538,7 +1538,7 @@ package Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    type PrintTaskSourceRequestedHandler_Interface(Callback : access procedure (args : Windows.Graphics.Printing.IPrintTaskSourceRequestedArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access PrintTaskSourceRequestedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access PrintTaskSourceRequestedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1552,7 +1552,7 @@ package Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintTask_add_Previewing_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintTask ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintTask_add_Previewing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintTask_add_Previewing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1567,7 +1567,7 @@ package Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintTask_add_Submitting_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintTask ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintTask_add_Submitting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintTask_add_Submitting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1582,7 +1582,7 @@ package Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintTask_add_Progressing_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintTask ; args : Windows.Graphics.Printing.IPrintTaskProgressingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintTask_add_Progressing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintTask_add_Progressing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1597,7 +1597,7 @@ package Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintTask_add_Completed_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintTask ; args : Windows.Graphics.Printing.IPrintTaskCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintTask_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintTask_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1612,7 +1612,7 @@ package Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPrintManager_add_PrintTaskRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintManager ; args : Windows.Graphics.Printing.IPrintTaskRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintManager_add_PrintTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPrintManager_add_PrintTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

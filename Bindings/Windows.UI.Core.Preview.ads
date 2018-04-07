@@ -132,7 +132,7 @@ package Windows.UI.Core.Preview is
    ------------------------------------------------------------------------
    type EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

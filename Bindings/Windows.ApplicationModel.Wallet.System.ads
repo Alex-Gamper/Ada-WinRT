@@ -198,7 +198,7 @@ package Windows.ApplicationModel.Wallet.System is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -213,7 +213,7 @@ package Windows.ApplicationModel.Wallet.System is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWalletItemSystemStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Wallet.System.IAsyncOperation_IWalletItemSystemStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWalletItemSystemStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWalletItemSystemStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

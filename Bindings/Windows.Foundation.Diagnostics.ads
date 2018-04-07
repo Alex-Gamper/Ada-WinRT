@@ -2089,7 +2089,7 @@ package Windows.Foundation.Diagnostics is
    ------------------------------------------------------------------------
    type EventHandler_ITracingStatusChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_ITracingStatusChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_ITracingStatusChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2104,7 +2104,7 @@ package Windows.Foundation.Diagnostics is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IErrorDetails_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.Diagnostics.IAsyncOperation_IErrorDetails ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IErrorDetails_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IErrorDetails_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2119,7 +2119,7 @@ package Windows.Foundation.Diagnostics is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface(Callback : access procedure (sender : Windows.Foundation.Diagnostics.ILoggingChannel ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2134,7 +2134,7 @@ package Windows.Foundation.Diagnostics is
    ------------------------------------------------------------------------
    type TypedEventHandler_IFileLoggingSession_add_LogFileGenerated_Interface(Callback : access procedure (sender : Windows.Foundation.Diagnostics.IFileLoggingSession ; args : Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileLoggingSession_add_LogFileGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IFileLoggingSession_add_LogFileGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -29,11 +29,11 @@ package body Windows.ApplicationModel.Store is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access LicenseChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access LicenseChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_LicenseChangedEventHandler or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -62,11 +62,11 @@ package body Windows.ApplicationModel.Store is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IListingInformation_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IListingInformation_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IListingInformation or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -97,11 +97,11 @@ package body Windows.ApplicationModel.Store is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_FulfillmentResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_FulfillmentResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_FulfillmentResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -132,11 +132,11 @@ package body Windows.ApplicationModel.Store is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IPurchaseResults_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IPurchaseResults_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IPurchaseResults or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

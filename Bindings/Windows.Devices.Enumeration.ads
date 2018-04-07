@@ -2102,7 +2102,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_DeviceAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_DeviceAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_DeviceAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_DeviceAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2117,7 +2117,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDevicePicker_add_DeviceSelected_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDevicePicker ; args : Windows.Devices.Enumeration.IDeviceSelectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDevicePicker_add_DeviceSelected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDevicePicker_add_DeviceSelected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2132,7 +2132,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDevicePicker_add_DisconnectButtonClicked_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDevicePicker ; args : Windows.Devices.Enumeration.IDeviceDisconnectButtonClickedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDevicePicker_add_DisconnectButtonClicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDevicePicker_add_DisconnectButtonClicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2147,7 +2147,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDevicePicker_add_DevicePickerDismissed_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDevicePicker ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDevicePicker_add_DevicePickerDismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDevicePicker_add_DevicePickerDismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2162,7 +2162,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDeviceInformation_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDeviceInformation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDeviceInformation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2177,7 +2177,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDeviceWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Devices.Enumeration.IDeviceInformation)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2192,7 +2192,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDeviceWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Devices.Enumeration.IDeviceInformationUpdate)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2207,7 +2207,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDeviceWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Devices.Enumeration.IDeviceInformationUpdate)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2222,7 +2222,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDeviceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2237,7 +2237,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDeviceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDeviceWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2252,7 +2252,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IVectorView_DeviceInformation_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVectorView_DeviceInformation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVectorView_DeviceInformation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2267,7 +2267,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDevicePairingResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDevicePairingResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDevicePairingResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDevicePairingResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2282,7 +2282,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDeviceInformationCustomPairing_add_PairingRequested_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceInformationCustomPairing ; args : Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDeviceInformationCustomPairing_add_PairingRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDeviceInformationCustomPairing_add_PairingRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2297,7 +2297,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IDeviceUnpairingResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDeviceUnpairingResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDeviceUnpairingResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDeviceUnpairingResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2312,7 +2312,7 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    type TypedEventHandler_IDeviceAccessInformation_add_AccessChanged_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceAccessInformation ; args : Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDeviceAccessInformation_add_AccessChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IDeviceAccessInformation_add_AccessChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

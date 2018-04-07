@@ -424,7 +424,7 @@ package Windows.Media.Ocr is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IOcrResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Ocr.IAsyncOperation_IOcrResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOcrResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOcrResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

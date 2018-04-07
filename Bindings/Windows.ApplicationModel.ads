@@ -1738,7 +1738,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_StartupTaskState_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.IAsyncOperation_StartupTaskState ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_StartupTaskState_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_StartupTaskState_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1753,7 +1753,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IStartupTask_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.IAsyncOperation_IStartupTask ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStartupTask_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStartupTask_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1768,7 +1768,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPackageContentGroup_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageContentGroup ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPackageContentGroup_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPackageContentGroup_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1783,7 +1783,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPackageCatalog_add_PackageStaging_Interface(Callback : access procedure (sender : Windows.ApplicationModel.IPackageCatalog ; args : Windows.ApplicationModel.IPackageStagingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageStaging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageStaging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1798,7 +1798,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPackageCatalog_add_PackageInstalling_Interface(Callback : access procedure (sender : Windows.ApplicationModel.IPackageCatalog ; args : Windows.ApplicationModel.IPackageInstallingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageInstalling_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageInstalling_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1813,7 +1813,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPackageCatalog_add_PackageUpdating_Interface(Callback : access procedure (sender : Windows.ApplicationModel.IPackageCatalog ; args : Windows.ApplicationModel.IPackageUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1828,7 +1828,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPackageCatalog_add_PackageUninstalling_Interface(Callback : access procedure (sender : Windows.ApplicationModel.IPackageCatalog ; args : Windows.ApplicationModel.IPackageUninstallingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageUninstalling_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageUninstalling_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1843,7 +1843,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPackageCatalog_add_PackageStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.IPackageCatalog ; args : Windows.ApplicationModel.IPackageStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog_add_PackageStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1858,7 +1858,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPackageCatalog2_add_PackageContentGroupStaging_Interface(Callback : access procedure (sender : Windows.ApplicationModel.IPackageCatalog ; args : Windows.ApplicationModel.IPackageContentGroupStagingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog2_add_PackageContentGroupStaging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPackageCatalog2_add_PackageContentGroupStaging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1873,7 +1873,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPackageCatalogAddOptionalPackageResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageCatalogAddOptionalPackageResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPackageCatalogAddOptionalPackageResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPackageCatalogAddOptionalPackageResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1888,7 +1888,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPackageCatalogRemoveOptionalPackagesResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageCatalogRemoveOptionalPackagesResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPackageCatalogRemoveOptionalPackagesResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPackageCatalogRemoveOptionalPackagesResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1903,7 +1903,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type EventHandler_ISuspendingEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.ISuspendingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_ISuspendingEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_ISuspendingEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1918,7 +1918,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type EventHandler_ILeavingBackgroundEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.ILeavingBackgroundEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_ILeavingBackgroundEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_ILeavingBackgroundEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1933,7 +1933,7 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    type EventHandler_IEnteredBackgroundEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.IEnteredBackgroundEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IEnteredBackgroundEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IEnteredBackgroundEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

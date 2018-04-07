@@ -1362,7 +1362,7 @@ package Windows.ApplicationModel.Activation is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISplashScreen_add_Dismissed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Activation.ISplashScreen ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISplashScreen_add_Dismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISplashScreen_add_Dismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1377,7 +1377,7 @@ package Windows.ApplicationModel.Activation is
    ------------------------------------------------------------------------
    type EventHandler_IBackgroundActivatedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IBackgroundActivatedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access EventHandler_IBackgroundActivatedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

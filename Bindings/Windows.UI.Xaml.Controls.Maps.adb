@@ -34,11 +34,11 @@ package body Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMapModel3D_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IMapModel3D_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IMapModel3D or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -69,11 +69,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapScene_add_TargetCameraChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapScene_add_TargetCameraChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapScene_add_TargetCameraChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -104,11 +104,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IStreetsidePanorama_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_IStreetsidePanorama_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_IStreetsidePanorama or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -139,11 +139,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -174,11 +174,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IHttpMapTileDataSource_add_UriRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -209,11 +209,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ILocalMapTileDataSource_add_UriRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_ILocalMapTileDataSource_add_UriRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_ILocalMapTileDataSource_add_UriRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -244,11 +244,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapElementsLayer_add_MapElementClick or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -279,11 +279,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -314,11 +314,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -349,11 +349,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapContextRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapContextRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapElementsLayer_add_MapContextRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -384,11 +384,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_CenterChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl_add_CenterChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl_add_CenterChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -419,11 +419,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_HeadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl_add_HeadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl_add_HeadingChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -454,11 +454,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl_add_LoadingStatusChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -489,11 +489,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_MapDoubleTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl_add_MapDoubleTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl_add_MapDoubleTapped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -524,11 +524,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_MapHolding_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl_add_MapHolding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl_add_MapHolding or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -559,11 +559,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_MapTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl_add_MapTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl_add_MapTapped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -594,11 +594,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_PitchChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl_add_PitchChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl_add_PitchChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -629,11 +629,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_TransformOriginChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl_add_TransformOriginChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl_add_TransformOriginChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -664,11 +664,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl_add_ZoomLevelChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -699,11 +699,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_MapElementClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_MapElementClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl2_add_MapElementClick or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -734,11 +734,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl2_add_MapElementPointerEntered or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -769,11 +769,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_MapElementPointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_MapElementPointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl2_add_MapElementPointerExited or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -804,11 +804,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl2_add_ActualCameraChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -839,11 +839,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_ActualCameraChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_ActualCameraChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl2_add_ActualCameraChanging or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -874,11 +874,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl2_add_TargetCameraChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -909,11 +909,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_CustomExperienceChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_CustomExperienceChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl2_add_CustomExperienceChanged or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -944,11 +944,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl3_add_MapRightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl3_add_MapRightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl3_add_MapRightTapped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -979,11 +979,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl5_add_MapContextRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControl5_add_MapContextRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControl5_add_MapContextRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1014,11 +1014,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1049,11 +1049,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1084,11 +1084,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1119,11 +1119,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1154,11 +1154,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1189,11 +1189,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1224,11 +1224,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -1259,11 +1259,11 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

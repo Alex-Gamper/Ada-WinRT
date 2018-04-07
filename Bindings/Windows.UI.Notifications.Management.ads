@@ -193,7 +193,7 @@ package Windows.UI.Notifications.Management is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.Management.IAsyncOperation_UserNotificationListenerAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -208,7 +208,7 @@ package Windows.UI.Notifications.Management is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUserNotificationListener_add_NotificationChanged_Interface(Callback : access procedure (sender : Windows.UI.Notifications.Management.IUserNotificationListener ; args : Windows.UI.Notifications.IUserNotificationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserNotificationListener_add_NotificationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUserNotificationListener_add_NotificationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

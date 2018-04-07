@@ -1837,7 +1837,7 @@ package Windows.Graphics.Imaging is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IMap_String_BitmapTypedValue ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1852,7 +1852,7 @@ package Windows.Graphics.Imaging is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPixelDataProvider_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IPixelDataProvider ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPixelDataProvider_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPixelDataProvider_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1867,7 +1867,7 @@ package Windows.Graphics.Imaging is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ISoftwareBitmap_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_ISoftwareBitmap ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISoftwareBitmap_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISoftwareBitmap_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1882,7 +1882,7 @@ package Windows.Graphics.Imaging is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBitmapDecoder_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBitmapDecoder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBitmapDecoder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1897,7 +1897,7 @@ package Windows.Graphics.Imaging is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBitmapFrame_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBitmapFrame_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBitmapFrame_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1912,7 +1912,7 @@ package Windows.Graphics.Imaging is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBitmapEncoder_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBitmapEncoder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBitmapEncoder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

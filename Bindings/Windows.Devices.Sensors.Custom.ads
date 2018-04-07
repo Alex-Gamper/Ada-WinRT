@@ -262,7 +262,7 @@ package Windows.Devices.Sensors.Custom is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICustomSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.Custom.IAsyncOperation_ICustomSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICustomSensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICustomSensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -277,7 +277,7 @@ package Windows.Devices.Sensors.Custom is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICustomSensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.Custom.ICustomSensor ; args : Windows.Devices.Sensors.Custom.ICustomSensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICustomSensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICustomSensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

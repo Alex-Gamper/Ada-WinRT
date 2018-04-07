@@ -396,7 +396,7 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICoreDragDropManager_add_TargetRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager ; args : Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreDragDropManager_add_TargetRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICoreDragDropManager_add_TargetRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

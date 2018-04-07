@@ -313,7 +313,7 @@ package Windows.ApplicationModel.Preview.Notes is
    ------------------------------------------------------------------------
    type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -328,7 +328,7 @@ package Windows.ApplicationModel.Preview.Notes is
    ------------------------------------------------------------------------
    type TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview ; args : Windows.ApplicationModel.Preview.Notes.INotePlacementChangedPreviewEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -343,7 +343,7 @@ package Windows.ApplicationModel.Preview.Notes is
    ------------------------------------------------------------------------
    type TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview ; args : Windows.ApplicationModel.Preview.Notes.INoteVisibilityChangedPreviewEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

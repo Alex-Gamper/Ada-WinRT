@@ -1090,7 +1090,7 @@ package Windows.ApplicationModel.Wallet is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWalletItem_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Wallet.IAsyncOperation_IWalletItem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWalletItem_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWalletItem_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1105,7 +1105,7 @@ package Windows.ApplicationModel.Wallet is
    ------------------------------------------------------------------------
    type TypedEventHandler_IWalletItemStore2_add_ItemsChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Wallet.IWalletItemStore ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWalletItemStore2_add_ItemsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IWalletItemStore2_add_ItemsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1120,7 +1120,7 @@ package Windows.ApplicationModel.Wallet is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IWalletItemStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Wallet.IAsyncOperation_IWalletItemStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWalletItemStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWalletItemStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -179,7 +179,7 @@ package Windows.ApplicationModel.Contacts.Provider is
    ------------------------------------------------------------------------
    type TypedEventHandler_IContactPickerUI_add_ContactRemoved_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.Provider.IContactPickerUI ; args : Windows.ApplicationModel.Contacts.Provider.IContactRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactPickerUI_add_ContactRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IContactPickerUI_add_ContactRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

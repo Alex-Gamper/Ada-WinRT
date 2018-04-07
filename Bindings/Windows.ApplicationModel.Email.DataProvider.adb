@@ -30,11 +30,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -65,11 +65,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -100,11 +100,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -135,11 +135,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -170,11 +170,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -205,11 +205,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -240,11 +240,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -275,11 +275,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -310,11 +310,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -345,11 +345,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -380,11 +380,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -415,11 +415,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -450,11 +450,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -485,11 +485,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -520,11 +520,11 @@ package body Windows.ApplicationModel.Email.DataProvider is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested or riid.all = IID_IUnknown then
          RefCount := This.AddRef;

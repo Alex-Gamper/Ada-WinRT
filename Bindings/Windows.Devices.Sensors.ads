@@ -3976,7 +3976,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAccelerometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IAccelerometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAccelerometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAccelerometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3991,7 +3991,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IAccelerometer ; args : Windows.Devices.Sensors.IAccelerometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4006,7 +4006,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAccelerometer_add_Shaken_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IAccelerometer ; args : Windows.Devices.Sensors.IAccelerometerShakenEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAccelerometer_add_Shaken_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAccelerometer_add_Shaken_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4021,7 +4021,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IInclinometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IInclinometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IInclinometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IInclinometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4036,7 +4036,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IInclinometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IInclinometer ; args : Windows.Devices.Sensors.IInclinometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInclinometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IInclinometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4051,7 +4051,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGyrometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IGyrometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGyrometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGyrometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4066,7 +4066,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGyrometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IGyrometer ; args : Windows.Devices.Sensors.IGyrometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGyrometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGyrometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4081,7 +4081,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICompass_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_ICompass ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICompass_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICompass_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4096,7 +4096,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_ICompass_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.ICompass ; args : Windows.Devices.Sensors.ICompassReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICompass_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ICompass_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4111,7 +4111,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ILightSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_ILightSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILightSensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILightSensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4126,7 +4126,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_ILightSensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.ILightSensor ; args : Windows.Devices.Sensors.ILightSensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILightSensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ILightSensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4141,7 +4141,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IOrientationSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IOrientationSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOrientationSensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOrientationSensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4156,7 +4156,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IOrientationSensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IOrientationSensor ; args : Windows.Devices.Sensors.IOrientationSensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IOrientationSensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IOrientationSensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4171,7 +4171,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.ISimpleOrientationSensor ; args : Windows.Devices.Sensors.ISimpleOrientationSensorOrientationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4186,7 +4186,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IMagnetometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IMagnetometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMagnetometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMagnetometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4201,7 +4201,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMagnetometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IMagnetometer ; args : Windows.Devices.Sensors.IMagnetometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMagnetometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMagnetometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4216,7 +4216,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IActivitySensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IActivitySensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IActivitySensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IActivitySensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4231,7 +4231,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IActivitySensorReading_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IActivitySensorReading ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IActivitySensorReading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IActivitySensorReading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4246,7 +4246,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IActivitySensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IActivitySensor ; args : Windows.Devices.Sensors.IActivitySensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IActivitySensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IActivitySensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4261,7 +4261,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBarometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IBarometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBarometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBarometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4276,7 +4276,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IBarometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IBarometer ; args : Windows.Devices.Sensors.IBarometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBarometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IBarometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4291,7 +4291,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IPedometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IPedometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPedometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPedometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4306,7 +4306,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IPedometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IPedometer ; args : Windows.Devices.Sensors.IPedometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPedometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IPedometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4321,7 +4321,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IProximitySensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IProximitySensor ; args : Windows.Devices.Sensors.IProximitySensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IProximitySensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IProximitySensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4336,7 +4336,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAltimeter_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IAltimeter ; args : Windows.Devices.Sensors.IAltimeterReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAltimeter_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAltimeter_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

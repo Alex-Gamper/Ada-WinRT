@@ -510,7 +510,7 @@ package Windows.ApplicationModel.AppService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_AppServiceConnectionStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_AppServiceConnectionStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_AppServiceConnectionStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_AppServiceConnectionStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -525,7 +525,7 @@ package Windows.ApplicationModel.AppService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IAppServiceResponse_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_IAppServiceResponse ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppServiceResponse_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppServiceResponse_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -540,7 +540,7 @@ package Windows.ApplicationModel.AppService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppService.IAppServiceConnection ; args : Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -555,7 +555,7 @@ package Windows.ApplicationModel.AppService is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAppServiceConnection_add_ServiceClosed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppService.IAppServiceConnection ; args : Windows.ApplicationModel.AppService.IAppServiceClosedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppServiceConnection_add_ServiceClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAppServiceConnection_add_ServiceClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -570,7 +570,7 @@ package Windows.ApplicationModel.AppService is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_AppServiceResponseStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

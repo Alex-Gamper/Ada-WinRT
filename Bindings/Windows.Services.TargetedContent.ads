@@ -1213,7 +1213,7 @@ package Windows.Services.TargetedContent is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ITargetedContentSubscription_Interface(Callback : access procedure (asyncInfo : Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentSubscription ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ITargetedContentSubscription_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ITargetedContentSubscription_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1228,7 +1228,7 @@ package Windows.Services.TargetedContent is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ITargetedContentContainer_Interface(Callback : access procedure (asyncInfo : Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentContainer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ITargetedContentContainer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ITargetedContentContainer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1243,7 +1243,7 @@ package Windows.Services.TargetedContent is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITargetedContentSubscription_add_ContentChanged_Interface(Callback : access procedure (sender : Windows.Services.TargetedContent.ITargetedContentSubscription ; args : Windows.Services.TargetedContent.ITargetedContentChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITargetedContentSubscription_add_ContentChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITargetedContentSubscription_add_ContentChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1258,7 +1258,7 @@ package Windows.Services.TargetedContent is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITargetedContentSubscription_add_AvailabilityChanged_Interface(Callback : access procedure (sender : Windows.Services.TargetedContent.ITargetedContentSubscription ; args : Windows.Services.TargetedContent.ITargetedContentAvailabilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITargetedContentSubscription_add_AvailabilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITargetedContentSubscription_add_AvailabilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1273,7 +1273,7 @@ package Windows.Services.TargetedContent is
    ------------------------------------------------------------------------
    type TypedEventHandler_ITargetedContentSubscription_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Services.TargetedContent.ITargetedContentSubscription ; args : Windows.Services.TargetedContent.ITargetedContentStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITargetedContentSubscription_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ITargetedContentSubscription_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

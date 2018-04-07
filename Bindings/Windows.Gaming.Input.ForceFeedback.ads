@@ -575,7 +575,7 @@ package Windows.Gaming.Input.ForceFeedback is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.Input.ForceFeedback.IAsyncOperation_ForceFeedbackLoadEffectResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

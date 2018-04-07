@@ -509,7 +509,7 @@ package Windows.Gaming.Preview.GamesEnumeration is
    ------------------------------------------------------------------------
    type GameListChangedEventHandler_Interface(Callback : access procedure (game : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access GameListChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access GameListChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -523,7 +523,7 @@ package Windows.Gaming.Preview.GamesEnumeration is
    ------------------------------------------------------------------------
    type GameListRemovedEventHandler_Interface(Callback : access procedure (identifier : Windows.String)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access GameListRemovedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access GameListRemovedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -537,7 +537,7 @@ package Windows.Gaming.Preview.GamesEnumeration is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IGameListEntry_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameListEntry_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameListEntry_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

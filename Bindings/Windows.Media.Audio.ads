@@ -2496,7 +2496,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2511,7 +2511,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceInputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2526,7 +2526,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceOutputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2541,7 +2541,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioFileInputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2556,7 +2556,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioFileOutputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2571,7 +2571,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2586,7 +2586,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2601,7 +2601,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2616,7 +2616,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFrameInputNode ; args : Windows.Media.Audio.IAudioFrameCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2631,7 +2631,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFrameInputNode ; args : Windows.Media.Audio.IFrameInputNodeQuantumStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2646,7 +2646,7 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFileInputNode ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

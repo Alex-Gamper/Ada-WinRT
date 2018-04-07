@@ -1650,7 +1650,7 @@ package Windows.Storage.Streams is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1665,7 +1665,7 @@ package Windows.Storage.Streams is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IBuffer_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IBuffer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBuffer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBuffer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1680,7 +1680,7 @@ package Windows.Storage.Streams is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1695,7 +1695,7 @@ package Windows.Storage.Streams is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRandomAccessStream_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRandomAccessStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRandomAccessStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1710,7 +1710,7 @@ package Windows.Storage.Streams is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IInputStream_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IInputStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IInputStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IInputStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1725,7 +1725,7 @@ package Windows.Storage.Streams is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IOutputStream_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IOutputStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOutputStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOutputStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

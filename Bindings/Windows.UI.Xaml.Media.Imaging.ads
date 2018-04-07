@@ -923,7 +923,7 @@ package Windows.UI.Xaml.Media.Imaging is
    ------------------------------------------------------------------------
    type DownloadProgressEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Media.Imaging.IDownloadProgressEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DownloadProgressEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DownloadProgressEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -938,7 +938,7 @@ package Windows.UI.Xaml.Media.Imaging is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISvgImageSource_add_Opened_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.Imaging.ISvgImageSource ; args : Windows.UI.Xaml.Media.Imaging.ISvgImageSourceOpenedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISvgImageSource_add_Opened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISvgImageSource_add_Opened_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -953,7 +953,7 @@ package Windows.UI.Xaml.Media.Imaging is
    ------------------------------------------------------------------------
    type TypedEventHandler_ISvgImageSource_add_OpenFailed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.Imaging.ISvgImageSource ; args : Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISvgImageSource_add_OpenFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_ISvgImageSource_add_OpenFailed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -968,7 +968,7 @@ package Windows.UI.Xaml.Media.Imaging is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_SvgImageSourceLoadStatus_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Media.Imaging.IAsyncOperation_SvgImageSourceLoadStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SvgImageSourceLoadStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_SvgImageSourceLoadStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

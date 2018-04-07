@@ -407,7 +407,7 @@ package Windows.Media.FaceAnalysis is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IFaceDetector_Interface(Callback : access procedure (asyncInfo : Windows.Media.FaceAnalysis.IAsyncOperation_IFaceDetector ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IFaceDetector_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IFaceDetector_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -422,7 +422,7 @@ package Windows.Media.FaceAnalysis is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IFaceTracker_Interface(Callback : access procedure (asyncInfo : Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IFaceTracker_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IFaceTracker_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -2380,7 +2380,7 @@ package Windows.Devices.Usb is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IUsbDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Usb.IAsyncOperation_IUsbDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUsbDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUsbDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2395,7 +2395,7 @@ package Windows.Devices.Usb is
    ------------------------------------------------------------------------
    type TypedEventHandler_IUsbInterruptInPipe_add_DataReceived_Interface(Callback : access procedure (sender : Windows.Devices.Usb.IUsbInterruptInPipe ; args : Windows.Devices.Usb.IUsbInterruptInEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUsbInterruptInPipe_add_DataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IUsbInterruptInPipe_add_DataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

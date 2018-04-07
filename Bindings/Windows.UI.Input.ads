@@ -2879,7 +2879,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEdgeGesture_add_Starting_Interface(Callback : access procedure (sender : Windows.UI.Input.IEdgeGesture ; args : Windows.UI.Input.IEdgeGestureEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEdgeGesture_add_Starting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEdgeGesture_add_Starting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2894,7 +2894,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEdgeGesture_add_Completed_Interface(Callback : access procedure (sender : Windows.UI.Input.IEdgeGesture ; args : Windows.UI.Input.IEdgeGestureEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEdgeGesture_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEdgeGesture_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2909,7 +2909,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IEdgeGesture_add_Canceled_Interface(Callback : access procedure (sender : Windows.UI.Input.IEdgeGesture ; args : Windows.UI.Input.IEdgeGestureEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEdgeGesture_add_Canceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IEdgeGesture_add_Canceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2924,7 +2924,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface(Callback : access procedure (sender : Windows.UI.Input.IKeyboardDeliveryInterceptor ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2939,7 +2939,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp_Interface(Callback : access procedure (sender : Windows.UI.Input.IKeyboardDeliveryInterceptor ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2954,7 +2954,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGestureRecognizer_add_Tapped_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.ITappedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_Tapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_Tapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2969,7 +2969,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGestureRecognizer_add_RightTapped_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_RightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_RightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2984,7 +2984,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGestureRecognizer_add_Holding_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IHoldingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_Holding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_Holding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -2999,7 +2999,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGestureRecognizer_add_Dragging_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IDraggingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_Dragging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_Dragging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3014,7 +3014,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGestureRecognizer_add_ManipulationStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IManipulationStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_ManipulationStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_ManipulationStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3029,7 +3029,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IManipulationUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3044,7 +3044,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IManipulationInertiaStartingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3059,7 +3059,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IManipulationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3074,7 +3074,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IGestureRecognizer_add_CrossSliding_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.ICrossSlidingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_CrossSliding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IGestureRecognizer_add_CrossSliding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3089,7 +3089,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController_add_ScreenContactStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ScreenContactStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ScreenContactStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3104,7 +3104,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController_add_ScreenContactEnded_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ScreenContactEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ScreenContactEnded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3119,7 +3119,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController_add_ScreenContactContinued_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ScreenContactContinued_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ScreenContactContinued_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3134,7 +3134,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController_add_ControlLost_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ControlLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ControlLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3149,7 +3149,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController_add_RotationChanged_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerRotationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_RotationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_RotationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3164,7 +3164,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController_add_ButtonClicked_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerButtonClickedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ButtonClicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ButtonClicked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3179,7 +3179,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController_add_ControlAcquired_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerControlAcquiredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ControlAcquired_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController_add_ControlAcquired_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3194,7 +3194,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController2_add_ButtonPressed_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerButtonPressedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController2_add_ButtonPressed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController2_add_ButtonPressed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3209,7 +3209,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController2_add_ButtonHolding_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerButtonHoldingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController2_add_ButtonHolding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController2_add_ButtonHolding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3224,7 +3224,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialController2_add_ButtonReleased_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerButtonReleasedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialController2_add_ButtonReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialController2_add_ButtonReleased_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -3239,7 +3239,7 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialControllerMenuItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

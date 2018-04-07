@@ -1724,7 +1724,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRemoteSystem_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRemoteSystem_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRemoteSystem_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1739,7 +1739,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_RemoteSystemAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_RemoteSystemAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_RemoteSystemAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_RemoteSystemAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1754,7 +1754,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1769,7 +1769,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1784,7 +1784,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1799,7 +1799,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionJoinResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1814,7 +1814,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1829,7 +1829,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1844,7 +1844,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1859,7 +1859,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener ; args : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1874,7 +1874,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1889,7 +1889,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1904,7 +1904,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1919,7 +1919,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionController ; args : Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1934,7 +1934,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionCreationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1949,7 +1949,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSession ; args : Windows.System.RemoteSystems.IRemoteSystemSessionDisconnectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -1964,7 +1964,7 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    type TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel ; args : Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

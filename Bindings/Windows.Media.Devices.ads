@@ -4068,7 +4068,7 @@ package Windows.Media.Devices is
    ------------------------------------------------------------------------
    type CallControlEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access CallControlEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access CallControlEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4082,7 +4082,7 @@ package Windows.Media.Devices is
    ------------------------------------------------------------------------
    type DialRequestedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl ; e : Windows.Media.Devices.IDialRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DialRequestedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access DialRequestedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4097,7 +4097,7 @@ package Windows.Media.Devices is
    ------------------------------------------------------------------------
    type RedialRequestedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl ; e : Windows.Media.Devices.IRedialRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access RedialRequestedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access RedialRequestedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4112,7 +4112,7 @@ package Windows.Media.Devices is
    ------------------------------------------------------------------------
    type KeypadPressedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl ; e : Windows.Media.Devices.IKeypadPressedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access KeypadPressedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access KeypadPressedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4127,7 +4127,7 @@ package Windows.Media.Devices is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4142,7 +4142,7 @@ package Windows.Media.Devices is
    ------------------------------------------------------------------------
    type TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4157,7 +4157,7 @@ package Windows.Media.Devices is
    ------------------------------------------------------------------------
    type AsyncOperationCompletedHandler_IModuleCommandResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Devices.IAsyncOperation_IModuleCommandResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IModuleCommandResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access AsyncOperationCompletedHandler_IModuleCommandResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (
@@ -4172,7 +4172,7 @@ package Windows.Media.Devices is
    ------------------------------------------------------------------------
    type TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface(Callback : access procedure (sender : Windows.Media.Devices.IAudioDeviceModulesManager ; args : Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT;
+   function QueryInterface(This :  access TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
    
    function Invoke
    (

@@ -36,11 +36,11 @@ package body Windows.Media.Audio is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ICreateAudioGraphResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -71,11 +71,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -106,11 +106,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -141,11 +141,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -176,11 +176,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -211,11 +211,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAudioGraph_add_QuantumStarted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -246,11 +246,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAudioGraph_add_QuantumProcessed or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -281,11 +281,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -316,11 +316,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -351,11 +351,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
@@ -386,11 +386,11 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : access IUnknown_Base) return Windows.HRESULT is
+   function QueryInterface(This : access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
       m_IUnknown : aliased Windows.IUnknown_Base;
       RefCount   : Windows.UInt32;
-      pragma suppress(all_checks);
+      pragma suppress(Accessibility_Check);
    begin
       if riid.all = IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted or riid.all = IID_IUnknown then
          RefCount := This.AddRef;
