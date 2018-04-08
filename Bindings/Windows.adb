@@ -46,15 +46,17 @@ package body Windows is
    end;
    
    function AddRef (This :  access IMulticastDelegate_Interface) return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
-      This.m_RefCount := This.m_RefCount + 1;
-      return Windows.UInt32(This.m_RefCount);
+      RetVal := InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release (This : access IMulticastDelegate_Interface) return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
-      This.m_RefCount := This.m_RefCount - 1;
-      return Windows.UInt32(This.m_RefCount);
+      RetVal := InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    --------------------------------------------------------------------------------

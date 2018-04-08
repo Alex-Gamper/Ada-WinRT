@@ -173,6 +173,7 @@ package Windows is
       m_FTM      : aliased IUnknown := null;
    end record;
    
+   
    type IMulticastDelegate is access all IMulticastDelegate_Interface'Class;
    type IMulticastDelegate_Ptr is access all IMulticastDelegate;
    
@@ -269,6 +270,12 @@ package Windows is
    
    procedure OutputDebugStringW(OutputString : Windows.Address);
    pragma import (stdcall,  OutputDebugStringW, "OutputDebugStringW");
+   
+   function InterlockedIncrement (lpAddend : access UInt32) return UInt32;
+   pragma import (stdcall , InterlockedIncrement , "_InterlockedIncrement");
+   
+   function InterlockedDecrement (lpAddend : access UInt32) return UInt32;
+   pragma import (stdcall , InterlockedDecrement ,"_InterlockedDecrement");
    
    generic
       type I1 is interface and Windows.IInspectable_Interface;
