@@ -32,28 +32,6 @@ package body Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IApplicationView_add_Consolidated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IApplicationView_add_Consolidated or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IApplicationView_add_Consolidated_Interface
@@ -64,28 +42,6 @@ package body Windows.UI.ViewManagement is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.ViewManagement.IApplicationView(sender), Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -102,28 +58,6 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInputPane_add_Showing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInputPane_add_Showing or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInputPane_add_Showing_Interface
@@ -134,28 +68,6 @@ package body Windows.UI.ViewManagement is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.ViewManagement.IInputPane(sender), Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IInputPane_add_Hiding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInputPane_add_Hiding or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -172,28 +84,6 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface
@@ -204,28 +94,6 @@ package body Windows.UI.ViewManagement is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.ViewManagement.IAccessibilitySettings(sender), args);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IUISettings2_add_TextScaleFactorChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IUISettings2_add_TextScaleFactorChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -242,28 +110,6 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IUISettings3_add_ColorValuesChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface
@@ -274,28 +120,6 @@ package body Windows.UI.ViewManagement is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.ViewManagement.IUISettings(sender), args);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -312,28 +136,6 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IStatusBar_add_Showing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IStatusBar_add_Showing or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStatusBar_add_Showing_Interface
@@ -344,28 +146,6 @@ package body Windows.UI.ViewManagement is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.ViewManagement.IStatusBar(sender), args);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IStatusBar_add_Hiding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IStatusBar_add_Hiding or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -392,15 +172,16 @@ package body Windows.UI.ViewManagement is
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewTransferContext");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ViewManagement.IApplicationViewTransferContext := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.ViewManagement.IApplicationViewTransferContext) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.ViewManagement.IID_IApplicationViewTransferContext'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.ViewManagement.IID_IApplicationViewTransferContext'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateAccessibilitySettings return Windows.UI.ViewManagement.IAccessibilitySettings is
@@ -408,15 +189,16 @@ package body Windows.UI.ViewManagement is
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.AccessibilitySettings");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ViewManagement.IAccessibilitySettings := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.ViewManagement.IAccessibilitySettings) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.ViewManagement.IID_IAccessibilitySettings'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.ViewManagement.IID_IAccessibilitySettings'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateUISettings return Windows.UI.ViewManagement.IUISettings is
@@ -424,15 +206,16 @@ package body Windows.UI.ViewManagement is
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.UISettings");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ViewManagement.IUISettings := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.ViewManagement.IUISettings) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.ViewManagement.IID_IUISettings'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.ViewManagement.IID_IUISettings'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

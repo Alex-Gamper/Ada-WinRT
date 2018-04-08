@@ -37,15 +37,16 @@ package body Windows.Web.Http.Headers is
       m_hString     : Windows.String := To_String("Windows.Web.Http.Headers.HttpContentHeaderCollection");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Web.Http.Headers.IHttpContentHeaderCollection := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Http.Headers.IHttpContentHeaderCollection) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Web.Http.Headers.IID_IHttpContentHeaderCollection'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Web.Http.Headers.IID_IHttpContentHeaderCollection'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create

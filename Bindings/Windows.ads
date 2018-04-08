@@ -126,7 +126,7 @@ package Windows is
    (
       This       : access IUnknown_Interface;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HResult is abstract;
    
@@ -144,35 +144,10 @@ package Windows is
    
    --------------------------------------------------------------------------------
    
-   type IUnknown_Base_Interface is interface;
-   type IUnknown_Base is access all IUnknown_Base_Interface'Class;
-   type IUnknown_Base_Ptr is access all IUnknown_Base;
-   
-   function QueryInterface
-   (
-      This       : access IUnknown_Base_Interface;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown_Base
-   )
-   return Windows.HResult is abstract;
-   
-   function AddRef
-   (
-      This       : access IUnknown_Base_Interface
-   )
-   return Windows.UInt32 is abstract;
-   
-   function Release
-   (
-      This       : access IUnknown_Base_Interface
-   )
-   return Windows.UInt32 is abstract;
-   
-   type IMulticastDelegate_Interface is new IUnknown_Base_Interface with record
+   type IMulticastDelegate_Interface (m_IID : GUID_Ptr) is new IUnknown_Interface with record
       m_RefCount : aliased UInt32 := 0;
       m_FTM      : aliased IUnknown := null;
    end record;
-   
    
    type IMulticastDelegate is access all IMulticastDelegate_Interface'Class;
    type IMulticastDelegate_Ptr is access all IMulticastDelegate;
@@ -181,7 +156,7 @@ package Windows is
    (
       This       : access IMulticastDelegate_Interface;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown_Base
+      pvObject   : not null access IUnknown
    )
    return Windows.HResult;
    
@@ -262,7 +237,7 @@ package Windows is
    function IsDebuggerPresent return Boolean;
    pragma import (stdcall, IsDebuggerPresent,"IsDebuggerPresent");
    
-   function CoCreateFreeThreadedMarshaler(punkOuter : Windows.IUnknown_Base ; ppunkMarshel : Windows.Address ) return Windows.HRESULT;
+   function CoCreateFreeThreadedMarshaler(punkOuter : Windows.IUnknown ; ppunkMarshel : IUnknown_Ptr ) return Windows.HRESULT;
    pragma import (stdcall, CoCreateFreeThreadedMarshaler,"CoCreateFreeThreadedMarshaler");
    
    function StringFromIID(riid :  Windows.GUID_Ptr ; lplpsz : System.Address ) return Windows.HRESULT;
@@ -278,9 +253,9 @@ package Windows is
    pragma import (stdcall , InterlockedDecrement ,"_InterlockedDecrement");
    
    generic
-      type I1 is interface and Windows.IInspectable_Interface;
-      type I2 is private;
-      I3 : Windows.GUID_Ptr;
-   function GenericQI(Object : access I1'Class) return I2;
+      type ISource is interface and Windows.IInspectable_Interface;
+      type IDestination is private;
+      IID_Destination : Windows.GUID_Ptr;
+   function GenericQI(Object : access ISource'Class) return IDestination;
    
 end;

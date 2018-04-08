@@ -122,6 +122,9 @@ package Windows.Gaming.Preview.GamesEnumeration is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IGameListEntry : aliased constant Windows.IID := (1935221971, 33055, 17556, (182, 156, 198, 65, 160, 198, 21, 67 ));
+   
    type IGameListEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayInfo
@@ -159,10 +162,10 @@ package Windows.Gaming.Preview.GamesEnumeration is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameListEntry : aliased constant Windows.IID := (1935221971, 33055, 17556, (182, 156, 198, 65, 160, 198, 21, 67 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameModeConfiguration : aliased constant Windows.IID := (2028310959, 45378, 20208, (136, 48, 85, 188, 43, 228, 245, 234 ));
+   
    type IGameModeConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsEnabled
@@ -290,10 +293,10 @@ package Windows.Gaming.Preview.GamesEnumeration is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameModeConfiguration : aliased constant Windows.IID := (2028310959, 45378, 20208, (136, 48, 85, 188, 43, 228, 245, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameListEntry2 : aliased constant Windows.IID := (3628765067, 34633, 18981, (144, 211, 246, 197, 164, 39, 136, 109 ));
+   
    type IGameListEntry2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LaunchableState
@@ -355,10 +358,10 @@ package Windows.Gaming.Preview.GamesEnumeration is
       ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameListEntry2 : aliased constant Windows.IID := (3628765067, 34633, 18981, (144, 211, 246, 197, 164, 39, 136, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameModeUserConfiguration : aliased constant Windows.IID := (1926449908, 30059, 18191, (160, 194, 186, 98, 169, 7, 149, 219 ));
+   
    type IGameModeUserConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_GamingRelatedProcessNames
@@ -374,10 +377,10 @@ package Windows.Gaming.Preview.GamesEnumeration is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameModeUserConfiguration : aliased constant Windows.IID := (1926449908, 30059, 18191, (160, 194, 186, 98, 169, 7, 149, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameModeUserConfigurationStatics : aliased constant Windows.IID := (1850792316, 26346, 18318, (164, 161, 245, 124, 14, 141, 0, 231 ));
+   
    type IGameModeUserConfigurationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -386,10 +389,10 @@ package Windows.Gaming.Preview.GamesEnumeration is
       ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameModeUserConfigurationStatics : aliased constant Windows.IID := (1850792316, 26346, 18318, (164, 161, 245, 124, 14, 141, 0, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameListStatics : aliased constant Windows.IID := (769462127, 40038, 19205, (148, 92, 214, 237, 120, 73, 27, 140 ));
+   
    type IGameListStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FindAllAsync
@@ -451,10 +454,10 @@ package Windows.Gaming.Preview.GamesEnumeration is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameListStatics : aliased constant Windows.IID := (769462127, 40038, 19205, (148, 92, 214, 237, 120, 73, 27, 140 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameListStatics2 : aliased constant Windows.IID := (962535576, 59930, 17834, (146, 104, 168, 57, 5, 104, 111, 39 ));
+   
    type IGameListStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function MergeEntriesAsync
@@ -473,10 +476,10 @@ package Windows.Gaming.Preview.GamesEnumeration is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameListStatics2 : aliased constant Windows.IID := (962535576, 59930, 17834, (146, 104, 168, 57, 5, 104, 111, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGameListEntry : aliased constant Windows.IID := (935113442, 40047, 22104, (164, 59, 237, 40, 254, 12, 132, 88 ));
+   
    type IAsyncOperation_IGameListEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -499,17 +502,15 @@ package Windows.Gaming.Preview.GamesEnumeration is
       ; RetVal : access Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGameListEntry : aliased constant Windows.IID := (935113442, 40047, 22104, (164, 59, 237, 40, 254, 12, 132, 88 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type GameListChangedEventHandler_Interface(Callback : access procedure (game : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access GameListChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_GameListChangedEventHandler : aliased constant Windows.IID := (636920865, 55541, 19857, (180, 14, 83, 213, 232, 111, 222, 100 ));
+   
+   type GameListChangedEventHandler_Interface(Callback : access procedure (game : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry)) is new Windows.IMulticastDelegate_Interface(IID_GameListChangedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -518,12 +519,11 @@ package Windows.Gaming.Preview.GamesEnumeration is
    )
    return Windows.HRESULT;
    
-   IID_GameListChangedEventHandler : aliased constant Windows.IID := (636920865, 55541, 19857, (180, 14, 83, 213, 232, 111, 222, 100 ));
-   
    ------------------------------------------------------------------------
-   type GameListRemovedEventHandler_Interface(Callback : access procedure (identifier : Windows.String)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access GameListRemovedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_GameListRemovedEventHandler : aliased constant Windows.IID := (281371791, 27791, 18194, (155, 56, 71, 75, 194, 46, 118, 216 ));
+   
+   type GameListRemovedEventHandler_Interface(Callback : access procedure (identifier : Windows.String)) is new Windows.IMulticastDelegate_Interface(IID_GameListRemovedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -532,12 +532,11 @@ package Windows.Gaming.Preview.GamesEnumeration is
    )
    return Windows.HRESULT;
    
-   IID_GameListRemovedEventHandler : aliased constant Windows.IID := (281371791, 27791, 18194, (155, 56, 71, 75, 194, 46, 118, 216 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGameListEntry_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGameListEntry_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGameListEntry : aliased constant Windows.IID := (2809304032, 54536, 21890, (172, 118, 140, 150, 5, 250, 29, 233 ));
+   
+   type AsyncOperationCompletedHandler_IGameListEntry_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGameListEntry'access) with null record;
    
    function Invoke
    (
@@ -546,8 +545,6 @@ package Windows.Gaming.Preview.GamesEnumeration is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IGameListEntry : aliased constant Windows.IID := (2809304032, 54536, 21890, (172, 118, 140, 150, 5, 250, 29, 233 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -140,6 +140,9 @@ package Windows.Devices.Printers.Extensions is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPrintTaskConfigurationSaveRequestedDeferral : aliased constant Windows.IID := (3914978664, 63273, 17572, (135, 29, 189, 6, 40, 105, 106, 51 ));
+   
    type IPrintTaskConfigurationSaveRequestedDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -147,10 +150,10 @@ package Windows.Devices.Printers.Extensions is
       This       : access IPrintTaskConfigurationSaveRequestedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintTaskConfigurationSaveRequestedDeferral : aliased constant Windows.IID := (3914978664, 63273, 17572, (135, 29, 189, 6, 40, 105, 106, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintTaskConfigurationSaveRequest : aliased constant Windows.IID := (4004458443, 25118, 19298, (172, 119, 178, 129, 204, 224, 141, 96 ));
+   
    type IPrintTaskConfigurationSaveRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function Cancel
@@ -179,10 +182,10 @@ package Windows.Devices.Printers.Extensions is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintTaskConfigurationSaveRequest : aliased constant Windows.IID := (4004458443, 25118, 19298, (172, 119, 178, 129, 204, 224, 141, 96 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintTaskConfigurationSaveRequestedEventArgs : aliased constant Windows.IID := (3765184633, 3425, 18744, (145, 208, 150, 164, 91, 238, 132, 121 ));
+   
    type IPrintTaskConfigurationSaveRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -191,10 +194,10 @@ package Windows.Devices.Printers.Extensions is
       ; RetVal : access Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintTaskConfigurationSaveRequestedEventArgs : aliased constant Windows.IID := (3765184633, 3425, 18744, (145, 208, 150, 164, 91, 238, 132, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintTaskConfiguration : aliased constant Windows.IID := (3821151313, 15012, 18565, (146, 64, 49, 31, 95, 143, 190, 157 ));
+   
    type IPrintTaskConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrinterExtensionContext
@@ -218,10 +221,10 @@ package Windows.Devices.Printers.Extensions is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintTaskConfiguration : aliased constant Windows.IID := (3821151313, 15012, 18565, (146, 64, 49, 31, 95, 143, 190, 157 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintNotificationEventDetails : aliased constant Windows.IID := (3759033482, 18472, 19873, (139, 184, 134, 114, 223, 133, 21, 231 ));
+   
    type IPrintNotificationEventDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrinterName
@@ -244,10 +247,10 @@ package Windows.Devices.Printers.Extensions is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintNotificationEventDetails : aliased constant Windows.IID := (3759033482, 18472, 19873, (139, 184, 134, 114, 223, 133, 21, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintExtensionContextStatic : aliased constant Windows.IID := (3876429761, 65401, 19108, (140, 155, 12, 147, 174, 223, 222, 138 ));
+   
    type IPrintExtensionContextStatic_Interface is interface and Windows.IInspectable_Interface;
    
    function FromDeviceId
@@ -257,10 +260,10 @@ package Windows.Devices.Printers.Extensions is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintExtensionContextStatic : aliased constant Windows.IID := (3876429761, 65401, 19108, (140, 155, 12, 147, 174, 223, 222, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrint3DWorkflowPrintRequestedEventArgs : aliased constant Windows.IID := (435734616, 23240, 19285, (138, 95, 230, 21, 103, 218, 251, 77 ));
+   
    type IPrint3DWorkflowPrintRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -290,10 +293,10 @@ package Windows.Devices.Printers.Extensions is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrint3DWorkflowPrintRequestedEventArgs : aliased constant Windows.IID := (435734616, 23240, 19285, (138, 95, 230, 21, 103, 218, 251, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrint3DWorkflowPrinterChangedEventArgs : aliased constant Windows.IID := (1159881730, 38396, 18503, (147, 179, 19, 77, 191, 92, 96, 247 ));
+   
    type IPrint3DWorkflowPrinterChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NewDeviceId
@@ -302,10 +305,10 @@ package Windows.Devices.Printers.Extensions is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrint3DWorkflowPrinterChangedEventArgs : aliased constant Windows.IID := (1159881730, 38396, 18503, (147, 179, 19, 77, 191, 92, 96, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrint3DWorkflow : aliased constant Windows.IID := (3312415933, 13929, 19046, (171, 66, 200, 21, 25, 48, 205, 52 ));
+   
    type IPrint3DWorkflow_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceID
@@ -350,10 +353,10 @@ package Windows.Devices.Printers.Extensions is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrint3DWorkflow : aliased constant Windows.IID := (3312415933, 13929, 19046, (171, 66, 200, 21, 25, 48, 205, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrint3DWorkflow2 : aliased constant Windows.IID := (2728838479, 35521, 18712, (151, 65, 227, 79, 48, 4, 35, 158 ));
+   
    type IPrint3DWorkflow2_Interface is interface and Windows.IInspectable_Interface;
    
    function add_PrinterChanged
@@ -370,17 +373,15 @@ package Windows.Devices.Printers.Extensions is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrint3DWorkflow2 : aliased constant Windows.IID := (2728838479, 35521, 18712, (151, 65, 227, 79, 48, 4, 35, 158 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrintTaskConfiguration ; args : Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested : aliased constant Windows.IID := (56882554, 47010, 24096, (161, 86, 37, 52, 35, 231, 238, 64 ));
+   
+   type TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrintTaskConfiguration ; args : Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested'access) with null record;
    
    function Invoke
    (
@@ -390,12 +391,11 @@ package Windows.Devices.Printers.Extensions is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested : aliased constant Windows.IID := (56882554, 47010, 24096, (161, 86, 37, 52, 35, 231, 238, 64 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrint3DWorkflow ; args : Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrintRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPrint3DWorkflow_add_PrintRequested : aliased constant Windows.IID := (1598842371, 21778, 22954, (141, 150, 177, 56, 157, 139, 87, 150 ));
+   
+   type TypedEventHandler_IPrint3DWorkflow_add_PrintRequested_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrint3DWorkflow ; args : Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrintRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrint3DWorkflow_add_PrintRequested'access) with null record;
    
    function Invoke
    (
@@ -405,12 +405,11 @@ package Windows.Devices.Printers.Extensions is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPrint3DWorkflow_add_PrintRequested : aliased constant Windows.IID := (1598842371, 21778, 22954, (141, 150, 177, 56, 157, 139, 87, 150 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrint3DWorkflow ; args : Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrinterChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged : aliased constant Windows.IID := (3031817666, 6772, 22789, (159, 197, 221, 170, 233, 163, 171, 147 ));
+   
+   type TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged_Interface(Callback : access procedure (sender : Windows.Devices.Printers.Extensions.IPrint3DWorkflow ; args : Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrinterChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged'access) with null record;
    
    function Invoke
    (
@@ -419,8 +418,6 @@ package Windows.Devices.Printers.Extensions is
       ; args : Windows.Devices.Printers.Extensions.IPrint3DWorkflowPrinterChangedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IPrint3DWorkflow2_add_PrinterChanged : aliased constant Windows.IID := (3031817666, 6772, 22789, (159, 197, 221, 170, 233, 163, 171, 147 ));
    
    ------------------------------------------------------------------------
    -- Classes

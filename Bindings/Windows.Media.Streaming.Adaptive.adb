@@ -31,28 +31,6 @@ package body Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult_Interface
@@ -63,28 +41,6 @@ package body Windows.Media.Streaming.Adaptive is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -101,28 +57,6 @@ package body Windows.Media.Streaming.Adaptive is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface
@@ -133,28 +67,6 @@ package body Windows.Media.Streaming.Adaptive is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource(sender), Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -171,28 +83,6 @@ package body Windows.Media.Streaming.Adaptive is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface
@@ -206,28 +96,6 @@ package body Windows.Media.Streaming.Adaptive is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Interface
@@ -238,28 +106,6 @@ package body Windows.Media.Streaming.Adaptive is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource(sender), Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    

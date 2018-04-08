@@ -53,6 +53,9 @@ package Windows.System.RemoteDesktop is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IInteractiveSessionStatics : aliased constant Windows.IID := (1619543601, 56634, 17782, (156, 141, 232, 2, 118, 24, 189, 206 ));
+   
    type IInteractiveSessionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsRemote
@@ -61,9 +64,6 @@ package Windows.System.RemoteDesktop is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractiveSessionStatics : aliased constant Windows.IID := (1619543601, 56634, 17782, (156, 141, 232, 2, 118, 24, 189, 206 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

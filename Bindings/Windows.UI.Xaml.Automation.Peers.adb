@@ -165,32 +165,29 @@ package body Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeerOverrides_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IAutomationPeerOverrides , Windows.Address); 
-      function Convert is new Ada.Unchecked_Conversion(IAutomationPeer , Windows.Address); 
-   
+      function Convert is new Ada.Unchecked_Conversion(IAutomationPeer , Windows.IUnknown); 
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IAutomationPeerOverrides or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             if riid.all = IID_IAutomationPeer then
-               ppvObject.all := Convert(This.m_IAutomationPeer);
+               pvObject.all := Convert(This.m_IAutomationPeer);
                Hr := S_OK;
             else
                Hr := E_NOINTERFACE;
@@ -204,22 +201,24 @@ package body Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeerOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IAutomationPeerOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -562,32 +561,29 @@ package body Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeerOverrides2_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IAutomationPeerOverrides2 , Windows.Address); 
-      function Convert is new Ada.Unchecked_Conversion(IAutomationPeer , Windows.Address); 
-   
+      function Convert is new Ada.Unchecked_Conversion(IAutomationPeer , Windows.IUnknown); 
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IAutomationPeerOverrides2 or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             if riid.all = IID_IAutomationPeer then
-               ppvObject.all := Convert(This.m_IAutomationPeer);
+               pvObject.all := Convert(This.m_IAutomationPeer);
                Hr := S_OK;
             else
                Hr := E_NOINTERFACE;
@@ -601,22 +597,24 @@ package body Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeerOverrides2_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IAutomationPeerOverrides2_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -682,32 +680,29 @@ package body Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeerOverrides3_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IAutomationPeerOverrides3 , Windows.Address); 
-      function Convert is new Ada.Unchecked_Conversion(IAutomationPeer , Windows.Address); 
-   
+      function Convert is new Ada.Unchecked_Conversion(IAutomationPeer , Windows.IUnknown); 
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IAutomationPeerOverrides3 or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             if riid.all = IID_IAutomationPeer then
-               ppvObject.all := Convert(This.m_IAutomationPeer);
+               pvObject.all := Convert(This.m_IAutomationPeer);
                Hr := S_OK;
             else
                Hr := E_NOINTERFACE;
@@ -721,22 +716,24 @@ package body Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeerOverrides3_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IAutomationPeerOverrides3_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -859,28 +856,25 @@ package body Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeer_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IAutomationPeer , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IAutomationPeer or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -892,22 +886,24 @@ package body Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeer_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IAutomationPeer_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids

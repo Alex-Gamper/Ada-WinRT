@@ -217,6 +217,9 @@ package Windows.ApplicationModel.Store.Preview is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IStorePreviewProductInfo : aliased constant Windows.IID := (423091123, 27649, 19613, (133, 205, 91, 171, 170, 194, 179, 81 ));
+   
    type IStorePreviewProductInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProductId
@@ -253,10 +256,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.IVectorView_IStorePreviewSkuInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorePreviewProductInfo : aliased constant Windows.IID := (423091123, 27649, 19613, (133, 205, 91, 171, 170, 194, 179, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStorePreviewSkuInfo : aliased constant Windows.IID := (2180871906, 2854, 18649, (152, 206, 39, 70, 28, 102, 157, 108 ));
+   
    type IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProductId
@@ -321,10 +324,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorePreviewSkuInfo : aliased constant Windows.IID := (2180871906, 2854, 18649, (152, 206, 39, 70, 28, 102, 157, 108 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2967121617, 54981, 20051, (160, 67, 251, 160, 216, 230, 18, 49 ));
+   
    type IStorePreviewPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProductPurchaseStatus
@@ -333,10 +336,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2967121617, 54981, 20051, (160, 67, 251, 160, 216, 230, 18, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStorePreview : aliased constant Windows.IID := (2316661313, 33806, 18857, (188, 1, 93, 91, 1, 251, 200, 233 ));
+   
    type IStorePreview_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestProductPurchaseByProductIdAndSkuIdAsync
@@ -354,10 +357,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorePreview : aliased constant Windows.IID := (2316661313, 33806, 18857, (188, 1, 93, 91, 1, 251, 200, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStoreHardwareManufacturerInfo : aliased constant Windows.IID := (4069710856, 50772, 17324, (162, 31, 52, 128, 28, 157, 51, 136 ));
+   
    type IStoreHardwareManufacturerInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HardwareManufacturerId
@@ -387,10 +390,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStoreHardwareManufacturerInfo : aliased constant Windows.IID := (4069710856, 50772, 17324, (162, 31, 52, 128, 28, 157, 51, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStoreConfigurationStatics : aliased constant Windows.IID := (1922006976, 34344, 17132, (132, 162, 7, 120, 14, 180, 77, 139 ));
+   
    type IStoreConfigurationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function SetSystemConfiguration
@@ -441,10 +444,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStoreConfigurationStatics : aliased constant Windows.IID := (1922006976, 34344, 17132, (132, 162, 7, 120, 14, 180, 77, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStoreConfigurationStatics2 : aliased constant Windows.IID := (1702643093, 51383, 20457, (159, 76, 77, 113, 2, 125, 52, 126 ));
+   
    type IStoreConfigurationStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PurchasePromptingPolicy
@@ -460,10 +463,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; value : Windows.Foundation.IReference_UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStoreConfigurationStatics2 : aliased constant Windows.IID := (1702643093, 51383, 20457, (159, 76, 77, 113, 2, 125, 52, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStoreConfigurationStatics3 : aliased constant Windows.IID := (1833301372, 61764, 19637, (157, 63, 78, 176, 94, 48, 182, 211 ));
+   
    type IStoreConfigurationStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function HasStoreWebAccount
@@ -521,10 +524,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; value : Windows.Foundation.IReference_UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStoreConfigurationStatics3 : aliased constant Windows.IID := (1833301372, 61764, 19637, (157, 63, 78, 176, 94, 48, 182, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStoreConfigurationStatics4 : aliased constant Windows.IID := (553604818, 20195, 19696, (155, 18, 85, 44, 3, 49, 15, 117 ));
+   
    type IStoreConfigurationStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function GetStoreWebAccountId
@@ -586,10 +589,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStoreConfigurationStatics4 : aliased constant Windows.IID := (553604818, 20195, 19696, (155, 18, 85, 44, 3, 49, 15, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAuthenticationCoreManagerHelper : aliased constant Windows.IID := (111478053, 59157, 16675, (146, 118, 157, 111, 134, 91, 165, 95 ));
+   
    type IWebAuthenticationCoreManagerHelper_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestTokenWithUIElementHostingAsync
@@ -610,10 +613,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAuthenticationCoreManagerHelper : aliased constant Windows.IID := (111478053, 59157, 16675, (146, 118, 157, 111, 134, 91, 165, 95 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IStorePreviewSkuInfo : aliased constant Windows.IID := (3069817889, 32596, 23846, (156, 55, 159, 157, 122, 200, 147, 235 ));
+   
    type IIterator_IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -644,10 +647,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IStorePreviewSkuInfo : aliased constant Windows.IID := (3069817889, 32596, 23846, (156, 55, 159, 157, 122, 200, 147, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IStorePreviewSkuInfo : aliased constant Windows.IID := (739083737, 3575, 24038, (150, 46, 188, 143, 20, 159, 175, 25 ));
+   
    type IIterable_IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -656,10 +659,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.IIterator_IStorePreviewSkuInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IStorePreviewSkuInfo : aliased constant Windows.IID := (739083737, 3575, 24038, (150, 46, 188, 143, 20, 159, 175, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IStorePreviewSkuInfo : aliased constant Windows.IID := (1195476771, 42609, 24540, (134, 71, 104, 247, 216, 195, 20, 22 ));
+   
    type IVectorView_IStorePreviewSkuInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -694,10 +697,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IStorePreviewSkuInfo : aliased constant Windows.IID := (1195476771, 42609, 24540, (134, 71, 104, 247, 216, 195, 20, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2594353024, 3531, 24257, (132, 53, 11, 104, 126, 211, 116, 165 ));
+   
    type IAsyncOperation_IStorePreviewPurchaseResults_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -720,10 +723,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2594353024, 3531, 24257, (132, 53, 11, 104, 126, 211, 116, 165 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_StoreSystemFeature : aliased constant Windows.IID := (3494206253, 55466, 21886, (137, 163, 99, 195, 62, 140, 238, 153 ));
+   
    type IIterator_StoreSystemFeature_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -754,10 +757,10 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_StoreSystemFeature : aliased constant Windows.IID := (3494206253, 55466, 21886, (137, 163, 99, 195, 62, 140, 238, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_StoreSystemFeature : aliased constant Windows.IID := (2561169274, 45352, 21504, (141, 61, 88, 101, 78, 170, 249, 87 ));
+   
    type IIterable_StoreSystemFeature_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -766,17 +769,15 @@ package Windows.ApplicationModel.Store.Preview is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.IIterator_StoreSystemFeature
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_StoreSystemFeature : aliased constant Windows.IID := (2561169274, 45352, 21504, (141, 61, 88, 101, 78, 170, 249, 87 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IStorePreviewPurchaseResults_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStorePreviewPurchaseResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2984908519, 33384, 20991, (129, 41, 220, 239, 212, 147, 243, 95 ));
+   
+   type AsyncOperationCompletedHandler_IStorePreviewPurchaseResults_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.IAsyncOperation_IStorePreviewPurchaseResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStorePreviewPurchaseResults'access) with null record;
    
    function Invoke
    (
@@ -785,8 +786,6 @@ package Windows.ApplicationModel.Store.Preview is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IStorePreviewPurchaseResults : aliased constant Windows.IID := (2984908519, 33384, 20991, (129, 41, 220, 239, 212, 147, 243, 95 ));
    
    ------------------------------------------------------------------------
    -- Classes

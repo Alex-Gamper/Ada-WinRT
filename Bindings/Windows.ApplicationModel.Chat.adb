@@ -31,28 +31,6 @@ package body Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IChatMessage_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IChatMessage or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatMessage_Interface
@@ -63,28 +41,6 @@ package body Windows.ApplicationModel.Chat is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IChatMessageStore_add_MessageChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IChatMessageStore_add_MessageChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -101,28 +57,6 @@ package body Windows.ApplicationModel.Chat is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IChatConversation_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IChatConversation or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatConversation_Interface
@@ -133,28 +67,6 @@ package body Windows.ApplicationModel.Chat is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IChatMessageStore2_add_StoreChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IChatMessageStore2_add_StoreChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -171,28 +83,6 @@ package body Windows.ApplicationModel.Chat is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IChatMessageStore_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IChatMessageStore or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatMessageStore_Interface
@@ -203,28 +93,6 @@ package body Windows.ApplicationModel.Chat is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IChatMessageTransport_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IChatMessageTransport or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -241,28 +109,6 @@ package body Windows.ApplicationModel.Chat is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IChatSyncManager_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IChatSyncManager or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatSyncManager_Interface
@@ -273,28 +119,6 @@ package body Windows.ApplicationModel.Chat is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IChatCapabilities_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IChatCapabilities or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -311,28 +135,6 @@ package body Windows.ApplicationModel.Chat is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged_Interface
@@ -343,28 +145,6 @@ package body Windows.ApplicationModel.Chat is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Chat.IChatConversation(sender), Windows.ApplicationModel.Chat.IRemoteParticipantComposingChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IRcsTransport_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IRcsTransport or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -381,28 +161,6 @@ package body Windows.ApplicationModel.Chat is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged_Interface
@@ -413,28 +171,6 @@ package body Windows.ApplicationModel.Chat is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Chat.IRcsTransport(sender), Windows.ApplicationModel.Chat.IRcsServiceKindSupportedChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IRcsEndUserMessageManager_add_MessageAvailableChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IRcsEndUserMessageManager_add_MessageAvailableChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -461,15 +197,16 @@ package body Windows.ApplicationModel.Chat is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatMessage");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Chat.IChatMessage := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Chat.IChatMessage) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatMessage'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatMessage'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateChatMessageAttachment
@@ -498,15 +235,16 @@ package body Windows.ApplicationModel.Chat is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatConversationThreadingInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Chat.IChatConversationThreadingInfo := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Chat.IChatConversationThreadingInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatConversationThreadingInfo'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatConversationThreadingInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateChatRecipientDeliveryInfo return Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo is
@@ -514,15 +252,16 @@ package body Windows.ApplicationModel.Chat is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatRecipientDeliveryInfo'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatRecipientDeliveryInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateChatQueryOptions return Windows.ApplicationModel.Chat.IChatQueryOptions is
@@ -530,15 +269,16 @@ package body Windows.ApplicationModel.Chat is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatQueryOptions");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Chat.IChatQueryOptions := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Chat.IChatQueryOptions) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatQueryOptions'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Chat.IID_IChatQueryOptions'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

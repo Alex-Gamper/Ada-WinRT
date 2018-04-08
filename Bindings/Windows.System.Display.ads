@@ -53,6 +53,9 @@ package Windows.System.Display is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDisplayRequest : aliased constant Windows.IID := (3849527364, 62623, 19296, (141, 212, 94, 126, 58, 99, 42, 192 ));
+   
    type IDisplayRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestActive
@@ -66,9 +69,6 @@ package Windows.System.Display is
       This       : access IDisplayRequest_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDisplayRequest : aliased constant Windows.IID := (3849527364, 62623, 19296, (141, 212, 94, 126, 58, 99, 42, 192 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

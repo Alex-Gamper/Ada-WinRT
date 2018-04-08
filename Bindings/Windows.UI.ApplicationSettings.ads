@@ -222,6 +222,9 @@ package Windows.UI.ApplicationSettings is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISettingsCommandFactory : aliased constant Windows.IID := (1759599411, 7299, 17210, (170, 90, 206, 238, 165, 189, 71, 100 ));
+   
    type ISettingsCommandFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateSettingsCommand
@@ -233,10 +236,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.Popups.IUICommand
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISettingsCommandFactory : aliased constant Windows.IID := (1759599411, 7299, 17210, (170, 90, 206, 238, 165, 189, 71, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISettingsCommandStatics : aliased constant Windows.IID := (1956309332, 12137, 19223, (138, 186, 208, 92, 229, 119, 142, 70 ));
+   
    type ISettingsCommandStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AccountsCommand
@@ -245,10 +248,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.Popups.IUICommand
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISettingsCommandStatics : aliased constant Windows.IID := (1956309332, 12137, 19223, (138, 186, 208, 92, 229, 119, 142, 70 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAccountProviderCommandFactory : aliased constant Windows.IID := (3580201499, 45430, 18294, (132, 105, 169, 211, 255, 11, 63, 89 ));
+   
    type IWebAccountProviderCommandFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWebAccountProviderCommand
@@ -259,10 +262,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.IWebAccountProviderCommand
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAccountProviderCommandFactory : aliased constant Windows.IID := (3580201499, 45430, 18294, (132, 105, 169, 211, 255, 11, 63, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAccountProviderCommand : aliased constant Windows.IID := (3600539034, 41126, 20123, (136, 220, 199, 30, 117, 122, 53, 1 ));
+   
    type IWebAccountProviderCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function get_WebAccountProvider
@@ -278,10 +281,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.WebAccountProviderCommandInvokedHandler
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAccountProviderCommand : aliased constant Windows.IID := (3600539034, 41126, 20123, (136, 220, 199, 30, 117, 122, 53, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAccountInvokedArgs : aliased constant Windows.IID := (3886795840, 41432, 19549, (154, 127, 29, 52, 178, 249, 10, 210 ));
+   
    type IWebAccountInvokedArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Action
@@ -290,10 +293,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.WebAccountAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAccountInvokedArgs : aliased constant Windows.IID := (3886795840, 41432, 19549, (154, 127, 29, 52, 178, 249, 10, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAccountCommandFactory : aliased constant Windows.IID := (3215379967, 12077, 17141, (129, 222, 29, 86, 186, 252, 73, 109 ));
+   
    type IWebAccountCommandFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWebAccountCommand
@@ -305,10 +308,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.IWebAccountCommand
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAccountCommandFactory : aliased constant Windows.IID := (3215379967, 12077, 17141, (129, 222, 29, 86, 186, 252, 73, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAccountCommand : aliased constant Windows.IID := (3399717784, 40186, 16966, (176, 196, 169, 19, 163, 137, 101, 65 ));
+   
    type IWebAccountCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function get_WebAccount
@@ -331,10 +334,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.SupportedWebAccountActions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAccountCommand : aliased constant Windows.IID := (3399717784, 40186, 16966, (176, 196, 169, 19, 163, 137, 101, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICredentialCommandFactory : aliased constant Windows.IID := (669551639, 48190, 19328, (148, 149, 78, 215, 32, 228, 138, 145 ));
+   
    type ICredentialCommandFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateCredentialCommand
@@ -353,10 +356,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.ICredentialCommand
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICredentialCommandFactory : aliased constant Windows.IID := (669551639, 48190, 19328, (148, 149, 78, 215, 32, 228, 138, 145 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICredentialCommand : aliased constant Windows.IID := (2784388582, 24899, 19066, (169, 113, 176, 23, 186, 151, 140, 226 ));
+   
    type ICredentialCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PasswordCredential
@@ -372,10 +375,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.CredentialCommandCredentialDeletedHandler
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICredentialCommand : aliased constant Windows.IID := (2784388582, 24899, 19066, (169, 113, 176, 23, 186, 151, 140, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccountsSettingsPaneEventDeferral : aliased constant Windows.IID := (3421658431, 58810, 16623, (147, 218, 101, 224, 150, 229, 251, 4 ));
+   
    type IAccountsSettingsPaneEventDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -383,10 +386,10 @@ package Windows.UI.ApplicationSettings is
       This       : access IAccountsSettingsPaneEventDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccountsSettingsPaneEventDeferral : aliased constant Windows.IID := (3421658431, 58810, 16623, (147, 218, 101, 224, 150, 229, 251, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccountsSettingsPaneCommandsRequestedEventArgs : aliased constant Windows.IID := (996720793, 56089, 17872, (154, 191, 149, 211, 119, 60, 147, 48 ));
+   
    type IAccountsSettingsPaneCommandsRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_WebAccountProviderCommands
@@ -437,10 +440,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.IAccountsSettingsPaneEventDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccountsSettingsPaneCommandsRequestedEventArgs : aliased constant Windows.IID := (996720793, 56089, 17872, (154, 191, 149, 211, 119, 60, 147, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccountsSettingsPaneStatics : aliased constant Windows.IID := (1444907872, 45292, 16720, (168, 220, 32, 142, 228, 75, 6, 138 ));
+   
    type IAccountsSettingsPaneStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -455,10 +458,10 @@ package Windows.UI.ApplicationSettings is
       This       : access IAccountsSettingsPaneStatics_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccountsSettingsPaneStatics : aliased constant Windows.IID := (1444907872, 45292, 16720, (168, 220, 32, 142, 228, 75, 6, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccountsSettingsPaneStatics2 : aliased constant Windows.IID := (3525179330, 52749, 18511, (184, 232, 232, 35, 194, 21, 118, 94 ));
+   
    type IAccountsSettingsPaneStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowManageAccountsAsync
@@ -474,10 +477,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccountsSettingsPaneStatics2 : aliased constant Windows.IID := (3525179330, 52749, 18511, (184, 232, 232, 35, 194, 21, 118, 94 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccountsSettingsPane : aliased constant Windows.IID := (2179634220, 20233, 17414, (165, 56, 131, 141, 155, 20, 183, 230 ));
+   
    type IAccountsSettingsPane_Interface is interface and Windows.IInspectable_Interface;
    
    function add_AccountCommandsRequested
@@ -494,10 +497,10 @@ package Windows.UI.ApplicationSettings is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccountsSettingsPane : aliased constant Windows.IID := (2179634220, 20233, 17414, (165, 56, 131, 141, 155, 20, 183, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISettingsPaneCommandsRequest : aliased constant Windows.IID := (1155474350, 23918, 16488, (161, 104, 244, 118, 67, 24, 33, 20 ));
+   
    type ISettingsPaneCommandsRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ApplicationCommands
@@ -506,10 +509,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.Popups.IVector_IUICommand -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISettingsPaneCommandsRequest : aliased constant Windows.IID := (1155474350, 23918, 16488, (161, 104, 244, 118, 67, 24, 33, 20 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISettingsPaneCommandsRequestedEventArgs : aliased constant Windows.IID := (543120676, 6984, 17961, (166, 202, 47, 223, 237, 175, 183, 93 ));
+   
    type ISettingsPaneCommandsRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -518,10 +521,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.ISettingsPaneCommandsRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISettingsPaneCommandsRequestedEventArgs : aliased constant Windows.IID := (543120676, 6984, 17961, (166, 202, 47, 223, 237, 175, 183, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISettingsPaneStatics : aliased constant Windows.IID := (476730053, 65305, 18203, (186, 107, 248, 243, 86, 148, 173, 154 ));
+   
    type ISettingsPaneStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -543,10 +546,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.SettingsEdgeLocation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISettingsPaneStatics : aliased constant Windows.IID := (476730053, 65305, 18203, (186, 107, 248, 243, 86, 148, 173, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISettingsPane : aliased constant Windows.IID := (2983004466, 17776, 19561, (141, 56, 137, 68, 101, 97, 172, 224 ));
+   
    type ISettingsPane_Interface is interface and Windows.IInspectable_Interface;
    
    function add_CommandsRequested
@@ -563,10 +566,8 @@ package Windows.UI.ApplicationSettings is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISettingsPane : aliased constant Windows.IID := (2983004466, 17776, 19561, (141, 56, 137, 68, 101, 97, 172, 224 ));
-   
    ------------------------------------------------------------------------
+   
    type IUICommand_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Label
@@ -610,8 +611,10 @@ package Windows.UI.ApplicationSettings is
       ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IWebAccountProviderCommand : aliased constant Windows.IID := (2195180916, 36403, 24326, (146, 252, 145, 81, 56, 170, 203, 222 ));
+   
    type IIterator_IWebAccountProviderCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -642,10 +645,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IWebAccountProviderCommand : aliased constant Windows.IID := (2195180916, 36403, 24326, (146, 252, 145, 81, 56, 170, 203, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IWebAccountProviderCommand : aliased constant Windows.IID := (353784679, 11923, 22950, (181, 199, 22, 211, 181, 143, 210, 231 ));
+   
    type IIterable_IWebAccountProviderCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -654,10 +657,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.IIterator_IWebAccountProviderCommand
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IWebAccountProviderCommand : aliased constant Windows.IID := (353784679, 11923, 22950, (181, 199, 22, 211, 181, 143, 210, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IWebAccountProviderCommand : aliased constant Windows.IID := (3000078944, 6183, 23944, (185, 72, 150, 136, 207, 205, 99, 174 ));
+   
    type IVectorView_IWebAccountProviderCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -692,10 +695,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IWebAccountProviderCommand : aliased constant Windows.IID := (3000078944, 6183, 23944, (185, 72, 150, 136, 207, 205, 99, 174 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IWebAccountProviderCommand : aliased constant Windows.IID := (3547769843, 61633, 21043, (159, 66, 222, 83, 24, 132, 150, 62 ));
+   
    type IVector_IWebAccountProviderCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -786,10 +789,10 @@ package Windows.UI.ApplicationSettings is
       ; items : Windows.UI.ApplicationSettings.IWebAccountProviderCommand_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IWebAccountProviderCommand : aliased constant Windows.IID := (3547769843, 61633, 21043, (159, 66, 222, 83, 24, 132, 150, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IWebAccountCommand : aliased constant Windows.IID := (2361090742, 48540, 21638, (157, 20, 156, 196, 98, 123, 50, 212 ));
+   
    type IIterator_IWebAccountCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -820,10 +823,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IWebAccountCommand : aliased constant Windows.IID := (2361090742, 48540, 21638, (157, 20, 156, 196, 98, 123, 50, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IWebAccountCommand : aliased constant Windows.IID := (3171785116, 45754, 20914, (188, 192, 212, 165, 205, 130, 21, 85 ));
+   
    type IIterable_IWebAccountCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -832,10 +835,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.IIterator_IWebAccountCommand
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IWebAccountCommand : aliased constant Windows.IID := (3171785116, 45754, 20914, (188, 192, 212, 165, 205, 130, 21, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IWebAccountCommand : aliased constant Windows.IID := (545172030, 24265, 23508, (161, 210, 115, 23, 154, 129, 40, 168 ));
+   
    type IVectorView_IWebAccountCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -870,10 +873,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IWebAccountCommand : aliased constant Windows.IID := (545172030, 24265, 23508, (161, 210, 115, 23, 154, 129, 40, 168 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IWebAccountCommand : aliased constant Windows.IID := (1692951752, 32751, 24053, (166, 36, 80, 181, 119, 244, 133, 84 ));
+   
    type IVector_IWebAccountCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -964,10 +967,10 @@ package Windows.UI.ApplicationSettings is
       ; items : Windows.UI.ApplicationSettings.IWebAccountCommand_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IWebAccountCommand : aliased constant Windows.IID := (1692951752, 32751, 24053, (166, 36, 80, 181, 119, 244, 133, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ICredentialCommand : aliased constant Windows.IID := (2668722161, 34235, 23760, (155, 8, 160, 180, 122, 118, 76, 117 ));
+   
    type IIterator_ICredentialCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -998,10 +1001,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ICredentialCommand : aliased constant Windows.IID := (2668722161, 34235, 23760, (155, 8, 160, 180, 122, 118, 76, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ICredentialCommand : aliased constant Windows.IID := (2285818253, 19899, 22770, (143, 210, 228, 176, 24, 80, 149, 83 ));
+   
    type IIterable_ICredentialCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1010,10 +1013,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UI.ApplicationSettings.IIterator_ICredentialCommand
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ICredentialCommand : aliased constant Windows.IID := (2285818253, 19899, 22770, (143, 210, 228, 176, 24, 80, 149, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ICredentialCommand : aliased constant Windows.IID := (2513181626, 49785, 24293, (165, 36, 120, 1, 43, 127, 225, 126 ));
+   
    type IVectorView_ICredentialCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1048,10 +1051,10 @@ package Windows.UI.ApplicationSettings is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ICredentialCommand : aliased constant Windows.IID := (2513181626, 49785, 24293, (165, 36, 120, 1, 43, 127, 225, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_ICredentialCommand : aliased constant Windows.IID := (3064929461, 62990, 23304, (179, 18, 46, 181, 17, 53, 207, 198 ));
+   
    type IVector_ICredentialCommand_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1142,17 +1145,15 @@ package Windows.UI.ApplicationSettings is
       ; items : Windows.UI.ApplicationSettings.ICredentialCommand_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_ICredentialCommand : aliased constant Windows.IID := (3064929461, 62990, 23304, (179, 18, 46, 181, 17, 53, 207, 198 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type WebAccountProviderCommandInvokedHandler_Interface(Callback : access procedure (command : Windows.UI.ApplicationSettings.IWebAccountProviderCommand)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access WebAccountProviderCommandInvokedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_WebAccountProviderCommandInvokedHandler : aliased constant Windows.IID := (3084801319, 19599, 17117, (132, 218, 94, 196, 147, 171, 219, 154 ));
+   
+   type WebAccountProviderCommandInvokedHandler_Interface(Callback : access procedure (command : Windows.UI.ApplicationSettings.IWebAccountProviderCommand)) is new Windows.IMulticastDelegate_Interface(IID_WebAccountProviderCommandInvokedHandler'access) with null record;
    
    function Invoke
    (
@@ -1161,12 +1162,11 @@ package Windows.UI.ApplicationSettings is
    )
    return Windows.HRESULT;
    
-   IID_WebAccountProviderCommandInvokedHandler : aliased constant Windows.IID := (3084801319, 19599, 17117, (132, 218, 94, 196, 147, 171, 219, 154 ));
-   
    ------------------------------------------------------------------------
-   type WebAccountCommandInvokedHandler_Interface(Callback : access procedure (command : Windows.UI.ApplicationSettings.IWebAccountCommand ; args : Windows.UI.ApplicationSettings.IWebAccountInvokedArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access WebAccountCommandInvokedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_WebAccountCommandInvokedHandler : aliased constant Windows.IID := (518448217, 5893, 19098, (181, 153, 160, 195, 214, 146, 25, 115 ));
+   
+   type WebAccountCommandInvokedHandler_Interface(Callback : access procedure (command : Windows.UI.ApplicationSettings.IWebAccountCommand ; args : Windows.UI.ApplicationSettings.IWebAccountInvokedArgs)) is new Windows.IMulticastDelegate_Interface(IID_WebAccountCommandInvokedHandler'access) with null record;
    
    function Invoke
    (
@@ -1176,12 +1176,11 @@ package Windows.UI.ApplicationSettings is
    )
    return Windows.HRESULT;
    
-   IID_WebAccountCommandInvokedHandler : aliased constant Windows.IID := (518448217, 5893, 19098, (181, 153, 160, 195, 214, 146, 25, 115 ));
-   
    ------------------------------------------------------------------------
-   type CredentialCommandCredentialDeletedHandler_Interface(Callback : access procedure (command : Windows.UI.ApplicationSettings.ICredentialCommand)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access CredentialCommandCredentialDeletedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_CredentialCommandCredentialDeletedHandler : aliased constant Windows.IID := (1640030597, 2423, 18040, (180, 226, 152, 114, 122, 251, 238, 217 ));
+   
+   type CredentialCommandCredentialDeletedHandler_Interface(Callback : access procedure (command : Windows.UI.ApplicationSettings.ICredentialCommand)) is new Windows.IMulticastDelegate_Interface(IID_CredentialCommandCredentialDeletedHandler'access) with null record;
    
    function Invoke
    (
@@ -1190,12 +1189,11 @@ package Windows.UI.ApplicationSettings is
    )
    return Windows.HRESULT;
    
-   IID_CredentialCommandCredentialDeletedHandler : aliased constant Windows.IID := (1640030597, 2423, 18040, (180, 226, 152, 114, 122, 251, 238, 217 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested_Interface(Callback : access procedure (sender : Windows.UI.ApplicationSettings.IAccountsSettingsPane ; args : Windows.UI.ApplicationSettings.IAccountsSettingsPaneCommandsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested : aliased constant Windows.IID := (1773700222, 32114, 23061, (188, 28, 76, 163, 156, 147, 177, 98 ));
+   
+   type TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested_Interface(Callback : access procedure (sender : Windows.UI.ApplicationSettings.IAccountsSettingsPane ; args : Windows.UI.ApplicationSettings.IAccountsSettingsPaneCommandsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested'access) with null record;
    
    function Invoke
    (
@@ -1205,12 +1203,11 @@ package Windows.UI.ApplicationSettings is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAccountsSettingsPane_add_AccountCommandsRequested : aliased constant Windows.IID := (1773700222, 32114, 23061, (188, 28, 76, 163, 156, 147, 177, 98 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISettingsPane_add_CommandsRequested_Interface(Callback : access procedure (sender : Windows.UI.ApplicationSettings.ISettingsPane ; args : Windows.UI.ApplicationSettings.ISettingsPaneCommandsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISettingsPane_add_CommandsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISettingsPane_add_CommandsRequested : aliased constant Windows.IID := (4086978210, 32177, 23624, (158, 19, 125, 196, 133, 164, 169, 158 ));
+   
+   type TypedEventHandler_ISettingsPane_add_CommandsRequested_Interface(Callback : access procedure (sender : Windows.UI.ApplicationSettings.ISettingsPane ; args : Windows.UI.ApplicationSettings.ISettingsPaneCommandsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISettingsPane_add_CommandsRequested'access) with null record;
    
    function Invoke
    (
@@ -1219,8 +1216,6 @@ package Windows.UI.ApplicationSettings is
       ; args : Windows.UI.ApplicationSettings.ISettingsPaneCommandsRequestedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ISettingsPane_add_CommandsRequested : aliased constant Windows.IID := (4086978210, 32177, 23624, (158, 19, 125, 196, 133, 164, 169, 158 ));
    
    ------------------------------------------------------------------------
    -- Classes

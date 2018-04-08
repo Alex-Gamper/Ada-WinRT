@@ -704,11 +704,14 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type ISensorDataThreshold_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISensorDataThreshold : aliased constant Windows.IID := (1423633505, 65099, 19975, (178, 96, 58, 76, 223, 190, 57, 110 ));
    
+   type ISensorDataThreshold_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ISensorDataThresholdTriggerDetails : aliased constant Windows.IID := (2433151415, 59533, 18609, (188, 144, 97, 156, 123, 52, 147, 145 ));
+   
    type ISensorDataThresholdTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -724,10 +727,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.SensorType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISensorDataThresholdTriggerDetails : aliased constant Windows.IID := (2433151415, 59533, 18609, (188, 144, 97, 156, 123, 52, 147, 145 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometerDeviceId : aliased constant Windows.IID := (2125227177, 38869, 17517, (171, 90, 145, 125, 249, 185, 106, 44 ));
+   
    type IAccelerometerDeviceId_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -736,10 +739,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometerDeviceId : aliased constant Windows.IID := (2125227177, 38869, 17517, (171, 90, 145, 125, 249, 185, 106, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometerStatics : aliased constant Windows.IID := (2783087476, 23175, 18989, (190, 204, 15, 144, 110, 160, 97, 221 ));
+   
    type IAccelerometerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -748,10 +751,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAccelerometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometerStatics : aliased constant Windows.IID := (2783087476, 23175, 18989, (190, 204, 15, 144, 110, 160, 97, 221 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometerStatics2 : aliased constant Windows.IID := (3301213231, 55403, 18053, (178, 215, 51, 150, 247, 152, 213, 123 ));
+   
    type IAccelerometerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultWithAccelerometerReadingType
@@ -761,10 +764,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAccelerometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometerStatics2 : aliased constant Windows.IID := (3301213231, 55403, 18053, (178, 215, 51, 150, 247, 152, 213, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometerStatics3 : aliased constant Windows.IID := (2648840399, 17757, 19699, (130, 0, 112, 225, 65, 3, 64, 248 ));
+   
    type IAccelerometerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdAsync
@@ -782,10 +785,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometerStatics3 : aliased constant Windows.IID := (2648840399, 17757, 19699, (130, 0, 112, 225, 65, 3, 64, 248 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometer : aliased constant Windows.IID := (3742909768, 10001, 19879, (128, 152, 75, 130, 32, 93, 60, 125 ));
+   
    type IAccelerometer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReading
@@ -845,10 +848,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometer : aliased constant Windows.IID := (3742909768, 10001, 19879, (128, 152, 75, 130, 32, 93, 60, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometer2 : aliased constant Windows.IID := (3908080366, 18788, 16410, (182, 2, 34, 13, 113, 83, 198, 10 ));
+   
    type IAccelerometer2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReadingTransform
@@ -864,10 +867,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Graphics.Display.DisplayOrientations
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometer2 : aliased constant Windows.IID := (3908080366, 18788, 16410, (182, 2, 34, 13, 113, 83, 198, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometer3 : aliased constant Windows.IID := (2279604778, 60800, 18923, (191, 138, 164, 234, 49, 229, 205, 132 ));
+   
    type IAccelerometer3_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReportLatency
@@ -890,10 +893,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometer3 : aliased constant Windows.IID := (2279604778, 60800, 18923, (191, 138, 164, 234, 49, 229, 205, 132 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometer4 : aliased constant Windows.IID := (490159183, 17107, 17842, (129, 68, 171, 127, 182, 101, 235, 89 ));
+   
    type IAccelerometer4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ReadingType
@@ -902,10 +905,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.AccelerometerReadingType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometer4 : aliased constant Windows.IID := (490159183, 17107, 17842, (129, 68, 171, 127, 182, 101, 235, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometerReading : aliased constant Windows.IID := (3120462539, 54097, 16559, (139, 182, 122, 169, 174, 100, 31, 183 ));
+   
    type IAccelerometerReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -935,10 +938,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometerReading : aliased constant Windows.IID := (3120462539, 54097, 16559, (139, 182, 122, 169, 174, 100, 31, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometerReading2 : aliased constant Windows.IID := (176573090, 5550, 19008, (190, 85, 219, 88, 215, 222, 115, 137 ));
+   
    type IAccelerometerReading2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PerformanceCount
@@ -954,10 +957,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometerReading2 : aliased constant Windows.IID := (176573090, 5550, 19008, (190, 85, 219, 88, 215, 222, 115, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometerReadingChangedEventArgs : aliased constant Windows.IID := (9815643, 46764, 18266, (159, 68, 139, 50, 211, 90, 63, 37 ));
+   
    type IAccelerometerReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -966,10 +969,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAccelerometerReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometerReadingChangedEventArgs : aliased constant Windows.IID := (9815643, 46764, 18266, (159, 68, 139, 50, 211, 90, 63, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccelerometerShakenEventArgs : aliased constant Windows.IID := (2516517329, 18984, 20277, (152, 232, 129, 120, 170, 228, 8, 74 ));
+   
    type IAccelerometerShakenEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -978,10 +981,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccelerometerShakenEventArgs : aliased constant Windows.IID := (2516517329, 18984, 20277, (152, 232, 129, 120, 170, 228, 8, 74 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometerDeviceId : aliased constant Windows.IID := (32053634, 16895, 17414, (174, 131, 98, 33, 15, 241, 111, 227 ));
+   
    type IInclinometerDeviceId_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -990,10 +993,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometerDeviceId : aliased constant Windows.IID := (32053634, 16895, 17414, (174, 131, 98, 33, 15, 241, 111, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometerStatics : aliased constant Windows.IID := (4063151441, 39984, 17722, (139, 73, 60, 62, 235, 51, 203, 97 ));
+   
    type IInclinometerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -1002,10 +1005,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IInclinometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometerStatics : aliased constant Windows.IID := (4063151441, 39984, 17722, (139, 73, 60, 62, 235, 51, 203, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometerStatics2 : aliased constant Windows.IID := (71276405, 27166, 18844, (134, 224, 99, 140, 26, 134, 75, 0 ));
+   
    type IInclinometerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultForRelativeReadings
@@ -1014,10 +1017,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IInclinometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometerStatics2 : aliased constant Windows.IID := (71276405, 27166, 18844, (134, 224, 99, 140, 26, 134, 75, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometerStatics3 : aliased constant Windows.IID := (3181003392, 47386, 18473, (147, 146, 171, 192, 182, 189, 242, 180 ));
+   
    type IInclinometerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultWithSensorReadingType
@@ -1027,10 +1030,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IInclinometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometerStatics3 : aliased constant Windows.IID := (3181003392, 47386, 18473, (147, 146, 171, 192, 182, 189, 242, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometerStatics4 : aliased constant Windows.IID := (3904542457, 28293, 19075, (174, 208, 215, 205, 204, 152, 86, 200 ));
+   
    type IInclinometerStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -1048,10 +1051,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_IInclinometer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometerStatics4 : aliased constant Windows.IID := (3904542457, 28293, 19075, (174, 208, 215, 205, 204, 152, 86, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometer : aliased constant Windows.IID := (642304623, 8838, 16495, (145, 97, 240, 196, 189, 128, 110, 191 ));
+   
    type IInclinometer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReading
@@ -1096,10 +1099,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometer : aliased constant Windows.IID := (642304623, 8838, 16495, (145, 97, 240, 196, 189, 128, 110, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometer2 : aliased constant Windows.IID := (43987859, 10418, 17912, (187, 22, 97, 232, 106, 127, 174, 110 ));
+   
    type IInclinometer2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReadingTransform
@@ -1122,10 +1125,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.SensorReadingType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometer2 : aliased constant Windows.IID := (43987859, 10418, 17912, (187, 22, 97, 232, 106, 127, 174, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometer3 : aliased constant Windows.IID := (973688836, 55141, 17284, (163, 215, 2, 131, 243, 171, 230, 174 ));
+   
    type IInclinometer3_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReportLatency
@@ -1148,10 +1151,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometer3 : aliased constant Windows.IID := (973688836, 55141, 17284, (163, 215, 2, 131, 243, 171, 230, 174 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometerReading : aliased constant Windows.IID := (2672095317, 46838, 18815, (177, 39, 26, 119, 94, 80, 20, 88 ));
+   
    type IInclinometerReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -1181,10 +1184,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometerReading : aliased constant Windows.IID := (2672095317, 46838, 18815, (177, 39, 26, 119, 94, 80, 20, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometerReading2 : aliased constant Windows.IID := (1326860161, 59659, 18008, (137, 21, 1, 3, 224, 138, 128, 90 ));
+   
    type IInclinometerReading2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PerformanceCount
@@ -1200,10 +1203,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometerReading2 : aliased constant Windows.IID := (1326860161, 59659, 18008, (137, 21, 1, 3, 224, 138, 128, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometerReadingYawAccuracy : aliased constant Windows.IID := (3025397888, 8163, 18822, (162, 87, 230, 236, 226, 114, 57, 73 ));
+   
    type IInclinometerReadingYawAccuracy_Interface is interface and Windows.IInspectable_Interface;
    
    function get_YawAccuracy
@@ -1212,10 +1215,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.MagnetometerAccuracy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometerReadingYawAccuracy : aliased constant Windows.IID := (3025397888, 8163, 18822, (162, 87, 230, 236, 226, 114, 57, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInclinometerReadingChangedEventArgs : aliased constant Windows.IID := (1256791489, 59371, 18744, (133, 17, 174, 13, 107, 68, 4, 56 ));
+   
    type IInclinometerReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -1224,10 +1227,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IInclinometerReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInclinometerReadingChangedEventArgs : aliased constant Windows.IID := (1256791489, 59371, 18744, (133, 17, 174, 13, 107, 68, 4, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGyrometerDeviceId : aliased constant Windows.IID := (518383992, 35234, 17013, (158, 149, 113, 38, 244, 112, 135, 96 ));
+   
    type IGyrometerDeviceId_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -1236,10 +1239,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGyrometerDeviceId : aliased constant Windows.IID := (518383992, 35234, 17013, (158, 149, 113, 38, 244, 112, 135, 96 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGyrometerStatics : aliased constant Windows.IID := (2209802185, 58525, 19257, (134, 230, 205, 85, 75, 228, 197, 193 ));
+   
    type IGyrometerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -1248,10 +1251,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IGyrometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGyrometerStatics : aliased constant Windows.IID := (2209802185, 58525, 19257, (134, 230, 205, 85, 75, 228, 197, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGyrometerStatics2 : aliased constant Windows.IID := (4018403233, 55040, 16900, (150, 19, 121, 198, 177, 97, 223, 78 ));
+   
    type IGyrometerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -1268,10 +1271,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_IGyrometer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGyrometerStatics2 : aliased constant Windows.IID := (4018403233, 55040, 16900, (150, 19, 121, 198, 177, 97, 223, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGyrometer : aliased constant Windows.IID := (4256803268, 33969, 19618, (151, 99, 155, 88, 149, 6, 199, 12 ));
+   
    type IGyrometer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReading
@@ -1316,10 +1319,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGyrometer : aliased constant Windows.IID := (4256803268, 33969, 19618, (151, 99, 155, 88, 149, 6, 199, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGyrometer2 : aliased constant Windows.IID := (1675568195, 36072, 16835, (172, 68, 134, 152, 129, 11, 85, 127 ));
+   
    type IGyrometer2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReadingTransform
@@ -1335,10 +1338,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Graphics.Display.DisplayOrientations
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGyrometer2 : aliased constant Windows.IID := (1675568195, 36072, 16835, (172, 68, 134, 152, 129, 11, 85, 127 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGyrometer3 : aliased constant Windows.IID := (1567590613, 36796, 17540, (145, 75, 82, 138, 223, 217, 71, 177 ));
+   
    type IGyrometer3_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReportLatency
@@ -1361,10 +1364,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGyrometer3 : aliased constant Windows.IID := (1567590613, 36796, 17540, (145, 75, 82, 138, 223, 217, 71, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGyrometerReading : aliased constant Windows.IID := (3017203292, 7908, 17775, (157, 231, 226, 73, 59, 92, 142, 3 ));
+   
    type IGyrometerReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -1394,10 +1397,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGyrometerReading : aliased constant Windows.IID := (3017203292, 7908, 17775, (157, 231, 226, 73, 59, 92, 142, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGyrometerReading2 : aliased constant Windows.IID := (380625212, 11145, 17595, (130, 43, 209, 225, 85, 111, 240, 155 ));
+   
    type IGyrometerReading2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PerformanceCount
@@ -1413,10 +1416,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGyrometerReading2 : aliased constant Windows.IID := (380625212, 11145, 17595, (130, 43, 209, 225, 85, 111, 240, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGyrometerReadingChangedEventArgs : aliased constant Windows.IID := (266279061, 28574, 17102, (141, 88, 56, 140, 10, 184, 53, 109 ));
+   
    type IGyrometerReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -1425,10 +1428,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IGyrometerReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGyrometerReadingChangedEventArgs : aliased constant Windows.IID := (266279061, 28574, 17102, (141, 88, 56, 140, 10, 184, 53, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompassDeviceId : aliased constant Windows.IID := (3514944041, 45189, 19229, (135, 10, 79, 245, 123, 167, 79, 212 ));
+   
    type ICompassDeviceId_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -1437,10 +1440,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompassDeviceId : aliased constant Windows.IID := (3514944041, 45189, 19229, (135, 10, 79, 245, 123, 167, 79, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompassStatics : aliased constant Windows.IID := (2596050911, 22252, 19493, (181, 77, 64, 166, 139, 181, 178, 105 ));
+   
    type ICompassStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -1449,10 +1452,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ICompass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompassStatics : aliased constant Windows.IID := (2596050911, 22252, 19493, (181, 77, 64, 166, 139, 181, 178, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompassStatics2 : aliased constant Windows.IID := (181276333, 15274, 18832, (156, 228, 190, 9, 19, 117, 78, 210 ));
+   
    type ICompassStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -1469,10 +1472,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_ICompass -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompassStatics2 : aliased constant Windows.IID := (181276333, 15274, 18832, (156, 228, 190, 9, 19, 117, 78, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompass : aliased constant Windows.IID := (691010196, 6981, 16444, (186, 6, 177, 6, 219, 166, 154, 100 ));
+   
    type ICompass_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReading
@@ -1517,10 +1520,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompass : aliased constant Windows.IID := (691010196, 6981, 16444, (186, 6, 177, 6, 219, 166, 154, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompass2 : aliased constant Windows.IID := (921857289, 51159, 17231, (180, 97, 151, 157, 223, 194, 50, 47 ));
+   
    type ICompass2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReadingTransform
@@ -1536,10 +1539,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Graphics.Display.DisplayOrientations
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompass2 : aliased constant Windows.IID := (921857289, 51159, 17231, (180, 97, 151, 157, 223, 194, 50, 47 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompass3 : aliased constant Windows.IID := (2753855515, 50666, 19781, (160, 236, 75, 121, 31, 4, 26, 137 ));
+   
    type ICompass3_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReportLatency
@@ -1562,10 +1565,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompass3 : aliased constant Windows.IID := (2753855515, 50666, 19781, (160, 236, 75, 121, 31, 4, 26, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompassReading : aliased constant Windows.IID := (2190545192, 20797, 19913, (183, 129, 94, 237, 251, 240, 45, 12 ));
+   
    type ICompassReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -1588,10 +1591,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompassReading : aliased constant Windows.IID := (2190545192, 20797, 19913, (183, 129, 94, 237, 251, 240, 45, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompassReading2 : aliased constant Windows.IID := (2973394462, 20923, 18962, (190, 221, 173, 71, 255, 135, 210, 232 ));
+   
    type ICompassReading2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PerformanceCount
@@ -1607,10 +1610,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompassReading2 : aliased constant Windows.IID := (2973394462, 20923, 18962, (190, 221, 173, 71, 255, 135, 210, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompassReadingHeadingAccuracy : aliased constant Windows.IID := (3881907534, 35089, 16631, (158, 22, 110, 204, 125, 174, 197, 222 ));
+   
    type ICompassReadingHeadingAccuracy_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HeadingAccuracy
@@ -1619,10 +1622,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.MagnetometerAccuracy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompassReadingHeadingAccuracy : aliased constant Windows.IID := (3881907534, 35089, 16631, (158, 22, 110, 204, 125, 174, 197, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompassReadingChangedEventArgs : aliased constant Windows.IID := (2400537008, 59580, 19582, (176, 9, 78, 65, 223, 19, 112, 114 ));
+   
    type ICompassReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -1631,10 +1634,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ICompassReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompassReadingChangedEventArgs : aliased constant Windows.IID := (2400537008, 59580, 19582, (176, 9, 78, 65, 223, 19, 112, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILightSensorDeviceId : aliased constant Windows.IID := (2146322936, 2811, 20305, (135, 240, 108, 38, 55, 92, 233, 79 ));
+   
    type ILightSensorDeviceId_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -1643,10 +1646,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILightSensorDeviceId : aliased constant Windows.IID := (2146322936, 2811, 20305, (135, 240, 108, 38, 55, 92, 233, 79 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILightSensorStatics : aliased constant Windows.IID := (1172016260, 50088, 18206, (154, 83, 100, 87, 250, 216, 124, 14 ));
+   
    type ILightSensorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -1655,10 +1658,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ILightSensor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILightSensorStatics : aliased constant Windows.IID := (1172016260, 50088, 18206, (154, 83, 100, 87, 250, 216, 124, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILightSensorStatics2 : aliased constant Windows.IID := (247506512, 56774, 16555, (172, 227, 236, 51, 89, 212, 44, 81 ));
+   
    type ILightSensorStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -1675,10 +1678,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_ILightSensor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILightSensorStatics2 : aliased constant Windows.IID := (247506512, 56774, 16555, (172, 227, 236, 51, 89, 212, 44, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILightSensor : aliased constant Windows.IID := (4165732120, 3156, 18350, (146, 46, 120, 159, 87, 251, 3, 160 ));
+   
    type ILightSensor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReading
@@ -1723,10 +1726,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILightSensor : aliased constant Windows.IID := (4165732120, 3156, 18350, (146, 46, 120, 159, 87, 251, 3, 160 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILightSensor2 : aliased constant Windows.IID := (1214981352, 43340, 16528, (143, 72, 9, 247, 130, 169, 247, 213 ));
+   
    type ILightSensor2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReportLatency
@@ -1749,10 +1752,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILightSensor2 : aliased constant Windows.IID := (1214981352, 43340, 16528, (143, 72, 9, 247, 130, 169, 247, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILightSensorReading : aliased constant Windows.IID := (4292829952, 8828, 19755, (179, 2, 252, 1, 66, 72, 92, 104 ));
+   
    type ILightSensorReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -1768,10 +1771,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILightSensorReading : aliased constant Windows.IID := (4292829952, 8828, 19755, (179, 2, 252, 1, 66, 72, 92, 104 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILightSensorReading2 : aliased constant Windows.IID := (3075547525, 17571, 17609, (129, 144, 158, 246, 222, 10, 138, 116 ));
+   
    type ILightSensorReading2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PerformanceCount
@@ -1787,10 +1790,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILightSensorReading2 : aliased constant Windows.IID := (3075547525, 17571, 17609, (129, 144, 158, 246, 222, 10, 138, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILightSensorReadingChangedEventArgs : aliased constant Windows.IID := (2745365711, 9611, 16908, (184, 171, 142, 221, 96, 30, 207, 80 ));
+   
    type ILightSensorReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -1799,10 +1802,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ILightSensorReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILightSensorReadingChangedEventArgs : aliased constant Windows.IID := (2745365711, 9611, 16908, (184, 171, 142, 221, 96, 30, 207, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISensorRotationMatrix : aliased constant Windows.IID := (171792999, 8948, 17298, (149, 56, 101, 208, 189, 6, 74, 166 ));
+   
    type ISensorRotationMatrix_Interface is interface and Windows.IInspectable_Interface;
    
    function get_M11
@@ -1867,10 +1870,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISensorRotationMatrix : aliased constant Windows.IID := (171792999, 8948, 17298, (149, 56, 101, 208, 189, 6, 74, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISensorQuaternion : aliased constant Windows.IID := (3385182247, 50972, 18151, (157, 163, 54, 161, 147, 178, 50, 188 ));
+   
    type ISensorQuaternion_Interface is interface and Windows.IInspectable_Interface;
    
    function get_W
@@ -1900,10 +1903,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISensorQuaternion : aliased constant Windows.IID := (3385182247, 50972, 18151, (157, 163, 54, 161, 147, 178, 50, 188 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensorDeviceId : aliased constant Windows.IID := (1516877384, 19497, 18924, (178, 143, 234, 29, 17, 123, 102, 240 ));
+   
    type IOrientationSensorDeviceId_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -1912,10 +1915,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensorDeviceId : aliased constant Windows.IID := (1516877384, 19497, 18924, (178, 143, 234, 29, 17, 123, 102, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensorStatics : aliased constant Windows.IID := (284133138, 64332, 17034, (137, 139, 39, 101, 228, 9, 230, 105 ));
+   
    type IOrientationSensorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -1924,10 +1927,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IOrientationSensor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensorStatics : aliased constant Windows.IID := (284133138, 64332, 17034, (137, 139, 39, 101, 228, 9, 230, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensorStatics2 : aliased constant Windows.IID := (1507462411, 54282, 19569, (146, 118, 138, 39, 42, 10, 102, 25 ));
+   
    type IOrientationSensorStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultForRelativeReadings
@@ -1936,10 +1939,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IOrientationSensor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensorStatics2 : aliased constant Windows.IID := (1507462411, 54282, 19569, (146, 118, 138, 39, 42, 10, 102, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensorStatics3 : aliased constant Windows.IID := (3626821920, 10103, 16639, (159, 89, 214, 84, 176, 133, 241, 47 ));
+   
    type IOrientationSensorStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultWithSensorReadingType
@@ -1958,10 +1961,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IOrientationSensor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensorStatics3 : aliased constant Windows.IID := (3626821920, 10103, 16639, (159, 89, 214, 84, 176, 133, 241, 47 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensorStatics4 : aliased constant Windows.IID := (2793401173, 11397, 19240, (160, 254, 88, 196, 178, 4, 149, 245 ));
+   
    type IOrientationSensorStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -1988,10 +1991,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_IOrientationSensor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensorStatics4 : aliased constant Windows.IID := (2793401173, 11397, 19240, (160, 254, 88, 196, 178, 4, 149, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensor : aliased constant Windows.IID := (1580549685, 53099, 19555, (171, 216, 16, 37, 43, 11, 246, 236 ));
+   
    type IOrientationSensor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReading
@@ -2036,10 +2039,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensor : aliased constant Windows.IID := (1580549685, 53099, 19555, (171, 216, 16, 37, 43, 11, 246, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensor2 : aliased constant Windows.IID := (227691769, 12063, 18889, (128, 66, 74, 24, 19, 214, 119, 96 ));
+   
    type IOrientationSensor2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReadingTransform
@@ -2062,10 +2065,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.SensorReadingType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensor2 : aliased constant Windows.IID := (227691769, 12063, 18889, (128, 66, 74, 24, 19, 214, 119, 96 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensor3 : aliased constant Windows.IID := (751720333, 25707, 18629, (183, 238, 68, 253, 196, 198, 170, 253 ));
+   
    type IOrientationSensor3_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReportLatency
@@ -2088,10 +2091,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensor3 : aliased constant Windows.IID := (751720333, 25707, 18629, (183, 238, 68, 253, 196, 198, 170, 253 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensorReading : aliased constant Windows.IID := (1196870035, 26005, 18583, (188, 198, 213, 55, 238, 117, 117, 100 ));
+   
    type IOrientationSensorReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -2114,10 +2117,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ISensorQuaternion
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensorReading : aliased constant Windows.IID := (1196870035, 26005, 18583, (188, 198, 213, 55, 238, 117, 117, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensorReading2 : aliased constant Windows.IID := (5729887, 18936, 19461, (158, 7, 36, 250, 199, 148, 8, 195 ));
+   
    type IOrientationSensorReading2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PerformanceCount
@@ -2133,10 +2136,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensorReading2 : aliased constant Windows.IID := (5729887, 18936, 19461, (158, 7, 36, 250, 199, 148, 8, 195 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensorReadingYawAccuracy : aliased constant Windows.IID := (3517749284, 16218, 18850, (188, 123, 17, 128, 188, 56, 205, 43 ));
+   
    type IOrientationSensorReadingYawAccuracy_Interface is interface and Windows.IInspectable_Interface;
    
    function get_YawAccuracy
@@ -2145,10 +2148,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.MagnetometerAccuracy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensorReadingYawAccuracy : aliased constant Windows.IID := (3517749284, 16218, 18850, (188, 123, 17, 128, 188, 56, 205, 43 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOrientationSensorReadingChangedEventArgs : aliased constant Windows.IID := (19665286, 50106, 18108, (174, 101, 122, 152, 153, 108, 191, 184 ));
+   
    type IOrientationSensorReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -2157,10 +2160,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IOrientationSensorReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOrientationSensorReadingChangedEventArgs : aliased constant Windows.IID := (19665286, 50106, 18108, (174, 101, 122, 152, 153, 108, 191, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISimpleOrientationSensorDeviceId : aliased constant Windows.IID := (4223666891, 15222, 16886, (128, 145, 48, 239, 230, 70, 211, 207 ));
+   
    type ISimpleOrientationSensorDeviceId_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -2169,10 +2172,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISimpleOrientationSensorDeviceId : aliased constant Windows.IID := (4223666891, 15222, 16886, (128, 145, 48, 239, 230, 70, 211, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISimpleOrientationSensorStatics : aliased constant Windows.IID := (1928136303, 28842, 16582, (155, 27, 52, 51, 247, 69, 155, 78 ));
+   
    type ISimpleOrientationSensorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -2181,10 +2184,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ISimpleOrientationSensor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISimpleOrientationSensorStatics : aliased constant Windows.IID := (1928136303, 28842, 16582, (155, 27, 52, 51, 247, 69, 155, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISimpleOrientationSensor : aliased constant Windows.IID := (1609906262, 8522, 19950, (163, 249, 97, 111, 26, 176, 111, 253 ));
+   
    type ISimpleOrientationSensor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentOrientation
@@ -2208,10 +2211,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISimpleOrientationSensor : aliased constant Windows.IID := (1609906262, 8522, 19950, (163, 249, 97, 111, 26, 176, 111, 253 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISimpleOrientationSensor2 : aliased constant Windows.IID := (2725750680, 34928, 17726, (139, 214, 184, 245, 216, 215, 148, 27 ));
+   
    type ISimpleOrientationSensor2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReadingTransform
@@ -2227,10 +2230,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Graphics.Display.DisplayOrientations
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISimpleOrientationSensor2 : aliased constant Windows.IID := (2725750680, 34928, 17726, (139, 214, 184, 245, 216, 215, 148, 27 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISimpleOrientationSensorOrientationChangedEventArgs : aliased constant Windows.IID := (3168126560, 9172, 19276, (162, 46, 186, 129, 173, 224, 198, 1 ));
+   
    type ISimpleOrientationSensorOrientationChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -2246,10 +2249,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.SimpleOrientation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISimpleOrientationSensorOrientationChangedEventArgs : aliased constant Windows.IID := (3168126560, 9172, 19276, (162, 46, 186, 129, 173, 224, 198, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMagnetometerDeviceId : aliased constant Windows.IID := (1488230594, 32331, 16460, (159, 197, 93, 232, 180, 14, 186, 227 ));
+   
    type IMagnetometerDeviceId_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -2258,10 +2261,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMagnetometerDeviceId : aliased constant Windows.IID := (1488230594, 32331, 16460, (159, 197, 93, 232, 180, 14, 186, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMagnetometerStatics : aliased constant Windows.IID := (2235327692, 1688, 19930, (166, 223, 156, 185, 204, 74, 180, 10 ));
+   
    type IMagnetometerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -2270,10 +2273,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IMagnetometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMagnetometerStatics : aliased constant Windows.IID := (2235327692, 1688, 19930, (166, 223, 156, 185, 204, 74, 180, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMagnetometerStatics2 : aliased constant Windows.IID := (738728432, 65478, 20361, (160, 111, 24, 250, 16, 121, 41, 51 ));
+   
    type IMagnetometerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -2290,10 +2293,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_IMagnetometer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMagnetometerStatics2 : aliased constant Windows.IID := (738728432, 65478, 20361, (160, 111, 24, 250, 16, 121, 41, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMagnetometer : aliased constant Windows.IID := (1213162094, 54217, 16657, (179, 246, 44, 241, 250, 164, 24, 213 ));
+   
    type IMagnetometer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReading
@@ -2338,10 +2341,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMagnetometer : aliased constant Windows.IID := (1213162094, 54217, 16657, (179, 246, 44, 241, 250, 164, 24, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMagnetometer2 : aliased constant Windows.IID := (3026545797, 9974, 17483, (169, 226, 162, 63, 150, 108, 211, 104 ));
+   
    type IMagnetometer2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReadingTransform
@@ -2357,10 +2360,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Graphics.Display.DisplayOrientations
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMagnetometer2 : aliased constant Windows.IID := (3026545797, 9974, 17483, (169, 226, 162, 63, 150, 108, 211, 104 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMagnetometer3 : aliased constant Windows.IID := (3197361020, 42533, 18671, (172, 247, 250, 193, 4, 131, 38, 113 ));
+   
    type IMagnetometer3_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReportLatency
@@ -2383,10 +2386,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMagnetometer3 : aliased constant Windows.IID := (3197361020, 42533, 18671, (172, 247, 250, 193, 4, 131, 38, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMagnetometerReading : aliased constant Windows.IID := (204260365, 60413, 20060, (187, 17, 175, 194, 155, 60, 174, 97 ));
+   
    type IMagnetometerReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -2423,10 +2426,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.MagnetometerAccuracy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMagnetometerReading : aliased constant Windows.IID := (204260365, 60413, 20060, (187, 17, 175, 194, 155, 60, 174, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMagnetometerReading2 : aliased constant Windows.IID := (3569966177, 25049, 16459, (163, 40, 6, 111, 23, 122, 20, 9 ));
+   
    type IMagnetometerReading2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PerformanceCount
@@ -2442,10 +2445,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMagnetometerReading2 : aliased constant Windows.IID := (3569966177, 25049, 16459, (163, 40, 6, 111, 23, 122, 20, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMagnetometerReadingChangedEventArgs : aliased constant Windows.IID := (401270898, 11961, 20199, (138, 208, 49, 39, 83, 125, 148, 155 ));
+   
    type IMagnetometerReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -2454,10 +2457,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IMagnetometerReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMagnetometerReadingChangedEventArgs : aliased constant Windows.IID := (401270898, 11961, 20199, (138, 208, 49, 39, 83, 125, 148, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IActivitySensorStatics : aliased constant Windows.IID := (2803764893, 61067, 17873, (178, 91, 8, 204, 13, 249, 42, 182 ));
+   
    type IActivitySensorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultAsync
@@ -2498,10 +2501,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivitySensorStatics : aliased constant Windows.IID := (2803764893, 61067, 17873, (178, 91, 8, 204, 13, 249, 42, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IActivitySensor : aliased constant Windows.IID := (3447350028, 64351, 18667, (176, 155, 162, 112, 141, 28, 97, 239 ));
+   
    type IActivitySensor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReadingAsync
@@ -2560,10 +2563,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivitySensor : aliased constant Windows.IID := (3447350028, 64351, 18667, (176, 155, 162, 112, 141, 28, 97, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IActivitySensorReading : aliased constant Windows.IID := (2232572566, 5234, 16546, (178, 174, 225, 239, 41, 34, 108, 120 ));
+   
    type IActivitySensorReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -2586,10 +2589,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ActivitySensorReadingConfidence
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivitySensorReading : aliased constant Windows.IID := (2232572566, 5234, 16546, (178, 174, 225, 239, 41, 34, 108, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IActivitySensorReadingChangedEventArgs : aliased constant Windows.IID := (3728238359, 44726, 20167, (148, 106, 217, 204, 25, 185, 81, 236 ));
+   
    type IActivitySensorReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -2598,10 +2601,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IActivitySensorReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivitySensorReadingChangedEventArgs : aliased constant Windows.IID := (3728238359, 44726, 20167, (148, 106, 217, 204, 25, 185, 81, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IActivitySensorReadingChangeReport : aliased constant Windows.IID := (1329342741, 55611, 18365, (150, 10, 242, 15, 178, 243, 34, 185 ));
+   
    type IActivitySensorReadingChangeReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -2610,10 +2613,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IActivitySensorReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivitySensorReadingChangeReport : aliased constant Windows.IID := (1329342741, 55611, 18365, (150, 10, 242, 15, 178, 243, 34, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IActivitySensorTriggerDetails : aliased constant Windows.IID := (748578322, 47562, 18039, (178, 99, 36, 50, 151, 247, 157, 58 ));
+   
    type IActivitySensorTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadReports
@@ -2622,10 +2625,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IVectorView_IActivitySensorReadingChangeReport -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivitySensorTriggerDetails : aliased constant Windows.IID := (748578322, 47562, 18039, (178, 99, 36, 50, 151, 247, 157, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBarometerStatics : aliased constant Windows.IID := (678110986, 739, 20358, (132, 252, 253, 216, 146, 181, 148, 15 ));
+   
    type IBarometerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -2634,10 +2637,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IBarometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBarometerStatics : aliased constant Windows.IID := (678110986, 739, 20358, (132, 252, 253, 216, 146, 181, 148, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBarometerStatics2 : aliased constant Windows.IID := (2412163559, 38399, 17580, (135, 142, 214, 92, 131, 8, 195, 76 ));
+   
    type IBarometerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdAsync
@@ -2654,10 +2657,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBarometerStatics2 : aliased constant Windows.IID := (2412163559, 38399, 17580, (135, 142, 214, 92, 131, 8, 195, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBarometer : aliased constant Windows.IID := (2470737320, 30911, 17711, (176, 23, 240, 32, 156, 230, 218, 180 ));
+   
    type IBarometer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReading
@@ -2709,10 +2712,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBarometer : aliased constant Windows.IID := (2470737320, 30911, 17711, (176, 23, 240, 32, 156, 230, 218, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBarometer2 : aliased constant Windows.IID := (851231768, 16107, 19716, (149, 116, 118, 51, 168, 120, 31, 159 ));
+   
    type IBarometer2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReportLatency
@@ -2735,10 +2738,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBarometer2 : aliased constant Windows.IID := (851231768, 16107, 19716, (149, 116, 118, 51, 168, 120, 31, 159 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBarometerReading : aliased constant Windows.IID := (4122596070, 7670, 18970, (167, 173, 50, 29, 79, 93, 178, 71 ));
+   
    type IBarometerReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -2754,10 +2757,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBarometerReading : aliased constant Windows.IID := (4122596070, 7670, 18970, (167, 173, 50, 29, 79, 93, 178, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBarometerReading2 : aliased constant Windows.IID := (2242004203, 37061, 18549, (137, 28, 56, 101, 180, 195, 87, 231 ));
+   
    type IBarometerReading2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PerformanceCount
@@ -2773,10 +2776,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBarometerReading2 : aliased constant Windows.IID := (2242004203, 37061, 18549, (137, 28, 56, 101, 180, 195, 87, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBarometerReadingChangedEventArgs : aliased constant Windows.IID := (1032098911, 891, 16463, (155, 187, 98, 50, 214, 149, 67, 195 ));
+   
    type IBarometerReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -2785,10 +2788,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IBarometerReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBarometerReadingChangedEventArgs : aliased constant Windows.IID := (1032098911, 891, 16463, (155, 187, 98, 50, 214, 149, 67, 195 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPedometerReading : aliased constant Windows.IID := (575003892, 43233, 17199, (137, 106, 190, 13, 217, 176, 45, 36 ));
+   
    type IPedometerReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StepKind
@@ -2818,10 +2821,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPedometerReading : aliased constant Windows.IID := (575003892, 43233, 17199, (137, 106, 190, 13, 217, 176, 45, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPedometerReadingChangedEventArgs : aliased constant Windows.IID := (4166378622, 43964, 17494, (134, 168, 37, 207, 43, 51, 55, 66 ));
+   
    type IPedometerReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -2830,10 +2833,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IPedometerReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPedometerReadingChangedEventArgs : aliased constant Windows.IID := (4166378622, 43964, 17494, (134, 168, 37, 207, 43, 51, 55, 66 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPedometerStatics : aliased constant Windows.IID := (2191002159, 16515, 19963, (180, 17, 147, 142, 160, 244, 185, 70 ));
+   
    type IPedometerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdAsync
@@ -2874,10 +2877,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPedometerStatics : aliased constant Windows.IID := (2191002159, 16515, 19963, (180, 17, 147, 142, 160, 244, 185, 70 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPedometerStatics2 : aliased constant Windows.IID := (2046150331, 52750, 16691, (180, 126, 134, 39, 234, 114, 246, 119 ));
+   
    type IPedometerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetReadingsFromTriggerDetails
@@ -2887,10 +2890,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IVectorView_IPedometerReading -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPedometerStatics2 : aliased constant Windows.IID := (2046150331, 52750, 16691, (180, 126, 134, 39, 234, 114, 246, 119 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPedometer2 : aliased constant Windows.IID := (3852732127, 11137, 19165, (178, 255, 119, 171, 108, 152, 186, 25 ));
+   
    type IPedometer2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReadings
@@ -2899,10 +2902,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPedometer2 : aliased constant Windows.IID := (3852732127, 11137, 19165, (178, 255, 119, 171, 108, 152, 186, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPedometer : aliased constant Windows.IID := (2585657661, 15768, 17912, (137, 32, 142, 78, 202, 202, 95, 151 ));
+   
    type IPedometer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -2954,10 +2957,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPedometer : aliased constant Windows.IID := (2585657661, 15768, 17912, (137, 32, 142, 78, 202, 202, 95, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPedometerDataThresholdFactory : aliased constant Windows.IID := (3417149264, 31316, 18027, (144, 16, 119, 161, 98, 252, 165, 215 ));
+   
    type IPedometerDataThresholdFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -2968,10 +2971,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ISensorDataThreshold
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPedometerDataThresholdFactory : aliased constant Windows.IID := (3417149264, 31316, 18027, (144, 16, 119, 161, 98, 252, 165, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProximitySensorStatics : aliased constant Windows.IID := (689464905, 25193, 20055, (165, 173, 130, 190, 128, 129, 51, 146 ));
+   
    type IProximitySensorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -2988,10 +2991,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IProximitySensor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProximitySensorStatics : aliased constant Windows.IID := (689464905, 25193, 20055, (165, 173, 130, 190, 128, 129, 51, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProximitySensor : aliased constant Windows.IID := (1421899448, 60667, 18756, (185, 40, 116, 252, 80, 77, 71, 238 ));
+   
    type IProximitySensor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -3043,10 +3046,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Foundation.IClosable
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProximitySensor : aliased constant Windows.IID := (1421899448, 60667, 18756, (185, 40, 116, 252, 80, 77, 71, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProximitySensorReadingChangedEventArgs : aliased constant Windows.IID := (3485660006, 50152, 16637, (140, 195, 103, 226, 137, 0, 73, 56 ));
+   
    type IProximitySensorReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -3055,10 +3058,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IProximitySensorReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProximitySensorReadingChangedEventArgs : aliased constant Windows.IID := (3485660006, 50152, 16637, (140, 195, 103, 226, 137, 0, 73, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProximitySensorReading : aliased constant Windows.IID := (1898089817, 4909, 19807, (143, 249, 47, 13, 184, 117, 28, 237 ));
+   
    type IProximitySensorReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -3081,10 +3084,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProximitySensorReading : aliased constant Windows.IID := (1898089817, 4909, 19807, (143, 249, 47, 13, 184, 117, 28, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProximitySensorDataThresholdFactory : aliased constant Windows.IID := (2421866785, 27943, 19155, (157, 181, 100, 103, 242, 165, 173, 157 ));
+   
    type IProximitySensorDataThresholdFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -3094,10 +3097,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ISensorDataThreshold
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProximitySensorDataThresholdFactory : aliased constant Windows.IID := (2421866785, 27943, 19155, (157, 181, 100, 103, 242, 165, 173, 157 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProximitySensorStatics2 : aliased constant Windows.IID := (3421795246, 59850, 16943, (173, 103, 76, 61, 37, 223, 53, 12 ));
+   
    type IProximitySensorStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetReadingsFromTriggerDetails
@@ -3107,10 +3110,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IVectorView_IProximitySensorReading -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProximitySensorStatics2 : aliased constant Windows.IID := (3421795246, 59850, 16943, (173, 103, 76, 61, 37, 223, 53, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAltimeterStatics : aliased constant Windows.IID := (2662651843, 58796, 18382, (142, 239, 211, 113, 129, 104, 192, 31 ));
+   
    type IAltimeterStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -3119,10 +3122,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAltimeter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAltimeterStatics : aliased constant Windows.IID := (2662651843, 58796, 18382, (142, 239, 211, 113, 129, 104, 192, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAltimeter : aliased constant Windows.IID := (1928353789, 36612, 18929, (180, 167, 244, 227, 99, 183, 1, 162 ));
+   
    type IAltimeter_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentReading
@@ -3174,10 +3177,10 @@ package Windows.Devices.Sensors is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAltimeter : aliased constant Windows.IID := (1928353789, 36612, 18929, (180, 167, 244, 227, 99, 183, 1, 162 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAltimeter2 : aliased constant Windows.IID := (3376880633, 10973, 18677, (159, 8, 61, 12, 118, 96, 217, 56 ));
+   
    type IAltimeter2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ReportLatency
@@ -3200,10 +3203,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAltimeter2 : aliased constant Windows.IID := (3376880633, 10973, 18677, (159, 8, 61, 12, 118, 96, 217, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAltimeterReading : aliased constant Windows.IID := (4226346867, 32606, 18632, (170, 26, 241, 243, 190, 252, 17, 68 ));
+   
    type IAltimeterReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -3219,10 +3222,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAltimeterReading : aliased constant Windows.IID := (4226346867, 32606, 18632, (170, 26, 241, 243, 190, 252, 17, 68 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAltimeterReading2 : aliased constant Windows.IID := (1413094361, 27915, 17074, (189, 105, 188, 143, 174, 15, 120, 44 ));
+   
    type IAltimeterReading2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PerformanceCount
@@ -3238,10 +3241,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAltimeterReading2 : aliased constant Windows.IID := (1413094361, 27915, 17074, (189, 105, 188, 143, 174, 15, 120, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAltimeterReadingChangedEventArgs : aliased constant Windows.IID := (1885982839, 17517, 18423, (153, 140, 235, 194, 59, 69, 228, 162 ));
+   
    type IAltimeterReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reading
@@ -3250,10 +3253,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAltimeterReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAltimeterReadingChangedEventArgs : aliased constant Windows.IID := (1885982839, 17517, 18423, (153, 140, 235, 194, 59, 69, 228, 162 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAccelerometer : aliased constant Windows.IID := (4235599163, 24141, 20808, (166, 24, 123, 103, 112, 89, 208, 184 ));
+   
    type IAsyncOperation_IAccelerometer_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3276,10 +3279,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IAccelerometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IAccelerometer : aliased constant Windows.IID := (4235599163, 24141, 20808, (166, 24, 123, 103, 112, 89, 208, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IInclinometer : aliased constant Windows.IID := (2230039702, 46746, 21453, (182, 144, 164, 97, 137, 130, 43, 1 ));
+   
    type IAsyncOperation_IInclinometer_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3302,10 +3305,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IInclinometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IInclinometer : aliased constant Windows.IID := (2230039702, 46746, 21453, (182, 144, 164, 97, 137, 130, 43, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGyrometer : aliased constant Windows.IID := (4243487423, 7631, 20684, (185, 27, 122, 31, 89, 224, 194, 139 ));
+   
    type IAsyncOperation_IGyrometer_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3328,10 +3331,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IGyrometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGyrometer : aliased constant Windows.IID := (4243487423, 7631, 20684, (185, 27, 122, 31, 89, 224, 194, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICompass : aliased constant Windows.IID := (1385677388, 42747, 24067, (164, 248, 238, 20, 60, 67, 93, 248 ));
+   
    type IAsyncOperation_ICompass_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3354,10 +3357,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ICompass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ICompass : aliased constant Windows.IID := (1385677388, 42747, 24067, (164, 248, 238, 20, 60, 67, 93, 248 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ILightSensor : aliased constant Windows.IID := (940464428, 18336, 24052, (141, 226, 178, 238, 250, 157, 184, 173 ));
+   
    type IAsyncOperation_ILightSensor_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3380,10 +3383,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.ILightSensor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ILightSensor : aliased constant Windows.IID := (940464428, 18336, 24052, (141, 226, 178, 238, 250, 157, 184, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IOrientationSensor : aliased constant Windows.IID := (2398317224, 28525, 21387, (164, 43, 55, 175, 115, 105, 4, 158 ));
+   
    type IAsyncOperation_IOrientationSensor_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3406,10 +3409,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IOrientationSensor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IOrientationSensor : aliased constant Windows.IID := (2398317224, 28525, 21387, (164, 43, 55, 175, 115, 105, 4, 158 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMagnetometer : aliased constant Windows.IID := (2957333571, 59280, 23203, (135, 103, 73, 50, 3, 34, 116, 238 ));
+   
    type IAsyncOperation_IMagnetometer_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3432,10 +3435,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IMagnetometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMagnetometer : aliased constant Windows.IID := (2957333571, 59280, 23203, (135, 103, 73, 50, 3, 34, 116, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IActivitySensor : aliased constant Windows.IID := (3274703790, 59310, 22315, (141, 85, 125, 177, 151, 53, 108, 48 ));
+   
    type IAsyncOperation_IActivitySensor_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3458,10 +3461,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IActivitySensor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IActivitySensor : aliased constant Windows.IID := (3274703790, 59310, 22315, (141, 85, 125, 177, 151, 53, 108, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IActivitySensorReading : aliased constant Windows.IID := (2041084265, 12927, 23418, (160, 211, 115, 234, 177, 109, 226, 28 ));
+   
    type IAsyncOperation_IActivitySensorReading_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3484,10 +3487,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IActivitySensorReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IActivitySensorReading : aliased constant Windows.IID := (2041084265, 12927, 23418, (160, 211, 115, 234, 177, 109, 226, 28 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ActivityType : aliased constant Windows.IID := (1079132801, 42950, 20657, (182, 245, 11, 170, 149, 217, 2, 194 ));
+   
    type IIterator_ActivityType_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3518,10 +3521,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ActivityType : aliased constant Windows.IID := (1079132801, 42950, 20657, (182, 245, 11, 170, 149, 217, 2, 194 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ActivityType : aliased constant Windows.IID := (704957946, 24061, 20856, (135, 49, 173, 233, 152, 228, 167, 246 ));
+   
    type IIterable_ActivityType_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3530,10 +3533,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IIterator_ActivityType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ActivityType : aliased constant Windows.IID := (704957946, 24061, 20856, (135, 49, 173, 233, 152, 228, 167, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ActivityType : aliased constant Windows.IID := (4235854984, 10243, 20572, (158, 98, 146, 0, 175, 228, 22, 198 ));
+   
    type IVectorView_ActivityType_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3568,10 +3571,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ActivityType : aliased constant Windows.IID := (4235854984, 10243, 20572, (158, 98, 146, 0, 175, 228, 22, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_ActivityType : aliased constant Windows.IID := (3823526102, 53313, 24269, (177, 139, 250, 37, 78, 74, 134, 15 ));
+   
    type IVector_ActivityType_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3662,10 +3665,10 @@ package Windows.Devices.Sensors is
       ; items : Windows.Devices.Sensors.ActivityType_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_ActivityType : aliased constant Windows.IID := (3823526102, 53313, 24269, (177, 139, 250, 37, 78, 74, 134, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IActivitySensorReadingChangeReport : aliased constant Windows.IID := (2617705294, 33587, 22997, (141, 96, 14, 63, 4, 56, 172, 18 ));
+   
    type IIterator_IActivitySensorReadingChangeReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3696,10 +3699,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IActivitySensorReadingChangeReport : aliased constant Windows.IID := (2617705294, 33587, 22997, (141, 96, 14, 63, 4, 56, 172, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IActivitySensorReadingChangeReport : aliased constant Windows.IID := (1427786082, 40598, 24171, (139, 138, 101, 238, 61, 0, 70, 243 ));
+   
    type IIterable_IActivitySensorReadingChangeReport_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3708,10 +3711,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IIterator_IActivitySensorReadingChangeReport
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IActivitySensorReadingChangeReport : aliased constant Windows.IID := (1427786082, 40598, 24171, (139, 138, 101, 238, 61, 0, 70, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IActivitySensorReadingChangeReport : aliased constant Windows.IID := (283413120, 56682, 22276, (143, 61, 61, 70, 17, 31, 57, 30 ));
+   
    type IVectorView_IActivitySensorReadingChangeReport_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3746,10 +3749,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IActivitySensorReadingChangeReport : aliased constant Windows.IID := (283413120, 56682, 22276, (143, 61, 61, 70, 17, 31, 57, 30 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBarometer : aliased constant Windows.IID := (1367826487, 40758, 23686, (133, 93, 61, 221, 37, 29, 249, 168 ));
+   
    type IAsyncOperation_IBarometer_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3772,10 +3775,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IBarometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IBarometer : aliased constant Windows.IID := (1367826487, 40758, 23686, (133, 93, 61, 221, 37, 29, 249, 168 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPedometer : aliased constant Windows.IID := (2484353167, 6974, 22005, (129, 155, 171, 56, 51, 100, 96, 85 ));
+   
    type IAsyncOperation_IPedometer_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3798,10 +3801,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IPedometer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPedometer : aliased constant Windows.IID := (2484353167, 6974, 22005, (129, 155, 171, 56, 51, 100, 96, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPedometerReading : aliased constant Windows.IID := (180817619, 34131, 24307, (146, 248, 67, 134, 9, 98, 48, 135 ));
+   
    type IIterator_IPedometerReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3832,10 +3835,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPedometerReading : aliased constant Windows.IID := (180817619, 34131, 24307, (146, 248, 67, 134, 9, 98, 48, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPedometerReading : aliased constant Windows.IID := (3149273692, 39107, 22296, (136, 254, 83, 146, 167, 69, 30, 45 ));
+   
    type IIterable_IPedometerReading_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3844,10 +3847,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IIterator_IPedometerReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPedometerReading : aliased constant Windows.IID := (3149273692, 39107, 22296, (136, 254, 83, 146, 167, 69, 30, 45 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPedometerReading : aliased constant Windows.IID := (1376218972, 30776, 21721, (149, 23, 85, 17, 235, 98, 121, 82 ));
+   
    type IVectorView_IPedometerReading_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3882,10 +3885,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPedometerReading : aliased constant Windows.IID := (1376218972, 30776, 21721, (149, 23, 85, 17, 235, 98, 121, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IProximitySensorReading : aliased constant Windows.IID := (491718879, 32585, 22331, (147, 106, 109, 77, 78, 97, 9, 48 ));
+   
    type IIterator_IProximitySensorReading_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3916,10 +3919,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IProximitySensorReading : aliased constant Windows.IID := (491718879, 32585, 22331, (147, 106, 109, 77, 78, 97, 9, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IProximitySensorReading : aliased constant Windows.IID := (807320783, 4523, 24208, (152, 238, 189, 153, 192, 227, 187, 118 ));
+   
    type IIterable_IProximitySensorReading_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3928,10 +3931,10 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.Devices.Sensors.IIterator_IProximitySensorReading
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IProximitySensorReading : aliased constant Windows.IID := (807320783, 4523, 24208, (152, 238, 189, 153, 192, 227, 187, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IProximitySensorReading : aliased constant Windows.IID := (2047465324, 36077, 24112, (183, 254, 31, 247, 77, 77, 152, 20 ));
+   
    type IVectorView_IProximitySensorReading_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3966,17 +3969,15 @@ package Windows.Devices.Sensors is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IProximitySensorReading : aliased constant Windows.IID := (2047465324, 36077, 24112, (183, 254, 31, 247, 77, 77, 152, 20 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IAccelerometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IAccelerometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAccelerometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IAccelerometer : aliased constant Windows.IID := (3351460278, 29991, 20522, (138, 76, 203, 155, 239, 225, 88, 64 ));
+   
+   type AsyncOperationCompletedHandler_IAccelerometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IAccelerometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAccelerometer'access) with null record;
    
    function Invoke
    (
@@ -3986,12 +3987,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IAccelerometer : aliased constant Windows.IID := (3351460278, 29991, 20522, (138, 76, 203, 155, 239, 225, 88, 64 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IAccelerometer ; args : Windows.Devices.Sensors.IAccelerometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAccelerometer_add_ReadingChanged : aliased constant Windows.IID := (2783460928, 46487, 23427, (146, 245, 91, 237, 57, 38, 202, 128 ));
+   
+   type TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IAccelerometer ; args : Windows.Devices.Sensors.IAccelerometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAccelerometer_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4001,12 +4001,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAccelerometer_add_ReadingChanged : aliased constant Windows.IID := (2783460928, 46487, 23427, (146, 245, 91, 237, 57, 38, 202, 128 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAccelerometer_add_Shaken_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IAccelerometer ; args : Windows.Devices.Sensors.IAccelerometerShakenEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAccelerometer_add_Shaken_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAccelerometer_add_Shaken : aliased constant Windows.IID := (1046310575, 61801, 23904, (146, 176, 152, 205, 107, 216, 248, 8 ));
+   
+   type TypedEventHandler_IAccelerometer_add_Shaken_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IAccelerometer ; args : Windows.Devices.Sensors.IAccelerometerShakenEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAccelerometer_add_Shaken'access) with null record;
    
    function Invoke
    (
@@ -4016,12 +4015,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAccelerometer_add_Shaken : aliased constant Windows.IID := (1046310575, 61801, 23904, (146, 176, 152, 205, 107, 216, 248, 8 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IInclinometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IInclinometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IInclinometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IInclinometer : aliased constant Windows.IID := (2400116266, 11535, 22006, (149, 102, 60, 33, 56, 95, 174, 100 ));
+   
+   type AsyncOperationCompletedHandler_IInclinometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IInclinometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IInclinometer'access) with null record;
    
    function Invoke
    (
@@ -4031,12 +4029,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IInclinometer : aliased constant Windows.IID := (2400116266, 11535, 22006, (149, 102, 60, 33, 56, 95, 174, 100 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IInclinometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IInclinometer ; args : Windows.Devices.Sensors.IInclinometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInclinometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IInclinometer_add_ReadingChanged : aliased constant Windows.IID := (1866154271, 53575, 23025, (187, 228, 123, 236, 57, 108, 123, 110 ));
+   
+   type TypedEventHandler_IInclinometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IInclinometer ; args : Windows.Devices.Sensors.IInclinometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInclinometer_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4046,12 +4043,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IInclinometer_add_ReadingChanged : aliased constant Windows.IID := (1866154271, 53575, 23025, (187, 228, 123, 236, 57, 108, 123, 110 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGyrometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IGyrometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGyrometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGyrometer : aliased constant Windows.IID := (360289537, 38286, 21269, (162, 74, 13, 125, 122, 203, 199, 156 ));
+   
+   type AsyncOperationCompletedHandler_IGyrometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IGyrometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGyrometer'access) with null record;
    
    function Invoke
    (
@@ -4061,12 +4057,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGyrometer : aliased constant Windows.IID := (360289537, 38286, 21269, (162, 74, 13, 125, 122, 203, 199, 156 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGyrometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IGyrometer ; args : Windows.Devices.Sensors.IGyrometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGyrometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGyrometer_add_ReadingChanged : aliased constant Windows.IID := (353834276, 22406, 22949, (175, 91, 160, 18, 69, 114, 108, 68 ));
+   
+   type TypedEventHandler_IGyrometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IGyrometer ; args : Windows.Devices.Sensors.IGyrometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGyrometer_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4076,12 +4071,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGyrometer_add_ReadingChanged : aliased constant Windows.IID := (353834276, 22406, 22949, (175, 91, 160, 18, 69, 114, 108, 68 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ICompass_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_ICompass ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICompass_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ICompass : aliased constant Windows.IID := (217179232, 48172, 22652, (152, 34, 66, 11, 160, 77, 5, 81 ));
+   
+   type AsyncOperationCompletedHandler_ICompass_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_ICompass ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICompass'access) with null record;
    
    function Invoke
    (
@@ -4091,12 +4085,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ICompass : aliased constant Windows.IID := (217179232, 48172, 22652, (152, 34, 66, 11, 160, 77, 5, 81 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICompass_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.ICompass ; args : Windows.Devices.Sensors.ICompassReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICompass_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICompass_add_ReadingChanged : aliased constant Windows.IID := (3884439357, 41249, 23270, (180, 151, 171, 147, 72, 55, 229, 127 ));
+   
+   type TypedEventHandler_ICompass_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.ICompass ; args : Windows.Devices.Sensors.ICompassReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICompass_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4106,12 +4099,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICompass_add_ReadingChanged : aliased constant Windows.IID := (3884439357, 41249, 23270, (180, 151, 171, 147, 72, 55, 229, 127 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ILightSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_ILightSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ILightSensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ILightSensor : aliased constant Windows.IID := (1560601279, 20835, 21048, (143, 35, 206, 71, 11, 48, 52, 13 ));
+   
+   type AsyncOperationCompletedHandler_ILightSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_ILightSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILightSensor'access) with null record;
    
    function Invoke
    (
@@ -4121,12 +4113,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ILightSensor : aliased constant Windows.IID := (1560601279, 20835, 21048, (143, 35, 206, 71, 11, 48, 52, 13 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILightSensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.ILightSensor ; args : Windows.Devices.Sensors.ILightSensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILightSensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILightSensor_add_ReadingChanged : aliased constant Windows.IID := (516888634, 40714, 24435, (146, 37, 90, 51, 234, 181, 89, 79 ));
+   
+   type TypedEventHandler_ILightSensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.ILightSensor ; args : Windows.Devices.Sensors.ILightSensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILightSensor_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4136,12 +4127,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ILightSensor_add_ReadingChanged : aliased constant Windows.IID := (516888634, 40714, 24435, (146, 37, 90, 51, 234, 181, 89, 79 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IOrientationSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IOrientationSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOrientationSensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IOrientationSensor : aliased constant Windows.IID := (2201006883, 26261, 21460, (172, 215, 182, 12, 36, 193, 184, 121 ));
+   
+   type AsyncOperationCompletedHandler_IOrientationSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IOrientationSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IOrientationSensor'access) with null record;
    
    function Invoke
    (
@@ -4151,12 +4141,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IOrientationSensor : aliased constant Windows.IID := (2201006883, 26261, 21460, (172, 215, 182, 12, 36, 193, 184, 121 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IOrientationSensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IOrientationSensor ; args : Windows.Devices.Sensors.IOrientationSensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IOrientationSensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IOrientationSensor_add_ReadingChanged : aliased constant Windows.IID := (2444102723, 57847, 22397, (161, 97, 138, 175, 39, 94, 185, 39 ));
+   
+   type TypedEventHandler_IOrientationSensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IOrientationSensor ; args : Windows.Devices.Sensors.IOrientationSensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IOrientationSensor_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4166,12 +4155,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IOrientationSensor_add_ReadingChanged : aliased constant Windows.IID := (2444102723, 57847, 22397, (161, 97, 138, 175, 39, 94, 185, 39 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.ISimpleOrientationSensor ; args : Windows.Devices.Sensors.ISimpleOrientationSensorOrientationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged : aliased constant Windows.IID := (2453897127, 60027, 24517, (142, 207, 27, 145, 27, 234, 43, 252 ));
+   
+   type TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.ISimpleOrientationSensor ; args : Windows.Devices.Sensors.ISimpleOrientationSensorOrientationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged'access) with null record;
    
    function Invoke
    (
@@ -4181,12 +4169,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISimpleOrientationSensor_add_OrientationChanged : aliased constant Windows.IID := (2453897127, 60027, 24517, (142, 207, 27, 145, 27, 234, 43, 252 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMagnetometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IMagnetometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMagnetometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMagnetometer : aliased constant Windows.IID := (1189128040, 38469, 20902, (182, 167, 30, 95, 75, 64, 225, 243 ));
+   
+   type AsyncOperationCompletedHandler_IMagnetometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IMagnetometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMagnetometer'access) with null record;
    
    function Invoke
    (
@@ -4196,12 +4183,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMagnetometer : aliased constant Windows.IID := (1189128040, 38469, 20902, (182, 167, 30, 95, 75, 64, 225, 243 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMagnetometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IMagnetometer ; args : Windows.Devices.Sensors.IMagnetometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMagnetometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMagnetometer_add_ReadingChanged : aliased constant Windows.IID := (4188068470, 50429, 20651, (152, 182, 191, 210, 109, 109, 61, 130 ));
+   
+   type TypedEventHandler_IMagnetometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IMagnetometer ; args : Windows.Devices.Sensors.IMagnetometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMagnetometer_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4211,12 +4197,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMagnetometer_add_ReadingChanged : aliased constant Windows.IID := (4188068470, 50429, 20651, (152, 182, 191, 210, 109, 109, 61, 130 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IActivitySensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IActivitySensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IActivitySensor_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IActivitySensor : aliased constant Windows.IID := (4211447028, 37849, 23599, (184, 235, 144, 241, 233, 37, 143, 220 ));
+   
+   type AsyncOperationCompletedHandler_IActivitySensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IActivitySensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IActivitySensor'access) with null record;
    
    function Invoke
    (
@@ -4226,12 +4211,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IActivitySensor : aliased constant Windows.IID := (4211447028, 37849, 23599, (184, 235, 144, 241, 233, 37, 143, 220 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IActivitySensorReading_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IActivitySensorReading ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IActivitySensorReading_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IActivitySensorReading : aliased constant Windows.IID := (2915339613, 45891, 23128, (132, 84, 110, 43, 194, 224, 71, 92 ));
+   
+   type AsyncOperationCompletedHandler_IActivitySensorReading_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IActivitySensorReading ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IActivitySensorReading'access) with null record;
    
    function Invoke
    (
@@ -4241,12 +4225,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IActivitySensorReading : aliased constant Windows.IID := (2915339613, 45891, 23128, (132, 84, 110, 43, 194, 224, 71, 92 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IActivitySensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IActivitySensor ; args : Windows.Devices.Sensors.IActivitySensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IActivitySensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IActivitySensor_add_ReadingChanged : aliased constant Windows.IID := (2780245505, 21612, 24507, (184, 71, 73, 32, 10, 170, 170, 197 ));
+   
+   type TypedEventHandler_IActivitySensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IActivitySensor ; args : Windows.Devices.Sensors.IActivitySensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IActivitySensor_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4256,12 +4239,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IActivitySensor_add_ReadingChanged : aliased constant Windows.IID := (2780245505, 21612, 24507, (184, 71, 73, 32, 10, 170, 170, 197 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IBarometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IBarometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBarometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IBarometer : aliased constant Windows.IID := (2707300822, 21607, 22796, (175, 225, 156, 129, 50, 220, 216, 164 ));
+   
+   type AsyncOperationCompletedHandler_IBarometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IBarometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBarometer'access) with null record;
    
    function Invoke
    (
@@ -4271,12 +4253,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IBarometer : aliased constant Windows.IID := (2707300822, 21607, 22796, (175, 225, 156, 129, 50, 220, 216, 164 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IBarometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IBarometer ; args : Windows.Devices.Sensors.IBarometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBarometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IBarometer_add_ReadingChanged : aliased constant Windows.IID := (3838506073, 53505, 23717, (164, 234, 222, 176, 145, 122, 226, 126 ));
+   
+   type TypedEventHandler_IBarometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IBarometer ; args : Windows.Devices.Sensors.IBarometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBarometer_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4286,12 +4267,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IBarometer_add_ReadingChanged : aliased constant Windows.IID := (3838506073, 53505, 23717, (164, 234, 222, 176, 145, 122, 226, 126 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPedometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IPedometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPedometer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPedometer : aliased constant Windows.IID := (2788015694, 20958, 23059, (186, 33, 231, 109, 243, 188, 19, 150 ));
+   
+   type AsyncOperationCompletedHandler_IPedometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IPedometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPedometer'access) with null record;
    
    function Invoke
    (
@@ -4301,12 +4281,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IPedometer : aliased constant Windows.IID := (2788015694, 20958, 23059, (186, 33, 231, 109, 243, 188, 19, 150 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPedometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IPedometer ; args : Windows.Devices.Sensors.IPedometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPedometer_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPedometer_add_ReadingChanged : aliased constant Windows.IID := (3704911507, 43733, 23356, (156, 141, 20, 11, 139, 194, 18, 43 ));
+   
+   type TypedEventHandler_IPedometer_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IPedometer ; args : Windows.Devices.Sensors.IPedometerReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPedometer_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4316,12 +4295,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPedometer_add_ReadingChanged : aliased constant Windows.IID := (3704911507, 43733, 23356, (156, 141, 20, 11, 139, 194, 18, 43 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IProximitySensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IProximitySensor ; args : Windows.Devices.Sensors.IProximitySensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IProximitySensor_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IProximitySensor_add_ReadingChanged : aliased constant Windows.IID := (2675843627, 35114, 24168, (176, 138, 16, 56, 75, 95, 146, 185 ));
+   
+   type TypedEventHandler_IProximitySensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IProximitySensor ; args : Windows.Devices.Sensors.IProximitySensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IProximitySensor_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4331,12 +4309,11 @@ package Windows.Devices.Sensors is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IProximitySensor_add_ReadingChanged : aliased constant Windows.IID := (2675843627, 35114, 24168, (176, 138, 16, 56, 75, 95, 146, 185 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAltimeter_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IAltimeter ; args : Windows.Devices.Sensors.IAltimeterReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAltimeter_add_ReadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAltimeter_add_ReadingChanged : aliased constant Windows.IID := (3614824089, 40308, 21619, (156, 27, 213, 26, 137, 219, 102, 66 ));
+   
+   type TypedEventHandler_IAltimeter_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IAltimeter ; args : Windows.Devices.Sensors.IAltimeterReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAltimeter_add_ReadingChanged'access) with null record;
    
    function Invoke
    (
@@ -4345,8 +4322,6 @@ package Windows.Devices.Sensors is
       ; args : Windows.Devices.Sensors.IAltimeterReadingChangedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IAltimeter_add_ReadingChanged : aliased constant Windows.IID := (3614824089, 40308, 21619, (156, 27, 213, 26, 137, 219, 102, 66 ));
    
    ------------------------------------------------------------------------
    -- Classes

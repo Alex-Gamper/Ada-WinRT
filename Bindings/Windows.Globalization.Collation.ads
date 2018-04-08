@@ -65,6 +65,9 @@ package Windows.Globalization.Collation is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICharacterGrouping : aliased constant Windows.IID := (4209467835, 32861, 19376, (149, 187, 193, 247, 195, 232, 235, 142 ));
+   
    type ICharacterGrouping_Interface is interface and Windows.IInspectable_Interface;
    
    function get_First
@@ -80,10 +83,10 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICharacterGrouping : aliased constant Windows.IID := (4209467835, 32861, 19376, (149, 187, 193, 247, 195, 232, 235, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICharacterGroupingsFactory : aliased constant Windows.IID := (2582290393, 34925, 17409, (159, 152, 105, 200, 45, 76, 47, 120 ));
+   
    type ICharacterGroupingsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -93,10 +96,10 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.Globalization.Collation.ICharacterGroupings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICharacterGroupingsFactory : aliased constant Windows.IID := (2582290393, 34925, 17409, (159, 152, 105, 200, 45, 76, 47, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_CharacterGrouping : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IVectorView_CharacterGrouping_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -131,10 +134,10 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_CharacterGrouping : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_CharacterGrouping : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IIterable_CharacterGrouping_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -143,10 +146,10 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.Globalization.Collation.ICharacterGrouping
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_CharacterGrouping : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICharacterGroupings : aliased constant Windows.IID := (3100772981, 54479, 16469, (128, 229, 206, 22, 156, 34, 100, 150 ));
+   
    type ICharacterGroupings_Interface is interface and Windows.IInspectable_Interface;
    
    function Lookup
@@ -156,9 +159,6 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICharacterGroupings : aliased constant Windows.IID := (3100772981, 54479, 16469, (128, 229, 206, 22, 156, 34, 100, 150 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

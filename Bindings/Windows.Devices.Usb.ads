@@ -343,6 +343,9 @@ package Windows.Devices.Usb is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IUsbControlRequestType : aliased constant Windows.IID := (2392090022, 55101, 18142, (148, 190, 170, 231, 240, 124, 15, 92 ));
+   
    type IUsbControlRequestType_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Direction
@@ -400,10 +403,10 @@ package Windows.Devices.Usb is
       ; value : Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbControlRequestType : aliased constant Windows.IID := (2392090022, 55101, 18142, (148, 190, 170, 231, 240, 124, 15, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbSetupPacketFactory : aliased constant Windows.IID := (3374677328, 6958, 19009, (162, 167, 51, 143, 12, 239, 60, 20 ));
+   
    type IUsbSetupPacketFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithEightByteBuffer
@@ -413,10 +416,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbSetupPacket
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbSetupPacketFactory : aliased constant Windows.IID := (3374677328, 6958, 19009, (162, 167, 51, 143, 12, 239, 60, 20 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbSetupPacket : aliased constant Windows.IID := (273391922, 51087, 19537, (182, 84, 228, 157, 2, 242, 203, 3 ));
+   
    type IUsbSetupPacket_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestType
@@ -488,10 +491,10 @@ package Windows.Devices.Usb is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbSetupPacket : aliased constant Windows.IID := (273391922, 51087, 19537, (182, 84, 228, 157, 2, 242, 203, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbDeviceClass : aliased constant Windows.IID := (85541625, 33886, 18411, (177, 42, 56, 242, 246, 23, 175, 231 ));
+   
    type IUsbDeviceClass_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ClassCode
@@ -535,10 +538,10 @@ package Windows.Devices.Usb is
       ; value : Windows.Foundation.IReference_UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbDeviceClass : aliased constant Windows.IID := (85541625, 33886, 18411, (177, 42, 56, 242, 246, 23, 175, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbDeviceClassesStatics : aliased constant Windows.IID := (2987066663, 50560, 17817, (161, 101, 152, 27, 79, 208, 50, 48 ));
+   
    type IUsbDeviceClassesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CdcControl
@@ -603,15 +606,15 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbDeviceClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbDeviceClassesStatics : aliased constant Windows.IID := (2987066663, 50560, 17817, (161, 101, 152, 27, 79, 208, 50, 48 ));
-   
    ------------------------------------------------------------------------
-   type IUsbDeviceClasses_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IUsbDeviceClasses : aliased constant Windows.IID := (1752143197, 39826, 19248, (151, 129, 194, 44, 85, 172, 53, 203 ));
    
+   type IUsbDeviceClasses_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IUsbDeviceStatics : aliased constant Windows.IID := (107709858, 2487, 17478, (133, 2, 111, 230, 220, 170, 115, 9 ));
+   
    type IUsbDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -656,10 +659,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IAsyncOperation_IUsbDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbDeviceStatics : aliased constant Windows.IID := (107709858, 2487, 17478, (133, 2, 111, 230, 220, 170, 115, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbDevice : aliased constant Windows.IID := (1380563346, 50262, 17621, (173, 94, 36, 245, 160, 137, 246, 59 ));
+   
    type IUsbDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function SendControlOutTransferAsync
@@ -716,10 +719,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbConfiguration
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbDevice : aliased constant Windows.IID := (1380563346, 50262, 17621, (173, 94, 36, 245, 160, 137, 246, 59 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbDeviceDescriptor : aliased constant Windows.IID := (524866038, 47767, 17186, (185, 44, 181, 177, 137, 33, 101, 136 ));
+   
    type IUsbDeviceDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BcdUsb
@@ -763,10 +766,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbDeviceDescriptor : aliased constant Windows.IID := (524866038, 47767, 17186, (185, 44, 181, 177, 137, 33, 101, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbConfigurationDescriptor : aliased constant Windows.IID := (4061621650, 46146, 16506, (130, 7, 125, 100, 108, 3, 133, 243 ));
+   
    type IUsbConfigurationDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ConfigurationValue
@@ -796,10 +799,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbConfigurationDescriptor : aliased constant Windows.IID := (4061621650, 46146, 16506, (130, 7, 125, 100, 108, 3, 133, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbConfigurationDescriptorStatics : aliased constant Windows.IID := (1112337811, 59200, 16545, (146, 189, 218, 18, 14, 160, 73, 20 ));
+   
    type IUsbConfigurationDescriptorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TryParse
@@ -818,10 +821,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbConfigurationDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbConfigurationDescriptorStatics : aliased constant Windows.IID := (1112337811, 59200, 16545, (146, 189, 218, 18, 14, 160, 73, 20 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbInterfaceDescriptor : aliased constant Windows.IID := (429289671, 47086, 20368, (140, 213, 148, 162, 226, 87, 89, 138 ));
+   
    type IUsbInterfaceDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ClassCode
@@ -858,10 +861,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbInterfaceDescriptor : aliased constant Windows.IID := (429289671, 47086, 20368, (140, 213, 148, 162, 226, 87, 89, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbInterfaceDescriptorStatics : aliased constant Windows.IID := (3813318645, 30678, 18614, (176, 190, 22, 198, 66, 35, 22, 254 ));
+   
    type IUsbInterfaceDescriptorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TryParse
@@ -880,10 +883,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbInterfaceDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbInterfaceDescriptorStatics : aliased constant Windows.IID := (3813318645, 30678, 18614, (176, 190, 22, 198, 66, 35, 22, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbEndpointDescriptor : aliased constant Windows.IID := (1799906009, 36343, 19264, (172, 131, 87, 143, 19, 159, 5, 117 ));
+   
    type IUsbEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EndpointNumber
@@ -934,10 +937,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbInterruptOutEndpointDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbEndpointDescriptor : aliased constant Windows.IID := (1799906009, 36343, 19264, (172, 131, 87, 143, 19, 159, 5, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbEndpointDescriptorStatics : aliased constant Windows.IID := (3364925953, 39530, 18782, (168, 44, 41, 91, 158, 112, 129, 6 ));
+   
    type IUsbEndpointDescriptorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TryParse
@@ -956,10 +959,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbEndpointDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbEndpointDescriptorStatics : aliased constant Windows.IID := (3364925953, 39530, 18782, (168, 44, 41, 91, 158, 112, 129, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbDescriptor : aliased constant Windows.IID := (176812566, 24477, 18548, (137, 4, 218, 154, 211, 245, 82, 143 ));
+   
    type IUsbDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Length
@@ -982,10 +985,10 @@ package Windows.Devices.Usb is
       ; buffer : Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbDescriptor : aliased constant Windows.IID := (176812566, 24477, 18548, (137, 4, 218, 154, 211, 245, 82, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbInterruptInEventArgs : aliased constant Windows.IID := (3081781394, 5144, 18742, (130, 9, 41, 156, 245, 96, 85, 131 ));
+   
    type IUsbInterruptInEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InterruptData
@@ -994,10 +997,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbInterruptInEventArgs : aliased constant Windows.IID := (3081781394, 5144, 18742, (130, 9, 41, 156, 245, 96, 85, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbBulkInPipe : aliased constant Windows.IID := (4028443963, 17736, 19792, (179, 38, 216, 44, 218, 190, 18, 32 ));
+   
    type IUsbBulkInPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxTransferSizeBytes
@@ -1047,10 +1050,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Storage.Streams.IInputStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbBulkInPipe : aliased constant Windows.IID := (4028443963, 17736, 19792, (179, 38, 216, 44, 218, 190, 18, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbInterruptInPipe : aliased constant Windows.IID := (4194332950, 34007, 18631, (138, 63, 76, 11, 35, 95, 46, 166 ));
+   
    type IUsbInterruptInPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EndpointDescriptor
@@ -1081,10 +1084,10 @@ package Windows.Devices.Usb is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbInterruptInPipe : aliased constant Windows.IID := (4194332950, 34007, 18631, (138, 63, 76, 11, 35, 95, 46, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbBulkOutPipe : aliased constant Windows.IID := (2833903214, 277, 17834, (139, 33, 55, 178, 37, 188, 206, 231 ));
+   
    type IUsbBulkOutPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EndpointDescriptor
@@ -1121,10 +1124,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Storage.Streams.IOutputStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbBulkOutPipe : aliased constant Windows.IID := (2833903214, 277, 17834, (139, 33, 55, 178, 37, 188, 206, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbInterruptOutPipe : aliased constant Windows.IID := (3917793449, 43769, 18896, (185, 108, 246, 97, 171, 74, 127, 149 ));
+   
    type IUsbInterruptOutPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EndpointDescriptor
@@ -1161,10 +1164,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Storage.Streams.IOutputStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbInterruptOutPipe : aliased constant Windows.IID := (3917793449, 43769, 18896, (185, 108, 246, 97, 171, 74, 127, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbConfiguration : aliased constant Windows.IID := (1746367529, 13993, 18135, (184, 115, 252, 104, 146, 81, 236, 48 ));
+   
    type IUsbConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UsbInterfaces
@@ -1187,10 +1190,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IVectorView_IUsbDescriptor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbConfiguration : aliased constant Windows.IID := (1746367529, 13993, 18135, (184, 115, 252, 104, 146, 81, 236, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbInterface : aliased constant Windows.IID := (2687642517, 32583, 18603, (167, 39, 103, 140, 37, 190, 33, 18 ));
+   
    type IUsbInterface_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BulkInPipes
@@ -1241,10 +1244,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IVectorView_IUsbDescriptor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbInterface : aliased constant Windows.IID := (2687642517, 32583, 18603, (167, 39, 103, 140, 37, 190, 33, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbInterfaceSetting : aliased constant Windows.IID := (405257127, 36263, 19191, (143, 76, 127, 48, 50, 231, 129, 245 ));
+   
    type IUsbInterfaceSetting_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BulkInEndpoints
@@ -1302,10 +1305,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IVectorView_IUsbDescriptor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbInterfaceSetting : aliased constant Windows.IID := (405257127, 36263, 19191, (143, 76, 127, 48, 50, 231, 129, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbBulkInEndpointDescriptor : aliased constant Windows.IID := (1013860422, 1743, 17065, (157, 194, 151, 28, 27, 20, 182, 227 ));
+   
    type IUsbBulkInEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxPacketSize
@@ -1328,10 +1331,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbBulkInPipe
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbBulkInEndpointDescriptor : aliased constant Windows.IID := (1013860422, 1743, 17065, (157, 194, 151, 28, 27, 20, 182, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbInterruptInEndpointDescriptor : aliased constant Windows.IID := (3226634599, 51473, 19514, (134, 178, 65, 156, 45, 168, 144, 57 ));
+   
    type IUsbInterruptInEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxPacketSize
@@ -1361,10 +1364,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbInterruptInPipe
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbInterruptInEndpointDescriptor : aliased constant Windows.IID := (3226634599, 51473, 19514, (134, 178, 65, 156, 45, 168, 144, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbBulkOutEndpointDescriptor : aliased constant Windows.IID := (673219706, 65518, 20320, (155, 225, 149, 108, 172, 62, 203, 101 ));
+   
    type IUsbBulkOutEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxPacketSize
@@ -1387,10 +1390,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbBulkOutPipe
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbBulkOutEndpointDescriptor : aliased constant Windows.IID := (673219706, 65518, 20320, (155, 225, 149, 108, 172, 62, 203, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUsbInterruptOutEndpointDescriptor : aliased constant Windows.IID := (3433033089, 4298, 17715, (149, 45, 158, 39, 131, 65, 232, 15 ));
+   
    type IUsbInterruptOutEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxPacketSize
@@ -1420,10 +1423,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbInterruptOutPipe
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUsbInterruptOutEndpointDescriptor : aliased constant Windows.IID := (3433033089, 4298, 17715, (149, 45, 158, 39, 131, 65, 232, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUsbDevice : aliased constant Windows.IID := (557368813, 46874, 20838, (153, 72, 213, 87, 146, 116, 143, 92 ));
+   
    type IAsyncOperation_IUsbDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1446,10 +1449,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IUsbDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IUsbDevice : aliased constant Windows.IID := (557368813, 46874, 20838, (153, 72, 213, 87, 146, 116, 143, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbInterface : aliased constant Windows.IID := (560683615, 25571, 23195, (156, 153, 176, 156, 188, 15, 243, 177 ));
+   
    type IIterator_IUsbInterface_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1480,10 +1483,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbInterface : aliased constant Windows.IID := (560683615, 25571, 23195, (156, 153, 176, 156, 188, 15, 243, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbInterface : aliased constant Windows.IID := (4114626541, 37609, 22797, (185, 4, 58, 215, 191, 169, 166, 33 ));
+   
    type IIterable_IUsbInterface_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1492,10 +1495,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbInterface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbInterface : aliased constant Windows.IID := (4114626541, 37609, 22797, (185, 4, 58, 215, 191, 169, 166, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbInterface : aliased constant Windows.IID := (2624187519, 11842, 22733, (167, 74, 244, 151, 72, 17, 19, 77 ));
+   
    type IVectorView_IUsbInterface_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1530,10 +1533,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbInterface : aliased constant Windows.IID := (2624187519, 11842, 22733, (167, 74, 244, 151, 72, 17, 19, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbDescriptor : aliased constant Windows.IID := (1377147117, 359, 21134, (153, 13, 82, 171, 183, 18, 240, 114 ));
+   
    type IIterator_IUsbDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1564,10 +1567,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbDescriptor : aliased constant Windows.IID := (1377147117, 359, 21134, (153, 13, 82, 171, 183, 18, 240, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbDescriptor : aliased constant Windows.IID := (2560166309, 23043, 20987, (189, 148, 132, 218, 123, 218, 136, 25 ));
+   
    type IIterable_IUsbDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1576,10 +1579,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbDescriptor : aliased constant Windows.IID := (2560166309, 23043, 20987, (189, 148, 132, 218, 123, 218, 136, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbDescriptor : aliased constant Windows.IID := (1409858210, 10526, 21370, (182, 31, 19, 112, 98, 247, 255, 125 ));
+   
    type IVectorView_IUsbDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1614,10 +1617,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbDescriptor : aliased constant Windows.IID := (1409858210, 10526, 21370, (182, 31, 19, 112, 98, 247, 255, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbBulkInPipe : aliased constant Windows.IID := (3618581595, 21133, 23739, (169, 151, 216, 48, 173, 231, 4, 199 ));
+   
    type IIterator_IUsbBulkInPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1648,10 +1651,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbBulkInPipe : aliased constant Windows.IID := (3618581595, 21133, 23739, (169, 151, 216, 48, 173, 231, 4, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbBulkInPipe : aliased constant Windows.IID := (570533489, 17106, 20621, (168, 72, 100, 181, 68, 112, 131, 200 ));
+   
    type IIterable_IUsbBulkInPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1660,10 +1663,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbBulkInPipe
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbBulkInPipe : aliased constant Windows.IID := (570533489, 17106, 20621, (168, 72, 100, 181, 68, 112, 131, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbBulkInPipe : aliased constant Windows.IID := (2839315644, 25732, 22873, (182, 26, 112, 60, 199, 17, 95, 111 ));
+   
    type IVectorView_IUsbBulkInPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1698,10 +1701,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbBulkInPipe : aliased constant Windows.IID := (2839315644, 25732, 22873, (182, 26, 112, 60, 199, 17, 95, 111 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbInterruptInPipe : aliased constant Windows.IID := (3819418048, 29942, 21138, (162, 42, 103, 42, 162, 180, 153, 133 ));
+   
    type IIterator_IUsbInterruptInPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1732,10 +1735,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbInterruptInPipe : aliased constant Windows.IID := (3819418048, 29942, 21138, (162, 42, 103, 42, 162, 180, 153, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbInterruptInPipe : aliased constant Windows.IID := (967766838, 6314, 23524, (134, 217, 227, 50, 254, 38, 50, 243 ));
+   
    type IIterable_IUsbInterruptInPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1744,10 +1747,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbInterruptInPipe
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbInterruptInPipe : aliased constant Windows.IID := (967766838, 6314, 23524, (134, 217, 227, 50, 254, 38, 50, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbInterruptInPipe : aliased constant Windows.IID := (927372660, 46277, 23456, (150, 22, 137, 77, 216, 34, 255, 91 ));
+   
    type IVectorView_IUsbInterruptInPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1782,10 +1785,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbInterruptInPipe : aliased constant Windows.IID := (927372660, 46277, 23456, (150, 22, 137, 77, 216, 34, 255, 91 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbBulkOutPipe : aliased constant Windows.IID := (1188900714, 22331, 23621, (177, 104, 146, 35, 3, 132, 145, 221 ));
+   
    type IIterator_IUsbBulkOutPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1816,10 +1819,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbBulkOutPipe : aliased constant Windows.IID := (1188900714, 22331, 23621, (177, 104, 146, 35, 3, 132, 145, 221 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbBulkOutPipe : aliased constant Windows.IID := (2552548026, 23718, 23597, (128, 207, 25, 73, 2, 109, 120, 87 ));
+   
    type IIterable_IUsbBulkOutPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1828,10 +1831,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbBulkOutPipe
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbBulkOutPipe : aliased constant Windows.IID := (2552548026, 23718, 23597, (128, 207, 25, 73, 2, 109, 120, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbBulkOutPipe : aliased constant Windows.IID := (176633106, 5617, 24206, (167, 42, 4, 92, 253, 122, 94, 131 ));
+   
    type IVectorView_IUsbBulkOutPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1866,10 +1869,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbBulkOutPipe : aliased constant Windows.IID := (176633106, 5617, 24206, (167, 42, 4, 92, 253, 122, 94, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbInterruptOutPipe : aliased constant Windows.IID := (3419986088, 8838, 23741, (166, 228, 150, 39, 66, 255, 217, 26 ));
+   
    type IIterator_IUsbInterruptOutPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1900,10 +1903,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbInterruptOutPipe : aliased constant Windows.IID := (3419986088, 8838, 23741, (166, 228, 150, 39, 66, 255, 217, 26 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbInterruptOutPipe : aliased constant Windows.IID := (3860463902, 19134, 21490, (131, 179, 237, 74, 148, 157, 46, 63 ));
+   
    type IIterable_IUsbInterruptOutPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1912,10 +1915,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbInterruptOutPipe
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbInterruptOutPipe : aliased constant Windows.IID := (3860463902, 19134, 21490, (131, 179, 237, 74, 148, 157, 46, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbInterruptOutPipe : aliased constant Windows.IID := (1954649800, 33727, 24259, (141, 40, 163, 17, 43, 62, 227, 204 ));
+   
    type IVectorView_IUsbInterruptOutPipe_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1950,10 +1953,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbInterruptOutPipe : aliased constant Windows.IID := (1954649800, 33727, 24259, (141, 40, 163, 17, 43, 62, 227, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbInterfaceSetting : aliased constant Windows.IID := (1898348231, 22167, 24042, (178, 248, 20, 207, 105, 142, 192, 173 ));
+   
    type IIterator_IUsbInterfaceSetting_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1984,10 +1987,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbInterfaceSetting : aliased constant Windows.IID := (1898348231, 22167, 24042, (178, 248, 20, 207, 105, 142, 192, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbInterfaceSetting : aliased constant Windows.IID := (447698745, 39980, 21310, (160, 233, 213, 63, 219, 69, 209, 93 ));
+   
    type IIterable_IUsbInterfaceSetting_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1996,10 +1999,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbInterfaceSetting
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbInterfaceSetting : aliased constant Windows.IID := (447698745, 39980, 21310, (160, 233, 213, 63, 219, 69, 209, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbInterfaceSetting : aliased constant Windows.IID := (1897482999, 30658, 21717, (161, 22, 40, 127, 11, 127, 213, 63 ));
+   
    type IVectorView_IUsbInterfaceSetting_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2034,10 +2037,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbInterfaceSetting : aliased constant Windows.IID := (1897482999, 30658, 21717, (161, 22, 40, 127, 11, 127, 213, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbBulkInEndpointDescriptor : aliased constant Windows.IID := (3931181104, 35268, 20541, (140, 175, 102, 127, 66, 48, 210, 169 ));
+   
    type IIterator_IUsbBulkInEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2068,10 +2071,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbBulkInEndpointDescriptor : aliased constant Windows.IID := (3931181104, 35268, 20541, (140, 175, 102, 127, 66, 48, 210, 169 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbBulkInEndpointDescriptor : aliased constant Windows.IID := (270213081, 61897, 24026, (154, 212, 113, 23, 111, 168, 57, 178 ));
+   
    type IIterable_IUsbBulkInEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2080,10 +2083,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbBulkInEndpointDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbBulkInEndpointDescriptor : aliased constant Windows.IID := (270213081, 61897, 24026, (154, 212, 113, 23, 111, 168, 57, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbBulkInEndpointDescriptor : aliased constant Windows.IID := (2624171128, 12446, 22371, (175, 38, 151, 6, 255, 164, 126, 192 ));
+   
    type IVectorView_IUsbBulkInEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2118,10 +2121,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbBulkInEndpointDescriptor : aliased constant Windows.IID := (2624171128, 12446, 22371, (175, 38, 151, 6, 255, 164, 126, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbInterruptInEndpointDescriptor : aliased constant Windows.IID := (1729581071, 60444, 23314, (191, 51, 14, 62, 61, 36, 69, 135 ));
+   
    type IIterator_IUsbInterruptInEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2152,10 +2155,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbInterruptInEndpointDescriptor : aliased constant Windows.IID := (1729581071, 60444, 23314, (191, 51, 14, 62, 61, 36, 69, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbInterruptInEndpointDescriptor : aliased constant Windows.IID := (2323360873, 7952, 22983, (152, 55, 114, 207, 237, 113, 84, 164 ));
+   
    type IIterable_IUsbInterruptInEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2164,10 +2167,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbInterruptInEndpointDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbInterruptInEndpointDescriptor : aliased constant Windows.IID := (2323360873, 7952, 22983, (152, 55, 114, 207, 237, 113, 84, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbInterruptInEndpointDescriptor : aliased constant Windows.IID := (1070069904, 8590, 20567, (144, 77, 99, 135, 197, 145, 204, 147 ));
+   
    type IVectorView_IUsbInterruptInEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2202,10 +2205,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbInterruptInEndpointDescriptor : aliased constant Windows.IID := (1070069904, 8590, 20567, (144, 77, 99, 135, 197, 145, 204, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbBulkOutEndpointDescriptor : aliased constant Windows.IID := (2830670515, 34877, 21345, (153, 3, 244, 137, 204, 98, 190, 165 ));
+   
    type IIterator_IUsbBulkOutEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2236,10 +2239,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbBulkOutEndpointDescriptor : aliased constant Windows.IID := (2830670515, 34877, 21345, (153, 3, 244, 137, 204, 98, 190, 165 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbBulkOutEndpointDescriptor : aliased constant Windows.IID := (3087788857, 25267, 24409, (179, 231, 136, 44, 201, 197, 176, 192 ));
+   
    type IIterable_IUsbBulkOutEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2248,10 +2251,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbBulkOutEndpointDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbBulkOutEndpointDescriptor : aliased constant Windows.IID := (3087788857, 25267, 24409, (179, 231, 136, 44, 201, 197, 176, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbBulkOutEndpointDescriptor : aliased constant Windows.IID := (581252726, 41962, 24013, (187, 57, 178, 138, 83, 39, 196, 163 ));
+   
    type IVectorView_IUsbBulkOutEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2286,10 +2289,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbBulkOutEndpointDescriptor : aliased constant Windows.IID := (581252726, 41962, 24013, (187, 57, 178, 138, 83, 39, 196, 163 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUsbInterruptOutEndpointDescriptor : aliased constant Windows.IID := (1264854747, 56114, 23377, (173, 173, 4, 83, 46, 169, 74, 205 ));
+   
    type IIterator_IUsbInterruptOutEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2320,10 +2323,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUsbInterruptOutEndpointDescriptor : aliased constant Windows.IID := (1264854747, 56114, 23377, (173, 173, 4, 83, 46, 169, 74, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUsbInterruptOutEndpointDescriptor : aliased constant Windows.IID := (154746210, 8982, 21355, (138, 16, 112, 56, 136, 74, 178, 167 ));
+   
    type IIterable_IUsbInterruptOutEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2332,10 +2335,10 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.Devices.Usb.IIterator_IUsbInterruptOutEndpointDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUsbInterruptOutEndpointDescriptor : aliased constant Windows.IID := (154746210, 8982, 21355, (138, 16, 112, 56, 136, 74, 178, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUsbInterruptOutEndpointDescriptor : aliased constant Windows.IID := (2555280917, 50604, 20800, (163, 192, 181, 131, 25, 0, 133, 215 ));
+   
    type IVectorView_IUsbInterruptOutEndpointDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2370,17 +2373,15 @@ package Windows.Devices.Usb is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUsbInterruptOutEndpointDescriptor : aliased constant Windows.IID := (2555280917, 50604, 20800, (163, 192, 181, 131, 25, 0, 133, 215 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IUsbDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Usb.IAsyncOperation_IUsbDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUsbDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IUsbDevice : aliased constant Windows.IID := (1932600655, 27823, 22653, (156, 42, 1, 140, 102, 211, 18, 219 ));
+   
+   type AsyncOperationCompletedHandler_IUsbDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Usb.IAsyncOperation_IUsbDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUsbDevice'access) with null record;
    
    function Invoke
    (
@@ -2390,12 +2391,11 @@ package Windows.Devices.Usb is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IUsbDevice : aliased constant Windows.IID := (1932600655, 27823, 22653, (156, 42, 1, 140, 102, 211, 18, 219 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUsbInterruptInPipe_add_DataReceived_Interface(Callback : access procedure (sender : Windows.Devices.Usb.IUsbInterruptInPipe ; args : Windows.Devices.Usb.IUsbInterruptInEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUsbInterruptInPipe_add_DataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUsbInterruptInPipe_add_DataReceived : aliased constant Windows.IID := (3873150025, 62314, 20722, (146, 108, 42, 253, 133, 196, 159, 1 ));
+   
+   type TypedEventHandler_IUsbInterruptInPipe_add_DataReceived_Interface(Callback : access procedure (sender : Windows.Devices.Usb.IUsbInterruptInPipe ; args : Windows.Devices.Usb.IUsbInterruptInEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUsbInterruptInPipe_add_DataReceived'access) with null record;
    
    function Invoke
    (
@@ -2404,8 +2404,6 @@ package Windows.Devices.Usb is
       ; args : Windows.Devices.Usb.IUsbInterruptInEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IUsbInterruptInPipe_add_DataReceived : aliased constant Windows.IID := (3873150025, 62314, 20722, (146, 108, 42, 253, 133, 196, 159, 1 ));
    
    ------------------------------------------------------------------------
    -- Classes

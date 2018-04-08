@@ -125,6 +125,9 @@ package Windows.Services.Cortana is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICortanaPermissionsManager : aliased constant Windows.IID := (420688096, 34453, 17290, (149, 69, 61, 164, 232, 34, 221, 180 ));
+   
    type ICortanaPermissionsManager_Interface is interface and Windows.IInspectable_Interface;
    
    function IsSupported
@@ -157,10 +160,10 @@ package Windows.Services.Cortana is
       ; RetVal : access Windows.Services.Cortana.IAsyncOperation_CortanaPermissionsChangeResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICortanaPermissionsManager : aliased constant Windows.IID := (420688096, 34453, 17290, (149, 69, 61, 164, 232, 34, 221, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICortanaPermissionsManagerStatics : aliased constant Windows.IID := (1991370362, 45125, 17428, (157, 109, 42, 211, 165, 254, 58, 126 ));
+   
    type ICortanaPermissionsManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -169,10 +172,10 @@ package Windows.Services.Cortana is
       ; RetVal : access Windows.Services.Cortana.ICortanaPermissionsManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICortanaPermissionsManagerStatics : aliased constant Windows.IID := (1991370362, 45125, 17428, (157, 109, 42, 211, 165, 254, 58, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICortanaSettings : aliased constant Windows.IID := (1423274407, 32866, 16628, (171, 231, 222, 223, 214, 151, 176, 25 ));
+   
    type ICortanaSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HasUserConsentToVoiceActivation
@@ -195,10 +198,10 @@ package Windows.Services.Cortana is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICortanaSettings : aliased constant Windows.IID := (1423274407, 32866, 16628, (171, 231, 222, 223, 214, 151, 176, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICortanaSettingsStatics : aliased constant Windows.IID := (2334969214, 11968, 17517, (146, 133, 51, 240, 124, 232, 172, 4 ));
+   
    type ICortanaSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function IsSupported
@@ -214,10 +217,10 @@ package Windows.Services.Cortana is
       ; RetVal : access Windows.Services.Cortana.ICortanaSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICortanaSettingsStatics : aliased constant Windows.IID := (2334969214, 11968, 17517, (146, 133, 51, 240, 124, 232, 172, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_CortanaPermission : aliased constant Windows.IID := (253412156, 20762, 21224, (175, 9, 216, 159, 112, 4, 232, 197 ));
+   
    type IIterator_CortanaPermission_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -248,10 +251,10 @@ package Windows.Services.Cortana is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_CortanaPermission : aliased constant Windows.IID := (253412156, 20762, 21224, (175, 9, 216, 159, 112, 4, 232, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_CortanaPermission : aliased constant Windows.IID := (916532910, 11812, 24071, (191, 208, 52, 74, 146, 153, 9, 22 ));
+   
    type IIterable_CortanaPermission_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -260,10 +263,10 @@ package Windows.Services.Cortana is
       ; RetVal : access Windows.Services.Cortana.IIterator_CortanaPermission
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_CortanaPermission : aliased constant Windows.IID := (916532910, 11812, 24071, (191, 208, 52, 74, 146, 153, 9, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_CortanaPermissionsChangeResult : aliased constant Windows.IID := (2206875088, 61603, 20623, (132, 106, 211, 193, 158, 79, 231, 160 ));
+   
    type IAsyncOperation_CortanaPermissionsChangeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -286,17 +289,15 @@ package Windows.Services.Cortana is
       ; RetVal : access Windows.Services.Cortana.CortanaPermissionsChangeResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_CortanaPermissionsChangeResult : aliased constant Windows.IID := (2206875088, 61603, 20623, (132, 106, 211, 193, 158, 79, 231, 160 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_CortanaPermissionsChangeResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Cortana.IAsyncOperation_CortanaPermissionsChangeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_CortanaPermissionsChangeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_CortanaPermissionsChangeResult : aliased constant Windows.IID := (3961283974, 24077, 23488, (184, 79, 32, 5, 44, 90, 199, 169 ));
+   
+   type AsyncOperationCompletedHandler_CortanaPermissionsChangeResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Cortana.IAsyncOperation_CortanaPermissionsChangeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_CortanaPermissionsChangeResult'access) with null record;
    
    function Invoke
    (
@@ -305,8 +306,6 @@ package Windows.Services.Cortana is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_CortanaPermissionsChangeResult : aliased constant Windows.IID := (3961283974, 24077, 23488, (184, 79, 32, 5, 44, 90, 199, 169 ));
    
    ------------------------------------------------------------------------
    -- Classes

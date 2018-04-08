@@ -137,6 +137,9 @@ package Windows.Storage.Pickers is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_StorageFile : aliased constant Windows.IID := (2154063129, 24106, 22877, (168, 205, 42, 36, 180, 6, 127, 27 ));
+   
    type IVectorView_StorageFile_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -171,10 +174,10 @@ package Windows.Storage.Pickers is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_StorageFile : aliased constant Windows.IID := (2154063129, 24106, 22877, (168, 205, 42, 36, 180, 6, 127, 27 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_StorageFile : aliased constant Windows.IID := (2596274948, 33770, 22152, (135, 182, 174, 56, 170, 182, 93, 11 ));
+   
    type IIterable_StorageFile_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -183,10 +186,10 @@ package Windows.Storage.Pickers is
       ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_StorageFile : aliased constant Windows.IID := (2596274948, 33770, 22152, (135, 182, 174, 56, 170, 182, 93, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMap_String_IVector : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IMap_String_IVector_Interface is interface and Windows.IInspectable_Interface;
    
    function Lookup
@@ -240,10 +243,10 @@ package Windows.Storage.Pickers is
       This       : access IMap_String_IVector_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMap_String_IVector : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IVector : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IIterable_IVector_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -252,10 +255,10 @@ package Windows.Storage.Pickers is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IVector : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_String : aliased constant Windows.IID := (2562305217, 19286, 21294, (172, 115, 3, 213, 41, 28, 202, 144 ));
+   
    type IVector_String_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -346,10 +349,10 @@ package Windows.Storage.Pickers is
       ; items : Windows.String_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_String : aliased constant Windows.IID := (2562305217, 19286, 21294, (172, 115, 3, 213, 41, 28, 202, 144 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_String : aliased constant Windows.IID := (3808217025, 15356, 23051, (178, 176, 114, 231, 105, 209, 203, 126 ));
+   
    type IIterable_String_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -358,10 +361,10 @@ package Windows.Storage.Pickers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_String : aliased constant Windows.IID := (3808217025, 15356, 23051, (178, 176, 114, 231, 105, 209, 203, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileOpenPicker : aliased constant Windows.IID := (749217674, 4805, 19551, (137, 119, 148, 84, 119, 147, 194, 65 ));
+   
    type IFileOpenPicker_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ViewMode
@@ -440,10 +443,10 @@ package Windows.Storage.Pickers is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileOpenPicker : aliased constant Windows.IID := (749217674, 4805, 19551, (137, 119, 148, 84, 119, 147, 194, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileOpenPicker2 : aliased constant Windows.IID := (2364239058, 46150, 18167, (178, 101, 144, 248, 229, 90, 214, 80 ));
+   
    type IFileOpenPicker2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContinuationData
@@ -464,10 +467,10 @@ package Windows.Storage.Pickers is
       This       : access IFileOpenPicker2_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileOpenPicker2 : aliased constant Windows.IID := (2364239058, 46150, 18167, (178, 101, 144, 248, 229, 90, 214, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileOpenPickerWithOperationId : aliased constant Windows.IID := (1062712681, 9506, 19621, (170, 115, 161, 85, 9, 241, 252, 191 ));
+   
    type IFileOpenPickerWithOperationId_Interface is interface and Windows.IInspectable_Interface;
    
    function PickSingleFileAsync
@@ -477,10 +480,10 @@ package Windows.Storage.Pickers is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileOpenPickerWithOperationId : aliased constant Windows.IID := (1062712681, 9506, 19621, (170, 115, 161, 85, 9, 241, 252, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileOpenPickerStatics : aliased constant Windows.IID := (1747015483, 12034, 18483, (150, 212, 171, 191, 173, 114, 182, 123 ));
+   
    type IFileOpenPickerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ResumePickSingleFileAsync
@@ -489,10 +492,10 @@ package Windows.Storage.Pickers is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileOpenPickerStatics : aliased constant Windows.IID := (1747015483, 12034, 18483, (150, 212, 171, 191, 173, 114, 182, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileSavePicker : aliased constant Windows.IID := (847708107, 24959, 19653, (175, 106, 179, 253, 242, 154, 209, 69 ));
+   
    type IFileSavePicker_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SettingsIdentifier
@@ -592,10 +595,10 @@ package Windows.Storage.Pickers is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileSavePicker : aliased constant Windows.IID := (847708107, 24959, 19653, (175, 106, 179, 253, 242, 154, 209, 69 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileSavePicker2 : aliased constant Windows.IID := (247665570, 53835, 17562, (129, 151, 232, 145, 4, 253, 66, 204 ));
+   
    type IFileSavePicker2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContinuationData
@@ -610,10 +613,10 @@ package Windows.Storage.Pickers is
       This       : access IFileSavePicker2_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileSavePicker2 : aliased constant Windows.IID := (247665570, 53835, 17562, (129, 151, 232, 145, 4, 253, 66, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileSavePicker3 : aliased constant Windows.IID := (1770712169, 47676, 20049, (189, 144, 74, 188, 187, 244, 207, 175 ));
+   
    type IFileSavePicker3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EnterpriseId
@@ -629,10 +632,10 @@ package Windows.Storage.Pickers is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileSavePicker3 : aliased constant Windows.IID := (1770712169, 47676, 20049, (189, 144, 74, 188, 187, 244, 207, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFolderPicker : aliased constant Windows.IID := (139425689, 62459, 16394, (153, 177, 123, 74, 119, 47, 214, 13 ));
+   
    type IFolderPicker_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ViewMode
@@ -704,10 +707,10 @@ package Windows.Storage.Pickers is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFolderPicker : aliased constant Windows.IID := (139425689, 62459, 16394, (153, 177, 123, 74, 119, 47, 214, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFolderPicker2 : aliased constant Windows.IID := (2394143383, 56453, 17942, (190, 148, 150, 96, 136, 31, 47, 93 ));
+   
    type IFolderPicker2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContinuationData
@@ -722,9 +725,6 @@ package Windows.Storage.Pickers is
       This       : access IFolderPicker2_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFolderPicker2 : aliased constant Windows.IID := (2394143383, 56453, 17942, (190, 148, 150, 96, 136, 31, 47, 93 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

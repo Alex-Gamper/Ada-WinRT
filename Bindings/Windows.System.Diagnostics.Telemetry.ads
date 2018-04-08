@@ -73,6 +73,9 @@ package Windows.System.Diagnostics.Telemetry is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPlatformTelemetryRegistrationSettings : aliased constant Windows.IID := (2174387586, 51737, 16734, (187, 121, 156, 34, 75, 250, 58, 115 ));
+   
    type IPlatformTelemetryRegistrationSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StorageSize
@@ -102,10 +105,10 @@ package Windows.System.Diagnostics.Telemetry is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlatformTelemetryRegistrationSettings : aliased constant Windows.IID := (2174387586, 51737, 16734, (187, 121, 156, 34, 75, 250, 58, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlatformTelemetryRegistrationResult : aliased constant Windows.IID := (1300568235, 8850, 18877, (161, 90, 61, 113, 210, 20, 81, 18 ));
+   
    type IPlatformTelemetryRegistrationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -114,10 +117,10 @@ package Windows.System.Diagnostics.Telemetry is
       ; RetVal : access Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlatformTelemetryRegistrationResult : aliased constant Windows.IID := (1300568235, 8850, 18877, (161, 90, 61, 113, 210, 20, 81, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlatformTelemetryClientStatics : aliased constant Windows.IID := (2616455773, 54723, 20202, (141, 190, 156, 141, 187, 13, 157, 143 ));
+   
    type IPlatformTelemetryClientStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Register
@@ -136,9 +139,6 @@ package Windows.System.Diagnostics.Telemetry is
       ; RetVal : access Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlatformTelemetryClientStatics : aliased constant Windows.IID := (2616455773, 54723, 20202, (141, 190, 156, 141, 187, 13, 157, 143 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

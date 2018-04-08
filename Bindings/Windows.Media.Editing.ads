@@ -203,6 +203,9 @@ package Windows.Media.Editing is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMediaClip : aliased constant Windows.IID := (1408389990, 24506, 16036, (134, 147, 36, 118, 24, 17, 20, 10 ));
+   
    type IMediaClip_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TrimTimeFromStart
@@ -330,10 +333,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Effects.IVector_IVideoEffectDefinition -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaClip : aliased constant Windows.IID := (1408389990, 24506, 16036, (134, 147, 36, 118, 24, 17, 20, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaComposition : aliased constant Windows.IID := (772204037, 56433, 16854, (184, 55, 45, 43, 193, 74, 41, 71 ));
+   
    type IMediaComposition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Duration
@@ -458,10 +461,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Core.IMediaStreamSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaComposition : aliased constant Windows.IID := (772204037, 56433, 16854, (184, 55, 45, 43, 193, 74, 41, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaClipStatics : aliased constant Windows.IID := (4198509416, 37519, 17348, (188, 110, 120, 58, 26, 53, 150, 86 ));
+   
    type IMediaClipStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFromColor
@@ -489,10 +492,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IAsyncOperation_IMediaClip -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaClipStatics : aliased constant Windows.IID := (4198509416, 37519, 17348, (188, 110, 120, 58, 26, 53, 150, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaClipStatics2 : aliased constant Windows.IID := (1528682419, 34126, 19867, (135, 125, 71, 116, 165, 86, 205, 18 ));
+   
    type IMediaClipStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFromSurface
@@ -503,10 +506,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IMediaClip
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaClipStatics2 : aliased constant Windows.IID := (1528682419, 34126, 19867, (135, 125, 71, 116, 165, 86, 205, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaCompositionStatics : aliased constant Windows.IID := (2275446532, 58154, 17870, (143, 102, 163, 13, 240, 118, 98, 36 ));
+   
    type IMediaCompositionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function LoadAsync
@@ -516,10 +519,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IAsyncOperation_IMediaComposition -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaCompositionStatics : aliased constant Windows.IID := (2275446532, 58154, 17870, (143, 102, 163, 13, 240, 118, 98, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmbeddedAudioTrack : aliased constant Windows.IID := (1441684090, 11568, 16314, (161, 144, 79, 26, 100, 84, 248, 143 ));
+   
    type IEmbeddedAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAudioEncodingProperties
@@ -528,10 +531,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.MediaProperties.IAudioEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmbeddedAudioTrack : aliased constant Windows.IID := (1441684090, 11568, 16314, (161, 144, 79, 26, 100, 84, 248, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundAudioTrack : aliased constant Windows.IID := (1267839933, 40481, 16998, (169, 194, 103, 221, 1, 26, 35, 87 ));
+   
    type IBackgroundAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TrimTimeFromStart
@@ -631,10 +634,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Effects.IVector_IAudioEffectDefinition -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundAudioTrack : aliased constant Windows.IID := (1267839933, 40481, 16998, (169, 194, 103, 221, 1, 26, 35, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundAudioTrackStatics : aliased constant Windows.IID := (3652305111, 53272, 17064, (165, 89, 203, 77, 158, 151, 230, 100 ));
+   
    type IBackgroundAudioTrackStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFromEmbeddedAudioTrack
@@ -652,10 +655,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundAudioTrackStatics : aliased constant Windows.IID := (3652305111, 53272, 17064, (165, 89, 203, 77, 158, 151, 230, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaComposition2 : aliased constant Windows.IID := (2778616690, 9062, 18732, (190, 200, 230, 223, 186, 109, 2, 129 ));
+   
    type IMediaComposition2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OverlayLayers
@@ -664,10 +667,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IVector_IMediaOverlayLayer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaComposition2 : aliased constant Windows.IID := (2778616690, 9062, 18732, (190, 200, 230, 223, 186, 109, 2, 129 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaOverlay : aliased constant Windows.IID := (2835525213, 30825, 18480, (138, 177, 148, 220, 1, 192, 95, 164 ));
+   
    type IMediaOverlay_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -739,10 +742,10 @@ package Windows.Media.Editing is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaOverlay : aliased constant Windows.IID := (2835525213, 30825, 18480, (138, 177, 148, 220, 1, 192, 95, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaOverlayFactory : aliased constant Windows.IID := (3045360266, 24968, 20367, (162, 224, 170, 85, 45, 89, 142, 24 ));
+   
    type IMediaOverlayFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -762,10 +765,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IMediaOverlay
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaOverlayFactory : aliased constant Windows.IID := (3045360266, 24968, 20367, (162, 224, 170, 85, 45, 89, 142, 24 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaOverlayLayerFactory : aliased constant Windows.IID := (2491200627, 41886, 17250, (171, 191, 159, 139, 80, 112, 160, 98 ));
+   
    type IMediaOverlayLayerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithCompositorDefinition
@@ -775,10 +778,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IMediaOverlayLayer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaOverlayLayerFactory : aliased constant Windows.IID := (2491200627, 41886, 17250, (171, 191, 159, 139, 80, 112, 160, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaOverlayLayer : aliased constant Windows.IID := (2799286871, 61146, 18118, (187, 229, 227, 152, 200, 65, 104, 172 ));
+   
    type IMediaOverlayLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function Clone
@@ -801,10 +804,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Effects.IVideoCompositorDefinition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaOverlayLayer : aliased constant Windows.IID := (2799286871, 61146, 18118, (187, 229, 227, 152, 200, 65, 104, 172 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IEmbeddedAudioTrack : aliased constant Windows.IID := (3388637009, 46380, 22414, (153, 249, 1, 44, 213, 100, 18, 71 ));
+   
    type IIterator_IEmbeddedAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -835,10 +838,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IEmbeddedAudioTrack : aliased constant Windows.IID := (3388637009, 46380, 22414, (153, 249, 1, 44, 213, 100, 18, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IEmbeddedAudioTrack : aliased constant Windows.IID := (855293648, 57830, 22414, (134, 229, 180, 230, 171, 235, 34, 214 ));
+   
    type IIterable_IEmbeddedAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -847,10 +850,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IIterator_IEmbeddedAudioTrack
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IEmbeddedAudioTrack : aliased constant Windows.IID := (855293648, 57830, 22414, (134, 229, 180, 230, 171, 235, 34, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IEmbeddedAudioTrack : aliased constant Windows.IID := (1675123669, 17253, 24150, (158, 64, 231, 205, 48, 81, 174, 191 ));
+   
    type IVectorView_IEmbeddedAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -885,10 +888,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IEmbeddedAudioTrack : aliased constant Windows.IID := (1675123669, 17253, 24150, (158, 64, 231, 205, 48, 81, 174, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMediaClip : aliased constant Windows.IID := (771563698, 1752, 22397, (171, 6, 119, 30, 4, 20, 252, 0 ));
+   
    type IIterator_IMediaClip_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -919,10 +922,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMediaClip : aliased constant Windows.IID := (771563698, 1752, 22397, (171, 6, 119, 30, 4, 20, 252, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaClip : aliased constant Windows.IID := (4281244508, 9936, 22365, (163, 235, 125, 147, 139, 209, 111, 23 ));
+   
    type IIterable_IMediaClip_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -931,10 +934,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IIterator_IMediaClip
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMediaClip : aliased constant Windows.IID := (4281244508, 9936, 22365, (163, 235, 125, 147, 139, 209, 111, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMediaClip : aliased constant Windows.IID := (3938392230, 62520, 21424, (190, 60, 175, 33, 230, 123, 200, 199 ));
+   
    type IVectorView_IMediaClip_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -969,10 +972,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMediaClip : aliased constant Windows.IID := (3938392230, 62520, 21424, (190, 60, 175, 33, 230, 123, 200, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IMediaClip : aliased constant Windows.IID := (3892668558, 13576, 22515, (191, 149, 97, 127, 45, 122, 111, 26 ));
+   
    type IVector_IMediaClip_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1063,10 +1066,10 @@ package Windows.Media.Editing is
       ; items : Windows.Media.Editing.IMediaClip_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IMediaClip : aliased constant Windows.IID := (3892668558, 13576, 22515, (191, 149, 97, 127, 45, 122, 111, 26 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IBackgroundAudioTrack : aliased constant Windows.IID := (414250642, 34357, 22394, (158, 250, 203, 144, 71, 112, 214, 229 ));
+   
    type IIterator_IBackgroundAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1097,10 +1100,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IBackgroundAudioTrack : aliased constant Windows.IID := (414250642, 34357, 22394, (158, 250, 203, 144, 71, 112, 214, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IBackgroundAudioTrack : aliased constant Windows.IID := (1069570978, 12534, 21017, (144, 71, 17, 151, 255, 174, 141, 186 ));
+   
    type IIterable_IBackgroundAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1109,10 +1112,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IIterator_IBackgroundAudioTrack
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IBackgroundAudioTrack : aliased constant Windows.IID := (1069570978, 12534, 21017, (144, 71, 17, 151, 255, 174, 141, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IBackgroundAudioTrack : aliased constant Windows.IID := (2145726002, 34428, 21155, (179, 183, 212, 221, 77, 87, 55, 148 ));
+   
    type IVectorView_IBackgroundAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1147,10 +1150,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IBackgroundAudioTrack : aliased constant Windows.IID := (2145726002, 34428, 21155, (179, 183, 212, 221, 77, 87, 55, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IBackgroundAudioTrack : aliased constant Windows.IID := (1456873797, 27000, 24250, (131, 201, 252, 74, 214, 212, 67, 191 ));
+   
    type IVector_IBackgroundAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1241,10 +1244,10 @@ package Windows.Media.Editing is
       ; items : Windows.Media.Editing.IBackgroundAudioTrack_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IBackgroundAudioTrack : aliased constant Windows.IID := (1456873797, 27000, 24250, (131, 201, 252, 74, 214, 212, 67, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMediaClip : aliased constant Windows.IID := (3051788765, 46833, 20928, (183, 82, 224, 47, 160, 6, 141, 121 ));
+   
    type IAsyncOperation_IMediaClip_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1267,10 +1270,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IMediaClip
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMediaClip : aliased constant Windows.IID := (3051788765, 46833, 20928, (183, 82, 224, 47, 160, 6, 141, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMediaComposition : aliased constant Windows.IID := (3782273176, 53535, 20564, (171, 19, 16, 128, 164, 128, 118, 54 ));
+   
    type IAsyncOperation_IMediaComposition_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1293,10 +1296,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IMediaComposition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMediaComposition : aliased constant Windows.IID := (3782273176, 53535, 20564, (171, 19, 16, 128, 164, 128, 118, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBackgroundAudioTrack : aliased constant Windows.IID := (1228785816, 24694, 22005, (171, 132, 204, 249, 115, 172, 3, 151 ));
+   
    type IAsyncOperation_IBackgroundAudioTrack_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1319,10 +1322,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IBackgroundAudioTrack
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IBackgroundAudioTrack : aliased constant Windows.IID := (1228785816, 24694, 22005, (171, 132, 204, 249, 115, 172, 3, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMediaOverlayLayer : aliased constant Windows.IID := (3393199832, 25554, 21082, (128, 187, 228, 148, 144, 12, 76, 230 ));
+   
    type IIterator_IMediaOverlayLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1353,10 +1356,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMediaOverlayLayer : aliased constant Windows.IID := (3393199832, 25554, 21082, (128, 187, 228, 148, 144, 12, 76, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaOverlayLayer : aliased constant Windows.IID := (2099450576, 62370, 20625, (138, 94, 65, 131, 46, 99, 44, 8 ));
+   
    type IIterable_IMediaOverlayLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1365,10 +1368,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IIterator_IMediaOverlayLayer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMediaOverlayLayer : aliased constant Windows.IID := (2099450576, 62370, 20625, (138, 94, 65, 131, 46, 99, 44, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMediaOverlayLayer : aliased constant Windows.IID := (2345418740, 24889, 21185, (150, 105, 83, 218, 80, 51, 24, 94 ));
+   
    type IVectorView_IMediaOverlayLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1403,10 +1406,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMediaOverlayLayer : aliased constant Windows.IID := (2345418740, 24889, 21185, (150, 105, 83, 218, 80, 51, 24, 94 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IMediaOverlayLayer : aliased constant Windows.IID := (1701112620, 8720, 24060, (168, 76, 38, 108, 67, 73, 194, 198 ));
+   
    type IVector_IMediaOverlayLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1497,10 +1500,10 @@ package Windows.Media.Editing is
       ; items : Windows.Media.Editing.IMediaOverlayLayer_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IMediaOverlayLayer : aliased constant Windows.IID := (1701112620, 8720, 24060, (168, 76, 38, 108, 67, 73, 194, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMediaOverlay : aliased constant Windows.IID := (891252516, 19090, 22230, (161, 135, 250, 234, 231, 72, 224, 199 ));
+   
    type IIterator_IMediaOverlay_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1531,10 +1534,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMediaOverlay : aliased constant Windows.IID := (891252516, 19090, 22230, (161, 135, 250, 234, 231, 72, 224, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaOverlay : aliased constant Windows.IID := (4023231047, 41467, 20956, (167, 118, 227, 224, 102, 149, 251, 54 ));
+   
    type IIterable_IMediaOverlay_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1543,10 +1546,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.Media.Editing.IIterator_IMediaOverlay
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMediaOverlay : aliased constant Windows.IID := (4023231047, 41467, 20956, (167, 118, 227, 224, 102, 149, 251, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMediaOverlay : aliased constant Windows.IID := (1807387222, 12056, 23144, (131, 205, 154, 169, 215, 248, 247, 87 ));
+   
    type IVectorView_IMediaOverlay_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1581,10 +1584,10 @@ package Windows.Media.Editing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMediaOverlay : aliased constant Windows.IID := (1807387222, 12056, 23144, (131, 205, 154, 169, 215, 248, 247, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IMediaOverlay : aliased constant Windows.IID := (1536245448, 60754, 23340, (167, 16, 82, 198, 231, 171, 60, 178 ));
+   
    type IVector_IMediaOverlay_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1675,17 +1678,15 @@ package Windows.Media.Editing is
       ; items : Windows.Media.Editing.IMediaOverlay_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IMediaOverlay : aliased constant Windows.IID := (1536245448, 60754, 23340, (167, 16, 82, 198, 231, 171, 60, 178 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMediaClip_Interface(Callback : access procedure (asyncInfo : Windows.Media.Editing.IAsyncOperation_IMediaClip ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaClip_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMediaClip : aliased constant Windows.IID := (1624105916, 4511, 20648, (156, 203, 158, 165, 126, 169, 107, 253 ));
+   
+   type AsyncOperationCompletedHandler_IMediaClip_Interface(Callback : access procedure (asyncInfo : Windows.Media.Editing.IAsyncOperation_IMediaClip ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMediaClip'access) with null record;
    
    function Invoke
    (
@@ -1695,12 +1696,11 @@ package Windows.Media.Editing is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMediaClip : aliased constant Windows.IID := (1624105916, 4511, 20648, (156, 203, 158, 165, 126, 169, 107, 253 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMediaComposition_Interface(Callback : access procedure (asyncInfo : Windows.Media.Editing.IAsyncOperation_IMediaComposition ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaComposition_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMediaComposition : aliased constant Windows.IID := (3989984248, 20157, 22245, (149, 146, 60, 9, 55, 94, 189, 196 ));
+   
+   type AsyncOperationCompletedHandler_IMediaComposition_Interface(Callback : access procedure (asyncInfo : Windows.Media.Editing.IAsyncOperation_IMediaComposition ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMediaComposition'access) with null record;
    
    function Invoke
    (
@@ -1710,12 +1710,11 @@ package Windows.Media.Editing is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMediaComposition : aliased constant Windows.IID := (3989984248, 20157, 22245, (149, 146, 60, 9, 55, 94, 189, 196 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IBackgroundAudioTrack_Interface(Callback : access procedure (asyncInfo : Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBackgroundAudioTrack_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IBackgroundAudioTrack : aliased constant Windows.IID := (3095595975, 6283, 23589, (163, 187, 149, 144, 82, 188, 183, 64 ));
+   
+   type AsyncOperationCompletedHandler_IBackgroundAudioTrack_Interface(Callback : access procedure (asyncInfo : Windows.Media.Editing.IAsyncOperation_IBackgroundAudioTrack ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBackgroundAudioTrack'access) with null record;
    
    function Invoke
    (
@@ -1724,8 +1723,6 @@ package Windows.Media.Editing is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IBackgroundAudioTrack : aliased constant Windows.IID := (3095595975, 6283, 23589, (163, 187, 149, 144, 82, 188, 183, 64 ));
    
    ------------------------------------------------------------------------
    -- Classes

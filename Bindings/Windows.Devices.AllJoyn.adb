@@ -33,28 +33,6 @@ package body Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment_add_StateChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface
@@ -65,28 +43,6 @@ package body Windows.Devices.AllJoyn is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.AllJoyn.IAllJoynBusAttachment(sender), Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -103,28 +59,6 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested_Interface
@@ -135,28 +69,6 @@ package body Windows.Devices.AllJoyn is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.AllJoyn.IAllJoynBusAttachment(sender), Windows.Devices.AllJoyn.IAllJoynCredentialsVerificationRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -173,28 +85,6 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IAllJoynAboutDataView or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface
@@ -205,28 +95,6 @@ package body Windows.Devices.AllJoyn is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -243,28 +111,6 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined_Interface
@@ -275,28 +121,6 @@ package body Windows.Devices.AllJoyn is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.AllJoyn.IAllJoynBusAttachment(sender), Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IAllJoynSession_add_MemberAdded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynSession_add_MemberAdded or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -313,28 +137,6 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynSession_add_MemberRemoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynSession_add_MemberRemoved or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynSession_add_MemberRemoved_Interface
@@ -345,28 +147,6 @@ package body Windows.Devices.AllJoyn is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.AllJoyn.IAllJoynSession(sender), Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IAllJoynSession_add_Lost_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynSession_add_Lost or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -383,28 +163,6 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAllJoynSession_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IAllJoynSession or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAllJoynSession_Interface
@@ -418,28 +176,6 @@ package body Windows.Devices.AllJoyn is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IAllJoynBusObject_add_Stopped or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface
@@ -450,28 +186,6 @@ package body Windows.Devices.AllJoyn is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.AllJoyn.IAllJoynBusObject(sender), Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IAllJoynServiceInfo or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -498,15 +212,16 @@ package body Windows.Devices.AllJoyn is
       m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynBusAttachment");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynBusAttachment := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.AllJoyn.IAllJoynBusAttachment) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.AllJoyn.IID_IAllJoynBusAttachment'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Devices.AllJoyn.IID_IAllJoynBusAttachment'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create

@@ -198,6 +198,9 @@ package Windows.Security.Authentication.Identity.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (1602137012, 41592, 17973, (183, 101, 180, 148, 235, 38, 10, 244 ));
+   
    type IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UserAccountId
@@ -248,10 +251,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (1602137012, 41592, 17973, (183, 101, 180, 148, 235, 38, 10, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (1310960032, 59898, 18810, (149, 222, 109, 87, 71, 191, 151, 76 ));
+   
    type IMicrosoftAccountMultiFactorGetSessionsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Sessions
@@ -267,10 +270,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (1310960032, 59898, 18810, (149, 222, 109, 87, 71, 191, 151, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (2860434939, 55871, 16520, (162, 13, 86, 24, 175, 173, 178, 229 ));
+   
    type IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Sessions
@@ -293,10 +296,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (2860434939, 55871, 16520, (162, 13, 86, 24, 175, 173, 178, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (2193237579, 55420, 18024, (169, 118, 64, 207, 174, 84, 125, 8 ));
+   
    type IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Code
@@ -326,10 +329,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (2193237579, 55420, 18024, (169, 118, 64, 207, 174, 84, 125, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMicrosoftAccountMultiFactorAuthenticationManager : aliased constant Windows.IID := (265502885, 62836, 17184, (160, 142, 10, 25, 168, 35, 34, 170 ));
+   
    type IMicrosoftAccountMultiFactorAuthenticationManager_Interface is interface and Windows.IInspectable_Interface;
    
    function GetOneTimePassCodeAsync
@@ -421,10 +424,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMicrosoftAccountMultiFactorAuthenticationManager : aliased constant Windows.IID := (265502885, 62836, 17184, (160, 142, 10, 25, 168, 35, 34, 170 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMicrosoftAccountMultiFactorAuthenticatorStatics : aliased constant Windows.IID := (3647259366, 62534, 19569, (139, 121, 110, 164, 2, 74, 169, 184 ));
+   
    type IMicrosoftAccountMultiFactorAuthenticatorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -433,10 +436,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticationManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMicrosoftAccountMultiFactorAuthenticatorStatics : aliased constant Windows.IID := (3647259366, 62534, 19569, (139, 121, 110, 164, 2, 74, 169, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (4251790046, 4051, 23760, (184, 110, 210, 74, 217, 162, 9, 44 ));
+   
    type IIterator_IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -467,10 +470,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (4251790046, 4051, 23760, (184, 110, 210, 74, 217, 162, 9, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (2242273992, 35421, 22952, (159, 115, 238, 35, 115, 147, 197, 92 ));
+   
    type IIterable_IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -479,10 +482,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.IIterator_IMicrosoftAccountMultiFactorSessionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (2242273992, 35421, 22952, (159, 115, 238, 35, 115, 147, 197, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (1790855275, 59998, 24538, (145, 33, 121, 216, 167, 133, 196, 101 ));
+   
    type IVectorView_IMicrosoftAccountMultiFactorSessionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -517,10 +520,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMicrosoftAccountMultiFactorSessionInfo : aliased constant Windows.IID := (1790855275, 59998, 24538, (145, 33, 121, 216, 167, 133, 196, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (2925746318, 8130, 22691, (175, 54, 111, 103, 184, 146, 43, 231 ));
+   
    type IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -543,10 +546,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorOneTimeCodedInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (2925746318, 8130, 22691, (175, 54, 111, 103, 184, 146, 43, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse : aliased constant Windows.IID := (93666190, 23259, 20921, (169, 74, 173, 3, 0, 48, 184, 227 ));
+   
    type IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -569,10 +572,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse : aliased constant Windows.IID := (93666190, 23259, 20921, (169, 74, 173, 3, 0, 48, 184, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (1414317289, 41946, 21400, (163, 8, 227, 50, 165, 137, 97, 246 ));
+   
    type IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -595,10 +598,10 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorGetSessionsResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (1414317289, 41946, 21400, (163, 8, 227, 50, 165, 137, 97, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (2560576545, 61289, 22189, (186, 140, 229, 210, 90, 60, 98, 78 ));
+   
    type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -621,17 +624,15 @@ package Windows.Security.Authentication.Identity.Core is
       ; RetVal : access Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (2560576545, 61289, 22189, (186, 140, 229, 210, 90, 60, 98, 78 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (48776512, 62625, 22687, (147, 96, 160, 80, 46, 109, 201, 192 ));
+   
+   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorOneTimeCodedInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo'access) with null record;
    
    function Invoke
    (
@@ -641,12 +642,11 @@ package Windows.Security.Authentication.Identity.Core is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo : aliased constant Windows.IID := (48776512, 62625, 22687, (147, 96, 160, 80, 46, 109, 201, 192 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse : aliased constant Windows.IID := (2373943872, 33231, 22678, (149, 250, 231, 178, 35, 247, 105, 249 ));
+   
+   type AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_MicrosoftAccountMultiFactorServiceResponse ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse'access) with null record;
    
    function Invoke
    (
@@ -656,12 +656,11 @@ package Windows.Security.Authentication.Identity.Core is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_MicrosoftAccountMultiFactorServiceResponse : aliased constant Windows.IID := (2373943872, 33231, 22678, (149, 250, 231, 178, 35, 247, 105, 249 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (3469455562, 2599, 22484, (163, 93, 73, 152, 241, 153, 218, 201 ));
+   
+   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorGetSessionsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult'access) with null record;
    
    function Invoke
    (
@@ -671,12 +670,11 @@ package Windows.Security.Authentication.Identity.Core is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorGetSessionsResult : aliased constant Windows.IID := (3469455562, 2599, 22484, (163, 93, 73, 152, 241, 153, 218, 201 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (1824865932, 53476, 24045, (148, 244, 124, 115, 177, 50, 210, 164 ));
+   
+   type AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Core.IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo'access) with null record;
    
    function Invoke
    (
@@ -685,8 +683,6 @@ package Windows.Security.Authentication.Identity.Core is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo : aliased constant Windows.IID := (1824865932, 53476, 24045, (148, 244, 124, 115, 177, 50, 210, 164 ));
    
    ------------------------------------------------------------------------
    -- Classes

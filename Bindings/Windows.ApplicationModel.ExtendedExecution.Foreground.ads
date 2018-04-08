@@ -111,6 +111,9 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IExtendedExecutionForegroundRevokedEventArgs : aliased constant Windows.IID := (2960972096, 38231, 44708, (44, 153, 189, 213, 109, 155, 228, 97 ));
+   
    type IExtendedExecutionForegroundRevokedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reason
@@ -119,10 +122,10 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
       ; RetVal : access Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IExtendedExecutionForegroundRevokedEventArgs : aliased constant Windows.IID := (2960972096, 38231, 44708, (44, 153, 189, 213, 109, 155, 228, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IExtendedExecutionForegroundSession : aliased constant Windows.IID := (4227088609, 40208, 16897, (176, 30, 200, 50, 117, 41, 111, 46 ));
+   
    type IExtendedExecutionForegroundSession_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Description
@@ -174,10 +177,10 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
       ; value : Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IExtendedExecutionForegroundSession : aliased constant Windows.IID := (4227088609, 40208, 16897, (176, 30, 200, 50, 117, 41, 111, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ExtendedExecutionForegroundResult : aliased constant Windows.IID := (2978914319, 35872, 23234, (146, 70, 62, 244, 5, 39, 31, 26 ));
+   
    type IAsyncOperation_ExtendedExecutionForegroundResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -200,17 +203,15 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
       ; RetVal : access Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ExtendedExecutionForegroundResult : aliased constant Windows.IID := (2978914319, 35872, 23234, (146, 70, 62, 244, 5, 39, 31, 26 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked : aliased constant Windows.IID := (4168358266, 48921, 21634, (154, 177, 52, 146, 61, 230, 115, 141 ));
+   
+   type TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked'access) with null record;
    
    function Invoke
    (
@@ -220,12 +221,11 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked : aliased constant Windows.IID := (4168358266, 48921, 21634, (154, 177, 52, 146, 61, 230, 115, 141 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.ExtendedExecution.Foreground.IAsyncOperation_ExtendedExecutionForegroundResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult : aliased constant Windows.IID := (132242433, 6330, 22890, (183, 69, 121, 249, 205, 228, 76, 204 ));
+   
+   type AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.ExtendedExecution.Foreground.IAsyncOperation_ExtendedExecutionForegroundResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult'access) with null record;
    
    function Invoke
    (
@@ -234,8 +234,6 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_ExtendedExecutionForegroundResult : aliased constant Windows.IID := (132242433, 6330, 22890, (183, 69, 121, 249, 205, 228, 76, 204 ));
    
    ------------------------------------------------------------------------
    -- Classes

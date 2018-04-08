@@ -35,15 +35,16 @@ package body Windows.ApplicationModel.SocialInfo is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.SocialItemThumbnail");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.SocialInfo.IID_ISocialItemThumbnail'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.SocialInfo.IID_ISocialItemThumbnail'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateSocialFeedSharedItem return Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem is
@@ -51,15 +52,16 @@ package body Windows.ApplicationModel.SocialInfo is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.SocialInfo.IID_ISocialFeedSharedItem'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.SocialInfo.IID_ISocialFeedSharedItem'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateSocialFeedChildItem return Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem is
@@ -67,15 +69,16 @@ package body Windows.ApplicationModel.SocialInfo is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.SocialFeedChildItem");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.SocialInfo.IID_ISocialFeedChildItem'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.SocialInfo.IID_ISocialFeedChildItem'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateSocialFeedItem return Windows.ApplicationModel.SocialInfo.ISocialFeedItem is
@@ -83,15 +86,16 @@ package body Windows.ApplicationModel.SocialInfo is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.SocialFeedItem");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.SocialInfo.ISocialFeedItem := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.SocialInfo.ISocialFeedItem) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.SocialInfo.IID_ISocialFeedItem'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.SocialInfo.IID_ISocialFeedItem'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

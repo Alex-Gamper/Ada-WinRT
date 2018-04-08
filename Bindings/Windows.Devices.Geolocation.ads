@@ -361,6 +361,9 @@ package Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IGeoshape : aliased constant Windows.IID := (3382485679, 50985, 17345, (143, 171, 214, 222, 201, 20, 223, 126 ));
+   
    type IGeoshape_Interface is interface and Windows.IInspectable_Interface;
    
    function get_GeoshapeType
@@ -383,10 +386,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.AltitudeReferenceSystem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeoshape : aliased constant Windows.IID := (3382485679, 50985, 17345, (143, 171, 214, 222, 201, 20, 223, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeopoint : aliased constant Windows.IID := (1811546347, 58734, 18875, (156, 175, 203, 170, 120, 168, 188, 239 ));
+   
    type IGeopoint_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -395,10 +398,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.BasicGeoposition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeopoint : aliased constant Windows.IID := (1811546347, 58734, 18875, (156, 175, 203, 170, 120, 168, 188, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeopointFactory : aliased constant Windows.IID := (3681258803, 30397, 20016, (138, 247, 168, 68, 220, 55, 183, 160 ));
+   
    type IGeopointFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -427,10 +430,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeopoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeopointFactory : aliased constant Windows.IID := (3681258803, 30397, 20016, (138, 247, 168, 68, 220, 55, 183, 160 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeopath : aliased constant Windows.IID := (3846166457, 11684, 18196, (166, 82, 222, 133, 147, 40, 152, 152 ));
+   
    type IGeopath_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Positions
@@ -439,10 +442,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IVectorView_BasicGeoposition -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeopath : aliased constant Windows.IID := (3846166457, 11684, 18196, (166, 82, 222, 133, 147, 40, 152, 152 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeopathFactory : aliased constant Windows.IID := (666806728, 51175, 17241, (155, 155, 252, 163, 224, 94, 245, 147 ));
+   
    type IGeopathFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -471,10 +474,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeopath
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeopathFactory : aliased constant Windows.IID := (666806728, 51175, 17241, (155, 155, 252, 163, 224, 94, 245, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeoboundingBox : aliased constant Windows.IID := (144099339, 10063, 17370, (154, 6, 203, 252, 218, 235, 78, 194 ));
+   
    type IGeoboundingBox_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NorthwestCorner
@@ -511,10 +514,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeoboundingBox : aliased constant Windows.IID := (144099339, 10063, 17370, (154, 6, 203, 252, 218, 235, 78, 194 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeoboundingBoxFactory : aliased constant Windows.IID := (1308337545, 1041, 19132, (179, 181, 91, 188, 203, 87, 217, 140 ));
+   
    type IGeoboundingBoxFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -546,10 +549,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeoboundingBox
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeoboundingBoxFactory : aliased constant Windows.IID := (1308337545, 1041, 19132, (179, 181, 91, 188, 203, 87, 217, 140 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeoboundingBoxStatics : aliased constant Windows.IID := (1740113672, 58906, 19664, (132, 27, 147, 35, 55, 146, 181, 202 ));
+   
    type IGeoboundingBoxStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TryCompute
@@ -578,10 +581,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeoboundingBox
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeoboundingBoxStatics : aliased constant Windows.IID := (1740113672, 58906, 19664, (132, 27, 147, 35, 55, 146, 181, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeocoordinateSatelliteData : aliased constant Windows.IID := (3274339545, 9736, 18252, (145, 44, 6, 221, 73, 15, 74, 247 ));
+   
    type IGeocoordinateSatelliteData_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PositionDilutionOfPrecision
@@ -604,10 +607,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeocoordinateSatelliteData : aliased constant Windows.IID := (3274339545, 9736, 18252, (145, 44, 6, 221, 73, 15, 74, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVenueData : aliased constant Windows.IID := (1727238535, 24803, 19247, (181, 39, 79, 83, 241, 195, 198, 119 ));
+   
    type IVenueData_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -623,10 +626,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVenueData : aliased constant Windows.IID := (1727238535, 24803, 19247, (181, 39, 79, 83, 241, 195, 198, 119 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeocoordinate : aliased constant Windows.IID := (3995181994, 38762, 19568, (128, 61, 8, 62, 165, 91, 203, 196 ));
+   
    type IGeocoordinate_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Latitude
@@ -684,10 +687,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeocoordinate : aliased constant Windows.IID := (3995181994, 38762, 19568, (128, 61, 8, 62, 165, 91, 203, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeocoordinateWithPositionData : aliased constant Windows.IID := (2514891966, 56278, 16556, (184, 242, 166, 92, 3, 64, 217, 166 ));
+   
    type IGeocoordinateWithPositionData_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PositionSource
@@ -703,10 +706,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeocoordinateSatelliteData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeocoordinateWithPositionData : aliased constant Windows.IID := (2514891966, 56278, 16556, (184, 242, 166, 92, 3, 64, 217, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeocoordinateWithPoint : aliased constant Windows.IID := (4276749605, 53804, 19782, (181, 39, 11, 150, 6, 111, 199, 219 ));
+   
    type IGeocoordinateWithPoint_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Point
@@ -715,10 +718,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeopoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeocoordinateWithPoint : aliased constant Windows.IID := (4276749605, 53804, 19782, (181, 39, 11, 150, 6, 111, 199, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeocoordinateWithPositionSourceTimestamp : aliased constant Windows.IID := (2235825154, 51697, 17936, (175, 224, 139, 195, 166, 168, 112, 54 ));
+   
    type IGeocoordinateWithPositionSourceTimestamp_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PositionSourceTimestamp
@@ -727,10 +730,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeocoordinateWithPositionSourceTimestamp : aliased constant Windows.IID := (2235825154, 51697, 17936, (175, 224, 139, 195, 166, 168, 112, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeoposition : aliased constant Windows.IID := (3247244372, 32065, 20471, (169, 87, 157, 255, 180, 239, 127, 91 ));
+   
    type IGeoposition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Coordinate
@@ -746,10 +749,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.ICivicAddress
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeoposition : aliased constant Windows.IID := (3247244372, 32065, 20471, (169, 87, 157, 255, 180, 239, 127, 91 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeoposition2 : aliased constant Windows.IID := (2137192087, 34417, 19213, (134, 248, 71, 74, 132, 150, 24, 124 ));
+   
    type IGeoposition2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_VenueData
@@ -758,10 +761,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IVenueData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeoposition2 : aliased constant Windows.IID := (2137192087, 34417, 19213, (134, 248, 71, 74, 132, 150, 24, 124 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICivicAddress : aliased constant Windows.IID := (2824239642, 25844, 19784, (188, 234, 246, 176, 8, 236, 163, 76 ));
+   
    type ICivicAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Country
@@ -798,10 +801,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICivicAddress : aliased constant Windows.IID := (2824239642, 25844, 19784, (188, 234, 246, 176, 8, 236, 163, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPositionChangedEventArgs : aliased constant Windows.IID := (931503333, 40222, 18117, (191, 59, 106, 216, 202, 193, 160, 147 ));
+   
    type IPositionChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -810,10 +813,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeoposition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPositionChangedEventArgs : aliased constant Windows.IID := (931503333, 40222, 18117, (191, 59, 106, 216, 202, 193, 160, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStatusChangedEventArgs : aliased constant Windows.IID := (877908698, 35987, 16657, (162, 5, 154, 236, 252, 155, 229, 192 ));
+   
    type IStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -822,10 +825,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.PositionStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStatusChangedEventArgs : aliased constant Windows.IID := (877908698, 35987, 16657, (162, 5, 154, 236, 252, 155, 229, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeolocator : aliased constant Windows.IID := (2848178018, 17700, 18825, (138, 169, 222, 1, 157, 46, 85, 31 ));
+   
    type IGeolocator_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesiredAccuracy
@@ -922,10 +925,10 @@ package Windows.Devices.Geolocation is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeolocator : aliased constant Windows.IID := (2848178018, 17700, 18825, (138, 169, 222, 1, 157, 46, 85, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeolocatorWithScalarAccuracy : aliased constant Windows.IID := (2532692929, 47119, 17930, (153, 77, 169, 108, 71, 165, 26, 164 ));
+   
    type IGeolocatorWithScalarAccuracy_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesiredAccuracyInMeters
@@ -941,10 +944,10 @@ package Windows.Devices.Geolocation is
       ; value : Windows.Foundation.IReference_UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeolocatorWithScalarAccuracy : aliased constant Windows.IID := (2532692929, 47119, 17930, (153, 77, 169, 108, 71, 165, 26, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeolocator2 : aliased constant Windows.IID := (3518246509, 34961, 17332, (173, 54, 39, 198, 254, 154, 151, 177 ));
+   
    type IGeolocator2_Interface is interface and Windows.IInspectable_Interface;
    
    function AllowFallbackToConsentlessPositions
@@ -952,10 +955,10 @@ package Windows.Devices.Geolocation is
       This       : access IGeolocator2_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeolocator2 : aliased constant Windows.IID := (3518246509, 34961, 17332, (173, 54, 39, 198, 254, 154, 151, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeolocatorStatics : aliased constant Windows.IID := (2593027441, 11765, 17809, (159, 135, 235, 95, 216, 148, 233, 183 ));
+   
    type IGeolocatorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestAccessAsync
@@ -981,10 +984,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeolocatorStatics : aliased constant Windows.IID := (2593027441, 11765, 17809, (159, 135, 235, 95, 216, 148, 233, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeolocatorStatics2 : aliased constant Windows.IID := (2570064290, 64028, 17969, (167, 29, 13, 190, 177, 37, 13, 156 ));
+   
    type IGeolocatorStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsDefaultGeopositionRecommended
@@ -1007,10 +1010,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IReference_BasicGeoposition -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeolocatorStatics2 : aliased constant Windows.IID := (2570064290, 64028, 17969, (167, 29, 13, 190, 177, 37, 13, 156 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeocircle : aliased constant Windows.IID := (971266115, 43001, 20067, (146, 167, 186, 12, 40, 209, 36, 177 ));
+   
    type IGeocircle_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Center
@@ -1026,10 +1029,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeocircle : aliased constant Windows.IID := (971266115, 43001, 20067, (146, 167, 186, 12, 40, 209, 36, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeocircleFactory : aliased constant Windows.IID := (2950058783, 29361, 20349, (135, 204, 78, 212, 201, 132, 156, 5 ));
+   
    type IGeocircleFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1061,10 +1064,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeocircle
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeocircleFactory : aliased constant Windows.IID := (2950058783, 29361, 20349, (135, 204, 78, 212, 201, 132, 156, 5 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeovisit : aliased constant Windows.IID := (2978445942, 40694, 16811, (160, 221, 121, 62, 206, 118, 226, 222 ));
+   
    type IGeovisit_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1087,10 +1090,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeovisit : aliased constant Windows.IID := (2978445942, 40694, 16811, (160, 221, 121, 62, 206, 118, 226, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeovisitStateChangedEventArgs : aliased constant Windows.IID := (3467956735, 35667, 18792, (190, 237, 76, 236, 208, 41, 206, 21 ));
+   
    type IGeovisitStateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Visit
@@ -1099,10 +1102,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeovisit
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeovisitStateChangedEventArgs : aliased constant Windows.IID := (3467956735, 35667, 18792, (190, 237, 76, 236, 208, 41, 206, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeovisitMonitor : aliased constant Windows.IID := (2148633263, 22852, 17809, (131, 193, 57, 102, 71, 245, 79, 44 ));
+   
    type IGeovisitMonitor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MonitoringScope
@@ -1139,10 +1142,10 @@ package Windows.Devices.Geolocation is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeovisitMonitor : aliased constant Windows.IID := (2148633263, 22852, 17809, (131, 193, 57, 102, 71, 245, 79, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeovisitMonitorStatics : aliased constant Windows.IID := (3170465447, 48114, 19677, (149, 207, 85, 76, 130, 237, 251, 135 ));
+   
    type IGeovisitMonitorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetLastReportAsync
@@ -1151,10 +1154,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IAsyncOperation_IGeovisit -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeovisitMonitorStatics : aliased constant Windows.IID := (3170465447, 48114, 19677, (149, 207, 85, 76, 130, 237, 251, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeovisitTriggerDetails : aliased constant Windows.IID := (3933670814, 53705, 17739, (153, 183, 178, 248, 205, 210, 72, 47 ));
+   
    type IGeovisitTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadReports
@@ -1163,10 +1166,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IVectorView_IGeovisit -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeovisitTriggerDetails : aliased constant Windows.IID := (3933670814, 53705, 17739, (153, 183, 178, 248, 205, 210, 72, 47 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGeopoint : aliased constant Windows.IID := (925098096, 49838, 21391, (132, 110, 15, 157, 40, 3, 16, 192 ));
+   
    type IAsyncOperation_IGeopoint_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1189,10 +1192,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeopoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGeopoint : aliased constant Windows.IID := (925098096, 49838, 21391, (132, 110, 15, 157, 40, 3, 16, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_BasicGeoposition : aliased constant Windows.IID := (458106529, 35044, 22642, (187, 45, 79, 49, 112, 8, 40, 178 ));
+   
    type IIterator_BasicGeoposition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1223,10 +1226,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_BasicGeoposition : aliased constant Windows.IID := (458106529, 35044, 22642, (187, 45, 79, 49, 112, 8, 40, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_BasicGeoposition : aliased constant Windows.IID := (2451806632, 147, 20489, (168, 210, 248, 123, 14, 174, 117, 245 ));
+   
    type IIterable_BasicGeoposition_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1235,10 +1238,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IIterator_BasicGeoposition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_BasicGeoposition : aliased constant Windows.IID := (2451806632, 147, 20489, (168, 210, 248, 123, 14, 174, 117, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_BasicGeoposition : aliased constant Windows.IID := (394221337, 57908, 23003, (153, 186, 247, 253, 221, 243, 20, 48 ));
+   
    type IVectorView_BasicGeoposition_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1273,10 +1276,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_BasicGeoposition : aliased constant Windows.IID := (394221337, 57908, 23003, (153, 186, 247, 253, 221, 243, 20, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGeoposition : aliased constant Windows.IID := (4000574704, 2461, 22501, (132, 7, 91, 50, 229, 175, 28, 196 ));
+   
    type IAsyncOperation_IGeoposition_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1299,10 +1302,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeoposition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGeoposition : aliased constant Windows.IID := (4000574704, 2461, 22501, (132, 7, 91, 50, 229, 175, 28, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_GeolocationAccessStatus : aliased constant Windows.IID := (3727369424, 46886, 22449, (167, 197, 229, 161, 57, 50, 183, 222 ));
+   
    type IAsyncOperation_GeolocationAccessStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1325,10 +1328,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.GeolocationAccessStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_GeolocationAccessStatus : aliased constant Windows.IID := (3727369424, 46886, 22449, (167, 197, 229, 161, 57, 50, 183, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_BasicGeoposition : aliased constant Windows.IID := (3839221158, 62844, 22476, (182, 127, 41, 57, 169, 1, 218, 190 ));
+   
    type IReference_BasicGeoposition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -1337,10 +1340,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.BasicGeoposition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_BasicGeoposition : aliased constant Windows.IID := (3839221158, 62844, 22476, (182, 127, 41, 57, 169, 1, 218, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGeovisit : aliased constant Windows.IID := (2367460618, 61369, 21568, (166, 167, 130, 10, 131, 155, 224, 123 ));
+   
    type IAsyncOperation_IGeovisit_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1363,10 +1366,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IGeovisit
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGeovisit : aliased constant Windows.IID := (2367460618, 61369, 21568, (166, 167, 130, 10, 131, 155, 224, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGeovisit : aliased constant Windows.IID := (4112907316, 45144, 21317, (142, 40, 62, 105, 229, 245, 144, 112 ));
+   
    type IIterator_IGeovisit_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1397,10 +1400,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGeovisit : aliased constant Windows.IID := (4112907316, 45144, 21317, (142, 40, 62, 105, 229, 245, 144, 112 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGeovisit : aliased constant Windows.IID := (3581936009, 3903, 21664, (167, 73, 96, 0, 193, 225, 46, 88 ));
+   
    type IIterable_IGeovisit_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1409,10 +1412,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IIterator_IGeovisit
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGeovisit : aliased constant Windows.IID := (3581936009, 3903, 21664, (167, 73, 96, 0, 193, 225, 46, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGeovisit : aliased constant Windows.IID := (2427270633, 61918, 23463, (171, 191, 4, 162, 25, 118, 211, 98 ));
+   
    type IVectorView_IGeovisit_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1447,10 +1450,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGeovisit : aliased constant Windows.IID := (2427270633, 61918, 23463, (171, 191, 4, 162, 25, 118, 211, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGeopoint : aliased constant Windows.IID := (2283952953, 35817, 23555, (151, 20, 143, 22, 66, 216, 164, 63 ));
+   
    type IIterator_IGeopoint_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1481,10 +1484,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGeopoint : aliased constant Windows.IID := (2283952953, 35817, 23555, (151, 20, 143, 22, 66, 216, 164, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGeopoint : aliased constant Windows.IID := (3881926601, 11463, 23505, (188, 90, 244, 114, 96, 131, 78, 216 ));
+   
    type IIterable_IGeopoint_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1493,10 +1496,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IIterator_IGeopoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGeopoint : aliased constant Windows.IID := (3881926601, 11463, 23505, (188, 90, 244, 114, 96, 131, 78, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGeopath : aliased constant Windows.IID := (3474801666, 18260, 22503, (170, 224, 105, 202, 66, 203, 216, 242 ));
+   
    type IIterator_IGeopath_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1527,10 +1530,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGeopath : aliased constant Windows.IID := (3474801666, 18260, 22503, (170, 224, 105, 202, 66, 203, 216, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGeopath : aliased constant Windows.IID := (611307453, 43137, 24206, (153, 8, 193, 185, 235, 223, 236, 120 ));
+   
    type IIterable_IGeopath_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1539,10 +1542,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.Devices.Geolocation.IIterator_IGeopath
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGeopath : aliased constant Windows.IID := (611307453, 43137, 24206, (153, 8, 193, 185, 235, 223, 236, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGeopath : aliased constant Windows.IID := (2821923275, 6996, 24424, (146, 52, 74, 130, 77, 51, 227, 113 ));
+   
    type IVectorView_IGeopath_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1577,10 +1580,10 @@ package Windows.Devices.Geolocation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGeopath : aliased constant Windows.IID := (2821923275, 6996, 24424, (146, 52, 74, 130, 77, 51, 227, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IGeopath : aliased constant Windows.IID := (2091482733, 26771, 22130, (160, 199, 98, 92, 80, 144, 56, 30 ));
+   
    type IVector_IGeopath_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1671,17 +1674,15 @@ package Windows.Devices.Geolocation is
       ; items : Windows.Devices.Geolocation.IGeopath_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IGeopath : aliased constant Windows.IID := (2091482733, 26771, 22130, (160, 199, 98, 92, 80, 144, 56, 30 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGeopoint_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_IGeopoint ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGeopoint_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGeopoint : aliased constant Windows.IID := (1264529248, 6577, 21862, (157, 246, 146, 164, 34, 53, 203, 249 ));
+   
+   type AsyncOperationCompletedHandler_IGeopoint_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_IGeopoint ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGeopoint'access) with null record;
    
    function Invoke
    (
@@ -1691,12 +1692,11 @@ package Windows.Devices.Geolocation is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGeopoint : aliased constant Windows.IID := (1264529248, 6577, 21862, (157, 246, 146, 164, 34, 53, 203, 249 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGeoposition_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_IGeoposition ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGeoposition_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGeoposition : aliased constant Windows.IID := (1986569988, 9294, 24082, (141, 203, 146, 163, 41, 158, 186, 38 ));
+   
+   type AsyncOperationCompletedHandler_IGeoposition_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_IGeoposition ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGeoposition'access) with null record;
    
    function Invoke
    (
@@ -1706,12 +1706,11 @@ package Windows.Devices.Geolocation is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGeoposition : aliased constant Windows.IID := (1986569988, 9294, 24082, (141, 203, 146, 163, 41, 158, 186, 38 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGeolocator_add_PositionChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.IGeolocator ; args : Windows.Devices.Geolocation.IPositionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGeolocator_add_PositionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGeolocator_add_PositionChanged : aliased constant Windows.IID := (3745276260, 20091, 24206, (154, 126, 19, 218, 5, 157, 236, 30 ));
+   
+   type TypedEventHandler_IGeolocator_add_PositionChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.IGeolocator ; args : Windows.Devices.Geolocation.IPositionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGeolocator_add_PositionChanged'access) with null record;
    
    function Invoke
    (
@@ -1721,12 +1720,11 @@ package Windows.Devices.Geolocation is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGeolocator_add_PositionChanged : aliased constant Windows.IID := (3745276260, 20091, 24206, (154, 126, 19, 218, 5, 157, 236, 30 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGeolocator_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.IGeolocator ; args : Windows.Devices.Geolocation.IStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGeolocator_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGeolocator_add_StatusChanged : aliased constant Windows.IID := (2549937538, 56939, 23763, (150, 144, 226, 236, 187, 102, 218, 77 ));
+   
+   type TypedEventHandler_IGeolocator_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.IGeolocator ; args : Windows.Devices.Geolocation.IStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGeolocator_add_StatusChanged'access) with null record;
    
    function Invoke
    (
@@ -1736,12 +1734,11 @@ package Windows.Devices.Geolocation is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGeolocator_add_StatusChanged : aliased constant Windows.IID := (2549937538, 56939, 23763, (150, 144, 226, 236, 187, 102, 218, 77 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_GeolocationAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_GeolocationAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_GeolocationAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_GeolocationAccessStatus : aliased constant Windows.IID := (4082257043, 58823, 23432, (190, 219, 211, 230, 55, 207, 242, 113 ));
+   
+   type AsyncOperationCompletedHandler_GeolocationAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_GeolocationAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_GeolocationAccessStatus'access) with null record;
    
    function Invoke
    (
@@ -1751,12 +1748,11 @@ package Windows.Devices.Geolocation is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_GeolocationAccessStatus : aliased constant Windows.IID := (4082257043, 58823, 23432, (190, 219, 211, 230, 55, 207, 242, 113 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.IGeovisitMonitor ; args : Windows.Devices.Geolocation.IGeovisitStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged : aliased constant Windows.IID := (1990968810, 61007, 21393, (155, 80, 222, 202, 93, 67, 17, 201 ));
+   
+   type TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.IGeovisitMonitor ; args : Windows.Devices.Geolocation.IGeovisitStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged'access) with null record;
    
    function Invoke
    (
@@ -1766,12 +1762,11 @@ package Windows.Devices.Geolocation is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGeovisitMonitor_add_VisitStateChanged : aliased constant Windows.IID := (1990968810, 61007, 21393, (155, 80, 222, 202, 93, 67, 17, 201 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGeovisit_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_IGeovisit ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGeovisit_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGeovisit : aliased constant Windows.IID := (3116165323, 11780, 21097, (155, 3, 22, 20, 208, 192, 11, 1 ));
+   
+   type AsyncOperationCompletedHandler_IGeovisit_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Geolocation.IAsyncOperation_IGeovisit ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGeovisit'access) with null record;
    
    function Invoke
    (
@@ -1780,8 +1775,6 @@ package Windows.Devices.Geolocation is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IGeovisit : aliased constant Windows.IID := (3116165323, 11780, 21097, (155, 3, 22, 20, 208, 192, 11, 1 ));
    
    ------------------------------------------------------------------------
    -- Classes

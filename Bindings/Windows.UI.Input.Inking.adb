@@ -32,28 +32,6 @@ package body Windows.UI.Input.Inking is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IInkPresenter_add_StrokesCollected_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkPresenter_add_StrokesCollected or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkPresenter_add_StrokesCollected_Interface
@@ -64,28 +42,6 @@ package body Windows.UI.Input.Inking is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Input.Inking.IInkPresenter(sender), Windows.UI.Input.Inking.IInkStrokesCollectedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IInkPresenter_add_StrokesErased_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkPresenter_add_StrokesErased or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -102,28 +58,6 @@ package body Windows.UI.Input.Inking is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkUnprocessedInput_add_PointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkUnprocessedInput_add_PointerEntered or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerEntered_Interface
@@ -134,28 +68,6 @@ package body Windows.UI.Input.Inking is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IInkUnprocessedInput_add_PointerHovered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkUnprocessedInput_add_PointerHovered or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -172,28 +84,6 @@ package body Windows.UI.Input.Inking is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkUnprocessedInput_add_PointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkUnprocessedInput_add_PointerExited or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerExited_Interface
@@ -204,28 +94,6 @@ package body Windows.UI.Input.Inking is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IInkUnprocessedInput_add_PointerPressed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkUnprocessedInput_add_PointerPressed or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -242,28 +110,6 @@ package body Windows.UI.Input.Inking is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkUnprocessedInput_add_PointerMoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkUnprocessedInput_add_PointerMoved or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerMoved_Interface
@@ -274,28 +120,6 @@ package body Windows.UI.Input.Inking is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IInkUnprocessedInput_add_PointerReleased_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkUnprocessedInput_add_PointerReleased or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -312,28 +136,6 @@ package body Windows.UI.Input.Inking is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkUnprocessedInput_add_PointerLost_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkUnprocessedInput_add_PointerLost or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerLost_Interface
@@ -344,28 +146,6 @@ package body Windows.UI.Input.Inking is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Input.Inking.IInkUnprocessedInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IInkStrokeInput_add_StrokeStarted_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkStrokeInput_add_StrokeStarted or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -382,28 +162,6 @@ package body Windows.UI.Input.Inking is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkStrokeInput_add_StrokeContinued_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkStrokeInput_add_StrokeContinued or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkStrokeInput_add_StrokeContinued_Interface
@@ -417,28 +175,6 @@ package body Windows.UI.Input.Inking is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IInkStrokeInput_add_StrokeEnded_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkStrokeInput_add_StrokeEnded or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkStrokeInput_add_StrokeEnded_Interface
@@ -449,28 +185,6 @@ package body Windows.UI.Input.Inking is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Input.Inking.IInkStrokeInput(sender), Windows.UI.Core.IPointerEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IInkStrokeInput_add_StrokeCanceled_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IInkStrokeInput_add_StrokeCanceled or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -561,15 +275,16 @@ package body Windows.UI.Input.Inking is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkDrawingAttributes");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Inking.IInkDrawingAttributes := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkDrawingAttributes) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkDrawingAttributes'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkDrawingAttributes'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInkStrokeBuilder return Windows.UI.Input.Inking.IInkStrokeBuilder is
@@ -577,15 +292,16 @@ package body Windows.UI.Input.Inking is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkStrokeBuilder");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Inking.IInkStrokeBuilder := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkStrokeBuilder) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkStrokeBuilder'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkStrokeBuilder'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInkStrokeContainer return Windows.UI.Input.Inking.IInkStrokeContainer is
@@ -593,15 +309,16 @@ package body Windows.UI.Input.Inking is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkStrokeContainer");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Inking.IInkStrokeContainer := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkStrokeContainer) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkStrokeContainer'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkStrokeContainer'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInkRecognizerContainer return Windows.UI.Input.Inking.IInkRecognizerContainer is
@@ -609,15 +326,16 @@ package body Windows.UI.Input.Inking is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkRecognizerContainer");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Inking.IInkRecognizerContainer := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkRecognizerContainer) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkRecognizerContainer'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkRecognizerContainer'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInkManager return Windows.UI.Input.Inking.IInkManager is
@@ -625,15 +343,16 @@ package body Windows.UI.Input.Inking is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkManager");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Inking.IInkManager := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Inking.IInkManager) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkManager'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Inking.IID_IInkManager'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

@@ -66,6 +66,9 @@ package Windows.ApplicationModel.Resources is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IResourceLoader : aliased constant Windows.IID := (139610376, 5871, 17837, (166, 2, 41, 54, 55, 215, 230, 26 ));
+   
    type IResourceLoader_Interface is interface and Windows.IInspectable_Interface;
    
    function GetString
@@ -75,10 +78,10 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResourceLoader : aliased constant Windows.IID := (139610376, 5871, 17837, (166, 2, 41, 54, 55, 215, 230, 26 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IResourceLoader2 : aliased constant Windows.IID := (283864774, 33080, 18625, (188, 101, 225, 241, 66, 7, 54, 124 ));
+   
    type IResourceLoader2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetStringForUri
@@ -88,10 +91,10 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResourceLoader2 : aliased constant Windows.IID := (283864774, 33080, 18625, (188, 101, 225, 241, 66, 7, 54, 124 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IResourceLoaderStatics : aliased constant Windows.IID := (3212279009, 6600, 18882, (149, 60, 71, 233, 34, 123, 51, 78 ));
+   
    type IResourceLoaderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetStringForReference
@@ -101,10 +104,10 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResourceLoaderStatics : aliased constant Windows.IID := (3212279009, 6600, 18882, (149, 60, 71, 233, 34, 123, 51, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IResourceLoaderStatics2 : aliased constant Windows.IID := (213926209, 25702, 18825, (148, 148, 11, 130, 223, 197, 63, 31 ));
+   
    type IResourceLoaderStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -136,10 +139,10 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.ApplicationModel.Resources.IResourceLoader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResourceLoaderStatics2 : aliased constant Windows.IID := (213926209, 25702, 18825, (148, 148, 11, 130, 223, 197, 63, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IResourceLoaderFactory : aliased constant Windows.IID := (3275372035, 27100, 17029, (160, 119, 213, 192, 228, 124, 203, 232 ));
+   
    type IResourceLoaderFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateResourceLoaderByName
@@ -149,9 +152,6 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.ApplicationModel.Resources.IResourceLoader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResourceLoaderFactory : aliased constant Windows.IID := (3275372035, 27100, 17029, (160, 119, 213, 192, 228, 124, 203, 232 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

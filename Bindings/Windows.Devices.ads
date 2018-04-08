@@ -72,6 +72,9 @@ package Windows.Devices is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ILowLevelDevicesAggregateProvider : aliased constant Windows.IID := (2805880348, 43713, 20167, (168, 82, 71, 159, 112, 96, 208, 31 ));
+   
    type ILowLevelDevicesAggregateProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AdcControllerProvider
@@ -108,10 +111,10 @@ package Windows.Devices is
       ; RetVal : access Windows.Devices.Spi.Provider.ISpiControllerProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILowLevelDevicesAggregateProvider : aliased constant Windows.IID := (2805880348, 43713, 20167, (168, 82, 71, 159, 112, 96, 208, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILowLevelDevicesAggregateProviderFactory : aliased constant Windows.IID := (2596580086, 13427, 18014, (150, 213, 54, 40, 26, 44, 87, 175 ));
+   
    type ILowLevelDevicesAggregateProviderFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -125,15 +128,15 @@ package Windows.Devices is
       ; RetVal : access Windows.Devices.ILowLevelDevicesAggregateProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILowLevelDevicesAggregateProviderFactory : aliased constant Windows.IID := (2596580086, 13427, 18014, (150, 213, 54, 40, 26, 44, 87, 175 ));
-   
    ------------------------------------------------------------------------
-   type ILowLevelDevicesController_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ILowLevelDevicesController : aliased constant Windows.IID := (784481748, 6043, 17886, (155, 57, 58, 224, 37, 39, 222, 82 ));
    
+   type ILowLevelDevicesController_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ILowLevelDevicesControllerStatics : aliased constant Windows.IID := (155095658, 64715, 17300, (166, 151, 25, 222, 99, 124, 45, 179 ));
+   
    type ILowLevelDevicesControllerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DefaultProvider
@@ -149,9 +152,6 @@ package Windows.Devices is
       ; value : Windows.Devices.ILowLevelDevicesAggregateProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILowLevelDevicesControllerStatics : aliased constant Windows.IID := (155095658, 64715, 17300, (166, 151, 25, 222, 99, 124, 45, 179 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

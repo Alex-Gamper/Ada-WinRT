@@ -30,28 +30,6 @@ package body Windows.Security.Cryptography.Certificates is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ICertificateChain_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_ICertificateChain or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICertificateChain_Interface
@@ -62,28 +40,6 @@ package body Windows.Security.Cryptography.Certificates is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_SignatureValidationResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_SignatureValidationResult or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -110,15 +66,16 @@ package body Windows.Security.Cryptography.Certificates is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateExtension");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.ICertificateExtension := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateExtension) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateExtension'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateExtension'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateCertificate
@@ -146,15 +103,16 @@ package body Windows.Security.Cryptography.Certificates is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ISubjectAlternativeNameInfo'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ISubjectAlternativeNameInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateCertificateRequestProperties return Windows.Security.Cryptography.Certificates.ICertificateRequestProperties is
@@ -162,15 +120,16 @@ package body Windows.Security.Cryptography.Certificates is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateRequestProperties");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.ICertificateRequestProperties := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateRequestProperties) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateRequestProperties'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateRequestProperties'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreatePfxImportParameters return Windows.Security.Cryptography.Certificates.IPfxImportParameters is
@@ -178,15 +137,16 @@ package body Windows.Security.Cryptography.Certificates is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.PfxImportParameters");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.IPfxImportParameters := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.IPfxImportParameters) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_IPfxImportParameters'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_IPfxImportParameters'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateCertificateQuery return Windows.Security.Cryptography.Certificates.ICertificateQuery is
@@ -194,15 +154,16 @@ package body Windows.Security.Cryptography.Certificates is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateQuery");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.ICertificateQuery := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateQuery) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateQuery'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateQuery'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateChainBuildingParameters return Windows.Security.Cryptography.Certificates.IChainBuildingParameters is
@@ -210,15 +171,16 @@ package body Windows.Security.Cryptography.Certificates is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.ChainBuildingParameters");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.IChainBuildingParameters := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.IChainBuildingParameters) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_IChainBuildingParameters'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_IChainBuildingParameters'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateChainValidationParameters return Windows.Security.Cryptography.Certificates.IChainValidationParameters is
@@ -226,15 +188,16 @@ package body Windows.Security.Cryptography.Certificates is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.ChainValidationParameters");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.IChainValidationParameters := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.IChainValidationParameters) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_IChainValidationParameters'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_IChainValidationParameters'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateCertificateKeyUsages return Windows.Security.Cryptography.Certificates.ICertificateKeyUsages is
@@ -242,15 +205,16 @@ package body Windows.Security.Cryptography.Certificates is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CertificateKeyUsages");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.ICertificateKeyUsages := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICertificateKeyUsages) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateKeyUsages'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICertificateKeyUsages'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateCmsSignerInfo return Windows.Security.Cryptography.Certificates.ICmsSignerInfo is
@@ -258,15 +222,16 @@ package body Windows.Security.Cryptography.Certificates is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.Certificates.CmsSignerInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.Certificates.ICmsSignerInfo := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.Certificates.ICmsSignerInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICmsSignerInfo'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.Certificates.IID_ICmsSignerInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateCmsAttachedSignature

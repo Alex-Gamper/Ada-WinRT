@@ -87,6 +87,9 @@ package Windows.Management.Policies is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_INamedPolicyData : aliased constant Windows.IID := (953987480, 38316, 16503, (166, 67, 128, 120, 202, 226, 100, 0 ));
+   
    type INamedPolicyData_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Area
@@ -180,10 +183,10 @@ package Windows.Management.Policies is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INamedPolicyData : aliased constant Windows.IID := (953987480, 38316, 16503, (166, 67, 128, 120, 202, 226, 100, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INamedPolicyStatics : aliased constant Windows.IID := (2138651623, 30404, 16472, (140, 173, 103, 102, 44, 208, 95, 13 ));
+   
    type INamedPolicyStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetPolicyFromPath
@@ -204,17 +207,15 @@ package Windows.Management.Policies is
       ; RetVal : access Windows.Management.Policies.INamedPolicyData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INamedPolicyStatics : aliased constant Windows.IID := (2138651623, 30404, 16472, (140, 173, 103, 102, 44, 208, 95, 13 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_INamedPolicyData_add_Changed_Interface(Callback : access procedure (sender : Windows.Management.Policies.INamedPolicyData ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INamedPolicyData_add_Changed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_INamedPolicyData_add_Changed : aliased constant Windows.IID := (2031762432, 23202, 24334, (187, 23, 52, 128, 188, 45, 150, 204 ));
+   
+   type TypedEventHandler_INamedPolicyData_add_Changed_Interface(Callback : access procedure (sender : Windows.Management.Policies.INamedPolicyData ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INamedPolicyData_add_Changed'access) with null record;
    
    function Invoke
    (
@@ -223,8 +224,6 @@ package Windows.Management.Policies is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_INamedPolicyData_add_Changed : aliased constant Windows.IID := (2031762432, 23202, 24334, (187, 23, 52, 128, 188, 45, 150, 204 ));
    
    ------------------------------------------------------------------------
    -- Classes

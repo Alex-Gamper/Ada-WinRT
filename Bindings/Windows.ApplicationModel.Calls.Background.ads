@@ -144,6 +144,9 @@ package Windows.ApplicationModel.Calls.Background is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallBlockedTriggerDetails : aliased constant Windows.IID := (2762379426, 58561, 17023, (134, 78, 228, 112, 71, 125, 219, 103 ));
+   
    type IPhoneCallBlockedTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PhoneNumber
@@ -166,10 +169,10 @@ package Windows.ApplicationModel.Calls.Background is
       ; RetVal : access Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallBlockedTriggerDetails : aliased constant Windows.IID := (2762379426, 58561, 17023, (134, 78, 228, 112, 71, 125, 219, 103 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallOriginDataRequestTriggerDetails : aliased constant Windows.IID := (1855675199, 50507, 20098, (76, 201, 227, 41, 164, 24, 69, 146 ));
+   
    type IPhoneCallOriginDataRequestTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestId
@@ -185,10 +188,10 @@ package Windows.ApplicationModel.Calls.Background is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallOriginDataRequestTriggerDetails : aliased constant Windows.IID := (1855675199, 50507, 20098, (76, 201, 227, 41, 164, 24, 69, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneNewVoicemailMessageTriggerDetails : aliased constant Windows.IID := (329826331, 47153, 18643, (139, 169, 141, 34, 166, 88, 13, 207 ));
+   
    type IPhoneNewVoicemailMessageTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LineId
@@ -211,10 +214,10 @@ package Windows.ApplicationModel.Calls.Background is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneNewVoicemailMessageTriggerDetails : aliased constant Windows.IID := (329826331, 47153, 18643, (139, 169, 141, 34, 166, 88, 13, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneLineChangedTriggerDetails : aliased constant Windows.IID := (3335725543, 53533, 16600, (178, 183, 228, 10, 1, 214, 98, 73 ));
+   
    type IPhoneLineChangedTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LineId
@@ -238,9 +241,6 @@ package Windows.ApplicationModel.Calls.Background is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneLineChangedTriggerDetails : aliased constant Windows.IID := (3335725543, 53533, 16600, (178, 183, 228, 10, 1, 214, 98, 73 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

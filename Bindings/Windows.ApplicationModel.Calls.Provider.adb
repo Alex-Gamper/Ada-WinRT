@@ -34,15 +34,16 @@ package body Windows.ApplicationModel.Calls.Provider is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Calls.Provider.IID_IPhoneCallOrigin'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Calls.Provider.IID_IPhoneCallOrigin'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

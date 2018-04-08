@@ -58,6 +58,9 @@ package Windows.UI.Input.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IRadialControllerIndependentInputSourceStatics : aliased constant Windows.IID := (1029144309, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
+   
    type IRadialControllerIndependentInputSourceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateForView
@@ -67,10 +70,10 @@ package Windows.UI.Input.Core is
       ; RetVal : access Windows.UI.Input.Core.IRadialControllerIndependentInputSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRadialControllerIndependentInputSourceStatics : aliased constant Windows.IID := (1029144309, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRadialControllerIndependentInputSource : aliased constant Windows.IID := (1029144310, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
+   
    type IRadialControllerIndependentInputSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Controller
@@ -86,9 +89,6 @@ package Windows.UI.Input.Core is
       ; RetVal : access Windows.UI.Core.ICoreDispatcher
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRadialControllerIndependentInputSource : aliased constant Windows.IID := (1029144310, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

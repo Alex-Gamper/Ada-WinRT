@@ -96,6 +96,9 @@ package Windows.UI.Xaml.Printing is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IAddPagesEventArgs : aliased constant Windows.IID := (3806669797, 1388, 17440, (151, 149, 203, 53, 38, 206, 12, 32 ));
+   
    type IAddPagesEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrintTaskOptions
@@ -104,10 +107,10 @@ package Windows.UI.Xaml.Printing is
       ; RetVal : access Windows.Graphics.Printing.IPrintTaskOptionsCore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAddPagesEventArgs : aliased constant Windows.IID := (3806669797, 1388, 17440, (151, 149, 203, 53, 38, 206, 12, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGetPreviewPageEventArgs : aliased constant Windows.IID := (2755489853, 57001, 19958, (167, 237, 53, 4, 156, 212, 133, 199 ));
+   
    type IGetPreviewPageEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PageNumber
@@ -116,10 +119,10 @@ package Windows.UI.Xaml.Printing is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGetPreviewPageEventArgs : aliased constant Windows.IID := (2755489853, 57001, 19958, (167, 237, 53, 4, 156, 212, 133, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaginateEventArgs : aliased constant Windows.IID := (3985924054, 31147, 17079, (147, 10, 61, 110, 9, 1, 29, 33 ));
+   
    type IPaginateEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrintTaskOptions
@@ -135,10 +138,10 @@ package Windows.UI.Xaml.Printing is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaginateEventArgs : aliased constant Windows.IID := (3985924054, 31147, 17079, (147, 10, 61, 110, 9, 1, 29, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintDocument : aliased constant Windows.IID := (3829606339, 43417, 18523, (177, 216, 114, 220, 81, 120, 33, 230 ));
+   
    type IPrintDocument_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DocumentSource
@@ -227,10 +230,10 @@ package Windows.UI.Xaml.Printing is
       This       : access IPrintDocument_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintDocument : aliased constant Windows.IID := (3829606339, 43417, 18523, (177, 216, 114, 220, 81, 120, 33, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintDocumentStatics : aliased constant Windows.IID := (4254534204, 45394, 18912, (166, 189, 106, 166, 71, 126, 67, 199 ));
+   
    type IPrintDocumentStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DocumentSourceProperty
@@ -239,10 +242,10 @@ package Windows.UI.Xaml.Printing is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintDocumentStatics : aliased constant Windows.IID := (4254534204, 45394, 18912, (166, 189, 106, 166, 71, 126, 67, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintDocumentFactory : aliased constant Windows.IID := (4219974031, 9734, 18991, (153, 212, 167, 205, 188, 53, 215, 199 ));
+   
    type IPrintDocumentFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -253,17 +256,15 @@ package Windows.UI.Xaml.Printing is
       ; RetVal : access Windows.UI.Xaml.Printing.IPrintDocument
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintDocumentFactory : aliased constant Windows.IID := (4219974031, 9734, 18991, (153, 212, 167, 205, 188, 53, 215, 199 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AddPagesEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Printing.IAddPagesEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AddPagesEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AddPagesEventHandler : aliased constant Windows.IID := (3568662896, 22432, 16905, (132, 124, 192, 147, 181, 75, 199, 41 ));
+   
+   type AddPagesEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Printing.IAddPagesEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_AddPagesEventHandler'access) with null record;
    
    function Invoke
    (
@@ -273,12 +274,11 @@ package Windows.UI.Xaml.Printing is
    )
    return Windows.HRESULT;
    
-   IID_AddPagesEventHandler : aliased constant Windows.IID := (3568662896, 22432, 16905, (132, 124, 192, 147, 181, 75, 199, 41 ));
-   
    ------------------------------------------------------------------------
-   type GetPreviewPageEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Printing.IGetPreviewPageEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access GetPreviewPageEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_GetPreviewPageEventHandler : aliased constant Windows.IID := (3434342893, 39953, 20048, (171, 73, 233, 128, 134, 187, 253, 239 ));
+   
+   type GetPreviewPageEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Printing.IGetPreviewPageEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_GetPreviewPageEventHandler'access) with null record;
    
    function Invoke
    (
@@ -288,12 +288,11 @@ package Windows.UI.Xaml.Printing is
    )
    return Windows.HRESULT;
    
-   IID_GetPreviewPageEventHandler : aliased constant Windows.IID := (3434342893, 39953, 20048, (171, 73, 233, 128, 134, 187, 253, 239 ));
-   
    ------------------------------------------------------------------------
-   type PaginateEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Printing.IPaginateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access PaginateEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_PaginateEventHandler : aliased constant Windows.IID := (213932897, 33051, 18994, (153, 101, 19, 235, 120, 219, 176, 27 ));
+   
+   type PaginateEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Printing.IPaginateEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_PaginateEventHandler'access) with null record;
    
    function Invoke
    (
@@ -302,8 +301,6 @@ package Windows.UI.Xaml.Printing is
       ; e : Windows.UI.Xaml.Printing.IPaginateEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_PaginateEventHandler : aliased constant Windows.IID := (213932897, 33051, 18994, (153, 101, 19, 235, 120, 219, 176, 27 ));
    
    ------------------------------------------------------------------------
    -- Classes
@@ -325,9 +322,9 @@ package Windows.UI.Xaml.Printing is
    
    type IPrintDocument_Interface_Impl is new IPrintDocument_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IPrintDocument := null;
       m_IPrintDocument : IPrintDocument := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IPrintDocument_Impl is access all IPrintDocument_Interface_Impl'Class;
@@ -337,7 +334,7 @@ package Windows.UI.Xaml.Printing is
    (
       This       : access IPrintDocument_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    

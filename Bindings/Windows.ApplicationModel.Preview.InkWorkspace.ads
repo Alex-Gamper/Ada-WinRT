@@ -63,6 +63,9 @@ package Windows.ApplicationModel.Preview.InkWorkspace is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IInkWorkspaceHostedAppManager : aliased constant Windows.IID := (4262099344, 24153, 19383, (138, 99, 125, 33, 140, 217, 99, 0 ));
+   
    type IInkWorkspaceHostedAppManager_Interface is interface and Windows.IInspectable_Interface;
    
    function SetThumbnailAsync
@@ -72,10 +75,10 @@ package Windows.ApplicationModel.Preview.InkWorkspace is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkWorkspaceHostedAppManager : aliased constant Windows.IID := (4262099344, 24153, 19383, (138, 99, 125, 33, 140, 217, 99, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkWorkspaceHostedAppManagerStatics : aliased constant Windows.IID := (3422391493, 41314, 19396, (132, 238, 232, 113, 109, 82, 51, 197 ));
+   
    type IInkWorkspaceHostedAppManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentApp
@@ -84,9 +87,6 @@ package Windows.ApplicationModel.Preview.InkWorkspace is
       ; RetVal : access Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkWorkspaceHostedAppManagerStatics : aliased constant Windows.IID := (3422391493, 41314, 19396, (132, 238, 232, 113, 109, 82, 51, 197 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

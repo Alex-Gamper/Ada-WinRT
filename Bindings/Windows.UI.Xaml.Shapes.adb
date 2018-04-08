@@ -36,15 +36,16 @@ package body Windows.UI.Xaml.Shapes is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Ellipse");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Shapes.IEllipse := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Shapes.IEllipse) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_IEllipse'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_IEllipse'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateLine return Windows.UI.Xaml.Shapes.ILine is
@@ -52,15 +53,16 @@ package body Windows.UI.Xaml.Shapes is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Line");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Shapes.ILine := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Shapes.ILine) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_ILine'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_ILine'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreatePolygon return Windows.UI.Xaml.Shapes.IPolygon is
@@ -68,15 +70,16 @@ package body Windows.UI.Xaml.Shapes is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Polygon");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Shapes.IPolygon := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Shapes.IPolygon) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_IPolygon'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_IPolygon'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreatePolyline return Windows.UI.Xaml.Shapes.IPolyline is
@@ -84,15 +87,16 @@ package body Windows.UI.Xaml.Shapes is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Polyline");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Shapes.IPolyline := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Shapes.IPolyline) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_IPolyline'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_IPolyline'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateRectangle return Windows.UI.Xaml.Shapes.IRectangle is
@@ -100,15 +104,16 @@ package body Windows.UI.Xaml.Shapes is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Rectangle");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Shapes.IRectangle := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Shapes.IRectangle) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_IRectangle'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Shapes.IID_IRectangle'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------
@@ -120,28 +125,25 @@ package body Windows.UI.Xaml.Shapes is
    (
       This       : access IShape_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IShape , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IShape or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -153,22 +155,24 @@ package body Windows.UI.Xaml.Shapes is
    (
       This       : access IShape_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IShape_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -465,28 +469,25 @@ package body Windows.UI.Xaml.Shapes is
    (
       This       : access IPath_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IPath , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IPath or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -498,22 +499,24 @@ package body Windows.UI.Xaml.Shapes is
    (
       This       : access IPath_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IPath_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids

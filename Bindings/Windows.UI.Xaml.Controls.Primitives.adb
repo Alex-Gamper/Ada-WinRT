@@ -36,28 +36,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access DragCompletedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_DragCompletedEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access DragCompletedEventHandler_Interface
@@ -68,28 +46,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs(e));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access DragDeltaEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_DragDeltaEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -106,28 +62,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access DragStartedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_DragStartedEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access DragStartedEventHandler_Interface
@@ -138,28 +72,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs(e));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access ItemsChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_ItemsChangedEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -176,28 +88,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access RangeBaseValueChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_RangeBaseValueChangedEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access RangeBaseValueChangedEventHandler_Interface
@@ -208,28 +98,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, Windows.UI.Xaml.Controls.Primitives.IRangeBaseValueChangedEventArgs(e));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access ScrollEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_ScrollEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -246,28 +114,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IColorSpectrum_add_ColorChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IColorSpectrum_add_ColorChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IColorSpectrum_add_ColorChanged_Interface
@@ -278,28 +124,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Primitives.IColorSpectrum(sender), Windows.UI.Xaml.Controls.IColorChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IFlyoutBase2_add_Closing_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IFlyoutBase2_add_Closing or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -326,15 +150,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.ScrollEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IScrollEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IScrollEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreatePopup return Windows.UI.Xaml.Controls.Primitives.IPopup is
@@ -342,15 +167,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.Popup");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IPopup := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.IPopup) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IPopup'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IPopup'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateTickBar return Windows.UI.Xaml.Controls.Primitives.ITickBar is
@@ -358,15 +184,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.TickBar");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.ITickBar := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.ITickBar) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_ITickBar'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_ITickBar'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateCalendarPanel return Windows.UI.Xaml.Controls.Primitives.ICalendarPanel is
@@ -374,15 +201,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.CalendarPanel");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.ICalendarPanel := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.ICalendarPanel) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_ICalendarPanel'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_ICalendarPanel'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateThumb return Windows.UI.Xaml.Controls.Primitives.IThumb is
@@ -390,15 +218,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.Thumb");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IThumb := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.IThumb) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IThumb'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IThumb'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateScrollBar return Windows.UI.Xaml.Controls.Primitives.IScrollBar is
@@ -406,15 +235,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.ScrollBar");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IScrollBar := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.IScrollBar) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IScrollBar'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IScrollBar'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateRepeatButton return Windows.UI.Xaml.Controls.Primitives.IRepeatButton is
@@ -422,15 +252,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.RepeatButton");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IRepeatButton := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.IRepeatButton) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IRepeatButton'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IRepeatButton'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateJumpListItemBackgroundConverter return Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter is
@@ -438,15 +269,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.JumpListItemBackgroundConverter");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IJumpListItemBackgroundConverter'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IJumpListItemBackgroundConverter'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateJumpListItemForegroundConverter return Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter is
@@ -454,15 +286,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.JumpListItemForegroundConverter");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IJumpListItemForegroundConverter'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IJumpListItemForegroundConverter'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreatePivotPanel return Windows.UI.Xaml.Controls.Primitives.IPivotPanel is
@@ -470,15 +303,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.PivotPanel");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IPivotPanel := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.IPivotPanel) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IPivotPanel'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IPivotPanel'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreatePivotHeaderPanel return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel is
@@ -486,15 +320,16 @@ package body Windows.UI.Xaml.Controls.Primitives is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.PivotHeaderPanel");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IPivotHeaderPanel'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Primitives.IID_IPivotHeaderPanel'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------
@@ -506,28 +341,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access ICarouselPanel_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(ICarouselPanel , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_ICarouselPanel or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -539,22 +371,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access ICarouselPanel_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access ICarouselPanel_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -885,28 +719,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IGridViewItemPresenter_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IGridViewItemPresenter , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IGridViewItemPresenter or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -918,22 +749,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IGridViewItemPresenter_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IGridViewItemPresenter_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -1461,28 +1294,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IListViewItemPresenter_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IListViewItemPresenter , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IListViewItemPresenter or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -1494,22 +1324,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IListViewItemPresenter_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IListViewItemPresenter_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2037,28 +1869,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IColorSpectrum_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IColorSpectrum , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IColorSpectrum or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2070,22 +1899,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IColorSpectrum_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IColorSpectrum_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2372,28 +2203,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access ISelectorItem_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(ISelectorItem , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_ISelectorItem or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2405,22 +2233,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access ISelectorItem_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access ISelectorItem_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2487,32 +2317,29 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IRangeBaseOverrides_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IRangeBaseOverrides , Windows.Address); 
-      function Convert is new Ada.Unchecked_Conversion(IRangeBase , Windows.Address); 
-   
+      function Convert is new Ada.Unchecked_Conversion(IRangeBase , Windows.IUnknown); 
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IRangeBaseOverrides or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             if riid.all = IID_IRangeBase then
-               ppvObject.all := Convert(This.m_IRangeBase);
+               pvObject.all := Convert(This.m_IRangeBase);
                Hr := S_OK;
             else
                Hr := E_NOINTERFACE;
@@ -2526,22 +2353,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IRangeBaseOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IRangeBaseOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2621,28 +2450,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IRangeBase_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IRangeBase , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IRangeBase or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2654,22 +2480,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IRangeBase_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IRangeBase_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2846,28 +2674,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IColorPickerSlider_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IColorPickerSlider , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IColorPickerSlider or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2879,22 +2704,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IColorPickerSlider_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IColorPickerSlider_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2960,28 +2787,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IButtonBase_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IButtonBase , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IButtonBase or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2993,22 +2817,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IButtonBase_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IButtonBase_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -3164,32 +2990,29 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IToggleButtonOverrides_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IToggleButtonOverrides , Windows.Address); 
-      function Convert is new Ada.Unchecked_Conversion(IToggleButton , Windows.Address); 
-   
+      function Convert is new Ada.Unchecked_Conversion(IToggleButton , Windows.IUnknown); 
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IToggleButtonOverrides or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             if riid.all = IID_IToggleButton then
-               ppvObject.all := Convert(This.m_IToggleButton);
+               pvObject.all := Convert(This.m_IToggleButton);
                Hr := S_OK;
             else
                Hr := E_NOINTERFACE;
@@ -3203,22 +3026,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IToggleButtonOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IToggleButtonOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -3272,28 +3097,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IToggleButton_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IToggleButton , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IToggleButton or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -3305,22 +3127,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IToggleButton_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IToggleButton_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -3478,32 +3302,29 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IFlyoutBaseOverrides_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IFlyoutBaseOverrides , Windows.Address); 
-      function Convert is new Ada.Unchecked_Conversion(IFlyoutBase , Windows.Address); 
-   
+      function Convert is new Ada.Unchecked_Conversion(IFlyoutBase , Windows.IUnknown); 
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IFlyoutBaseOverrides or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             if riid.all = IID_IFlyoutBase then
-               ppvObject.all := Convert(This.m_IFlyoutBase);
+               pvObject.all := Convert(This.m_IFlyoutBase);
                Hr := S_OK;
             else
                Hr := E_NOINTERFACE;
@@ -3517,22 +3338,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IFlyoutBaseOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IFlyoutBaseOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -3587,28 +3410,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IFlyoutBase_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IFlyoutBase , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IFlyoutBase or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -3620,22 +3440,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IFlyoutBase_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IFlyoutBase_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -3792,32 +3614,29 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IPickerFlyoutBaseOverrides_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IPickerFlyoutBaseOverrides , Windows.Address); 
-      function Convert is new Ada.Unchecked_Conversion(IPickerFlyoutBase , Windows.Address); 
-   
+      function Convert is new Ada.Unchecked_Conversion(IPickerFlyoutBase , Windows.IUnknown); 
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IPickerFlyoutBaseOverrides or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             if riid.all = IID_IPickerFlyoutBase then
-               ppvObject.all := Convert(This.m_IPickerFlyoutBase);
+               pvObject.all := Convert(This.m_IPickerFlyoutBase);
                Hr := S_OK;
             else
                Hr := E_NOINTERFACE;
@@ -3831,22 +3650,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IPickerFlyoutBaseOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IPickerFlyoutBaseOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -3911,28 +3732,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IPickerFlyoutBase_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IPickerFlyoutBase , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IPickerFlyoutBase or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -3944,22 +3762,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IPickerFlyoutBase_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IPickerFlyoutBase_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -4003,28 +3823,25 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IPivotHeaderItem_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IPivotHeaderItem , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IPivotHeaderItem or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -4036,22 +3853,24 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IPivotHeaderItem_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IPivotHeaderItem_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids

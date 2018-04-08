@@ -34,15 +34,16 @@ package body Windows.Data.Json is
       m_hString     : Windows.String := To_String("Windows.Data.Json.JsonArray");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Json.IJsonArray := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Data.Json.IJsonArray) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Data.Json.IID_IJsonArray'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Data.Json.IID_IJsonArray'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateJsonObject return Windows.Data.Json.IJsonObject is
@@ -50,15 +51,16 @@ package body Windows.Data.Json is
       m_hString     : Windows.String := To_String("Windows.Data.Json.JsonObject");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Data.Json.IJsonObject := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Data.Json.IJsonObject) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Data.Json.IID_IJsonObject'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Data.Json.IID_IJsonObject'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

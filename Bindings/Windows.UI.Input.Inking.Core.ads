@@ -134,6 +134,9 @@ package Windows.UI.Input.Inking.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICoreInkIndependentInputSource : aliased constant Windows.IID := (968068521, 30265, 17561, (165, 181, 25, 29, 0, 227, 91, 22 ));
+   
    type ICoreInkIndependentInputSource_Interface is interface and Windows.IInspectable_Interface;
    
    function add_PointerEntering
@@ -247,10 +250,10 @@ package Windows.UI.Input.Inking.Core is
       ; RetVal : access Windows.UI.Input.Inking.IInkPresenter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreInkIndependentInputSource : aliased constant Windows.IID := (968068521, 30265, 17561, (165, 181, 25, 29, 0, 227, 91, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreInkIndependentInputSourceStatics : aliased constant Windows.IID := (1944453403, 32960, 19963, (155, 102, 16, 186, 127, 63, 156, 132 ));
+   
    type ICoreInkIndependentInputSourceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -260,10 +263,10 @@ package Windows.UI.Input.Inking.Core is
       ; RetVal : access Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreInkIndependentInputSourceStatics : aliased constant Windows.IID := (1944453403, 32960, 19963, (155, 102, 16, 186, 127, 63, 156, 132 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreWetStrokeUpdateEventArgs : aliased constant Windows.IID := (4211593548, 13184, 17786, (169, 135, 153, 19, 87, 137, 108, 27 ));
+   
    type ICoreWetStrokeUpdateEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NewInkPoints
@@ -293,10 +296,10 @@ package Windows.UI.Input.Inking.Core is
       ; value : Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreWetStrokeUpdateEventArgs : aliased constant Windows.IID := (4211593548, 13184, 17786, (169, 135, 153, 19, 87, 137, 108, 27 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreWetStrokeUpdateSource : aliased constant Windows.IID := (527535650, 61010, 19968, (130, 9, 76, 62, 91, 33, 163, 204 ));
+   
    type ICoreWetStrokeUpdateSource_Interface is interface and Windows.IInspectable_Interface;
    
    function add_WetStrokeStarting
@@ -380,10 +383,10 @@ package Windows.UI.Input.Inking.Core is
       ; RetVal : access Windows.UI.Input.Inking.IInkPresenter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreWetStrokeUpdateSource : aliased constant Windows.IID := (527535650, 61010, 19968, (130, 9, 76, 62, 91, 33, 163, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreWetStrokeUpdateSourceStatics : aliased constant Windows.IID := (1034788026, 7485, 18094, (171, 157, 134, 71, 72, 108, 111, 144 ));
+   
    type ICoreWetStrokeUpdateSourceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -393,10 +396,10 @@ package Windows.UI.Input.Inking.Core is
       ; RetVal : access Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreWetStrokeUpdateSourceStatics : aliased constant Windows.IID := (1034788026, 7485, 18094, (171, 157, 134, 71, 72, 108, 111, 144 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreInkPresenterHost : aliased constant Windows.IID := (963545574, 32085, 17943, (158, 88, 104, 199, 12, 145, 105, 185 ));
+   
    type ICoreInkPresenterHost_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InkPresenter
@@ -419,10 +422,10 @@ package Windows.UI.Input.Inking.Core is
       ; value : Windows.UI.Composition.IContainerVisual
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreInkPresenterHost : aliased constant Windows.IID := (963545574, 32085, 17943, (158, 88, 104, 199, 12, 145, 105, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreIncrementalInkStroke : aliased constant Windows.IID := (4255126995, 40294, 20349, (165, 127, 204, 112, 185, 207, 170, 118 ));
+   
    type ICoreIncrementalInkStroke_Interface is interface and Windows.IInspectable_Interface;
    
    function AppendInkPoints
@@ -460,10 +463,10 @@ package Windows.UI.Input.Inking.Core is
       ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreIncrementalInkStroke : aliased constant Windows.IID := (4255126995, 40294, 20349, (165, 127, 204, 112, 185, 207, 170, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreIncrementalInkStrokeFactory : aliased constant Windows.IID := (3620052806, 36264, 20336, (151, 81, 229, 59, 182, 223, 69, 150 ));
+   
    type ICoreIncrementalInkStrokeFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -474,17 +477,15 @@ package Windows.UI.Input.Inking.Core is
       ; RetVal : access Windows.UI.Input.Inking.Core.ICoreIncrementalInkStroke
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreIncrementalInkStrokeFactory : aliased constant Windows.IID := (3620052806, 36264, 20336, (151, 81, 229, 59, 182, 223, 69, 150 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
+   
+   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering'access) with null record;
    
    function Invoke
    (
@@ -494,12 +495,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
+   
+   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering'access) with null record;
    
    function Invoke
    (
@@ -509,12 +509,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerHovering : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
+   
+   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting'access) with null record;
    
    function Invoke
    (
@@ -524,12 +523,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerExiting : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
+   
+   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing'access) with null record;
    
    function Invoke
    (
@@ -539,12 +537,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerPressing : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
+   
+   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving'access) with null record;
    
    function Invoke
    (
@@ -554,12 +551,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerMoving : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
+   
+   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing'access) with null record;
    
    function Invoke
    (
@@ -569,12 +565,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerReleasing : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
+   
+   type TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSource ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost'access) with null record;
    
    function Invoke
    (
@@ -584,12 +579,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreInkIndependentInputSource_add_PointerLost : aliased constant Windows.IID := (3091185304, 34858, 23401, (189, 28, 198, 102, 144, 112, 127, 239 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
+   
+   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting'access) with null record;
    
    function Invoke
    (
@@ -599,12 +593,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStarting : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
+   
+   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing'access) with null record;
    
    function Invoke
    (
@@ -614,12 +607,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeContinuing : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
+   
+   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping'access) with null record;
    
    function Invoke
    (
@@ -629,12 +621,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeStopping : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
+   
+   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted'access) with null record;
    
    function Invoke
    (
@@ -644,12 +635,11 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCompleted : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
+   
+   type TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled'access) with null record;
    
    function Invoke
    (
@@ -658,8 +648,6 @@ package Windows.UI.Input.Inking.Core is
       ; args : Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ICoreWetStrokeUpdateSource_add_WetStrokeCanceled : aliased constant Windows.IID := (1744795112, 676, 21076, (169, 101, 11, 37, 76, 125, 7, 136 ));
    
    ------------------------------------------------------------------------
    -- Classes

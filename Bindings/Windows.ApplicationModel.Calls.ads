@@ -549,6 +549,9 @@ package Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPhoneVoicemail : aliased constant Windows.IID := (3385751542, 28319, 14987, (183, 39, 110, 12, 246, 153, 130, 36 ));
+   
    type IPhoneVoicemail_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Number
@@ -578,10 +581,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneVoicemail : aliased constant Windows.IID := (3385751542, 28319, 14987, (183, 39, 110, 12, 246, 153, 130, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneDialOptions : aliased constant Windows.IID := (3057239224, 61551, 14027, (168, 99, 130, 55, 66, 181, 242, 212 ));
+   
    type IPhoneDialOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Number
@@ -667,10 +670,10 @@ package Windows.ApplicationModel.Calls is
       ; value : Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneDialOptions : aliased constant Windows.IID := (3057239224, 61551, 14027, (168, 99, 130, 55, 66, 181, 242, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneLineCellularDetails : aliased constant Windows.IID := (421921237, 5244, 18281, (182, 115, 152, 165, 236, 132, 38, 203 ));
+   
    type IPhoneLineCellularDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SimState
@@ -708,10 +711,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneLineCellularDetails : aliased constant Windows.IID := (421921237, 5244, 18281, (182, 115, 152, 165, 236, 132, 38, 203 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneLine : aliased constant Windows.IID := (667316016, 27241, 13514, (162, 186, 101, 48, 37, 48, 195, 17 ));
+   
    type IPhoneLine_Interface is interface and Windows.IInspectable_Interface;
    
    function add_LineChanged
@@ -835,10 +838,10 @@ package Windows.ApplicationModel.Calls is
       ; options : Windows.ApplicationModel.Calls.IPhoneDialOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneLine : aliased constant Windows.IID := (667316016, 27241, 13514, (162, 186, 101, 48, 37, 48, 195, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallStore : aliased constant Windows.IID := (1600194376, 6310, 16755, (134, 209, 40, 190, 157, 198, 45, 186 ));
+   
    type IPhoneCallStore_Interface is interface and Windows.IInspectable_Interface;
    
    function IsEmergencyPhoneNumberAsync
@@ -862,10 +865,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IPhoneLineWatcher
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallStore : aliased constant Windows.IID := (1600194376, 6310, 16755, (134, 209, 40, 190, 157, 198, 45, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneLineConfiguration : aliased constant Windows.IID := (4263925858, 63055, 17170, (178, 168, 78, 37, 119, 33, 170, 149 ));
+   
    type IPhoneLineConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsVideoCallingEnabled
@@ -881,10 +884,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneLineConfiguration : aliased constant Windows.IID := (4263925858, 63055, 17170, (178, 168, 78, 37, 119, 33, 170, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneLineStatics : aliased constant Windows.IID := (4085997347, 52912, 16463, (188, 242, 186, 159, 105, 125, 138, 223 ));
+   
    type IPhoneLineStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdAsync
@@ -894,10 +897,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneLineStatics : aliased constant Windows.IID := (4085997347, 52912, 16463, (188, 242, 186, 159, 105, 125, 138, 223 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneLineWatcher : aliased constant Windows.IID := (2319830282, 25379, 17632, (166, 246, 159, 33, 246, 77, 201, 10 ));
+   
    type IPhoneLineWatcher_Interface is interface and Windows.IInspectable_Interface;
    
    function Start
@@ -993,10 +996,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.PhoneLineWatcherStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneLineWatcher : aliased constant Windows.IID := (2319830282, 25379, 17632, (166, 246, 159, 33, 246, 77, 201, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneLineWatcherEventArgs : aliased constant Windows.IID := (3497817406, 40466, 18999, (130, 183, 173, 83, 93, 173, 106, 103 ));
+   
    type IPhoneLineWatcherEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LineId
@@ -1005,10 +1008,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneLineWatcherEventArgs : aliased constant Windows.IID := (3497817406, 40466, 18999, (130, 183, 173, 83, 93, 173, 106, 103 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallManagerStatics : aliased constant Windows.IID := (1626188920, 30886, 18546, (163, 239, 152, 50, 94, 200, 184, 67 ));
+   
    type IPhoneCallManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowPhoneCallUI
@@ -1018,10 +1021,10 @@ package Windows.ApplicationModel.Calls is
       ; displayName : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallManagerStatics : aliased constant Windows.IID := (1626188920, 30886, 18546, (163, 239, 152, 50, 94, 200, 184, 67 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallManagerStatics2 : aliased constant Windows.IID := (3353594044, 9072, 17180, (152, 253, 67, 190, 95, 3, 8, 109 ));
+   
    type IPhoneCallManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function add_CallStateChanged
@@ -1065,10 +1068,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallStore -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallManagerStatics2 : aliased constant Windows.IID := (3353594044, 9072, 17180, (152, 253, 67, 190, 95, 3, 8, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallVideoCapabilities : aliased constant Windows.IID := (37234566, 45418, 20443, (190, 59, 196, 36, 14, 19, 173, 13 ));
+   
    type IPhoneCallVideoCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsVideoCallingCapable
@@ -1077,10 +1080,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallVideoCapabilities : aliased constant Windows.IID := (37234566, 45418, 20443, (190, 59, 196, 36, 14, 19, 173, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallVideoCapabilitiesManagerStatics : aliased constant Windows.IID := (4089858902, 61451, 18972, (160, 198, 238, 25, 16, 116, 156, 231 ));
+   
    type IPhoneCallVideoCapabilitiesManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCapabilitiesAsync
@@ -1090,10 +1093,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallVideoCapabilities -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallVideoCapabilitiesManagerStatics : aliased constant Windows.IID := (4089858902, 61451, 18972, (160, 198, 238, 25, 16, 116, 156, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallBlockingStatics : aliased constant Windows.IID := (426012548, 11129, 9969, (164, 111, 105, 75, 224, 67, 243, 19 ));
+   
    type IPhoneCallBlockingStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BlockUnknownNumbers
@@ -1131,10 +1134,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallBlockingStatics : aliased constant Windows.IID := (426012548, 11129, 9969, (164, 111, 105, 75, 224, 67, 243, 19 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICallStateChangeEventArgs : aliased constant Windows.IID := (3937547422, 26357, 18425, (159, 181, 69, 156, 81, 152, 199, 32 ));
+   
    type ICallStateChangeEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_State
@@ -1143,10 +1146,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.VoipPhoneCallState
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICallStateChangeEventArgs : aliased constant Windows.IID := (3937547422, 26357, 18425, (159, 181, 69, 156, 81, 152, 199, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICallAnswerEventArgs : aliased constant Windows.IID := (4252538391, 11735, 19596, (178, 189, 149, 209, 122, 91, 183, 51 ));
+   
    type ICallAnswerEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AcceptedMedia
@@ -1155,10 +1158,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.VoipPhoneCallMedia
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICallAnswerEventArgs : aliased constant Windows.IID := (4252538391, 11735, 19596, (178, 189, 149, 209, 122, 91, 183, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICallRejectEventArgs : aliased constant Windows.IID := (3662150359, 5076, 19858, (161, 194, 183, 120, 17, 238, 55, 236 ));
+   
    type ICallRejectEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RejectReason
@@ -1167,10 +1170,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICallRejectEventArgs : aliased constant Windows.IID := (3662150359, 5076, 19858, (161, 194, 183, 120, 17, 238, 55, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVoipPhoneCall : aliased constant Windows.IID := (1827795354, 30612, 19034, (140, 104, 174, 135, 148, 122, 105, 144 ));
+   
    type IVoipPhoneCall_Interface is interface and Windows.IInspectable_Interface;
    
    function add_EndRequested
@@ -1313,10 +1316,10 @@ package Windows.ApplicationModel.Calls is
       This       : access IVoipPhoneCall_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVoipPhoneCall : aliased constant Windows.IID := (1827795354, 30612, 19034, (140, 104, 174, 135, 148, 122, 105, 144 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVoipPhoneCall2 : aliased constant Windows.IID := (1947944673, 9311, 16883, (147, 153, 49, 65, 210, 91, 82, 227 ));
+   
    type IVoipPhoneCall2_Interface is interface and Windows.IInspectable_Interface;
    
    function TryShowAppUI
@@ -1324,10 +1327,10 @@ package Windows.ApplicationModel.Calls is
       This       : access IVoipPhoneCall2_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVoipPhoneCall2 : aliased constant Windows.IID := (1947944673, 9311, 16883, (147, 153, 49, 65, 210, 91, 82, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMuteChangeEventArgs : aliased constant Windows.IID := (2240143705, 3137, 17196, (129, 77, 197, 241, 253, 245, 48, 190 ));
+   
    type IMuteChangeEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Muted
@@ -1336,10 +1339,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMuteChangeEventArgs : aliased constant Windows.IID := (2240143705, 3137, 17196, (129, 77, 197, 241, 253, 245, 48, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVoipCallCoordinator : aliased constant Windows.IID := (1326549967, 59631, 17460, (156, 95, 168, 216, 147, 250, 254, 121 ));
+   
    type IVoipCallCoordinator_Interface is interface and Windows.IInspectable_Interface;
    
    function ReserveCallResourcesAsync
@@ -1445,10 +1448,10 @@ package Windows.ApplicationModel.Calls is
       ; callUpgradeGuid : Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVoipCallCoordinator : aliased constant Windows.IID := (1326549967, 59631, 17460, (156, 95, 168, 216, 147, 250, 254, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVoipCallCoordinatorStatics : aliased constant Windows.IID := (2136809259, 57418, 19728, (179, 26, 165, 92, 146, 44, 194, 251 ));
+   
    type IVoipCallCoordinatorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -1457,10 +1460,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IVoipCallCoordinator
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVoipCallCoordinatorStatics : aliased constant Windows.IID := (2136809259, 57418, 19728, (179, 26, 165, 92, 146, 44, 194, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVoipCallCoordinator2 : aliased constant Windows.IID := (3199511027, 50948, 16948, (137, 206, 232, 140, 192, 210, 143, 190 ));
+   
    type IVoipCallCoordinator2_Interface is interface and Windows.IInspectable_Interface;
    
    function SetupNewAcceptedCall
@@ -1474,10 +1477,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IVoipPhoneCall
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVoipCallCoordinator2 : aliased constant Windows.IID := (3199511027, 50948, 16948, (137, 206, 232, 140, 192, 210, 143, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockScreenCallEndCallDeferral : aliased constant Windows.IID := (769125645, 39149, 16449, (150, 50, 80, 255, 129, 43, 119, 63 ));
+   
    type ILockScreenCallEndCallDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -1485,10 +1488,10 @@ package Windows.ApplicationModel.Calls is
       This       : access ILockScreenCallEndCallDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockScreenCallEndCallDeferral : aliased constant Windows.IID := (769125645, 39149, 16449, (150, 50, 80, 255, 129, 43, 119, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockScreenCallEndRequestedEventArgs : aliased constant Windows.IID := (2173739875, 28455, 18153, (174, 182, 192, 174, 131, 228, 125, 199 ));
+   
    type ILockScreenCallEndRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -1504,10 +1507,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockScreenCallEndRequestedEventArgs : aliased constant Windows.IID := (2173739875, 28455, 18153, (174, 182, 192, 174, 131, 228, 125, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockScreenCallUI : aliased constant Windows.IID := (3315006861, 29641, 18964, (176, 33, 236, 28, 80, 163, 183, 39 ));
+   
    type ILockScreenCallUI_Interface is interface and Windows.IInspectable_Interface;
    
    function Dismiss
@@ -1559,10 +1562,10 @@ package Windows.ApplicationModel.Calls is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockScreenCallUI : aliased constant Windows.IID := (3315006861, 29641, 18964, (176, 33, 236, 28, 80, 163, 183, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallHistoryEntry : aliased constant Windows.IID := (4205895977, 12964, 19333, (131, 209, 249, 13, 140, 35, 168, 87 ));
+   
    type IPhoneCallHistoryEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1802,10 +1805,10 @@ package Windows.ApplicationModel.Calls is
       ; value : Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallHistoryEntry : aliased constant Windows.IID := (4205895977, 12964, 19333, (131, 209, 249, 13, 140, 35, 168, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallHistoryEntryAddress : aliased constant Windows.IID := (821123546, 14677, 16450, (132, 230, 102, 238, 191, 130, 230, 127 ));
+   
    type IPhoneCallHistoryEntryAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContactId
@@ -1863,10 +1866,10 @@ package Windows.ApplicationModel.Calls is
       ; value : Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallHistoryEntryAddress : aliased constant Windows.IID := (821123546, 14677, 16450, (132, 230, 102, 238, 191, 130, 230, 127 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallHistoryEntryAddressFactory : aliased constant Windows.IID := (4212108730, 51184, 19382, (159, 107, 186, 93, 115, 32, 154, 202 ));
+   
    type IPhoneCallHistoryEntryAddressFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1877,10 +1880,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallHistoryEntryAddressFactory : aliased constant Windows.IID := (4212108730, 51184, 19382, (159, 107, 186, 93, 115, 32, 154, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallHistoryEntryQueryOptions : aliased constant Windows.IID := (2623529308, 35821, 16586, (176, 110, 196, 202, 142, 174, 92, 135 ));
+   
    type IPhoneCallHistoryEntryQueryOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesiredMedia
@@ -1903,10 +1906,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallHistoryEntryQueryOptions : aliased constant Windows.IID := (2623529308, 35821, 16586, (176, 110, 196, 202, 142, 174, 92, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallHistoryEntryReader : aliased constant Windows.IID := (1642915006, 36230, 18335, (132, 4, 169, 132, 105, 32, 254, 230 ));
+   
    type IPhoneCallHistoryEntryReader_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadBatchAsync
@@ -1915,10 +1918,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallHistoryEntryReader : aliased constant Windows.IID := (1642915006, 36230, 18335, (132, 4, 169, 132, 105, 32, 254, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallHistoryStore : aliased constant Windows.IID := (797998520, 46094, 16939, (133, 69, 203, 25, 16, 166, 28, 82 ));
+   
    type IPhoneCallHistoryStore_Interface is interface and Windows.IInspectable_Interface;
    
    function GetEntryAsync
@@ -2013,10 +2016,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallHistoryStore : aliased constant Windows.IID := (797998520, 46094, 16939, (133, 69, 203, 25, 16, 166, 28, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallHistoryManagerStatics : aliased constant Windows.IID := (4121352761, 45855, 20293, (172, 142, 27, 8, 137, 60, 27, 80 ));
+   
    type IPhoneCallHistoryManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestStoreAsync
@@ -2026,10 +2029,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallHistoryManagerStatics : aliased constant Windows.IID := (4121352761, 45855, 20293, (172, 142, 27, 8, 137, 60, 27, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallHistoryManagerStatics2 : aliased constant Windows.IID := (4023678192, 41691, 16776, (158, 146, 188, 60, 250, 104, 19, 207 ));
+   
    type IPhoneCallHistoryManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForUser
@@ -2039,10 +2042,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallHistoryManagerStatics2 : aliased constant Windows.IID := (4023678192, 41691, 16776, (158, 146, 188, 60, 250, 104, 19, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallHistoryManagerForUser : aliased constant Windows.IID := (3643131171, 62815, 17235, (157, 180, 2, 5, 165, 38, 90, 85 ));
+   
    type IPhoneCallHistoryManagerForUser_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestStoreAsync
@@ -2059,10 +2062,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneCallHistoryManagerForUser : aliased constant Windows.IID := (3643131171, 62815, 17235, (157, 180, 2, 5, 165, 38, 90, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPhoneLine : aliased constant Windows.IID := (3631294256, 43624, 22036, (164, 8, 178, 1, 36, 99, 18, 11 ));
+   
    type IAsyncOperation_IPhoneLine_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2085,10 +2088,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IPhoneLine
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPhoneLine : aliased constant Windows.IID := (3631294256, 43624, 22036, (164, 8, 178, 1, 36, 99, 18, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPhoneCallStore : aliased constant Windows.IID := (2266803496, 488, 21429, (161, 75, 48, 49, 109, 246, 89, 7 ));
+   
    type IAsyncOperation_IPhoneCallStore_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2111,10 +2114,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IPhoneCallStore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPhoneCallStore : aliased constant Windows.IID := (2266803496, 488, 21429, (161, 75, 48, 49, 109, 246, 89, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPhoneCallVideoCapabilities : aliased constant Windows.IID := (2068523018, 58130, 24326, (185, 83, 126, 72, 43, 103, 207, 207 ));
+   
    type IAsyncOperation_IPhoneCallVideoCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2137,10 +2140,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IPhoneCallVideoCapabilities
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPhoneCallVideoCapabilities : aliased constant Windows.IID := (2068523018, 58130, 24326, (185, 83, 126, 72, 43, 103, 207, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_VoipPhoneCallResourceReservationStatus : aliased constant Windows.IID := (2234039936, 31977, 22120, (142, 72, 70, 154, 229, 186, 158, 173 ));
+   
    type IAsyncOperation_VoipPhoneCallResourceReservationStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2163,10 +2166,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_VoipPhoneCallResourceReservationStatus : aliased constant Windows.IID := (2234039936, 31977, 22120, (142, 72, 70, 154, 229, 186, 158, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPhoneCallHistoryEntry : aliased constant Windows.IID := (2019458250, 37090, 23811, (143, 35, 179, 53, 141, 9, 201, 81 ));
+   
    type IAsyncOperation_IPhoneCallHistoryEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2189,10 +2192,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPhoneCallHistoryEntry : aliased constant Windows.IID := (2019458250, 37090, 23811, (143, 35, 179, 53, 141, 9, 201, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPhoneCallHistoryEntry : aliased constant Windows.IID := (3251583088, 1610, 21717, (175, 171, 209, 220, 78, 226, 108, 203 ));
+   
    type IIterator_IPhoneCallHistoryEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2223,10 +2226,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPhoneCallHistoryEntry : aliased constant Windows.IID := (3251583088, 1610, 21717, (175, 171, 209, 220, 78, 226, 108, 203 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPhoneCallHistoryEntry : aliased constant Windows.IID := (2751020778, 51270, 21191, (170, 90, 51, 6, 112, 127, 99, 105 ));
+   
    type IIterable_IPhoneCallHistoryEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2235,10 +2238,10 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IIterator_IPhoneCallHistoryEntry
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPhoneCallHistoryEntry : aliased constant Windows.IID := (2751020778, 51270, 21191, (170, 90, 51, 6, 112, 127, 99, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPhoneCallHistoryStore : aliased constant Windows.IID := (228235184, 34710, 21183, (128, 218, 177, 67, 95, 230, 74, 38 ));
+   
    type IAsyncOperation_IPhoneCallHistoryStore_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2261,17 +2264,15 @@ package Windows.ApplicationModel.Calls is
       ; RetVal : access Windows.ApplicationModel.Calls.IPhoneCallHistoryStore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPhoneCallHistoryStore : aliased constant Windows.IID := (228235184, 34710, 21183, (128, 218, 177, 67, 95, 230, 74, 38 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPhoneLine_add_LineChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLine ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLine_add_LineChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPhoneLine_add_LineChanged : aliased constant Windows.IID := (2086621586, 40896, 21827, (155, 196, 65, 20, 130, 228, 234, 147 ));
+   
+   type TypedEventHandler_IPhoneLine_add_LineChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLine ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPhoneLine_add_LineChanged'access) with null record;
    
    function Invoke
    (
@@ -2281,12 +2282,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPhoneLine_add_LineChanged : aliased constant Windows.IID := (2086621586, 40896, 21827, (155, 196, 65, 20, 130, 228, 234, 147 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPhoneLine_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneLine_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPhoneLine : aliased constant Windows.IID := (2462997501, 5143, 21998, (176, 182, 41, 138, 231, 140, 177, 121 ));
+   
+   type AsyncOperationCompletedHandler_IPhoneLine_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPhoneLine'access) with null record;
    
    function Invoke
    (
@@ -2296,12 +2296,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IPhoneLine : aliased constant Windows.IID := (2462997501, 5143, 21998, (176, 182, 41, 138, 231, 140, 177, 121 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPhoneLineWatcher_add_LineAdded_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_LineAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPhoneLineWatcher_add_LineAdded : aliased constant Windows.IID := (1920794406, 43143, 21345, (137, 36, 149, 247, 186, 180, 226, 93 ));
+   
+   type TypedEventHandler_IPhoneLineWatcher_add_LineAdded_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPhoneLineWatcher_add_LineAdded'access) with null record;
    
    function Invoke
    (
@@ -2311,12 +2310,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPhoneLineWatcher_add_LineAdded : aliased constant Windows.IID := (1920794406, 43143, 21345, (137, 36, 149, 247, 186, 180, 226, 93 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPhoneLineWatcher_add_LineRemoved_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_LineRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPhoneLineWatcher_add_LineRemoved : aliased constant Windows.IID := (1920794406, 43143, 21345, (137, 36, 149, 247, 186, 180, 226, 93 ));
+   
+   type TypedEventHandler_IPhoneLineWatcher_add_LineRemoved_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPhoneLineWatcher_add_LineRemoved'access) with null record;
    
    function Invoke
    (
@@ -2326,12 +2324,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPhoneLineWatcher_add_LineRemoved : aliased constant Windows.IID := (1920794406, 43143, 21345, (137, 36, 149, 247, 186, 180, 226, 93 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPhoneLineWatcher_add_LineUpdated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_LineUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPhoneLineWatcher_add_LineUpdated : aliased constant Windows.IID := (1920794406, 43143, 21345, (137, 36, 149, 247, 186, 180, 226, 93 ));
+   
+   type TypedEventHandler_IPhoneLineWatcher_add_LineUpdated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPhoneLineWatcher_add_LineUpdated'access) with null record;
    
    function Invoke
    (
@@ -2341,12 +2338,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPhoneLineWatcher_add_LineUpdated : aliased constant Windows.IID := (1920794406, 43143, 21345, (137, 36, 149, 247, 186, 180, 226, 93 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (3579635050, 9132, 20869, (191, 118, 40, 8, 236, 131, 199, 139 ));
+   
+   type TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted'access) with null record;
    
    function Invoke
    (
@@ -2356,12 +2352,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPhoneLineWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (3579635050, 9132, 20869, (191, 118, 40, 8, 236, 131, 199, 139 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPhoneLineWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPhoneLineWatcher_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPhoneLineWatcher_add_Stopped : aliased constant Windows.IID := (3579635050, 9132, 20869, (191, 118, 40, 8, 236, 131, 199, 139 ));
+   
+   type TypedEventHandler_IPhoneLineWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IPhoneLineWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPhoneLineWatcher_add_Stopped'access) with null record;
    
    function Invoke
    (
@@ -2371,12 +2366,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPhoneLineWatcher_add_Stopped : aliased constant Windows.IID := (3579635050, 9132, 20869, (191, 118, 40, 8, 236, 131, 199, 139 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPhoneCallStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPhoneCallStore : aliased constant Windows.IID := (666254259, 53256, 22773, (133, 77, 221, 174, 101, 160, 32, 185 ));
+   
+   type AsyncOperationCompletedHandler_IPhoneCallStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPhoneCallStore'access) with null record;
    
    function Invoke
    (
@@ -2386,12 +2380,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IPhoneCallStore : aliased constant Windows.IID := (666254259, 53256, 22773, (133, 77, 221, 174, 101, 160, 32, 185 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallVideoCapabilities ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities : aliased constant Windows.IID := (3843016742, 16115, 22121, (170, 20, 235, 149, 144, 55, 147, 165 ));
+   
+   type AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallVideoCapabilities ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities'access) with null record;
    
    function Invoke
    (
@@ -2401,12 +2394,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IPhoneCallVideoCapabilities : aliased constant Windows.IID := (3843016742, 16115, 22121, (170, 20, 235, 149, 144, 55, 147, 165 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IVoipPhoneCall_add_EndRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_EndRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IVoipPhoneCall_add_EndRequested : aliased constant Windows.IID := (503367372, 57676, 20942, (147, 243, 10, 10, 154, 63, 62, 236 ));
+   
+   type TypedEventHandler_IVoipPhoneCall_add_EndRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVoipPhoneCall_add_EndRequested'access) with null record;
    
    function Invoke
    (
@@ -2416,12 +2408,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IVoipPhoneCall_add_EndRequested : aliased constant Windows.IID := (503367372, 57676, 20942, (147, 243, 10, 10, 154, 63, 62, 236 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IVoipPhoneCall_add_HoldRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_HoldRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IVoipPhoneCall_add_HoldRequested : aliased constant Windows.IID := (503367372, 57676, 20942, (147, 243, 10, 10, 154, 63, 62, 236 ));
+   
+   type TypedEventHandler_IVoipPhoneCall_add_HoldRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVoipPhoneCall_add_HoldRequested'access) with null record;
    
    function Invoke
    (
@@ -2431,12 +2422,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IVoipPhoneCall_add_HoldRequested : aliased constant Windows.IID := (503367372, 57676, 20942, (147, 243, 10, 10, 154, 63, 62, 236 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IVoipPhoneCall_add_ResumeRequested : aliased constant Windows.IID := (503367372, 57676, 20942, (147, 243, 10, 10, 154, 63, 62, 236 ));
+   
+   type TypedEventHandler_IVoipPhoneCall_add_ResumeRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallStateChangeEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVoipPhoneCall_add_ResumeRequested'access) with null record;
    
    function Invoke
    (
@@ -2446,12 +2436,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IVoipPhoneCall_add_ResumeRequested : aliased constant Windows.IID := (503367372, 57676, 20942, (147, 243, 10, 10, 154, 63, 62, 236 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallAnswerEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IVoipPhoneCall_add_AnswerRequested : aliased constant Windows.IID := (3564889306, 49164, 24490, (191, 165, 27, 17, 224, 195, 204, 193 ));
+   
+   type TypedEventHandler_IVoipPhoneCall_add_AnswerRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallAnswerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVoipPhoneCall_add_AnswerRequested'access) with null record;
    
    function Invoke
    (
@@ -2461,12 +2450,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IVoipPhoneCall_add_AnswerRequested : aliased constant Windows.IID := (3564889306, 49164, 24490, (191, 165, 27, 17, 224, 195, 204, 193 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IVoipPhoneCall_add_RejectRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallRejectEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipPhoneCall_add_RejectRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IVoipPhoneCall_add_RejectRequested : aliased constant Windows.IID := (3496105422, 2407, 21569, (143, 230, 237, 46, 112, 8, 25, 126 ));
+   
+   type TypedEventHandler_IVoipPhoneCall_add_RejectRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipPhoneCall ; args : Windows.ApplicationModel.Calls.ICallRejectEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVoipPhoneCall_add_RejectRequested'access) with null record;
    
    function Invoke
    (
@@ -2476,12 +2464,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IVoipPhoneCall_add_RejectRequested : aliased constant Windows.IID := (3496105422, 2407, 21569, (143, 230, 237, 46, 112, 8, 25, 126 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_VoipPhoneCallResourceReservationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus : aliased constant Windows.IID := (2049421839, 25722, 21500, (128, 240, 167, 157, 8, 60, 229, 49 ));
+   
+   type AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_VoipPhoneCallResourceReservationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus'access) with null record;
    
    function Invoke
    (
@@ -2491,12 +2478,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_VoipPhoneCallResourceReservationStatus : aliased constant Windows.IID := (2049421839, 25722, 21500, (128, 240, 167, 157, 8, 60, 229, 49 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipCallCoordinator ; args : Windows.ApplicationModel.Calls.IMuteChangeEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged : aliased constant Windows.IID := (3970952311, 19446, 22455, (134, 198, 226, 254, 202, 91, 90, 238 ));
+   
+   type TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.IVoipCallCoordinator ; args : Windows.ApplicationModel.Calls.IMuteChangeEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged'access) with null record;
    
    function Invoke
    (
@@ -2506,12 +2492,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IVoipCallCoordinator_add_MuteStateChanged : aliased constant Windows.IID := (3970952311, 19446, 22455, (134, 198, 226, 254, 202, 91, 90, 238 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.ILockScreenCallUI ; args : Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILockScreenCallUI_add_EndRequested : aliased constant Windows.IID := (2465711118, 59321, 24424, (152, 240, 86, 251, 137, 1, 88, 6 ));
+   
+   type TypedEventHandler_ILockScreenCallUI_add_EndRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.ILockScreenCallUI ; args : Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILockScreenCallUI_add_EndRequested'access) with null record;
    
    function Invoke
    (
@@ -2521,12 +2506,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ILockScreenCallUI_add_EndRequested : aliased constant Windows.IID := (2465711118, 59321, 24424, (152, 240, 86, 251, 137, 1, 88, 6 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILockScreenCallUI_add_Closed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.ILockScreenCallUI ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenCallUI_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILockScreenCallUI_add_Closed : aliased constant Windows.IID := (2916801066, 58791, 22817, (183, 224, 23, 50, 58, 223, 115, 130 ));
+   
+   type TypedEventHandler_ILockScreenCallUI_add_Closed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Calls.ILockScreenCallUI ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILockScreenCallUI_add_Closed'access) with null record;
    
    function Invoke
    (
@@ -2536,12 +2520,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ILockScreenCallUI_add_Closed : aliased constant Windows.IID := (2916801066, 58791, 22817, (183, 224, 23, 50, 58, 223, 115, 130 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryEntry ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPhoneCallHistoryEntry : aliased constant Windows.IID := (842277963, 44014, 22045, (178, 71, 121, 184, 50, 130, 32, 85 ));
+   
+   type AsyncOperationCompletedHandler_IPhoneCallHistoryEntry_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryEntry ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPhoneCallHistoryEntry'access) with null record;
    
    function Invoke
    (
@@ -2551,12 +2534,11 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IPhoneCallHistoryEntry : aliased constant Windows.IID := (842277963, 44014, 22045, (178, 71, 121, 184, 50, 130, 32, 85 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPhoneCallHistoryStore : aliased constant Windows.IID := (577377163, 31210, 22227, (173, 194, 164, 13, 184, 216, 201, 176 ));
+   
+   type AsyncOperationCompletedHandler_IPhoneCallHistoryStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallHistoryStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPhoneCallHistoryStore'access) with null record;
    
    function Invoke
    (
@@ -2565,8 +2547,6 @@ package Windows.ApplicationModel.Calls is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IPhoneCallHistoryStore : aliased constant Windows.IID := (577377163, 31210, 22227, (173, 194, 164, 13, 184, 216, 201, 176 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -68,6 +68,9 @@ package Windows.Security.Cryptography is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICryptographicBufferStatics : aliased constant Windows.IID := (839613986, 15536, 19679, (134, 99, 29, 40, 145, 0, 101, 235 ));
+   
    type ICryptographicBufferStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Compare
@@ -159,9 +162,6 @@ package Windows.Security.Cryptography is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICryptographicBufferStatics : aliased constant Windows.IID := (839613986, 15536, 19679, (134, 99, 29, 40, 145, 0, 101, 235 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

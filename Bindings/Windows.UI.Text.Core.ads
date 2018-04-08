@@ -371,6 +371,9 @@ package Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextTextRequest : aliased constant Windows.IID := (1356419241, 62750, 19649, (140, 161, 230, 52, 109, 26, 97, 190 ));
+   
    type ICoreTextTextRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Range
@@ -407,10 +410,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextTextRequest : aliased constant Windows.IID := (1356419241, 62750, 19649, (140, 161, 230, 52, 109, 26, 97, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextTextRequestedEventArgs : aliased constant Windows.IID := (4036403920, 16838, 19458, (139, 26, 217, 83, 176, 12, 171, 179 ));
+   
    type ICoreTextTextRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -419,10 +422,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UI.Text.Core.ICoreTextTextRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextTextRequestedEventArgs : aliased constant Windows.IID := (4036403920, 16838, 19458, (139, 26, 217, 83, 176, 12, 171, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextSelectionRequest : aliased constant Windows.IID := (4037477379, 8331, 17153, (136, 60, 116, 202, 116, 133, 253, 141 ));
+   
    type ICoreTextSelectionRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Selection
@@ -452,10 +455,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextSelectionRequest : aliased constant Windows.IID := (4037477379, 8331, 17153, (136, 60, 116, 202, 116, 133, 253, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextSelectionRequestedEventArgs : aliased constant Windows.IID := (331769899, 62996, 16922, (143, 75, 158, 200, 165, 163, 127, 205 ));
+   
    type ICoreTextSelectionRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -464,10 +467,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UI.Text.Core.ICoreTextSelectionRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextSelectionRequestedEventArgs : aliased constant Windows.IID := (331769899, 62996, 16922, (143, 75, 158, 200, 165, 163, 127, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextLayoutBounds : aliased constant Windows.IID := (3916614004, 17462, 18711, (128, 208, 165, 37, 228, 202, 103, 128 ));
+   
    type ICoreTextLayoutBounds_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextBounds
@@ -497,10 +500,10 @@ package Windows.UI.Text.Core is
       ; value : Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextLayoutBounds : aliased constant Windows.IID := (3916614004, 17462, 18711, (128, 208, 165, 37, 228, 202, 103, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextLayoutRequest : aliased constant Windows.IID := (626370764, 20989, 20227, (152, 191, 172, 120, 23, 77, 104, 224 ));
+   
    type ICoreTextLayoutRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Range
@@ -530,10 +533,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextLayoutRequest : aliased constant Windows.IID := (626370764, 20989, 20227, (152, 191, 172, 120, 23, 77, 104, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextLayoutRequestedEventArgs : aliased constant Windows.IID := (2984012512, 39547, 20126, (165, 102, 74, 107, 95, 138, 214, 118 ));
+   
    type ICoreTextLayoutRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -542,10 +545,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UI.Text.Core.ICoreTextLayoutRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextLayoutRequestedEventArgs : aliased constant Windows.IID := (2984012512, 39547, 20126, (165, 102, 74, 107, 95, 138, 214, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextTextUpdatingEventArgs : aliased constant Windows.IID := (4003959181, 52267, 20227, (143, 246, 2, 253, 33, 125, 180, 80 ));
+   
    type ICoreTextTextUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Range
@@ -603,10 +606,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextTextUpdatingEventArgs : aliased constant Windows.IID := (4003959181, 52267, 20227, (143, 246, 2, 253, 33, 125, 180, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextSelectionUpdatingEventArgs : aliased constant Windows.IID := (3561325471, 65151, 19413, (138, 38, 9, 34, 193, 179, 230, 57 ));
+   
    type ICoreTextSelectionUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Selection
@@ -643,10 +646,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextSelectionUpdatingEventArgs : aliased constant Windows.IID := (3561325471, 65151, 19413, (138, 38, 9, 34, 193, 179, 230, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextFormatUpdatingEventArgs : aliased constant Windows.IID := (1930476851, 46248, 17329, (179, 123, 7, 36, 212, 172, 167, 171 ));
+   
    type ICoreTextFormatUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Range
@@ -718,10 +721,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextFormatUpdatingEventArgs : aliased constant Windows.IID := (1930476851, 46248, 17329, (179, 123, 7, 36, 212, 172, 167, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextCompositionStartedEventArgs : aliased constant Windows.IID := (661329577, 25831, 19120, (188, 75, 160, 45, 115, 131, 91, 251 ));
+   
    type ICoreTextCompositionStartedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsCanceled
@@ -737,10 +740,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextCompositionStartedEventArgs : aliased constant Windows.IID := (661329577, 25831, 19120, (188, 75, 160, 45, 115, 131, 91, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextCompositionCompletedEventArgs : aliased constant Windows.IID := (523561910, 47007, 16673, (165, 231, 253, 169, 184, 97, 110, 48 ));
+   
    type ICoreTextCompositionCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsCanceled
@@ -763,10 +766,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextCompositionCompletedEventArgs : aliased constant Windows.IID := (523561910, 47007, 16673, (165, 231, 253, 169, 184, 97, 110, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextEditContext2 : aliased constant Windows.IID := (2978381243, 2107, 18913, (178, 129, 43, 53, 214, 43, 244, 102 ));
+   
    type ICoreTextEditContext2_Interface is interface and Windows.IInspectable_Interface;
    
    function add_NotifyFocusLeaveCompleted
@@ -783,10 +786,10 @@ package Windows.UI.Text.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextEditContext2 : aliased constant Windows.IID := (2978381243, 2107, 18913, (178, 129, 43, 53, 214, 43, 244, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextEditContext : aliased constant Windows.IID := (3211135151, 16449, 18371, (178, 99, 169, 24, 235, 94, 174, 242 ));
+   
    type ICoreTextEditContext_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -1013,10 +1016,10 @@ package Windows.UI.Text.Core is
       This       : access ICoreTextEditContext_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextEditContext : aliased constant Windows.IID := (3211135151, 16449, 18371, (178, 99, 169, 24, 235, 94, 174, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextServicesManager : aliased constant Windows.IID := (3260054915, 28170, 19082, (189, 248, 25, 72, 135, 72, 84, 186 ));
+   
    type ICoreTextServicesManager_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InputLanguage
@@ -1047,10 +1050,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UI.Text.Core.ICoreTextEditContext
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextServicesManager : aliased constant Windows.IID := (3260054915, 28170, 19082, (189, 248, 25, 72, 135, 72, 84, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextServicesManagerStatics : aliased constant Windows.IID := (354460552, 58063, 19813, (174, 185, 179, 45, 134, 254, 57, 185 ));
+   
    type ICoreTextServicesManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -1059,10 +1062,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UI.Text.Core.ICoreTextServicesManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextServicesManagerStatics : aliased constant Windows.IID := (354460552, 58063, 19813, (174, 185, 179, 45, 134, 254, 57, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextServicesStatics : aliased constant Windows.IID := (2441452102, 60623, 18340, (138, 231, 9, 138, 156, 111, 187, 21 ));
+   
    type ICoreTextServicesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HiddenCharacter
@@ -1071,10 +1074,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextServicesStatics : aliased constant Windows.IID := (2441452102, 60623, 18340, (138, 231, 9, 138, 156, 111, 187, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreTextCompositionSegment : aliased constant Windows.IID := (2003594201, 20141, 19879, (143, 71, 58, 136, 181, 35, 204, 52 ));
+   
    type ICoreTextCompositionSegment_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PreconversionString
@@ -1090,10 +1093,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UI.Text.Core.CoreTextRange
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreTextCompositionSegment : aliased constant Windows.IID := (2003594201, 20141, 19879, (143, 71, 58, 136, 181, 35, 204, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ICoreTextCompositionSegment : aliased constant Windows.IID := (968118925, 9072, 22522, (181, 212, 181, 162, 7, 154, 124, 234 ));
+   
    type IIterator_ICoreTextCompositionSegment_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1124,10 +1127,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ICoreTextCompositionSegment : aliased constant Windows.IID := (968118925, 9072, 22522, (181, 212, 181, 162, 7, 154, 124, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ICoreTextCompositionSegment : aliased constant Windows.IID := (943139794, 54270, 23250, (157, 57, 209, 102, 182, 142, 120, 231 ));
+   
    type IIterable_ICoreTextCompositionSegment_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1136,10 +1139,10 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UI.Text.Core.IIterator_ICoreTextCompositionSegment
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ICoreTextCompositionSegment : aliased constant Windows.IID := (943139794, 54270, 23250, (157, 57, 209, 102, 182, 142, 120, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ICoreTextCompositionSegment : aliased constant Windows.IID := (558589183, 53069, 24020, (147, 42, 123, 198, 110, 105, 3, 110 ));
+   
    type IVectorView_ICoreTextCompositionSegment_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1174,17 +1177,15 @@ package Windows.UI.Text.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ICoreTextCompositionSegment : aliased constant Windows.IID := (558589183, 53069, 24020, (147, 42, 123, 198, 110, 105, 3, 110 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted : aliased constant Windows.IID := (4015240295, 50290, 23385, (168, 39, 56, 173, 195, 169, 211, 38 ));
+   
+   type TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted'access) with null record;
    
    function Invoke
    (
@@ -1194,12 +1195,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted : aliased constant Windows.IID := (4015240295, 50290, 23385, (168, 39, 56, 173, 195, 169, 211, 38 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext_add_TextRequested : aliased constant Windows.IID := (3353379190, 16692, 20663, (188, 115, 114, 158, 159, 154, 210, 42 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_TextRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_TextRequested'access) with null record;
    
    function Invoke
    (
@@ -1209,12 +1209,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_TextRequested : aliased constant Windows.IID := (3353379190, 16692, 20663, (188, 115, 114, 158, 159, 154, 210, 42 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext_add_SelectionRequested : aliased constant Windows.IID := (2284736993, 62627, 22501, (147, 146, 106, 140, 56, 87, 145, 129 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_SelectionRequested'access) with null record;
    
    function Invoke
    (
@@ -1224,12 +1223,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_SelectionRequested : aliased constant Windows.IID := (2284736993, 62627, 22501, (147, 146, 106, 140, 56, 87, 145, 129 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext_add_LayoutRequested : aliased constant Windows.IID := (442455446, 22044, 22518, (164, 255, 203, 133, 1, 60, 101, 68 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_LayoutRequested_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_LayoutRequested'access) with null record;
    
    function Invoke
    (
@@ -1239,12 +1237,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_LayoutRequested : aliased constant Windows.IID := (442455446, 22044, 22518, (164, 255, 203, 133, 1, 60, 101, 68 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext_add_TextUpdating : aliased constant Windows.IID := (4253641348, 57212, 20693, (145, 103, 88, 246, 22, 189, 219, 110 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_TextUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_TextUpdating'access) with null record;
    
    function Invoke
    (
@@ -1254,12 +1251,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_TextUpdating : aliased constant Windows.IID := (4253641348, 57212, 20693, (145, 103, 88, 246, 22, 189, 219, 110 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating : aliased constant Windows.IID := (1796475456, 54369, 21850, (182, 235, 93, 187, 142, 33, 1, 229 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating'access) with null record;
    
    function Invoke
    (
@@ -1269,12 +1265,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_SelectionUpdating : aliased constant Windows.IID := (1796475456, 54369, 21850, (182, 235, 93, 187, 142, 33, 1, 229 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext_add_FormatUpdating : aliased constant Windows.IID := (1045362073, 19650, 21064, (191, 45, 19, 241, 118, 19, 176, 166 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_FormatUpdating_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_FormatUpdating'access) with null record;
    
    function Invoke
    (
@@ -1284,12 +1279,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_FormatUpdating : aliased constant Windows.IID := (1045362073, 19650, 21064, (191, 45, 19, 241, 118, 19, 176, 166 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextCompositionStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext_add_CompositionStarted : aliased constant Windows.IID := (3866220069, 23385, 22502, (169, 46, 64, 0, 149, 7, 133, 58 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_CompositionStarted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextCompositionStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_CompositionStarted'access) with null record;
    
    function Invoke
    (
@@ -1299,12 +1293,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_CompositionStarted : aliased constant Windows.IID := (3866220069, 23385, 22502, (169, 46, 64, 0, 149, 7, 133, 58 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted : aliased constant Windows.IID := (2732000670, 26861, 21088, (141, 142, 29, 207, 61, 37, 214, 99 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted'access) with null record;
    
    function Invoke
    (
@@ -1314,12 +1307,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_CompositionCompleted : aliased constant Windows.IID := (2732000670, 26861, 21088, (141, 142, 29, 207, 61, 37, 214, 99 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextEditContext_add_FocusRemoved : aliased constant Windows.IID := (4015240295, 50290, 23385, (168, 39, 56, 173, 195, 169, 211, 38 ));
+   
+   type TypedEventHandler_ICoreTextEditContext_add_FocusRemoved_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextEditContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextEditContext_add_FocusRemoved'access) with null record;
    
    function Invoke
    (
@@ -1329,12 +1321,11 @@ package Windows.UI.Text.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreTextEditContext_add_FocusRemoved : aliased constant Windows.IID := (4015240295, 50290, 23385, (168, 39, 56, 173, 195, 169, 211, 38 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextServicesManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged : aliased constant Windows.IID := (288337949, 9738, 20934, (145, 152, 93, 179, 230, 233, 239, 61 ));
+   
+   type TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged_Interface(Callback : access procedure (sender : Windows.UI.Text.Core.ICoreTextServicesManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged'access) with null record;
    
    function Invoke
    (
@@ -1343,8 +1334,6 @@ package Windows.UI.Text.Core is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ICoreTextServicesManager_add_InputLanguageChanged : aliased constant Windows.IID := (288337949, 9738, 20934, (145, 152, 93, 179, 230, 233, 239, 61 ));
    
    ------------------------------------------------------------------------
    -- Classes

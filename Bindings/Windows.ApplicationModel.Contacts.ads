@@ -913,6 +913,9 @@ package Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IContactCardOptions : aliased constant Windows.IID := (2349485950, 27318, 20287, (190, 114, 129, 114, 54, 238, 234, 91 ));
+   
    type IContactCardOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HeaderKind
@@ -942,10 +945,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.ApplicationModel.Contacts.ContactCardTabKind
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactCardOptions : aliased constant Windows.IID := (2349485950, 27318, 20287, (190, 114, 129, 114, 54, 238, 234, 91 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactCardOptions2 : aliased constant Windows.IID := (2401704864, 55115, 19654, (159, 83, 27, 14, 181, 209, 39, 60 ));
+   
    type IContactCardOptions2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ServerSearchContactListIds
@@ -954,10 +957,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactCardOptions2 : aliased constant Windows.IID := (2401704864, 55115, 19654, (159, 83, 27, 14, 181, 209, 39, 60 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFullContactCardOptions : aliased constant Windows.IID := (2269397868, 23801, 18051, (189, 202, 161, 253, 235, 248, 219, 206 ));
+   
    type IFullContactCardOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesiredRemainingView
@@ -973,10 +976,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.UI.ViewManagement.ViewSizePreference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFullContactCardOptions : aliased constant Windows.IID := (2269397868, 23801, 18051, (189, 202, 161, 253, 235, 248, 219, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactCardDelayedDataLoader : aliased constant Windows.IID := (3054172418, 5446, 17229, (134, 156, 110, 53, 32, 118, 14, 243 ));
+   
    type IContactCardDelayedDataLoader_Interface is interface and Windows.IInspectable_Interface;
    
    function SetData
@@ -985,10 +988,10 @@ package Windows.ApplicationModel.Contacts is
       ; contact : Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactCardDelayedDataLoader : aliased constant Windows.IID := (3054172418, 5446, 17229, (134, 156, 110, 53, 32, 118, 14, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactManagerStatics : aliased constant Windows.IID := (2180127424, 63073, 18184, (186, 79, 211, 134, 189, 13, 98, 46 ));
+   
    type IContactManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowContactCard
@@ -1017,10 +1020,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactCardDelayedDataLoader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactManagerStatics : aliased constant Windows.IID := (2180127424, 63073, 18184, (186, 79, 211, 134, 189, 13, 98, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactManagerStatics2 : aliased constant Windows.IID := (2709055008, 18392, 18636, (150, 60, 149, 146, 182, 229, 16, 198 ));
+   
    type IContactManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestStoreAsync
@@ -1029,10 +1032,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactManagerStatics2 : aliased constant Windows.IID := (2709055008, 18392, 18636, (150, 60, 149, 146, 182, 229, 16, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactManagerStatics3 : aliased constant Windows.IID := (3301719362, 30086, 18730, (147, 11, 123, 193, 56, 252, 33, 57 ));
+   
    type IContactManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function ConvertContactToVCardAsync
@@ -1146,10 +1149,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.ApplicationModel.Contacts.ContactNameOrder
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactManagerStatics3 : aliased constant Windows.IID := (3301719362, 30086, 18730, (147, 11, 123, 193, 56, 252, 33, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactManagerStatics4 : aliased constant Windows.IID := (613950066, 13435, 18140, (141, 149, 81, 189, 65, 225, 90, 175 ));
+   
    type IContactManagerStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForUser
@@ -1159,10 +1162,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactManagerForUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactManagerStatics4 : aliased constant Windows.IID := (613950066, 13435, 18140, (141, 149, 81, 189, 65, 225, 90, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactManagerStatics5 : aliased constant Windows.IID := (4149811847, 44215, 20397, (144, 242, 168, 171, 100, 205, 187, 164 ));
+   
    type IContactManagerStatics5_Interface is interface and Windows.IInspectable_Interface;
    
    function IsShowFullContactCardSupportedAsync
@@ -1185,10 +1188,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactManagerStatics5 : aliased constant Windows.IID := (4149811847, 44215, 20397, (144, 242, 168, 171, 100, 205, 187, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactManagerForUser : aliased constant Windows.IID := (3075193431, 4214, 19439, (174, 243, 84, 104, 109, 24, 56, 125 ));
+   
    type IContactManagerForUser_Interface is interface and Windows.IInspectable_Interface;
    
    function ConvertContactToVCardAsync
@@ -1266,10 +1269,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactManagerForUser : aliased constant Windows.IID := (3075193431, 4214, 19439, (174, 243, 84, 104, 109, 24, 56, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactManagerForUser2 : aliased constant Windows.IID := (1296473134, 15221, 19059, (187, 48, 115, 102, 69, 71, 34, 86 ));
+   
    type IContactManagerForUser2_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowFullContactCard
@@ -1279,10 +1282,10 @@ package Windows.ApplicationModel.Contacts is
       ; fullContactCardOptions : Windows.ApplicationModel.Contacts.IFullContactCardOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactManagerForUser2 : aliased constant Windows.IID := (1296473134, 15221, 19059, (187, 48, 115, 102, 69, 71, 34, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAggregateContactManager : aliased constant Windows.IID := (58316253, 56154, 20435, (181, 78, 77, 241, 121, 23, 162, 18 ));
+   
    type IAggregateContactManager_Interface is interface and Windows.IInspectable_Interface;
    
    function FindRawContactsAsync
@@ -1318,10 +1321,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAggregateContactManager : aliased constant Windows.IID := (58316253, 56154, 20435, (181, 78, 77, 241, 121, 23, 162, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAggregateContactManager2 : aliased constant Windows.IID := (1586283224, 43469, 17456, (156, 75, 1, 52, 141, 178, 202, 80 ));
+   
    type IAggregateContactManager2_Interface is interface and Windows.IInspectable_Interface;
    
    function SetRemoteIdentificationInformationAsync
@@ -1333,10 +1336,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAggregateContactManager2 : aliased constant Windows.IID := (1586283224, 43469, 17456, (156, 75, 1, 52, 141, 178, 202, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactAnnotationStore : aliased constant Windows.IID := (598537386, 31351, 17789, (130, 3, 152, 127, 75, 49, 175, 9 ));
+   
    type IContactAnnotationStore_Interface is interface and Windows.IInspectable_Interface;
    
    function FindContactIdsByEmailAsync
@@ -1400,10 +1403,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactAnnotationStore : aliased constant Windows.IID := (598537386, 31351, 17789, (130, 3, 152, 127, 75, 49, 175, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactAnnotationStore2 : aliased constant Windows.IID := (2128487421, 25063, 18791, (142, 197, 189, 242, 128, 162, 64, 99 ));
+   
    type IContactAnnotationStore2_Interface is interface and Windows.IInspectable_Interface;
    
    function FindAnnotationsForContactListAsync
@@ -1413,10 +1416,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactAnnotationStore2 : aliased constant Windows.IID := (2128487421, 25063, 18791, (142, 197, 189, 242, 128, 162, 64, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactAnnotationList : aliased constant Windows.IID := (2460255914, 23688, 17849, (170, 208, 70, 24, 136, 230, 141, 138 ));
+   
    type IContactAnnotationList_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1485,10 +1488,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactAnnotationList : aliased constant Windows.IID := (2460255914, 23688, 17849, (170, 208, 70, 24, 136, 230, 141, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactAnnotation : aliased constant Windows.IID := (2183119599, 32065, 17570, (132, 195, 96, 162, 129, 221, 123, 134 ));
+   
    type IContactAnnotation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1560,10 +1563,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactAnnotation : aliased constant Windows.IID := (2183119599, 32065, 17570, (132, 195, 96, 162, 129, 221, 123, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactAnnotation2 : aliased constant Windows.IID := (3063016691, 19127, 18975, (153, 65, 12, 156, 243, 23, 27, 117 ));
+   
    type IContactAnnotation2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContactListId
@@ -1579,15 +1582,15 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactAnnotation2 : aliased constant Windows.IID := (3063016691, 19127, 18975, (153, 65, 12, 156, 243, 23, 27, 117 ));
-   
    ------------------------------------------------------------------------
-   type IContactStoreNotificationTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IContactStoreNotificationTriggerDetails : aliased constant Windows.IID := (2880608470, 34698, 20363, (169, 206, 70, 187, 125, 28, 132, 206 ));
    
+   type IContactStoreNotificationTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IContactStore : aliased constant Windows.IID := (740428560, 14956, 17043, (185, 188, 254, 152, 127, 110, 13, 82 ));
+   
    type IContactStore_Interface is interface and Windows.IInspectable_Interface;
    
    function FindContactsAsync
@@ -1612,10 +1615,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IAsyncOperation_IContact -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactStore : aliased constant Windows.IID := (740428560, 14956, 17043, (185, 188, 254, 152, 127, 110, 13, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactStore2 : aliased constant Windows.IID := (416160802, 60373, 19451, (182, 144, 95, 79, 39, 196, 240, 232 ));
+   
    type IContactStore2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeTracker
@@ -1700,10 +1703,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IAsyncOperation_IContactList -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactStore2 : aliased constant Windows.IID := (416160802, 60373, 19451, (182, 144, 95, 79, 39, 196, 240, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactStore3 : aliased constant Windows.IID := (3414699116, 78, 16464, (135, 240, 132, 4, 7, 238, 104, 24 ));
+   
    type IContactStore3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetChangeTracker
@@ -1713,10 +1716,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactChangeTracker
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactStore3 : aliased constant Windows.IID := (3414699116, 78, 16464, (135, 240, 132, 4, 7, 238, 104, 24 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactList : aliased constant Windows.IID := (383642741, 14636, 18501, (157, 251, 81, 163, 231, 239, 62, 66 ));
+   
    type IContactList_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1899,10 +1902,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IAsyncOperation_IContact -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactList : aliased constant Windows.IID := (383642741, 14636, 18501, (157, 251, 81, 163, 231, 239, 62, 66 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactList2 : aliased constant Windows.IID := (3409527732, 17744, 19915, (146, 41, 64, 255, 145, 251, 2, 3 ));
+   
    type IContactList2_Interface is interface and Windows.IInspectable_Interface;
    
    function RegisterSyncManagerAsync
@@ -1925,10 +1928,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactListSyncConstraints
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactList2 : aliased constant Windows.IID := (3409527732, 17744, 19915, (146, 41, 64, 255, 145, 251, 2, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactList3 : aliased constant Windows.IID := (360246871, 9980, 16872, (168, 80, 90, 163, 37, 20, 172, 169 ));
+   
    type IContactList3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LimitedWriteOperations
@@ -1945,10 +1948,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactChangeTracker
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactList3 : aliased constant Windows.IID := (360246871, 9980, 16872, (168, 80, 90, 163, 37, 20, 172, 169 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactListLimitedWriteOperations : aliased constant Windows.IID := (3784840154, 18955, 17592, (154, 31, 160, 243, 210, 24, 23, 95 ));
+   
    type IContactListLimitedWriteOperations_Interface is interface and Windows.IInspectable_Interface;
    
    function TryCreateOrUpdateContactAsync
@@ -1966,10 +1969,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactListLimitedWriteOperations : aliased constant Windows.IID := (3784840154, 18955, 17592, (154, 31, 160, 243, 210, 24, 23, 95 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactListSyncManager : aliased constant Windows.IID := (342787006, 31013, 19148, (157, 229, 33, 221, 208, 111, 134, 116 ));
+   
    type IContactListSyncManager_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -2014,10 +2017,10 @@ package Windows.ApplicationModel.Contacts is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactListSyncManager : aliased constant Windows.IID := (342787006, 31013, 19148, (157, 229, 33, 221, 208, 111, 134, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactListSyncManager2 : aliased constant Windows.IID := (2841186887, 47957, 20003, (129, 40, 55, 1, 52, 168, 93, 13 ));
+   
    type IContactListSyncManager2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Status
@@ -2040,10 +2043,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactListSyncManager2 : aliased constant Windows.IID := (2841186887, 47957, 20003, (129, 40, 55, 1, 52, 168, 93, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactListSyncConstraints : aliased constant Windows.IID := (2997927681, 12386, 20014, (150, 157, 1, 141, 25, 135, 243, 20 ));
+   
    type IContactListSyncConstraints_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanSyncDescriptions
@@ -2437,10 +2440,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.Foundation.IReference_Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactListSyncConstraints : aliased constant Windows.IID := (2997927681, 12386, 20014, (150, 157, 1, 141, 25, 135, 243, 20 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactChange : aliased constant Windows.IID := (2501724944, 27225, 18208, (164, 225, 54, 61, 152, 193, 53, 213 ));
+   
    type IContactChange_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeType
@@ -2456,10 +2459,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactChange : aliased constant Windows.IID := (2501724944, 27225, 18208, (164, 225, 54, 61, 152, 193, 53, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactChangedDeferral : aliased constant Windows.IID := (3306437352, 6915, 18168, (182, 148, 165, 35, 232, 60, 252, 182 ));
+   
    type IContactChangedDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -2467,10 +2470,10 @@ package Windows.ApplicationModel.Contacts is
       This       : access IContactChangedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactChangedDeferral : aliased constant Windows.IID := (3306437352, 6915, 18168, (182, 148, 165, 35, 232, 60, 252, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactChangedEventArgs : aliased constant Windows.IID := (1381924817, 29683, 19325, (169, 24, 88, 11, 228, 54, 97, 33 ));
+   
    type IContactChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -2479,10 +2482,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactChangedDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactChangedEventArgs : aliased constant Windows.IID := (1381924817, 29683, 19325, (169, 24, 88, 11, 228, 54, 97, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactChangeReader : aliased constant Windows.IID := (561191418, 11532, 17120, (169, 218, 62, 205, 86, 167, 138, 71 ));
+   
    type IContactChangeReader_Interface is interface and Windows.IInspectable_Interface;
    
    function AcceptChanges
@@ -2504,10 +2507,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactChangeReader : aliased constant Windows.IID := (561191418, 11532, 17120, (169, 218, 62, 205, 86, 167, 138, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactChangeTracker : aliased constant Windows.IID := (1855531346, 12443, 16461, (151, 18, 179, 123, 211, 2, 120, 170 ));
+   
    type IContactChangeTracker_Interface is interface and Windows.IInspectable_Interface;
    
    function Enable
@@ -2528,10 +2531,10 @@ package Windows.ApplicationModel.Contacts is
       This       : access IContactChangeTracker_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactChangeTracker : aliased constant Windows.IID := (1855531346, 12443, 16461, (151, 18, 179, 123, 211, 2, 120, 170 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactChangeTracker2 : aliased constant Windows.IID := (2139803900, 37665, 19736, (156, 9, 215, 8, 198, 63, 205, 49 ));
+   
    type IContactChangeTracker2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsTracking
@@ -2540,10 +2543,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactChangeTracker2 : aliased constant Windows.IID := (2139803900, 37665, 19736, (156, 9, 215, 8, 198, 63, 205, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactReader : aliased constant Windows.IID := (3549946926, 5256, 17138, (191, 100, 37, 63, 72, 132, 191, 237 ));
+   
    type IContactReader_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadBatchAsync
@@ -2560,10 +2563,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IVectorView_IContactMatchReason -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactReader : aliased constant Windows.IID := (3549946926, 5256, 17138, (191, 100, 37, 63, 72, 132, 191, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactQueryTextSearch : aliased constant Windows.IID := (4158912971, 43351, 17307, (160, 183, 28, 2, 161, 150, 63, 240 ));
+   
    type IContactQueryTextSearch_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Fields
@@ -2607,10 +2610,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.ApplicationModel.Contacts.ContactQuerySearchScope
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactQueryTextSearch : aliased constant Windows.IID := (4158912971, 43351, 17307, (160, 183, 28, 2, 161, 150, 63, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactQueryOptionsFactory : aliased constant Windows.IID := (1413462599, 36071, 18123, (157, 172, 154, 164, 42, 27, 200, 226 ));
+   
    type IContactQueryOptionsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithText
@@ -2629,10 +2632,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactQueryOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactQueryOptionsFactory : aliased constant Windows.IID := (1413462599, 36071, 18123, (157, 172, 154, 164, 42, 27, 200, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactQueryOptions : aliased constant Windows.IID := (1141427358, 32124, 17136, (138, 199, 245, 7, 51, 236, 219, 193 ));
+   
    type IContactQueryOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextSearch
@@ -2697,10 +2700,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactQueryOptions : aliased constant Windows.IID := (1141427358, 32124, 17136, (138, 199, 245, 7, 51, 236, 219, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactBatch : aliased constant Windows.IID := (902928173, 49102, 18107, (147, 248, 165, 176, 110, 197, 226, 1 ));
+   
    type IContactBatch_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Contacts
@@ -2716,10 +2719,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.ContactBatchStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactBatch : aliased constant Windows.IID := (902928173, 49102, 18107, (147, 248, 165, 176, 110, 197, 226, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactMatchReason : aliased constant Windows.IID := (3163694340, 59352, 16702, (149, 244, 183, 92, 84, 199, 64, 119 ));
+   
    type IContactMatchReason_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Field
@@ -2742,10 +2745,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactMatchReason : aliased constant Windows.IID := (3163694340, 59352, 16702, (149, 244, 183, 92, 84, 199, 64, 119 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactLaunchActionVerbsStatics : aliased constant Windows.IID := (4212273878, 61043, 18151, (135, 97, 17, 205, 1, 87, 114, 143 ));
+   
    type IContactLaunchActionVerbsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Call
@@ -2782,15 +2785,15 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactLaunchActionVerbsStatics : aliased constant Windows.IID := (4212273878, 61043, 18151, (135, 97, 17, 205, 1, 87, 114, 143 ));
-   
    ------------------------------------------------------------------------
-   type IContactGroup_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IContactGroup : aliased constant Windows.IID := (1505618689, 40602, 18269, (191, 229, 163, 123, 128, 109, 133, 44 ));
    
+   type IContactGroup_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IContactPicker : aliased constant Windows.IID := (235535761, 17144, 16469, (144, 160, 137, 111, 150, 115, 137, 54 ));
+   
    type IContactPicker_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CommitButtonText
@@ -2841,10 +2844,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactPicker : aliased constant Windows.IID := (235535761, 17144, 16469, (144, 160, 137, 111, 150, 115, 137, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactPicker2 : aliased constant Windows.IID := (3008369103, 23791, 19748, (170, 12, 52, 12, 82, 8, 114, 93 ));
+   
    type IContactPicker2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesiredFieldsWithContactFieldType
@@ -2867,10 +2870,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactPicker2 : aliased constant Windows.IID := (3008369103, 23791, 19748, (170, 12, 52, 12, 82, 8, 114, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactPicker3 : aliased constant Windows.IID := (242365205, 45635, 19437, (133, 22, 34, 177, 167, 172, 10, 206 ));
+   
    type IContactPicker3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_User
@@ -2879,10 +2882,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactPicker3 : aliased constant Windows.IID := (242365205, 45635, 19437, (133, 22, 34, 177, 167, 172, 10, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactPickerStatics : aliased constant Windows.IID := (1955119145, 27219, 16984, (163, 233, 98, 223, 246, 120, 75, 108 ));
+   
    type IContactPickerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateForUser
@@ -2899,10 +2902,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactPickerStatics : aliased constant Windows.IID := (1955119145, 27219, 16984, (163, 233, 98, 223, 246, 120, 75, 108 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactConnectedServiceAccount : aliased constant Windows.IID := (4143461715, 43559, 18225, (142, 74, 61, 236, 92, 233, 238, 201 ));
+   
    type IContactConnectedServiceAccount_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -2932,10 +2935,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactConnectedServiceAccount : aliased constant Windows.IID := (4143461715, 43559, 18225, (142, 74, 61, 236, 92, 233, 238, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactSignificantOther : aliased constant Windows.IID := (2289284523, 50683, 18136, (147, 254, 218, 63, 241, 147, 64, 84 ));
+   
    type IContactSignificantOther_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -2965,10 +2968,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactSignificantOther : aliased constant Windows.IID := (2289284523, 50683, 18136, (147, 254, 218, 63, 241, 147, 64, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactSignificantOther2 : aliased constant Windows.IID := (2373702772, 16131, 17912, (186, 15, 196, 237, 55, 214, 66, 25 ));
+   
    type IContactSignificantOther2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Relationship
@@ -2984,10 +2987,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.ApplicationModel.Contacts.ContactRelationship
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactSignificantOther2 : aliased constant Windows.IID := (2373702772, 16131, 17912, (186, 15, 196, 237, 55, 214, 66, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactWebsite : aliased constant Windows.IID := (2668822902, 56347, 16469, (173, 102, 101, 47, 57, 217, 144, 232 ));
+   
    type IContactWebsite_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Uri
@@ -3017,10 +3020,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactWebsite : aliased constant Windows.IID := (2668822902, 56347, 16469, (173, 102, 101, 47, 57, 217, 144, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactWebsite2 : aliased constant Windows.IID := (4169066782, 22087, 16488, (187, 94, 75, 111, 67, 124, 227, 8 ));
+   
    type IContactWebsite2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RawValue
@@ -3036,10 +3039,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactWebsite2 : aliased constant Windows.IID := (4169066782, 22087, 16488, (187, 94, 75, 111, 67, 124, 227, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactEmail : aliased constant Windows.IID := (2426542505, 58323, 19811, (153, 59, 5, 185, 165, 57, 58, 191 ));
+   
    type IContactEmail_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Address
@@ -3083,10 +3086,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactEmail : aliased constant Windows.IID := (2426542505, 58323, 19811, (153, 59, 5, 185, 165, 57, 58, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactPhone : aliased constant Windows.IID := (1182640997, 10002, 20306, (183, 131, 158, 168, 17, 28, 99, 205 ));
+   
    type IContactPhone_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Number
@@ -3130,10 +3133,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactPhone : aliased constant Windows.IID := (1182640997, 10002, 20306, (183, 131, 158, 168, 17, 28, 99, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactAddress : aliased constant Windows.IID := (2537149338, 17102, 18546, (141, 112, 48, 99, 170, 88, 75, 112 ));
+   
    type IContactAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StreetAddress
@@ -3233,10 +3236,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactAddress : aliased constant Windows.IID := (2537149338, 17102, 18546, (141, 112, 48, 99, 170, 88, 75, 112 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactDate : aliased constant Windows.IID := (4271418982, 45573, 18740, (145, 116, 15, 242, 176, 86, 87, 7 ));
+   
    type IContactDate_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Day
@@ -3308,10 +3311,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactDate : aliased constant Windows.IID := (4271418982, 45573, 18740, (145, 116, 15, 242, 176, 86, 87, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactJobInfo : aliased constant Windows.IID := (1829862220, 52816, 19267, (158, 105, 177, 130, 88, 234, 83, 21 ));
+   
    type IContactJobInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CompanyName
@@ -3425,10 +3428,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactJobInfo : aliased constant Windows.IID := (1829862220, 52816, 19267, (158, 105, 177, 130, 88, 234, 83, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContact : aliased constant Windows.IID := (3959452403, 8472, 16457, (158, 188, 23, 240, 171, 105, 43, 100 ));
+   
    type IContact_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -3465,10 +3468,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IVector_IContactField -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContact : aliased constant Windows.IID := (3959452403, 8472, 16457, (158, 188, 23, 240, 171, 105, 43, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactField : aliased constant Windows.IID := (2977319018, 53907, 18732, (160, 88, 219, 87, 91, 62, 60, 15 ));
+   
    type IContactField_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Type
@@ -3498,10 +3501,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactField : aliased constant Windows.IID := (2977319018, 53907, 18732, (160, 88, 219, 87, 91, 62, 60, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactName : aliased constant Windows.IID := (4093962619, 36916, 17724, (142, 191, 20, 10, 56, 200, 111, 29 ));
+   
    type IContactName_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FirstName
@@ -3615,10 +3618,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactName : aliased constant Windows.IID := (4093962619, 36916, 17724, (142, 191, 20, 10, 56, 200, 111, 29 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContact2 : aliased constant Windows.IID := (4078105445, 47991, 19604, (128, 45, 131, 40, 206, 228, 12, 8 ));
+   
    type IContact2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -3718,10 +3721,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContact2 : aliased constant Windows.IID := (4078105445, 47991, 19604, (128, 45, 131, 40, 206, 228, 12, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContact3 : aliased constant Windows.IID := (1210064487, 57486, 17060, (181, 97, 65, 208, 140, 169, 87, 93 ));
+   
    type IContact3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContactListId
@@ -3884,10 +3887,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContact3 : aliased constant Windows.IID := (1210064487, 57486, 17060, (181, 97, 65, 208, 140, 169, 87, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactLocationField : aliased constant Windows.IID := (2663387010, 43886, 19254, (137, 227, 178, 59, 192, 161, 218, 204 ));
+   
    type IContactLocationField_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UnstructuredAddress
@@ -3931,10 +3934,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactLocationField : aliased constant Windows.IID := (2663387010, 43886, 19254, (137, 227, 178, 59, 192, 161, 218, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactInstantMessageField : aliased constant Windows.IID := (3437443895, 3461, 16890, (180, 61, 218, 89, 156, 62, 176, 9 ));
+   
    type IContactInstantMessageField_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UserName
@@ -3964,10 +3967,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactInstantMessageField : aliased constant Windows.IID := (3437443895, 3461, 16890, (180, 61, 218, 89, 156, 62, 176, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKnownContactFieldStatics : aliased constant Windows.IID := (772676370, 54823, 20426, (186, 212, 31, 175, 22, 140, 125, 20 ));
+   
    type IKnownContactFieldStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Email
@@ -4013,10 +4016,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKnownContactFieldStatics : aliased constant Windows.IID := (772676370, 54823, 20426, (186, 212, 31, 175, 22, 140, 125, 20 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactInformation : aliased constant Windows.IID := (660518612, 27182, 17016, (169, 20, 228, 96, 213, 240, 136, 246 ));
+   
    type IContactInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -4075,10 +4078,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IVectorView_IContactField -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactInformation : aliased constant Windows.IID := (660518612, 27182, 17016, (169, 20, 228, 96, 213, 240, 136, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactFieldFactory : aliased constant Windows.IID := (2246218047, 3658, 19006, (137, 148, 64, 106, 231, 237, 100, 110 ));
+   
    type IContactFieldFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateField_Default
@@ -4110,10 +4113,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactField
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactFieldFactory : aliased constant Windows.IID := (2246218047, 3658, 19006, (137, 148, 64, 106, 231, 237, 100, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactLocationFieldFactory : aliased constant Windows.IID := (4154012375, 12255, 17406, (143, 24, 65, 137, 115, 144, 188, 254 ));
+   
    type IContactLocationFieldFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateLocation_Default
@@ -4146,10 +4149,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactLocationField
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactLocationFieldFactory : aliased constant Windows.IID := (4154012375, 12255, 17406, (143, 24, 65, 137, 115, 144, 188, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactInstantMessageFieldFactory : aliased constant Windows.IID := (3121309588, 37283, 19378, (177, 185, 105, 165, 223, 240, 186, 9 ));
+   
    type IContactInstantMessageFieldFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstantMessage_Default
@@ -4180,10 +4183,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactInstantMessageField
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactInstantMessageFieldFactory : aliased constant Windows.IID := (3121309588, 37283, 19378, (177, 185, 105, 165, 223, 240, 186, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPinnedContactIdsQueryResult : aliased constant Windows.IID := (2107319634, 5497, 19932, (135, 31, 163, 10, 58, 234, 155, 161 ));
+   
    type IPinnedContactIdsQueryResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContactIds
@@ -4192,10 +4195,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPinnedContactIdsQueryResult : aliased constant Windows.IID := (2107319634, 5497, 19932, (135, 31, 163, 10, 58, 234, 155, 161 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPinnedContactManagerStatics : aliased constant Windows.IID := (4133276798, 65017, 18538, (172, 233, 188, 49, 29, 10, 231, 240 ));
+   
    type IPinnedContactManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -4219,10 +4222,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPinnedContactManagerStatics : aliased constant Windows.IID := (4133276798, 65017, 18538, (172, 233, 188, 49, 29, 10, 231, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPinnedContactManager : aliased constant Windows.IID := (4240208908, 57814, 17859, (184, 182, 163, 86, 4, 225, 103, 160 ));
+   
    type IPinnedContactManager_Interface is interface and Windows.IInspectable_Interface;
    
    function get_User
@@ -4289,10 +4292,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IAsyncOperation_IPinnedContactIdsQueryResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPinnedContactManager : aliased constant Windows.IID := (4240208908, 57814, 17859, (184, 182, 163, 86, 4, 225, 103, 160 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactPanelLaunchFullAppRequestedEventArgs : aliased constant Windows.IID := (2295733262, 9140, 19432, (138, 252, 7, 44, 37, 164, 25, 13 ));
+   
    type IContactPanelLaunchFullAppRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Handled
@@ -4308,10 +4311,10 @@ package Windows.ApplicationModel.Contacts is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactPanelLaunchFullAppRequestedEventArgs : aliased constant Windows.IID := (2295733262, 9140, 19432, (138, 252, 7, 44, 37, 164, 25, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactPanelClosingEventArgs : aliased constant Windows.IID := (572617939, 53067, 18135, (183, 57, 110, 220, 22, 17, 11, 251 ));
+   
    type IContactPanelClosingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -4320,10 +4323,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactPanelClosingEventArgs : aliased constant Windows.IID := (572617939, 53067, 18135, (183, 57, 110, 220, 22, 17, 11, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContactPanel : aliased constant Windows.IID := (1103041125, 53998, 19351, (168, 10, 125, 141, 100, 204, 166, 245 ));
+   
    type IContactPanel_Interface is interface and Windows.IInspectable_Interface;
    
    function ClosePanel
@@ -4375,10 +4378,10 @@ package Windows.ApplicationModel.Contacts is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContactPanel : aliased constant Windows.IID := (1103041125, 53998, 19351, (168, 10, 125, 141, 100, 204, 166, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContactStore : aliased constant Windows.IID := (593364881, 39486, 22307, (135, 240, 68, 255, 183, 134, 201, 225 ));
+   
    type IAsyncOperation_IContactStore_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4401,10 +4404,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactStore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IContactStore : aliased constant Windows.IID := (593364881, 39486, 22307, (135, 240, 68, 255, 183, 134, 201, 225 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContact : aliased constant Windows.IID := (2239609187, 63020, 21444, (163, 160, 246, 191, 12, 143, 211, 211 ));
+   
    type IAsyncOperation_IContact_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4427,10 +4430,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IContact : aliased constant Windows.IID := (2239609187, 63020, 21444, (163, 160, 246, 191, 12, 143, 211, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContactAnnotationStore : aliased constant Windows.IID := (3331400311, 24019, 24144, (167, 235, 165, 102, 6, 70, 212, 50 ));
+   
    type IAsyncOperation_IContactAnnotationStore_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4453,10 +4456,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactAnnotationStore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IContactAnnotationStore : aliased constant Windows.IID := (3331400311, 24019, 24144, (167, 235, 165, 102, 6, 70, 212, 50 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContactAnnotationList : aliased constant Windows.IID := (973756775, 49532, 22431, (186, 5, 204, 86, 224, 161, 208, 145 ));
+   
    type IAsyncOperation_IContactAnnotationList_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4479,10 +4482,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactAnnotationList
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IContactAnnotationList : aliased constant Windows.IID := (973756775, 49532, 22431, (186, 5, 204, 86, 224, 161, 208, 145 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContactAnnotation : aliased constant Windows.IID := (1642747075, 54825, 23390, (181, 129, 99, 5, 4, 181, 23, 2 ));
+   
    type IAsyncOperation_IContactAnnotation_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4505,10 +4508,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactAnnotation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IContactAnnotation : aliased constant Windows.IID := (1642747075, 54825, 23390, (181, 129, 99, 5, 4, 181, 23, 2 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContactList : aliased constant Windows.IID := (2927717181, 22440, 20647, (128, 126, 44, 118, 138, 54, 74, 79 ));
+   
    type IAsyncOperation_IContactList_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4531,10 +4534,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactList
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IContactList : aliased constant Windows.IID := (2927717181, 22440, 20647, (128, 126, 44, 118, 138, 54, 74, 79 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContactBatch : aliased constant Windows.IID := (1148171744, 23851, 22813, (184, 222, 251, 124, 149, 252, 159, 55 ));
+   
    type IAsyncOperation_IContactBatch_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4557,10 +4560,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactBatch
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IContactBatch : aliased constant Windows.IID := (1148171744, 23851, 22813, (184, 222, 251, 124, 149, 252, 159, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactMatchReason : aliased constant Windows.IID := (1256417089, 48094, 23510, (157, 79, 13, 87, 177, 65, 14, 78 ));
+   
    type IIterator_IContactMatchReason_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4591,10 +4594,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactMatchReason : aliased constant Windows.IID := (1256417089, 48094, 23510, (157, 79, 13, 87, 177, 65, 14, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactMatchReason : aliased constant Windows.IID := (176954329, 9218, 23704, (190, 110, 99, 164, 128, 128, 71, 186 ));
+   
    type IIterable_IContactMatchReason_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4603,10 +4606,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactMatchReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactMatchReason : aliased constant Windows.IID := (176954329, 9218, 23704, (190, 110, 99, 164, 128, 128, 71, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactMatchReason : aliased constant Windows.IID := (3358329709, 10454, 23591, (146, 109, 150, 208, 39, 80, 136, 113 ));
+   
    type IVectorView_IContactMatchReason_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4641,10 +4644,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactMatchReason : aliased constant Windows.IID := (3358329709, 10454, 23591, (146, 109, 150, 208, 39, 80, 136, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContact : aliased constant Windows.IID := (2775761267, 32778, 22715, (171, 36, 23, 153, 89, 223, 40, 19 ));
+   
    type IIterator_IContact_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4675,10 +4678,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContact : aliased constant Windows.IID := (2775761267, 32778, 22715, (171, 36, 23, 153, 89, 223, 40, 19 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContact : aliased constant Windows.IID := (1664194966, 32271, 21806, (135, 43, 123, 154, 219, 31, 73, 151 ));
+   
    type IIterable_IContact_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4687,10 +4690,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContact
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContact : aliased constant Windows.IID := (1664194966, 32271, 21806, (135, 43, 123, 154, 219, 31, 73, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContact : aliased constant Windows.IID := (2613736888, 45306, 22369, (185, 89, 56, 25, 39, 165, 249, 208 ));
+   
    type IVectorView_IContact_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4725,10 +4728,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContact : aliased constant Windows.IID := (2613736888, 45306, 22369, (185, 89, 56, 25, 39, 165, 249, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContactInformation : aliased constant Windows.IID := (240238640, 10154, 22047, (187, 216, 47, 87, 192, 143, 239, 131 ));
+   
    type IAsyncOperation_IContactInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4751,10 +4754,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContactInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IContactInformation : aliased constant Windows.IID := (240238640, 10154, 22047, (187, 216, 47, 87, 192, 143, 239, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ContactFieldType : aliased constant Windows.IID := (795706730, 20692, 20851, (171, 234, 219, 108, 107, 143, 197, 48 ));
+   
    type IIterator_ContactFieldType_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4785,10 +4788,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ContactFieldType : aliased constant Windows.IID := (795706730, 20692, 20851, (171, 234, 219, 108, 107, 143, 197, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ContactFieldType : aliased constant Windows.IID := (944474907, 52878, 22401, (179, 220, 7, 118, 214, 132, 246, 88 ));
+   
    type IIterable_ContactFieldType_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4797,10 +4800,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_ContactFieldType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ContactFieldType : aliased constant Windows.IID := (944474907, 52878, 22401, (179, 220, 7, 118, 214, 132, 246, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ContactFieldType : aliased constant Windows.IID := (970370010, 40970, 22391, (134, 17, 130, 215, 195, 38, 193, 141 ));
+   
    type IVectorView_ContactFieldType_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4835,10 +4838,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ContactFieldType : aliased constant Windows.IID := (970370010, 40970, 22391, (134, 17, 130, 215, 195, 38, 193, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_ContactFieldType : aliased constant Windows.IID := (1876697365, 5705, 21668, (143, 170, 48, 73, 206, 251, 5, 164 ));
+   
    type IVector_ContactFieldType_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4929,10 +4932,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.ContactFieldType_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_ContactFieldType : aliased constant Windows.IID := (1876697365, 5705, 21668, (143, 170, 48, 73, 206, 251, 5, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactField : aliased constant Windows.IID := (3305226675, 5915, 21280, (141, 132, 195, 168, 154, 61, 64, 52 ));
+   
    type IIterator_IContactField_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4963,10 +4966,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactField : aliased constant Windows.IID := (3305226675, 5915, 21280, (141, 132, 195, 168, 154, 61, 64, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactField : aliased constant Windows.IID := (3764776389, 7459, 23525, (153, 152, 39, 54, 205, 77, 82, 151 ));
+   
    type IIterable_IContactField_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4975,10 +4978,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactField
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactField : aliased constant Windows.IID := (3764776389, 7459, 23525, (153, 152, 39, 54, 205, 77, 82, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactField : aliased constant Windows.IID := (441211701, 32501, 24298, (148, 199, 253, 241, 246, 23, 170, 126 ));
+   
    type IVectorView_IContactField_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5013,10 +5016,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactField : aliased constant Windows.IID := (441211701, 32501, 24298, (148, 199, 253, 241, 246, 23, 170, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IContactField : aliased constant Windows.IID := (4192028459, 20304, 22586, (163, 170, 183, 58, 245, 72, 6, 190 ));
+   
    type IVector_IContactField_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5107,10 +5110,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.IContactField_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IContactField : aliased constant Windows.IID := (4192028459, 20304, 22586, (163, 170, 183, 58, 245, 72, 6, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactPhone : aliased constant Windows.IID := (1614485774, 8118, 22370, (189, 138, 245, 158, 149, 39, 38, 247 ));
+   
    type IIterator_IContactPhone_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5141,10 +5144,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactPhone : aliased constant Windows.IID := (1614485774, 8118, 22370, (189, 138, 245, 158, 149, 39, 38, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactPhone : aliased constant Windows.IID := (1253902492, 18849, 23465, (128, 223, 83, 183, 45, 214, 145, 206 ));
+   
    type IIterable_IContactPhone_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5153,10 +5156,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactPhone
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactPhone : aliased constant Windows.IID := (1253902492, 18849, 23465, (128, 223, 83, 183, 45, 214, 145, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactPhone : aliased constant Windows.IID := (341735593, 59385, 22936, (128, 42, 219, 252, 145, 76, 207, 54 ));
+   
    type IVectorView_IContactPhone_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5191,10 +5194,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactPhone : aliased constant Windows.IID := (341735593, 59385, 22936, (128, 42, 219, 252, 145, 76, 207, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IContactPhone : aliased constant Windows.IID := (1830783034, 7984, 23175, (181, 74, 142, 34, 69, 237, 16, 1 ));
+   
    type IVector_IContactPhone_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5285,10 +5288,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.IContactPhone_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IContactPhone : aliased constant Windows.IID := (1830783034, 7984, 23175, (181, 74, 142, 34, 69, 237, 16, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactEmail : aliased constant Windows.IID := (3595363949, 10550, 23070, (184, 245, 8, 11, 177, 53, 96, 34 ));
+   
    type IIterator_IContactEmail_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5319,10 +5322,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactEmail : aliased constant Windows.IID := (3595363949, 10550, 23070, (184, 245, 8, 11, 177, 53, 96, 34 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactEmail : aliased constant Windows.IID := (936432991, 57654, 23303, (138, 58, 129, 16, 189, 227, 57, 23 ));
+   
    type IIterable_IContactEmail_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5331,10 +5334,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactEmail
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactEmail : aliased constant Windows.IID := (936432991, 57654, 23303, (138, 58, 129, 16, 189, 227, 57, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactEmail : aliased constant Windows.IID := (2352897950, 33370, 20836, (144, 211, 249, 127, 127, 136, 236, 176 ));
+   
    type IVectorView_IContactEmail_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5369,10 +5372,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactEmail : aliased constant Windows.IID := (2352897950, 33370, 20836, (144, 211, 249, 127, 127, 136, 236, 176 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IContactEmail : aliased constant Windows.IID := (1289774983, 56993, 21919, (167, 10, 252, 190, 89, 219, 211, 164 ));
+   
    type IVector_IContactEmail_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5463,10 +5466,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.IContactEmail_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IContactEmail : aliased constant Windows.IID := (1289774983, 56993, 21919, (167, 10, 252, 190, 89, 219, 211, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactAddress : aliased constant Windows.IID := (3640672132, 25567, 23564, (189, 30, 44, 205, 234, 85, 231, 23 ));
+   
    type IIterator_IContactAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5497,10 +5500,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactAddress : aliased constant Windows.IID := (3640672132, 25567, 23564, (189, 30, 44, 205, 234, 85, 231, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactAddress : aliased constant Windows.IID := (3884132476, 59680, 21824, (145, 130, 193, 166, 165, 242, 173, 54 ));
+   
    type IIterable_IContactAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5509,10 +5512,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactAddress
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactAddress : aliased constant Windows.IID := (3884132476, 59680, 21824, (145, 130, 193, 166, 165, 242, 173, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactAddress : aliased constant Windows.IID := (3891969149, 31170, 22626, (133, 158, 149, 144, 2, 215, 185, 85 ));
+   
    type IVectorView_IContactAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5547,10 +5550,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactAddress : aliased constant Windows.IID := (3891969149, 31170, 22626, (133, 158, 149, 144, 2, 215, 185, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IContactAddress : aliased constant Windows.IID := (3502414062, 5408, 21406, (132, 179, 162, 89, 9, 113, 125, 32 ));
+   
    type IVector_IContactAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5641,10 +5644,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.IContactAddress_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IContactAddress : aliased constant Windows.IID := (3502414062, 5408, 21406, (132, 179, 162, 89, 9, 113, 125, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactConnectedServiceAccount : aliased constant Windows.IID := (1056015935, 51289, 23453, (142, 53, 32, 173, 241, 2, 164, 13 ));
+   
    type IIterator_IContactConnectedServiceAccount_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5675,10 +5678,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactConnectedServiceAccount : aliased constant Windows.IID := (1056015935, 51289, 23453, (142, 53, 32, 173, 241, 2, 164, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactConnectedServiceAccount : aliased constant Windows.IID := (904004530, 20792, 22887, (128, 250, 164, 119, 237, 76, 125, 220 ));
+   
    type IIterable_IContactConnectedServiceAccount_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5687,10 +5690,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactConnectedServiceAccount
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactConnectedServiceAccount : aliased constant Windows.IID := (904004530, 20792, 22887, (128, 250, 164, 119, 237, 76, 125, 220 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactConnectedServiceAccount : aliased constant Windows.IID := (646424308, 24473, 20641, (136, 209, 93, 124, 199, 199, 242, 54 ));
+   
    type IVectorView_IContactConnectedServiceAccount_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5725,10 +5728,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactConnectedServiceAccount : aliased constant Windows.IID := (646424308, 24473, 20641, (136, 209, 93, 124, 199, 199, 242, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IContactConnectedServiceAccount : aliased constant Windows.IID := (743832448, 42841, 24494, (188, 41, 153, 7, 224, 151, 96, 72 ));
+   
    type IVector_IContactConnectedServiceAccount_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5819,10 +5822,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.IContactConnectedServiceAccount_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IContactConnectedServiceAccount : aliased constant Windows.IID := (743832448, 42841, 24494, (188, 41, 153, 7, 224, 151, 96, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactDate : aliased constant Windows.IID := (1342488470, 21321, 23312, (135, 198, 199, 111, 33, 242, 161, 213 ));
+   
    type IIterator_IContactDate_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5853,10 +5856,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactDate : aliased constant Windows.IID := (1342488470, 21321, 23312, (135, 198, 199, 111, 33, 242, 161, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactDate : aliased constant Windows.IID := (2516868363, 45963, 23953, (131, 17, 79, 188, 122, 212, 51, 125 ));
+   
    type IIterable_IContactDate_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5865,10 +5868,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactDate
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactDate : aliased constant Windows.IID := (2516868363, 45963, 23953, (131, 17, 79, 188, 122, 212, 51, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactDate : aliased constant Windows.IID := (658719325, 45463, 22925, (187, 128, 20, 253, 240, 234, 168, 35 ));
+   
    type IVectorView_IContactDate_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5903,10 +5906,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactDate : aliased constant Windows.IID := (658719325, 45463, 22925, (187, 128, 20, 253, 240, 234, 168, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IContactDate : aliased constant Windows.IID := (825612612, 55572, 23119, (132, 62, 166, 214, 203, 105, 188, 177 ));
+   
    type IVector_IContactDate_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5997,10 +6000,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.IContactDate_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IContactDate : aliased constant Windows.IID := (825612612, 55572, 23119, (132, 62, 166, 214, 203, 105, 188, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactJobInfo : aliased constant Windows.IID := (141811571, 44185, 20719, (134, 115, 231, 143, 138, 84, 14, 46 ));
+   
    type IIterator_IContactJobInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -6031,10 +6034,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactJobInfo : aliased constant Windows.IID := (141811571, 44185, 20719, (134, 115, 231, 143, 138, 84, 14, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactJobInfo : aliased constant Windows.IID := (398577325, 22179, 23955, (171, 242, 20, 211, 77, 75, 147, 86 ));
+   
    type IIterable_IContactJobInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -6043,10 +6046,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactJobInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactJobInfo : aliased constant Windows.IID := (398577325, 22179, 23955, (171, 242, 20, 211, 77, 75, 147, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactJobInfo : aliased constant Windows.IID := (4059151813, 32766, 21076, (137, 252, 192, 21, 89, 2, 15, 157 ));
+   
    type IVectorView_IContactJobInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6081,10 +6084,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactJobInfo : aliased constant Windows.IID := (4059151813, 32766, 21076, (137, 252, 192, 21, 89, 2, 15, 157 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IContactJobInfo : aliased constant Windows.IID := (3927216016, 48009, 22020, (151, 87, 236, 209, 231, 206, 83, 17 ));
+   
    type IVector_IContactJobInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6175,10 +6178,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.IContactJobInfo_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IContactJobInfo : aliased constant Windows.IID := (3927216016, 48009, 22020, (151, 87, 236, 209, 231, 206, 83, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactSignificantOther : aliased constant Windows.IID := (542233850, 48454, 21227, (178, 208, 78, 181, 218, 193, 33, 87 ));
+   
    type IIterator_IContactSignificantOther_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -6209,10 +6212,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactSignificantOther : aliased constant Windows.IID := (542233850, 48454, 21227, (178, 208, 78, 181, 218, 193, 33, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactSignificantOther : aliased constant Windows.IID := (2920463669, 37846, 21464, (135, 192, 73, 216, 76, 92, 106, 131 ));
+   
    type IIterable_IContactSignificantOther_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -6221,10 +6224,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactSignificantOther
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactSignificantOther : aliased constant Windows.IID := (2920463669, 37846, 21464, (135, 192, 73, 216, 76, 92, 106, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactSignificantOther : aliased constant Windows.IID := (868609529, 49630, 21131, (170, 72, 206, 182, 161, 144, 92, 192 ));
+   
    type IVectorView_IContactSignificantOther_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6259,10 +6262,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactSignificantOther : aliased constant Windows.IID := (868609529, 49630, 21131, (170, 72, 206, 182, 161, 144, 92, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IContactSignificantOther : aliased constant Windows.IID := (3468903504, 33091, 22243, (147, 58, 211, 48, 81, 183, 68, 55 ));
+   
    type IVector_IContactSignificantOther_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6353,10 +6356,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.IContactSignificantOther_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IContactSignificantOther : aliased constant Windows.IID := (3468903504, 33091, 22243, (147, 58, 211, 48, 81, 183, 68, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactWebsite : aliased constant Windows.IID := (2443550626, 23745, 22093, (187, 29, 245, 45, 174, 193, 54, 173 ));
+   
    type IIterator_IContactWebsite_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -6387,10 +6390,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactWebsite : aliased constant Windows.IID := (2443550626, 23745, 22093, (187, 29, 245, 45, 174, 193, 54, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactWebsite : aliased constant Windows.IID := (1258537475, 39070, 23447, (143, 203, 103, 214, 97, 222, 254, 118 ));
+   
    type IIterable_IContactWebsite_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -6399,10 +6402,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactWebsite
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactWebsite : aliased constant Windows.IID := (1258537475, 39070, 23447, (143, 203, 103, 214, 97, 222, 254, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactWebsite : aliased constant Windows.IID := (4135052847, 14789, 22464, (182, 66, 38, 177, 67, 48, 152, 113 ));
+   
    type IVectorView_IContactWebsite_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6437,10 +6440,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactWebsite : aliased constant Windows.IID := (4135052847, 14789, 22464, (182, 66, 38, 177, 67, 48, 152, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IContactWebsite : aliased constant Windows.IID := (422675598, 59284, 22389, (179, 147, 74, 69, 24, 214, 59, 9 ));
+   
    type IVector_IContactWebsite_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6531,10 +6534,10 @@ package Windows.ApplicationModel.Contacts is
       ; items : Windows.ApplicationModel.Contacts.IContactWebsite_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IContactWebsite : aliased constant Windows.IID := (422675598, 59284, 22389, (179, 147, 74, 69, 24, 214, 59, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactLocationField : aliased constant Windows.IID := (2718173143, 27008, 23631, (185, 147, 241, 218, 3, 153, 65, 5 ));
+   
    type IIterator_IContactLocationField_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -6565,10 +6568,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactLocationField : aliased constant Windows.IID := (2718173143, 27008, 23631, (185, 147, 241, 218, 3, 153, 65, 5 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactLocationField : aliased constant Windows.IID := (705315238, 55958, 20645, (184, 223, 228, 168, 196, 252, 248, 107 ));
+   
    type IIterable_IContactLocationField_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -6577,10 +6580,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactLocationField
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactLocationField : aliased constant Windows.IID := (705315238, 55958, 20645, (184, 223, 228, 168, 196, 252, 248, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactLocationField : aliased constant Windows.IID := (535557322, 18653, 24495, (162, 211, 116, 119, 13, 138, 163, 48 ));
+   
    type IVectorView_IContactLocationField_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6615,10 +6618,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactLocationField : aliased constant Windows.IID := (535557322, 18653, 24495, (162, 211, 116, 119, 13, 138, 163, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IContactInstantMessageField : aliased constant Windows.IID := (1709205990, 10449, 23895, (159, 225, 128, 255, 100, 133, 14, 103 ));
+   
    type IIterator_IContactInstantMessageField_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -6649,10 +6652,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IContactInstantMessageField : aliased constant Windows.IID := (1709205990, 10449, 23895, (159, 225, 128, 255, 100, 133, 14, 103 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IContactInstantMessageField : aliased constant Windows.IID := (2164601778, 10427, 24275, (172, 25, 254, 200, 5, 157, 123, 60 ));
+   
    type IIterable_IContactInstantMessageField_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -6661,10 +6664,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IIterator_IContactInstantMessageField
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IContactInstantMessageField : aliased constant Windows.IID := (2164601778, 10427, 24275, (172, 25, 254, 200, 5, 157, 123, 60 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IContactInstantMessageField : aliased constant Windows.IID := (3059677700, 52648, 22906, (138, 187, 166, 225, 254, 52, 192, 15 ));
+   
    type IVectorView_IContactInstantMessageField_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6699,10 +6702,10 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IContactInstantMessageField : aliased constant Windows.IID := (3059677700, 52648, 22906, (138, 187, 166, 225, 254, 52, 192, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPinnedContactIdsQueryResult : aliased constant Windows.IID := (52091756, 15011, 23305, (168, 251, 146, 234, 1, 69, 220, 64 ));
+   
    type IAsyncOperation_IPinnedContactIdsQueryResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -6725,17 +6728,15 @@ package Windows.ApplicationModel.Contacts is
       ; RetVal : access Windows.ApplicationModel.Contacts.IPinnedContactIdsQueryResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPinnedContactIdsQueryResult : aliased constant Windows.IID := (52091756, 15011, 23305, (168, 251, 146, 234, 1, 69, 220, 64 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IContactStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IContactStore : aliased constant Windows.IID := (3508791282, 2907, 22794, (178, 52, 161, 33, 172, 30, 11, 171 ));
+   
+   type AsyncOperationCompletedHandler_IContactStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContactStore'access) with null record;
    
    function Invoke
    (
@@ -6745,12 +6746,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IContactStore : aliased constant Windows.IID := (3508791282, 2907, 22794, (178, 52, 161, 33, 172, 30, 11, 171 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IContact_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContact ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContact_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IContact : aliased constant Windows.IID := (2714803182, 49537, 21529, (189, 20, 130, 35, 185, 95, 41, 161 ));
+   
+   type AsyncOperationCompletedHandler_IContact_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContact ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContact'access) with null record;
    
    function Invoke
    (
@@ -6760,12 +6760,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IContact : aliased constant Windows.IID := (2714803182, 49537, 21529, (189, 20, 130, 35, 185, 95, 41, 161 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IContactAnnotationStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactAnnotationStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IContactAnnotationStore : aliased constant Windows.IID := (1435463193, 11598, 23114, (140, 88, 56, 115, 214, 35, 177, 212 ));
+   
+   type AsyncOperationCompletedHandler_IContactAnnotationStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContactAnnotationStore'access) with null record;
    
    function Invoke
    (
@@ -6775,12 +6774,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IContactAnnotationStore : aliased constant Windows.IID := (1435463193, 11598, 23114, (140, 88, 56, 115, 214, 35, 177, 212 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IContactAnnotationList_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactAnnotationList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IContactAnnotationList : aliased constant Windows.IID := (2991034087, 56457, 23421, (180, 163, 179, 190, 41, 82, 32, 159 ));
+   
+   type AsyncOperationCompletedHandler_IContactAnnotationList_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotationList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContactAnnotationList'access) with null record;
    
    function Invoke
    (
@@ -6790,12 +6788,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IContactAnnotationList : aliased constant Windows.IID := (2991034087, 56457, 23421, (180, 163, 179, 190, 41, 82, 32, 159 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IContactAnnotation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactAnnotation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IContactAnnotation : aliased constant Windows.IID := (600361453, 35104, 23966, (176, 82, 195, 94, 49, 252, 35, 67 ));
+   
+   type AsyncOperationCompletedHandler_IContactAnnotation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactAnnotation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContactAnnotation'access) with null record;
    
    function Invoke
    (
@@ -6805,12 +6802,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IContactAnnotation : aliased constant Windows.IID := (600361453, 35104, 23966, (176, 82, 195, 94, 49, 252, 35, 67 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IContactStore2_add_ContactChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactStore ; args : Windows.ApplicationModel.Contacts.IContactChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactStore2_add_ContactChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IContactStore2_add_ContactChanged : aliased constant Windows.IID := (1570987624, 29971, 24237, (170, 212, 205, 211, 222, 78, 90, 231 ));
+   
+   type TypedEventHandler_IContactStore2_add_ContactChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactStore ; args : Windows.ApplicationModel.Contacts.IContactChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactStore2_add_ContactChanged'access) with null record;
    
    function Invoke
    (
@@ -6820,12 +6816,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IContactStore2_add_ContactChanged : aliased constant Windows.IID := (1570987624, 29971, 24237, (170, 212, 205, 211, 222, 78, 90, 231 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IContactList_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactList_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IContactList : aliased constant Windows.IID := (3563555570, 11460, 22672, (179, 162, 3, 165, 171, 123, 184, 248 ));
+   
+   type AsyncOperationCompletedHandler_IContactList_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContactList'access) with null record;
    
    function Invoke
    (
@@ -6835,12 +6830,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IContactList : aliased constant Windows.IID := (3563555570, 11460, 22672, (179, 162, 3, 165, 171, 123, 184, 248 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IContactList_add_ContactChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactList ; args : Windows.ApplicationModel.Contacts.IContactChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactList_add_ContactChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IContactList_add_ContactChanged : aliased constant Windows.IID := (3377716224, 12478, 21369, (188, 172, 67, 92, 107, 173, 60, 230 ));
+   
+   type TypedEventHandler_IContactList_add_ContactChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactList ; args : Windows.ApplicationModel.Contacts.IContactChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactList_add_ContactChanged'access) with null record;
    
    function Invoke
    (
@@ -6850,12 +6844,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IContactList_add_ContactChanged : aliased constant Windows.IID := (3377716224, 12478, 21369, (188, 172, 67, 92, 107, 173, 60, 230 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IContactListSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactListSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactListSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IContactListSyncManager_add_SyncStatusChanged : aliased constant Windows.IID := (4039429667, 20096, 23729, (159, 67, 251, 220, 28, 96, 145, 34 ));
+   
+   type TypedEventHandler_IContactListSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactListSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactListSyncManager_add_SyncStatusChanged'access) with null record;
    
    function Invoke
    (
@@ -6865,12 +6858,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IContactListSyncManager_add_SyncStatusChanged : aliased constant Windows.IID := (4039429667, 20096, 23729, (159, 67, 251, 220, 28, 96, 145, 34 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IContactBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IContactBatch : aliased constant Windows.IID := (3695822669, 6855, 22356, (130, 233, 37, 24, 12, 77, 216, 136 ));
+   
+   type AsyncOperationCompletedHandler_IContactBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContactBatch'access) with null record;
    
    function Invoke
    (
@@ -6880,12 +6872,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IContactBatch : aliased constant Windows.IID := (3695822669, 6855, 22356, (130, 233, 37, 24, 12, 77, 216, 136 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IContactInformation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactInformation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContactInformation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IContactInformation : aliased constant Windows.IID := (3377168417, 20619, 22683, (147, 179, 37, 86, 203, 199, 58, 47 ));
+   
+   type AsyncOperationCompletedHandler_IContactInformation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IContactInformation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContactInformation'access) with null record;
    
    function Invoke
    (
@@ -6895,12 +6886,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IContactInformation : aliased constant Windows.IID := (3377168417, 20619, 22683, (147, 179, 37, 86, 203, 199, 58, 47 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IPinnedContactIdsQueryResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult : aliased constant Windows.IID := (2466915234, 10447, 22022, (130, 241, 101, 223, 238, 34, 135, 53 ));
+   
+   type AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Contacts.IAsyncOperation_IPinnedContactIdsQueryResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult'access) with null record;
    
    function Invoke
    (
@@ -6910,12 +6900,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IPinnedContactIdsQueryResult : aliased constant Windows.IID := (2466915234, 10447, 22022, (130, 241, 101, 223, 238, 34, 135, 53 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IContactPanel_add_LaunchFullAppRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactPanel ; args : Windows.ApplicationModel.Contacts.IContactPanelLaunchFullAppRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactPanel_add_LaunchFullAppRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IContactPanel_add_LaunchFullAppRequested : aliased constant Windows.IID := (3288534514, 44340, 21877, (163, 105, 86, 22, 87, 120, 120, 235 ));
+   
+   type TypedEventHandler_IContactPanel_add_LaunchFullAppRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactPanel ; args : Windows.ApplicationModel.Contacts.IContactPanelLaunchFullAppRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactPanel_add_LaunchFullAppRequested'access) with null record;
    
    function Invoke
    (
@@ -6925,12 +6914,11 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IContactPanel_add_LaunchFullAppRequested : aliased constant Windows.IID := (3288534514, 44340, 21877, (163, 105, 86, 22, 87, 120, 120, 235 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IContactPanel_add_Closing_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactPanel ; args : Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IContactPanel_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IContactPanel_add_Closing : aliased constant Windows.IID := (1129813323, 48358, 21590, (165, 17, 254, 137, 4, 232, 9, 11 ));
+   
+   type TypedEventHandler_IContactPanel_add_Closing_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.IContactPanel ; args : Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactPanel_add_Closing'access) with null record;
    
    function Invoke
    (
@@ -6939,8 +6927,6 @@ package Windows.ApplicationModel.Contacts is
       ; args : Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IContactPanel_add_Closing : aliased constant Windows.IID := (1129813323, 48358, 21590, (165, 17, 254, 137, 4, 232, 9, 11 ));
    
    ------------------------------------------------------------------------
    -- Classes

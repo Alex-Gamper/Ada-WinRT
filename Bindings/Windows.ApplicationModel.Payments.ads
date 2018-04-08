@@ -297,6 +297,9 @@ package Windows.ApplicationModel.Payments is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPaymentRequest : aliased constant Windows.IID := (3075031777, 60795, 18411, (188, 8, 120, 204, 93, 104, 150, 182 ));
+   
    type IPaymentRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MerchantInfo
@@ -326,10 +329,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentRequest : aliased constant Windows.IID := (3075031777, 60795, 18411, (188, 8, 120, 204, 93, 104, 150, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentRequest2 : aliased constant Windows.IID := (3057438645, 22936, 18750, (160, 76, 103, 4, 138, 80, 241, 65 ));
+   
    type IPaymentRequest2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -338,10 +341,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentRequest2 : aliased constant Windows.IID := (3057438645, 22936, 18750, (160, 76, 103, 4, 138, 80, 241, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentRequestFactory : aliased constant Windows.IID := (1049262556, 27508, 17107, (177, 3, 240, 222, 53, 251, 24, 72 ));
+   
    type IPaymentRequestFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -373,10 +376,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentRequestFactory : aliased constant Windows.IID := (1049262556, 27508, 17107, (177, 3, 240, 222, 53, 251, 24, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentRequestFactory2 : aliased constant Windows.IID := (3872264997, 42246, 17266, (183, 239, 26, 3, 29, 86, 98, 209 ));
+   
    type IPaymentRequestFactory2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithMerchantInfoOptionsAndId
@@ -390,10 +393,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentRequestFactory2 : aliased constant Windows.IID := (3872264997, 42246, 17266, (183, 239, 26, 3, 29, 86, 98, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentResponse : aliased constant Windows.IID := (3778581591, 35794, 18568, (159, 168, 151, 152, 85, 69, 16, 142 ));
+   
    type IPaymentResponse_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PaymentToken
@@ -445,10 +448,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentResponse : aliased constant Windows.IID := (3778581591, 35794, 18568, (159, 168, 151, 152, 85, 69, 16, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentDetails : aliased constant Windows.IID := (1404775805, 57579, 16467, (142, 174, 206, 124, 72, 224, 41, 69 ));
+   
    type IPaymentDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Total
@@ -506,10 +509,10 @@ package Windows.ApplicationModel.Payments is
       ; value : Windows.ApplicationModel.Payments.IVectorView_IPaymentDetailsModifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentDetails : aliased constant Windows.IID := (1404775805, 57579, 16467, (142, 174, 206, 124, 72, 224, 41, 69 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentDetailsFactory : aliased constant Windows.IID := (3488133102, 49386, 19617, (139, 199, 109, 230, 123, 31, 55, 99 ));
+   
    type IPaymentDetailsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -528,10 +531,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentDetails
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentDetailsFactory : aliased constant Windows.IID := (3488133102, 49386, 19617, (139, 199, 109, 230, 123, 31, 55, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentDetailsModifier : aliased constant Windows.IID := (3189538149, 17187, 16855, (179, 5, 223, 203, 118, 95, 105, 222 ));
+   
    type IPaymentDetailsModifier_Interface is interface and Windows.IInspectable_Interface;
    
    function get_JsonData
@@ -561,10 +564,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IVectorView_IPaymentItem -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentDetailsModifier : aliased constant Windows.IID := (3189538149, 17187, 16855, (179, 5, 223, 203, 118, 95, 105, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentDetailsModifierFactory : aliased constant Windows.IID := (2030064262, 21726, 17052, (158, 79, 93, 206, 110, 16, 235, 206 ));
+   
    type IPaymentDetailsModifierFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -596,10 +599,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentDetailsModifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentDetailsModifierFactory : aliased constant Windows.IID := (2030064262, 21726, 17052, (158, 79, 93, 206, 110, 16, 235, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentToken : aliased constant Windows.IID := (3150626835, 52432, 16882, (178, 161, 10, 46, 75, 93, 206, 37 ));
+   
    type IPaymentToken_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PaymentMethodId
@@ -615,10 +618,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentToken : aliased constant Windows.IID := (3150626835, 52432, 16882, (178, 161, 10, 46, 75, 93, 206, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentTokenFactory : aliased constant Windows.IID := (2559367082, 18259, 18692, (131, 115, 221, 123, 8, 185, 149, 193 ));
+   
    type IPaymentTokenFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -637,10 +640,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentTokenFactory : aliased constant Windows.IID := (2559367082, 18259, 18692, (131, 115, 221, 123, 8, 185, 149, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentMethodData : aliased constant Windows.IID := (3520318196, 56984, 16681, (177, 183, 195, 173, 134, 35, 123, 244 ));
+   
    type IPaymentMethodData_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SupportedMethodIds
@@ -656,10 +659,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentMethodData : aliased constant Windows.IID := (3520318196, 56984, 16681, (177, 183, 195, 173, 134, 35, 123, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentMethodDataFactory : aliased constant Windows.IID := (2329793151, 39850, 19074, (131, 66, 168, 33, 9, 146, 163, 107 ));
+   
    type IPaymentMethodDataFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -678,10 +681,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentMethodData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentMethodDataFactory : aliased constant Windows.IID := (2329793151, 39850, 19074, (131, 66, 168, 33, 9, 146, 163, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentCurrencyAmount : aliased constant Windows.IID := (3819170272, 46111, 18823, (189, 203, 7, 19, 49, 242, 218, 164 ));
+   
    type IPaymentCurrencyAmount_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Currency
@@ -725,10 +728,10 @@ package Windows.ApplicationModel.Payments is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentCurrencyAmount : aliased constant Windows.IID := (3819170272, 46111, 18823, (189, 203, 7, 19, 49, 242, 218, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentCurrencyAmountFactory : aliased constant Windows.IID := (844616504, 5132, 17781, (133, 53, 247, 115, 23, 140, 9, 167 ));
+   
    type IPaymentCurrencyAmountFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -749,10 +752,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentCurrencyAmount
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentCurrencyAmountFactory : aliased constant Windows.IID := (844616504, 5132, 17781, (133, 53, 247, 115, 23, 140, 9, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentItem : aliased constant Windows.IID := (1750780043, 31154, 19318, (158, 3, 168, 118, 34, 61, 254, 114 ));
+   
    type IPaymentItem_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Label
@@ -796,10 +799,10 @@ package Windows.ApplicationModel.Payments is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentItem : aliased constant Windows.IID := (1750780043, 31154, 19318, (158, 3, 168, 118, 34, 61, 254, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentItemFactory : aliased constant Windows.IID := (3333126872, 9475, 19741, (167, 120, 2, 178, 229, 146, 123, 44 ));
+   
    type IPaymentItemFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -810,10 +813,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentItem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentItemFactory : aliased constant Windows.IID := (3333126872, 9475, 19741, (167, 120, 2, 178, 229, 146, 123, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentShippingOption : aliased constant Windows.IID := (322382554, 38739, 17780, (137, 102, 147, 20, 90, 118, 199, 249 ));
+   
    type IPaymentShippingOption_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Label
@@ -871,10 +874,10 @@ package Windows.ApplicationModel.Payments is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentShippingOption : aliased constant Windows.IID := (322382554, 38739, 17780, (137, 102, 147, 20, 90, 118, 199, 249 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentShippingOptionFactory : aliased constant Windows.IID := (1575352599, 45783, 17515, (157, 115, 97, 35, 251, 202, 59, 198 ));
+   
    type IPaymentShippingOptionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -906,10 +909,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentShippingOption
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentShippingOptionFactory : aliased constant Windows.IID := (1575352599, 45783, 17515, (157, 115, 97, 35, 251, 202, 59, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentAddress : aliased constant Windows.IID := (1596089577, 28474, 16742, (160, 24, 10, 11, 6, 187, 50, 181 ));
+   
    type IPaymentAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Country
@@ -1072,10 +1075,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentAddress : aliased constant Windows.IID := (1596089577, 28474, 16742, (160, 24, 10, 11, 6, 187, 50, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentMerchantInfo : aliased constant Windows.IID := (1665421392, 3732, 20182, (170, 203, 230, 1, 43, 211, 39, 167 ));
+   
    type IPaymentMerchantInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PackageFullName
@@ -1091,10 +1094,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentMerchantInfo : aliased constant Windows.IID := (1665421392, 3732, 20182, (170, 203, 230, 1, 43, 211, 39, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentMerchantInfoFactory : aliased constant Windows.IID := (2659831507, 52407, 16743, (168, 236, 225, 10, 233, 109, 188, 209 ));
+   
    type IPaymentMerchantInfoFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1104,10 +1107,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentMerchantInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentMerchantInfoFactory : aliased constant Windows.IID := (2659831507, 52407, 16743, (168, 236, 225, 10, 233, 109, 188, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentOptions : aliased constant Windows.IID := (2862811220, 7979, 17253, (130, 81, 1, 181, 137, 21, 165, 188 ));
+   
    type IPaymentOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestPayerEmail
@@ -1179,10 +1182,10 @@ package Windows.ApplicationModel.Payments is
       ; value : Windows.ApplicationModel.Payments.PaymentShippingType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentOptions : aliased constant Windows.IID := (2862811220, 7979, 17253, (130, 81, 1, 181, 137, 21, 165, 188 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentRequestChangedArgs : aliased constant Windows.IID := (3323223620, 52619, 19428, (181, 85, 39, 201, 145, 148, 192, 197 ));
+   
    type IPaymentRequestChangedArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeKind
@@ -1212,10 +1215,10 @@ package Windows.ApplicationModel.Payments is
       ; changeResult : Windows.ApplicationModel.Payments.IPaymentRequestChangedResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentRequestChangedArgs : aliased constant Windows.IID := (3323223620, 52619, 19428, (181, 85, 39, 201, 145, 148, 192, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentRequestChangedResult : aliased constant Windows.IID := (3748240988, 5828, 18349, (148, 1, 132, 64, 236, 7, 87, 219 ));
+   
    type IPaymentRequestChangedResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeAcceptedByMerchant
@@ -1259,10 +1262,10 @@ package Windows.ApplicationModel.Payments is
       ; value : Windows.ApplicationModel.Payments.IPaymentDetails
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentRequestChangedResult : aliased constant Windows.IID := (3748240988, 5828, 18349, (148, 1, 132, 64, 236, 7, 87, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentRequestChangedResultFactory : aliased constant Windows.IID := (141823830, 7475, 17457, (129, 75, 103, 234, 36, 191, 33, 219 ));
+   
    type IPaymentRequestChangedResultFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1281,10 +1284,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentRequestChangedResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentRequestChangedResultFactory : aliased constant Windows.IID := (141823830, 7475, 17457, (129, 75, 103, 234, 36, 191, 33, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentMediator : aliased constant Windows.IID := (4212058153, 60428, 17562, (131, 218, 122, 227, 7, 51, 101, 162 ));
+   
    type IPaymentMediator_Interface is interface and Windows.IInspectable_Interface;
    
    function GetSupportedMethodIdsAsync
@@ -1310,10 +1313,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentRequestSubmitResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentMediator : aliased constant Windows.IID := (4212058153, 60428, 17562, (131, 218, 122, 227, 7, 51, 101, 162 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentMediator2 : aliased constant Windows.IID := (3471808753, 58375, 16680, (142, 115, 217, 61, 95, 130, 39, 134 ));
+   
    type IPaymentMediator2_Interface is interface and Windows.IInspectable_Interface;
    
    function CanMakePaymentAsync
@@ -1323,10 +1326,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentCanMakePaymentResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentMediator2 : aliased constant Windows.IID := (3471808753, 58375, 16680, (142, 115, 217, 61, 95, 130, 39, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentRequestSubmitResult : aliased constant Windows.IID := (2073835794, 12530, 20112, (178, 73, 140, 231, 215, 143, 254, 86 ));
+   
    type IPaymentRequestSubmitResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -1342,10 +1345,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentResponse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentRequestSubmitResult : aliased constant Windows.IID := (2073835794, 12530, 20112, (178, 73, 140, 231, 215, 143, 254, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentCanMakePaymentResult : aliased constant Windows.IID := (1989606997, 54739, 19773, (179, 69, 69, 89, 23, 89, 197, 16 ));
+   
    type IPaymentCanMakePaymentResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -1354,10 +1357,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentCanMakePaymentResult : aliased constant Windows.IID := (1989606997, 54739, 19773, (179, 69, 69, 89, 23, 89, 197, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentCanMakePaymentResultFactory : aliased constant Windows.IID := (3151800894, 32073, 20329, (170, 83, 42, 15, 129, 100, 183, 201 ));
+   
    type IPaymentCanMakePaymentResultFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1367,10 +1370,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentCanMakePaymentResultFactory : aliased constant Windows.IID := (3151800894, 32073, 20329, (170, 83, 42, 15, 129, 100, 183, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPaymentRequestChangedResult : aliased constant Windows.IID := (214114341, 44135, 22498, (160, 246, 58, 142, 17, 108, 239, 76 ));
+   
    type IAsyncOperation_IPaymentRequestChangedResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1393,10 +1396,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentRequestChangedResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPaymentRequestChangedResult : aliased constant Windows.IID := (214114341, 44135, 22498, (160, 246, 58, 142, 17, 108, 239, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPaymentMethodData : aliased constant Windows.IID := (2523288110, 58796, 21364, (165, 217, 92, 245, 124, 75, 246, 137 ));
+   
    type IIterator_IPaymentMethodData_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1427,10 +1430,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPaymentMethodData : aliased constant Windows.IID := (2523288110, 58796, 21364, (165, 217, 92, 245, 124, 75, 246, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPaymentMethodData : aliased constant Windows.IID := (2359220350, 19165, 22696, (173, 154, 157, 250, 72, 202, 37, 10 ));
+   
    type IIterable_IPaymentMethodData_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1439,10 +1442,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IIterator_IPaymentMethodData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPaymentMethodData : aliased constant Windows.IID := (2359220350, 19165, 22696, (173, 154, 157, 250, 72, 202, 37, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPaymentMethodData : aliased constant Windows.IID := (269597114, 27141, 23318, (130, 207, 1, 117, 8, 81, 5, 224 ));
+   
    type IVectorView_IPaymentMethodData_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1477,10 +1480,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPaymentMethodData : aliased constant Windows.IID := (269597114, 27141, 23318, (130, 207, 1, 117, 8, 81, 5, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPaymentItem : aliased constant Windows.IID := (2478910659, 27147, 24322, (172, 116, 5, 96, 7, 71, 39, 49 ));
+   
    type IIterator_IPaymentItem_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1511,10 +1514,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPaymentItem : aliased constant Windows.IID := (2478910659, 27147, 24322, (172, 116, 5, 96, 7, 71, 39, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPaymentItem : aliased constant Windows.IID := (3055251532, 58874, 21796, (139, 149, 125, 3, 245, 211, 106, 233 ));
+   
    type IIterable_IPaymentItem_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1523,10 +1526,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IIterator_IPaymentItem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPaymentItem : aliased constant Windows.IID := (3055251532, 58874, 21796, (139, 149, 125, 3, 245, 211, 106, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPaymentItem : aliased constant Windows.IID := (1806635585, 8102, 23586, (131, 239, 65, 94, 147, 205, 247, 177 ));
+   
    type IVectorView_IPaymentItem_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1561,10 +1564,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPaymentItem : aliased constant Windows.IID := (1806635585, 8102, 23586, (131, 239, 65, 94, 147, 205, 247, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPaymentShippingOption : aliased constant Windows.IID := (1240320500, 11494, 21324, (181, 41, 92, 238, 199, 5, 222, 245 ));
+   
    type IIterator_IPaymentShippingOption_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1595,10 +1598,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPaymentShippingOption : aliased constant Windows.IID := (1240320500, 11494, 21324, (181, 41, 92, 238, 199, 5, 222, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPaymentShippingOption : aliased constant Windows.IID := (3733462121, 26178, 21726, (168, 247, 209, 168, 139, 36, 4, 207 ));
+   
    type IIterable_IPaymentShippingOption_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1607,10 +1610,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IIterator_IPaymentShippingOption
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPaymentShippingOption : aliased constant Windows.IID := (3733462121, 26178, 21726, (168, 247, 209, 168, 139, 36, 4, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPaymentShippingOption : aliased constant Windows.IID := (2357274859, 35891, 22237, (150, 72, 57, 232, 4, 3, 18, 212 ));
+   
    type IVectorView_IPaymentShippingOption_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1645,10 +1648,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPaymentShippingOption : aliased constant Windows.IID := (2357274859, 35891, 22237, (150, 72, 57, 232, 4, 3, 18, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPaymentDetailsModifier : aliased constant Windows.IID := (4210780020, 46693, 23435, (177, 239, 149, 3, 140, 58, 171, 225 ));
+   
    type IIterator_IPaymentDetailsModifier_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1679,10 +1682,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPaymentDetailsModifier : aliased constant Windows.IID := (4210780020, 46693, 23435, (177, 239, 149, 3, 140, 58, 171, 225 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPaymentDetailsModifier : aliased constant Windows.IID := (1482500925, 52020, 22724, (129, 244, 30, 161, 87, 153, 109, 239 ));
+   
    type IIterable_IPaymentDetailsModifier_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1691,10 +1694,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IIterator_IPaymentDetailsModifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPaymentDetailsModifier : aliased constant Windows.IID := (1482500925, 52020, 22724, (129, 244, 30, 161, 87, 153, 109, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPaymentDetailsModifier : aliased constant Windows.IID := (3665725212, 28172, 24114, (190, 64, 16, 113, 90, 159, 117, 235 ));
+   
    type IVectorView_IPaymentDetailsModifier_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1729,10 +1732,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPaymentDetailsModifier : aliased constant Windows.IID := (3665725212, 28172, 24114, (190, 64, 16, 113, 90, 159, 117, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPaymentRequestSubmitResult : aliased constant Windows.IID := (3475574251, 21833, 22467, (138, 189, 83, 183, 108, 100, 60, 202 ));
+   
    type IAsyncOperation_IPaymentRequestSubmitResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1755,10 +1758,10 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentRequestSubmitResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPaymentRequestSubmitResult : aliased constant Windows.IID := (3475574251, 21833, 22467, (138, 189, 83, 183, 108, 100, 60, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPaymentCanMakePaymentResult : aliased constant Windows.IID := (2758230282, 4574, 20624, (185, 5, 150, 165, 98, 216, 93, 229 ));
+   
    type IAsyncOperation_IPaymentCanMakePaymentResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1781,17 +1784,15 @@ package Windows.ApplicationModel.Payments is
       ; RetVal : access Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPaymentCanMakePaymentResult : aliased constant Windows.IID := (2758230282, 4574, 20624, (185, 5, 150, 165, 98, 216, 93, 229 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type PaymentRequestChangedHandler_Interface(Callback : access procedure (paymentRequest : Windows.ApplicationModel.Payments.IPaymentRequest ; args : Windows.ApplicationModel.Payments.IPaymentRequestChangedArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access PaymentRequestChangedHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_PaymentRequestChangedHandler : aliased constant Windows.IID := (1350089185, 62360, 20268, (162, 126, 148, 211, 113, 207, 108, 125 ));
+   
+   type PaymentRequestChangedHandler_Interface(Callback : access procedure (paymentRequest : Windows.ApplicationModel.Payments.IPaymentRequest ; args : Windows.ApplicationModel.Payments.IPaymentRequestChangedArgs)) is new Windows.IMulticastDelegate_Interface(IID_PaymentRequestChangedHandler'access) with null record;
    
    function Invoke
    (
@@ -1801,12 +1802,11 @@ package Windows.ApplicationModel.Payments is
    )
    return Windows.HRESULT;
    
-   IID_PaymentRequestChangedHandler : aliased constant Windows.IID := (1350089185, 62360, 20268, (162, 126, 148, 211, 113, 207, 108, 125 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPaymentRequestChangedResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentRequestChangedResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentRequestChangedResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPaymentRequestChangedResult : aliased constant Windows.IID := (3200825126, 36950, 24135, (178, 42, 13, 160, 154, 168, 74, 254 ));
+   
+   type AsyncOperationCompletedHandler_IPaymentRequestChangedResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentRequestChangedResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPaymentRequestChangedResult'access) with null record;
    
    function Invoke
    (
@@ -1816,12 +1816,11 @@ package Windows.ApplicationModel.Payments is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IPaymentRequestChangedResult : aliased constant Windows.IID := (3200825126, 36950, 24135, (178, 42, 13, 160, 154, 168, 74, 254 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPaymentRequestSubmitResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentRequestSubmitResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentRequestSubmitResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPaymentRequestSubmitResult : aliased constant Windows.IID := (3419211686, 44586, 23152, (188, 11, 145, 32, 86, 8, 37, 209 ));
+   
+   type AsyncOperationCompletedHandler_IPaymentRequestSubmitResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentRequestSubmitResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPaymentRequestSubmitResult'access) with null record;
    
    function Invoke
    (
@@ -1831,12 +1830,11 @@ package Windows.ApplicationModel.Payments is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IPaymentRequestSubmitResult : aliased constant Windows.IID := (3419211686, 44586, 23152, (188, 11, 145, 32, 86, 8, 37, 209 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPaymentCanMakePaymentResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentCanMakePaymentResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentCanMakePaymentResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPaymentCanMakePaymentResult : aliased constant Windows.IID := (2309905289, 27909, 22594, (156, 223, 244, 203, 247, 6, 220, 94 ));
+   
+   type AsyncOperationCompletedHandler_IPaymentCanMakePaymentResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.IAsyncOperation_IPaymentCanMakePaymentResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPaymentCanMakePaymentResult'access) with null record;
    
    function Invoke
    (
@@ -1845,8 +1843,6 @@ package Windows.ApplicationModel.Payments is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IPaymentCanMakePaymentResult : aliased constant Windows.IID := (2309905289, 27909, 22594, (156, 223, 244, 203, 247, 6, 220, 94 ));
    
    ------------------------------------------------------------------------
    -- Classes

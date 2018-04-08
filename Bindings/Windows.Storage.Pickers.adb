@@ -34,15 +34,16 @@ package body Windows.Storage.Pickers is
       m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FileOpenPicker");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Pickers.IFileOpenPicker := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Storage.Pickers.IFileOpenPicker) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Storage.Pickers.IID_IFileOpenPicker'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Storage.Pickers.IID_IFileOpenPicker'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateFileSavePicker return Windows.Storage.Pickers.IFileSavePicker is
@@ -50,15 +51,16 @@ package body Windows.Storage.Pickers is
       m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FileSavePicker");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Pickers.IFileSavePicker := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Storage.Pickers.IFileSavePicker) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Storage.Pickers.IID_IFileSavePicker'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Storage.Pickers.IID_IFileSavePicker'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateFolderPicker return Windows.Storage.Pickers.IFolderPicker is
@@ -66,15 +68,16 @@ package body Windows.Storage.Pickers is
       m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FolderPicker");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Pickers.IFolderPicker := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Storage.Pickers.IFolderPicker) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Storage.Pickers.IID_IFolderPicker'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Storage.Pickers.IID_IFolderPicker'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

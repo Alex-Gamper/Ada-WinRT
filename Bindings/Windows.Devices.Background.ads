@@ -57,6 +57,9 @@ package Windows.Devices.Background is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDeviceUseDetails : aliased constant Windows.IID := (2102808897, 21886, 16724, (185, 148, 228, 247, 161, 31, 179, 35 ));
+   
    type IDeviceUseDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -72,10 +75,10 @@ package Windows.Devices.Background is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDeviceUseDetails : aliased constant Windows.IID := (2102808897, 21886, 16724, (185, 148, 228, 247, 161, 31, 179, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDeviceServicingDetails : aliased constant Windows.IID := (1252781609, 9028, 19140, (133, 39, 74, 142, 246, 144, 86, 69 ));
+   
    type IDeviceServicingDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -98,9 +101,6 @@ package Windows.Devices.Background is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDeviceServicingDetails : aliased constant Windows.IID := (1252781609, 9028, 19140, (133, 39, 74, 142, 246, 144, 86, 69 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

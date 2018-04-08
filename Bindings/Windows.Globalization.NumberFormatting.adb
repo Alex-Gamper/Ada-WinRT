@@ -33,15 +33,16 @@ package body Windows.Globalization.NumberFormatting is
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.NumberFormatting.INumberRounder := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumberRounder) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberRounder'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberRounder'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateIncrementNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder is
@@ -49,15 +50,16 @@ package body Windows.Globalization.NumberFormatting is
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.IncrementNumberRounder");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.NumberFormatting.INumberRounder := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumberRounder) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberRounder'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberRounder'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateDecimalFormatter
@@ -170,15 +172,16 @@ package body Windows.Globalization.NumberFormatting is
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.NumeralSystemTranslator");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.NumberFormatting.INumeralSystemTranslator := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumeralSystemTranslator) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumeralSystemTranslator'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumeralSystemTranslator'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

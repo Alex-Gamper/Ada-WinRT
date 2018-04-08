@@ -137,6 +137,9 @@ package Windows.Web.Http.Diagnostics is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (1420415584, 34912, 16959, (182, 250, 215, 119, 22, 246, 71, 167 ));
+   
    type IHttpDiagnosticSourceLocation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SourceUri
@@ -159,10 +162,10 @@ package Windows.Web.Http.Diagnostics is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (1420415584, 34912, 16959, (182, 250, 215, 119, 22, 246, 71, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHttpDiagnosticProviderRequestSentEventArgs : aliased constant Windows.IID := (1062311632, 19487, 20158, (165, 122, 6, 147, 7, 113, 197, 13 ));
+   
    type IHttpDiagnosticProviderRequestSentEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -213,10 +216,10 @@ package Windows.Web.Http.Diagnostics is
       ; RetVal : access Windows.Web.Http.Diagnostics.IVectorView_IHttpDiagnosticSourceLocation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHttpDiagnosticProviderRequestSentEventArgs : aliased constant Windows.IID := (1062311632, 19487, 20158, (165, 122, 6, 147, 7, 113, 197, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHttpDiagnosticProviderResponseReceivedEventArgs : aliased constant Windows.IID := (2694993516, 43871, 19814, (187, 45, 8, 76, 244, 22, 53, 208 ));
+   
    type IHttpDiagnosticProviderResponseReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -239,10 +242,10 @@ package Windows.Web.Http.Diagnostics is
       ; RetVal : access Windows.Web.Http.IHttpResponseMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHttpDiagnosticProviderResponseReceivedEventArgs : aliased constant Windows.IID := (2694993516, 43871, 19814, (187, 45, 8, 76, 244, 22, 53, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHttpDiagnosticProviderRequestResponseTimestamps : aliased constant Windows.IID := (3769622032, 21967, 19457, (145, 212, 162, 5, 87, 216, 73, 240 ));
+   
    type IHttpDiagnosticProviderRequestResponseTimestamps_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CacheCheckedTimestamp
@@ -307,10 +310,10 @@ package Windows.Web.Http.Diagnostics is
       ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHttpDiagnosticProviderRequestResponseTimestamps : aliased constant Windows.IID := (3769622032, 21967, 19457, (145, 212, 162, 5, 87, 216, 73, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHttpDiagnosticProviderRequestResponseCompletedEventArgs : aliased constant Windows.IID := (1935644910, 38134, 17714, (178, 110, 97, 225, 177, 228, 239, 212 ));
+   
    type IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ActivityId
@@ -361,10 +364,10 @@ package Windows.Web.Http.Diagnostics is
       ; RetVal : access Windows.Web.Http.Diagnostics.IVectorView_IHttpDiagnosticSourceLocation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHttpDiagnosticProviderRequestResponseCompletedEventArgs : aliased constant Windows.IID := (1935644910, 38134, 17714, (178, 110, 97, 225, 177, 228, 239, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHttpDiagnosticProviderStatics : aliased constant Windows.IID := (1535266497, 27244, 18380, (175, 236, 30, 134, 188, 38, 5, 59 ));
+   
    type IHttpDiagnosticProviderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFromProcessDiagnosticInfo
@@ -374,10 +377,10 @@ package Windows.Web.Http.Diagnostics is
       ; RetVal : access Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHttpDiagnosticProviderStatics : aliased constant Windows.IID := (1535266497, 27244, 18380, (175, 236, 30, 134, 188, 38, 5, 59 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHttpDiagnosticProvider : aliased constant Windows.IID := (3179353345, 41046, 19769, (177, 116, 131, 59, 123, 3, 176, 44 ));
+   
    type IHttpDiagnosticProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function Start
@@ -436,10 +439,10 @@ package Windows.Web.Http.Diagnostics is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHttpDiagnosticProvider : aliased constant Windows.IID := (3179353345, 41046, 19769, (177, 116, 131, 59, 123, 3, 176, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (2155572948, 24386, 20889, (178, 49, 96, 204, 226, 199, 105, 64 ));
+   
    type IIterator_IHttpDiagnosticSourceLocation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -470,10 +473,10 @@ package Windows.Web.Http.Diagnostics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (2155572948, 24386, 20889, (178, 49, 96, 204, 226, 199, 105, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (1116129818, 42181, 23272, (157, 169, 91, 250, 36, 118, 142, 34 ));
+   
    type IIterable_IHttpDiagnosticSourceLocation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -482,10 +485,10 @@ package Windows.Web.Http.Diagnostics is
       ; RetVal : access Windows.Web.Http.Diagnostics.IIterator_IHttpDiagnosticSourceLocation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (1116129818, 42181, 23272, (157, 169, 91, 250, 36, 118, 142, 34 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (3920570323, 33000, 23295, (167, 229, 27, 34, 23, 135, 240, 150 ));
+   
    type IVectorView_IHttpDiagnosticSourceLocation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -520,17 +523,15 @@ package Windows.Web.Http.Diagnostics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IHttpDiagnosticSourceLocation : aliased constant Windows.IID := (3920570323, 33000, 23295, (167, 229, 27, 34, 23, 135, 240, 150 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent : aliased constant Windows.IID := (4175495969, 18365, 21098, (169, 178, 59, 241, 47, 114, 95, 139 ));
+   
+   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent'access) with null record;
    
    function Invoke
    (
@@ -540,12 +541,11 @@ package Windows.Web.Http.Diagnostics is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent : aliased constant Windows.IID := (4175495969, 18365, 21098, (169, 178, 59, 241, 47, 114, 95, 139 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived : aliased constant Windows.IID := (787421254, 33142, 21167, (141, 43, 224, 201, 50, 81, 46, 159 ));
+   
+   type TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived'access) with null record;
    
    function Invoke
    (
@@ -555,12 +555,11 @@ package Windows.Web.Http.Diagnostics is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IHttpDiagnosticProvider_add_ResponseReceived : aliased constant Windows.IID := (787421254, 33142, 21167, (141, 43, 224, 201, 50, 81, 46, 159 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted : aliased constant Windows.IID := (578923811, 40077, 23938, (155, 32, 188, 241, 87, 176, 79, 217 ));
+   
+   type TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted_Interface(Callback : access procedure (sender : Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted'access) with null record;
    
    function Invoke
    (
@@ -569,8 +568,6 @@ package Windows.Web.Http.Diagnostics is
       ; args : Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IHttpDiagnosticProvider_add_RequestResponseCompleted : aliased constant Windows.IID := (578923811, 40077, 23938, (155, 32, 188, 241, 87, 176, 79, 217 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -1042,11 +1042,14 @@ package Windows.UI.Xaml.Automation.Peers is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type IColorSpectrumAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IColorSpectrumAutomationPeer : aliased constant Windows.IID := (366328323, 269, 20471, (144, 135, 244, 221, 9, 248, 49, 183 ));
    
+   type IColorSpectrumAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IColorSpectrumAutomationPeerFactory : aliased constant Windows.IID := (180617441, 46915, 17558, (131, 122, 136, 137, 230, 172, 100, 151 ));
+   
    type IColorSpectrumAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1058,15 +1061,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IColorSpectrumAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorSpectrumAutomationPeerFactory : aliased constant Windows.IID := (180617441, 46915, 17558, (131, 122, 136, 137, 230, 172, 100, 151 ));
-   
    ------------------------------------------------------------------------
-   type IColorPickerSliderAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IColorPickerSliderAutomationPeer : aliased constant Windows.IID := (2769559898, 29331, 17783, (146, 76, 71, 212, 224, 191, 155, 144 ));
    
+   type IColorPickerSliderAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IColorPickerSliderAutomationPeerFactory : aliased constant Windows.IID := (441829246, 40406, 17827, (144, 66, 180, 2, 0, 254, 161, 169 ));
+   
    type IColorPickerSliderAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1078,15 +1081,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IColorPickerSliderAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorPickerSliderAutomationPeerFactory : aliased constant Windows.IID := (441829246, 40406, 17827, (144, 66, 180, 2, 0, 254, 161, 169 ));
-   
    ------------------------------------------------------------------------
-   type INavigationViewItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_INavigationViewItemAutomationPeer : aliased constant Windows.IID := (815286181, 39281, 19853, (168, 28, 8, 92, 112, 134, 161, 185 ));
    
+   type INavigationViewItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_INavigationViewItemAutomationPeerFactory : aliased constant Windows.IID := (197296989, 43576, 20375, (150, 100, 230, 252, 130, 29, 129, 237 ));
+   
    type INavigationViewItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1098,15 +1101,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.INavigationViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigationViewItemAutomationPeerFactory : aliased constant Windows.IID := (197296989, 43576, 20375, (150, 100, 230, 252, 130, 29, 129, 237 ));
-   
    ------------------------------------------------------------------------
-   type IPersonPictureAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPersonPictureAutomationPeer : aliased constant Windows.IID := (655715660, 42607, 19119, (130, 134, 79, 121, 109, 48, 98, 140 ));
    
+   type IPersonPictureAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IPersonPictureAutomationPeerFactory : aliased constant Windows.IID := (2841583469, 9508, 17572, (151, 253, 17, 129, 19, 1, 0, 173 ));
+   
    type IPersonPictureAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1118,15 +1121,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IPersonPictureAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPersonPictureAutomationPeerFactory : aliased constant Windows.IID := (2841583469, 9508, 17572, (151, 253, 17, 129, 19, 1, 0, 173 ));
-   
    ------------------------------------------------------------------------
-   type IRatingControlAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRatingControlAutomationPeer : aliased constant Windows.IID := (1024734362, 39267, 19015, (130, 60, 244, 87, 203, 50, 9, 213 ));
    
+   type IRatingControlAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRatingControlAutomationPeerFactory : aliased constant Windows.IID := (4051300978, 38982, 17970, (139, 156, 190, 111, 168, 211, 201, 187 ));
+   
    type IRatingControlAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1138,10 +1141,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRatingControlAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRatingControlAutomationPeerFactory : aliased constant Windows.IID := (4051300978, 38982, 17970, (139, 156, 190, 111, 168, 211, 201, 187 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IItemAutomationPeer : aliased constant Windows.IID := (2503750902, 15153, 18343, (179, 191, 37, 211, 174, 153, 195, 23 ));
+   
    type IItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Item
@@ -1157,10 +1160,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IItemAutomationPeer : aliased constant Windows.IID := (2503750902, 15153, 18343, (179, 191, 37, 211, 174, 153, 195, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IItemAutomationPeerFactory : aliased constant Windows.IID := (688279667, 56893, 19775, (151, 180, 77, 111, 157, 83, 68, 77 ));
+   
    type IItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithParentAndItem
@@ -1173,15 +1176,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IItemAutomationPeerFactory : aliased constant Windows.IID := (688279667, 56893, 19775, (151, 180, 77, 111, 157, 83, 68, 77 ));
-   
    ------------------------------------------------------------------------
-   type IButtonBaseAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IButtonBaseAutomationPeer : aliased constant Windows.IID := (2767435190, 30085, 19979, (150, 210, 8, 207, 111, 40, 190, 250 ));
    
+   type IButtonBaseAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IButtonBaseAutomationPeerFactory : aliased constant Windows.IID := (2315520286, 59058, 19552, (167, 89, 193, 60, 164, 81, 101, 237 ));
+   
    type IButtonBaseAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1193,15 +1196,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IButtonBaseAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IButtonBaseAutomationPeerFactory : aliased constant Windows.IID := (2315520286, 59058, 19552, (167, 89, 193, 60, 164, 81, 101, 237 ));
-   
    ------------------------------------------------------------------------
-   type ICaptureElementAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ICaptureElementAutomationPeer : aliased constant Windows.IID := (3703852768, 64069, 17862, (139, 183, 50, 13, 128, 143, 89, 88 ));
    
+   type ICaptureElementAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ICaptureElementAutomationPeerFactory : aliased constant Windows.IID := (2610097992, 34281, 18537, (177, 117, 143, 124, 244, 90, 109, 159 ));
+   
    type ICaptureElementAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1213,15 +1216,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ICaptureElementAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICaptureElementAutomationPeerFactory : aliased constant Windows.IID := (2610097992, 34281, 18537, (177, 117, 143, 124, 244, 90, 109, 159 ));
-   
    ------------------------------------------------------------------------
-   type IComboBoxItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IComboBoxItemAutomationPeer : aliased constant Windows.IID := (316524398, 38226, 17514, (130, 238, 147, 140, 195, 113, 128, 15 ));
    
+   type IComboBoxItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IComboBoxItemAutomationPeerFactory : aliased constant Windows.IID := (323667964, 14714, 16447, (166, 236, 28, 232, 190, 218, 21, 229 ));
+   
    type IComboBoxItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1233,15 +1236,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IComboBoxItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IComboBoxItemAutomationPeerFactory : aliased constant Windows.IID := (323667964, 14714, 16447, (166, 236, 28, 232, 190, 218, 21, 229 ));
-   
    ------------------------------------------------------------------------
-   type IFlipViewItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IFlipViewItemAutomationPeer : aliased constant Windows.IID := (3358602462, 64008, 19411, (174, 178, 210, 229, 191, 160, 77, 249 ));
    
+   type IFlipViewItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IFlipViewItemAutomationPeerFactory : aliased constant Windows.IID := (1762693974, 53477, 19472, (160, 156, 173, 11, 241, 176, 203, 1 ));
+   
    type IFlipViewItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1253,15 +1256,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFlipViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFlipViewItemAutomationPeerFactory : aliased constant Windows.IID := (1762693974, 53477, 19472, (160, 156, 173, 11, 241, 176, 203, 1 ));
-   
    ------------------------------------------------------------------------
-   type IGroupItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IGroupItemAutomationPeer : aliased constant Windows.IID := (420806253, 1856, 16950, (158, 225, 56, 207, 25, 193, 195, 136 ));
    
+   type IGroupItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IGroupItemAutomationPeerFactory : aliased constant Windows.IID := (1453737319, 61980, 19600, (179, 121, 21, 162, 124, 127, 132, 9 ));
+   
    type IGroupItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1273,15 +1276,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGroupItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGroupItemAutomationPeerFactory : aliased constant Windows.IID := (1453737319, 61980, 19600, (179, 121, 21, 162, 124, 127, 132, 9 ));
-   
    ------------------------------------------------------------------------
-   type IImageAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IImageAutomationPeer : aliased constant Windows.IID := (2601238412, 24738, 18623, (171, 44, 26, 82, 164, 81, 210, 212 ));
    
+   type IImageAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IImageAutomationPeerFactory : aliased constant Windows.IID := (2419081219, 26749, 18367, (179, 162, 75, 171, 202, 216, 239, 80 ));
+   
    type IImageAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1293,15 +1296,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IImageAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IImageAutomationPeerFactory : aliased constant Windows.IID := (2419081219, 26749, 18367, (179, 162, 75, 171, 202, 216, 239, 80 ));
-   
    ------------------------------------------------------------------------
-   type IItemsControlAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IItemsControlAutomationPeer : aliased constant Windows.IID := (2531748849, 14327, 16520, (146, 93, 101, 38, 142, 131, 227, 77 ));
    
+   type IItemsControlAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IItemsControlAutomationPeerFactory : aliased constant Windows.IID := (1077453401, 11802, 18890, (165, 51, 198, 79, 24, 21, 119, 230 ));
+   
    type IItemsControlAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1313,10 +1316,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IItemsControlAutomationPeerFactory : aliased constant Windows.IID := (1077453401, 11802, 18890, (165, 51, 198, 79, 24, 21, 119, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IItemsControlAutomationPeer2 : aliased constant Windows.IID := (3297610007, 38312, 18360, (165, 23, 191, 137, 26, 108, 3, 155 ));
+   
    type IItemsControlAutomationPeer2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateItemAutomationPeer
@@ -1326,10 +1329,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IItemsControlAutomationPeer2 : aliased constant Windows.IID := (3297610007, 38312, 18360, (165, 23, 191, 137, 26, 108, 3, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IItemsControlAutomationPeerOverrides2 : aliased constant Windows.IID := (907919592, 46447, 17897, (128, 254, 16, 160, 251, 15, 225, 119 ));
+   
    type IItemsControlAutomationPeerOverrides2_Interface is interface and Windows.IInspectable_Interface;
    
    function OnCreateItemAutomationPeer
@@ -1339,15 +1342,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IItemsControlAutomationPeerOverrides2 : aliased constant Windows.IID := (907919592, 46447, 17897, (128, 254, 16, 160, 251, 15, 225, 119 ));
-   
    ------------------------------------------------------------------------
-   type IListBoxItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListBoxItemAutomationPeer : aliased constant Windows.IID := (466018758, 10647, 17119, (153, 235, 146, 188, 29, 209, 73, 251 ));
    
+   type IListBoxItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IListBoxItemAutomationPeerFactory : aliased constant Windows.IID := (1352637912, 45226, 17471, (161, 16, 65, 32, 154, 244, 79, 28 ));
+   
    type IListBoxItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1359,15 +1362,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListBoxItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IListBoxItemAutomationPeerFactory : aliased constant Windows.IID := (1352637912, 45226, 17471, (161, 16, 65, 32, 154, 244, 79, 28 ));
-   
    ------------------------------------------------------------------------
-   type IMediaTransportControlsAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMediaTransportControlsAutomationPeer : aliased constant Windows.IID := (2746060179, 31224, 18776, (163, 200, 152, 13, 239, 184, 61, 21 ));
    
+   type IMediaTransportControlsAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMediaTransportControlsAutomationPeerFactory : aliased constant Windows.IID := (4095520771, 57603, 19120, (129, 42, 160, 143, 189, 181, 112, 206 ));
+   
    type IMediaTransportControlsAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1379,15 +1382,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMediaTransportControlsAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaTransportControlsAutomationPeerFactory : aliased constant Windows.IID := (4095520771, 57603, 19120, (129, 42, 160, 143, 189, 181, 112, 206 ));
-   
    ------------------------------------------------------------------------
-   type IPasswordBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPasswordBoxAutomationPeer : aliased constant Windows.IID := (1750009438, 15859, 19359, (130, 173, 136, 25, 219, 59, 33, 138 ));
    
+   type IPasswordBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IPasswordBoxAutomationPeerFactory : aliased constant Windows.IID := (2889711326, 56484, 18460, (181, 32, 74, 155, 63, 59, 23, 156 ));
+   
    type IPasswordBoxAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1399,15 +1402,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IPasswordBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPasswordBoxAutomationPeerFactory : aliased constant Windows.IID := (2889711326, 56484, 18460, (181, 32, 74, 155, 63, 59, 23, 156 ));
-   
    ------------------------------------------------------------------------
-   type IProgressRingAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IProgressRingAutomationPeer : aliased constant Windows.IID := (3157286638, 14803, 20203, (172, 51, 35, 148, 222, 18, 62, 46 ));
    
+   type IProgressRingAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IProgressRingAutomationPeerFactory : aliased constant Windows.IID := (4091224139, 5502, 16572, (149, 147, 85, 188, 92, 113, 164, 246 ));
+   
    type IProgressRingAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1419,15 +1422,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IProgressRingAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProgressRingAutomationPeerFactory : aliased constant Windows.IID := (4091224139, 5502, 16572, (149, 147, 85, 188, 92, 113, 164, 246 ));
-   
    ------------------------------------------------------------------------
-   type IRangeBaseAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRangeBaseAutomationPeer : aliased constant Windows.IID := (3830756681, 19244, 17069, (176, 75, 211, 89, 71, 209, 238, 80 ));
    
+   type IRangeBaseAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRangeBaseAutomationPeerFactory : aliased constant Windows.IID := (2189194753, 12408, 17529, (149, 234, 145, 55, 76, 160, 98, 7 ));
+   
    type IRangeBaseAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1439,15 +1442,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRangeBaseAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRangeBaseAutomationPeerFactory : aliased constant Windows.IID := (2189194753, 12408, 17529, (149, 234, 145, 55, 76, 160, 98, 7 ));
-   
    ------------------------------------------------------------------------
-   type IRichTextBlockAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRichTextBlockAutomationPeer : aliased constant Windows.IID := (2476743324, 38409, 16890, (130, 243, 144, 156, 9, 244, 154, 114 ));
    
+   type IRichTextBlockAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRichTextBlockAutomationPeerFactory : aliased constant Windows.IID := (540585569, 5001, 18042, (174, 214, 55, 51, 77, 169, 98, 43 ));
+   
    type IRichTextBlockAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1459,15 +1462,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRichTextBlockAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRichTextBlockAutomationPeerFactory : aliased constant Windows.IID := (540585569, 5001, 18042, (174, 214, 55, 51, 77, 169, 98, 43 ));
-   
    ------------------------------------------------------------------------
-   type IRichTextBlockOverflowAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRichTextBlockOverflowAutomationPeer : aliased constant Windows.IID := (2358919322, 10038, 17275, (171, 54, 161, 106, 32, 47, 16, 93 ));
    
+   type IRichTextBlockOverflowAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRichTextBlockOverflowAutomationPeerFactory : aliased constant Windows.IID := (3177100899, 11284, 18021, (173, 239, 242, 176, 51, 148, 123, 235 ));
+   
    type IRichTextBlockOverflowAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1479,15 +1482,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRichTextBlockOverflowAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRichTextBlockOverflowAutomationPeerFactory : aliased constant Windows.IID := (3177100899, 11284, 18021, (173, 239, 242, 176, 51, 148, 123, 235 ));
-   
    ------------------------------------------------------------------------
-   type ISelectorItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISelectorItemAutomationPeer : aliased constant Windows.IID := (2928358519, 34314, 17851, (191, 124, 225, 178, 116, 25, 209, 221 ));
    
+   type ISelectorItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ISelectorItemAutomationPeerFactory : aliased constant Windows.IID := (1725427195, 30829, 17250, (169, 100, 235, 251, 33, 119, 108, 48 ));
+   
    type ISelectorItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithParentAndItem
@@ -1500,15 +1503,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISelectorItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISelectorItemAutomationPeerFactory : aliased constant Windows.IID := (1725427195, 30829, 17250, (169, 100, 235, 251, 33, 119, 108, 48 ));
-   
    ------------------------------------------------------------------------
-   type ISemanticZoomAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISemanticZoomAutomationPeer : aliased constant Windows.IID := (1009757292, 43383, 18428, (180, 78, 39, 84, 192, 178, 190, 169 ));
    
+   type ISemanticZoomAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ISemanticZoomAutomationPeerFactory : aliased constant Windows.IID := (4112045133, 42131, 17558, (176, 119, 150, 116, 199, 244, 197, 250 ));
+   
    type ISemanticZoomAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1520,15 +1523,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISemanticZoomAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISemanticZoomAutomationPeerFactory : aliased constant Windows.IID := (4112045133, 42131, 17558, (176, 119, 150, 116, 199, 244, 197, 250 ));
-   
    ------------------------------------------------------------------------
-   type ISettingsFlyoutAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISettingsFlyoutAutomationPeer : aliased constant Windows.IID := (3504213211, 12495, 18342, (165, 235, 156, 119, 240, 176, 214, 221 ));
    
+   type ISettingsFlyoutAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ISettingsFlyoutAutomationPeerFactory : aliased constant Windows.IID := (4182205117, 35348, 16612, (148, 167, 63, 51, 201, 34, 233, 69 ));
+   
    type ISettingsFlyoutAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1540,15 +1543,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISettingsFlyoutAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISettingsFlyoutAutomationPeerFactory : aliased constant Windows.IID := (4182205117, 35348, 16612, (148, 167, 63, 51, 201, 34, 233, 69 ));
-   
    ------------------------------------------------------------------------
-   type ITextBlockAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITextBlockAutomationPeer : aliased constant Windows.IID := (3189790709, 26389, 20073, (160, 80, 146, 189, 12, 226, 50, 169 ));
    
+   type ITextBlockAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ITextBlockAutomationPeerFactory : aliased constant Windows.IID := (1992266315, 31904, 19201, (188, 92, 168, 207, 77, 54, 145, 222 ));
+   
    type ITextBlockAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1560,15 +1563,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITextBlockAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextBlockAutomationPeerFactory : aliased constant Windows.IID := (1992266315, 31904, 19201, (188, 92, 168, 207, 77, 54, 145, 222 ));
-   
    ------------------------------------------------------------------------
-   type ITextBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITextBoxAutomationPeer : aliased constant Windows.IID := (978263200, 24157, 19750, (144, 103, 231, 64, 191, 101, 122, 159 ));
    
+   type ITextBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ITextBoxAutomationPeerFactory : aliased constant Windows.IID := (32555111, 38507, 16688, (184, 114, 70, 158, 66, 189, 74, 127 ));
+   
    type ITextBoxAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1580,15 +1583,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITextBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextBoxAutomationPeerFactory : aliased constant Windows.IID := (32555111, 38507, 16688, (184, 114, 70, 158, 66, 189, 74, 127 ));
-   
    ------------------------------------------------------------------------
-   type IThumbAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IThumbAutomationPeer : aliased constant Windows.IID := (3693693365, 46174, 19821, (137, 47, 217, 66, 44, 149, 14, 251 ));
    
+   type IThumbAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IThumbAutomationPeerFactory : aliased constant Windows.IID := (2533835775, 44865, 17920, (181, 93, 38, 212, 61, 248, 96, 225 ));
+   
    type IThumbAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1600,15 +1603,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IThumbAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IThumbAutomationPeerFactory : aliased constant Windows.IID := (2533835775, 44865, 17920, (181, 93, 38, 212, 61, 248, 96, 225 ));
-   
    ------------------------------------------------------------------------
-   type IToggleSwitchAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IToggleSwitchAutomationPeer : aliased constant Windows.IID := (3222401396, 59550, 18320, (191, 154, 120, 235, 181, 245, 158, 159 ));
    
+   type IToggleSwitchAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IToggleSwitchAutomationPeerFactory : aliased constant Windows.IID := (838415331, 65272, 17433, (157, 245, 217, 239, 113, 150, 234, 52 ));
+   
    type IToggleSwitchAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1620,15 +1623,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IToggleSwitchAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IToggleSwitchAutomationPeerFactory : aliased constant Windows.IID := (838415331, 65272, 17433, (157, 245, 217, 239, 113, 150, 234, 52 ));
-   
    ------------------------------------------------------------------------
-   type IButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IButtonAutomationPeer : aliased constant Windows.IID := (4218941374, 14828, 17672, (138, 195, 81, 161, 66, 64, 39, 215 ));
    
+   type IButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IButtonAutomationPeerFactory : aliased constant Windows.IID := (1071357769, 62635, 18304, (134, 68, 3, 55, 98, 153, 161, 117 ));
+   
    type IButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1640,15 +1643,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IButtonAutomationPeerFactory : aliased constant Windows.IID := (1071357769, 62635, 18304, (134, 68, 3, 55, 98, 153, 161, 117 ));
-   
    ------------------------------------------------------------------------
-   type IComboBoxItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IComboBoxItemDataAutomationPeer : aliased constant Windows.IID := (1341091314, 10396, 19460, (131, 27, 90, 102, 140, 109, 113, 4 ));
    
+   type IComboBoxItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IComboBoxItemDataAutomationPeerFactory : aliased constant Windows.IID := (346608886, 18074, 16826, (157, 147, 68, 161, 165, 93, 168, 114 ));
+   
    type IComboBoxItemDataAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithParentAndItem
@@ -1661,15 +1664,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IComboBoxItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IComboBoxItemDataAutomationPeerFactory : aliased constant Windows.IID := (346608886, 18074, 16826, (157, 147, 68, 161, 165, 93, 168, 114 ));
-   
    ------------------------------------------------------------------------
-   type IFlipViewItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IFlipViewItemDataAutomationPeer : aliased constant Windows.IID := (2962776437, 188, 16664, (138, 111, 22, 238, 156, 21, 217, 104 ));
    
+   type IFlipViewItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IFlipViewItemDataAutomationPeerFactory : aliased constant Windows.IID := (1015432083, 2794, 20088, (188, 17, 183, 117, 202, 196, 17, 76 ));
+   
    type IFlipViewItemDataAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithParentAndItem
@@ -1682,15 +1685,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFlipViewItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFlipViewItemDataAutomationPeerFactory : aliased constant Windows.IID := (1015432083, 2794, 20088, (188, 17, 183, 117, 202, 196, 17, 76 ));
-   
    ------------------------------------------------------------------------
-   type IHyperlinkButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IHyperlinkButtonAutomationPeer : aliased constant Windows.IID := (2860186801, 3807, 18137, (170, 158, 14, 178, 29, 20, 0, 151 ));
    
+   type IHyperlinkButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IHyperlinkButtonAutomationPeerFactory : aliased constant Windows.IID := (1505498721, 49538, 18863, (149, 38, 68, 184, 142, 98, 132, 85 ));
+   
    type IHyperlinkButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1702,15 +1705,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IHyperlinkButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlinkButtonAutomationPeerFactory : aliased constant Windows.IID := (1505498721, 49538, 18863, (149, 38, 68, 184, 142, 98, 132, 85 ));
-   
    ------------------------------------------------------------------------
-   type IListBoxItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListBoxItemDataAutomationPeer : aliased constant Windows.IID := (4252852206, 64992, 18474, (128, 132, 220, 235, 186, 91, 152, 6 ));
    
+   type IListBoxItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IListBoxItemDataAutomationPeerFactory : aliased constant Windows.IID := (3616689686, 48525, 18018, (169, 149, 32, 255, 154, 5, 96, 147 ));
+   
    type IListBoxItemDataAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithParentAndItem
@@ -1723,15 +1726,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListBoxItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IListBoxItemDataAutomationPeerFactory : aliased constant Windows.IID := (3616689686, 48525, 18018, (169, 149, 32, 255, 154, 5, 96, 147 ));
-   
    ------------------------------------------------------------------------
-   type IProgressBarAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IProgressBarAutomationPeer : aliased constant Windows.IID := (2482278278, 55360, 20406, (172, 47, 95, 119, 155, 133, 75, 13 ));
    
+   type IProgressBarAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IProgressBarAutomationPeerFactory : aliased constant Windows.IID := (910588331, 47119, 16820, (142, 234, 47, 82, 81, 188, 115, 156 ));
+   
    type IProgressBarAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1743,15 +1746,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IProgressBarAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProgressBarAutomationPeerFactory : aliased constant Windows.IID := (910588331, 47119, 16820, (142, 234, 47, 82, 81, 188, 115, 156 ));
-   
    ------------------------------------------------------------------------
-   type IRepeatButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRepeatButtonAutomationPeer : aliased constant Windows.IID := (702814933, 43180, 20106, (131, 216, 9, 227, 126, 5, 66, 87 ));
    
+   type IRepeatButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRepeatButtonAutomationPeerFactory : aliased constant Windows.IID := (1785723348, 22366, 20064, (189, 214, 236, 20, 65, 155, 79, 246 ));
+   
    type IRepeatButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1763,15 +1766,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRepeatButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRepeatButtonAutomationPeerFactory : aliased constant Windows.IID := (1785723348, 22366, 20064, (189, 214, 236, 20, 65, 155, 79, 246 ));
-   
    ------------------------------------------------------------------------
-   type IScrollBarAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IScrollBarAutomationPeer : aliased constant Windows.IID := (1776337769, 48103, 16882, (135, 202, 170, 216, 19, 254, 85, 14 ));
    
+   type IScrollBarAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IScrollBarAutomationPeerFactory : aliased constant Windows.IID := (3778027792, 45035, 17813, (142, 61, 237, 192, 132, 74, 43, 33 ));
+   
    type IScrollBarAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1783,15 +1786,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IScrollBarAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IScrollBarAutomationPeerFactory : aliased constant Windows.IID := (3778027792, 45035, 17813, (142, 61, 237, 192, 132, 74, 43, 33 ));
-   
    ------------------------------------------------------------------------
-   type ISelectorAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISelectorAutomationPeer : aliased constant Windows.IID := (371902505, 28949, 17388, (179, 131, 167, 183, 22, 68, 6, 157 ));
    
+   type ISelectorAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ISelectorAutomationPeerFactory : aliased constant Windows.IID := (2068993606, 33435, 19916, (189, 82, 90, 141, 3, 153, 56, 122 ));
+   
    type ISelectorAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1803,15 +1806,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISelectorAutomationPeerFactory : aliased constant Windows.IID := (2068993606, 33435, 19916, (189, 82, 90, 141, 3, 153, 56, 122 ));
-   
    ------------------------------------------------------------------------
-   type ISliderAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISliderAutomationPeer : aliased constant Windows.IID := (3962569050, 54801, 18128, (174, 79, 110, 207, 39, 223, 186, 165 ));
    
+   type ISliderAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ISliderAutomationPeerFactory : aliased constant Windows.IID := (2535161942, 39546, 19961, (149, 250, 111, 92, 4, 201, 28, 172 ));
+   
    type ISliderAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1823,15 +1826,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISliderAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISliderAutomationPeerFactory : aliased constant Windows.IID := (2535161942, 39546, 19961, (149, 250, 111, 92, 4, 201, 28, 172 ));
-   
    ------------------------------------------------------------------------
-   type IToggleButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IToggleButtonAutomationPeer : aliased constant Windows.IID := (1658578629, 48138, 17851, (191, 119, 234, 15, 21, 2, 137, 31 ));
    
+   type IToggleButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IToggleButtonAutomationPeerFactory : aliased constant Windows.IID := (3374419140, 44363, 19715, (166, 164, 125, 89, 230, 54, 0, 4 ));
+   
    type IToggleButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1843,15 +1846,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IToggleButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IToggleButtonAutomationPeerFactory : aliased constant Windows.IID := (3374419140, 44363, 19715, (166, 164, 125, 89, 230, 54, 0, 4 ));
-   
    ------------------------------------------------------------------------
-   type ICheckBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ICheckBoxAutomationPeer : aliased constant Windows.IID := (3944070210, 49321, 18118, (172, 36, 184, 61, 228, 41, 199, 51 ));
    
+   type ICheckBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ICheckBoxAutomationPeerFactory : aliased constant Windows.IID := (3076290397, 60303, 17647, (162, 124, 226, 106, 199, 222, 131, 51 ));
+   
    type ICheckBoxAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1863,15 +1866,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ICheckBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICheckBoxAutomationPeerFactory : aliased constant Windows.IID := (3076290397, 60303, 17647, (162, 124, 226, 106, 199, 222, 131, 51 ));
-   
    ------------------------------------------------------------------------
-   type IComboBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IComboBoxAutomationPeer : aliased constant Windows.IID := (2125729035, 30149, 16995, (186, 106, 212, 165, 79, 176, 242, 57 ));
    
+   type IComboBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IComboBoxAutomationPeerFactory : aliased constant Windows.IID := (160324365, 7056, 16569, (155, 227, 178, 50, 103, 235, 19, 207 ));
+   
    type IComboBoxAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1883,15 +1886,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IComboBoxAutomationPeerFactory : aliased constant Windows.IID := (160324365, 7056, 16569, (155, 227, 178, 50, 103, 235, 19, 207 ));
-   
    ------------------------------------------------------------------------
-   type IFlipViewAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IFlipViewAutomationPeer : aliased constant Windows.IID := (2394961210, 17028, 19200, (174, 248, 162, 104, 142, 165, 227, 196 ));
    
+   type IFlipViewAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IFlipViewAutomationPeerFactory : aliased constant Windows.IID := (1133882125, 36227, 18492, (136, 235, 226, 97, 123, 13, 41, 63 ));
+   
    type IFlipViewAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1903,15 +1906,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFlipViewAutomationPeerFactory : aliased constant Windows.IID := (1133882125, 36227, 18492, (136, 235, 226, 97, 123, 13, 41, 63 ));
-   
    ------------------------------------------------------------------------
-   type IListBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListBoxAutomationPeer : aliased constant Windows.IID := (2362496520, 46082, 19054, (189, 154, 52, 63, 136, 69, 235, 50 ));
    
+   type IListBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IListBoxAutomationPeerFactory : aliased constant Windows.IID := (3795198341, 32246, 18935, (138, 188, 76, 51, 241, 163, 212, 110 ));
+   
    type IListBoxAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1923,15 +1926,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IListBoxAutomationPeerFactory : aliased constant Windows.IID := (3795198341, 32246, 18935, (138, 188, 76, 51, 241, 163, 212, 110 ));
-   
    ------------------------------------------------------------------------
-   type IRadioButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRadioButtonAutomationPeer : aliased constant Windows.IID := (2120900312, 2864, 18243, (177, 2, 220, 223, 84, 142, 49, 49 ));
    
+   type IRadioButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRadioButtonAutomationPeerFactory : aliased constant Windows.IID := (1228981501, 15752, 18890, (143, 49, 146, 65, 135, 175, 11, 254 ));
+   
    type IRadioButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1943,15 +1946,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRadioButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRadioButtonAutomationPeerFactory : aliased constant Windows.IID := (1228981501, 15752, 18890, (143, 49, 146, 65, 135, 175, 11, 254 ));
-   
    ------------------------------------------------------------------------
-   type IAppBarAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IAppBarAutomationPeer : aliased constant Windows.IID := (2336935915, 35322, 20243, (132, 190, 53, 202, 91, 124, 149, 144 ));
    
+   type IAppBarAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IAppBarAutomationPeerFactory : aliased constant Windows.IID := (2204169442, 58262, 17687, (175, 93, 244, 207, 52, 197, 78, 223 ));
+   
    type IAppBarAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1963,15 +1966,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppBarAutomationPeerFactory : aliased constant Windows.IID := (2204169442, 58262, 17687, (175, 93, 244, 207, 52, 197, 78, 223 ));
-   
    ------------------------------------------------------------------------
-   type IAutoSuggestBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IAutoSuggestBoxAutomationPeer : aliased constant Windows.IID := (791855874, 63899, 18717, (151, 38, 165, 225, 129, 100, 62, 250 ));
    
+   type IAutoSuggestBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IAutoSuggestBoxAutomationPeerFactory : aliased constant Windows.IID := (2147772489, 6375, 17525, (179, 98, 75, 189, 83, 210, 69, 98 ));
+   
    type IAutoSuggestBoxAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -1981,15 +1984,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutoSuggestBoxAutomationPeerFactory : aliased constant Windows.IID := (2147772489, 6375, 17525, (179, 98, 75, 189, 83, 210, 69, 98 ));
-   
    ------------------------------------------------------------------------
-   type IDatePickerAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IDatePickerAutomationPeer : aliased constant Windows.IID := (3497866623, 41145, 17884, (153, 26, 118, 197, 5, 231, 208, 245 ));
    
+   type IDatePickerAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IDatePickerAutomationPeerFactory : aliased constant Windows.IID := (3848699161, 37207, 17462, (159, 77, 127, 185, 145, 116, 180, 142 ));
+   
    type IDatePickerAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2001,15 +2004,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IDatePickerAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDatePickerAutomationPeerFactory : aliased constant Windows.IID := (3848699161, 37207, 17462, (159, 77, 127, 185, 145, 116, 180, 142 ));
-   
    ------------------------------------------------------------------------
-   type IFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IFlyoutPresenterAutomationPeer : aliased constant Windows.IID := (2685943988, 24522, 17775, (152, 234, 48, 14, 180, 11, 88, 94 ));
    
+   type IFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IFlyoutPresenterAutomationPeerFactory : aliased constant Windows.IID := (4082111839, 35108, 17600, (186, 68, 101, 63, 231, 159, 30, 251 ));
+   
    type IFlyoutPresenterAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2021,15 +2024,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFlyoutPresenterAutomationPeerFactory : aliased constant Windows.IID := (4082111839, 35108, 17600, (186, 68, 101, 63, 231, 159, 30, 251 ));
-   
    ------------------------------------------------------------------------
-   type IGridViewItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IGridViewItemAutomationPeer : aliased constant Windows.IID := (2481925383, 13420, 16742, (164, 186, 188, 106, 24, 30, 127, 51 ));
    
+   type IGridViewItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IGridViewItemAutomationPeerFactory : aliased constant Windows.IID := (4211000182, 61998, 18029, (145, 60, 174, 36, 204, 219, 22, 15 ));
+   
    type IGridViewItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2041,15 +2044,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGridViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGridViewItemAutomationPeerFactory : aliased constant Windows.IID := (4211000182, 61998, 18029, (145, 60, 174, 36, 204, 219, 22, 15 ));
-   
    ------------------------------------------------------------------------
-   type IHubAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IHubAutomationPeer : aliased constant Windows.IID := (1306452054, 20156, 17952, (160, 93, 144, 62, 60, 154, 78, 173 ));
    
+   type IHubAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IHubAutomationPeerFactory : aliased constant Windows.IID := (3345142847, 31197, 17390, (135, 119, 141, 8, 179, 154, 160, 101 ));
+   
    type IHubAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2061,15 +2064,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IHubAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHubAutomationPeerFactory : aliased constant Windows.IID := (3345142847, 31197, 17390, (135, 119, 141, 8, 179, 154, 160, 101 ));
-   
    ------------------------------------------------------------------------
-   type IHubSectionAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IHubSectionAutomationPeer : aliased constant Windows.IID := (383328247, 29745, 19842, (131, 206, 207, 163, 25, 43, 15, 24 ));
    
+   type IHubSectionAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IHubSectionAutomationPeerFactory : aliased constant Windows.IID := (3331205096, 6124, 17193, (145, 174, 45, 11, 35, 57, 212, 152 ));
+   
    type IHubSectionAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2081,15 +2084,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IHubSectionAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHubSectionAutomationPeerFactory : aliased constant Windows.IID := (3331205096, 6124, 17193, (145, 174, 45, 11, 35, 57, 212, 152 ));
-   
    ------------------------------------------------------------------------
-   type IListViewBaseHeaderItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListViewBaseHeaderItemAutomationPeer : aliased constant Windows.IID := (2092480306, 49648, 19004, (188, 20, 133, 221, 72, 222, 219, 133 ));
    
+   type IListViewBaseHeaderItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IListViewBaseHeaderItemAutomationPeerFactory : aliased constant Windows.IID := (1089247583, 54833, 16388, (131, 46, 109, 134, 67, 229, 21, 97 ));
+   
    type IListViewBaseHeaderItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2101,15 +2104,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewBaseHeaderItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IListViewBaseHeaderItemAutomationPeerFactory : aliased constant Windows.IID := (1089247583, 54833, 16388, (131, 46, 109, 134, 67, 229, 21, 97 ));
-   
    ------------------------------------------------------------------------
-   type IListViewItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListViewItemAutomationPeer : aliased constant Windows.IID := (3390131824, 41325, 19721, (161, 207, 24, 86, 239, 152, 169, 236 ));
    
+   type IListViewItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IListViewItemAutomationPeerFactory : aliased constant Windows.IID := (3296590784, 64204, 16420, (167, 59, 23, 236, 78, 102, 38, 84 ));
+   
    type IListViewItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2121,15 +2124,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IListViewItemAutomationPeerFactory : aliased constant Windows.IID := (3296590784, 64204, 16420, (167, 59, 23, 236, 78, 102, 38, 84 ));
-   
    ------------------------------------------------------------------------
-   type IMediaElementAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMediaElementAutomationPeer : aliased constant Windows.IID := (3121323970, 42722, 16805, (177, 122, 209, 89, 70, 19, 239, 186 ));
    
+   type IMediaElementAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMediaElementAutomationPeerFactory : aliased constant Windows.IID := (2997697320, 30069, 16755, (155, 199, 128, 54, 122, 22, 78, 210 ));
+   
    type IMediaElementAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2141,15 +2144,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMediaElementAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaElementAutomationPeerFactory : aliased constant Windows.IID := (2997697320, 30069, 16755, (155, 199, 128, 54, 122, 22, 78, 210 ));
-   
    ------------------------------------------------------------------------
-   type IMediaPlayerElementAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMediaPlayerElementAutomationPeer : aliased constant Windows.IID := (46060041, 16229, 20445, (181, 202, 196, 117, 13, 78, 110, 164 ));
    
+   type IMediaPlayerElementAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMediaPlayerElementAutomationPeerFactory : aliased constant Windows.IID := (142901367, 33455, 19737, (177, 112, 40, 42, 158, 14, 127, 55 ));
+   
    type IMediaPlayerElementAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2161,15 +2164,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMediaPlayerElementAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaPlayerElementAutomationPeerFactory : aliased constant Windows.IID := (142901367, 33455, 19737, (177, 112, 40, 42, 158, 14, 127, 55 ));
-   
    ------------------------------------------------------------------------
-   type IMenuFlyoutItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMenuFlyoutItemAutomationPeer : aliased constant Windows.IID := (532780130, 8671, 17774, (170, 17, 143, 172, 107, 75, 42, 246 ));
    
+   type IMenuFlyoutItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMenuFlyoutItemAutomationPeerFactory : aliased constant Windows.IID := (3498835128, 8401, 17880, (162, 194, 47, 19, 13, 247, 20, 224 ));
+   
    type IMenuFlyoutItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2181,15 +2184,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMenuFlyoutItemAutomationPeerFactory : aliased constant Windows.IID := (3498835128, 8401, 17880, (162, 194, 47, 19, 13, 247, 20, 224 ));
-   
    ------------------------------------------------------------------------
-   type IRichEditBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRichEditBoxAutomationPeer : aliased constant Windows.IID := (3332332548, 5870, 18042, (168, 51, 195, 218, 132, 88, 173, 100 ));
    
+   type IRichEditBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRichEditBoxAutomationPeerFactory : aliased constant Windows.IID := (1965851545, 53910, 19847, (144, 32, 164, 117, 14, 136, 91, 60 ));
+   
    type IRichEditBoxAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2201,15 +2204,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRichEditBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRichEditBoxAutomationPeerFactory : aliased constant Windows.IID := (1965851545, 53910, 19847, (144, 32, 164, 117, 14, 136, 91, 60 ));
-   
    ------------------------------------------------------------------------
-   type IScrollViewerAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IScrollViewerAutomationPeer : aliased constant Windows.IID := (3649434201, 6921, 20104, (136, 253, 66, 23, 80, 220, 107, 69 ));
    
+   type IScrollViewerAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IScrollViewerAutomationPeerFactory : aliased constant Windows.IID := (655228797, 55661, 18681, (163, 106, 194, 82, 170, 156, 70, 112 ));
+   
    type IScrollViewerAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2221,15 +2224,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IScrollViewerAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IScrollViewerAutomationPeerFactory : aliased constant Windows.IID := (655228797, 55661, 18681, (163, 106, 194, 82, 170, 156, 70, 112 ));
-   
    ------------------------------------------------------------------------
-   type ISearchBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISearchBoxAutomationPeer : aliased constant Windows.IID := (2235568548, 6310, 20272, (147, 155, 136, 113, 175, 163, 245, 233 ));
    
+   type ISearchBoxAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ISearchBoxAutomationPeerFactory : aliased constant Windows.IID := (3015709744, 32682, 16827, (142, 145, 124, 118, 28, 82, 103, 241 ));
+   
    type ISearchBoxAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2241,15 +2244,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISearchBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchBoxAutomationPeerFactory : aliased constant Windows.IID := (3015709744, 32682, 16827, (142, 145, 124, 118, 28, 82, 103, 241 ));
-   
    ------------------------------------------------------------------------
-   type ITimePickerAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITimePickerAutomationPeer : aliased constant Windows.IID := (2755478767, 12933, 19959, (180, 164, 228, 205, 243, 106, 58, 23 ));
    
+   type ITimePickerAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ITimePickerAutomationPeerFactory : aliased constant Windows.IID := (2542757489, 18424, 16551, (158, 33, 104, 18, 139, 22, 180, 253 ));
+   
    type ITimePickerAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2261,15 +2264,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITimePickerAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITimePickerAutomationPeerFactory : aliased constant Windows.IID := (2542757489, 18424, 16551, (158, 33, 104, 18, 139, 22, 180, 253 ));
-   
    ------------------------------------------------------------------------
-   type IToggleMenuFlyoutItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IToggleMenuFlyoutItemAutomationPeer : aliased constant Windows.IID := (1800923902, 27377, 18691, (131, 115, 52, 55, 191, 53, 35, 69 ));
    
+   type IToggleMenuFlyoutItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IToggleMenuFlyoutItemAutomationPeerFactory : aliased constant Windows.IID := (2486586231, 36716, 18487, (170, 227, 148, 208, 16, 216, 209, 98 ));
+   
    type IToggleMenuFlyoutItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2281,15 +2284,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IToggleMenuFlyoutItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IToggleMenuFlyoutItemAutomationPeerFactory : aliased constant Windows.IID := (2486586231, 36716, 18487, (170, 227, 148, 208, 16, 216, 209, 98 ));
-   
    ------------------------------------------------------------------------
-   type IGridViewHeaderItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IGridViewHeaderItemAutomationPeer : aliased constant Windows.IID := (3822907194, 57482, 18663, (178, 58, 43, 229, 182, 110, 71, 78 ));
    
+   type IGridViewHeaderItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IGridViewHeaderItemAutomationPeerFactory : aliased constant Windows.IID := (746632402, 65474, 16727, (136, 221, 89, 205, 146, 227, 151, 21 ));
+   
    type IGridViewHeaderItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2301,15 +2304,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGridViewHeaderItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGridViewHeaderItemAutomationPeerFactory : aliased constant Windows.IID := (746632402, 65474, 16727, (136, 221, 89, 205, 146, 227, 151, 21 ));
-   
    ------------------------------------------------------------------------
-   type IGridViewItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IGridViewItemDataAutomationPeer : aliased constant Windows.IID := (4092888719, 10708, 16532, (140, 84, 234, 97, 168, 130, 148, 164 ));
    
+   type IGridViewItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IGridViewItemDataAutomationPeerFactory : aliased constant Windows.IID := (2791209608, 30477, 16428, (153, 111, 103, 80, 106, 242, 164, 175 ));
+   
    type IGridViewItemDataAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithParentAndItem
@@ -2322,15 +2325,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGridViewItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGridViewItemDataAutomationPeerFactory : aliased constant Windows.IID := (2791209608, 30477, 16428, (153, 111, 103, 80, 106, 242, 164, 175 ));
-   
    ------------------------------------------------------------------------
-   type IListViewHeaderItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListViewHeaderItemAutomationPeer : aliased constant Windows.IID := (1739267659, 44385, 19592, (186, 69, 15, 58, 141, 6, 31, 143 ));
    
+   type IListViewHeaderItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IListViewHeaderItemAutomationPeerFactory : aliased constant Windows.IID := (124159636, 11429, 19428, (168, 185, 89, 45, 72, 247, 96, 135 ));
+   
    type IListViewHeaderItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2342,15 +2345,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewHeaderItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IListViewHeaderItemAutomationPeerFactory : aliased constant Windows.IID := (124159636, 11429, 19428, (168, 185, 89, 45, 72, 247, 96, 135 ));
-   
    ------------------------------------------------------------------------
-   type IListViewItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListViewItemDataAutomationPeer : aliased constant Windows.IID := (363386877, 55205, 19052, (150, 60, 111, 124, 228, 100, 103, 26 ));
    
+   type IListViewItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IListViewItemDataAutomationPeerFactory : aliased constant Windows.IID := (3504018107, 55061, 17699, (172, 192, 30, 16, 114, 216, 227, 43 ));
+   
    type IListViewItemDataAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithParentAndItem
@@ -2363,15 +2366,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IListViewItemDataAutomationPeerFactory : aliased constant Windows.IID := (3504018107, 55061, 17699, (172, 192, 30, 16, 114, 216, 227, 43 ));
-   
    ------------------------------------------------------------------------
-   type IMenuFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMenuFlyoutPresenterAutomationPeer : aliased constant Windows.IID := (3796150385, 64699, 18684, (138, 147, 65, 234, 19, 75, 83, 206 ));
    
+   type IMenuFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMenuFlyoutPresenterAutomationPeerFactory : aliased constant Windows.IID := (129308461, 30237, 17707, (158, 109, 250, 42, 139, 224, 173, 38 ));
+   
    type IMenuFlyoutPresenterAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2383,15 +2386,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMenuFlyoutPresenterAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMenuFlyoutPresenterAutomationPeerFactory : aliased constant Windows.IID := (129308461, 30237, 17707, (158, 109, 250, 42, 139, 224, 173, 38 ));
-   
    ------------------------------------------------------------------------
-   type IAppBarButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IAppBarButtonAutomationPeer : aliased constant Windows.IID := (1144152754, 20333, 19318, (157, 46, 62, 255, 119, 126, 136, 100 ));
    
+   type IAppBarButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IAppBarButtonAutomationPeerFactory : aliased constant Windows.IID := (2934977578, 44215, 17116, (151, 227, 132, 112, 113, 134, 95, 214 ));
+   
    type IAppBarButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2403,15 +2406,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAppBarButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppBarButtonAutomationPeerFactory : aliased constant Windows.IID := (2934977578, 44215, 17116, (151, 227, 132, 112, 113, 134, 95, 214 ));
-   
    ------------------------------------------------------------------------
-   type IAppBarToggleButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IAppBarToggleButtonAutomationPeer : aliased constant Windows.IID := (2221207469, 38485, 19199, (149, 80, 99, 174, 158, 200, 254, 156 ));
    
+   type IAppBarToggleButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IAppBarToggleButtonAutomationPeerFactory : aliased constant Windows.IID := (3606647709, 705, 16929, (149, 145, 125, 78, 254, 183, 71, 1 ));
+   
    type IAppBarToggleButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2423,15 +2426,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppBarToggleButtonAutomationPeerFactory : aliased constant Windows.IID := (3606647709, 705, 16929, (149, 145, 125, 78, 254, 183, 71, 1 ));
-   
    ------------------------------------------------------------------------
-   type IListViewBaseAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListViewBaseAutomationPeer : aliased constant Windows.IID := (2280420937, 47165, 20053, (154, 253, 189, 131, 94, 116, 143, 92 ));
    
+   type IListViewBaseAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IListViewBaseAutomationPeerFactory : aliased constant Windows.IID := (1892926142, 35152, 17991, (147, 98, 253, 0, 47, 143, 248, 46 ));
+   
    type IListViewBaseAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2443,15 +2446,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IListViewBaseAutomationPeerFactory : aliased constant Windows.IID := (1892926142, 35152, 17991, (147, 98, 253, 0, 47, 143, 248, 46 ));
-   
    ------------------------------------------------------------------------
-   type IGridViewAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IGridViewAutomationPeer : aliased constant Windows.IID := (474218916, 55633, 18890, (143, 130, 199, 243, 198, 6, 129, 176 ));
    
+   type IGridViewAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IGridViewAutomationPeerFactory : aliased constant Windows.IID := (2328517085, 8871, 18432, (137, 75, 193, 244, 133, 243, 137, 83 ));
+   
    type IGridViewAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2463,15 +2466,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGridViewAutomationPeerFactory : aliased constant Windows.IID := (2328517085, 8871, 18432, (137, 75, 193, 244, 133, 243, 137, 83 ));
-   
    ------------------------------------------------------------------------
-   type IListViewAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListViewAutomationPeer : aliased constant Windows.IID := (1942932615, 49372, 16992, (145, 72, 117, 233, 134, 74, 114, 48 ));
    
+   type IListViewAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IListViewAutomationPeerFactory : aliased constant Windows.IID := (1710461300, 60066, 20036, (139, 230, 76, 202, 40, 205, 2, 136 ));
+   
    type IListViewAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -2483,10 +2486,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IListViewAutomationPeerFactory : aliased constant Windows.IID := (1710461300, 60066, 20036, (139, 230, 76, 202, 40, 205, 2, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeer : aliased constant Windows.IID := (900384890, 25326, 19774, (162, 76, 43, 200, 67, 45, 104, 183 ));
+   
    type IAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EventsSource
@@ -2721,10 +2724,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.AutomationLiveSetting
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeer : aliased constant Windows.IID := (900384890, 25326, 19774, (162, 76, 43, 200, 67, 45, 104, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerOverrides : aliased constant Windows.IID := (3198762599, 56302, 20347, (175, 13, 167, 154, 174, 83, 51, 191 ));
+   
    type IAutomationPeerOverrides_Interface is interface and Windows.IInspectable_Interface;
    
    function GetPatternCore
@@ -2916,10 +2919,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.AutomationLiveSetting
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerOverrides : aliased constant Windows.IID := (3198762599, 56302, 20347, (175, 13, 167, 154, 174, 83, 51, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerProtected : aliased constant Windows.IID := (4105440850, 25647, 17961, (165, 74, 234, 93, 35, 73, 196, 72 ));
+   
    type IAutomationPeerProtected_Interface is interface and Windows.IInspectable_Interface;
    
    function PeerFromProvider
@@ -2937,10 +2940,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerProtected : aliased constant Windows.IID := (4105440850, 25647, 17961, (165, 74, 234, 93, 35, 73, 196, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerStatics : aliased constant Windows.IID := (1445953456, 41777, 19100, (157, 236, 191, 183, 88, 111, 255, 255 ));
+   
    type IAutomationPeerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ListenerExists
@@ -2950,10 +2953,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerStatics : aliased constant Windows.IID := (1445953456, 41777, 19100, (157, 236, 191, 183, 88, 111, 255, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerFactory : aliased constant Windows.IID := (549614917, 43147, 17352, (188, 36, 206, 169, 218, 253, 4, 163 ));
+   
    type IAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2964,15 +2967,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerFactory : aliased constant Windows.IID := (549614917, 43147, 17352, (188, 36, 206, 169, 218, 253, 4, 163 ));
-   
    ------------------------------------------------------------------------
-   type IAutomationPeer2_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IAutomationPeer2 : aliased constant Windows.IID := (3927935431, 60405, 19128, (136, 247, 104, 13, 130, 29, 172, 97 ));
    
+   type IAutomationPeer2_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerOverrides2 : aliased constant Windows.IID := (637757482, 40358, 16419, (180, 150, 73, 110, 94, 242, 40, 210 ));
+   
    type IAutomationPeerOverrides2_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowContextMenuCore
@@ -2987,10 +2990,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IVectorView_IAutomationPeer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerOverrides2 : aliased constant Windows.IID := (637757482, 40358, 16419, (180, 150, 73, 110, 94, 242, 40, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeer3 : aliased constant Windows.IID := (3553606007, 132, 16855, (162, 33, 40, 21, 141, 59, 195, 44 ));
+   
    type IAutomationPeer3_Interface is interface and Windows.IInspectable_Interface;
    
    function Navigate
@@ -3079,10 +3082,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; child : Windows.UI.Xaml.Automation.Peers.IAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeer3 : aliased constant Windows.IID := (3553606007, 132, 16855, (162, 33, 40, 21, 141, 59, 195, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerOverrides3 : aliased constant Windows.IID := (3069232301, 19769, 18918, (187, 145, 217, 36, 238, 253, 133, 56 ));
+   
    type IAutomationPeerOverrides3_Interface is interface and Windows.IInspectable_Interface;
    
    function NavigateCore
@@ -3135,10 +3138,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerOverrides3 : aliased constant Windows.IID := (3069232301, 19769, 18918, (187, 145, 217, 36, 238, 253, 133, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerStatics3 : aliased constant Windows.IID := (1462523668, 32647, 17009, (129, 159, 108, 244, 196, 208, 34, 208 ));
+   
    type IAutomationPeerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function GenerateRawElementProviderRuntimeId
@@ -3147,10 +3150,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerStatics3 : aliased constant Windows.IID := (1462523668, 32647, 17009, (129, 159, 108, 244, 196, 208, 34, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeer4 : aliased constant Windows.IID := (1981605714, 29633, 20292, (190, 117, 67, 196, 158, 192, 212, 213 ));
+   
    type IAutomationPeer4_Interface is interface and Windows.IInspectable_Interface;
    
    function GetLandmarkType
@@ -3166,10 +3169,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeer4 : aliased constant Windows.IID := (1981605714, 29633, 20292, (190, 117, 67, 196, 158, 192, 212, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerOverrides4 : aliased constant Windows.IID := (2978401698, 23878, 19405, (168, 17, 38, 154, 209, 91, 58, 238 ));
+   
    type IAutomationPeerOverrides4_Interface is interface and Windows.IInspectable_Interface;
    
    function GetLandmarkTypeCore
@@ -3185,10 +3188,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerOverrides4 : aliased constant Windows.IID := (2978401698, 23878, 19405, (168, 17, 38, 154, 209, 91, 58, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeer5 : aliased constant Windows.IID := (4130529734, 2623, 17780, (159, 239, 205, 193, 81, 118, 86, 116 ));
+   
    type IAutomationPeer5_Interface is interface and Windows.IInspectable_Interface;
    
    function IsPeripheral
@@ -3211,10 +3214,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeer5 : aliased constant Windows.IID := (4130529734, 2623, 17780, (159, 239, 205, 193, 81, 118, 86, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerOverrides5 : aliased constant Windows.IID := (746880133, 30750, 18935, (159, 239, 185, 225, 77, 1, 71, 7 ));
+   
    type IAutomationPeerOverrides5_Interface is interface and Windows.IInspectable_Interface;
    
    function IsPeripheralCore
@@ -3258,10 +3261,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IIterable_IAutomationPeer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerOverrides5 : aliased constant Windows.IID := (746880133, 30750, 18935, (159, 239, 185, 225, 77, 1, 71, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeer6 : aliased constant Windows.IID := (3405275279, 5119, 17147, (134, 109, 34, 32, 100, 52, 204, 107 ));
+   
    type IAutomationPeer6_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCulture
@@ -3270,10 +3273,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeer6 : aliased constant Windows.IID := (3405275279, 5119, 17147, (134, 109, 34, 32, 100, 52, 204, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerOverrides6 : aliased constant Windows.IID := (3918244839, 63231, 17484, (156, 13, 39, 126, 175, 10, 217, 192 ));
+   
    type IAutomationPeerOverrides6_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCultureCore
@@ -3282,10 +3285,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerOverrides6 : aliased constant Windows.IID := (3918244839, 63231, 17484, (156, 13, 39, 126, 175, 10, 217, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeer7 : aliased constant Windows.IID := (2037068423, 58946, 18603, (178, 35, 82, 8, 180, 29, 169, 214 ));
+   
    type IAutomationPeer7_Interface is interface and Windows.IInspectable_Interface;
    
    function RaiseNotificationEvent
@@ -3297,10 +3300,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; activityId : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeer7 : aliased constant Windows.IID := (2037068423, 58946, 18603, (178, 35, 82, 8, 180, 29, 169, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerAnnotation : aliased constant Windows.IID := (205873249, 21199, 17402, (130, 248, 7, 241, 55, 53, 30, 90 ));
+   
    type IAutomationPeerAnnotation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Type
@@ -3330,10 +3333,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; value : Windows.UI.Xaml.Automation.Peers.IAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerAnnotation : aliased constant Windows.IID := (205873249, 21199, 17402, (130, 248, 7, 241, 55, 53, 30, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerAnnotationStatics : aliased constant Windows.IID := (2282334333, 2482, 19781, (183, 139, 29, 59, 59, 9, 246, 97 ));
+   
    type IAutomationPeerAnnotationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TypeProperty
@@ -3349,10 +3352,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerAnnotationStatics : aliased constant Windows.IID := (2282334333, 2482, 19781, (183, 139, 29, 59, 59, 9, 246, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerAnnotationFactory : aliased constant Windows.IID := (4120658846, 50779, 17357, (144, 9, 3, 252, 2, 51, 99, 167 ));
+   
    type IAutomationPeerAnnotationFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -3371,10 +3374,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutomationPeerAnnotationFactory : aliased constant Windows.IID := (4120658846, 50779, 17357, (144, 9, 3, 252, 2, 51, 99, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFrameworkElementAutomationPeer : aliased constant Windows.IID := (3104495489, 49131, 17489, (189, 71, 159, 58, 99, 235, 210, 74 ));
+   
    type IFrameworkElementAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Owner
@@ -3383,10 +3386,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFrameworkElementAutomationPeer : aliased constant Windows.IID := (3104495489, 49131, 17489, (189, 71, 159, 58, 99, 235, 210, 74 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFrameworkElementAutomationPeerStatics : aliased constant Windows.IID := (3116415383, 10272, 17569, (165, 168, 155, 128, 30, 220, 38, 158 ));
+   
    type IFrameworkElementAutomationPeerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromElement
@@ -3404,10 +3407,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFrameworkElementAutomationPeerStatics : aliased constant Windows.IID := (3116415383, 10272, 17569, (165, 168, 155, 128, 30, 220, 38, 158 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFrameworkElementAutomationPeerFactory : aliased constant Windows.IID := (230275260, 47122, 18659, (175, 31, 219, 197, 118, 0, 195, 37 ));
+   
    type IFrameworkElementAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -3419,55 +3422,55 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFrameworkElementAutomationPeerFactory : aliased constant Windows.IID := (230275260, 47122, 18659, (175, 31, 219, 197, 118, 0, 195, 37 ));
-   
    ------------------------------------------------------------------------
-   type IInkToolbarAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IInkToolbarAutomationPeer : aliased constant Windows.IID := (305900196, 62184, 19403, (147, 130, 93, 253, 209, 31, 228, 95 ));
    
+   type IInkToolbarAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IMapControlAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMapControlAutomationPeer : aliased constant Windows.IID := (1113321188, 62184, 19403, (147, 130, 93, 253, 209, 31, 228, 95 ));
    
+   type IMapControlAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type ILoopingSelectorItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ILoopingSelectorItemDataAutomationPeer : aliased constant Windows.IID := (4015423026, 31954, 19762, (149, 144, 31, 88, 141, 94, 243, 141 ));
    
+   type ILoopingSelectorItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IDatePickerFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IDatePickerFlyoutPresenterAutomationPeer : aliased constant Windows.IID := (1965747512, 49855, 18560, (130, 178, 166, 192, 94, 144, 193, 53 ));
    
+   type IDatePickerFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IListPickerFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IListPickerFlyoutPresenterAutomationPeer : aliased constant Windows.IID := (1457511512, 9109, 16480, (128, 71, 142, 164, 99, 105, 138, 36 ));
    
+   type IListPickerFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type ILoopingSelectorAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ILoopingSelectorAutomationPeer : aliased constant Windows.IID := (1353975498, 47849, 18454, (138, 58, 12, 180, 249, 100, 120, 162 ));
    
+   type ILoopingSelectorAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type ILoopingSelectorItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ILoopingSelectorItemAutomationPeer : aliased constant Windows.IID := (3556403391, 1231, 20300, (141, 62, 71, 128, 161, 157, 71, 136 ));
    
+   type ILoopingSelectorItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IPickerFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPickerFlyoutPresenterAutomationPeer : aliased constant Windows.IID := (675367927, 33666, 20142, (147, 193, 214, 240, 53, 170, 129, 85 ));
    
+   type IPickerFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IPivotItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPivotItemAutomationPeer : aliased constant Windows.IID := (440549805, 23893, 19751, (180, 15, 45, 55, 80, 111, 190, 120 ));
    
+   type IPivotItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IPivotItemAutomationPeerFactory : aliased constant Windows.IID := (4068541553, 6207, 16747, (180, 26, 30, 90, 149, 138, 145, 244 ));
+   
    type IPivotItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -3477,15 +3480,15 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IPivotItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPivotItemAutomationPeerFactory : aliased constant Windows.IID := (4068541553, 6207, 16747, (180, 26, 30, 90, 149, 138, 145, 244 ));
-   
    ------------------------------------------------------------------------
-   type IPivotItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPivotItemDataAutomationPeer : aliased constant Windows.IID := (2728638344, 59933, 18615, (136, 238, 240, 139, 106, 160, 127, 238 ));
    
+   type IPivotItemDataAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IPivotItemDataAutomationPeerFactory : aliased constant Windows.IID := (1366959232, 54198, 16686, (130, 182, 148, 160, 168, 76, 19, 176 ));
+   
    type IPivotItemDataAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithParentAndItem
@@ -3496,20 +3499,20 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IPivotItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPivotItemDataAutomationPeerFactory : aliased constant Windows.IID := (1366959232, 54198, 16686, (130, 182, 148, 160, 168, 76, 19, 176 ));
-   
    ------------------------------------------------------------------------
-   type ITimePickerFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITimePickerFlyoutPresenterAutomationPeer : aliased constant Windows.IID := (3667127847, 33521, 18177, (135, 6, 190, 41, 123, 240, 96, 67 ));
    
+   type ITimePickerFlyoutPresenterAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IPivotAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPivotAutomationPeer : aliased constant Windows.IID := (3876956408, 15261, 16428, (129, 226, 110, 145, 46, 245, 137, 129 ));
    
+   type IPivotAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IPivotAutomationPeerFactory : aliased constant Windows.IID := (1056837524, 3217, 17217, (185, 172, 27, 86, 180, 230, 184, 79 ));
+   
    type IPivotAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithOwner
@@ -3519,10 +3522,8 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IPivotAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPivotAutomationPeerFactory : aliased constant Windows.IID := (1056837524, 3217, 17217, (185, 172, 27, 86, 180, 230, 184, 79 ));
-   
    ------------------------------------------------------------------------
+   
    type IInvokeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function Invoke
@@ -3530,8 +3531,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IInvokeProvider_Imported_Interface
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IItemContainerProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function FindItemByProperty
@@ -3543,8 +3544,8 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IRangeValueProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsReadOnly
@@ -3595,8 +3596,8 @@ package Windows.UI.Xaml.Automation.Peers is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IScrollItemProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function ScrollIntoView
@@ -3604,8 +3605,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IScrollItemProvider_Imported_Interface
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IScrollProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HorizontallyScrollable
@@ -3665,8 +3666,8 @@ package Windows.UI.Xaml.Automation.Peers is
       ; verticalPercent : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ISelectionProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanSelectMultiple
@@ -3689,8 +3690,8 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IDropTargetProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DropEffect
@@ -3706,8 +3707,8 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access String_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IToggleProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ToggleState
@@ -3722,8 +3723,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IToggleProvider_Imported_Interface
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ISelectionItemProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsSelected
@@ -3757,8 +3758,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access ISelectionItemProvider_Imported_Interface
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IVirtualizedItemProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function Realize
@@ -3766,8 +3767,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IVirtualizedItemProvider_Imported_Interface
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IExpandCollapseProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ExpandCollapseState
@@ -3788,8 +3789,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IExpandCollapseProvider_Imported_Interface
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IValueProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsReadOnly
@@ -3812,8 +3813,8 @@ package Windows.UI.Xaml.Automation.Peers is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IWindowProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsModal
@@ -3878,8 +3879,8 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ITransformProvider2_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanZoom
@@ -3923,8 +3924,8 @@ package Windows.UI.Xaml.Automation.Peers is
       ; zoomUnit : Windows.UI.Xaml.Automation.ZoomUnit
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ITransformProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanMove
@@ -3970,8 +3971,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; degrees : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IAutomationPeer : aliased constant Windows.IID := (529780090, 32885, 23465, (188, 62, 176, 74, 148, 225, 75, 192 ));
+   
    type IIterator_IAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4002,10 +4005,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IAutomationPeer : aliased constant Windows.IID := (529780090, 32885, 23465, (188, 62, 176, 74, 148, 225, 75, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IAutomationPeer : aliased constant Windows.IID := (2137498850, 38624, 21035, (135, 16, 20, 196, 45, 131, 79, 30 ));
+   
    type IIterable_IAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4014,10 +4017,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IIterator_IAutomationPeer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IAutomationPeer : aliased constant Windows.IID := (2137498850, 38624, 21035, (135, 16, 20, 196, 45, 131, 79, 30 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAutomationPeer : aliased constant Windows.IID := (3043647606, 6626, 20673, (147, 15, 130, 91, 252, 57, 99, 92 ));
+   
    type IVectorView_IAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4052,10 +4055,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IAutomationPeer : aliased constant Windows.IID := (3043647606, 6626, 20673, (147, 15, 130, 91, 252, 57, 99, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IAutomationPeer : aliased constant Windows.IID := (2832770057, 37168, 24084, (132, 38, 7, 130, 170, 240, 22, 8 ));
+   
    type IVector_IAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4146,10 +4149,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; items : Windows.UI.Xaml.Automation.Peers.IAutomationPeer_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IAutomationPeer : aliased constant Windows.IID := (2832770057, 37168, 24084, (132, 38, 7, 130, 170, 240, 22, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IAutomationPeerAnnotation : aliased constant Windows.IID := (994137907, 18674, 22704, (152, 132, 111, 13, 14, 53, 220, 26 ));
+   
    type IIterator_IAutomationPeerAnnotation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4180,10 +4183,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IAutomationPeerAnnotation : aliased constant Windows.IID := (994137907, 18674, 22704, (152, 132, 111, 13, 14, 53, 220, 26 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IAutomationPeerAnnotation : aliased constant Windows.IID := (3710451604, 53534, 23271, (184, 25, 97, 119, 193, 89, 147, 19 ));
+   
    type IIterable_IAutomationPeerAnnotation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4192,10 +4195,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IIterator_IAutomationPeerAnnotation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IAutomationPeerAnnotation : aliased constant Windows.IID := (3710451604, 53534, 23271, (184, 25, 97, 119, 193, 89, 147, 19 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAutomationPeerAnnotation : aliased constant Windows.IID := (7822457, 22683, 23606, (174, 114, 46, 122, 171, 2, 112, 198 ));
+   
    type IVectorView_IAutomationPeerAnnotation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4230,10 +4233,10 @@ package Windows.UI.Xaml.Automation.Peers is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IAutomationPeerAnnotation : aliased constant Windows.IID := (7822457, 22683, 23606, (174, 114, 46, 122, 171, 2, 112, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IAutomationPeerAnnotation : aliased constant Windows.IID := (3545495685, 19440, 24002, (135, 142, 236, 122, 57, 78, 232, 128 ));
+   
    type IVector_IAutomationPeerAnnotation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4324,9 +4327,6 @@ package Windows.UI.Xaml.Automation.Peers is
       ; items : Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IAutomationPeerAnnotation : aliased constant Windows.IID := (3545495685, 19440, 24002, (135, 142, 236, 122, 57, 78, 232, 128 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -4335,9 +4335,9 @@ package Windows.UI.Xaml.Automation.Peers is
    
    type IAutomationPeerOverrides_Interface_Impl is new IAutomationPeerOverrides_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IAutomationPeerOverrides := null;
       m_IAutomationPeer : IAutomationPeer := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IAutomationPeerOverrides_Impl is access all IAutomationPeerOverrides_Interface_Impl'Class;
@@ -4347,7 +4347,7 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeerOverrides_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -4578,9 +4578,9 @@ package Windows.UI.Xaml.Automation.Peers is
    
    type IAutomationPeerOverrides2_Interface_Impl is new IAutomationPeerOverrides2_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IAutomationPeerOverrides2 := null;
       m_IAutomationPeer : IAutomationPeer := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IAutomationPeerOverrides2_Impl is access all IAutomationPeerOverrides2_Interface_Impl'Class;
@@ -4590,7 +4590,7 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeerOverrides2_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -4644,9 +4644,9 @@ package Windows.UI.Xaml.Automation.Peers is
    
    type IAutomationPeerOverrides3_Interface_Impl is new IAutomationPeerOverrides3_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IAutomationPeerOverrides3 := null;
       m_IAutomationPeer : IAutomationPeer := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IAutomationPeerOverrides3_Impl is access all IAutomationPeerOverrides3_Interface_Impl'Class;
@@ -4656,7 +4656,7 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeerOverrides3_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -4748,9 +4748,9 @@ package Windows.UI.Xaml.Automation.Peers is
    
    type IAutomationPeer_Interface_Impl is new IAutomationPeer_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IAutomationPeer := null;
       m_IAutomationPeer : IAutomationPeer := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IAutomationPeer_Impl is access all IAutomationPeer_Interface_Impl'Class;
@@ -4760,7 +4760,7 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAutomationPeer_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    

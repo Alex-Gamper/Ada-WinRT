@@ -331,6 +331,9 @@ package Windows.UI.WebUI is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IActivatedDeferral : aliased constant Windows.IID := (3283949944, 42033, 18904, (167, 106, 57, 90, 78, 3, 220, 243 ));
+   
    type IActivatedDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -338,10 +341,10 @@ package Windows.UI.WebUI is
       This       : access IActivatedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivatedDeferral : aliased constant Windows.IID := (3283949944, 42033, 18904, (167, 106, 57, 90, 78, 3, 220, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IActivatedOperation : aliased constant Windows.IID := (3063985340, 50890, 17149, (152, 24, 113, 144, 78, 69, 254, 215 ));
+   
    type IActivatedOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -350,10 +353,10 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.UI.WebUI.IActivatedDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivatedOperation : aliased constant Windows.IID := (3063985340, 50890, 17149, (152, 24, 113, 144, 78, 69, 254, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IActivatedEventArgsDeferral : aliased constant Windows.IID := (3396165492, 25538, 17574, (185, 123, 217, 160, 60, 32, 188, 155 ));
+   
    type IActivatedEventArgsDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ActivatedOperation
@@ -362,10 +365,10 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.UI.WebUI.IActivatedOperation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivatedEventArgsDeferral : aliased constant Windows.IID := (3396165492, 25538, 17574, (185, 123, 217, 160, 60, 32, 188, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebUINavigatedEventArgs : aliased constant Windows.IID := (2807579064, 9369, 16432, (166, 157, 21, 210, 217, 207, 229, 36 ));
+   
    type IWebUINavigatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NavigatedOperation
@@ -374,10 +377,10 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.UI.WebUI.IWebUINavigatedOperation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebUINavigatedEventArgs : aliased constant Windows.IID := (2807579064, 9369, 16432, (166, 157, 21, 210, 217, 207, 229, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebUIBackgroundTaskInstance : aliased constant Windows.IID := (603008037, 58103, 18241, (188, 156, 57, 69, 149, 222, 36, 220 ));
+   
    type IWebUIBackgroundTaskInstance_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Succeeded
@@ -393,10 +396,10 @@ package Windows.UI.WebUI is
       ; succeeded : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebUIBackgroundTaskInstance : aliased constant Windows.IID := (603008037, 58103, 18241, (188, 156, 57, 69, 149, 222, 36, 220 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebUIBackgroundTaskInstanceStatics : aliased constant Windows.IID := (2625262225, 6574, 19619, (185, 75, 254, 78, 199, 68, 167, 64 ));
+   
    type IWebUIBackgroundTaskInstanceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -405,10 +408,10 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.UI.WebUI.IWebUIBackgroundTaskInstance
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebUIBackgroundTaskInstanceStatics : aliased constant Windows.IID := (2625262225, 6574, 19619, (185, 75, 254, 78, 199, 68, 167, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebUINavigatedDeferral : aliased constant Windows.IID := (3624149069, 33567, 18146, (180, 50, 58, 252, 226, 17, 249, 98 ));
+   
    type IWebUINavigatedDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -416,10 +419,10 @@ package Windows.UI.WebUI is
       This       : access IWebUINavigatedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebUINavigatedDeferral : aliased constant Windows.IID := (3624149069, 33567, 18146, (180, 50, 58, 252, 226, 17, 249, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebUINavigatedOperation : aliased constant Windows.IID := (2056675080, 33154, 19081, (171, 103, 132, 146, 232, 117, 13, 75 ));
+   
    type IWebUINavigatedOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -428,10 +431,10 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.UI.WebUI.IWebUINavigatedDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebUINavigatedOperation : aliased constant Windows.IID := (2056675080, 33154, 19081, (171, 103, 132, 146, 232, 117, 13, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebUIActivationStatics : aliased constant Windows.IID := (890996413, 17331, 18475, (133, 219, 53, 216, 123, 81, 122, 217 ));
+   
    type IWebUIActivationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function add_Activated
@@ -493,10 +496,10 @@ package Windows.UI.WebUI is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebUIActivationStatics : aliased constant Windows.IID := (890996413, 17331, 18475, (133, 219, 53, 216, 123, 81, 122, 217 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebUIActivationStatics2 : aliased constant Windows.IID := (3370682006, 19832, 19108, (143, 6, 42, 158, 173, 198, 196, 10 ));
+   
    type IWebUIActivationStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function add_LeavingBackground
@@ -535,10 +538,10 @@ package Windows.UI.WebUI is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebUIActivationStatics2 : aliased constant Windows.IID := (3370682006, 19832, 19108, (143, 6, 42, 158, 173, 198, 196, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebUIActivationStatics3 : aliased constant Windows.IID := (2443949702, 6901, 17477, (180, 159, 148, 89, 244, 15, 200, 222 ));
+   
    type IWebUIActivationStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestRestartAsync
@@ -557,10 +560,10 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebUIActivationStatics3 : aliased constant Windows.IID := (2443949702, 6901, 17477, (180, 159, 148, 89, 244, 15, 200, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHtmlPrintDocumentSource : aliased constant Windows.IID := (3467003546, 3589, 18042, (171, 201, 54, 236, 29, 76, 220, 182 ));
+   
    type IHtmlPrintDocumentSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Content
@@ -689,10 +692,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHtmlPrintDocumentSource : aliased constant Windows.IID := (3467003546, 3589, 18042, (171, 201, 54, 236, 29, 76, 220, 182 ));
-   
    ------------------------------------------------------------------------
+   
    type IPrintTaskSettingsActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Configuration
@@ -701,8 +702,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Devices.Printers.Extensions.IPrintTaskConfiguration
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Kind
@@ -725,8 +726,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Activation.ISplashScreen
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IPrint3DWorkflowActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Workflow
@@ -735,8 +736,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Devices.Printers.Extensions.IPrint3DWorkflow
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ILockScreenCallActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CallUI
@@ -745,8 +746,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Calls.ILockScreenCallUI
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ILaunchActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Arguments
@@ -762,8 +763,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IApplicationViewActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CurrentlyShownApplicationViewId
@@ -772,8 +773,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ICameraSettingsActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_VideoDeviceController
@@ -789,8 +790,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IContactPickerActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContactPickerUI
@@ -799,8 +800,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Contacts.Provider.IContactPickerUI
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IContactCallActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ServiceId
@@ -823,8 +824,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IContactActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Verb
@@ -833,8 +834,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IContactMessageActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ServiceId
@@ -857,8 +858,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IContactMapActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Address
@@ -874,8 +875,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IContactPostActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ServiceId
@@ -898,8 +899,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IContactVideoCallActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ServiceId
@@ -922,8 +923,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ISearchActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_QueryText
@@ -939,8 +940,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ISearchActivatedEventArgsWithLinguisticDetails_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LinguisticDetails
@@ -949,8 +950,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IWalletActionActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ItemId
@@ -973,8 +974,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IAppointmentsProviderAddAppointmentActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AddAppointmentOperation
@@ -983,8 +984,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentsProvider.IAddAppointmentOperation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IAppointmentsProviderActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Verb
@@ -993,8 +994,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IActivatedEventArgsWithUser_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_User
@@ -1003,8 +1004,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ReplaceAppointmentOperation
@@ -1013,8 +1014,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentsProvider.IReplaceAppointmentOperation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoveAppointmentOperation
@@ -1023,8 +1024,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentsProvider.IRemoveAppointmentOperation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InstanceStartDate
@@ -1047,8 +1048,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TimeToShow
@@ -1064,8 +1065,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IContactPanelActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContactPanel
@@ -1081,8 +1082,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IUserDataAccountProviderActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Operation
@@ -1091,8 +1092,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IDevicePairingActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceInformation
@@ -1101,8 +1102,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IVoiceCommandActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Result
@@ -1111,8 +1112,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionResult
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IPrelaunchActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrelaunchActivated
@@ -1121,8 +1122,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IShareTargetActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ShareOperation
@@ -1131,8 +1132,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IFileActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Files
@@ -1148,8 +1149,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IFileActivatedEventArgsWithNeighboringFiles_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NeighboringFilesQuery
@@ -1158,8 +1159,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Storage.Search.IStorageFileQueryResult
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IProtocolActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Uri
@@ -1168,8 +1169,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CallerPackageFamilyName
@@ -1185,8 +1186,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IProtocolForResultsActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProtocolForResultsOperation
@@ -1195,8 +1196,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.System.IProtocolForResultsOperation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IFileOpenPickerActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FileOpenPickerUI
@@ -1205,8 +1206,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Storage.Pickers.Provider.IFileOpenPickerUI
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IFileOpenPickerActivatedEventArgs2_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CallerPackageFamilyName
@@ -1215,8 +1216,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IFileSavePickerActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FileSavePickerUI
@@ -1225,8 +1226,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Storage.Pickers.Provider.IFileSavePickerUI
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IFileSavePickerActivatedEventArgs2_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CallerPackageFamilyName
@@ -1242,8 +1243,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ICachedFileUpdaterActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CachedFileUpdaterUI
@@ -1252,8 +1253,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Storage.Provider.ICachedFileUpdaterUI
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IDeviceActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceInformationId
@@ -1269,8 +1270,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ILockScreenActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Info
@@ -1279,8 +1280,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IRestrictedLaunchActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SharedContext
@@ -1289,8 +1290,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IFileOpenPickerContinuationEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Files
@@ -1299,8 +1300,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Storage.IVectorView_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IContinuationActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContinuationData
@@ -1309,8 +1310,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IFileSavePickerContinuationEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_File
@@ -1319,8 +1320,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IFolderPickerContinuationEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Folder
@@ -1329,8 +1330,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IWebAuthenticationBrokerContinuationEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_WebAuthenticationResult
@@ -1339,8 +1340,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Security.Authentication.Web.IWebAuthenticationResult
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IWebAccountProviderActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Operation
@@ -1349,8 +1350,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IDialReceiverActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppName
@@ -1359,8 +1360,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IToastNotificationActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Argument
@@ -1376,8 +1377,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ICommandLineActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Operation
@@ -1386,8 +1387,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Activation.ICommandLineActivationOperation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IStartupTaskActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TaskId
@@ -1396,8 +1397,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ISuspendingDeferral_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -1405,8 +1406,8 @@ package Windows.UI.WebUI is
       This       : access ISuspendingDeferral_Imported_Interface
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ISuspendingOperation_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -1422,8 +1423,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ISuspendingEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SuspendingOperation
@@ -1432,8 +1433,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.ISuspendingOperation
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ILeavingBackgroundEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -1442,8 +1443,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IEnteredBackgroundEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -1452,8 +1453,8 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IBackgroundTaskInstance_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InstanceId
@@ -1519,18 +1520,18 @@ package Windows.UI.WebUI is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskDeferral
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
-   type IPrintDocumentSource_Imported_Interface is interface and Windows.IInspectable_Interface;
    
+   type IPrintDocumentSource_Imported_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type ActivatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; eventArgs : Windows.ApplicationModel.Activation.IActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ActivatedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_ActivatedEventHandler : aliased constant Windows.IID := (1358030640, 50641, 19307, (154, 219, 138, 17, 117, 107, 226, 156 ));
+   
+   type ActivatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; eventArgs : Windows.ApplicationModel.Activation.IActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_ActivatedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -1540,12 +1541,11 @@ package Windows.UI.WebUI is
    )
    return Windows.HRESULT;
    
-   IID_ActivatedEventHandler : aliased constant Windows.IID := (1358030640, 50641, 19307, (154, 219, 138, 17, 117, 107, 226, 156 ));
-   
    ------------------------------------------------------------------------
-   type ResumingEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ResumingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_ResumingEventHandler : aliased constant Windows.IID := (643406761, 41517, 18438, (167, 40, 172, 173, 193, 208, 117, 250 ));
+   
+   type ResumingEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_ResumingEventHandler'access) with null record;
    
    function Invoke
    (
@@ -1554,12 +1554,11 @@ package Windows.UI.WebUI is
    )
    return Windows.HRESULT;
    
-   IID_ResumingEventHandler : aliased constant Windows.IID := (643406761, 41517, 18438, (167, 40, 172, 173, 193, 208, 117, 250 ));
-   
    ------------------------------------------------------------------------
-   type SuspendingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.ISuspendingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SuspendingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_SuspendingEventHandler : aliased constant Windows.IID := (1352417948, 30946, 18563, (171, 200, 137, 96, 220, 222, 27, 92 ));
+   
+   type SuspendingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.ISuspendingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_SuspendingEventHandler'access) with null record;
    
    function Invoke
    (
@@ -1569,12 +1568,11 @@ package Windows.UI.WebUI is
    )
    return Windows.HRESULT;
    
-   IID_SuspendingEventHandler : aliased constant Windows.IID := (1352417948, 30946, 18563, (171, 200, 137, 96, 220, 222, 27, 92 ));
-   
    ------------------------------------------------------------------------
-   type LeavingBackgroundEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.ILeavingBackgroundEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access LeavingBackgroundEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_LeavingBackgroundEventHandler : aliased constant Windows.IID := (11848921, 31388, 19307, (154, 196, 19, 71, 79, 38, 139, 196 ));
+   
+   type LeavingBackgroundEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.ILeavingBackgroundEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_LeavingBackgroundEventHandler'access) with null record;
    
    function Invoke
    (
@@ -1584,12 +1582,11 @@ package Windows.UI.WebUI is
    )
    return Windows.HRESULT;
    
-   IID_LeavingBackgroundEventHandler : aliased constant Windows.IID := (11848921, 31388, 19307, (154, 196, 19, 71, 79, 38, 139, 196 ));
-   
    ------------------------------------------------------------------------
-   type EnteredBackgroundEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.IEnteredBackgroundEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EnteredBackgroundEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_EnteredBackgroundEventHandler : aliased constant Windows.IID := (722051443, 46734, 19951, (136, 193, 141, 232, 78, 90, 171, 47 ));
+   
+   type EnteredBackgroundEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.IEnteredBackgroundEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EnteredBackgroundEventHandler'access) with null record;
    
    function Invoke
    (
@@ -1599,12 +1596,11 @@ package Windows.UI.WebUI is
    )
    return Windows.HRESULT;
    
-   IID_EnteredBackgroundEventHandler : aliased constant Windows.IID := (722051443, 46734, 19951, (136, 193, 141, 232, 78, 90, 171, 47 ));
-   
    ------------------------------------------------------------------------
-   type NavigatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.WebUI.IWebUINavigatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigatedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_NavigatedEventHandler : aliased constant Windows.IID := (2062839782, 16586, 20041, (167, 214, 219, 219, 51, 12, 209, 163 ));
+   
+   type NavigatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.WebUI.IWebUINavigatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_NavigatedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -1613,8 +1609,6 @@ package Windows.UI.WebUI is
       ; e : Windows.UI.WebUI.IWebUINavigatedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_NavigatedEventHandler : aliased constant Windows.IID := (2062839782, 16586, 20041, (167, 214, 219, 219, 51, 12, 209, 163 ));
    
    ------------------------------------------------------------------------
    -- Classes

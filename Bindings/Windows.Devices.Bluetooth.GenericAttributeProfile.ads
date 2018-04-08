@@ -601,6 +601,9 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IGattProtocolErrorStatics : aliased constant Windows.IID := (3393635781, 3788, 18441, (190, 163, 207, 121, 188, 153, 30, 55 ));
+   
    type IGattProtocolErrorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InvalidHandle
@@ -721,10 +724,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattProtocolErrorStatics : aliased constant Windows.IID := (3393635781, 3788, 18441, (190, 163, 207, 121, 188, 153, 30, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattSessionStatics : aliased constant Windows.IID := (778418524, 21407, 19895, (130, 168, 115, 189, 187, 247, 62, 191 ));
+   
    type IGattSessionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromDeviceIdAsync
@@ -734,10 +737,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattSessionStatics : aliased constant Windows.IID := (778418524, 21407, 19895, (130, 168, 115, 189, 187, 247, 62, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattSession : aliased constant Windows.IID := (3527102787, 57422, 19492, (153, 156, 156, 37, 111, 152, 86, 177 ));
+   
    type IGattSession_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -811,10 +814,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattSession : aliased constant Windows.IID := (3527102787, 57422, 19492, (153, 156, 156, 37, 111, 152, 86, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattSessionStatusChangedEventArgs : aliased constant Windows.IID := (1980086062, 33663, 16460, (171, 52, 49, 99, 243, 157, 223, 50 ));
+   
    type IGattSessionStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Error
@@ -830,10 +833,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattSessionStatusChangedEventArgs : aliased constant Windows.IID := (1980086062, 33663, 16460, (171, 52, 49, 99, 243, 157, 223, 50 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDeviceServiceStatics : aliased constant Windows.IID := (426573858, 64173, 17884, (174, 91, 42, 195, 24, 78, 132, 219 ));
+   
    type IGattDeviceServiceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdAsync
@@ -867,10 +870,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDeviceServiceStatics : aliased constant Windows.IID := (426573858, 64173, 17884, (174, 91, 42, 195, 24, 78, 132, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDeviceServiceStatics2 : aliased constant Windows.IID := (100931694, 9382, 19213, (162, 242, 48, 204, 1, 84, 93, 37 ));
+   
    type IGattDeviceServiceStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdWithSharingModeAsync
@@ -917,10 +920,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDeviceServiceStatics2 : aliased constant Windows.IID := (100931694, 9382, 19213, (162, 242, 48, 204, 1, 84, 93, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDeviceService : aliased constant Windows.IID := (2893773829, 45884, 18383, (153, 15, 107, 143, 85, 119, 223, 113 ));
+   
    type IGattDeviceService_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCharacteristics
@@ -959,10 +962,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDeviceService : aliased constant Windows.IID := (2893773829, 45884, 18383, (153, 15, 107, 143, 85, 119, 223, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDeviceService2 : aliased constant Windows.IID := (4233384459, 2829, 18184, (186, 224, 159, 253, 148, 137, 188, 89 ));
+   
    type IGattDeviceService2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Device
@@ -992,10 +995,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IVectorView_IGattDeviceService -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDeviceService2 : aliased constant Windows.IID := (4233384459, 2829, 18184, (186, 224, 159, 253, 148, 137, 188, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDeviceService3 : aliased constant Windows.IID := (2996021584, 3155, 17276, (169, 179, 92, 50, 16, 198, 229, 105 ));
+   
    type IGattDeviceService3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceAccessInformation
@@ -1097,10 +1100,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceServicesResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDeviceService3 : aliased constant Windows.IID := (2996021584, 3155, 17276, (169, 179, 92, 50, 16, 198, 229, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDeviceServicesResult : aliased constant Windows.IID := (387830766, 365, 16797, (131, 138, 87, 108, 244, 117, 163, 216 ));
+   
    type IGattDeviceServicesResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -1123,10 +1126,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IVectorView_IGattDeviceService -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDeviceServicesResult : aliased constant Windows.IID := (387830766, 365, 16797, (131, 138, 87, 108, 244, 117, 163, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattCharacteristicStatics : aliased constant Windows.IID := (1506496707, 22836, 20328, (161, 152, 235, 134, 79, 164, 78, 107 ));
+   
    type IGattCharacteristicStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ConvertShortIdToUuid
@@ -1136,10 +1139,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattCharacteristicStatics : aliased constant Windows.IID := (1506496707, 22836, 20328, (161, 152, 235, 134, 79, 164, 78, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattCharacteristic : aliased constant Windows.IID := (1506496705, 22836, 20328, (161, 152, 235, 134, 79, 164, 78, 107 ));
+   
    type IGattCharacteristic_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDescriptors
@@ -1260,10 +1263,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; valueChangedEventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattCharacteristic : aliased constant Windows.IID := (1506496705, 22836, 20328, (161, 152, 235, 134, 79, 164, 78, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattCharacteristic2 : aliased constant Windows.IID := (2920985976, 60422, 18276, (183, 128, 152, 53, 161, 211, 93, 110 ));
+   
    type IGattCharacteristic2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Service
@@ -1279,10 +1282,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IVectorView_IGattDescriptor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattCharacteristic2 : aliased constant Windows.IID := (2920985976, 60422, 18276, (183, 128, 152, 53, 161, 211, 93, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattCharacteristic3 : aliased constant Windows.IID := (1060922942, 37844, 16491, (184, 23, 219, 129, 248, 237, 83, 179 ));
+   
    type IGattCharacteristic3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDescriptorsAsync
@@ -1341,10 +1344,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattCharacteristic3 : aliased constant Windows.IID := (1060922942, 37844, 16491, (184, 23, 219, 129, 248, 237, 83, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattCharacteristicsResult : aliased constant Windows.IID := (294949980, 45655, 20286, (157, 183, 246, 139, 201, 169, 174, 242 ));
+   
    type IGattCharacteristicsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -1367,10 +1370,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IVectorView_IGattCharacteristic -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattCharacteristicsResult : aliased constant Windows.IID := (294949980, 45655, 20286, (157, 183, 246, 139, 201, 169, 174, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDescriptorStatics : aliased constant Windows.IID := (2449825581, 32900, 17220, (180, 194, 40, 77, 225, 154, 133, 6 ));
+   
    type IGattDescriptorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ConvertShortIdToUuid
@@ -1380,10 +1383,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDescriptorStatics : aliased constant Windows.IID := (2449825581, 32900, 17220, (180, 194, 40, 77, 225, 154, 133, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDescriptor : aliased constant Windows.IID := (2449825579, 32900, 17220, (180, 194, 40, 77, 225, 154, 133, 6 ));
+   
    type IGattDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProtectionLevel
@@ -1436,10 +1439,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattCommunicationStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDescriptor : aliased constant Windows.IID := (2449825579, 32900, 17220, (180, 194, 40, 77, 225, 154, 133, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDescriptor2 : aliased constant Windows.IID := (2404793657, 54832, 16492, (186, 17, 16, 205, 209, 107, 14, 94 ));
+   
    type IGattDescriptor2_Interface is interface and Windows.IInspectable_Interface;
    
    function WriteValueWithResultAsync
@@ -1449,10 +1452,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDescriptor2 : aliased constant Windows.IID := (2404793657, 54832, 16492, (186, 17, 16, 205, 209, 107, 14, 94 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDescriptorsResult : aliased constant Windows.IID := (2613088755, 38375, 17545, (141, 37, 255, 129, 149, 90, 87, 185 ));
+   
    type IGattDescriptorsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -1475,10 +1478,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IVectorView_IGattDescriptor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDescriptorsResult : aliased constant Windows.IID := (2613088755, 38375, 17545, (141, 37, 255, 129, 149, 90, 87, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattPresentationFormatTypesStatics : aliased constant Windows.IID := (4210145802, 12474, 16540, (190, 247, 207, 251, 109, 3, 184, 251 ));
+   
    type IGattPresentationFormatTypesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Boolean
@@ -1669,10 +1672,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattPresentationFormatTypesStatics : aliased constant Windows.IID := (4210145802, 12474, 16540, (190, 247, 207, 251, 109, 3, 184, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattPresentationFormatStatics : aliased constant Windows.IID := (426573856, 64173, 17884, (174, 91, 42, 195, 24, 78, 132, 219 ));
+   
    type IGattPresentationFormatStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BluetoothSigAssignedNumbers
@@ -1681,10 +1684,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattPresentationFormatStatics : aliased constant Windows.IID := (426573856, 64173, 17884, (174, 91, 42, 195, 24, 78, 132, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattPresentationFormatStatics2 : aliased constant Windows.IID := (2848069395, 47151, 17246, (182, 52, 33, 253, 133, 164, 60, 7 ));
+   
    type IGattPresentationFormatStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function FromParts
@@ -1698,10 +1701,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattPresentationFormatStatics2 : aliased constant Windows.IID := (2848069395, 47151, 17246, (182, 52, 33, 253, 133, 164, 60, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattPresentationFormat : aliased constant Windows.IID := (426573857, 64173, 17884, (174, 91, 42, 195, 24, 78, 132, 219 ));
+   
    type IGattPresentationFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FormatType
@@ -1738,10 +1741,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattPresentationFormat : aliased constant Windows.IID := (426573857, 64173, 17884, (174, 91, 42, 195, 24, 78, 132, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattValueChangedEventArgs : aliased constant Windows.IID := (3525040980, 1763, 20184, (162, 99, 172, 250, 200, 186, 115, 19 ));
+   
    type IGattValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CharacteristicValue
@@ -1757,10 +1760,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattValueChangedEventArgs : aliased constant Windows.IID := (3525040980, 1763, 20184, (162, 99, 172, 250, 200, 186, 115, 19 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattServiceUuidsStatics : aliased constant Windows.IID := (1841655896, 39610, 17431, (184, 242, 220, 224, 22, 211, 78, 226 ));
+   
    type IGattServiceUuidsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Battery
@@ -1825,10 +1828,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattServiceUuidsStatics : aliased constant Windows.IID := (1841655896, 39610, 17431, (184, 242, 220, 224, 22, 211, 78, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattServiceUuidsStatics2 : aliased constant Windows.IID := (3534656757, 15637, 20345, (156, 12, 234, 175, 166, 117, 21, 92 ));
+   
    type IGattServiceUuidsStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlertNotification
@@ -1921,10 +1924,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattServiceUuidsStatics2 : aliased constant Windows.IID := (3534656757, 15637, 20345, (156, 12, 234, 175, 166, 117, 21, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattCharacteristicUuidsStatics : aliased constant Windows.IID := (1492796806, 45534, 18188, (183, 222, 13, 17, 255, 68, 244, 183 ));
+   
    type IGattCharacteristicUuidsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BatteryLevel
@@ -2073,10 +2076,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattCharacteristicUuidsStatics : aliased constant Windows.IID := (1492796806, 45534, 18188, (183, 222, 13, 17, 255, 68, 244, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattCharacteristicUuidsStatics2 : aliased constant Windows.IID := (408269861, 54382, 18988, (156, 63, 237, 109, 234, 41, 231, 190 ));
+   
    type IGattCharacteristicUuidsStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlertCategoryId
@@ -2498,10 +2501,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattCharacteristicUuidsStatics2 : aliased constant Windows.IID := (408269861, 54382, 18988, (156, 63, 237, 109, 234, 41, 231, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattDescriptorUuidsStatics : aliased constant Windows.IID := (2801296078, 40188, 17137, (145, 133, 255, 55, 183, 81, 129, 211 ));
+   
    type IGattDescriptorUuidsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CharacteristicAggregateFormat
@@ -2545,10 +2548,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattDescriptorUuidsStatics : aliased constant Windows.IID := (2801296078, 40188, 17137, (145, 133, 255, 55, 183, 81, 129, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattReliableWriteTransaction : aliased constant Windows.IID := (1671851783, 6890, 19532, (165, 15, 151, 186, 228, 116, 179, 72 ));
+   
    type IGattReliableWriteTransaction_Interface is interface and Windows.IInspectable_Interface;
    
    function WriteValue
@@ -2565,10 +2568,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattCommunicationStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattReliableWriteTransaction : aliased constant Windows.IID := (1671851783, 6890, 19532, (165, 15, 151, 186, 228, 116, 179, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattReliableWriteTransaction2 : aliased constant Windows.IID := (1360083335, 61202, 17967, (159, 178, 161, 164, 58, 103, 148, 22 ));
+   
    type IGattReliableWriteTransaction2_Interface is interface and Windows.IInspectable_Interface;
    
    function CommitWithResultAsync
@@ -2577,10 +2580,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattReliableWriteTransaction2 : aliased constant Windows.IID := (1360083335, 61202, 17967, (159, 178, 161, 164, 58, 103, 148, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattReadResult : aliased constant Windows.IID := (1671851784, 6890, 19532, (165, 15, 151, 186, 228, 116, 179, 72 ));
+   
    type IGattReadResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -2596,10 +2599,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattReadResult : aliased constant Windows.IID := (1671851784, 6890, 19532, (165, 15, 151, 186, 228, 116, 179, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattReadResult2 : aliased constant Windows.IID := (2702135456, 64323, 18607, (186, 170, 99, 138, 92, 99, 41, 254 ));
+   
    type IGattReadResult2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProtocolError
@@ -2608,10 +2611,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Foundation.IReference_UInt8 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattReadResult2 : aliased constant Windows.IID := (2702135456, 64323, 18607, (186, 170, 99, 138, 92, 99, 41, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattWriteResult : aliased constant Windows.IID := (1234296241, 52011, 17655, (153, 252, 210, 154, 40, 113, 220, 155 ));
+   
    type IGattWriteResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -2627,10 +2630,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Foundation.IReference_UInt8 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattWriteResult : aliased constant Windows.IID := (1234296241, 52011, 17655, (153, 252, 210, 154, 40, 113, 220, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattReadClientCharacteristicConfigurationDescriptorResult : aliased constant Windows.IID := (1671851785, 6890, 19532, (165, 15, 151, 186, 228, 116, 179, 72 ));
+   
    type IGattReadClientCharacteristicConfigurationDescriptorResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -2646,10 +2649,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattReadClientCharacteristicConfigurationDescriptorResult : aliased constant Windows.IID := (1671851785, 6890, 19532, (165, 15, 151, 186, 228, 116, 179, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattReadClientCharacteristicConfigurationDescriptorResult2 : aliased constant Windows.IID := (468821405, 47693, 17954, (134, 81, 244, 238, 21, 13, 10, 93 ));
+   
    type IGattReadClientCharacteristicConfigurationDescriptorResult2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProtocolError
@@ -2658,10 +2661,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Foundation.IReference_UInt8 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattReadClientCharacteristicConfigurationDescriptorResult2 : aliased constant Windows.IID := (468821405, 47693, 17954, (134, 81, 244, 238, 21, 13, 10, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattServiceProviderAdvertisingParameters : aliased constant Windows.IID := (3805163947, 25365, 19490, (155, 215, 120, 29, 188, 61, 141, 130 ));
+   
    type IGattServiceProviderAdvertisingParameters_Interface is interface and Windows.IInspectable_Interface;
    
    function put_IsConnectable
@@ -2691,10 +2694,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattServiceProviderAdvertisingParameters : aliased constant Windows.IID := (3805163947, 25365, 19490, (155, 215, 120, 29, 188, 61, 141, 130 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattLocalCharacteristicParameters : aliased constant Windows.IID := (4210507188, 19711, 17607, (132, 69, 4, 14, 110, 173, 0, 99 ));
+   
    type IGattLocalCharacteristicParameters_Interface is interface and Windows.IInspectable_Interface;
    
    function put_StaticValue
@@ -2773,10 +2776,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IVector_IGattPresentationFormat -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattLocalCharacteristicParameters : aliased constant Windows.IID := (4210507188, 19711, 17607, (132, 69, 4, 14, 110, 173, 0, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattLocalDescriptorParameters : aliased constant Windows.IID := (1608441450, 62401, 19302, (140, 75, 227, 210, 41, 59, 64, 233 ));
+   
    type IGattLocalDescriptorParameters_Interface is interface and Windows.IInspectable_Interface;
    
    function put_StaticValue
@@ -2820,10 +2823,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattLocalDescriptorParameters : aliased constant Windows.IID := (1608441450, 62401, 19302, (140, 75, 227, 210, 41, 59, 64, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattServiceProviderStatics : aliased constant Windows.IID := (830029923, 21078, 16468, (164, 244, 123, 190, 119, 85, 165, 126 ));
+   
    type IGattServiceProviderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAsync
@@ -2833,10 +2836,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattServiceProviderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattServiceProviderStatics : aliased constant Windows.IID := (830029923, 21078, 16468, (164, 244, 123, 190, 119, 85, 165, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattServiceProvider : aliased constant Windows.IID := (2015540173, 10377, 20358, (160, 81, 63, 10, 237, 28, 39, 96 ));
+   
    type IGattServiceProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Service
@@ -2886,10 +2889,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       This       : access IGattServiceProvider_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattServiceProvider : aliased constant Windows.IID := (2015540173, 10377, 20358, (160, 81, 63, 10, 237, 28, 39, 96 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattServiceProviderAdvertisementStatusChangedEventArgs : aliased constant Windows.IID := (1504029285, 64033, 20476, (177, 85, 4, 217, 40, 1, 38, 134 ));
+   
    type IGattServiceProviderAdvertisementStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Error
@@ -2905,10 +2908,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattServiceProviderAdvertisementStatusChangedEventArgs : aliased constant Windows.IID := (1504029285, 64033, 20476, (177, 85, 4, 217, 40, 1, 38, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattServiceProviderResult : aliased constant Windows.IID := (1984337624, 50494, 17036, (138, 72, 103, 175, 224, 44, 58, 230 ));
+   
    type IGattServiceProviderResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Error
@@ -2924,10 +2927,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattServiceProviderResult : aliased constant Windows.IID := (1984337624, 50494, 17036, (138, 72, 103, 175, 224, 44, 58, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattLocalService : aliased constant Windows.IID := (4111721048, 63479, 18690, (184, 3, 87, 252, 199, 214, 254, 131 ));
+   
    type IGattLocalService_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Uuid
@@ -2952,10 +2955,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IVectorView_IGattLocalCharacteristic -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattLocalService : aliased constant Windows.IID := (4111721048, 63479, 18690, (184, 3, 87, 252, 199, 214, 254, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattLocalCharacteristic : aliased constant Windows.IID := (2933798765, 21522, 19828, (146, 168, 141, 235, 133, 38, 130, 156 ));
+   
    type IGattLocalCharacteristic_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Uuid
@@ -3091,10 +3094,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattClientNotificationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattLocalCharacteristic : aliased constant Windows.IID := (2933798765, 21522, 19828, (146, 168, 141, 235, 133, 38, 130, 156 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattLocalCharacteristicResult : aliased constant Windows.IID := (2037767835, 368, 17303, (150, 102, 146, 248, 99, 241, 46, 230 ));
+   
    type IGattLocalCharacteristicResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Characteristic
@@ -3110,10 +3113,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.BluetoothError
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattLocalCharacteristicResult : aliased constant Windows.IID := (2037767835, 368, 17303, (150, 102, 146, 248, 99, 241, 46, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattSubscribedClient : aliased constant Windows.IID := (1936625665, 5540, 20162, (146, 72, 227, 242, 13, 70, 59, 233 ));
+   
    type IGattSubscribedClient_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Session
@@ -3144,10 +3147,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattSubscribedClient : aliased constant Windows.IID := (1936625665, 5540, 20162, (146, 72, 227, 242, 13, 70, 59, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattClientNotificationResult : aliased constant Windows.IID := (1349342617, 274, 16794, (142, 59, 174, 33, 175, 171, 210, 194 ));
+   
    type IGattClientNotificationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SubscribedClient
@@ -3170,10 +3173,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Foundation.IReference_UInt8 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattClientNotificationResult : aliased constant Windows.IID := (1349342617, 274, 16794, (142, 59, 174, 33, 175, 171, 210, 194 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattClientNotificationResult2 : aliased constant Windows.IID := (2410595479, 17888, 18814, (149, 130, 41, 161, 254, 40, 26, 213 ));
+   
    type IGattClientNotificationResult2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BytesSent
@@ -3182,10 +3185,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattClientNotificationResult2 : aliased constant Windows.IID := (2410595479, 17888, 18814, (149, 130, 41, 161, 254, 40, 26, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattLocalDescriptor : aliased constant Windows.IID := (4102995462, 30877, 19019, (134, 82, 189, 1, 123, 93, 47, 198 ));
+   
    type IGattLocalDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Uuid
@@ -3245,10 +3248,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattLocalDescriptor : aliased constant Windows.IID := (4102995462, 30877, 19019, (134, 82, 189, 1, 123, 93, 47, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattLocalDescriptorResult : aliased constant Windows.IID := (928485822, 12831, 17254, (191, 193, 59, 198, 184, 44, 121, 248 ));
+   
    type IGattLocalDescriptorResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Descriptor
@@ -3264,10 +3267,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.BluetoothError
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattLocalDescriptorResult : aliased constant Windows.IID := (928485822, 12831, 17254, (191, 193, 59, 198, 184, 44, 121, 248 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattReadRequest : aliased constant Windows.IID := (4057818421, 27341, 17062, (164, 187, 215, 137, 218, 224, 4, 62 ));
+   
    type IGattReadRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Offset
@@ -3319,10 +3322,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; protocolError : Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattReadRequest : aliased constant Windows.IID := (4057818421, 27341, 17062, (164, 187, 215, 137, 218, 224, 4, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattWriteRequest : aliased constant Windows.IID := (2931206637, 56879, 20418, (169, 168, 148, 234, 120, 68, 241, 61 ));
+   
    type IGattWriteRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -3380,10 +3383,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; protocolError : Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattWriteRequest : aliased constant Windows.IID := (2931206637, 56879, 20418, (169, 168, 148, 234, 120, 68, 241, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattReadRequestedEventArgs : aliased constant Windows.IID := (2471064131, 62364, 18507, (138, 182, 153, 107, 164, 134, 207, 163 ));
+   
    type IGattReadRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Session
@@ -3406,10 +3409,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadRequest -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattReadRequestedEventArgs : aliased constant Windows.IID := (2471064131, 62364, 18507, (138, 182, 153, 107, 164, 134, 207, 163 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattWriteRequestedEventArgs : aliased constant Windows.IID := (770476990, 42810, 18202, (148, 213, 3, 125, 234, 221, 8, 6 ));
+   
    type IGattWriteRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Session
@@ -3432,10 +3435,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteRequest -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattWriteRequestedEventArgs : aliased constant Windows.IID := (770476990, 42810, 18202, (148, 213, 3, 125, 234, 221, 8, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGattRequestStateChangedEventArgs : aliased constant Windows.IID := (3895777580, 10174, 17587, (157, 13, 79, 198, 232, 8, 221, 63 ));
+   
    type IGattRequestStateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_State
@@ -3451,10 +3454,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.BluetoothError
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGattRequestStateChangedEventArgs : aliased constant Windows.IID := (3895777580, 10174, 17587, (157, 13, 79, 198, 232, 8, 221, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGattDeviceService : aliased constant Windows.IID := (2347448870, 29642, 20723, (161, 211, 65, 140, 96, 169, 243, 178 ));
+   
    type IIterator_IGattDeviceService_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3485,10 +3488,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGattDeviceService : aliased constant Windows.IID := (2347448870, 29642, 20723, (161, 211, 65, 140, 96, 169, 243, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGattDeviceService : aliased constant Windows.IID := (1259941411, 18579, 22194, (142, 255, 67, 156, 58, 183, 253, 31 ));
+   
    type IIterable_IGattDeviceService_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3497,10 +3500,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IIterator_IGattDeviceService
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGattDeviceService : aliased constant Windows.IID := (1259941411, 18579, 22194, (142, 255, 67, 156, 58, 183, 253, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGattDeviceService : aliased constant Windows.IID := (2089713629, 41377, 21130, (129, 209, 41, 103, 105, 34, 122, 8 ));
+   
    type IVectorView_IGattDeviceService_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3535,10 +3538,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGattDeviceService : aliased constant Windows.IID := (2089713629, 41377, 21130, (129, 209, 41, 103, 105, 34, 122, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattDeviceServicesResult : aliased constant Windows.IID := (3888539638, 59508, 20495, (134, 255, 118, 12, 166, 240, 122, 88 ));
+   
    type IAsyncOperation_IGattDeviceServicesResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3561,10 +3564,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceServicesResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattDeviceServicesResult : aliased constant Windows.IID := (3888539638, 59508, 20495, (134, 255, 118, 12, 166, 240, 122, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattSession : aliased constant Windows.IID := (1832957031, 18105, 20847, (130, 8, 219, 35, 183, 134, 234, 72 ));
+   
    type IAsyncOperation_IGattSession_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3587,10 +3590,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattSession : aliased constant Windows.IID := (1832957031, 18105, 20847, (130, 8, 219, 35, 183, 134, 234, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattDeviceService : aliased constant Windows.IID := (3857252978, 16527, 20565, (155, 211, 136, 64, 137, 130, 211, 1 ));
+   
    type IAsyncOperation_IGattDeviceService_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3613,10 +3616,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceService
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattDeviceService : aliased constant Windows.IID := (3857252978, 16527, 20565, (155, 211, 136, 64, 137, 130, 211, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGattCharacteristic : aliased constant Windows.IID := (536627063, 17222, 21860, (183, 165, 89, 234, 227, 133, 244, 246 ));
+   
    type IIterator_IGattCharacteristic_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3647,10 +3650,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGattCharacteristic : aliased constant Windows.IID := (536627063, 17222, 21860, (183, 165, 89, 234, 227, 133, 244, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGattCharacteristic : aliased constant Windows.IID := (3821365032, 32557, 23053, (173, 56, 3, 13, 57, 198, 15, 159 ));
+   
    type IIterable_IGattCharacteristic_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3659,10 +3662,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IIterator_IGattCharacteristic
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGattCharacteristic : aliased constant Windows.IID := (3821365032, 32557, 23053, (173, 56, 3, 13, 57, 198, 15, 159 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGattCharacteristic : aliased constant Windows.IID := (3409621934, 46433, 20559, (168, 8, 89, 157, 236, 235, 45, 244 ));
+   
    type IVectorView_IGattCharacteristic_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3697,10 +3700,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGattCharacteristic : aliased constant Windows.IID := (3409621934, 46433, 20559, (168, 8, 89, 157, 236, 235, 45, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_GattOpenStatus : aliased constant Windows.IID := (2553414060, 34679, 21480, (134, 224, 99, 250, 104, 75, 225, 189 ));
+   
    type IAsyncOperation_GattOpenStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3723,10 +3726,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_GattOpenStatus : aliased constant Windows.IID := (2553414060, 34679, 21480, (134, 224, 99, 250, 104, 75, 225, 189 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattCharacteristicsResult : aliased constant Windows.IID := (158472522, 44060, 21814, (152, 134, 39, 229, 138, 24, 242, 115 ));
+   
    type IAsyncOperation_IGattCharacteristicsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3749,10 +3752,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicsResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattCharacteristicsResult : aliased constant Windows.IID := (158472522, 44060, 21814, (152, 134, 39, 229, 138, 24, 242, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGattDescriptor : aliased constant Windows.IID := (1032713270, 52987, 24571, (133, 140, 72, 130, 206, 29, 160, 121 ));
+   
    type IIterator_IGattDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3783,10 +3786,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGattDescriptor : aliased constant Windows.IID := (1032713270, 52987, 24571, (133, 140, 72, 130, 206, 29, 160, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGattDescriptor : aliased constant Windows.IID := (820182980, 15011, 21017, (154, 24, 202, 45, 11, 101, 98, 232 ));
+   
    type IIterable_IGattDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3795,10 +3798,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IIterator_IGattDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGattDescriptor : aliased constant Windows.IID := (820182980, 15011, 21017, (154, 24, 202, 45, 11, 101, 98, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGattDescriptor : aliased constant Windows.IID := (425746088, 29654, 22368, (132, 155, 254, 95, 138, 43, 208, 92 ));
+   
    type IVectorView_IGattDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3833,10 +3836,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGattDescriptor : aliased constant Windows.IID := (425746088, 29654, 22368, (132, 155, 254, 95, 138, 43, 208, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGattPresentationFormat : aliased constant Windows.IID := (536898643, 24026, 21273, (145, 177, 198, 242, 143, 230, 89, 51 ));
+   
    type IIterator_IGattPresentationFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3867,10 +3870,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGattPresentationFormat : aliased constant Windows.IID := (536898643, 24026, 21273, (145, 177, 198, 242, 143, 230, 89, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGattPresentationFormat : aliased constant Windows.IID := (3613380337, 49422, 23419, (177, 48, 245, 160, 3, 20, 211, 93 ));
+   
    type IIterable_IGattPresentationFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3879,10 +3882,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IIterator_IGattPresentationFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGattPresentationFormat : aliased constant Windows.IID := (3613380337, 49422, 23419, (177, 48, 245, 160, 3, 20, 211, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGattPresentationFormat : aliased constant Windows.IID := (245547348, 8888, 23694, (146, 93, 212, 126, 26, 173, 49, 187 ));
+   
    type IVectorView_IGattPresentationFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3917,10 +3920,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGattPresentationFormat : aliased constant Windows.IID := (245547348, 8888, 23694, (146, 93, 212, 126, 26, 173, 49, 187 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattReadResult : aliased constant Windows.IID := (3557044904, 7700, 20944, (180, 155, 174, 44, 225, 170, 5, 229 ));
+   
    type IAsyncOperation_IGattReadResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3943,10 +3946,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattReadResult : aliased constant Windows.IID := (3557044904, 7700, 20944, (180, 155, 174, 44, 225, 170, 5, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_GattCommunicationStatus : aliased constant Windows.IID := (1073124630, 7163, 21225, (158, 230, 229, 205, 183, 142, 22, 131 ));
+   
    type IAsyncOperation_GattCommunicationStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3969,10 +3972,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_GattCommunicationStatus : aliased constant Windows.IID := (1073124630, 7163, 21225, (158, 230, 229, 205, 183, 142, 22, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattReadClientCharacteristicConfigurationDescriptorResult : aliased constant Windows.IID := (3477357772, 16503, 22297, (131, 102, 70, 232, 107, 152, 54, 133 ));
+   
    type IAsyncOperation_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3995,10 +3998,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadClientCharacteristicConfigurationDescriptorResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattReadClientCharacteristicConfigurationDescriptorResult : aliased constant Windows.IID := (3477357772, 16503, 22297, (131, 102, 70, 232, 107, 152, 54, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattDescriptorsResult : aliased constant Windows.IID := (3467591879, 48695, 21157, (154, 27, 99, 57, 133, 19, 229, 151 ));
+   
    type IAsyncOperation_IGattDescriptorsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4021,10 +4024,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptorsResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattDescriptorsResult : aliased constant Windows.IID := (3467591879, 48695, 21157, (154, 27, 99, 57, 133, 19, 229, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattWriteResult : aliased constant Windows.IID := (3896198452, 48404, 23195, (165, 59, 23, 204, 2, 162, 168, 168 ));
+   
    type IAsyncOperation_IGattWriteResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4047,10 +4050,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattWriteResult : aliased constant Windows.IID := (3896198452, 48404, 23195, (165, 59, 23, 204, 2, 162, 168, 168 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IGattPresentationFormat : aliased constant Windows.IID := (3416667631, 7280, 21522, (142, 222, 115, 22, 39, 107, 158, 228 ));
+   
    type IVector_IGattPresentationFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4141,10 +4144,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; items : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormat_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IGattPresentationFormat : aliased constant Windows.IID := (3416667631, 7280, 21522, (142, 222, 115, 22, 39, 107, 158, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattServiceProviderResult : aliased constant Windows.IID := (561516584, 62882, 23961, (165, 171, 188, 230, 85, 79, 188, 2 ));
+   
    type IAsyncOperation_IGattServiceProviderResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4167,10 +4170,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattServiceProviderResult : aliased constant Windows.IID := (561516584, 62882, 23961, (165, 171, 188, 230, 85, 79, 188, 2 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattLocalCharacteristicResult : aliased constant Windows.IID := (529995342, 35029, 22141, (144, 249, 117, 212, 246, 69, 82, 116 ));
+   
    type IAsyncOperation_IGattLocalCharacteristicResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4193,10 +4196,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattLocalCharacteristicResult : aliased constant Windows.IID := (529995342, 35029, 22141, (144, 249, 117, 212, 246, 69, 82, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGattLocalCharacteristic : aliased constant Windows.IID := (3990308981, 36485, 21615, (131, 184, 30, 0, 170, 137, 100, 25 ));
+   
    type IIterator_IGattLocalCharacteristic_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4227,10 +4230,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGattLocalCharacteristic : aliased constant Windows.IID := (3990308981, 36485, 21615, (131, 184, 30, 0, 170, 137, 100, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGattLocalCharacteristic : aliased constant Windows.IID := (1887628627, 14326, 21090, (141, 9, 147, 155, 234, 158, 219, 213 ));
+   
    type IIterable_IGattLocalCharacteristic_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4239,10 +4242,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IIterator_IGattLocalCharacteristic
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGattLocalCharacteristic : aliased constant Windows.IID := (1887628627, 14326, 21090, (141, 9, 147, 155, 234, 158, 219, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGattLocalCharacteristic : aliased constant Windows.IID := (3834011322, 28131, 23193, (154, 117, 126, 253, 142, 60, 176, 150 ));
+   
    type IVectorView_IGattLocalCharacteristic_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4277,10 +4280,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGattLocalCharacteristic : aliased constant Windows.IID := (3834011322, 28131, 23193, (154, 117, 126, 253, 142, 60, 176, 150 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattLocalDescriptorResult : aliased constant Windows.IID := (1056364552, 30031, 20544, (151, 172, 7, 3, 48, 156, 87, 79 ));
+   
    type IAsyncOperation_IGattLocalDescriptorResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4303,10 +4306,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptorResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattLocalDescriptorResult : aliased constant Windows.IID := (1056364552, 30031, 20544, (151, 172, 7, 3, 48, 156, 87, 79 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGattLocalDescriptor : aliased constant Windows.IID := (134361157, 24412, 22988, (171, 211, 187, 207, 230, 250, 112, 48 ));
+   
    type IIterator_IGattLocalDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4337,10 +4340,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGattLocalDescriptor : aliased constant Windows.IID := (134361157, 24412, 22988, (171, 211, 187, 207, 230, 250, 112, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGattLocalDescriptor : aliased constant Windows.IID := (2417420706, 51703, 23817, (176, 174, 85, 47, 166, 119, 150, 174 ));
+   
    type IIterable_IGattLocalDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4349,10 +4352,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IIterator_IGattLocalDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGattLocalDescriptor : aliased constant Windows.IID := (2417420706, 51703, 23817, (176, 174, 85, 47, 166, 119, 150, 174 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGattLocalDescriptor : aliased constant Windows.IID := (2135328972, 3004, 20592, (137, 116, 25, 252, 177, 172, 191, 108 ));
+   
    type IVectorView_IGattLocalDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4387,10 +4390,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGattLocalDescriptor : aliased constant Windows.IID := (2135328972, 3004, 20592, (137, 116, 25, 252, 177, 172, 191, 108 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGattSubscribedClient : aliased constant Windows.IID := (3741552917, 42495, 23898, (176, 123, 32, 180, 46, 7, 135, 101 ));
+   
    type IIterator_IGattSubscribedClient_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4421,10 +4424,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGattSubscribedClient : aliased constant Windows.IID := (3741552917, 42495, 23898, (176, 123, 32, 180, 46, 7, 135, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGattSubscribedClient : aliased constant Windows.IID := (2979554532, 62129, 20702, (140, 17, 255, 249, 236, 169, 52, 233 ));
+   
    type IIterable_IGattSubscribedClient_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4433,10 +4436,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IIterator_IGattSubscribedClient
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGattSubscribedClient : aliased constant Windows.IID := (2979554532, 62129, 20702, (140, 17, 255, 249, 236, 169, 52, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGattSubscribedClient : aliased constant Windows.IID := (1664687481, 19367, 24389, (150, 129, 58, 104, 48, 137, 53, 59 ));
+   
    type IVectorView_IGattSubscribedClient_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4471,10 +4474,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGattSubscribedClient : aliased constant Windows.IID := (1664687481, 19367, 24389, (150, 129, 58, 104, 48, 137, 53, 59 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattClientNotificationResult : aliased constant Windows.IID := (3727148495, 25127, 22569, (185, 151, 136, 229, 117, 173, 6, 128 ));
+   
    type IAsyncOperation_IGattClientNotificationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4497,10 +4500,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattClientNotificationResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattClientNotificationResult : aliased constant Windows.IID := (3727148495, 25127, 22569, (185, 151, 136, 229, 117, 173, 6, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattReadRequest : aliased constant Windows.IID := (1194512066, 55619, 23787, (130, 129, 141, 84, 162, 27, 154, 69 ));
+   
    type IAsyncOperation_IGattReadRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4523,10 +4526,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattReadRequest : aliased constant Windows.IID := (1194512066, 55619, 23787, (130, 129, 141, 84, 162, 27, 154, 69 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IGattWriteRequest : aliased constant Windows.IID := (4220206104, 12128, 23363, (183, 115, 20, 96, 69, 129, 110, 3 ));
+   
    type IAsyncOperation_IGattWriteRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4549,10 +4552,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IGattWriteRequest : aliased constant Windows.IID := (4220206104, 12128, 23363, (183, 115, 20, 96, 69, 129, 110, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGattValueChangedEventArgs : aliased constant Windows.IID := (3441469334, 43554, 21021, (142, 15, 252, 109, 74, 24, 226, 135 ));
+   
    type IIterator_IGattValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4583,10 +4586,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGattValueChangedEventArgs : aliased constant Windows.IID := (3441469334, 43554, 21021, (142, 15, 252, 109, 74, 24, 226, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGattValueChangedEventArgs : aliased constant Windows.IID := (1382704095, 34855, 20921, (158, 44, 157, 101, 2, 26, 121, 215 ));
+   
    type IIterable_IGattValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4595,10 +4598,10 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IIterator_IGattValueChangedEventArgs
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGattValueChangedEventArgs : aliased constant Windows.IID := (1382704095, 34855, 20921, (158, 44, 157, 101, 2, 26, 121, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGattValueChangedEventArgs : aliased constant Windows.IID := (1066854495, 51793, 21251, (189, 27, 172, 236, 119, 115, 186, 246 ));
+   
    type IVectorView_IGattValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4633,17 +4636,15 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGattValueChangedEventArgs : aliased constant Windows.IID := (1066854495, 51793, 21251, (189, 27, 172, 236, 119, 115, 186, 246 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceServicesResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattDeviceServicesResult : aliased constant Windows.IID := (1957365906, 42545, 23916, (177, 180, 189, 46, 26, 116, 26, 155 ));
+   
+   type AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceServicesResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattDeviceServicesResult'access) with null record;
    
    function Invoke
    (
@@ -4653,12 +4654,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattDeviceServicesResult : aliased constant Windows.IID := (1957365906, 42545, 23916, (177, 180, 189, 46, 26, 116, 26, 155 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattSession_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattSession : aliased constant Windows.IID := (3403684392, 64819, 21550, (165, 173, 61, 135, 143, 115, 219, 144 ));
+   
+   type AsyncOperationCompletedHandler_IGattSession_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattSession'access) with null record;
    
    function Invoke
    (
@@ -4668,12 +4668,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattSession : aliased constant Windows.IID := (3403684392, 64819, 21550, (165, 173, 61, 135, 143, 115, 219, 144 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattSession_add_MaxPduSizeChanged : aliased constant Windows.IID := (1820246764, 40704, 24224, (154, 8, 96, 229, 7, 11, 207, 3 ));
+   
+   type TypedEventHandler_IGattSession_add_MaxPduSizeChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattSession_add_MaxPduSizeChanged'access) with null record;
    
    function Invoke
    (
@@ -4683,12 +4682,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattSession_add_MaxPduSizeChanged : aliased constant Windows.IID := (1820246764, 40704, 24224, (154, 8, 96, 229, 7, 11, 207, 3 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattSession_add_SessionStatusChanged : aliased constant Windows.IID := (236065010, 31599, 21566, (138, 219, 166, 29, 52, 171, 83, 93 ));
+   
+   type TypedEventHandler_IGattSession_add_SessionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattSession_add_SessionStatusChanged'access) with null record;
    
    function Invoke
    (
@@ -4698,12 +4696,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattSession_add_SessionStatusChanged : aliased constant Windows.IID := (236065010, 31599, 21566, (138, 219, 166, 29, 52, 171, 83, 93 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattDeviceService_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattDeviceService_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattDeviceService : aliased constant Windows.IID := (767358538, 9771, 22280, (173, 177, 195, 184, 117, 11, 214, 128 ));
+   
+   type AsyncOperationCompletedHandler_IGattDeviceService_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceService ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattDeviceService'access) with null record;
    
    function Invoke
    (
@@ -4713,12 +4710,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattDeviceService : aliased constant Windows.IID := (767358538, 9771, 22280, (173, 177, 195, 184, 117, 11, 214, 128 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_GattOpenStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattOpenStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_GattOpenStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_GattOpenStatus : aliased constant Windows.IID := (1418411216, 56552, 23869, (152, 171, 105, 72, 221, 127, 144, 184 ));
+   
+   type AsyncOperationCompletedHandler_GattOpenStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattOpenStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_GattOpenStatus'access) with null record;
    
    function Invoke
    (
@@ -4728,12 +4724,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_GattOpenStatus : aliased constant Windows.IID := (1418411216, 56552, 23869, (152, 171, 105, 72, 221, 127, 144, 184 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattCharacteristicsResult : aliased constant Windows.IID := (3600897141, 7794, 23638, (152, 232, 136, 244, 188, 62, 3, 19 ));
+   
+   type AsyncOperationCompletedHandler_IGattCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattCharacteristicsResult'access) with null record;
    
    function Invoke
    (
@@ -4743,12 +4738,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattCharacteristicsResult : aliased constant Windows.IID := (3600897141, 7794, 23638, (152, 232, 136, 244, 188, 62, 3, 19 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattReadResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattReadResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattReadResult : aliased constant Windows.IID := (3633916576, 60098, 21943, (146, 197, 137, 72, 134, 190, 176, 202 ));
+   
+   type AsyncOperationCompletedHandler_IGattReadResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattReadResult'access) with null record;
    
    function Invoke
    (
@@ -4758,12 +4752,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattReadResult : aliased constant Windows.IID := (3633916576, 60098, 21943, (146, 197, 137, 72, 134, 190, 176, 202 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_GattCommunicationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattCommunicationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_GattCommunicationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_GattCommunicationStatus : aliased constant Windows.IID := (559157626, 38797, 23003, (153, 207, 107, 105, 12, 179, 56, 155 ));
+   
+   type AsyncOperationCompletedHandler_GattCommunicationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_GattCommunicationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_GattCommunicationStatus'access) with null record;
    
    function Invoke
    (
@@ -4773,12 +4766,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_GattCommunicationStatus : aliased constant Windows.IID := (559157626, 38797, 23003, (153, 207, 107, 105, 12, 179, 56, 155 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadClientCharacteristicConfigurationDescriptorResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult : aliased constant Windows.IID := (2566498035, 19753, 21329, (139, 18, 117, 29, 201, 119, 163, 49 ));
+   
+   type AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadClientCharacteristicConfigurationDescriptorResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult'access) with null record;
    
    function Invoke
    (
@@ -4788,12 +4780,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattReadClientCharacteristicConfigurationDescriptorResult : aliased constant Windows.IID := (2566498035, 19753, 21329, (139, 18, 117, 29, 201, 119, 163, 49 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattCharacteristic_add_ValueChanged : aliased constant Windows.IID := (3254001910, 25234, 22368, (162, 201, 157, 223, 152, 104, 60, 252 ));
+   
+   type TypedEventHandler_IGattCharacteristic_add_ValueChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattCharacteristic_add_ValueChanged'access) with null record;
    
    function Invoke
    (
@@ -4803,12 +4794,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattCharacteristic_add_ValueChanged : aliased constant Windows.IID := (3254001910, 25234, 22368, (162, 201, 157, 223, 152, 104, 60, 252 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattDescriptorsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDescriptorsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattDescriptorsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattDescriptorsResult : aliased constant Windows.IID := (3741953655, 62982, 21476, (139, 166, 121, 159, 89, 146, 200, 94 ));
+   
+   type AsyncOperationCompletedHandler_IGattDescriptorsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDescriptorsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattDescriptorsResult'access) with null record;
    
    function Invoke
    (
@@ -4818,12 +4808,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattDescriptorsResult : aliased constant Windows.IID := (3741953655, 62982, 21476, (139, 166, 121, 159, 89, 146, 200, 94 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattWriteResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattWriteResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattWriteResult : aliased constant Windows.IID := (1873332675, 65406, 24481, (162, 243, 39, 20, 207, 4, 184, 153 ));
+   
+   type AsyncOperationCompletedHandler_IGattWriteResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattWriteResult'access) with null record;
    
    function Invoke
    (
@@ -4833,12 +4822,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattWriteResult : aliased constant Windows.IID := (1873332675, 65406, 24481, (162, 243, 39, 20, 207, 4, 184, 153 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattServiceProviderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattServiceProviderResult : aliased constant Windows.IID := (4187125914, 59777, 22906, (145, 151, 31, 189, 152, 111, 116, 199 ));
+   
+   type AsyncOperationCompletedHandler_IGattServiceProviderResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattServiceProviderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattServiceProviderResult'access) with null record;
    
    function Invoke
    (
@@ -4848,12 +4836,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattServiceProviderResult : aliased constant Windows.IID := (4187125914, 59777, 22906, (145, 151, 31, 189, 152, 111, 116, 199 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisementStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged : aliased constant Windows.IID := (1456357808, 9584, 20691, (161, 177, 126, 65, 103, 225, 253, 231 ));
+   
+   type TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisementStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged'access) with null record;
    
    function Invoke
    (
@@ -4863,12 +4850,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattServiceProvider_add_AdvertisementStatusChanged : aliased constant Windows.IID := (1456357808, 9584, 20691, (161, 177, 126, 65, 103, 225, 253, 231 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattLocalCharacteristicResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattLocalCharacteristicResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattLocalCharacteristicResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattLocalCharacteristicResult : aliased constant Windows.IID := (2244415197, 55317, 21124, (140, 132, 88, 168, 247, 105, 227, 136 ));
+   
+   type AsyncOperationCompletedHandler_IGattLocalCharacteristicResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattLocalCharacteristicResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattLocalCharacteristicResult'access) with null record;
    
    function Invoke
    (
@@ -4878,12 +4864,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattLocalCharacteristicResult : aliased constant Windows.IID := (2244415197, 55317, 21124, (140, 132, 88, 168, 247, 105, 227, 136 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattLocalDescriptorResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattLocalDescriptorResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattLocalDescriptorResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattLocalDescriptorResult : aliased constant Windows.IID := (4069687020, 18393, 21304, (155, 165, 91, 232, 70, 26, 212, 16 ));
+   
+   type AsyncOperationCompletedHandler_IGattLocalDescriptorResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattLocalDescriptorResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattLocalDescriptorResult'access) with null record;
    
    function Invoke
    (
@@ -4893,12 +4878,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattLocalDescriptorResult : aliased constant Windows.IID := (4069687020, 18393, 21304, (155, 165, 91, 232, 70, 26, 212, 16 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged : aliased constant Windows.IID := (2156375254, 44759, 21483, (155, 35, 72, 8, 187, 145, 12, 23 ));
+   
+   type TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged'access) with null record;
    
    function Invoke
    (
@@ -4908,12 +4892,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattLocalCharacteristic_add_SubscribedClientsChanged : aliased constant Windows.IID := (2156375254, 44759, 21483, (155, 35, 72, 8, 187, 145, 12, 23 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested : aliased constant Windows.IID := (562708042, 43677, 20494, (188, 167, 4, 119, 81, 187, 16, 163 ));
+   
+   type TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested'access) with null record;
    
    function Invoke
    (
@@ -4923,12 +4906,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattLocalCharacteristic_add_ReadRequested : aliased constant Windows.IID := (562708042, 43677, 20494, (188, 167, 4, 119, 81, 187, 16, 163 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested : aliased constant Windows.IID := (3982598907, 32042, 23459, (142, 191, 138, 216, 120, 229, 57, 169 ));
+   
+   type TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested'access) with null record;
    
    function Invoke
    (
@@ -4938,12 +4920,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattLocalCharacteristic_add_WriteRequested : aliased constant Windows.IID := (3982598907, 32042, 23459, (142, 191, 138, 216, 120, 229, 57, 169 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattClientNotificationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattClientNotificationResult : aliased constant Windows.IID := (2542010097, 7010, 21528, (152, 152, 147, 49, 56, 194, 189, 20 ));
+   
+   type AsyncOperationCompletedHandler_IGattClientNotificationResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattClientNotificationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattClientNotificationResult'access) with null record;
    
    function Invoke
    (
@@ -4953,12 +4934,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattClientNotificationResult : aliased constant Windows.IID := (2542010097, 7010, 21528, (152, 152, 147, 49, 56, 194, 189, 20 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSubscribedClient ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged : aliased constant Windows.IID := (2618794256, 32877, 22859, (179, 61, 237, 40, 11, 191, 39, 229 ));
+   
+   type TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSubscribedClient ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged'access) with null record;
    
    function Invoke
    (
@@ -4968,12 +4948,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattSubscribedClient_add_MaxNotificationSizeChanged : aliased constant Windows.IID := (2618794256, 32877, 22859, (179, 61, 237, 40, 11, 191, 39, 229 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattLocalDescriptor_add_ReadRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptor ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalDescriptor_add_ReadRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattLocalDescriptor_add_ReadRequested : aliased constant Windows.IID := (623757916, 34535, 23521, (174, 237, 247, 140, 110, 212, 102, 171 ));
+   
+   type TypedEventHandler_IGattLocalDescriptor_add_ReadRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptor ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattLocalDescriptor_add_ReadRequested'access) with null record;
    
    function Invoke
    (
@@ -4983,12 +4962,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattLocalDescriptor_add_ReadRequested : aliased constant Windows.IID := (623757916, 34535, 23521, (174, 237, 247, 140, 110, 212, 102, 171 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattLocalDescriptor_add_WriteRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptor ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattLocalDescriptor_add_WriteRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattLocalDescriptor_add_WriteRequested : aliased constant Windows.IID := (1828041065, 14129, 22811, (174, 124, 217, 57, 250, 170, 138, 113 ));
+   
+   type TypedEventHandler_IGattLocalDescriptor_add_WriteRequested_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptor ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattLocalDescriptor_add_WriteRequested'access) with null record;
    
    function Invoke
    (
@@ -4998,12 +4976,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattLocalDescriptor_add_WriteRequested : aliased constant Windows.IID := (1828041065, 14129, 22811, (174, 124, 217, 57, 250, 170, 138, 113 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattReadRequest_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequest ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattRequestStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattReadRequest_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattReadRequest_add_StateChanged : aliased constant Windows.IID := (38199705, 20889, 23515, (145, 157, 133, 68, 206, 48, 253, 113 ));
+   
+   type TypedEventHandler_IGattReadRequest_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequest ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattRequestStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattReadRequest_add_StateChanged'access) with null record;
    
    function Invoke
    (
@@ -5013,12 +4990,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattReadRequest_add_StateChanged : aliased constant Windows.IID := (38199705, 20889, 23515, (145, 157, 133, 68, 206, 48, 253, 113 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGattWriteRequest_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequest ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattRequestStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGattWriteRequest_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGattWriteRequest_add_StateChanged : aliased constant Windows.IID := (2000996028, 52685, 21123, (158, 79, 46, 33, 180, 154, 46, 242 ));
+   
+   type TypedEventHandler_IGattWriteRequest_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequest ; args : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattRequestStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGattWriteRequest_add_StateChanged'access) with null record;
    
    function Invoke
    (
@@ -5028,12 +5004,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IGattWriteRequest_add_StateChanged : aliased constant Windows.IID := (2000996028, 52685, 21123, (158, 79, 46, 33, 180, 154, 46, 242 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattReadRequest_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadRequest ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattReadRequest_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattReadRequest : aliased constant Windows.IID := (830617672, 15026, 21626, (131, 3, 150, 77, 204, 55, 124, 156 ));
+   
+   type AsyncOperationCompletedHandler_IGattReadRequest_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattReadRequest ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattReadRequest'access) with null record;
    
    function Invoke
    (
@@ -5043,12 +5018,11 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IGattReadRequest : aliased constant Windows.IID := (830617672, 15026, 21626, (131, 3, 150, 77, 204, 55, 124, 156 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IGattWriteRequest_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteRequest ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IGattWriteRequest_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IGattWriteRequest : aliased constant Windows.IID := (632764406, 12543, 21902, (186, 22, 181, 100, 196, 95, 220, 6 ));
+   
+   type AsyncOperationCompletedHandler_IGattWriteRequest_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattWriteRequest ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattWriteRequest'access) with null record;
    
    function Invoke
    (
@@ -5057,8 +5031,6 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IGattWriteRequest : aliased constant Windows.IID := (632764406, 12543, 21902, (186, 22, 181, 100, 196, 95, 220, 6 ));
    
    ------------------------------------------------------------------------
    -- Classes

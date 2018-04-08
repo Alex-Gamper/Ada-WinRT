@@ -154,6 +154,9 @@ package Windows.Gaming.UI is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IGameBarStatics : aliased constant Windows.IID := (498705042, 52344, 16755, (190, 69, 182, 30, 103, 40, 62, 167 ));
+   
    type IGameBarStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function add_VisibilityChanged
@@ -199,10 +202,10 @@ package Windows.Gaming.UI is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameBarStatics : aliased constant Windows.IID := (498705042, 52344, 16755, (190, 69, 182, 30, 103, 40, 62, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameChatOverlayStatics : aliased constant Windows.IID := (2309813780, 30823, 18935, (150, 135, 37, 217, 219, 244, 68, 209 ));
+   
    type IGameChatOverlayStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -211,10 +214,10 @@ package Windows.Gaming.UI is
       ; RetVal : access Windows.Gaming.UI.IGameChatOverlay
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameChatOverlayStatics : aliased constant Windows.IID := (2309813780, 30823, 18935, (150, 135, 37, 217, 219, 244, 68, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameChatOverlay : aliased constant Windows.IID := (4224075877, 63228, 19016, (174, 7, 3, 172, 110, 212, 55, 4 ));
+   
    type IGameChatOverlay_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesiredPosition
@@ -239,10 +242,10 @@ package Windows.Gaming.UI is
       ; origin : Windows.Gaming.UI.GameChatMessageOrigin
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameChatOverlay : aliased constant Windows.IID := (4224075877, 63228, 19016, (174, 7, 3, 172, 110, 212, 55, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameMonitor : aliased constant Windows.IID := (304300888, 56585, 17681, (173, 205, 141, 89, 117, 216, 16, 40 ));
+   
    type IGameMonitor_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestPermissionAsync
@@ -251,10 +254,10 @@ package Windows.Gaming.UI is
       ; RetVal : access Windows.Gaming.UI.IAsyncOperation_GameMonitoringPermission -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameMonitor : aliased constant Windows.IID := (304300888, 56585, 17681, (173, 205, 141, 89, 117, 216, 16, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameMonitorStatics : aliased constant Windows.IID := (291982132, 23264, 19380, (185, 31, 138, 203, 72, 21, 154, 113 ));
+   
    type IGameMonitorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -263,10 +266,10 @@ package Windows.Gaming.UI is
       ; RetVal : access Windows.Gaming.UI.IGameMonitor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameMonitorStatics : aliased constant Windows.IID := (291982132, 23264, 19380, (185, 31, 138, 203, 72, 21, 154, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameChatOverlayMessageSource : aliased constant Windows.IID := (504853399, 23035, 20303, (142, 154, 128, 172, 248, 23, 116, 60 ));
+   
    type IGameChatOverlayMessageSource_Interface is interface and Windows.IInspectable_Interface;
    
    function add_MessageReceived
@@ -290,10 +293,10 @@ package Windows.Gaming.UI is
       ; value : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameChatOverlayMessageSource : aliased constant Windows.IID := (504853399, 23035, 20303, (142, 154, 128, 172, 248, 23, 116, 60 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameChatMessageReceivedEventArgs : aliased constant Windows.IID := (2726429169, 16313, 20034, (164, 3, 122, 252, 226, 2, 59, 30 ));
+   
    type IGameChatMessageReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppId
@@ -330,10 +333,10 @@ package Windows.Gaming.UI is
       ; RetVal : access Windows.Gaming.UI.GameChatMessageOrigin
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameChatMessageReceivedEventArgs : aliased constant Windows.IID := (2726429169, 16313, 20034, (164, 3, 122, 252, 226, 2, 59, 30 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameUIProviderActivatedEventArgs : aliased constant Windows.IID := (2813534270, 51959, 19949, (187, 210, 71, 222, 67, 187, 109, 213 ));
+   
    type IGameUIProviderActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_GameUIArgs
@@ -349,10 +352,8 @@ package Windows.Gaming.UI is
       ; results : Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameUIProviderActivatedEventArgs : aliased constant Windows.IID := (2813534270, 51959, 19949, (187, 210, 71, 222, 67, 187, 109, 213 ));
-   
    ------------------------------------------------------------------------
+   
    type IActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Kind
@@ -375,8 +376,10 @@ package Windows.Gaming.UI is
       ; RetVal : access Windows.ApplicationModel.Activation.ISplashScreen
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_GameMonitoringPermission : aliased constant Windows.IID := (1513878687, 54671, 22723, (167, 225, 30, 208, 84, 112, 186, 166 ));
+   
    type IAsyncOperation_GameMonitoringPermission_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -399,17 +402,15 @@ package Windows.Gaming.UI is
       ; RetVal : access Windows.Gaming.UI.GameMonitoringPermission
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_GameMonitoringPermission : aliased constant Windows.IID := (1513878687, 54671, 22723, (167, 225, 30, 208, 84, 112, 186, 166 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_GameMonitoringPermission_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.UI.IAsyncOperation_GameMonitoringPermission ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_GameMonitoringPermission_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_GameMonitoringPermission : aliased constant Windows.IID := (3004007428, 38119, 21095, (156, 122, 189, 121, 114, 123, 129, 90 ));
+   
+   type AsyncOperationCompletedHandler_GameMonitoringPermission_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.UI.IAsyncOperation_GameMonitoringPermission ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_GameMonitoringPermission'access) with null record;
    
    function Invoke
    (
@@ -419,12 +420,11 @@ package Windows.Gaming.UI is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_GameMonitoringPermission : aliased constant Windows.IID := (3004007428, 38119, 21095, (156, 122, 189, 121, 114, 123, 129, 90 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Gaming.UI.IGameChatOverlayMessageSource ; args : Windows.Gaming.UI.IGameChatMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived : aliased constant Windows.IID := (4266595263, 26780, 24547, (183, 173, 85, 188, 87, 249, 36, 102 ));
+   
+   type TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Gaming.UI.IGameChatOverlayMessageSource ; args : Windows.Gaming.UI.IGameChatMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived'access) with null record;
    
    function Invoke
    (
@@ -433,8 +433,6 @@ package Windows.Gaming.UI is
       ; args : Windows.Gaming.UI.IGameChatMessageReceivedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived : aliased constant Windows.IID := (4266595263, 26780, 24547, (183, 173, 85, 188, 87, 249, 36, 102 ));
    
    ------------------------------------------------------------------------
    -- Classes

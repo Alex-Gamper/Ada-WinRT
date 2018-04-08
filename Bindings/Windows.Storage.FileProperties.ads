@@ -241,6 +241,9 @@ package Windows.Storage.FileProperties is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IGeotagHelperStatics : aliased constant Windows.IID := (1095316036, 9508, 18005, (134, 166, 237, 22, 245, 252, 113, 107 ));
+   
    type IGeotagHelperStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetGeotagAsync
@@ -268,10 +271,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeotagHelperStatics : aliased constant Windows.IID := (1095316036, 9508, 18005, (134, 166, 237, 22, 245, 252, 113, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IThumbnailProperties : aliased constant Windows.IID := (1765659695, 56295, 18869, (179, 179, 40, 147, 172, 93, 52, 35 ));
+   
    type IThumbnailProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OriginalWidth
@@ -301,10 +304,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Storage.FileProperties.ThumbnailType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IThumbnailProperties : aliased constant Windows.IID := (1765659695, 56295, 18869, (179, 179, 40, 147, 172, 93, 52, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStorageItemExtraProperties : aliased constant Windows.IID := (3309527474, 21709, 17195, (189, 188, 75, 25, 196, 180, 112, 215 ));
+   
    type IStorageItemExtraProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function RetrievePropertiesAsync
@@ -329,10 +332,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorageItemExtraProperties : aliased constant Windows.IID := (3309527474, 21709, 17195, (189, 188, 75, 25, 196, 180, 112, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStorageItemContentProperties : aliased constant Windows.IID := (86592429, 48184, 18623, (133, 215, 119, 14, 14, 42, 224, 186 ));
+   
    type IStorageItemContentProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function GetMusicPropertiesAsync
@@ -362,10 +365,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorageItemContentProperties : aliased constant Windows.IID := (86592429, 48184, 18623, (133, 215, 119, 14, 14, 42, 224, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMusicProperties : aliased constant Windows.IID := (3163204450, 26348, 16794, (188, 93, 202, 101, 164, 203, 70, 218 ));
+   
    type IMusicProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Album
@@ -542,10 +545,10 @@ package Windows.Storage.FileProperties is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMusicProperties : aliased constant Windows.IID := (3163204450, 26348, 16794, (188, 93, 202, 101, 164, 203, 70, 218 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IImageProperties : aliased constant Windows.IID := (1379701796, 64767, 17013, (175, 238, 236, 219, 154, 180, 121, 115 ));
+   
    type IImageProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Rating
@@ -666,10 +669,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IImageProperties : aliased constant Windows.IID := (1379701796, 64767, 17013, (175, 238, 236, 219, 154, 180, 121, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoProperties : aliased constant Windows.IID := (1905976583, 26846, 19896, (151, 222, 73, 153, 140, 5, 159, 47 ));
+   
    type IVideoProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Rating
@@ -818,10 +821,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Storage.FileProperties.VideoOrientation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoProperties : aliased constant Windows.IID := (1905976583, 26846, 19896, (151, 222, 73, 153, 140, 5, 159, 47 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDocumentProperties : aliased constant Windows.IID := (2125142460, 6177, 18723, (180, 169, 10, 234, 64, 77, 0, 112 ));
+   
    type IDocumentProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Author
@@ -865,10 +868,10 @@ package Windows.Storage.FileProperties is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDocumentProperties : aliased constant Windows.IID := (2125142460, 6177, 18723, (180, 169, 10, 234, 64, 77, 0, 112 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBasicProperties : aliased constant Windows.IID := (3495777755, 30814, 19046, (190, 2, 155, 238, 197, 138, 234, 129 ));
+   
    type IBasicProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Size
@@ -891,13 +894,11 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBasicProperties : aliased constant Windows.IID := (3495777755, 30814, 19046, (190, 2, 155, 238, 197, 138, 234, 129 ));
-   
    ------------------------------------------------------------------------
+   
    type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
    ------------------------------------------------------------------------
+   
    type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContentType
@@ -906,8 +907,8 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Size
@@ -974,8 +975,8 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function WriteAsync
@@ -992,8 +993,8 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadAsync
@@ -1005,8 +1006,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMusicProperties : aliased constant Windows.IID := (218250102, 8359, 22259, (132, 171, 206, 49, 230, 84, 75, 113 ));
+   
    type IAsyncOperation_IMusicProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1029,10 +1032,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Storage.FileProperties.IMusicProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMusicProperties : aliased constant Windows.IID := (218250102, 8359, 22259, (132, 171, 206, 49, 230, 84, 75, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IVideoProperties : aliased constant Windows.IID := (1149060496, 54265, 22719, (172, 88, 111, 154, 80, 131, 158, 254 ));
+   
    type IAsyncOperation_IVideoProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1055,10 +1058,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Storage.FileProperties.IVideoProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IVideoProperties : aliased constant Windows.IID := (1149060496, 54265, 22719, (172, 88, 111, 154, 80, 131, 158, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IImageProperties : aliased constant Windows.IID := (4241519889, 59384, 23514, (140, 4, 121, 90, 99, 157, 174, 143 ));
+   
    type IAsyncOperation_IImageProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1081,10 +1084,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Storage.FileProperties.IImageProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IImageProperties : aliased constant Windows.IID := (4241519889, 59384, 23514, (140, 4, 121, 90, 99, 157, 174, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IDocumentProperties : aliased constant Windows.IID := (1820780924, 22169, 22272, (141, 53, 211, 80, 173, 62, 77, 242 ));
+   
    type IAsyncOperation_IDocumentProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1107,10 +1110,10 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Storage.FileProperties.IDocumentProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IDocumentProperties : aliased constant Windows.IID := (1820780924, 22169, 22272, (141, 53, 211, 80, 173, 62, 77, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBasicProperties : aliased constant Windows.IID := (1367741210, 17511, 20555, (151, 122, 7, 133, 168, 35, 4, 133 ));
+   
    type IAsyncOperation_IBasicProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1133,17 +1136,15 @@ package Windows.Storage.FileProperties is
       ; RetVal : access Windows.Storage.FileProperties.IBasicProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IBasicProperties : aliased constant Windows.IID := (1367741210, 17511, 20555, (151, 122, 7, 133, 168, 35, 4, 133 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMusicProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IMusicProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMusicProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMusicProperties : aliased constant Windows.IID := (3628995346, 54881, 23423, (149, 102, 116, 33, 189, 237, 193, 234 ));
+   
+   type AsyncOperationCompletedHandler_IMusicProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IMusicProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMusicProperties'access) with null record;
    
    function Invoke
    (
@@ -1153,12 +1154,11 @@ package Windows.Storage.FileProperties is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMusicProperties : aliased constant Windows.IID := (3628995346, 54881, 23423, (149, 102, 116, 33, 189, 237, 193, 234 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IVideoProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IVideoProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVideoProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IVideoProperties : aliased constant Windows.IID := (1128275252, 25003, 23794, (146, 31, 85, 182, 22, 99, 29, 29 ));
+   
+   type AsyncOperationCompletedHandler_IVideoProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IVideoProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVideoProperties'access) with null record;
    
    function Invoke
    (
@@ -1168,12 +1168,11 @@ package Windows.Storage.FileProperties is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IVideoProperties : aliased constant Windows.IID := (1128275252, 25003, 23794, (146, 31, 85, 182, 22, 99, 29, 29 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IImageProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IImageProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IImageProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IImageProperties : aliased constant Windows.IID := (3325503932, 58563, 22092, (177, 55, 44, 180, 245, 150, 106, 131 ));
+   
+   type AsyncOperationCompletedHandler_IImageProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IImageProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IImageProperties'access) with null record;
    
    function Invoke
    (
@@ -1183,12 +1182,11 @@ package Windows.Storage.FileProperties is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IImageProperties : aliased constant Windows.IID := (3325503932, 58563, 22092, (177, 55, 44, 180, 245, 150, 106, 131 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IDocumentProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDocumentProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IDocumentProperties : aliased constant Windows.IID := (1146285388, 25643, 20507, (150, 23, 125, 104, 180, 172, 60, 102 ));
+   
+   type AsyncOperationCompletedHandler_IDocumentProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IDocumentProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDocumentProperties'access) with null record;
    
    function Invoke
    (
@@ -1198,12 +1196,11 @@ package Windows.Storage.FileProperties is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IDocumentProperties : aliased constant Windows.IID := (1146285388, 25643, 20507, (150, 23, 125, 104, 180, 172, 60, 102 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IBasicProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IBasicProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBasicProperties_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IBasicProperties : aliased constant Windows.IID := (3362101934, 18726, 21165, (143, 96, 216, 159, 229, 168, 223, 95 ));
+   
+   type AsyncOperationCompletedHandler_IBasicProperties_Interface(Callback : access procedure (asyncInfo : Windows.Storage.FileProperties.IAsyncOperation_IBasicProperties ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBasicProperties'access) with null record;
    
    function Invoke
    (
@@ -1212,8 +1209,6 @@ package Windows.Storage.FileProperties is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IBasicProperties : aliased constant Windows.IID := (3362101934, 18726, 21165, (143, 96, 216, 159, 229, 168, 223, 95 ));
    
    ------------------------------------------------------------------------
    -- Classes

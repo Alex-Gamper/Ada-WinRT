@@ -540,6 +540,9 @@ package Windows.Services.Maps is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteDrivingOptions : aliased constant Windows.IID := (1746220621, 50908, 18071, (164, 82, 177, 143, 143, 11, 103, 161 ));
+   
    type IMapRouteDrivingOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxAlternateRouteCount
@@ -597,10 +600,10 @@ package Windows.Services.Maps is
       ; value : Windows.Services.Maps.MapRouteRestrictions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteDrivingOptions : aliased constant Windows.IID := (1746220621, 50908, 18071, (164, 82, 177, 143, 143, 11, 103, 161 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapAddress : aliased constant Windows.IID := (3483871603, 41908, 17556, (179, 255, 203, 169, 77, 182, 150, 153 ));
+   
    type IMapAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BuildingName
@@ -707,10 +710,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapAddress : aliased constant Windows.IID := (3483871603, 41908, 17556, (179, 255, 203, 169, 77, 182, 150, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapAddress2 : aliased constant Windows.IID := (1976397297, 58797, 17833, (191, 64, 108, 242, 86, 193, 221, 19 ));
+   
    type IMapAddress2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FormattedAddress
@@ -719,10 +722,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapAddress2 : aliased constant Windows.IID := (1976397297, 58797, 17833, (191, 64, 108, 242, 86, 193, 221, 19 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapLocation : aliased constant Windows.IID := (1007107927, 3492, 17128, (158, 226, 169, 111, 207, 35, 113, 220 ));
+   
    type IMapLocation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Point
@@ -752,10 +755,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IMapAddress
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapLocation : aliased constant Windows.IID := (1007107927, 3492, 17128, (158, 226, 169, 111, 207, 35, 113, 220 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapLocationFinderResult : aliased constant Windows.IID := (1139929465, 59596, 17910, (190, 210, 84, 204, 191, 150, 93, 154 ));
+   
    type IMapLocationFinderResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Locations
@@ -771,10 +774,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.MapLocationFinderStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapLocationFinderResult : aliased constant Windows.IID := (1139929465, 59596, 17910, (190, 210, 84, 204, 191, 150, 93, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteManeuver : aliased constant Windows.IID := (3982235632, 42667, 19813, (160, 134, 250, 138, 126, 52, 13, 242 ));
+   
    type IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StartingPoint
@@ -818,10 +821,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.MapManeuverNotices
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteManeuver : aliased constant Windows.IID := (3982235632, 42667, 19813, (160, 134, 250, 138, 126, 52, 13, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteManeuver2 : aliased constant Windows.IID := (1568394652, 31899, 16863, (131, 139, 234, 226, 30, 75, 5, 169 ));
+   
    type IMapRouteManeuver2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StartHeading
@@ -844,10 +847,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteManeuver2 : aliased constant Windows.IID := (1568394652, 31899, 16863, (131, 139, 234, 226, 30, 75, 5, 169 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteManeuver3 : aliased constant Windows.IID := (2795583711, 1155, 16742, (133, 190, 185, 147, 54, 193, 24, 117 ));
+   
    type IMapRouteManeuver3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Warnings
@@ -856,10 +859,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IVectorView_IManeuverWarning -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteManeuver3 : aliased constant Windows.IID := (2795583711, 1155, 16742, (133, 190, 185, 147, 54, 193, 24, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IManeuverWarning : aliased constant Windows.IID := (3248713098, 9776, 17272, (158, 74, 110, 68, 37, 61, 206, 186 ));
+   
    type IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Kind
@@ -875,10 +878,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.ManeuverWarningSeverity
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IManeuverWarning : aliased constant Windows.IID := (3248713098, 9776, 17272, (158, 74, 110, 68, 37, 61, 206, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteLeg : aliased constant Windows.IID := (2532881142, 23482, 19735, (157, 182, 26, 38, 63, 236, 116, 113 ));
+   
    type IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BoundingBox
@@ -915,10 +918,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IVectorView_IMapRouteManeuver -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteLeg : aliased constant Windows.IID := (2532881142, 23482, 19735, (157, 182, 26, 38, 63, 236, 116, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteLeg2 : aliased constant Windows.IID := (48367149, 51654, 17848, (142, 84, 26, 16, 181, 122, 23, 232 ));
+   
    type IMapRouteLeg2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DurationWithoutTraffic
@@ -934,10 +937,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.TrafficCongestion
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteLeg2 : aliased constant Windows.IID := (48367149, 51654, 17848, (142, 84, 26, 16, 181, 122, 23, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRoute : aliased constant Windows.IID := (4211586866, 22605, 17795, (156, 96, 100, 31, 234, 39, 67, 73 ));
+   
    type IMapRoute_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BoundingBox
@@ -981,10 +984,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRoute : aliased constant Windows.IID := (4211586866, 22605, 17795, (156, 96, 100, 31, 234, 39, 67, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRoute2 : aliased constant Windows.IID := (3519403020, 8723, 19120, (162, 96, 70, 179, 129, 105, 190, 172 ));
+   
    type IMapRoute2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ViolatedRestrictions
@@ -1000,10 +1003,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRoute2 : aliased constant Windows.IID := (3519403020, 8723, 19120, (162, 96, 70, 179, 129, 105, 190, 172 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRoute3 : aliased constant Windows.IID := (2240618158, 62125, 17055, (187, 55, 205, 33, 9, 79, 252, 146 ));
+   
    type IMapRoute3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DurationWithoutTraffic
@@ -1019,10 +1022,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.TrafficCongestion
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRoute3 : aliased constant Windows.IID := (2240618158, 62125, 17055, (187, 55, 205, 33, 9, 79, 252, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRoute4 : aliased constant Windows.IID := (913083557, 12371, 20385, (128, 255, 212, 117, 243, 237, 30, 110 ));
+   
    type IMapRoute4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsScenic
@@ -1031,10 +1034,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRoute4 : aliased constant Windows.IID := (913083557, 12371, 20385, (128, 255, 212, 117, 243, 237, 30, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteFinderResult : aliased constant Windows.IID := (2825429786, 37922, 18092, (140, 161, 177, 97, 77, 75, 251, 226 ));
+   
    type IMapRouteFinderResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Route
@@ -1050,10 +1053,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.MapRouteFinderStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteFinderResult : aliased constant Windows.IID := (2825429786, 37922, 18092, (140, 161, 177, 97, 77, 75, 251, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteFinderResult2 : aliased constant Windows.IID := (544250989, 55564, 18120, (145, 198, 125, 75, 228, 239, 178, 21 ));
+   
    type IMapRouteFinderResult2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlternateRoutes
@@ -1062,10 +1065,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IVectorView_IMapRoute -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteFinderResult2 : aliased constant Windows.IID := (544250989, 55564, 18120, (145, 198, 125, 75, 228, 239, 178, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEnhancedWaypoint : aliased constant Windows.IID := (3978726516, 22803, 4582, (139, 119, 134, 243, 12, 168, 147, 211 ));
+   
    type IEnhancedWaypoint_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Point
@@ -1081,10 +1084,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.WaypointKind
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEnhancedWaypoint : aliased constant Windows.IID := (3978726516, 22803, 4582, (139, 119, 134, 243, 12, 168, 147, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEnhancedWaypointFactory : aliased constant Windows.IID := (2944828535, 41642, 18141, (182, 69, 35, 179, 27, 138, 166, 199 ));
+   
    type IEnhancedWaypointFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1095,10 +1098,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IEnhancedWaypoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEnhancedWaypointFactory : aliased constant Windows.IID := (2944828535, 41642, 18141, (182, 69, 35, 179, 27, 138, 166, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapLocationFinderStatics : aliased constant Windows.IID := (831183709, 7261, 20277, (162, 223, 170, 202, 148, 149, 149, 23 ));
+   
    type IMapLocationFinderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FindLocationsAtAsync
@@ -1127,10 +1130,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapLocationFinderStatics : aliased constant Windows.IID := (831183709, 7261, 20277, (162, 223, 170, 202, 148, 149, 149, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapLocationFinderStatics2 : aliased constant Windows.IID := (2509933462, 25733, 19965, (133, 26, 51, 172, 49, 126, 58, 246 ));
+   
    type IMapLocationFinderStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function FindLocationsAtWithAccuracyAsync
@@ -1141,10 +1144,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapLocationFinderStatics2 : aliased constant Windows.IID := (2509933462, 25733, 19965, (133, 26, 51, 172, 49, 126, 58, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteFinderStatics : aliased constant Windows.IID := (3097871631, 7268, 19514, (129, 235, 31, 124, 21, 42, 251, 187 ));
+   
    type IMapRouteFinderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDrivingRouteAsync
@@ -1243,10 +1246,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteFinderStatics : aliased constant Windows.IID := (3097871631, 7268, 19514, (129, 235, 31, 124, 21, 42, 251, 187 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteFinderStatics2 : aliased constant Windows.IID := (2949393523, 30560, 18863, (179, 189, 186, 241, 53, 183, 3, 225 ));
+   
    type IMapRouteFinderStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDrivingRouteWithOptionsAsync
@@ -1258,10 +1261,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteFinderStatics2 : aliased constant Windows.IID := (2949393523, 30560, 18863, (179, 189, 186, 241, 53, 183, 3, 225 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteFinderStatics3 : aliased constant Windows.IID := (4127818036, 22803, 4582, (139, 119, 134, 243, 12, 168, 147, 211 ));
+   
    type IMapRouteFinderStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDrivingRouteFromEnhancedWaypointsAsync
@@ -1280,10 +1283,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteFinderStatics3 : aliased constant Windows.IID := (4127818036, 22803, 4582, (139, 119, 134, 243, 12, 168, 147, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapServiceStatics : aliased constant Windows.IID := (21278085, 49228, 19677, (135, 26, 160, 114, 109, 9, 124, 212 ));
+   
    type IMapServiceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ServiceToken
@@ -1299,10 +1302,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapServiceStatics : aliased constant Windows.IID := (21278085, 49228, 19677, (135, 26, 160, 114, 109, 9, 124, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapManagerStatics : aliased constant Windows.IID := (937682197, 33460, 19796, (143, 217, 175, 38, 36, 179, 1, 28 ));
+   
    type IMapManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowDownloadedMapsUI
@@ -1316,10 +1319,10 @@ package Windows.Services.Maps is
       This       : access IMapManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapManagerStatics : aliased constant Windows.IID := (937682197, 33460, 19796, (143, 217, 175, 38, 36, 179, 1, 28 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapServiceStatics2 : aliased constant Windows.IID := (4162404077, 40069, 16553, (136, 150, 15, 195, 253, 43, 124, 42 ));
+   
    type IMapServiceStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_WorldViewRegionCode
@@ -1328,10 +1331,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapServiceStatics2 : aliased constant Windows.IID := (4162404077, 40069, 16553, (136, 150, 15, 195, 253, 43, 124, 42 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapServiceStatics3 : aliased constant Windows.IID := (168939040, 25511, 18516, (179, 85, 214, 220, 218, 34, 61, 27 ));
+   
    type IMapServiceStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DataAttributions
@@ -1340,10 +1343,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapServiceStatics3 : aliased constant Windows.IID := (168939040, 25511, 18516, (179, 85, 214, 220, 218, 34, 61, 27 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapServiceStatics4 : aliased constant Windows.IID := (143272034, 27324, 16910, (148, 95, 76, 253, 137, 198, 115, 86 ));
+   
    type IMapServiceStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function put_DataUsagePreference
@@ -1359,10 +1362,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.MapServiceDataUsagePreference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapServiceStatics4 : aliased constant Windows.IID := (143272034, 27324, 16910, (148, 95, 76, 253, 137, 198, 115, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlaceInfoCreateOptions : aliased constant Windows.IID := (3442721061, 26609, 19379, (153, 7, 236, 206, 147, 155, 3, 153 ));
+   
    type IPlaceInfoCreateOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function put_DisplayName
@@ -1392,10 +1395,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlaceInfoCreateOptions : aliased constant Windows.IID := (3442721061, 26609, 19379, (153, 7, 236, 206, 147, 155, 3, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlaceInfoStatics : aliased constant Windows.IID := (2193227633, 27856, 18596, (175, 217, 94, 216, 32, 151, 147, 107 ));
+   
    type IPlaceInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1447,10 +1450,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlaceInfoStatics : aliased constant Windows.IID := (2193227633, 27856, 18596, (175, 217, 94, 216, 32, 151, 147, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlaceInfo : aliased constant Windows.IID := (2584219830, 12744, 20330, (159, 24, 149, 11, 76, 56, 149, 26 ));
+   
    type IPlaceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function Show
@@ -1495,10 +1498,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Devices.Geolocation.IGeoshape
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlaceInfo : aliased constant Windows.IID := (2584219830, 12744, 20330, (159, 24, 149, 11, 76, 56, 149, 26 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapLocation : aliased constant Windows.IID := (712002970, 14743, 24350, (134, 65, 136, 62, 186, 64, 135, 38 ));
+   
    type IIterator_IMapLocation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1529,10 +1532,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMapLocation : aliased constant Windows.IID := (712002970, 14743, 24350, (134, 65, 136, 62, 186, 64, 135, 38 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapLocation : aliased constant Windows.IID := (2010800465, 1891, 20618, (144, 65, 51, 16, 186, 172, 229, 117 ));
+   
    type IIterable_IMapLocation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1541,10 +1544,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IIterator_IMapLocation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMapLocation : aliased constant Windows.IID := (2010800465, 1891, 20618, (144, 65, 51, 16, 186, 172, 229, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMapLocation : aliased constant Windows.IID := (1490238736, 58095, 23025, (184, 94, 168, 129, 159, 240, 217, 38 ));
+   
    type IVectorView_IMapLocation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1579,10 +1582,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMapLocation : aliased constant Windows.IID := (1490238736, 58095, 23025, (184, 94, 168, 129, 159, 240, 217, 38 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IManeuverWarning : aliased constant Windows.IID := (3748962979, 7915, 23234, (188, 95, 159, 45, 175, 252, 224, 23 ));
+   
    type IIterator_IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1613,10 +1616,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IManeuverWarning : aliased constant Windows.IID := (3748962979, 7915, 23234, (188, 95, 159, 45, 175, 252, 224, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IManeuverWarning : aliased constant Windows.IID := (3456793619, 54212, 21935, (169, 15, 197, 63, 123, 217, 51, 115 ));
+   
    type IIterable_IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1625,10 +1628,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IIterator_IManeuverWarning
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IManeuverWarning : aliased constant Windows.IID := (3456793619, 54212, 21935, (169, 15, 197, 63, 123, 217, 51, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IManeuverWarning : aliased constant Windows.IID := (1153506080, 49517, 22241, (160, 163, 110, 180, 79, 36, 146, 234 ));
+   
    type IVectorView_IManeuverWarning_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1663,10 +1666,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IManeuverWarning : aliased constant Windows.IID := (1153506080, 49517, 22241, (160, 163, 110, 180, 79, 36, 146, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapRouteManeuver : aliased constant Windows.IID := (2813002891, 42716, 24140, (147, 33, 113, 176, 228, 101, 223, 232 ));
+   
    type IIterator_IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1697,10 +1700,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMapRouteManeuver : aliased constant Windows.IID := (2813002891, 42716, 24140, (147, 33, 113, 176, 228, 101, 223, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapRouteManeuver : aliased constant Windows.IID := (3733984763, 37335, 21870, (187, 77, 32, 11, 111, 88, 250, 212 ));
+   
    type IIterable_IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1709,10 +1712,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IIterator_IMapRouteManeuver
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMapRouteManeuver : aliased constant Windows.IID := (3733984763, 37335, 21870, (187, 77, 32, 11, 111, 88, 250, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMapRouteManeuver : aliased constant Windows.IID := (2750768789, 18063, 21999, (177, 132, 201, 139, 76, 199, 228, 132 ));
+   
    type IVectorView_IMapRouteManeuver_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1747,10 +1750,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMapRouteManeuver : aliased constant Windows.IID := (2750768789, 18063, 21999, (177, 132, 201, 139, 76, 199, 228, 132 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapRouteLeg : aliased constant Windows.IID := (3709593554, 56930, 22354, (178, 224, 162, 176, 135, 35, 183, 135 ));
+   
    type IIterator_IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1781,10 +1784,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMapRouteLeg : aliased constant Windows.IID := (3709593554, 56930, 22354, (178, 224, 162, 176, 135, 35, 183, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapRouteLeg : aliased constant Windows.IID := (2415495001, 30925, 22248, (135, 123, 131, 206, 132, 109, 111, 139 ));
+   
    type IIterable_IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1793,10 +1796,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IIterator_IMapRouteLeg
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMapRouteLeg : aliased constant Windows.IID := (2415495001, 30925, 22248, (135, 123, 131, 206, 132, 109, 111, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMapRouteLeg : aliased constant Windows.IID := (4187448160, 46000, 23176, (177, 182, 244, 51, 155, 184, 91, 240 ));
+   
    type IVectorView_IMapRouteLeg_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1831,10 +1834,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMapRouteLeg : aliased constant Windows.IID := (4187448160, 46000, 23176, (177, 182, 244, 51, 155, 184, 91, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapRoute : aliased constant Windows.IID := (2548582490, 31168, 21315, (147, 209, 71, 205, 251, 85, 36, 107 ));
+   
    type IIterator_IMapRoute_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1865,10 +1868,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMapRoute : aliased constant Windows.IID := (2548582490, 31168, 21315, (147, 209, 71, 205, 251, 85, 36, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapRoute : aliased constant Windows.IID := (3632947874, 3807, 21266, (151, 168, 16, 174, 174, 168, 11, 153 ));
+   
    type IIterable_IMapRoute_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1877,10 +1880,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IIterator_IMapRoute
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMapRoute : aliased constant Windows.IID := (3632947874, 3807, 21266, (151, 168, 16, 174, 174, 168, 11, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMapRoute : aliased constant Windows.IID := (643200681, 18995, 23849, (151, 30, 130, 68, 160, 33, 184, 78 ));
+   
    type IVectorView_IMapRoute_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1915,10 +1918,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMapRoute : aliased constant Windows.IID := (643200681, 18995, 23849, (151, 30, 130, 68, 160, 33, 184, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMapLocationFinderResult : aliased constant Windows.IID := (3857051187, 43992, 22165, (159, 229, 172, 149, 133, 13, 113, 152 ));
+   
    type IAsyncOperation_IMapLocationFinderResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1941,10 +1944,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IMapLocationFinderResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMapLocationFinderResult : aliased constant Windows.IID := (3857051187, 43992, 22165, (159, 229, 172, 149, 133, 13, 113, 152 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMapRouteFinderResult : aliased constant Windows.IID := (3970580095, 50470, 20631, (182, 36, 207, 116, 61, 120, 169, 186 ));
+   
    type IAsyncOperation_IMapRouteFinderResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1967,10 +1970,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IMapRouteFinderResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMapRouteFinderResult : aliased constant Windows.IID := (3970580095, 50470, 20631, (182, 36, 207, 116, 61, 120, 169, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IEnhancedWaypoint : aliased constant Windows.IID := (373967905, 53408, 23912, (128, 226, 68, 136, 157, 206, 166, 213 ));
+   
    type IIterator_IEnhancedWaypoint_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2001,10 +2004,10 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IEnhancedWaypoint : aliased constant Windows.IID := (373967905, 53408, 23912, (128, 226, 68, 136, 157, 206, 166, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IEnhancedWaypoint : aliased constant Windows.IID := (3495189946, 39685, 24119, (191, 192, 61, 162, 181, 29, 19, 91 ));
+   
    type IIterable_IEnhancedWaypoint_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2013,17 +2016,15 @@ package Windows.Services.Maps is
       ; RetVal : access Windows.Services.Maps.IIterator_IEnhancedWaypoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IEnhancedWaypoint : aliased constant Windows.IID := (3495189946, 39685, 24119, (191, 192, 61, 162, 181, 29, 19, 91 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMapLocationFinderResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMapLocationFinderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMapLocationFinderResult : aliased constant Windows.IID := (651094801, 4641, 23595, (187, 249, 207, 234, 54, 99, 194, 237 ));
+   
+   type AsyncOperationCompletedHandler_IMapLocationFinderResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMapLocationFinderResult'access) with null record;
    
    function Invoke
    (
@@ -2033,12 +2034,11 @@ package Windows.Services.Maps is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMapLocationFinderResult : aliased constant Windows.IID := (651094801, 4641, 23595, (187, 249, 207, 234, 54, 99, 194, 237 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMapRouteFinderResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMapRouteFinderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMapRouteFinderResult : aliased constant Windows.IID := (1853500239, 33052, 21699, (137, 56, 103, 149, 244, 230, 112, 9 ));
+   
+   type AsyncOperationCompletedHandler_IMapRouteFinderResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMapRouteFinderResult'access) with null record;
    
    function Invoke
    (
@@ -2047,8 +2047,6 @@ package Windows.Services.Maps is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IMapRouteFinderResult : aliased constant Windows.IID := (1853500239, 33052, 21699, (137, 56, 103, 149, 244, 230, 112, 9 ));
    
    ------------------------------------------------------------------------
    -- Classes

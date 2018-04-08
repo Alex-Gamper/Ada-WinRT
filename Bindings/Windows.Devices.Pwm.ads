@@ -91,6 +91,9 @@ package Windows.Devices.Pwm is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPwmController : aliased constant Windows.IID := (3294583941, 53992, 17103, (155, 214, 207, 94, 208, 41, 230, 167 ));
+   
    type IPwmController_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PinCount
@@ -136,10 +139,10 @@ package Windows.Devices.Pwm is
       ; RetVal : access Windows.Devices.Pwm.IPwmPin
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPwmController : aliased constant Windows.IID := (3294583941, 53992, 17103, (155, 214, 207, 94, 208, 41, 230, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPwmControllerStatics : aliased constant Windows.IID := (1113832865, 35142, 17412, (189, 72, 129, 221, 18, 74, 244, 217 ));
+   
    type IPwmControllerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetControllersAsync
@@ -149,10 +152,10 @@ package Windows.Devices.Pwm is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPwmControllerStatics : aliased constant Windows.IID := (1113832865, 35142, 17412, (189, 72, 129, 221, 18, 74, 244, 217 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPwmControllerStatics2 : aliased constant Windows.IID := (1157389087, 61721, 19421, (151, 173, 247, 110, 249, 134, 115, 109 ));
+   
    type IPwmControllerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultAsync
@@ -161,10 +164,10 @@ package Windows.Devices.Pwm is
       ; RetVal : access Windows.Devices.Pwm.IAsyncOperation_IPwmController -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPwmControllerStatics2 : aliased constant Windows.IID := (1157389087, 61721, 19421, (151, 173, 247, 110, 249, 134, 115, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPwmControllerStatics3 : aliased constant Windows.IID := (2992117873, 553, 17220, (174, 63, 155, 124, 208, 230, 107, 148 ));
+   
    type IPwmControllerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -189,10 +192,10 @@ package Windows.Devices.Pwm is
       ; RetVal : access Windows.Devices.Pwm.IAsyncOperation_IPwmController -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPwmControllerStatics3 : aliased constant Windows.IID := (2992117873, 553, 17220, (174, 63, 155, 124, 208, 230, 107, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPwmPin : aliased constant Windows.IID := (580333000, 50895, 18465, (183, 249, 198, 69, 79, 182, 175, 121 ));
+   
    type IPwmPin_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Controller
@@ -248,10 +251,10 @@ package Windows.Devices.Pwm is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPwmPin : aliased constant Windows.IID := (580333000, 50895, 18465, (183, 249, 198, 69, 79, 182, 175, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPwmController : aliased constant Windows.IID := (170429761, 7968, 23830, (133, 221, 82, 133, 91, 17, 86, 154 ));
+   
    type IAsyncOperation_IPwmController_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -274,17 +277,15 @@ package Windows.Devices.Pwm is
       ; RetVal : access Windows.Devices.Pwm.IPwmController
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPwmController : aliased constant Windows.IID := (170429761, 7968, 23830, (133, 221, 82, 133, 91, 17, 86, 154 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPwmController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Pwm.IAsyncOperation_IPwmController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPwmController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPwmController : aliased constant Windows.IID := (1606848159, 65535, 23891, (186, 33, 156, 51, 239, 86, 178, 64 ));
+   
+   type AsyncOperationCompletedHandler_IPwmController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Pwm.IAsyncOperation_IPwmController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPwmController'access) with null record;
    
    function Invoke
    (
@@ -293,8 +294,6 @@ package Windows.Devices.Pwm is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IPwmController : aliased constant Windows.IID := (1606848159, 65535, 23891, (186, 33, 156, 51, 239, 86, 178, 64 ));
    
    ------------------------------------------------------------------------
    -- Classes

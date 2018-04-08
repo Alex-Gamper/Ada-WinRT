@@ -843,6 +843,9 @@ package Windows.UI.Text is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ITextConstantsStatics : aliased constant Windows.IID := (2006875187, 6301, 19450, (151, 200, 16, 219, 19, 93, 151, 110 ));
+   
    type ITextConstantsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AutoColor
@@ -900,10 +903,10 @@ package Windows.UI.Text is
       ; RetVal : access Windows.UI.Text.FontStyle
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextConstantsStatics : aliased constant Windows.IID := (2006875187, 6301, 19450, (151, 200, 16, 219, 19, 93, 151, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextDocument : aliased constant Windows.IID := (3203288539, 37042, 16524, (162, 246, 10, 10, 195, 30, 51, 228 ));
+   
    type ITextDocument_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CaretType
@@ -1098,10 +1101,10 @@ package Windows.UI.Text is
       This       : access ITextDocument_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextDocument : aliased constant Windows.IID := (3203288539, 37042, 16524, (162, 246, 10, 10, 195, 30, 51, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextRange : aliased constant Windows.IID := (1537101399, 49266, 17056, (137, 69, 175, 80, 62, 229, 71, 104 ));
+   
    type ITextRange_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Character
@@ -1505,10 +1508,10 @@ package Windows.UI.Text is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextRange : aliased constant Windows.IID := (1537101399, 49266, 17056, (137, 69, 175, 80, 62, 229, 71, 104 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextSelection : aliased constant Windows.IID := (2798872356, 62095, 17162, (178, 207, 195, 67, 103, 30, 192, 233 ));
+   
    type ITextSelection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Options
@@ -1596,10 +1599,10 @@ package Windows.UI.Text is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextSelection : aliased constant Windows.IID := (2798872356, 62095, 17162, (178, 207, 195, 67, 103, 30, 192, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextCharacterFormat : aliased constant Windows.IID := (1524560859, 1531, 17453, (128, 101, 100, 42, 254, 160, 44, 237 ));
+   
    type ITextCharacterFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllCaps
@@ -1952,10 +1955,10 @@ package Windows.UI.Text is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextCharacterFormat : aliased constant Windows.IID := (1524560859, 1531, 17453, (128, 101, 100, 42, 254, 160, 44, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextParagraphFormat : aliased constant Windows.IID := (754503590, 18038, 18826, (147, 245, 187, 219, 252, 11, 216, 131 ));
+   
    type ITextParagraphFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Alignment
@@ -2301,10 +2304,10 @@ package Windows.UI.Text is
       ; spacing : Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextParagraphFormat : aliased constant Windows.IID := (754503590, 18038, 18826, (147, 245, 187, 219, 252, 11, 216, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextDocument2 : aliased constant Windows.IID := (4063301906, 35977, 18889, (145, 24, 240, 87, 203, 184, 20, 238 ));
+   
    type ITextDocument2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlignmentIncludesTrailingWhitespace
@@ -2334,15 +2337,15 @@ package Windows.UI.Text is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextDocument2 : aliased constant Windows.IID := (4063301906, 35977, 18889, (145, 24, 240, 87, 203, 184, 20, 238 ));
-   
    ------------------------------------------------------------------------
-   type IFontWeights_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IFontWeights : aliased constant Windows.IID := (2021696580, 427, 18839, (133, 23, 223, 130, 42, 12, 69, 241 ));
    
+   type IFontWeights_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IFontWeightsStatics : aliased constant Windows.IID := (3015014869, 7081, 18667, (157, 173, 192, 149, 232, 194, 59, 163 ));
+   
    type IFontWeightsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Black
@@ -2421,10 +2424,10 @@ package Windows.UI.Text is
       ; RetVal : access Windows.UI.Text.FontWeight
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFontWeightsStatics : aliased constant Windows.IID := (3015014869, 7081, 18667, (157, 173, 192, 149, 232, 194, 59, 163 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_UnderlineType : aliased constant Windows.IID := (459533335, 31531, 23038, (171, 157, 182, 14, 164, 249, 201, 184 ));
+   
    type IReference_UnderlineType_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -2433,9 +2436,6 @@ package Windows.UI.Text is
       ; RetVal : access Windows.UI.Text.UnderlineType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_UnderlineType : aliased constant Windows.IID := (459533335, 31531, 23038, (171, 157, 182, 14, 164, 249, 201, 184 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

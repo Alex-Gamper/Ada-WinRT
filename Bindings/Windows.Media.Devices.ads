@@ -766,6 +766,9 @@ package Windows.Media.Devices is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDefaultAudioDeviceChangedEventArgs : aliased constant Windows.IID := (286230575, 7173, 18007, (161, 142, 71, 201, 182, 159, 7, 171 ));
+   
    type IDefaultAudioDeviceChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -781,10 +784,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.AudioDeviceRole
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDefaultAudioDeviceChangedEventArgs : aliased constant Windows.IID := (286230575, 7173, 18007, (161, 142, 71, 201, 182, 159, 7, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaDeviceStatics : aliased constant Windows.IID := (2855115328, 37023, 19386, (191, 139, 12, 13, 41, 111, 20, 240 ));
+   
    type IMediaDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAudioCaptureSelector
@@ -853,10 +856,10 @@ package Windows.Media.Devices is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaDeviceStatics : aliased constant Windows.IID := (2855115328, 37023, 19386, (191, 139, 12, 13, 41, 111, 20, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IModuleCommandResult : aliased constant Windows.IID := (1376591540, 4980, 19581, (177, 228, 57, 220, 223, 62, 174, 78 ));
+   
    type IModuleCommandResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -872,10 +875,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IModuleCommandResult : aliased constant Windows.IID := (1376591540, 4980, 19581, (177, 228, 57, 220, 223, 62, 174, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioDeviceModule : aliased constant Windows.IID := (2261756982, 18369, 19251, (152, 82, 135, 115, 236, 75, 225, 35 ));
+   
    type IAudioDeviceModule_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ClassId
@@ -920,10 +923,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IAsyncOperation_IModuleCommandResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioDeviceModule : aliased constant Windows.IID := (2261756982, 18369, 19251, (152, 82, 135, 115, 236, 75, 225, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioDeviceModulesManager : aliased constant Windows.IID := (1789135949, 38410, 19740, (179, 24, 0, 34, 96, 69, 71, 237 ));
+   
    type IAudioDeviceModulesManager_Interface is interface and Windows.IInspectable_Interface;
    
    function add_ModuleNotificationReceived
@@ -955,10 +958,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IVectorView_IAudioDeviceModule -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioDeviceModulesManager : aliased constant Windows.IID := (1789135949, 38410, 19740, (179, 24, 0, 34, 96, 69, 71, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioDeviceModulesManagerFactory : aliased constant Windows.IID := (2377135728, 58957, 18291, (150, 192, 188, 126, 191, 14, 6, 63 ));
+   
    type IAudioDeviceModulesManagerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -968,10 +971,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IAudioDeviceModulesManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioDeviceModulesManagerFactory : aliased constant Windows.IID := (2377135728, 58957, 18291, (150, 192, 188, 126, 191, 14, 6, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioDeviceModuleNotificationEventArgs : aliased constant Windows.IID := (3823357103, 8780, 18622, (149, 107, 154, 19, 19, 78, 150, 232 ));
+   
    type IAudioDeviceModuleNotificationEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Module
@@ -987,10 +990,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioDeviceModuleNotificationEventArgs : aliased constant Windows.IID := (3823357103, 8780, 18622, (149, 107, 154, 19, 19, 78, 150, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISceneModeControl : aliased constant Windows.IID := (3566099191, 36185, 18516, (140, 98, 18, 199, 11, 168, 155, 124 ));
+   
    type ISceneModeControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SupportedModes
@@ -1014,10 +1017,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISceneModeControl : aliased constant Windows.IID := (3566099191, 36185, 18516, (140, 98, 18, 199, 11, 168, 155, 124 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITorchControl : aliased constant Windows.IID := (2785359461, 33360, 16748, (145, 154, 114, 66, 150, 175, 163, 6 ));
+   
    type ITorchControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -1061,10 +1064,10 @@ package Windows.Media.Devices is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITorchControl : aliased constant Windows.IID := (2785359461, 33360, 16748, (145, 154, 114, 66, 150, 175, 163, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFlashControl : aliased constant Windows.IID := (3740540350, 32104, 17891, (140, 15, 190, 123, 179, 40, 55, 208 ));
+   
    type IFlashControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -1143,10 +1146,10 @@ package Windows.Media.Devices is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFlashControl : aliased constant Windows.IID := (3740540350, 32104, 17891, (140, 15, 190, 123, 179, 40, 55, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFlashControl2 : aliased constant Windows.IID := (2099891358, 30177, 19191, (189, 125, 78, 56, 225, 192, 108, 214 ));
+   
    type IFlashControl2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AssistantLightSupported
@@ -1169,10 +1172,10 @@ package Windows.Media.Devices is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFlashControl2 : aliased constant Windows.IID := (2099891358, 30177, 19191, (189, 125, 78, 56, 225, 192, 108, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IExposureCompensationControl : aliased constant Windows.IID := (2177427508, 56556, 16401, (166, 16, 31, 56, 71, 230, 74, 202 ));
+   
    type IExposureCompensationControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -1217,10 +1220,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IExposureCompensationControl : aliased constant Windows.IID := (2177427508, 56556, 16401, (166, 16, 31, 56, 71, 230, 74, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIsoSpeedControl : aliased constant Windows.IID := (666288930, 9645, 20251, (170, 171, 82, 74, 179, 118, 202, 51 ));
+   
    type IIsoSpeedControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -1251,10 +1254,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIsoSpeedControl : aliased constant Windows.IID := (666288930, 9645, 20251, (170, 171, 82, 74, 179, 118, 202, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIsoSpeedControl2 : aliased constant Windows.IID := (1863678194, 28023, 20362, (140, 47, 97, 48, 182, 57, 80, 83 ));
+   
    type IIsoSpeedControl2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Min
@@ -1306,10 +1309,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIsoSpeedControl2 : aliased constant Windows.IID := (1863678194, 28023, 20362, (140, 47, 97, 48, 182, 57, 80, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWhiteBalanceControl : aliased constant Windows.IID := (2015298686, 29026, 18888, (168, 249, 148, 129, 197, 101, 54, 62 ));
+   
    type IWhiteBalanceControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -1369,10 +1372,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWhiteBalanceControl : aliased constant Windows.IID := (2015298686, 29026, 18888, (168, 249, 148, 129, 197, 101, 54, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IExposureControl : aliased constant Windows.IID := (166251490, 44438, 20264, (160, 224, 150, 237, 126, 27, 95, 210 ));
+   
    type IExposureControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -1432,10 +1435,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IExposureControl : aliased constant Windows.IID := (166251490, 44438, 20264, (160, 224, 150, 237, 126, 27, 95, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IZoomSettings : aliased constant Windows.IID := (1792437028, 5300, 19453, (177, 143, 136, 254, 36, 70, 59, 82 ));
+   
    type IZoomSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Mode
@@ -1465,10 +1468,10 @@ package Windows.Media.Devices is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IZoomSettings : aliased constant Windows.IID := (1792437028, 5300, 19453, (177, 143, 136, 254, 36, 70, 59, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IZoomControl : aliased constant Windows.IID := (975047442, 13018, 19479, (191, 215, 141, 12, 115, 200, 245, 165 ));
+   
    type IZoomControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -1512,10 +1515,10 @@ package Windows.Media.Devices is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IZoomControl : aliased constant Windows.IID := (975047442, 13018, 19479, (191, 215, 141, 12, 115, 200, 245, 165 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IZoomControl2 : aliased constant Windows.IID := (1770274224, 11929, 17985, (133, 41, 24, 79, 49, 157, 22, 113 ));
+   
    type IZoomControl2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SupportedModes
@@ -1538,10 +1541,10 @@ package Windows.Media.Devices is
       ; settings : Windows.Media.Devices.IZoomSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IZoomControl2 : aliased constant Windows.IID := (1770274224, 11929, 17985, (133, 41, 24, 79, 49, 157, 22, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFocusSettings : aliased constant Windows.IID := (2039844715, 12899, 17013, (133, 214, 174, 174, 137, 28, 150, 238 ));
+   
    type IFocusSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Mode
@@ -1627,10 +1630,10 @@ package Windows.Media.Devices is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFocusSettings : aliased constant Windows.IID := (2039844715, 12899, 17013, (133, 214, 174, 174, 137, 28, 150, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFocusControl : aliased constant Windows.IID := (3235416566, 21032, 17491, (177, 83, 133, 96, 101, 146, 178, 56 ));
+   
    type IFocusControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -1713,10 +1716,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFocusControl : aliased constant Windows.IID := (3235416566, 21032, 17491, (177, 83, 133, 96, 101, 146, 178, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFocusControl2 : aliased constant Windows.IID := (1065156424, 50484, 20126, (148, 195, 82, 239, 42, 253, 93, 7 ));
+   
    type IFocusControl2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FocusChangedSupported
@@ -1788,10 +1791,10 @@ package Windows.Media.Devices is
       ; settings : Windows.Media.Devices.IFocusSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFocusControl2 : aliased constant Windows.IID := (1065156424, 50484, 20126, (148, 195, 82, 239, 42, 253, 93, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRegionOfInterest : aliased constant Windows.IID := (3857500212, 52838, 19973, (167, 143, 207, 57, 26, 94, 194, 209 ));
+   
    type IRegionOfInterest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AutoFocusEnabled
@@ -1849,10 +1852,10 @@ package Windows.Media.Devices is
       ; value : Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRegionOfInterest : aliased constant Windows.IID := (3857500212, 52838, 19973, (167, 143, 207, 57, 26, 94, 194, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRegionOfInterest2 : aliased constant Windows.IID := (436087441, 29610, 19793, (138, 157, 86, 204, 247, 219, 127, 84 ));
+   
    type IRegionOfInterest2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Type
@@ -1896,10 +1899,10 @@ package Windows.Media.Devices is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRegionOfInterest2 : aliased constant Windows.IID := (436087441, 29610, 19793, (138, 157, 86, 204, 247, 219, 127, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRegionsOfInterestControl : aliased constant Windows.IID := (3273913639, 43787, 17752, (139, 91, 223, 86, 147, 219, 3, 120 ));
+   
    type IRegionsOfInterestControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxRegions
@@ -1953,10 +1956,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRegionsOfInterestControl : aliased constant Windows.IID := (3273913639, 43787, 17752, (139, 91, 223, 86, 147, 219, 3, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IExposurePriorityVideoControl : aliased constant Windows.IID := (749879459, 20840, 17009, (158, 165, 71, 98, 26, 152, 163, 82 ));
+   
    type IExposurePriorityVideoControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -1979,10 +1982,10 @@ package Windows.Media.Devices is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IExposurePriorityVideoControl : aliased constant Windows.IID := (749879459, 20840, 17009, (158, 165, 71, 98, 26, 152, 163, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHdrVideoControl : aliased constant Windows.IID := (1440277200, 12480, 17343, (155, 154, 151, 153, 215, 12, 237, 148 ));
+   
    type IHdrVideoControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -2012,10 +2015,10 @@ package Windows.Media.Devices is
       ; value : Windows.Media.Devices.HdrVideoMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHdrVideoControl : aliased constant Windows.IID := (1440277200, 12480, 17343, (155, 154, 151, 153, 215, 12, 237, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAdvancedPhotoCaptureSettings : aliased constant Windows.IID := (150177338, 24, 17499, (147, 210, 100, 109, 28, 94, 208, 92 ));
+   
    type IAdvancedPhotoCaptureSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Mode
@@ -2031,10 +2034,10 @@ package Windows.Media.Devices is
       ; value : Windows.Media.Devices.AdvancedPhotoMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvancedPhotoCaptureSettings : aliased constant Windows.IID := (150177338, 24, 17499, (147, 210, 100, 109, 28, 94, 208, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAdvancedPhotoControl : aliased constant Windows.IID := (3316733062, 36865, 18050, (147, 9, 104, 234, 224, 8, 14, 236 ));
+   
    type IAdvancedPhotoControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -2064,10 +2067,10 @@ package Windows.Media.Devices is
       ; settings : Windows.Media.Devices.IAdvancedPhotoCaptureSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvancedPhotoControl : aliased constant Windows.IID := (3316733062, 36865, 18050, (147, 9, 104, 234, 224, 8, 14, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOpticalImageStabilizationControl : aliased constant Windows.IID := (3215825949, 188, 16955, (142, 178, 160, 23, 140, 169, 66, 71 ));
+   
    type IOpticalImageStabilizationControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -2097,10 +2100,10 @@ package Windows.Media.Devices is
       ; value : Windows.Media.Devices.OpticalImageStabilizationMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOpticalImageStabilizationControl : aliased constant Windows.IID := (3215825949, 188, 16955, (142, 178, 160, 23, 140, 169, 66, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaDeviceController : aliased constant Windows.IID := (4143510990, 8346, 18683, (134, 252, 212, 69, 120, 243, 23, 230 ));
+   
    type IMediaDeviceController_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAvailableMediaStreamProperties
@@ -2127,10 +2130,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaDeviceController : aliased constant Windows.IID := (4143510990, 8346, 18683, (134, 252, 212, 69, 120, 243, 23, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioDeviceController : aliased constant Windows.IID := (3990135688, 31175, 20348, (144, 232, 239, 147, 75, 33, 88, 10 ));
+   
    type IAudioDeviceController_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Muted
@@ -2160,10 +2163,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioDeviceController : aliased constant Windows.IID := (3990135688, 31175, 20348, (144, 232, 239, 147, 75, 33, 88, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoDeviceController : aliased constant Windows.IID := (2572506485, 11822, 16568, (182, 199, 248, 45, 16, 1, 50, 16 ));
+   
    type IVideoDeviceController_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Brightness
@@ -2258,10 +2261,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoDeviceController : aliased constant Windows.IID := (2572506485, 11822, 16568, (182, 199, 248, 45, 16, 1, 50, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAdvancedVideoCaptureDeviceController2 : aliased constant Windows.IID := (2344177551, 61722, 17371, (180, 2, 17, 147, 11, 128, 174, 86 ));
+   
    type IAdvancedVideoCaptureDeviceController2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LowLagPhotoSequence
@@ -2354,10 +2357,10 @@ package Windows.Media.Devices is
       ; value : Windows.Media.Devices.CaptureUse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvancedVideoCaptureDeviceController2 : aliased constant Windows.IID := (2344177551, 61722, 17371, (180, 2, 17, 147, 11, 128, 174, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAdvancedVideoCaptureDeviceController3 : aliased constant Windows.IID := (2844495668, 60941, 18188, (185, 240, 66, 41, 196, 187, 208, 137 ));
+   
    type IAdvancedVideoCaptureDeviceController3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_VariablePhotoSequenceController
@@ -2380,10 +2383,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IZoomControl
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvancedVideoCaptureDeviceController3 : aliased constant Windows.IID := (2844495668, 60941, 18188, (185, 240, 66, 41, 196, 187, 208, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAdvancedVideoCaptureDeviceController4 : aliased constant Windows.IID := (3936337839, 54129, 16835, (154, 23, 130, 74, 135, 235, 223, 210 ));
+   
    type IAdvancedVideoCaptureDeviceController4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ExposurePriorityVideoControl
@@ -2427,10 +2430,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IAdvancedPhotoControl
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvancedVideoCaptureDeviceController4 : aliased constant Windows.IID := (3936337839, 54129, 16835, (154, 23, 130, 74, 135, 235, 223, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoDeviceControllerGetDevicePropertyResult : aliased constant Windows.IID := (3319301013, 28373, 18320, (139, 93, 14, 241, 57, 53, 208, 248 ));
+   
    type IVideoDeviceControllerGetDevicePropertyResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -2446,10 +2449,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoDeviceControllerGetDevicePropertyResult : aliased constant Windows.IID := (3319301013, 28373, 18320, (139, 93, 14, 241, 57, 53, 208, 248 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAdvancedVideoCaptureDeviceController5 : aliased constant Windows.IID := (860957463, 47563, 18979, (184, 117, 249, 234, 171, 83, 84, 146 ));
+   
    type IAdvancedVideoCaptureDeviceController5_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -2494,10 +2497,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvancedVideoCaptureDeviceController5 : aliased constant Windows.IID := (860957463, 47563, 18979, (184, 117, 249, 234, 171, 83, 84, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaDeviceControl : aliased constant Windows.IID := (4020821929, 28533, 18531, (186, 11, 88, 63, 48, 54, 180, 222 ));
+   
    type IMediaDeviceControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Capabilities
@@ -2538,10 +2541,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaDeviceControl : aliased constant Windows.IID := (4020821929, 28533, 18531, (186, 11, 88, 63, 48, 54, 180, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaDeviceControlCapabilities : aliased constant Windows.IID := (587225110, 60293, 17378, (185, 43, 130, 64, 213, 238, 112, 236 ));
+   
    type IMediaDeviceControlCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -2585,10 +2588,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaDeviceControlCapabilities : aliased constant Windows.IID := (587225110, 60293, 17378, (185, 43, 130, 64, 213, 238, 112, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAdvancedVideoCaptureDeviceController : aliased constant Windows.IID := (3731879123, 11158, 17795, (128, 171, 181, 176, 29, 198, 168, 215 ));
+   
    type IAdvancedVideoCaptureDeviceController_Interface is interface and Windows.IInspectable_Interface;
    
    function SetDeviceProperty
@@ -2606,10 +2609,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvancedVideoCaptureDeviceController : aliased constant Windows.IID := (3731879123, 11158, 17795, (128, 171, 181, 176, 29, 198, 168, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILowLagPhotoSequenceControl : aliased constant Windows.IID := (1037013149, 27926, 16540, (186, 254, 185, 165, 148, 198, 253, 230 ));
+   
    type ILowLagPhotoSequenceControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -2724,10 +2727,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILowLagPhotoSequenceControl : aliased constant Windows.IID := (1037013149, 27926, 16540, (186, 254, 185, 165, 148, 198, 253, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILowLagPhotoControl : aliased constant Windows.IID := (1834765776, 64223, 16733, (174, 230, 59, 170, 82, 147, 0, 201 ));
+   
    type ILowLagPhotoControl_Interface is interface and Windows.IInspectable_Interface;
    
    function GetHighestConcurrentFrameRate
@@ -2793,10 +2796,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILowLagPhotoControl : aliased constant Windows.IID := (1834765776, 64223, 16733, (174, 230, 59, 170, 82, 147, 0, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhotoConfirmationControl : aliased constant Windows.IID := (3371430755, 65374, 17794, (169, 168, 5, 80, 248, 90, 74, 118 ));
+   
    type IPhotoConfirmationControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Supported
@@ -2833,10 +2836,10 @@ package Windows.Media.Devices is
       ; format : Windows.Media.MediaProperties.MediaPixelFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhotoConfirmationControl : aliased constant Windows.IID := (3371430755, 65374, 17794, (169, 168, 5, 80, 248, 90, 74, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDialRequestedEventArgs : aliased constant Windows.IID := (58430110, 38204, 17030, (136, 102, 79, 15, 55, 108, 133, 90 ));
+   
    type IDialRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function Handled
@@ -2851,10 +2854,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDialRequestedEventArgs : aliased constant Windows.IID := (58430110, 38204, 17030, (136, 102, 79, 15, 55, 108, 133, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRedialRequestedEventArgs : aliased constant Windows.IID := (2125812233, 30379, 19505, (180, 14, 75, 88, 55, 157, 88, 12 ));
+   
    type IRedialRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function Handled
@@ -2862,10 +2865,10 @@ package Windows.Media.Devices is
       This       : access IRedialRequestedEventArgs_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRedialRequestedEventArgs : aliased constant Windows.IID := (2125812233, 30379, 19505, (180, 14, 75, 88, 55, 157, 88, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeypadPressedEventArgs : aliased constant Windows.IID := (3550755072, 46330, 18893, (148, 66, 137, 175, 101, 104, 246, 1 ));
+   
    type IKeypadPressedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TelephonyKey
@@ -2874,10 +2877,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.TelephonyKey
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeypadPressedEventArgs : aliased constant Windows.IID := (3550755072, 46330, 18893, (148, 66, 137, 175, 101, 104, 246, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICallControl : aliased constant Windows.IID := (2770391254, 44685, 17883, (128, 17, 202, 73, 211, 179, 229, 120 ));
+   
    type ICallControl_Interface is interface and Windows.IInspectable_Interface;
    
    function IndicateNewIncomingCall
@@ -3006,10 +3009,10 @@ package Windows.Media.Devices is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICallControl : aliased constant Windows.IID := (2770391254, 44685, 17883, (128, 17, 202, 73, 211, 179, 229, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICallControlStatics : aliased constant Windows.IID := (60054229, 34219, 16609, (175, 25, 86, 201, 67, 3, 176, 25 ));
+   
    type ICallControlStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -3026,10 +3029,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.ICallControl
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICallControlStatics : aliased constant Windows.IID := (60054229, 34219, 16609, (175, 25, 86, 201, 67, 3, 176, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_CaptureSceneMode : aliased constant Windows.IID := (3792017066, 3006, 20995, (190, 107, 107, 113, 255, 91, 8, 67 ));
+   
    type IReference_CaptureSceneMode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -3038,10 +3041,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.CaptureSceneMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_CaptureSceneMode : aliased constant Windows.IID := (3792017066, 3006, 20995, (190, 107, 107, 113, 255, 91, 8, 67 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_MediaCaptureFocusState : aliased constant Windows.IID := (1484915077, 23968, 24490, (134, 218, 155, 217, 240, 57, 116, 250 ));
+   
    type IReference_MediaCaptureFocusState_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -3050,10 +3053,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.MediaCaptureFocusState
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_MediaCaptureFocusState : aliased constant Windows.IID := (1484915077, 23968, 24490, (134, 218, 155, 217, 240, 57, 116, 250 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IModuleCommandResult : aliased constant Windows.IID := (773799282, 42381, 23306, (180, 45, 54, 96, 192, 76, 254, 235 ));
+   
    type IAsyncOperation_IModuleCommandResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3076,10 +3079,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IModuleCommandResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IModuleCommandResult : aliased constant Windows.IID := (773799282, 42381, 23306, (180, 45, 54, 96, 192, 76, 254, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IAudioDeviceModule : aliased constant Windows.IID := (3033251767, 38993, 22217, (131, 157, 161, 10, 139, 27, 178, 52 ));
+   
    type IIterator_IAudioDeviceModule_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3110,10 +3113,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IAudioDeviceModule : aliased constant Windows.IID := (3033251767, 38993, 22217, (131, 157, 161, 10, 139, 27, 178, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IAudioDeviceModule : aliased constant Windows.IID := (2129351107, 55054, 21642, (133, 194, 60, 247, 27, 74, 18, 76 ));
+   
    type IIterable_IAudioDeviceModule_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3122,10 +3125,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_IAudioDeviceModule
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IAudioDeviceModule : aliased constant Windows.IID := (2129351107, 55054, 21642, (133, 194, 60, 247, 27, 74, 18, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAudioDeviceModule : aliased constant Windows.IID := (3119863319, 18668, 23255, (149, 202, 51, 57, 82, 132, 242, 139 ));
+   
    type IVectorView_IAudioDeviceModule_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3160,10 +3163,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IAudioDeviceModule : aliased constant Windows.IID := (3119863319, 18668, 23255, (149, 202, 51, 57, 82, 132, 242, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_CaptureSceneMode : aliased constant Windows.IID := (2868538746, 12159, 24023, (170, 10, 38, 87, 49, 162, 179, 179 ));
+   
    type IIterator_CaptureSceneMode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3194,10 +3197,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_CaptureSceneMode : aliased constant Windows.IID := (2868538746, 12159, 24023, (170, 10, 38, 87, 49, 162, 179, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_CaptureSceneMode : aliased constant Windows.IID := (382888856, 11452, 21232, (171, 100, 23, 35, 113, 68, 24, 233 ));
+   
    type IIterable_CaptureSceneMode_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3206,10 +3209,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_CaptureSceneMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_CaptureSceneMode : aliased constant Windows.IID := (382888856, 11452, 21232, (171, 100, 23, 35, 113, 68, 24, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_CaptureSceneMode : aliased constant Windows.IID := (2609995113, 59160, 23368, (187, 148, 84, 189, 243, 115, 126, 165 ));
+   
    type IVectorView_CaptureSceneMode_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3244,10 +3247,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_CaptureSceneMode : aliased constant Windows.IID := (2609995113, 59160, 23368, (187, 148, 84, 189, 243, 115, 126, 165 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IsoSpeedPreset : aliased constant Windows.IID := (456372086, 38923, 21320, (145, 106, 121, 63, 97, 181, 85, 160 ));
+   
    type IIterator_IsoSpeedPreset_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3278,10 +3281,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IsoSpeedPreset : aliased constant Windows.IID := (456372086, 38923, 21320, (145, 106, 121, 63, 97, 181, 85, 160 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IsoSpeedPreset : aliased constant Windows.IID := (2491652798, 38674, 21594, (169, 77, 165, 103, 163, 232, 223, 183 ));
+   
    type IIterable_IsoSpeedPreset_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3290,10 +3293,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_IsoSpeedPreset
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IsoSpeedPreset : aliased constant Windows.IID := (2491652798, 38674, 21594, (169, 77, 165, 103, 163, 232, 223, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IsoSpeedPreset : aliased constant Windows.IID := (4016873443, 1785, 24319, (152, 168, 145, 125, 150, 68, 201, 70 ));
+   
    type IVectorView_IsoSpeedPreset_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3328,10 +3331,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IsoSpeedPreset : aliased constant Windows.IID := (4016873443, 1785, 24319, (152, 168, 145, 125, 150, 68, 201, 70 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ZoomTransitionMode : aliased constant Windows.IID := (2162902666, 64964, 23689, (153, 184, 141, 71, 98, 100, 226, 17 ));
+   
    type IIterator_ZoomTransitionMode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3362,10 +3365,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ZoomTransitionMode : aliased constant Windows.IID := (2162902666, 64964, 23689, (153, 184, 141, 71, 98, 100, 226, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ZoomTransitionMode : aliased constant Windows.IID := (3680856341, 36780, 24498, (152, 224, 14, 151, 66, 22, 86, 197 ));
+   
    type IIterable_ZoomTransitionMode_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3374,10 +3377,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_ZoomTransitionMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ZoomTransitionMode : aliased constant Windows.IID := (3680856341, 36780, 24498, (152, 224, 14, 151, 66, 22, 86, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ZoomTransitionMode : aliased constant Windows.IID := (1297441109, 53281, 23110, (154, 28, 244, 1, 214, 27, 133, 41 ));
+   
    type IVectorView_ZoomTransitionMode_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3412,10 +3415,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ZoomTransitionMode : aliased constant Windows.IID := (1297441109, 53281, 23110, (154, 28, 244, 1, 214, 27, 133, 41 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_ManualFocusDistance : aliased constant Windows.IID := (2953186186, 4357, 23252, (150, 61, 246, 207, 25, 5, 211, 73 ));
+   
    type IReference_ManualFocusDistance_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -3424,10 +3427,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.ManualFocusDistance
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_ManualFocusDistance : aliased constant Windows.IID := (2953186186, 4357, 23252, (150, 61, 246, 207, 25, 5, 211, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_FocusPreset : aliased constant Windows.IID := (3555444969, 61637, 20928, (187, 134, 189, 234, 10, 105, 70, 251 ));
+   
    type IIterator_FocusPreset_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3458,10 +3461,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_FocusPreset : aliased constant Windows.IID := (3555444969, 61637, 20928, (187, 134, 189, 234, 10, 105, 70, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_FocusPreset : aliased constant Windows.IID := (649752859, 14898, 21014, (188, 52, 97, 236, 175, 190, 189, 193 ));
+   
    type IIterable_FocusPreset_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3470,10 +3473,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_FocusPreset
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_FocusPreset : aliased constant Windows.IID := (649752859, 14898, 21014, (188, 52, 97, 236, 175, 190, 189, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_FocusPreset : aliased constant Windows.IID := (3634664931, 55252, 24223, (169, 194, 107, 37, 6, 85, 162, 224 ));
+   
    type IVectorView_FocusPreset_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3508,10 +3511,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_FocusPreset : aliased constant Windows.IID := (3634664931, 55252, 24223, (169, 194, 107, 37, 6, 85, 162, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_FocusMode : aliased constant Windows.IID := (4188290260, 45824, 21535, (175, 121, 61, 227, 64, 14, 22, 175 ));
+   
    type IIterator_FocusMode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3542,10 +3545,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_FocusMode : aliased constant Windows.IID := (4188290260, 45824, 21535, (175, 121, 61, 227, 64, 14, 22, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_FocusMode : aliased constant Windows.IID := (1444659743, 19170, 22538, (162, 22, 10, 212, 143, 55, 58, 76 ));
+   
    type IIterable_FocusMode_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3554,10 +3557,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_FocusMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_FocusMode : aliased constant Windows.IID := (1444659743, 19170, 22538, (162, 22, 10, 212, 143, 55, 58, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_FocusMode : aliased constant Windows.IID := (3363280732, 62403, 23357, (147, 228, 87, 135, 190, 155, 127, 88 ));
+   
    type IVectorView_FocusMode_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3592,10 +3595,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_FocusMode : aliased constant Windows.IID := (3363280732, 62403, 23357, (147, 228, 87, 135, 190, 155, 127, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ManualFocusDistance : aliased constant Windows.IID := (2955494625, 63049, 20766, (128, 221, 46, 43, 32, 55, 157, 235 ));
+   
    type IIterator_ManualFocusDistance_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3626,10 +3629,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ManualFocusDistance : aliased constant Windows.IID := (2955494625, 63049, 20766, (128, 221, 46, 43, 32, 55, 157, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ManualFocusDistance : aliased constant Windows.IID := (3482107569, 10828, 21037, (150, 47, 132, 195, 26, 89, 141, 104 ));
+   
    type IIterable_ManualFocusDistance_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3638,10 +3641,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_ManualFocusDistance
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ManualFocusDistance : aliased constant Windows.IID := (3482107569, 10828, 21037, (150, 47, 132, 195, 26, 89, 141, 104 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ManualFocusDistance : aliased constant Windows.IID := (2247583291, 21607, 22326, (141, 52, 52, 57, 90, 166, 209, 35 ));
+   
    type IVectorView_ManualFocusDistance_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3676,10 +3679,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ManualFocusDistance : aliased constant Windows.IID := (2247583291, 21607, 22326, (141, 52, 52, 57, 90, 166, 209, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_AutoFocusRange : aliased constant Windows.IID := (122198725, 15473, 22982, (183, 220, 127, 33, 52, 28, 47, 113 ));
+   
    type IIterator_AutoFocusRange_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3710,10 +3713,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_AutoFocusRange : aliased constant Windows.IID := (122198725, 15473, 22982, (183, 220, 127, 33, 52, 28, 47, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_AutoFocusRange : aliased constant Windows.IID := (1964401862, 63702, 20643, (171, 128, 19, 124, 109, 144, 140, 85 ));
+   
    type IIterable_AutoFocusRange_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3722,10 +3725,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_AutoFocusRange
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_AutoFocusRange : aliased constant Windows.IID := (1964401862, 63702, 20643, (171, 128, 19, 124, 109, 144, 140, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_AutoFocusRange : aliased constant Windows.IID := (1576421413, 51681, 21087, (154, 235, 60, 15, 95, 128, 95, 38 ));
+   
    type IVectorView_AutoFocusRange_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3760,10 +3763,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_AutoFocusRange : aliased constant Windows.IID := (1576421413, 51681, 21087, (154, 235, 60, 15, 95, 128, 95, 38 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IRegionOfInterest : aliased constant Windows.IID := (2394426958, 38545, 22863, (139, 61, 245, 46, 204, 15, 120, 55 ));
+   
    type IIterator_IRegionOfInterest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3794,10 +3797,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IRegionOfInterest : aliased constant Windows.IID := (2394426958, 38545, 22863, (139, 61, 245, 46, 204, 15, 120, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IRegionOfInterest : aliased constant Windows.IID := (3610330311, 40309, 24059, (128, 64, 98, 98, 2, 220, 244, 84 ));
+   
    type IIterable_IRegionOfInterest_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3806,10 +3809,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_IRegionOfInterest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IRegionOfInterest : aliased constant Windows.IID := (3610330311, 40309, 24059, (128, 64, 98, 98, 2, 220, 244, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_HdrVideoMode : aliased constant Windows.IID := (1035345171, 3888, 23853, (153, 203, 48, 199, 185, 0, 152, 120 ));
+   
    type IIterator_HdrVideoMode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3840,10 +3843,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_HdrVideoMode : aliased constant Windows.IID := (1035345171, 3888, 23853, (153, 203, 48, 199, 185, 0, 152, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_HdrVideoMode : aliased constant Windows.IID := (496400807, 11526, 21140, (172, 103, 249, 205, 53, 97, 220, 184 ));
+   
    type IIterable_HdrVideoMode_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3852,10 +3855,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_HdrVideoMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_HdrVideoMode : aliased constant Windows.IID := (496400807, 11526, 21140, (172, 103, 249, 205, 53, 97, 220, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_HdrVideoMode : aliased constant Windows.IID := (2903133117, 30256, 21412, (170, 155, 53, 168, 199, 212, 149, 140 ));
+   
    type IVectorView_HdrVideoMode_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3890,10 +3893,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_HdrVideoMode : aliased constant Windows.IID := (2903133117, 30256, 21412, (170, 155, 53, 168, 199, 212, 149, 140 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_AdvancedPhotoMode : aliased constant Windows.IID := (3872439453, 57803, 24272, (142, 222, 125, 3, 123, 204, 46, 7 ));
+   
    type IIterator_AdvancedPhotoMode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3924,10 +3927,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_AdvancedPhotoMode : aliased constant Windows.IID := (3872439453, 57803, 24272, (142, 222, 125, 3, 123, 204, 46, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_AdvancedPhotoMode : aliased constant Windows.IID := (2097743748, 28841, 22284, (190, 130, 13, 8, 144, 49, 137, 117 ));
+   
    type IIterable_AdvancedPhotoMode_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3936,10 +3939,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_AdvancedPhotoMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_AdvancedPhotoMode : aliased constant Windows.IID := (2097743748, 28841, 22284, (190, 130, 13, 8, 144, 49, 137, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_AdvancedPhotoMode : aliased constant Windows.IID := (3495445430, 968, 21054, (182, 251, 31, 203, 3, 33, 138, 84 ));
+   
    type IVectorView_AdvancedPhotoMode_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3974,10 +3977,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_AdvancedPhotoMode : aliased constant Windows.IID := (3495445430, 968, 21054, (182, 251, 31, 203, 3, 33, 138, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_OpticalImageStabilizationMode : aliased constant Windows.IID := (1242979654, 53017, 23043, (187, 84, 99, 252, 43, 78, 211, 155 ));
+   
    type IIterator_OpticalImageStabilizationMode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4008,10 +4011,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_OpticalImageStabilizationMode : aliased constant Windows.IID := (1242979654, 53017, 23043, (187, 84, 99, 252, 43, 78, 211, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_OpticalImageStabilizationMode : aliased constant Windows.IID := (842889012, 38082, 21581, (165, 96, 86, 86, 15, 230, 136, 25 ));
+   
    type IIterable_OpticalImageStabilizationMode_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4020,10 +4023,10 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.Media.Devices.IIterator_OpticalImageStabilizationMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_OpticalImageStabilizationMode : aliased constant Windows.IID := (842889012, 38082, 21581, (165, 96, 86, 86, 15, 230, 136, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_OpticalImageStabilizationMode : aliased constant Windows.IID := (2351323352, 44202, 23168, (178, 89, 27, 160, 105, 124, 97, 56 ));
+   
    type IVectorView_OpticalImageStabilizationMode_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4058,17 +4061,15 @@ package Windows.Media.Devices is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_OpticalImageStabilizationMode : aliased constant Windows.IID := (2351323352, 44202, 23168, (178, 89, 27, 160, 105, 124, 97, 56 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type CallControlEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access CallControlEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_CallControlEventHandler : aliased constant Windows.IID := (1500476831, 20703, 17492, (188, 99, 77, 61, 1, 182, 25, 88 ));
+   
+   type CallControlEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl)) is new Windows.IMulticastDelegate_Interface(IID_CallControlEventHandler'access) with null record;
    
    function Invoke
    (
@@ -4077,12 +4078,11 @@ package Windows.Media.Devices is
    )
    return Windows.HRESULT;
    
-   IID_CallControlEventHandler : aliased constant Windows.IID := (1500476831, 20703, 17492, (188, 99, 77, 61, 1, 182, 25, 88 ));
-   
    ------------------------------------------------------------------------
-   type DialRequestedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl ; e : Windows.Media.Devices.IDialRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DialRequestedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_DialRequestedEventHandler : aliased constant Windows.IID := (1522270171, 49695, 19396, (137, 27, 37, 126, 40, 193, 177, 164 ));
+   
+   type DialRequestedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl ; e : Windows.Media.Devices.IDialRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_DialRequestedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -4092,12 +4092,11 @@ package Windows.Media.Devices is
    )
    return Windows.HRESULT;
    
-   IID_DialRequestedEventHandler : aliased constant Windows.IID := (1522270171, 49695, 19396, (137, 27, 37, 126, 40, 193, 177, 164 ));
-   
    ------------------------------------------------------------------------
-   type RedialRequestedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl ; e : Windows.Media.Devices.IRedialRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access RedialRequestedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_RedialRequestedEventHandler : aliased constant Windows.IID := (3136444369, 20157, 19332, (159, 71, 110, 196, 61, 117, 216, 177 ));
+   
+   type RedialRequestedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl ; e : Windows.Media.Devices.IRedialRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_RedialRequestedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -4107,12 +4106,11 @@ package Windows.Media.Devices is
    )
    return Windows.HRESULT;
    
-   IID_RedialRequestedEventHandler : aliased constant Windows.IID := (3136444369, 20157, 19332, (159, 71, 110, 196, 61, 117, 216, 177 ));
-   
    ------------------------------------------------------------------------
-   type KeypadPressedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl ; e : Windows.Media.Devices.IKeypadPressedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access KeypadPressedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_KeypadPressedEventHandler : aliased constant Windows.IID := (3862406228, 50471, 16940, (137, 38, 201, 175, 131, 181, 89, 160 ));
+   
+   type KeypadPressedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Devices.ICallControl ; e : Windows.Media.Devices.IKeypadPressedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_KeypadPressedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -4122,12 +4120,11 @@ package Windows.Media.Devices is
    )
    return Windows.HRESULT;
    
-   IID_KeypadPressedEventHandler : aliased constant Windows.IID := (3862406228, 50471, 16940, (137, 38, 201, 175, 131, 181, 89, 160 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged : aliased constant Windows.IID := (2547020583, 11384, 22460, (152, 230, 162, 76, 208, 36, 207, 91 ));
+   
+   type TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged'access) with null record;
    
    function Invoke
    (
@@ -4137,12 +4134,11 @@ package Windows.Media.Devices is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioCaptureDeviceChanged : aliased constant Windows.IID := (2547020583, 11384, 22460, (152, 230, 162, 76, 208, 36, 207, 91 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged : aliased constant Windows.IID := (4252183242, 56060, 23421, (191, 114, 181, 96, 183, 141, 38, 12 ));
+   
+   type TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged'access) with null record;
    
    function Invoke
    (
@@ -4152,12 +4148,11 @@ package Windows.Media.Devices is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMediaDeviceStatics_add_DefaultAudioRenderDeviceChanged : aliased constant Windows.IID := (4252183242, 56060, 23421, (191, 114, 181, 96, 183, 141, 38, 12 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IModuleCommandResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Devices.IAsyncOperation_IModuleCommandResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IModuleCommandResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IModuleCommandResult : aliased constant Windows.IID := (3413664772, 62184, 24075, (191, 18, 57, 227, 20, 131, 207, 174 ));
+   
+   type AsyncOperationCompletedHandler_IModuleCommandResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Devices.IAsyncOperation_IModuleCommandResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IModuleCommandResult'access) with null record;
    
    function Invoke
    (
@@ -4167,12 +4162,11 @@ package Windows.Media.Devices is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IModuleCommandResult : aliased constant Windows.IID := (3413664772, 62184, 24075, (191, 18, 57, 227, 20, 131, 207, 174 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface(Callback : access procedure (sender : Windows.Media.Devices.IAudioDeviceModulesManager ; args : Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived : aliased constant Windows.IID := (3002511869, 28818, 22308, (178, 206, 145, 177, 23, 110, 128, 225 ));
+   
+   type TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived_Interface(Callback : access procedure (sender : Windows.Media.Devices.IAudioDeviceModulesManager ; args : Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived'access) with null record;
    
    function Invoke
    (
@@ -4181,8 +4175,6 @@ package Windows.Media.Devices is
       ; args : Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IAudioDeviceModulesManager_add_ModuleNotificationReceived : aliased constant Windows.IID := (3002511869, 28818, 22308, (178, 206, 145, 177, 23, 110, 128, 225 ));
    
    ------------------------------------------------------------------------
    -- Classes

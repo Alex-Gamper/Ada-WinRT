@@ -60,6 +60,9 @@ package Windows.Globalization.Fonts is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ILanguageFontGroup : aliased constant Windows.IID := (4080697283, 14940, 19178, (185, 255, 179, 159, 178, 66, 247, 246 ));
+   
    type ILanguageFontGroup_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UITextFont
@@ -138,10 +141,10 @@ package Windows.Globalization.Fonts is
       ; RetVal : access Windows.Globalization.Fonts.ILanguageFont
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanguageFontGroup : aliased constant Windows.IID := (4080697283, 14940, 19178, (185, 255, 179, 159, 178, 66, 247, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILanguageFontGroupFactory : aliased constant Windows.IID := (4239305831, 20087, 18887, (184, 86, 221, 233, 52, 252, 115, 91 ));
+   
    type ILanguageFontGroupFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateLanguageFontGroup
@@ -151,10 +154,10 @@ package Windows.Globalization.Fonts is
       ; RetVal : access Windows.Globalization.Fonts.ILanguageFontGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanguageFontGroupFactory : aliased constant Windows.IID := (4239305831, 20087, 18887, (184, 86, 221, 233, 52, 252, 115, 91 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILanguageFont : aliased constant Windows.IID := (2972605498, 46957, 17819, (190, 235, 144, 17, 81, 205, 119, 209 ));
+   
    type ILanguageFont_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FontFamily
@@ -191,9 +194,6 @@ package Windows.Globalization.Fonts is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanguageFont : aliased constant Windows.IID := (2972605498, 46957, 17819, (190, 235, 144, 17, 81, 205, 119, 209 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

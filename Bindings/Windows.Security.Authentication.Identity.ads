@@ -61,6 +61,9 @@ package Windows.Security.Authentication.Identity is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IEnterpriseKeyCredentialRegistrationInfo : aliased constant Windows.IID := (942807756, 26411, 18467, (182, 3, 107, 60, 117, 61, 175, 151 ));
+   
    type IEnterpriseKeyCredentialRegistrationInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TenantId
@@ -97,10 +100,10 @@ package Windows.Security.Authentication.Identity is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEnterpriseKeyCredentialRegistrationInfo : aliased constant Windows.IID := (942807756, 26411, 18467, (182, 3, 107, 60, 117, 61, 175, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEnterpriseKeyCredentialRegistrationManagerStatics : aliased constant Windows.IID := (2008571550, 44276, 19392, (186, 194, 64, 187, 70, 239, 187, 63 ));
+   
    type IEnterpriseKeyCredentialRegistrationManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -109,10 +112,10 @@ package Windows.Security.Authentication.Identity is
       ; RetVal : access Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEnterpriseKeyCredentialRegistrationManagerStatics : aliased constant Windows.IID := (2008571550, 44276, 19392, (186, 194, 64, 187, 70, 239, 187, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEnterpriseKeyCredentialRegistrationManager : aliased constant Windows.IID := (2213789247, 41567, 19642, (187, 142, 189, 195, 45, 3, 194, 151 ));
+   
    type IEnterpriseKeyCredentialRegistrationManager_Interface is interface and Windows.IInspectable_Interface;
    
    function GetRegistrationsAsync
@@ -121,9 +124,6 @@ package Windows.Security.Authentication.Identity is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEnterpriseKeyCredentialRegistrationManager : aliased constant Windows.IID := (2213789247, 41567, 19642, (187, 142, 189, 195, 45, 3, 194, 151 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

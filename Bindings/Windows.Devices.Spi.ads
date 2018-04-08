@@ -119,6 +119,9 @@ package Windows.Devices.Spi is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISpiConnectionSettingsFactory : aliased constant Windows.IID := (4288219166, 4292, 17591, (159, 234, 167, 72, 181, 164, 111, 49 ));
+   
    type ISpiConnectionSettingsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -128,10 +131,10 @@ package Windows.Devices.Spi is
       ; RetVal : access Windows.Devices.Spi.ISpiConnectionSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiConnectionSettingsFactory : aliased constant Windows.IID := (4288219166, 4292, 17591, (159, 234, 167, 72, 181, 164, 111, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpiConnectionSettings : aliased constant Windows.IID := (1384358783, 63797, 19359, (167, 167, 58, 120, 144, 175, 165, 206 ));
+   
    type ISpiConnectionSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChipSelectLine
@@ -203,10 +206,10 @@ package Windows.Devices.Spi is
       ; value : Windows.Devices.Spi.SpiSharingMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiConnectionSettings : aliased constant Windows.IID := (1384358783, 63797, 19359, (167, 167, 58, 120, 144, 175, 165, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpiBusInfo : aliased constant Windows.IID := (2569618506, 21746, 18630, (185, 82, 156, 50, 252, 2, 198, 105 ));
+   
    type ISpiBusInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChipSelectLineCount
@@ -236,10 +239,10 @@ package Windows.Devices.Spi is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_Int32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiBusInfo : aliased constant Windows.IID := (2569618506, 21746, 18630, (185, 82, 156, 50, 252, 2, 198, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpiDeviceStatics : aliased constant Windows.IID := (2725832025, 22304, 19775, (189, 147, 86, 245, 255, 90, 88, 121 ));
+   
    type ISpiDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -273,10 +276,10 @@ package Windows.Devices.Spi is
       ; RetVal : access Windows.Devices.Spi.IAsyncOperation_ISpiDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiDeviceStatics : aliased constant Windows.IID := (2725832025, 22304, 19775, (189, 147, 86, 245, 255, 90, 88, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpiController : aliased constant Windows.IID := (2832451625, 39061, 16729, (169, 52, 135, 65, 241, 238, 109, 39 ));
+   
    type ISpiController_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDevice
@@ -286,10 +289,10 @@ package Windows.Devices.Spi is
       ; RetVal : access Windows.Devices.Spi.ISpiDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiController : aliased constant Windows.IID := (2832451625, 39061, 16729, (169, 52, 135, 65, 241, 238, 109, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpiControllerStatics : aliased constant Windows.IID := (223488482, 5003, 20040, (185, 100, 79, 47, 121, 185, 197, 162 ));
+   
    type ISpiControllerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultAsync
@@ -306,10 +309,10 @@ package Windows.Devices.Spi is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiControllerStatics : aliased constant Windows.IID := (223488482, 5003, 20040, (185, 100, 79, 47, 121, 185, 197, 162 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpiDevice : aliased constant Windows.IID := (97858925, 4534, 19769, (132, 213, 149, 223, 180, 201, 242, 206 ));
+   
    type ISpiDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -355,10 +358,10 @@ package Windows.Devices.Spi is
       ; readBuffer : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiDevice : aliased constant Windows.IID := (97858925, 4534, 19769, (132, 213, 149, 223, 180, 201, 242, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISpiDevice : aliased constant Windows.IID := (4273489514, 34703, 22395, (187, 202, 137, 87, 92, 252, 86, 228 ));
+   
    type IAsyncOperation_ISpiDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -381,10 +384,10 @@ package Windows.Devices.Spi is
       ; RetVal : access Windows.Devices.Spi.ISpiDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISpiDevice : aliased constant Windows.IID := (4273489514, 34703, 22395, (187, 202, 137, 87, 92, 252, 86, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISpiController : aliased constant Windows.IID := (3065044847, 49303, 22596, (147, 189, 120, 33, 153, 143, 219, 142 ));
+   
    type IAsyncOperation_ISpiController_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -407,17 +410,15 @@ package Windows.Devices.Spi is
       ; RetVal : access Windows.Devices.Spi.ISpiController
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISpiController : aliased constant Windows.IID := (3065044847, 49303, 22596, (147, 189, 120, 33, 153, 143, 219, 142 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISpiDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Spi.IAsyncOperation_ISpiDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpiDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISpiDevice : aliased constant Windows.IID := (2827626682, 26982, 21991, (140, 129, 124, 101, 247, 78, 57, 192 ));
+   
+   type AsyncOperationCompletedHandler_ISpiDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Spi.IAsyncOperation_ISpiDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpiDevice'access) with null record;
    
    function Invoke
    (
@@ -427,12 +428,11 @@ package Windows.Devices.Spi is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISpiDevice : aliased constant Windows.IID := (2827626682, 26982, 21991, (140, 129, 124, 101, 247, 78, 57, 192 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISpiController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Spi.IAsyncOperation_ISpiController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpiController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISpiController : aliased constant Windows.IID := (1586813257, 43076, 23333, (163, 204, 175, 171, 235, 24, 193, 210 ));
+   
+   type AsyncOperationCompletedHandler_ISpiController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Spi.IAsyncOperation_ISpiController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpiController'access) with null record;
    
    function Invoke
    (
@@ -441,8 +441,6 @@ package Windows.Devices.Spi is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_ISpiController : aliased constant Windows.IID := (1586813257, 43076, 23333, (163, 204, 175, 171, 235, 24, 193, 210 ));
    
    ------------------------------------------------------------------------
    -- Classes

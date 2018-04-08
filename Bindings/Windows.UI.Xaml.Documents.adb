@@ -32,28 +32,6 @@ package body Windows.UI.Xaml.Documents is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested_Interface
@@ -64,28 +42,6 @@ package body Windows.UI.Xaml.Documents is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Documents.ITextElement(sender), Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -102,28 +58,6 @@ package body Windows.UI.Xaml.Documents is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_ITextElement4_add_AccessKeyInvoked or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface
@@ -134,28 +68,6 @@ package body Windows.UI.Xaml.Documents is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Documents.ITextElement(sender), Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IHyperlink_add_Click_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IHyperlink_add_Click or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -182,15 +94,16 @@ package body Windows.UI.Xaml.Documents is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.InlineUIContainer");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.IInlineUIContainer := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IInlineUIContainer) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IInlineUIContainer'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IInlineUIContainer'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateLineBreak return Windows.UI.Xaml.Documents.ILineBreak is
@@ -198,15 +111,16 @@ package body Windows.UI.Xaml.Documents is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.LineBreak");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.ILineBreak := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.ILineBreak) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_ILineBreak'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_ILineBreak'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateParagraph return Windows.UI.Xaml.Documents.IParagraph is
@@ -214,15 +128,16 @@ package body Windows.UI.Xaml.Documents is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Paragraph");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.IParagraph := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IParagraph) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IParagraph'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IParagraph'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateRun return Windows.UI.Xaml.Documents.IRun is
@@ -230,15 +145,16 @@ package body Windows.UI.Xaml.Documents is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Run");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.IRun := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IRun) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IRun'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IRun'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateBold return Windows.UI.Xaml.Documents.IBold is
@@ -246,15 +162,16 @@ package body Windows.UI.Xaml.Documents is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Bold");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.IBold := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IBold) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IBold'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IBold'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateItalic return Windows.UI.Xaml.Documents.IItalic is
@@ -262,15 +179,16 @@ package body Windows.UI.Xaml.Documents is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Italic");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.IItalic := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IItalic) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IItalic'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IItalic'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateUnderline return Windows.UI.Xaml.Documents.IUnderline is
@@ -278,15 +196,16 @@ package body Windows.UI.Xaml.Documents is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Underline");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.IUnderline := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IUnderline) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IUnderline'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IUnderline'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateHyperlink return Windows.UI.Xaml.Documents.IHyperlink is
@@ -294,15 +213,16 @@ package body Windows.UI.Xaml.Documents is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.IHyperlink := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IHyperlink) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IHyperlink'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IHyperlink'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateGlyphs return Windows.UI.Xaml.Documents.IGlyphs is
@@ -310,15 +230,16 @@ package body Windows.UI.Xaml.Documents is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.IGlyphs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IGlyphs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IGlyphs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IGlyphs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------
@@ -330,28 +251,25 @@ package body Windows.UI.Xaml.Documents is
    (
       This       : access ITextHighlighter_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(ITextHighlighter , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_ITextHighlighter or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -363,22 +281,24 @@ package body Windows.UI.Xaml.Documents is
    (
       This       : access ITextHighlighter_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access ITextHighlighter_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -477,28 +397,25 @@ package body Windows.UI.Xaml.Documents is
    (
       This       : access IBlock_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IBlock , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IBlock or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -510,22 +427,24 @@ package body Windows.UI.Xaml.Documents is
    (
       This       : access IBlock_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IBlock_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -657,28 +576,25 @@ package body Windows.UI.Xaml.Documents is
    (
       This       : access IInline_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IInline , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IInline or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -690,22 +606,24 @@ package body Windows.UI.Xaml.Documents is
    (
       This       : access IInline_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IInline_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -749,28 +667,25 @@ package body Windows.UI.Xaml.Documents is
    (
       This       : access ISpan_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(ISpan , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_ISpan or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -782,22 +697,24 @@ package body Windows.UI.Xaml.Documents is
    (
       This       : access ISpan_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access ISpan_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids

@@ -176,6 +176,9 @@ package Windows.Gaming.Input.ForceFeedback is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IForceFeedbackEffect : aliased constant Windows.IID := (2709502476, 10980, 18626, (128, 99, 234, 189, 7, 119, 203, 137 ));
+   
    type IForceFeedbackEffect_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Gain
@@ -210,10 +213,10 @@ package Windows.Gaming.Input.ForceFeedback is
       This       : access IForceFeedbackEffect_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IForceFeedbackEffect : aliased constant Windows.IID := (2709502476, 10980, 18626, (128, 99, 234, 189, 7, 119, 203, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConditionForceEffect : aliased constant Windows.IID := (852617832, 13973, 20073, (133, 192, 205, 25, 68, 24, 145, 64 ));
+   
    type IConditionForceEffect_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Kind
@@ -235,10 +238,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; bias : Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConditionForceEffect : aliased constant Windows.IID := (852617832, 13973, 20073, (133, 192, 205, 25, 68, 24, 145, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConditionForceEffectFactory : aliased constant Windows.IID := (2443809380, 6160, 20150, (167, 115, 191, 211, 184, 205, 219, 171 ));
+   
    type IConditionForceEffectFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -248,10 +251,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConditionForceEffectFactory : aliased constant Windows.IID := (2443809380, 6160, 20150, (167, 115, 191, 211, 184, 205, 219, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConstantForceEffect : aliased constant Windows.IID := (2616852800, 62407, 16732, (176, 104, 15, 6, 135, 52, 188, 224 ));
+   
    type IConstantForceEffect_Interface is interface and Windows.IInspectable_Interface;
    
    function SetParameters
@@ -276,10 +279,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; repeatCount : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConstantForceEffect : aliased constant Windows.IID := (2616852800, 62407, 16732, (176, 104, 15, 6, 135, 52, 188, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPeriodicForceEffect : aliased constant Windows.IID := (1548826839, 64629, 19794, (154, 10, 239, 228, 202, 181, 254, 100 ));
+   
    type IPeriodicForceEffect_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Kind
@@ -317,10 +320,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; repeatCount : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPeriodicForceEffect : aliased constant Windows.IID := (1548826839, 64629, 19794, (154, 10, 239, 228, 202, 181, 254, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPeriodicForceEffectFactory : aliased constant Windows.IID := (1868753690, 38993, 18299, (179, 24, 53, 236, 170, 21, 7, 15 ));
+   
    type IPeriodicForceEffectFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -330,10 +333,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPeriodicForceEffectFactory : aliased constant Windows.IID := (1868753690, 38993, 18299, (179, 24, 53, 236, 170, 21, 7, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRampForceEffect : aliased constant Windows.IID := (4059566681, 7334, 16512, (181, 109, 180, 63, 51, 84, 208, 82 ));
+   
    type IRampForceEffect_Interface is interface and Windows.IInspectable_Interface;
    
    function SetParameters
@@ -360,10 +363,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; repeatCount : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRampForceEffect : aliased constant Windows.IID := (4059566681, 7334, 16512, (181, 109, 180, 63, 51, 84, 208, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IForceFeedbackMotor : aliased constant Windows.IID := (2369601916, 42474, 17686, (128, 38, 43, 0, 247, 78, 246, 229 ));
+   
    type IForceFeedbackMotor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AreEffectsPaused
@@ -455,10 +458,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IForceFeedbackMotor : aliased constant Windows.IID := (2369601916, 42474, 17686, (128, 38, 43, 0, 247, 78, 246, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ForceFeedbackLoadEffectResult : aliased constant Windows.IID := (569914620, 59461, 23225, (191, 133, 149, 52, 226, 57, 119, 152 ));
+   
    type IAsyncOperation_ForceFeedbackLoadEffectResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -481,10 +484,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ForceFeedbackLoadEffectResult : aliased constant Windows.IID := (569914620, 59461, 23225, (191, 133, 149, 52, 226, 57, 119, 152 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IForceFeedbackMotor : aliased constant Windows.IID := (1691314656, 21604, 23410, (189, 75, 130, 247, 195, 208, 56, 109 ));
+   
    type IIterator_IForceFeedbackMotor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -515,10 +518,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IForceFeedbackMotor : aliased constant Windows.IID := (1691314656, 21604, 23410, (189, 75, 130, 247, 195, 208, 56, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IForceFeedbackMotor : aliased constant Windows.IID := (3242475729, 65184, 20807, (174, 216, 155, 133, 35, 157, 168, 130 ));
+   
    type IIterable_IForceFeedbackMotor_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -527,10 +530,10 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Gaming.Input.ForceFeedback.IIterator_IForceFeedbackMotor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IForceFeedbackMotor : aliased constant Windows.IID := (3242475729, 65184, 20807, (174, 216, 155, 133, 35, 157, 168, 130 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IForceFeedbackMotor : aliased constant Windows.IID := (1543262320, 4125, 24507, (141, 95, 206, 92, 35, 190, 205, 217 ));
+   
    type IVectorView_IForceFeedbackMotor_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -565,17 +568,15 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IForceFeedbackMotor : aliased constant Windows.IID := (1543262320, 4125, 24507, (141, 95, 206, 92, 35, 190, 205, 217 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.Input.ForceFeedback.IAsyncOperation_ForceFeedbackLoadEffectResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult : aliased constant Windows.IID := (4162980417, 63288, 20968, (137, 186, 118, 187, 214, 97, 88, 203 ));
+   
+   type AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.Input.ForceFeedback.IAsyncOperation_ForceFeedbackLoadEffectResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult'access) with null record;
    
    function Invoke
    (
@@ -584,8 +585,6 @@ package Windows.Gaming.Input.ForceFeedback is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult : aliased constant Windows.IID := (4162980417, 63288, 20968, (137, 186, 118, 187, 214, 97, 88, 203 ));
    
    ------------------------------------------------------------------------
    -- Classes

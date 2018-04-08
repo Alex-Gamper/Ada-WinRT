@@ -177,6 +177,9 @@ package Windows.Gaming.Input.Custom is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IGameControllerInputSink : aliased constant Windows.IID := (536279330, 50752, 19576, (168, 32, 154, 113, 92, 85, 139, 203 ));
+   
    type IGameControllerInputSink_Interface is interface and Windows.IInspectable_Interface;
    
    function OnInputResumed
@@ -192,10 +195,10 @@ package Windows.Gaming.Input.Custom is
       ; timestamp : Windows.UInt64
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameControllerInputSink : aliased constant Windows.IID := (536279330, 50752, 19576, (168, 32, 154, 113, 92, 85, 139, 203 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGipGameControllerInputSink : aliased constant Windows.IID := (2718993087, 2545, 17340, (161, 64, 128, 248, 153, 236, 54, 251 ));
+   
    type IGipGameControllerInputSink_Interface is interface and Windows.IInspectable_Interface;
    
    function OnKeyReceived
@@ -217,10 +220,10 @@ package Windows.Gaming.Input.Custom is
       ; messageBuffer : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGipGameControllerInputSink : aliased constant Windows.IID := (2718993087, 2545, 17340, (161, 64, 128, 248, 153, 236, 54, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidGameControllerInputSink : aliased constant Windows.IID := (4149527330, 6189, 16612, (161, 38, 252, 238, 79, 250, 30, 49 ));
+   
    type IHidGameControllerInputSink_Interface is interface and Windows.IInspectable_Interface;
    
    function OnInputReportReceived
@@ -231,10 +234,10 @@ package Windows.Gaming.Input.Custom is
       ; reportBuffer : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidGameControllerInputSink : aliased constant Windows.IID := (4149527330, 6189, 16612, (161, 38, 252, 238, 79, 250, 30, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXusbGameControllerInputSink : aliased constant Windows.IID := (2997624213, 28363, 17075, (138, 171, 2, 84, 1, 202, 71, 18 ));
+   
    type IXusbGameControllerInputSink_Interface is interface and Windows.IInspectable_Interface;
    
    function OnInputReceived
@@ -245,10 +248,10 @@ package Windows.Gaming.Input.Custom is
       ; inputBuffer : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXusbGameControllerInputSink : aliased constant Windows.IID := (2997624213, 28363, 17075, (138, 171, 2, 84, 1, 202, 71, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGipFirmwareUpdateResult : aliased constant Windows.IID := (1803111730, 34131, 17042, (142, 3, 225, 102, 81, 162, 248, 188 ));
+   
    type IGipFirmwareUpdateResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ExtendedErrorCode
@@ -271,10 +274,10 @@ package Windows.Gaming.Input.Custom is
       ; RetVal : access Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGipFirmwareUpdateResult : aliased constant Windows.IID := (1803111730, 34131, 17042, (142, 3, 225, 102, 81, 162, 248, 188 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameControllerProvider : aliased constant Windows.IID := (3872864642, 10646, 17753, (177, 108, 62, 87, 212, 110, 88, 214 ));
+   
    type IGameControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FirmwareVersionInfo
@@ -311,10 +314,10 @@ package Windows.Gaming.Input.Custom is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameControllerProvider : aliased constant Windows.IID := (3872864642, 10646, 17753, (177, 108, 62, 87, 212, 110, 88, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGipGameControllerProvider : aliased constant Windows.IID := (3687783961, 6901, 17832, (191, 2, 160, 238, 80, 200, 35, 252 ));
+   
    type IGipGameControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function SendMessage
@@ -343,10 +346,10 @@ package Windows.Gaming.Input.Custom is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGipGameControllerProvider : aliased constant Windows.IID := (3687783961, 6901, 17832, (191, 2, 160, 238, 80, 200, 35, 252 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidGameControllerProvider : aliased constant Windows.IID := (2513320692, 44016, 19304, (160, 129, 59, 125, 231, 63, 240, 231 ));
+   
    type IHidGameControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UsageId
@@ -386,10 +389,10 @@ package Windows.Gaming.Input.Custom is
       ; reportBuffer : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidGameControllerProvider : aliased constant Windows.IID := (2513320692, 44016, 19304, (160, 129, 59, 125, 231, 63, 240, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXusbGameControllerProvider : aliased constant Windows.IID := (1848209899, 3835, 18612, (128, 139, 131, 118, 67, 178, 242, 22 ));
+   
    type IXusbGameControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function SetVibration
@@ -399,10 +402,10 @@ package Windows.Gaming.Input.Custom is
       ; highFrequencyMotorSpeed : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXusbGameControllerProvider : aliased constant Windows.IID := (1848209899, 3835, 18612, (128, 139, 131, 118, 67, 178, 242, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICustomGameControllerFactory : aliased constant Windows.IID := (1772138078, 30094, 19646, (172, 230, 98, 21, 95, 233, 18, 111 ));
+   
    type ICustomGameControllerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateGameController
@@ -426,10 +429,10 @@ package Windows.Gaming.Input.Custom is
       ; value : Windows.Gaming.Input.IGameController
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICustomGameControllerFactory : aliased constant Windows.IID := (1772138078, 30094, 19646, (172, 230, 98, 21, 95, 233, 18, 111 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameControllerFactoryManagerStatics : aliased constant Windows.IID := (919299811, 53409, 18822, (162, 76, 64, 177, 55, 222, 186, 158 ));
+   
    type IGameControllerFactoryManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function RegisterCustomFactoryForGipInterface
@@ -457,10 +460,10 @@ package Windows.Gaming.Input.Custom is
       ; xusbSubtype : Windows.Gaming.Input.Custom.XusbDeviceSubtype
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameControllerFactoryManagerStatics : aliased constant Windows.IID := (919299811, 53409, 18822, (162, 76, 64, 177, 55, 222, 186, 158 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGameControllerFactoryManagerStatics2 : aliased constant Windows.IID := (3939391044, 6623, 16661, (179, 42, 39, 147, 226, 174, 163, 187 ));
+   
    type IGameControllerFactoryManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function TryGetFactoryControllerFromGameController
@@ -471,9 +474,6 @@ package Windows.Gaming.Input.Custom is
       ; RetVal : access Windows.Gaming.Input.IGameController
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameControllerFactoryManagerStatics2 : aliased constant Windows.IID := (3939391044, 6623, 16661, (179, 42, 39, 147, 226, 174, 163, 187 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

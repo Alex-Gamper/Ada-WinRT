@@ -170,6 +170,9 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDeviceAccountConfiguration : aliased constant Windows.IID := (2902533027, 64476, 19739, (190, 67, 90, 39, 234, 74, 27, 99 ));
+   
    type IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AccountName
@@ -395,10 +398,10 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDeviceAccountConfiguration : aliased constant Windows.IID := (2902533027, 64476, 19739, (190, 67, 90, 39, 234, 74, 27, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDeviceAccountConfiguration2 : aliased constant Windows.IID := (4071810470, 29325, 19018, (137, 69, 43, 248, 88, 1, 54, 222 ));
+   
    type IDeviceAccountConfiguration2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IncomingServerCredential
@@ -792,10 +795,10 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDeviceAccountConfiguration2 : aliased constant Windows.IID := (4071810470, 29325, 19018, (137, 69, 43, 248, 88, 1, 54, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountSystemAccessManagerStatics : aliased constant Windows.IID := (2641039801, 52197, 17909, (130, 43, 194, 103, 184, 29, 189, 182 ));
+   
    type IUserDataAccountSystemAccessManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function AddAndShowDeviceAccountsAsync
@@ -805,10 +808,10 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccountSystemAccessManagerStatics : aliased constant Windows.IID := (2641039801, 52197, 17909, (130, 43, 194, 103, 184, 29, 189, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountSystemAccessManagerStatics2 : aliased constant Windows.IID := (2487190861, 19278, 17311, (131, 211, 151, 155, 39, 192, 90, 199 ));
+   
    type IUserDataAccountSystemAccessManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function SuppressLocalAccountWithAccountAsync
@@ -842,10 +845,10 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IAsyncOperation_IDeviceAccountConfiguration -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccountSystemAccessManagerStatics2 : aliased constant Windows.IID := (2487190861, 19278, 17311, (131, 211, 151, 155, 39, 192, 90, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IDeviceAccountConfiguration : aliased constant Windows.IID := (1366317703, 36299, 22897, (141, 107, 202, 138, 230, 169, 85, 173 ));
+   
    type IIterator_IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -876,10 +879,10 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IDeviceAccountConfiguration : aliased constant Windows.IID := (1366317703, 36299, 22897, (141, 107, 202, 138, 230, 169, 85, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IDeviceAccountConfiguration : aliased constant Windows.IID := (2848189038, 40409, 21246, (157, 39, 249, 228, 222, 221, 77, 63 ));
+   
    type IIterable_IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -888,10 +891,10 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IIterator_IDeviceAccountConfiguration
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IDeviceAccountConfiguration : aliased constant Windows.IID := (2848189038, 40409, 21246, (157, 39, 249, 228, 222, 221, 77, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IDeviceAccountConfiguration : aliased constant Windows.IID := (1184389619, 27515, 21401, (138, 140, 254, 97, 91, 149, 174, 7 ));
+   
    type IAsyncOperation_IDeviceAccountConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -914,17 +917,15 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IDeviceAccountConfiguration : aliased constant Windows.IID := (1184389619, 27515, 21401, (138, 140, 254, 97, 91, 149, 174, 7 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IDeviceAccountConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IAsyncOperation_IDeviceAccountConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDeviceAccountConfiguration_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IDeviceAccountConfiguration : aliased constant Windows.IID := (3421383752, 58349, 24253, (164, 174, 86, 88, 51, 136, 164, 154 ));
+   
+   type AsyncOperationCompletedHandler_IDeviceAccountConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IAsyncOperation_IDeviceAccountConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDeviceAccountConfiguration'access) with null record;
    
    function Invoke
    (
@@ -933,8 +934,6 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IDeviceAccountConfiguration : aliased constant Windows.IID := (3421383752, 58349, 24253, (164, 174, 86, 88, 51, 136, 164, 154 ));
    
    ------------------------------------------------------------------------
    -- Classes

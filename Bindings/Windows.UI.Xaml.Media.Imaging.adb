@@ -32,28 +32,6 @@ package body Windows.UI.Xaml.Media.Imaging is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access DownloadProgressEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_DownloadProgressEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access DownloadProgressEventHandler_Interface
@@ -64,28 +42,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, Windows.UI.Xaml.Media.Imaging.IDownloadProgressEventArgs(e));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_ISvgImageSource_add_Opened_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_ISvgImageSource_add_Opened or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -102,28 +58,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_ISvgImageSource_add_OpenFailed_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_ISvgImageSource_add_OpenFailed or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISvgImageSource_add_OpenFailed_Interface
@@ -134,28 +68,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Media.Imaging.ISvgImageSource(sender), Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFailedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_SvgImageSourceLoadStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_SvgImageSourceLoadStatus or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -182,15 +94,16 @@ package body Windows.UI.Xaml.Media.Imaging is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Imaging.IID_IRenderTargetBitmap'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Imaging.IID_IRenderTargetBitmap'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInstanceWithUriSource
@@ -282,15 +195,16 @@ package body Windows.UI.Xaml.Media.Imaging is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Imaging.IID_ISoftwareBitmapSource'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Imaging.IID_ISoftwareBitmapSource'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------
@@ -302,28 +216,25 @@ package body Windows.UI.Xaml.Media.Imaging is
    (
       This       : access IBitmapSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IBitmapSource , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IBitmapSource or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -335,22 +246,24 @@ package body Windows.UI.Xaml.Media.Imaging is
    (
       This       : access IBitmapSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IBitmapSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -440,32 +353,29 @@ package body Windows.UI.Xaml.Media.Imaging is
    (
       This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IXamlRenderingBackgroundTaskOverrides , Windows.Address); 
-      function Convert is new Ada.Unchecked_Conversion(IXamlRenderingBackgroundTask , Windows.Address); 
-   
+      function Convert is new Ada.Unchecked_Conversion(IXamlRenderingBackgroundTask , Windows.IUnknown); 
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IXamlRenderingBackgroundTaskOverrides or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             if riid.all = IID_IXamlRenderingBackgroundTask then
-               ppvObject.all := Convert(This.m_IXamlRenderingBackgroundTask);
+               pvObject.all := Convert(This.m_IXamlRenderingBackgroundTask);
                Hr := S_OK;
             else
                Hr := E_NOINTERFACE;
@@ -479,22 +389,24 @@ package body Windows.UI.Xaml.Media.Imaging is
    (
       This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -549,28 +461,25 @@ package body Windows.UI.Xaml.Media.Imaging is
    (
       This       : access IXamlRenderingBackgroundTask_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IXamlRenderingBackgroundTask , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IXamlRenderingBackgroundTask or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -582,22 +491,24 @@ package body Windows.UI.Xaml.Media.Imaging is
    (
       This       : access IXamlRenderingBackgroundTask_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IXamlRenderingBackgroundTask_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -641,28 +552,25 @@ package body Windows.UI.Xaml.Media.Imaging is
    (
       This       : access ISvgImageSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(ISvgImageSource , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_ISvgImageSource or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -674,22 +582,24 @@ package body Windows.UI.Xaml.Media.Imaging is
    (
       This       : access ISvgImageSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access ISvgImageSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids

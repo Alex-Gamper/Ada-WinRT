@@ -44,28 +44,6 @@ package body Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access BackgroundTaskCanceledEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_BackgroundTaskCanceledEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access BackgroundTaskCanceledEventHandler_Interface
@@ -76,28 +54,6 @@ package body Windows.ApplicationModel.Background is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, reason);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access BackgroundTaskProgressEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_BackgroundTaskProgressEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -114,28 +70,6 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access BackgroundTaskCompletedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_BackgroundTaskCompletedEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access BackgroundTaskCompletedEventHandler_Interface
@@ -146,28 +80,6 @@ package body Windows.ApplicationModel.Background is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.Background.IBackgroundTaskRegistration(sender), Windows.ApplicationModel.Background.IBackgroundTaskCompletedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_AlarmAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_AlarmAccessStatus or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -184,28 +96,6 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_BackgroundAccessStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_BackgroundAccessStatus or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_BackgroundAccessStatus_Interface
@@ -216,28 +106,6 @@ package body Windows.ApplicationModel.Background is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_ApplicationTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_ApplicationTriggerResult or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -254,28 +122,6 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_MediaProcessingTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_MediaProcessingTriggerResult or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_MediaProcessingTriggerResult_Interface
@@ -286,28 +132,6 @@ package body Windows.ApplicationModel.Background is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -324,28 +148,6 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_DeviceTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_DeviceTriggerResult or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_DeviceTriggerResult_Interface
@@ -359,28 +161,6 @@ package body Windows.ApplicationModel.Background is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger_Interface
@@ -391,28 +171,6 @@ package body Windows.ApplicationModel.Background is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -460,15 +218,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.ICommunicationBlockingAppSetAsActiveTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.ICommunicationBlockingAppSetAsActiveTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_ICommunicationBlockingAppSetAsActiveTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_ICommunicationBlockingAppSetAsActiveTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create
@@ -496,15 +255,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ApplicationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IApplicationTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IApplicationTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IApplicationTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IApplicationTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMediaProcessingTrigger return Windows.ApplicationModel.Background.IMediaProcessingTrigger is
@@ -512,15 +272,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MediaProcessingTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IMediaProcessingTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IMediaProcessingTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IMediaProcessingTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IMediaProcessingTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateContentPrefetchTrigger return Windows.ApplicationModel.Background.IContentPrefetchTrigger is
@@ -528,15 +289,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ContentPrefetchTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IContentPrefetchTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IContentPrefetchTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IContentPrefetchTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IContentPrefetchTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateSecondaryAuthenticationFactorAuthenticationTrigger return Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger is
@@ -544,15 +306,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_ISecondaryAuthenticationFactorAuthenticationTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_ISecondaryAuthenticationFactorAuthenticationTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create
@@ -642,15 +405,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.CachedFileUpdaterTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_ICachedFileUpdaterTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_ICachedFileUpdaterTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create
@@ -700,15 +464,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IAppointmentStoreNotificationTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IAppointmentStoreNotificationTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IAppointmentStoreNotificationTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IAppointmentStoreNotificationTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create
@@ -757,15 +522,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.BackgroundTaskBuilder");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTaskBuilder := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTaskBuilder) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTaskBuilder'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTaskBuilder'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateChatMessageNotificationTrigger return Windows.ApplicationModel.Background.IChatMessageNotificationTrigger is
@@ -773,15 +539,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ChatMessageNotificationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IChatMessageNotificationTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IChatMessageNotificationTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IChatMessageNotificationTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IChatMessageNotificationTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateChatMessageReceivedNotificationTrigger return Windows.ApplicationModel.Background.IChatMessageReceivedNotificationTrigger is
@@ -789,15 +556,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IChatMessageReceivedNotificationTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IChatMessageReceivedNotificationTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IChatMessageReceivedNotificationTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IChatMessageReceivedNotificationTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateRcsEndUserMessageAvailableTrigger return Windows.ApplicationModel.Background.IRcsEndUserMessageAvailableTrigger is
@@ -805,15 +573,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IRcsEndUserMessageAvailableTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IRcsEndUserMessageAvailableTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IRcsEndUserMessageAvailableTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IRcsEndUserMessageAvailableTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateContactStoreNotificationTrigger return Windows.ApplicationModel.Background.IContactStoreNotificationTrigger is
@@ -821,15 +590,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ContactStoreNotificationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IContactStoreNotificationTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IContactStoreNotificationTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IContactStoreNotificationTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IContactStoreNotificationTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateEmailStoreNotificationTrigger return Windows.ApplicationModel.Background.IEmailStoreNotificationTrigger is
@@ -837,15 +607,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.EmailStoreNotificationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IEmailStoreNotificationTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IEmailStoreNotificationTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IEmailStoreNotificationTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IEmailStoreNotificationTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMobileBroadbandRegistrationStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
@@ -853,15 +624,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMobileBroadbandRadioStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
@@ -869,15 +641,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMobileBroadbandPinLockStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
@@ -885,15 +658,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMobileBroadbandDeviceServiceNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
@@ -901,15 +675,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create
@@ -937,15 +712,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateDeviceUseTrigger return Windows.ApplicationModel.Background.IDeviceUseTrigger is
@@ -953,15 +729,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.DeviceUseTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IDeviceUseTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IDeviceUseTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IDeviceUseTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IDeviceUseTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateDeviceServicingTrigger return Windows.ApplicationModel.Background.IDeviceServicingTrigger is
@@ -969,15 +746,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.DeviceServicingTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IDeviceServicingTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IDeviceServicingTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IDeviceServicingTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IDeviceServicingTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateRfcommConnectionTrigger return Windows.ApplicationModel.Background.IRfcommConnectionTrigger is
@@ -985,15 +763,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.RfcommConnectionTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IRfcommConnectionTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IRfcommConnectionTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IRfcommConnectionTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IRfcommConnectionTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateWithEventTriggeringMode
@@ -1022,15 +801,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBluetoothLEAdvertisementWatcherTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBluetoothLEAdvertisementWatcherTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateBluetoothLEAdvertisementPublisherTrigger return Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger is
@@ -1038,15 +818,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBluetoothLEAdvertisementPublisherTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBluetoothLEAdvertisementPublisherTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create
@@ -1074,15 +855,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.GeovisitTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IGeovisitTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IGeovisitTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IGeovisitTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IGeovisitTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create
@@ -1130,15 +912,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.INetworkOperatorHotspotAuthenticationTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.INetworkOperatorHotspotAuthenticationTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_INetworkOperatorHotspotAuthenticationTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_INetworkOperatorHotspotAuthenticationTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateSocketActivityTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
@@ -1146,15 +929,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.SocketActivityTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreatePushNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
@@ -1162,15 +946,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.PushNotificationTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create
@@ -1198,15 +983,16 @@ package body Windows.ApplicationModel.Background is
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ToastNotificationActionTrigger");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create

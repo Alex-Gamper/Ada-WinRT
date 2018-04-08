@@ -118,6 +118,9 @@ package Windows.Security.Authentication.Web is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IWebAuthenticationResult : aliased constant Windows.IID := (1677732683, 60905, 18186, (165, 205, 3, 35, 250, 246, 226, 98 ));
+   
    type IWebAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ResponseData
@@ -140,10 +143,10 @@ package Windows.Security.Authentication.Web is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAuthenticationResult : aliased constant Windows.IID := (1677732683, 60905, 18186, (165, 205, 3, 35, 250, 246, 226, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAuthenticationBrokerStatics : aliased constant Windows.IID := (789880602, 58995, 16565, (188, 34, 32, 26, 104, 100, 163, 123 ));
+   
    type IWebAuthenticationBrokerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function AuthenticateWithCallbackUriAsync
@@ -171,10 +174,10 @@ package Windows.Security.Authentication.Web is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAuthenticationBrokerStatics : aliased constant Windows.IID := (789880602, 58995, 16565, (188, 34, 32, 26, 104, 100, 163, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAuthenticationBrokerStatics2 : aliased constant Windows.IID := (1942879134, 5351, 16858, (169, 113, 170, 244, 65, 11, 98, 30 ));
+   
    type IWebAuthenticationBrokerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function AuthenticateAndContinue
@@ -218,10 +221,10 @@ package Windows.Security.Authentication.Web is
       ; RetVal : access Windows.Security.Authentication.Web.IAsyncOperation_IWebAuthenticationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAuthenticationBrokerStatics2 : aliased constant Windows.IID := (1942879134, 5351, 16858, (169, 113, 170, 244, 65, 11, 98, 30 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IWebAuthenticationResult : aliased constant Windows.IID := (3007926956, 9822, 22855, (135, 53, 233, 49, 143, 67, 1, 255 ));
+   
    type IAsyncOperation_IWebAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -244,17 +247,15 @@ package Windows.Security.Authentication.Web is
       ; RetVal : access Windows.Security.Authentication.Web.IWebAuthenticationResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IWebAuthenticationResult : aliased constant Windows.IID := (3007926956, 9822, 22855, (135, 53, 233, 49, 143, 67, 1, 255 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IWebAuthenticationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Web.IAsyncOperation_IWebAuthenticationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebAuthenticationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IWebAuthenticationResult : aliased constant Windows.IID := (1008649292, 59714, 21733, (188, 211, 227, 41, 201, 81, 245, 149 ));
+   
+   type AsyncOperationCompletedHandler_IWebAuthenticationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Web.IAsyncOperation_IWebAuthenticationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWebAuthenticationResult'access) with null record;
    
    function Invoke
    (
@@ -263,8 +264,6 @@ package Windows.Security.Authentication.Web is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IWebAuthenticationResult : aliased constant Windows.IID := (1008649292, 59714, 21733, (188, 211, 227, 41, 201, 81, 245, 149 ));
    
    ------------------------------------------------------------------------
    -- Classes

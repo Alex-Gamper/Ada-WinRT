@@ -128,6 +128,9 @@ package Windows.Devices.Radios is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IRadioStatics : aliased constant Windows.IID := (1605804334, 26571, 18094, (170, 233, 101, 145, 159, 134, 239, 244 ));
+   
    type IRadioStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetRadiosAsync
@@ -158,10 +161,10 @@ package Windows.Devices.Radios is
       ; RetVal : access Windows.Devices.Radios.IAsyncOperation_RadioAccessStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRadioStatics : aliased constant Windows.IID := (1605804334, 26571, 18094, (170, 233, 101, 145, 159, 134, 239, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRadio : aliased constant Windows.IID := (622926047, 45886, 16746, (135, 95, 28, 243, 138, 226, 216, 62 ));
+   
    type IRadio_Interface is interface and Windows.IInspectable_Interface;
    
    function SetStateAsync
@@ -207,10 +210,10 @@ package Windows.Devices.Radios is
       ; RetVal : access Windows.Devices.Radios.RadioKind
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRadio : aliased constant Windows.IID := (622926047, 45886, 16746, (135, 95, 28, 243, 138, 226, 216, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IRadio : aliased constant Windows.IID := (3938856000, 36284, 22612, (139, 160, 183, 185, 148, 14, 115, 137 ));
+   
    type IAsyncOperation_IRadio_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -233,10 +236,10 @@ package Windows.Devices.Radios is
       ; RetVal : access Windows.Devices.Radios.IRadio
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IRadio : aliased constant Windows.IID := (3938856000, 36284, 22612, (139, 160, 183, 185, 148, 14, 115, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_RadioAccessStatus : aliased constant Windows.IID := (570110191, 1839, 20524, (152, 152, 208, 195, 178, 205, 154, 197 ));
+   
    type IAsyncOperation_RadioAccessStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -259,17 +262,15 @@ package Windows.Devices.Radios is
       ; RetVal : access Windows.Devices.Radios.RadioAccessStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_RadioAccessStatus : aliased constant Windows.IID := (570110191, 1839, 20524, (152, 152, 208, 195, 178, 205, 154, 197 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IRadio_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Radios.IAsyncOperation_IRadio ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRadio_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IRadio : aliased constant Windows.IID := (2321317434, 32994, 22619, (134, 48, 122, 142, 119, 127, 3, 84 ));
+   
+   type AsyncOperationCompletedHandler_IRadio_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Radios.IAsyncOperation_IRadio ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IRadio'access) with null record;
    
    function Invoke
    (
@@ -279,12 +280,11 @@ package Windows.Devices.Radios is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IRadio : aliased constant Windows.IID := (2321317434, 32994, 22619, (134, 48, 122, 142, 119, 127, 3, 84 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_RadioAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Radios.IAsyncOperation_RadioAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_RadioAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_RadioAccessStatus : aliased constant Windows.IID := (3173289587, 61535, 22348, (174, 61, 155, 149, 196, 191, 40, 42 ));
+   
+   type AsyncOperationCompletedHandler_RadioAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Radios.IAsyncOperation_RadioAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_RadioAccessStatus'access) with null record;
    
    function Invoke
    (
@@ -294,12 +294,11 @@ package Windows.Devices.Radios is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_RadioAccessStatus : aliased constant Windows.IID := (3173289587, 61535, 22348, (174, 61, 155, 149, 196, 191, 40, 42 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRadio_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Radios.IRadio ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRadio_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRadio_add_StateChanged : aliased constant Windows.IID := (4234847017, 46470, 24251, (158, 133, 63, 107, 132, 235, 223, 24 ));
+   
+   type TypedEventHandler_IRadio_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Radios.IRadio ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadio_add_StateChanged'access) with null record;
    
    function Invoke
    (
@@ -308,8 +307,6 @@ package Windows.Devices.Radios is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IRadio_add_StateChanged : aliased constant Windows.IID := (4234847017, 46470, 24251, (158, 133, 63, 107, 132, 235, 223, 24 ));
    
    ------------------------------------------------------------------------
    -- Classes

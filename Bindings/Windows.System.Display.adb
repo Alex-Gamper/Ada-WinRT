@@ -33,15 +33,16 @@ package body Windows.System.Display is
       m_hString     : Windows.String := To_String("Windows.System.Display.DisplayRequest");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Display.IDisplayRequest := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.System.Display.IDisplayRequest) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.System.Display.IID_IDisplayRequest'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.System.Display.IID_IDisplayRequest'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

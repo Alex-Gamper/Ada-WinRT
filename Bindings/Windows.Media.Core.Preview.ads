@@ -54,6 +54,9 @@ package Windows.Media.Core.Preview is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISoundLevelBrokerStatics : aliased constant Windows.IID := (1784887649, 56301, 17996, (160, 154, 51, 65, 47, 92, 170, 63 ));
+   
    type ISoundLevelBrokerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SoundLevel
@@ -77,9 +80,6 @@ package Windows.Media.Core.Preview is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISoundLevelBrokerStatics : aliased constant Windows.IID := (1784887649, 56301, 17996, (160, 154, 51, 65, 47, 92, 170, 63 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

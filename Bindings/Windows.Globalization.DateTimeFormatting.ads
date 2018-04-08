@@ -162,6 +162,9 @@ package Windows.Globalization.DateTimeFormatting is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDateTimeFormatter : aliased constant Windows.IID := (2515454480, 29664, 20043, (161, 131, 61, 106, 208, 186, 53, 236 ));
+   
    type IDateTimeFormatter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Languages
@@ -290,10 +293,10 @@ package Windows.Globalization.DateTimeFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDateTimeFormatter : aliased constant Windows.IID := (2515454480, 29664, 20043, (161, 131, 61, 106, 208, 186, 53, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDateTimeFormatterFactory : aliased constant Windows.IID := (3968698963, 6702, 16685, (136, 21, 59, 116, 95, 177, 162, 160 ));
+   
    type IDateTimeFormatterFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateDateTimeFormatter
@@ -378,10 +381,10 @@ package Windows.Globalization.DateTimeFormatting is
       ; RetVal : access Windows.Globalization.DateTimeFormatting.IDateTimeFormatter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDateTimeFormatterFactory : aliased constant Windows.IID := (3968698963, 6702, 16685, (136, 21, 59, 116, 95, 177, 162, 160 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDateTimeFormatterStatics : aliased constant Windows.IID := (3217942464, 57164, 18990, (144, 18, 244, 125, 175, 63, 18, 18 ));
+   
    type IDateTimeFormatterStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LongDate
@@ -411,10 +414,10 @@ package Windows.Globalization.DateTimeFormatting is
       ; RetVal : access Windows.Globalization.DateTimeFormatting.IDateTimeFormatter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDateTimeFormatterStatics : aliased constant Windows.IID := (3217942464, 57164, 18990, (144, 18, 244, 125, 175, 63, 18, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDateTimeFormatter2 : aliased constant Windows.IID := (667490950, 48554, 20432, (158, 54, 103, 29, 90, 165, 238, 3 ));
+   
    type IDateTimeFormatter2_Interface is interface and Windows.IInspectable_Interface;
    
    function FormatUsingTimeZone
@@ -425,9 +428,6 @@ package Windows.Globalization.DateTimeFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDateTimeFormatter2 : aliased constant Windows.IID := (667490950, 48554, 20432, (158, 54, 103, 29, 90, 165, 238, 3 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

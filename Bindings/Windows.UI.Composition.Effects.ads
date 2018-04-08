@@ -75,6 +75,9 @@ package Windows.UI.Composition.Effects is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISceneLightingEffect : aliased constant Windows.IID := (2444975698, 38353, 20363, (154, 90, 100, 8, 178, 75, 140, 106 ));
+   
    type ISceneLightingEffect_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AmbientAmount
@@ -146,10 +149,10 @@ package Windows.UI.Composition.Effects is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISceneLightingEffect : aliased constant Windows.IID := (2444975698, 38353, 20363, (154, 90, 100, 8, 178, 75, 140, 106 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISceneLightingEffect2 : aliased constant Windows.IID := (2653359745, 29424, 19548, (149, 248, 138, 110, 0, 36, 244, 9 ));
+   
    type ISceneLightingEffect2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ReflectanceModel
@@ -165,10 +168,8 @@ package Windows.UI.Composition.Effects is
       ; value : Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISceneLightingEffect2 : aliased constant Windows.IID := (2653359745, 29424, 19548, (149, 248, 138, 110, 0, 36, 244, 9 ));
-   
    ------------------------------------------------------------------------
+   
    type IGraphicsEffect_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -184,10 +185,9 @@ package Windows.UI.Composition.Effects is
       ; name : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
-   type IGraphicsEffectSource_Imported_Interface is interface and Windows.IInspectable_Interface;
    
+   type IGraphicsEffectSource_Imported_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

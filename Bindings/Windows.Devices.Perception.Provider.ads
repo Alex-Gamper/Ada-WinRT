@@ -126,6 +126,9 @@ package Windows.Devices.Perception.Provider is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IKnownPerceptionFrameKindStatics : aliased constant Windows.IID := (988172758, 38505, 16646, (159, 174, 72, 53, 193, 185, 97, 4 ));
+   
    type IKnownPerceptionFrameKindStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Color
@@ -148,10 +151,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKnownPerceptionFrameKindStatics : aliased constant Windows.IID := (988172758, 38505, 16646, (159, 174, 72, 53, 193, 185, 97, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionFrameProviderManagerServiceStatics : aliased constant Windows.IID := (2927855334, 51929, 17241, (143, 150, 142, 174, 81, 129, 5, 38 ));
+   
    type IPerceptionFrameProviderManagerServiceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function RegisterFrameProviderInfo
@@ -233,10 +236,10 @@ package Windows.Devices.Perception.Provider is
       ; frame : Windows.Devices.Perception.Provider.IPerceptionFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionFrameProviderManagerServiceStatics : aliased constant Windows.IID := (2927855334, 51929, 17241, (143, 150, 142, 174, 81, 129, 5, 38 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionFrameProviderManager : aliased constant Windows.IID := (2841234951, 60115, 13279, (142, 193, 185, 36, 171, 224, 25, 196 ));
+   
    type IPerceptionFrameProviderManager_Interface is interface and Windows.IInspectable_Interface;
    
    function GetFrameProvider
@@ -246,10 +249,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFrameProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionFrameProviderManager : aliased constant Windows.IID := (2841234951, 60115, 13279, (142, 193, 185, 36, 171, 224, 25, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionFrameProvider : aliased constant Windows.IID := (2035251897, 45949, 15155, (161, 13, 48, 98, 100, 25, 206, 101 ));
+   
    type IPerceptionFrameProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FrameProviderInfo
@@ -291,10 +294,10 @@ package Windows.Devices.Perception.Provider is
       ; value : Windows.Devices.Perception.Provider.IPerceptionPropertyChangeRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionFrameProvider : aliased constant Windows.IID := (2035251897, 45949, 15155, (161, 13, 48, 98, 100, 25, 206, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionFrameProviderInfo : aliased constant Windows.IID := (3433650664, 31102, 20099, (155, 135, 3, 106, 116, 20, 47, 196 ));
+   
    type IPerceptionFrameProviderInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -366,10 +369,10 @@ package Windows.Devices.Perception.Provider is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionFrameProviderInfo : aliased constant Windows.IID := (3433650664, 31102, 20099, (155, 135, 3, 106, 116, 20, 47, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionControlGroupFactory : aliased constant Windows.IID := (790295264, 47857, 17723, (190, 212, 205, 157, 70, 25, 21, 76 ));
+   
    type IPerceptionControlGroupFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -379,10 +382,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionControlGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionControlGroupFactory : aliased constant Windows.IID := (790295264, 47857, 17723, (190, 212, 205, 157, 70, 25, 21, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionControlGroup : aliased constant Windows.IID := (388778114, 12249, 19534, (186, 52, 253, 242, 10, 115, 221, 229 ));
+   
    type IPerceptionControlGroup_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FrameProviderIds
@@ -391,10 +394,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionControlGroup : aliased constant Windows.IID := (388778114, 12249, 19534, (186, 52, 253, 242, 10, 115, 221, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionFaceAuthenticationGroupFactory : aliased constant Windows.IID := (3867805140, 46604, 16628, (188, 185, 242, 77, 70, 70, 115, 32 ));
+   
    type IPerceptionFaceAuthenticationGroupFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -406,10 +409,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionFaceAuthenticationGroupFactory : aliased constant Windows.IID := (3867805140, 46604, 16628, (188, 185, 242, 77, 70, 70, 115, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionFaceAuthenticationGroup : aliased constant Windows.IID := (3892418580, 19089, 16816, (131, 166, 136, 26, 23, 117, 53, 62 ));
+   
    type IPerceptionFaceAuthenticationGroup_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FrameProviderIds
@@ -418,10 +421,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionFaceAuthenticationGroup : aliased constant Windows.IID := (3892418580, 19089, 16816, (131, 166, 136, 26, 23, 117, 53, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionCorrelationFactory : aliased constant Windows.IID := (3567698981, 10372, 19087, (129, 52, 40, 53, 215, 40, 108, 191 ));
+   
    type IPerceptionCorrelationFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -433,10 +436,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionCorrelation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionCorrelationFactory : aliased constant Windows.IID := (3567698981, 10372, 19087, (129, 52, 40, 53, 215, 40, 108, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionCorrelation : aliased constant Windows.IID := (3021150850, 57333, 16455, (138, 25, 59, 77, 128, 95, 113, 118 ));
+   
    type IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetId
@@ -459,10 +462,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Foundation.Numerics.Quaternion
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionCorrelation : aliased constant Windows.IID := (3021150850, 57333, 16455, (138, 25, 59, 77, 128, 95, 113, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionCorrelationGroupFactory : aliased constant Windows.IID := (2113806472, 25567, 18669, (131, 177, 74, 184, 41, 19, 41, 149 ));
+   
    type IPerceptionCorrelationGroupFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -472,10 +475,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionCorrelationGroupFactory : aliased constant Windows.IID := (2113806472, 25567, 18669, (131, 177, 74, 184, 41, 19, 41, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionCorrelationGroup : aliased constant Windows.IID := (1965689094, 13991, 18363, (155, 121, 86, 204, 107, 116, 103, 112 ));
+   
    type IPerceptionCorrelationGroup_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RelativeLocations
@@ -484,10 +487,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Devices.Perception.Provider.IVectorView_IPerceptionCorrelation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionCorrelationGroup : aliased constant Windows.IID := (1965689094, 13991, 18363, (155, 121, 86, 204, 107, 116, 103, 112 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionFrame : aliased constant Windows.IID := (2097051685, 21691, 19869, (190, 197, 142, 246, 97, 81, 210, 172 ));
+   
    type IPerceptionFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RelativeTime
@@ -517,10 +520,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Foundation.IMemoryBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionFrame : aliased constant Windows.IID := (2097051685, 21691, 19869, (190, 197, 142, 246, 97, 81, 210, 172 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionVideoFrameAllocatorFactory : aliased constant Windows.IID := (442020065, 59674, 18462, (184, 118, 168, 158, 43, 188, 107, 51 ));
+   
    type IPerceptionVideoFrameAllocatorFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -533,10 +536,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocator
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionVideoFrameAllocatorFactory : aliased constant Windows.IID := (442020065, 59674, 18462, (184, 118, 168, 158, 43, 188, 107, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionVideoFrameAllocator : aliased constant Windows.IID := (1278781402, 64984, 20180, (160, 57, 42, 111, 155, 35, 80, 56 ));
+   
    type IPerceptionVideoFrameAllocator_Interface is interface and Windows.IInspectable_Interface;
    
    function AllocateFrame
@@ -553,10 +556,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Devices.Perception.Provider.IPerceptionFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionVideoFrameAllocator : aliased constant Windows.IID := (1278781402, 64984, 20180, (160, 57, 42, 111, 155, 35, 80, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionPropertyChangeRequest : aliased constant Windows.IID := (1012591441, 13579, 19960, (148, 20, 89, 224, 152, 21, 81, 11 ));
+   
    type IPerceptionPropertyChangeRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -593,10 +596,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionPropertyChangeRequest : aliased constant Windows.IID := (1012591441, 13579, 19960, (148, 20, 89, 224, 152, 21, 81, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPerceptionCorrelation : aliased constant Windows.IID := (3302690963, 55045, 21763, (139, 206, 104, 83, 92, 212, 47, 250 ));
+   
    type IIterator_IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -627,10 +630,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPerceptionCorrelation : aliased constant Windows.IID := (3302690963, 55045, 21763, (139, 206, 104, 83, 92, 212, 47, 250 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPerceptionCorrelation : aliased constant Windows.IID := (3396073598, 5957, 23760, (174, 226, 89, 115, 111, 90, 32, 109 ));
+   
    type IIterable_IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -639,10 +642,10 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.Devices.Perception.Provider.IIterator_IPerceptionCorrelation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPerceptionCorrelation : aliased constant Windows.IID := (3396073598, 5957, 23760, (174, 226, 89, 115, 111, 90, 32, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPerceptionCorrelation : aliased constant Windows.IID := (609004902, 44990, 21396, (183, 183, 67, 166, 31, 203, 252, 109 ));
+   
    type IVectorView_IPerceptionCorrelation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -677,17 +680,15 @@ package Windows.Devices.Perception.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPerceptionCorrelation : aliased constant Windows.IID := (609004902, 44990, 21396, (183, 183, 67, 166, 31, 203, 252, 109 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type PerceptionStartFaceAuthenticationHandler_Interface(Callback : access procedure (sender : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access PerceptionStartFaceAuthenticationHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_PerceptionStartFaceAuthenticationHandler : aliased constant Windows.IID := (1954639146, 8336, 18032, (140, 72, 239, 57, 231, 255, 124, 38 ));
+   
+   type PerceptionStartFaceAuthenticationHandler_Interface(Callback : access procedure (sender : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup)) is new Windows.IMulticastDelegate_Interface(IID_PerceptionStartFaceAuthenticationHandler'access) with null record;
    
    function Invoke
    (
@@ -697,12 +698,11 @@ package Windows.Devices.Perception.Provider is
    )
    return Windows.HRESULT;
    
-   IID_PerceptionStartFaceAuthenticationHandler : aliased constant Windows.IID := (1954639146, 8336, 18032, (140, 72, 239, 57, 231, 255, 124, 38 ));
-   
    ------------------------------------------------------------------------
-   type PerceptionStopFaceAuthenticationHandler_Interface(Callback : access procedure (sender : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access PerceptionStopFaceAuthenticationHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_PerceptionStopFaceAuthenticationHandler : aliased constant Windows.IID := (947840682, 35277, 18462, (170, 222, 221, 146, 247, 11, 42, 215 ));
+   
+   type PerceptionStopFaceAuthenticationHandler_Interface(Callback : access procedure (sender : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup)) is new Windows.IMulticastDelegate_Interface(IID_PerceptionStopFaceAuthenticationHandler'access) with null record;
    
    function Invoke
    (
@@ -710,8 +710,6 @@ package Windows.Devices.Perception.Provider is
       ; sender : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
    )
    return Windows.HRESULT;
-   
-   IID_PerceptionStopFaceAuthenticationHandler : aliased constant Windows.IID := (947840682, 35277, 18462, (170, 222, 221, 146, 247, 11, 42, 215 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -440,6 +440,9 @@ package Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IViewModePreferences : aliased constant Windows.IID := (2274348346, 2969, 17097, (132, 208, 211, 241, 212, 3, 85, 75 ));
+   
    type IViewModePreferences_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ViewSizePreference
@@ -469,10 +472,10 @@ package Windows.UI.ViewManagement is
       ; value : Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IViewModePreferences : aliased constant Windows.IID := (2274348346, 2969, 17097, (132, 208, 211, 241, 212, 3, 85, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IViewModePreferencesStatics : aliased constant Windows.IID := (1773537893, 24037, 16600, (131, 6, 56, 51, 223, 122, 34, 116 ));
+   
    type IViewModePreferencesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateDefault
@@ -482,10 +485,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.UI.ViewManagement.IViewModePreferences
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IViewModePreferencesStatics : aliased constant Windows.IID := (1773537893, 24037, 16600, (131, 6, 56, 51, 223, 122, 34, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewSwitcherStatics : aliased constant Windows.IID := (2539597598, 58966, 19550, (160, 161, 113, 124, 111, 250, 125, 100 ));
+   
    type IApplicationViewSwitcherStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function DisableShowingMainViewOnActivation
@@ -558,10 +561,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewSwitcherStatics : aliased constant Windows.IID := (2539597598, 58966, 19550, (160, 161, 113, 124, 111, 250, 125, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewSwitcherStatics2 : aliased constant Windows.IID := (1625920973, 20418, 18628, (184, 227, 57, 95, 43, 159, 15, 193 ));
+   
    type IApplicationViewSwitcherStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function DisableSystemViewActivationPolicy
@@ -569,10 +572,10 @@ package Windows.UI.ViewManagement is
       This       : access IApplicationViewSwitcherStatics2_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewSwitcherStatics2 : aliased constant Windows.IID := (1625920973, 20418, 18628, (184, 227, 57, 95, 43, 159, 15, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewSwitcherStatics3 : aliased constant Windows.IID := (2449839136, 32935, 18541, (178, 31, 199, 164, 162, 66, 163, 131 ));
+   
    type IApplicationViewSwitcherStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function TryShowAsViewModeAsync
@@ -593,10 +596,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewSwitcherStatics3 : aliased constant Windows.IID := (2449839136, 32935, 18541, (178, 31, 199, 164, 162, 66, 163, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewInteropStatics : aliased constant Windows.IID := (3292986205, 18323, 18582, (168, 226, 190, 87, 168, 187, 15, 80 ));
+   
    type IApplicationViewInteropStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetApplicationViewIdForWindow
@@ -606,10 +609,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewInteropStatics : aliased constant Windows.IID := (3292986205, 18323, 18582, (168, 226, 190, 87, 168, 187, 15, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewStatics : aliased constant Windows.IID := (17457926, 50227, 17637, (169, 242, 189, 132, 212, 3, 10, 149 ));
+   
    type IApplicationViewStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -625,10 +628,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewStatics : aliased constant Windows.IID := (17457926, 50227, 17637, (169, 242, 189, 132, 212, 3, 10, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewStatics2 : aliased constant Windows.IID := (2939390693, 53092, 16956, (133, 229, 243, 231, 36, 72, 251, 35 ));
+   
    type IApplicationViewStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -651,10 +654,10 @@ package Windows.UI.ViewManagement is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewStatics2 : aliased constant Windows.IID := (2939390693, 53092, 16956, (133, 229, 243, 231, 36, 72, 251, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewStatics3 : aliased constant Windows.IID := (2727179668, 35905, 19987, (151, 25, 81, 100, 121, 111, 228, 199 ));
+   
    type IApplicationViewStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PreferredLaunchWindowingMode
@@ -684,10 +687,10 @@ package Windows.UI.ViewManagement is
       ; value : Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewStatics3 : aliased constant Windows.IID := (2727179668, 35905, 19987, (151, 25, 81, 100, 121, 111, 228, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationView : aliased constant Windows.IID := (3525498137, 17249, 17694, (150, 196, 96, 244, 249, 116, 45, 176 ));
+   
    type IApplicationView_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Orientation
@@ -774,10 +777,10 @@ package Windows.UI.ViewManagement is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationView : aliased constant Windows.IID := (3525498137, 17249, 17694, (150, 196, 96, 244, 249, 116, 45, 176 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationView2 : aliased constant Windows.IID := (3900092822, 42309, 16604, (181, 148, 69, 12, 186, 104, 204, 0 ));
+   
    type IApplicationView2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SuppressSystemOverlays
@@ -830,10 +833,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.UI.ViewManagement.ApplicationViewBoundsMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationView2 : aliased constant Windows.IID := (3900092822, 42309, 16604, (181, 148, 69, 12, 186, 104, 204, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewTitleBar : aliased constant Windows.IID := (9587392, 37675, 19051, (156, 75, 220, 56, 200, 36, 120, 206 ));
+   
    type IApplicationViewTitleBar_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ForegroundColor
@@ -1003,10 +1006,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewTitleBar : aliased constant Windows.IID := (9587392, 37675, 19051, (156, 75, 220, 56, 200, 36, 120, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationView3 : aliased constant Windows.IID := (2419891429, 31034, 20447, (162, 178, 175, 26, 194, 30, 49, 8 ));
+   
    type IApplicationView3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TitleBar
@@ -1070,10 +1073,10 @@ package Windows.UI.ViewManagement is
       ; minSize : Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationView3 : aliased constant Windows.IID := (2419891429, 31034, 20447, (162, 178, 175, 26, 194, 30, 49, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewFullscreenStatics : aliased constant Windows.IID := (3162058429, 25854, 19301, (160, 192, 144, 28, 226, 182, 134, 54 ));
+   
    type IApplicationViewFullscreenStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TryUnsnapToFullscreen
@@ -1082,10 +1085,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewFullscreenStatics : aliased constant Windows.IID := (3162058429, 25854, 19301, (160, 192, 144, 28, 226, 182, 134, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationView4 : aliased constant Windows.IID := (367381484, 40463, 18101, (188, 63, 155, 246, 83, 231, 75, 94 ));
+   
    type IApplicationView4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ViewMode
@@ -1126,10 +1129,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationView4 : aliased constant Windows.IID := (367381484, 40463, 18101, (188, 63, 155, 246, 83, 231, 75, 94 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewConsolidatedEventArgs : aliased constant Windows.IID := (1363429868, 32418, 19943, (166, 166, 125, 251, 170, 235, 182, 251 ));
+   
    type IApplicationViewConsolidatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsUserInitiated
@@ -1138,10 +1141,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewConsolidatedEventArgs : aliased constant Windows.IID := (1363429868, 32418, 19943, (166, 166, 125, 251, 170, 235, 182, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewConsolidatedEventArgs2 : aliased constant Windows.IID := (471441100, 28097, 16628, (175, 238, 7, 217, 234, 41, 100, 48 ));
+   
    type IApplicationViewConsolidatedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsAppInitiated
@@ -1150,10 +1153,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewConsolidatedEventArgs2 : aliased constant Windows.IID := (471441100, 28097, 16628, (175, 238, 7, 217, 234, 41, 100, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IActivationViewSwitcher : aliased constant Windows.IID := (3701939126, 29520, 18731, (170, 199, 200, 161, 61, 114, 36, 173 ));
+   
    type IActivationViewSwitcher_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowAsStandaloneAsync
@@ -1180,10 +1183,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IActivationViewSwitcher : aliased constant Windows.IID := (3701939126, 29520, 18731, (170, 199, 200, 161, 61, 114, 36, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewTransferContext : aliased constant Windows.IID := (2239020131, 15383, 16526, (148, 8, 138, 26, 158, 168, 27, 250 ));
+   
    type IApplicationViewTransferContext_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ViewId
@@ -1199,10 +1202,10 @@ package Windows.UI.ViewManagement is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewTransferContext : aliased constant Windows.IID := (2239020131, 15383, 16526, (148, 8, 138, 26, 158, 168, 27, 250 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewTransferContextStatics : aliased constant Windows.IID := (363371922, 56697, 19211, (188, 71, 213, 241, 149, 241, 70, 97 ));
+   
    type IApplicationViewTransferContextStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DataPackageFormatId
@@ -1211,10 +1214,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewTransferContextStatics : aliased constant Windows.IID := (363371922, 56697, 19211, (188, 71, 213, 241, 149, 241, 70, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputPaneVisibilityEventArgs : aliased constant Windows.IID := (3527663638, 55559, 20428, (187, 141, 247, 123, 170, 80, 40, 241 ));
+   
    type IInputPaneVisibilityEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OccludedRect
@@ -1237,10 +1240,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputPaneVisibilityEventArgs : aliased constant Windows.IID := (3527663638, 55559, 20428, (187, 141, 247, 123, 170, 80, 40, 241 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputPane : aliased constant Windows.IID := (1678432880, 1779, 19591, (166, 120, 152, 41, 201, 18, 124, 40 ));
+   
    type IInputPane_Interface is interface and Windows.IInspectable_Interface;
    
    function add_Showing
@@ -1279,10 +1282,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputPane : aliased constant Windows.IID := (1678432880, 1779, 19591, (166, 120, 152, 41, 201, 18, 124, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputPane2 : aliased constant Windows.IID := (2322284326, 28816, 18323, (148, 76, 195, 242, 205, 226, 98, 118 ));
+   
    type IInputPane2_Interface is interface and Windows.IInspectable_Interface;
    
    function TryShow
@@ -1298,10 +1301,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputPane2 : aliased constant Windows.IID := (2322284326, 28816, 18323, (148, 76, 195, 242, 205, 226, 98, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputPaneControl : aliased constant Windows.IID := (143372879, 38447, 18589, (170, 110, 198, 190, 26, 10, 110, 82 ));
+   
    type IInputPaneControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Visible
@@ -1317,10 +1320,10 @@ package Windows.UI.ViewManagement is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputPaneControl : aliased constant Windows.IID := (143372879, 38447, 18589, (170, 110, 198, 190, 26, 10, 110, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputPaneStatics : aliased constant Windows.IID := (2515840826, 61255, 16970, (151, 65, 253, 40, 21, 235, 162, 189 ));
+   
    type IInputPaneStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -1329,10 +1332,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.UI.ViewManagement.IInputPane
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputPaneStatics : aliased constant Windows.IID := (2515840826, 61255, 16970, (151, 65, 253, 40, 21, 235, 162, 189 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProjectionManagerStatics : aliased constant Windows.IID := (3059716413, 58096, 20477, (186, 149, 52, 36, 22, 71, 228, 92 ));
+   
    type IProjectionManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function StartProjectingAsync
@@ -1383,10 +1386,10 @@ package Windows.UI.ViewManagement is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProjectionManagerStatics : aliased constant Windows.IID := (3059716413, 58096, 20477, (186, 149, 52, 36, 22, 71, 228, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProjectionManagerStatics2 : aliased constant Windows.IID := (4080873283, 10057, 19678, (185, 119, 192, 196, 30, 116, 21, 209 ));
+   
    type IProjectionManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function StartProjectingWithDeviceInfoAsync
@@ -1426,10 +1429,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProjectionManagerStatics2 : aliased constant Windows.IID := (4080873283, 10057, 19678, (185, 119, 192, 196, 30, 116, 21, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUIViewSettings : aliased constant Windows.IID := (3325450230, 34896, 18189, (136, 248, 69, 94, 22, 234, 44, 38 ));
+   
    type IUIViewSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UserInteractionMode
@@ -1438,10 +1441,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.UI.ViewManagement.UserInteractionMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUIViewSettings : aliased constant Windows.IID := (3325450230, 34896, 18189, (136, 248, 69, 94, 22, 234, 44, 38 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUIViewSettingsStatics : aliased constant Windows.IID := (1499240357, 63734, 16847, (176, 251, 170, 205, 184, 31, 213, 246 ));
+   
    type IUIViewSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -1450,10 +1453,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.UI.ViewManagement.IUIViewSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUIViewSettingsStatics : aliased constant Windows.IID := (1499240357, 63734, 16847, (176, 251, 170, 205, 184, 31, 213, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccessibilitySettings : aliased constant Windows.IID := (4262363463, 50368, 17762, (185, 98, 19, 39, 181, 42, 213, 185 ));
+   
    type IAccessibilitySettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HighContrast
@@ -1484,10 +1487,10 @@ package Windows.UI.ViewManagement is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccessibilitySettings : aliased constant Windows.IID := (4262363463, 50368, 17762, (185, 98, 19, 39, 181, 42, 213, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUISettings : aliased constant Windows.IID := (2234914304, 7267, 17959, (188, 177, 58, 137, 224, 188, 156, 85 ));
+   
    type IUISettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HandPreference
@@ -1581,10 +1584,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUISettings : aliased constant Windows.IID := (2234914304, 7267, 17959, (188, 177, 58, 137, 224, 188, 156, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUISettings2 : aliased constant Windows.IID := (3134727169, 10017, 17657, (187, 145, 43, 178, 40, 190, 68, 47 ));
+   
    type IUISettings2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextScaleFactor
@@ -1608,10 +1611,10 @@ package Windows.UI.ViewManagement is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUISettings2 : aliased constant Windows.IID := (3134727169, 10017, 17657, (187, 145, 43, 178, 40, 190, 68, 47 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUISettings3 : aliased constant Windows.IID := (50469860, 21076, 18305, (129, 148, 81, 104, 247, 208, 109, 123 ));
+   
    type IUISettings3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetColorValue
@@ -1636,10 +1639,10 @@ package Windows.UI.ViewManagement is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUISettings3 : aliased constant Windows.IID := (50469860, 21076, 18305, (129, 148, 81, 104, 247, 208, 109, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUISettings4 : aliased constant Windows.IID := (1387999234, 37275, 19819, (155, 120, 141, 214, 111, 244, 185, 59 ));
+   
    type IUISettings4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AdvancedEffectsEnabled
@@ -1663,10 +1666,10 @@ package Windows.UI.ViewManagement is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUISettings4 : aliased constant Windows.IID := (1387999234, 37275, 19819, (155, 120, 141, 214, 111, 244, 185, 59 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStatusBarStatics : aliased constant Windows.IID := (2336636895, 16943, 17761, (136, 6, 251, 18, 137, 202, 223, 183 ));
+   
    type IStatusBarStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -1675,10 +1678,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.UI.ViewManagement.IStatusBar
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStatusBarStatics : aliased constant Windows.IID := (2336636895, 16943, 17761, (136, 6, 251, 18, 137, 202, 223, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStatusBar : aliased constant Windows.IID := (268223935, 39120, 18532, (177, 232, 179, 244, 2, 11, 232, 180 ));
+   
    type IStatusBar_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowAsync
@@ -1780,10 +1783,10 @@ package Windows.UI.ViewManagement is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStatusBar : aliased constant Windows.IID := (268223935, 39120, 18532, (177, 232, 179, 244, 2, 11, 232, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStatusBarProgressIndicator : aliased constant Windows.IID := (1993025136, 41943, 18895, (130, 0, 79, 62, 237, 202, 39, 187 ));
+   
    type IStatusBarProgressIndicator_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowAsync
@@ -1827,15 +1830,15 @@ package Windows.UI.ViewManagement is
       ; value : Windows.Foundation.IReference_Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStatusBarProgressIndicator : aliased constant Windows.IID := (1993025136, 41943, 18895, (130, 0, 79, 62, 237, 202, 39, 187 ));
-   
    ------------------------------------------------------------------------
-   type IApplicationViewScaling_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IApplicationViewScaling : aliased constant Windows.IID := (487447587, 9203, 19245, (132, 254, 116, 191, 55, 180, 139, 102 ));
    
+   type IApplicationViewScaling_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IApplicationViewScalingStatics : aliased constant Windows.IID := (2962222320, 47430, 17864, (165, 227, 113, 245, 170, 120, 248, 97 ));
+   
    type IApplicationViewScalingStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisableLayoutScaling
@@ -1852,10 +1855,10 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationViewScalingStatics : aliased constant Windows.IID := (2962222320, 47430, 17864, (165, 227, 113, 245, 170, 120, 248, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_UIElementType : aliased constant Windows.IID := (3783133385, 32235, 20945, (132, 135, 51, 78, 179, 254, 70, 145 ));
+   
    type IReference_UIElementType_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -1864,17 +1867,15 @@ package Windows.UI.ViewManagement is
       ; RetVal : access Windows.UI.ViewManagement.UIElementType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_UIElementType : aliased constant Windows.IID := (3783133385, 32235, 20945, (132, 135, 51, 78, 179, 254, 70, 145 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IApplicationView_add_Consolidated_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IApplicationView ; args : Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IApplicationView_add_Consolidated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IApplicationView_add_Consolidated : aliased constant Windows.IID := (1178361962, 35970, 23081, (162, 189, 4, 7, 129, 242, 83, 72 ));
+   
+   type TypedEventHandler_IApplicationView_add_Consolidated_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IApplicationView ; args : Windows.UI.ViewManagement.IApplicationViewConsolidatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IApplicationView_add_Consolidated'access) with null record;
    
    function Invoke
    (
@@ -1884,12 +1885,11 @@ package Windows.UI.ViewManagement is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IApplicationView_add_Consolidated : aliased constant Windows.IID := (1178361962, 35970, 23081, (162, 189, 4, 7, 129, 242, 83, 72 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IApplicationView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged : aliased constant Windows.IID := (12712323, 51254, 22108, (139, 191, 112, 83, 5, 91, 219, 76 ));
+   
+   type TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IApplicationView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged'access) with null record;
    
    function Invoke
    (
@@ -1899,12 +1899,11 @@ package Windows.UI.ViewManagement is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IApplicationView2_add_VisibleBoundsChanged : aliased constant Windows.IID := (12712323, 51254, 22108, (139, 191, 112, 83, 5, 91, 219, 76 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IInputPane_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IInputPane ; args : Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInputPane_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IInputPane_add_Showing : aliased constant Windows.IID := (3088307844, 55635, 23178, (155, 48, 120, 183, 159, 185, 20, 123 ));
+   
+   type TypedEventHandler_IInputPane_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IInputPane ; args : Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInputPane_add_Showing'access) with null record;
    
    function Invoke
    (
@@ -1914,12 +1913,11 @@ package Windows.UI.ViewManagement is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IInputPane_add_Showing : aliased constant Windows.IID := (3088307844, 55635, 23178, (155, 48, 120, 183, 159, 185, 20, 123 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IInputPane_add_Hiding_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IInputPane ; args : Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IInputPane_add_Hiding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IInputPane_add_Hiding : aliased constant Windows.IID := (3088307844, 55635, 23178, (155, 48, 120, 183, 159, 185, 20, 123 ));
+   
+   type TypedEventHandler_IInputPane_add_Hiding_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IInputPane ; args : Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInputPane_add_Hiding'access) with null record;
    
    function Invoke
    (
@@ -1929,12 +1927,11 @@ package Windows.UI.ViewManagement is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IInputPane_add_Hiding : aliased constant Windows.IID := (3088307844, 55635, 23178, (155, 48, 120, 183, 159, 185, 20, 123 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IAccessibilitySettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged : aliased constant Windows.IID := (4119953007, 23231, 24165, (181, 180, 27, 156, 141, 148, 231, 136 ));
+   
+   type TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IAccessibilitySettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged'access) with null record;
    
    function Invoke
    (
@@ -1944,12 +1941,11 @@ package Windows.UI.ViewManagement is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAccessibilitySettings_add_HighContrastChanged : aliased constant Windows.IID := (4119953007, 23231, 24165, (181, 180, 27, 156, 141, 148, 231, 136 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUISettings2_add_TextScaleFactorChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUISettings2_add_TextScaleFactorChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUISettings2_add_TextScaleFactorChanged : aliased constant Windows.IID := (767408797, 8410, 20893, (144, 120, 9, 248, 53, 188, 91, 199 ));
+   
+   type TypedEventHandler_IUISettings2_add_TextScaleFactorChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUISettings2_add_TextScaleFactorChanged'access) with null record;
    
    function Invoke
    (
@@ -1959,12 +1955,11 @@ package Windows.UI.ViewManagement is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IUISettings2_add_TextScaleFactorChanged : aliased constant Windows.IID := (767408797, 8410, 20893, (144, 120, 9, 248, 53, 188, 91, 199 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUISettings3_add_ColorValuesChanged : aliased constant Windows.IID := (767408797, 8410, 20893, (144, 120, 9, 248, 53, 188, 91, 199 ));
+   
+   type TypedEventHandler_IUISettings3_add_ColorValuesChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUISettings3_add_ColorValuesChanged'access) with null record;
    
    function Invoke
    (
@@ -1974,12 +1969,11 @@ package Windows.UI.ViewManagement is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IUISettings3_add_ColorValuesChanged : aliased constant Windows.IID := (767408797, 8410, 20893, (144, 120, 9, 248, 53, 188, 91, 199 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged : aliased constant Windows.IID := (767408797, 8410, 20893, (144, 120, 9, 248, 53, 188, 91, 199 ));
+   
+   type TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged'access) with null record;
    
    function Invoke
    (
@@ -1989,12 +1983,11 @@ package Windows.UI.ViewManagement is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged : aliased constant Windows.IID := (767408797, 8410, 20893, (144, 120, 9, 248, 53, 188, 91, 199 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IStatusBar_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IStatusBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStatusBar_add_Showing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IStatusBar_add_Showing : aliased constant Windows.IID := (941968750, 34198, 21016, (187, 97, 93, 157, 185, 53, 170, 2 ));
+   
+   type TypedEventHandler_IStatusBar_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IStatusBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStatusBar_add_Showing'access) with null record;
    
    function Invoke
    (
@@ -2004,12 +1997,11 @@ package Windows.UI.ViewManagement is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IStatusBar_add_Showing : aliased constant Windows.IID := (941968750, 34198, 21016, (187, 97, 93, 157, 185, 53, 170, 2 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IStatusBar_add_Hiding_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IStatusBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStatusBar_add_Hiding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IStatusBar_add_Hiding : aliased constant Windows.IID := (941968750, 34198, 21016, (187, 97, 93, 157, 185, 53, 170, 2 ));
+   
+   type TypedEventHandler_IStatusBar_add_Hiding_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IStatusBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStatusBar_add_Hiding'access) with null record;
    
    function Invoke
    (
@@ -2018,8 +2010,6 @@ package Windows.UI.ViewManagement is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IStatusBar_add_Hiding : aliased constant Windows.IID := (941968750, 34198, 21016, (187, 97, 93, 157, 185, 53, 170, 2 ));
    
    ------------------------------------------------------------------------
    -- Classes

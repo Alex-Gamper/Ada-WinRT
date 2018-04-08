@@ -97,6 +97,9 @@ package Windows.Data.Pdf is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPdfPageDimensions : aliased constant Windows.IID := (571933809, 12606, 17640, (131, 93, 99, 163, 231, 98, 74, 16 ));
+   
    type IPdfPageDimensions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MediaBox
@@ -133,10 +136,10 @@ package Windows.Data.Pdf is
       ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPdfPageDimensions : aliased constant Windows.IID := (571933809, 12606, 17640, (131, 93, 99, 163, 231, 98, 74, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPdfPageRenderOptions : aliased constant Windows.IID := (1016595823, 47055, 19497, (154, 4, 82, 217, 2, 103, 244, 37 ));
+   
    type IPdfPageRenderOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SourceRect
@@ -222,10 +225,10 @@ package Windows.Data.Pdf is
       ; value : Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPdfPageRenderOptions : aliased constant Windows.IID := (1016595823, 47055, 19497, (154, 4, 82, 217, 2, 103, 244, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPdfPage : aliased constant Windows.IID := (2645864648, 21280, 19708, (173, 118, 73, 63, 218, 208, 229, 148 ));
+   
    type IPdfPage_Interface is interface and Windows.IInspectable_Interface;
    
    function RenderToStreamAsync
@@ -286,10 +289,10 @@ package Windows.Data.Pdf is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPdfPage : aliased constant Windows.IID := (2645864648, 21280, 19708, (173, 118, 73, 63, 218, 208, 229, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPdfDocument : aliased constant Windows.IID := (2893987549, 33018, 16521, (132, 110, 129, 183, 127, 245, 168, 108 ));
+   
    type IPdfDocument_Interface is interface and Windows.IInspectable_Interface;
    
    function GetPage
@@ -313,10 +316,10 @@ package Windows.Data.Pdf is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPdfDocument : aliased constant Windows.IID := (2893987549, 33018, 16521, (132, 110, 129, 183, 127, 245, 168, 108 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPdfDocumentStatics : aliased constant Windows.IID := (1127877471, 49159, 18312, (144, 242, 8, 20, 61, 146, 37, 153 ));
+   
    type IPdfDocumentStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function LoadFromFileAsync
@@ -352,10 +355,10 @@ package Windows.Data.Pdf is
       ; RetVal : access Windows.Data.Pdf.IAsyncOperation_IPdfDocument -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPdfDocumentStatics : aliased constant Windows.IID := (1127877471, 49159, 18312, (144, 242, 8, 20, 61, 146, 37, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPdfDocument : aliased constant Windows.IID := (3601950444, 2458, 24290, (173, 46, 244, 200, 134, 20, 170, 187 ));
+   
    type IAsyncOperation_IPdfDocument_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -378,17 +381,15 @@ package Windows.Data.Pdf is
       ; RetVal : access Windows.Data.Pdf.IPdfDocument
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPdfDocument : aliased constant Windows.IID := (3601950444, 2458, 24290, (173, 46, 244, 200, 134, 20, 170, 187 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPdfDocument_Interface(Callback : access procedure (asyncInfo : Windows.Data.Pdf.IAsyncOperation_IPdfDocument ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPdfDocument_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPdfDocument : aliased constant Windows.IID := (2370392243, 25245, 23933, (132, 204, 4, 192, 220, 247, 148, 43 ));
+   
+   type AsyncOperationCompletedHandler_IPdfDocument_Interface(Callback : access procedure (asyncInfo : Windows.Data.Pdf.IAsyncOperation_IPdfDocument ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPdfDocument'access) with null record;
    
    function Invoke
    (
@@ -397,8 +398,6 @@ package Windows.Data.Pdf is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IPdfDocument : aliased constant Windows.IID := (2370392243, 25245, 23933, (132, 204, 4, 192, 220, 247, 148, 43 ));
    
    ------------------------------------------------------------------------
    -- Classes

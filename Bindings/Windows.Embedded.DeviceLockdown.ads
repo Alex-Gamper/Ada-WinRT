@@ -64,6 +64,9 @@ package Windows.Embedded.DeviceLockdown is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDeviceLockdownProfileInformation : aliased constant Windows.IID := (2038489422, 17841, 19094, (146, 252, 98, 117, 107, 115, 150, 120 ));
+   
    type IDeviceLockdownProfileInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -72,10 +75,10 @@ package Windows.Embedded.DeviceLockdown is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDeviceLockdownProfileInformation : aliased constant Windows.IID := (2038489422, 17841, 19094, (146, 252, 98, 117, 107, 115, 150, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDeviceLockdownProfileStatics : aliased constant Windows.IID := (1647274341, 63912, 16801, (166, 145, 136, 205, 128, 199, 160, 105 ));
+   
    type IDeviceLockdownProfileStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetSupportedLockdownProfiles
@@ -107,9 +110,6 @@ package Windows.Embedded.DeviceLockdown is
       ; RetVal : access Windows.Embedded.DeviceLockdown.IDeviceLockdownProfileInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDeviceLockdownProfileStatics : aliased constant Windows.IID := (1647274341, 63912, 16801, (166, 145, 136, 205, 128, 199, 160, 105 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

@@ -95,6 +95,9 @@ package Windows.Web.AtomPub is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IResourceCollection : aliased constant Windows.IID := (2136987145, 48264, 16852, (136, 250, 61, 230, 112, 77, 66, 142 ));
+   
    type IResourceCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Title
@@ -124,10 +127,10 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResourceCollection : aliased constant Windows.IID := (2136987145, 48264, 16852, (136, 250, 61, 230, 112, 77, 66, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWorkspace : aliased constant Windows.IID := (3021841979, 42168, 16438, (137, 197, 131, 195, 18, 102, 186, 73 ));
+   
    type IWorkspace_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Title
@@ -143,10 +146,10 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.Web.AtomPub.IVectorView_IResourceCollection -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWorkspace : aliased constant Windows.IID := (3021841979, 42168, 16438, (137, 197, 131, 195, 18, 102, 186, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IServiceDocument : aliased constant Windows.IID := (2340341617, 10931, 19902, (139, 204, 119, 143, 146, 183, 94, 81 ));
+   
    type IServiceDocument_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Workspaces
@@ -155,10 +158,10 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.Web.AtomPub.IVectorView_IWorkspace -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IServiceDocument : aliased constant Windows.IID := (2340341617, 10931, 19902, (139, 204, 119, 143, 146, 183, 94, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAtomPubClient : aliased constant Windows.IID := (892939320, 52717, 19788, (150, 55, 5, 241, 92, 28, 148, 6 ));
+   
    type IAtomPubClient_Interface is interface and Windows.IInspectable_Interface;
    
    function RetrieveServiceDocumentAsync
@@ -254,10 +257,10 @@ package Windows.Web.AtomPub is
       This       : access IAtomPubClient_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAtomPubClient : aliased constant Windows.IID := (892939320, 52717, 19788, (150, 55, 5, 241, 92, 28, 148, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAtomPubClientFactory : aliased constant Windows.IID := (1238716434, 22475, 19422, (171, 159, 38, 16, 177, 114, 119, 123 ));
+   
    type IAtomPubClientFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAtomPubClientWithCredentials
@@ -267,10 +270,8 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.Web.AtomPub.IAtomPubClient
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAtomPubClientFactory : aliased constant Windows.IID := (1238716434, 22475, 19422, (171, 159, 38, 16, 177, 114, 119, 123 ));
-   
    ------------------------------------------------------------------------
+   
    type ISyndicationNode_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NodeName
@@ -364,8 +365,8 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ISyndicationClient_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ServerCredential
@@ -453,8 +454,10 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IResourceCollection : aliased constant Windows.IID := (722950262, 2336, 21232, (128, 191, 223, 231, 151, 68, 18, 141 ));
+   
    type IIterator_IResourceCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -485,10 +488,10 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IResourceCollection : aliased constant Windows.IID := (722950262, 2336, 21232, (128, 191, 223, 231, 151, 68, 18, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IResourceCollection : aliased constant Windows.IID := (3560385069, 31408, 23950, (189, 92, 110, 156, 10, 103, 168, 216 ));
+   
    type IIterable_IResourceCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -497,10 +500,10 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.Web.AtomPub.IIterator_IResourceCollection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IResourceCollection : aliased constant Windows.IID := (3560385069, 31408, 23950, (189, 92, 110, 156, 10, 103, 168, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IResourceCollection : aliased constant Windows.IID := (854598087, 13963, 23802, (130, 156, 74, 207, 138, 54, 200, 16 ));
+   
    type IVectorView_IResourceCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -535,10 +538,10 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IResourceCollection : aliased constant Windows.IID := (854598087, 13963, 23802, (130, 156, 74, 207, 138, 54, 200, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IWorkspace : aliased constant Windows.IID := (214484006, 54922, 20790, (151, 65, 222, 50, 103, 100, 202, 50 ));
+   
    type IIterator_IWorkspace_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -569,10 +572,10 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IWorkspace : aliased constant Windows.IID := (214484006, 54922, 20790, (151, 65, 222, 50, 103, 100, 202, 50 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IWorkspace : aliased constant Windows.IID := (4029484734, 60098, 20527, (152, 54, 28, 84, 130, 51, 59, 254 ));
+   
    type IIterable_IWorkspace_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -581,10 +584,10 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.Web.AtomPub.IIterator_IWorkspace
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IWorkspace : aliased constant Windows.IID := (4029484734, 60098, 20527, (152, 54, 28, 84, 130, 51, 59, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IWorkspace : aliased constant Windows.IID := (3503797645, 55678, 22369, (190, 102, 66, 184, 91, 61, 25, 200 ));
+   
    type IVectorView_IWorkspace_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -619,9 +622,6 @@ package Windows.Web.AtomPub is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IWorkspace : aliased constant Windows.IID := (3503797645, 55678, 22369, (190, 102, 66, 184, 91, 61, 25, 200 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

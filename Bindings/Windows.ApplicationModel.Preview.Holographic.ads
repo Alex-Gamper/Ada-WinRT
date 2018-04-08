@@ -54,6 +54,9 @@ package Windows.ApplicationModel.Preview.Holographic is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IHolographicApplicationPreviewStatics : aliased constant Windows.IID := (4261643921, 10810, 17833, (162, 8, 123, 237, 105, 25, 25, 243 ));
+   
    type IHolographicApplicationPreviewStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function IsCurrentViewPresentedOnHolographicDisplay
@@ -70,9 +73,6 @@ package Windows.ApplicationModel.Preview.Holographic is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHolographicApplicationPreviewStatics : aliased constant Windows.IID := (4261643921, 10810, 17833, (162, 8, 123, 237, 105, 25, 25, 243 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

@@ -34,28 +34,6 @@ package body Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMapModel3D_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IMapModel3D or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMapModel3D_Interface
@@ -66,28 +44,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapScene_add_TargetCameraChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapScene_add_TargetCameraChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -104,28 +60,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IStreetsidePanorama_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IStreetsidePanorama or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStreetsidePanorama_Interface
@@ -136,28 +70,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -174,28 +86,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IHttpMapTileDataSource_add_UriRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface
@@ -206,28 +96,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource(sender), Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_ILocalMapTileDataSource_add_UriRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_ILocalMapTileDataSource_add_UriRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -244,28 +112,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapElementsLayer_add_MapElementClick or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface
@@ -276,28 +122,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapElementsLayer(sender), Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -314,28 +138,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface
@@ -346,28 +148,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapElementsLayer(sender), Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapElementsLayer_add_MapContextRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapElementsLayer_add_MapContextRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -384,28 +164,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_CenterChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl_add_CenterChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControl_add_CenterChanged_Interface
@@ -416,28 +174,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), args);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_HeadingChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl_add_HeadingChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -454,28 +190,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl_add_LoadingStatusChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface
@@ -486,28 +200,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), args);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_MapDoubleTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl_add_MapDoubleTapped or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -524,28 +216,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_MapHolding_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl_add_MapHolding or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControl_add_MapHolding_Interface
@@ -556,28 +226,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_MapTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl_add_MapTapped or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -594,28 +242,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_PitchChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl_add_PitchChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControl_add_PitchChanged_Interface
@@ -626,28 +252,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), args);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_TransformOriginChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl_add_TransformOriginChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -664,28 +268,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl_add_ZoomLevelChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface
@@ -696,28 +278,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), args);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_MapElementClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl2_add_MapElementClick or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -734,28 +294,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl2_add_MapElementPointerEntered or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface
@@ -766,28 +304,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_MapElementPointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl2_add_MapElementPointerExited or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -804,28 +320,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl2_add_ActualCameraChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface
@@ -836,28 +330,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_ActualCameraChanging_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl2_add_ActualCameraChanging or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -874,28 +346,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl2_add_TargetCameraChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface
@@ -906,28 +356,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControl2_add_CustomExperienceChanged_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl2_add_CustomExperienceChanged or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -944,28 +372,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControl3_add_MapRightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl3_add_MapRightTapped or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControl3_add_MapRightTapped_Interface
@@ -976,28 +382,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControl5_add_MapContextRequested_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControl5_add_MapContextRequested or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -1014,28 +398,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface
@@ -1046,28 +408,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -1084,28 +424,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface
@@ -1116,28 +434,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -1154,28 +450,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface
@@ -1186,28 +460,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -1224,28 +476,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface
@@ -1256,28 +486,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.Controls.Maps.IMapControl(sender), Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -1304,15 +512,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapActualCameraChangedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapActualCameraChangedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapActualCameraChangedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapActualCameraChangingEventArgs return Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs is
@@ -1320,15 +529,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapActualCameraChangingEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapActualCameraChangingEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapActualCameraChangingEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapContextRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs is
@@ -1336,15 +546,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapContextRequestedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapContextRequestedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapContextRequestedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapCustomExperienceChangedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs is
@@ -1352,15 +563,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapCustomExperienceChangedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapCustomExperienceChangedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapCustomExperienceChangedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapElementClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs is
@@ -1368,15 +580,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementClickEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementClickEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementClickEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapElementPointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs is
@@ -1384,15 +597,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementPointerEnteredEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementPointerEnteredEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementPointerEnteredEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapElementPointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs is
@@ -1400,15 +614,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementPointerExitedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementPointerExitedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementPointerExitedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapElementsLayerClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs is
@@ -1416,15 +631,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayerClickEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayerClickEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayerClickEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapElementsLayerContextRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs is
@@ -1432,15 +648,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayerContextRequestedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayerContextRequestedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayerContextRequestedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapElementsLayerPointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs is
@@ -1448,15 +665,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerEnteredEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayerPointerEnteredEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayerPointerEnteredEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapElementsLayerPointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs is
@@ -1464,15 +682,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerExitedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayerPointerExitedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayerPointerExitedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapRightTappedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs is
@@ -1480,15 +699,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapRightTappedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapRightTappedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapRightTappedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapTargetCameraChangedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs is
@@ -1496,15 +716,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTargetCameraChangedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTargetCameraChangedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTargetCameraChangedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapTileBitmapRequestDeferral return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestDeferral is
@@ -1512,15 +733,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestDeferral");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestDeferral := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestDeferral) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileBitmapRequestDeferral'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileBitmapRequestDeferral'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapTileBitmapRequest return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequest is
@@ -1528,15 +750,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequest");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequest := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequest) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileBitmapRequest'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileBitmapRequest'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapTileBitmapRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs is
@@ -1544,15 +767,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileBitmapRequestedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileBitmapRequestedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapTileUriRequestDeferral return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestDeferral is
@@ -1560,15 +784,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileUriRequestDeferral");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestDeferral := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestDeferral) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileUriRequestDeferral'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileUriRequestDeferral'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapTileUriRequest return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest is
@@ -1576,15 +801,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileUriRequest");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileUriRequest'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileUriRequest'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapTileUriRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs is
@@ -1592,15 +818,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileUriRequestedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileUriRequestedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapTileUriRequestedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInstanceWithLocation
@@ -1695,15 +922,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapInputEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapInputEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapInputEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapItemsControl return Windows.UI.Xaml.Controls.Maps.IMapItemsControl is
@@ -1711,15 +939,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapItemsControl");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapItemsControl := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapItemsControl) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapItemsControl'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapItemsControl'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInstanceFromCamera
@@ -1747,15 +976,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElement3D");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapElement3D := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapElement3D) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElement3D'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElement3D'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapElementsLayer return Windows.UI.Xaml.Controls.Maps.IMapElementsLayer is
@@ -1763,15 +993,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapElementsLayer");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapElementsLayer := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapElementsLayer) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayer'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapElementsLayer'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapIcon return Windows.UI.Xaml.Controls.Maps.IMapIcon is
@@ -1779,15 +1010,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapIcon");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapIcon := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapIcon) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapIcon'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapIcon'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapPolygon return Windows.UI.Xaml.Controls.Maps.IMapPolygon is
@@ -1795,15 +1027,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapPolygon");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapPolygon := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapPolygon) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapPolygon'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapPolygon'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapPolyline return Windows.UI.Xaml.Controls.Maps.IMapPolyline is
@@ -1811,15 +1044,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapPolyline");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapPolyline := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapPolyline) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapPolyline'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapPolyline'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInstanceWithPanorama
@@ -1870,15 +1104,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControl");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapControl := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapControl) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControl'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControl'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapControlBusinessLandmarkClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs is
@@ -1886,15 +1121,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkClickEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlBusinessLandmarkClickEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlBusinessLandmarkClickEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapControlTransitFeatureClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs is
@@ -1902,15 +1138,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureClickEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlTransitFeatureClickEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlTransitFeatureClickEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapControlBusinessLandmarkRightTappedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs is
@@ -1918,15 +1155,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkRightTappedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlBusinessLandmarkRightTappedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlBusinessLandmarkRightTappedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapControlTransitFeatureRightTappedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs is
@@ -1934,15 +1172,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureRightTappedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlTransitFeatureRightTappedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlTransitFeatureRightTappedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapControlBusinessLandmarkPointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs is
@@ -1950,15 +1189,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerEnteredEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlBusinessLandmarkPointerEnteredEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlBusinessLandmarkPointerEnteredEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapControlTransitFeaturePointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs is
@@ -1966,15 +1206,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerEnteredEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlTransitFeaturePointerEnteredEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlTransitFeaturePointerEnteredEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapControlBusinessLandmarkPointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs is
@@ -1982,15 +1223,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerExitedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlBusinessLandmarkPointerExitedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlBusinessLandmarkPointerExitedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMapControlTransitFeaturePointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs is
@@ -1998,15 +1240,16 @@ package body Windows.UI.Xaml.Controls.Maps is
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerExitedEventArgs");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlTransitFeaturePointerExitedEventArgs'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.Maps.IID_IMapControlTransitFeaturePointerExitedEventArgs'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInstance
@@ -2038,28 +1281,25 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapCustomExperience_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IMapCustomExperience , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IMapCustomExperience or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2071,22 +1311,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapCustomExperience_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IMapCustomExperience_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2130,28 +1372,25 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapElement_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IMapElement , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IMapElement or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2163,22 +1402,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapElement_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IMapElement_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2266,28 +1507,25 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapLayer_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IMapLayer , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IMapLayer or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2299,22 +1537,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapLayer_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IMapLayer_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2424,28 +1664,25 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapModel3D_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IMapModel3D , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IMapModel3D or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2457,22 +1694,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapModel3D_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IMapModel3D_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2516,28 +1755,25 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapTileDataSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IMapTileDataSource , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IMapTileDataSource or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2549,22 +1785,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapTileDataSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IMapTileDataSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2608,28 +1846,25 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapTileSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IMapTileSource , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IMapTileSource or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2641,22 +1876,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapTileSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IMapTileSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -2942,28 +2179,25 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access ICustomMapTileDataSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(ICustomMapTileDataSource , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_ICustomMapTileDataSource or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -2975,22 +2209,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access ICustomMapTileDataSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access ICustomMapTileDataSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -3057,28 +2293,25 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IHttpMapTileDataSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(IHttpMapTileDataSource , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_IHttpMapTileDataSource or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -3090,22 +2323,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IHttpMapTileDataSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access IHttpMapTileDataSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids
@@ -3227,28 +2462,25 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access ILocalMapTileDataSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT is
       Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      ppvObject : Address_Ptr := Convert(pvObject);
+      m_IUnknown : aliased Windows.IUnknown;
       RefCount : aliased UInt32 := 0;
       RetVal : aliased IUnknown := null;
-   
-      function Convert is new Ada.Unchecked_Conversion(ILocalMapTileDataSource , Windows.Address); 
-   
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
       if riid.all = IID_ILocalMapTileDataSource or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
-         ppvObject.all := Convert(This);
+         pvObject.all := This;
          Hr := S_OK;
       else
          if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
             if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Address);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
             end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
          else
             Hr := E_NOINTERFACE;
          end if;
@@ -3260,22 +2492,24 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       This       : access ILocalMapTileDataSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount + 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function Release
    (
       This       : access ILocalMapTileDataSource_Interface_Impl
    )
-   return Windows.HRESULT is
-      Hr : Windows.HResult := S_OK;
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
    begin
       This.m_RefCount := This.m_RefCount - 1;
-      return Hr;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
    end;
    
    function GetIids

@@ -107,6 +107,9 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskDataProviderTriggerDetails : aliased constant Windows.IID := (2921804290, 45513, 17726, (175, 197, 179, 10, 243, 189, 33, 125 ));
+   
    type IUserDataTaskDataProviderTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Connection
@@ -115,10 +118,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskDataProviderTriggerDetails : aliased constant Windows.IID := (2921804290, 45513, 17726, (175, 197, 179, 10, 243, 189, 33, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskDataProviderConnection : aliased constant Windows.IID := (2683542813, 42055, 17035, (175, 233, 229, 64, 43, 222, 176, 65 ));
+   
    type IUserDataTaskDataProviderConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function add_CreateOrUpdateTaskRequested
@@ -201,10 +204,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       This       : access IUserDataTaskDataProviderConnection_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskDataProviderConnection : aliased constant Windows.IID := (2683542813, 42055, 17035, (175, 233, 229, 64, 43, 222, 176, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListCreateOrUpdateTaskRequest : aliased constant Windows.IID := (557020972, 21954, 17152, (130, 121, 4, 50, 110, 7, 204, 228 ));
+   
    type IUserDataTaskListCreateOrUpdateTaskRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TaskListId
@@ -235,10 +238,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListCreateOrUpdateTaskRequest : aliased constant Windows.IID := (557020972, 21954, 17152, (130, 121, 4, 50, 110, 7, 204, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListSyncManagerSyncRequest : aliased constant Windows.IID := (1084700679, 30096, 16713, (174, 25, 178, 17, 67, 26, 159, 72 ));
+   
    type IUserDataTaskListSyncManagerSyncRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TaskListId
@@ -261,10 +264,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListSyncManagerSyncRequest : aliased constant Windows.IID := (1084700679, 30096, 16713, (174, 25, 178, 17, 67, 26, 159, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListSkipOccurrenceRequest : aliased constant Windows.IID := (2877809485, 7379, 17180, (159, 88, 8, 154, 164, 51, 141, 133 ));
+   
    type IUserDataTaskListSkipOccurrenceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TaskListId
@@ -294,10 +297,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListSkipOccurrenceRequest : aliased constant Windows.IID := (2877809485, 7379, 17180, (159, 88, 8, 154, 164, 51, 141, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListCompleteTaskRequest : aliased constant Windows.IID := (4133360803, 6722, 18906, (133, 82, 40, 115, 229, 44, 85, 235 ));
+   
    type IUserDataTaskListCompleteTaskRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TaskListId
@@ -328,10 +331,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListCompleteTaskRequest : aliased constant Windows.IID := (4133360803, 6722, 18906, (133, 82, 40, 115, 229, 44, 85, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListDeleteTaskRequest : aliased constant Windows.IID := (1267088488, 30295, 20285, (176, 116, 212, 126, 200, 223, 7, 231 ));
+   
    type IUserDataTaskListDeleteTaskRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TaskListId
@@ -361,10 +364,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListDeleteTaskRequest : aliased constant Windows.IID := (1267088488, 30295, 20285, (176, 116, 212, 126, 200, 223, 7, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListCreateOrUpdateTaskRequestEventArgs : aliased constant Windows.IID := (314923602, 58232, 16795, (174, 56, 165, 233, 230, 4, 71, 110 ));
+   
    type IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -380,10 +383,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListCreateOrUpdateTaskRequestEventArgs : aliased constant Windows.IID := (314923602, 58232, 16795, (174, 56, 165, 233, 230, 4, 71, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListSyncManagerSyncRequestEventArgs : aliased constant Windows.IID := (2393709586, 30350, 17341, (131, 133, 92, 220, 53, 31, 253, 234 ));
+   
    type IUserDataTaskListSyncManagerSyncRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -399,10 +402,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListSyncManagerSyncRequestEventArgs : aliased constant Windows.IID := (2393709586, 30350, 17341, (131, 133, 92, 220, 53, 31, 253, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListSkipOccurrenceRequestEventArgs : aliased constant Windows.IID := (2050724426, 52271, 20091, (170, 205, 165, 185, 210, 156, 250, 78 ));
+   
    type IUserDataTaskListSkipOccurrenceRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -418,10 +421,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListSkipOccurrenceRequestEventArgs : aliased constant Windows.IID := (2050724426, 52271, 20091, (170, 205, 165, 185, 210, 156, 250, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListCompleteTaskRequestEventArgs : aliased constant Windows.IID := (3615242557, 19698, 18605, (135, 253, 150, 63, 14, 170, 122, 149 ));
+   
    type IUserDataTaskListCompleteTaskRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -437,10 +440,10 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListCompleteTaskRequestEventArgs : aliased constant Windows.IID := (3615242557, 19698, 18605, (135, 253, 150, 63, 14, 170, 122, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataTaskListDeleteTaskRequestEventArgs : aliased constant Windows.IID := (1617156825, 62818, 16709, (142, 254, 213, 0, 120, 201, 43, 127 ));
+   
    type IUserDataTaskListDeleteTaskRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -456,17 +459,15 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataTaskListDeleteTaskRequestEventArgs : aliased constant Windows.IID := (1617156825, 62818, 16709, (142, 254, 213, 0, 120, 201, 43, 127 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested : aliased constant Windows.IID := (682488924, 26631, 21904, (167, 241, 147, 71, 71, 147, 117, 146 ));
+   
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCreateOrUpdateTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested'access) with null record;
    
    function Invoke
    (
@@ -476,12 +477,11 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested : aliased constant Windows.IID := (682488924, 26631, 21904, (167, 241, 147, 71, 71, 147, 117, 146 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested : aliased constant Windows.IID := (2976180463, 5756, 22610, (167, 146, 9, 48, 180, 0, 24, 113 ));
+   
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested'access) with null record;
    
    function Invoke
    (
@@ -491,12 +491,11 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SyncRequested : aliased constant Windows.IID := (2976180463, 5756, 22610, (167, 146, 9, 48, 180, 0, 24, 113 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSkipOccurrenceRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested : aliased constant Windows.IID := (143110520, 50502, 23240, (174, 16, 50, 146, 171, 82, 101, 188 ));
+   
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListSkipOccurrenceRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested'access) with null record;
    
    function Invoke
    (
@@ -506,12 +505,11 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_SkipOccurrenceRequested : aliased constant Windows.IID := (143110520, 50502, 23240, (174, 16, 50, 146, 171, 82, 101, 188 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested : aliased constant Windows.IID := (1614150135, 54469, 21396, (176, 227, 93, 96, 105, 135, 186, 71 ));
+   
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListCompleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested'access) with null record;
    
    function Invoke
    (
@@ -521,12 +519,11 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_CompleteTaskRequested : aliased constant Windows.IID := (1614150135, 54469, 21396, (176, 227, 93, 96, 105, 135, 186, 71 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested : aliased constant Windows.IID := (186181256, 45673, 23714, (168, 243, 214, 209, 15, 15, 179, 32 ));
+   
+   type TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskDataProviderConnection ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested'access) with null record;
    
    function Invoke
    (
@@ -535,8 +532,6 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
       ; args : Windows.ApplicationModel.UserDataTasks.DataProvider.IUserDataTaskListDeleteTaskRequestEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IUserDataTaskDataProviderConnection_add_DeleteTaskRequested : aliased constant Windows.IID := (186181256, 45673, 23714, (168, 243, 214, 209, 15, 15, 179, 32 ));
    
    ------------------------------------------------------------------------
    -- Classes

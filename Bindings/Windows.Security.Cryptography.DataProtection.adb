@@ -34,15 +34,16 @@ package body Windows.Security.Cryptography.DataProtection is
       m_hString     : Windows.String := To_String("Windows.Security.Cryptography.DataProtection.DataProtectionProvider");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Security.Cryptography.DataProtection.IDataProtectionProvider := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Cryptography.DataProtection.IDataProtectionProvider) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Cryptography.DataProtection.IID_IDataProtectionProvider'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Security.Cryptography.DataProtection.IID_IDataProtectionProvider'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

@@ -66,6 +66,9 @@ package Windows.ApplicationModel.CommunicationBlocking is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICommunicationBlockingAppManagerStatics : aliased constant Windows.IID := (2010863852, 5286, 19370, (148, 42, 106, 103, 61, 153, 155, 242 ));
+   
    type ICommunicationBlockingAppManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsCurrentAppActiveBlockingApp
@@ -80,10 +83,10 @@ package Windows.ApplicationModel.CommunicationBlocking is
       This       : access ICommunicationBlockingAppManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICommunicationBlockingAppManagerStatics : aliased constant Windows.IID := (2010863852, 5286, 19370, (148, 42, 106, 103, 61, 153, 155, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICommunicationBlockingAppManagerStatics2 : aliased constant Windows.IID := (346459869, 60808, 17786, (163, 100, 163, 99, 77, 111, 22, 109 ));
+   
    type ICommunicationBlockingAppManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestSetAsActiveBlockingAppAsync
@@ -92,10 +95,10 @@ package Windows.ApplicationModel.CommunicationBlocking is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICommunicationBlockingAppManagerStatics2 : aliased constant Windows.IID := (346459869, 60808, 17786, (163, 100, 163, 99, 77, 111, 22, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICommunicationBlockingAccessManagerStatics : aliased constant Windows.IID := (479631768, 40234, 23991, (237, 213, 12, 228, 7, 252, 37, 149 ));
+   
    type ICommunicationBlockingAccessManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsBlockingActive
@@ -140,9 +143,6 @@ package Windows.ApplicationModel.CommunicationBlocking is
       This       : access ICommunicationBlockingAccessManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICommunicationBlockingAccessManagerStatics : aliased constant Windows.IID := (479631768, 40234, 23991, (237, 213, 12, 228, 7, 252, 37, 149 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

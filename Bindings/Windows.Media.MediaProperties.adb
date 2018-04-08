@@ -31,28 +31,6 @@ package body Windows.Media.MediaProperties is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IMediaEncodingProfile_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IMediaEncodingProfile or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMediaEncodingProfile_Interface
@@ -76,15 +54,16 @@ package body Windows.Media.MediaProperties is
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaPropertySet");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IMap_Guid_Object := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.MediaProperties.IMap_Guid_Object) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IMap_Guid_Object'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IMap_Guid_Object'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateAudioEncodingProperties return Windows.Media.MediaProperties.IAudioEncodingProperties is
@@ -92,15 +71,16 @@ package body Windows.Media.MediaProperties is
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.AudioEncodingProperties");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IAudioEncodingProperties := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.MediaProperties.IAudioEncodingProperties) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IAudioEncodingProperties'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IAudioEncodingProperties'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVideoEncodingProperties return Windows.Media.MediaProperties.IVideoEncodingProperties is
@@ -108,15 +88,16 @@ package body Windows.Media.MediaProperties is
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.VideoEncodingProperties");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IVideoEncodingProperties := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.MediaProperties.IVideoEncodingProperties) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IVideoEncodingProperties'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IVideoEncodingProperties'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateImageEncodingProperties return Windows.Media.MediaProperties.IImageEncodingProperties is
@@ -124,15 +105,16 @@ package body Windows.Media.MediaProperties is
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.ImageEncodingProperties");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IImageEncodingProperties := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.MediaProperties.IImageEncodingProperties) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IImageEncodingProperties'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IImageEncodingProperties'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateContainerEncodingProperties return Windows.Media.MediaProperties.IContainerEncodingProperties is
@@ -140,15 +122,16 @@ package body Windows.Media.MediaProperties is
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.ContainerEncodingProperties");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IContainerEncodingProperties := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.MediaProperties.IContainerEncodingProperties) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IContainerEncodingProperties'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IContainerEncodingProperties'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateMediaEncodingProfile return Windows.Media.MediaProperties.IMediaEncodingProfile is
@@ -156,15 +139,16 @@ package body Windows.Media.MediaProperties is
       m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingProfile");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.MediaProperties.IMediaEncodingProfile := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.MediaProperties.IMediaEncodingProfile) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IMediaEncodingProfile'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Media.MediaProperties.IID_IMediaEncodingProfile'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

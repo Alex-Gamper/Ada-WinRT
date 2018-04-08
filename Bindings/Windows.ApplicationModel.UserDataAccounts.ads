@@ -151,6 +151,9 @@ package Windows.ApplicationModel.UserDataAccounts is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccount : aliased constant Windows.IID := (3116643966, 45896, 18704, (190, 148, 74, 212, 187, 166, 222, 167 ));
+   
    type IUserDataAccount_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -250,10 +253,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccount : aliased constant Windows.IID := (3116643966, 45896, 18704, (190, 148, 74, 212, 187, 166, 222, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccount2 : aliased constant Windows.IID := (126671007, 56962, 16459, (129, 149, 200, 163, 172, 25, 143, 96 ));
+   
    type IUserDataAccount2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EnterpriseId
@@ -269,10 +272,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccount2 : aliased constant Windows.IID := (126671007, 56962, 16459, (129, 149, 200, 163, 172, 25, 143, 96 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccount3 : aliased constant Windows.IID := (22231109, 27715, 17030, (157, 105, 62, 23, 9, 161, 242, 102 ));
+   
    type IUserDataAccount3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ExplictReadAccessPackageFamilyNames
@@ -295,10 +298,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccount3 : aliased constant Windows.IID := (22231109, 27715, 17030, (157, 105, 62, 23, 9, 161, 242, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccount4 : aliased constant Windows.IID := (3291566608, 60133, 20234, (168, 178, 28, 202, 17, 94, 0, 143 ));
+   
    type IUserDataAccount4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanShowCreateContactGroup
@@ -356,10 +359,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; value : Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccount4 : aliased constant Windows.IID := (3291566608, 60133, 20234, (168, 178, 28, 202, 17, 94, 0, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountStore : aliased constant Windows.IID := (544452781, 32010, 20086, (191, 69, 35, 104, 249, 120, 165, 154 ));
+   
    type IUserDataAccountStore_Interface is interface and Windows.IInspectable_Interface;
    
    function FindAccountsAsync
@@ -384,10 +387,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccount -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccountStore : aliased constant Windows.IID := (544452781, 32010, 20086, (191, 69, 35, 104, 249, 120, 165, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountStore2 : aliased constant Windows.IID := (2984292087, 38240, 17969, (138, 240, 6, 29, 48, 22, 20, 105 ));
+   
    type IUserDataAccountStore2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAccountWithPackageRelativeAppIdAsync
@@ -413,10 +416,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccountStore2 : aliased constant Windows.IID := (2984292087, 38240, 17969, (138, 240, 6, 29, 48, 22, 20, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountStore3 : aliased constant Windows.IID := (2168635540, 62409, 18315, (177, 23, 101, 133, 190, 187, 103, 137 ));
+   
    type IUserDataAccountStore3_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync
@@ -428,10 +431,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccount -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccountStore3 : aliased constant Windows.IID := (2168635540, 62409, 18315, (177, 23, 101, 133, 190, 187, 103, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountManagerStatics : aliased constant Windows.IID := (228297194, 6440, 18976, (134, 213, 60, 115, 127, 125, 195, 176 ));
+   
    type IUserDataAccountManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestStoreAsync
@@ -465,10 +468,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccountManagerStatics : aliased constant Windows.IID := (228297194, 6440, 18976, (134, 213, 60, 115, 127, 125, 195, 176 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountManagerStatics2 : aliased constant Windows.IID := (1782443400, 12651, 17246, (181, 52, 247, 212, 180, 183, 219, 166 ));
+   
    type IUserDataAccountManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForUser
@@ -478,10 +481,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerForUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccountManagerStatics2 : aliased constant Windows.IID := (1782443400, 12651, 17246, (181, 52, 247, 212, 180, 183, 219, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountManagerForUser : aliased constant Windows.IID := (1453779163, 56207, 16811, (166, 95, 140, 89, 113, 170, 201, 130 ));
+   
    type IUserDataAccountManagerForUser_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestStoreAsync
@@ -498,10 +501,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccountManagerForUser : aliased constant Windows.IID := (1453779163, 56207, 16811, (166, 95, 140, 89, 113, 170, 201, 130 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserDataAccountStoreChangedEventArgs : aliased constant Windows.IID := (2229527269, 34848, 17682, (177, 246, 46, 3, 91, 225, 7, 44 ));
+   
    type IUserDataAccountStoreChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -510,10 +513,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserDataAccountStoreChangedEventArgs : aliased constant Windows.IID := (2229527269, 34848, 17682, (177, 246, 46, 3, 91, 225, 7, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUserDataAccount : aliased constant Windows.IID := (4037980847, 42651, 23722, (162, 131, 50, 230, 151, 166, 93, 49 ));
+   
    type IAsyncOperation_IUserDataAccount_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -536,10 +539,10 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IUserDataAccount
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IUserDataAccount : aliased constant Windows.IID := (4037980847, 42651, 23722, (162, 131, 50, 230, 151, 166, 93, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUserDataAccountStore : aliased constant Windows.IID := (112627486, 39223, 21142, (165, 94, 212, 61, 216, 167, 84, 92 ));
+   
    type IAsyncOperation_IUserDataAccountStore_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -562,17 +565,15 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IUserDataAccountStore : aliased constant Windows.IID := (112627486, 39223, 21142, (165, 94, 212, 61, 216, 167, 84, 92 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IUserDataAccount_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccount ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataAccount_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IUserDataAccount : aliased constant Windows.IID := (2878530598, 10950, 24571, (136, 202, 203, 221, 145, 223, 57, 39 ));
+   
+   type AsyncOperationCompletedHandler_IUserDataAccount_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccount ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUserDataAccount'access) with null record;
    
    function Invoke
    (
@@ -582,12 +583,11 @@ package Windows.ApplicationModel.UserDataAccounts is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IUserDataAccount : aliased constant Windows.IID := (2878530598, 10950, 24571, (136, 202, 203, 221, 145, 223, 57, 39 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore ; args : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IUserDataAccountStore2_add_StoreChanged : aliased constant Windows.IID := (2066198216, 1680, 20579, (190, 176, 217, 226, 235, 26, 18, 1 ));
+   
+   type TypedEventHandler_IUserDataAccountStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore ; args : Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataAccountStore2_add_StoreChanged'access) with null record;
    
    function Invoke
    (
@@ -597,12 +597,11 @@ package Windows.ApplicationModel.UserDataAccounts is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IUserDataAccountStore2_add_StoreChanged : aliased constant Windows.IID := (2066198216, 1680, 20579, (190, 176, 217, 226, 235, 26, 18, 1 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IUserDataAccountStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUserDataAccountStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IUserDataAccountStore : aliased constant Windows.IID := (642526377, 10676, 20533, (180, 96, 140, 141, 14, 143, 188, 217 ));
+   
+   type AsyncOperationCompletedHandler_IUserDataAccountStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.IAsyncOperation_IUserDataAccountStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUserDataAccountStore'access) with null record;
    
    function Invoke
    (
@@ -611,8 +610,6 @@ package Windows.ApplicationModel.UserDataAccounts is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IUserDataAccountStore : aliased constant Windows.IID := (642526377, 10676, 20533, (180, 96, 140, 141, 14, 143, 188, 217 ));
    
    ------------------------------------------------------------------------
    -- Classes

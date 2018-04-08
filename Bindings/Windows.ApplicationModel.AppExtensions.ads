@@ -106,6 +106,9 @@ package Windows.ApplicationModel.AppExtensions is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IAppExtensionCatalogStatics : aliased constant Windows.IID := (1010198154, 24344, 20235, (156, 229, 202, 182, 29, 25, 111, 17 ));
+   
    type IAppExtensionCatalogStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Open
@@ -115,10 +118,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppExtensionCatalogStatics : aliased constant Windows.IID := (1010198154, 24344, 20235, (156, 229, 202, 182, 29, 25, 111, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppExtensionCatalog : aliased constant Windows.IID := (2542215218, 33830, 19153, (144, 132, 146, 232, 140, 45, 162, 0 ));
+   
    type IAppExtensionCatalog_Interface is interface and Windows.IInspectable_Interface;
    
    function FindAllAsync
@@ -210,10 +213,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppExtensionCatalog : aliased constant Windows.IID := (2542215218, 33830, 19153, (144, 132, 146, 232, 140, 45, 162, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppExtension : aliased constant Windows.IID := (2219872300, 5613, 20399, (147, 234, 34, 55, 187, 248, 203, 214 ));
+   
    type IAppExtension_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -264,10 +267,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppExtension : aliased constant Windows.IID := (2219872300, 5613, 20399, (147, 234, 34, 55, 187, 248, 203, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppExtensionPackageInstalledEventArgs : aliased constant Windows.IID := (971346484, 13137, 19085, (151, 69, 231, 211, 221, 69, 188, 72 ));
+   
    type IAppExtensionPackageInstalledEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppExtensionName
@@ -290,10 +293,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.ApplicationModel.AppExtensions.IVectorView_IAppExtension -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppExtensionPackageInstalledEventArgs : aliased constant Windows.IID := (971346484, 13137, 19085, (151, 69, 231, 211, 221, 69, 188, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppExtensionPackageUpdatingEventArgs : aliased constant Windows.IID := (2127926057, 6757, 18432, (167, 0, 179, 33, 0, 158, 48, 106 ));
+   
    type IAppExtensionPackageUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppExtensionName
@@ -309,10 +312,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.ApplicationModel.IPackage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppExtensionPackageUpdatingEventArgs : aliased constant Windows.IID := (2127926057, 6757, 18432, (167, 0, 179, 33, 0, 158, 48, 106 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppExtensionPackageUpdatedEventArgs : aliased constant Windows.IID := (981713983, 31102, 17589, (186, 36, 164, 200, 181, 165, 67, 215 ));
+   
    type IAppExtensionPackageUpdatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppExtensionName
@@ -335,10 +338,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.ApplicationModel.AppExtensions.IVectorView_IAppExtension -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppExtensionPackageUpdatedEventArgs : aliased constant Windows.IID := (981713983, 31102, 17589, (186, 36, 164, 200, 181, 165, 67, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppExtensionPackageUninstallingEventArgs : aliased constant Windows.IID := (1626431685, 5918, 16639, (174, 152, 171, 44, 32, 221, 77, 117 ));
+   
    type IAppExtensionPackageUninstallingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppExtensionName
@@ -354,10 +357,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.ApplicationModel.IPackage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppExtensionPackageUninstallingEventArgs : aliased constant Windows.IID := (1626431685, 5918, 16639, (174, 152, 171, 44, 32, 221, 77, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppExtensionPackageStatusChangedEventArgs : aliased constant Windows.IID := (484537395, 4435, 17661, (135, 177, 138, 225, 5, 3, 3, 223 ));
+   
    type IAppExtensionPackageStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppExtensionName
@@ -373,10 +376,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.ApplicationModel.IPackage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppExtensionPackageStatusChangedEventArgs : aliased constant Windows.IID := (484537395, 4435, 17661, (135, 177, 138, 225, 5, 3, 3, 223 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IAppExtension : aliased constant Windows.IID := (2390805123, 15571, 24476, (131, 228, 132, 52, 124, 165, 73, 140 ));
+   
    type IIterator_IAppExtension_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -407,10 +410,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IAppExtension : aliased constant Windows.IID := (2390805123, 15571, 24476, (131, 228, 132, 52, 124, 165, 73, 140 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IAppExtension : aliased constant Windows.IID := (995091286, 6931, 22987, (171, 31, 196, 102, 122, 116, 117, 107 ));
+   
    type IIterable_IAppExtension_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -419,10 +422,10 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.ApplicationModel.AppExtensions.IIterator_IAppExtension
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IAppExtension : aliased constant Windows.IID := (995091286, 6931, 22987, (171, 31, 196, 102, 122, 116, 117, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAppExtension : aliased constant Windows.IID := (2488403984, 32411, 24317, (183, 77, 233, 212, 23, 95, 217, 74 ));
+   
    type IVectorView_IAppExtension_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -457,17 +460,15 @@ package Windows.ApplicationModel.AppExtensions is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IAppExtension : aliased constant Windows.IID := (2488403984, 32411, 24317, (183, 77, 233, 212, 23, 95, 217, 74 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageInstalledEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled : aliased constant Windows.IID := (642123094, 40714, 22062, (145, 101, 158, 185, 225, 137, 139, 30 ));
+   
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageInstalledEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled'access) with null record;
    
    function Invoke
    (
@@ -477,12 +478,11 @@ package Windows.ApplicationModel.AppExtensions is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled : aliased constant Windows.IID := (642123094, 40714, 22062, (145, 101, 158, 185, 225, 137, 139, 30 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating : aliased constant Windows.IID := (2448689424, 27343, 20749, (141, 123, 11, 208, 91, 131, 88, 131 ));
+   
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating'access) with null record;
    
    function Invoke
    (
@@ -492,12 +492,11 @@ package Windows.ApplicationModel.AppExtensions is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdating : aliased constant Windows.IID := (2448689424, 27343, 20749, (141, 123, 11, 208, 91, 131, 88, 131 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated : aliased constant Windows.IID := (2816531467, 21086, 21169, (177, 217, 45, 91, 75, 82, 148, 165 ));
+   
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated'access) with null record;
    
    function Invoke
    (
@@ -507,12 +506,11 @@ package Windows.ApplicationModel.AppExtensions is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUpdated : aliased constant Windows.IID := (2816531467, 21086, 21169, (177, 217, 45, 91, 75, 82, 148, 165 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUninstallingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling : aliased constant Windows.IID := (1625835496, 11978, 21694, (139, 19, 158, 98, 219, 213, 185, 93 ));
+   
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUninstallingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling'access) with null record;
    
    function Invoke
    (
@@ -522,12 +520,11 @@ package Windows.ApplicationModel.AppExtensions is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageUninstalling : aliased constant Windows.IID := (1625835496, 11978, 21694, (139, 19, 158, 98, 219, 213, 185, 93 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged : aliased constant Windows.IID := (1638050240, 54203, 22867, (141, 247, 89, 31, 221, 91, 215, 74 ));
+   
+   type TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged'access) with null record;
    
    function Invoke
    (
@@ -536,8 +533,6 @@ package Windows.ApplicationModel.AppExtensions is
       ; args : Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IAppExtensionCatalog_add_PackageStatusChanged : aliased constant Windows.IID := (1638050240, 54203, 22867, (141, 247, 89, 31, 221, 91, 215, 74 ));
    
    ------------------------------------------------------------------------
    -- Classes

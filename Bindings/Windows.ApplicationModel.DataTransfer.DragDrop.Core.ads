@@ -99,6 +99,9 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICoreDragInfo : aliased constant Windows.IID := (1211447947, 52048, 17998, (149, 117, 205, 78, 58, 122, 176, 40 ));
+   
    type ICoreDragInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Data
@@ -121,10 +124,10 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreDragInfo : aliased constant Windows.IID := (1211447947, 52048, 17998, (149, 117, 205, 78, 58, 122, 176, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreDragInfo2 : aliased constant Windows.IID := (3309736421, 59131, 19828, (180, 177, 138, 60, 23, 242, 94, 158 ));
+   
    type ICoreDragInfo2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllowedOperations
@@ -133,10 +136,10 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreDragInfo2 : aliased constant Windows.IID := (3309736421, 59131, 19828, (180, 177, 138, 60, 23, 242, 94, 158 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreDragUIOverride : aliased constant Windows.IID := (2309509220, 13193, 20303, (136, 151, 126, 138, 63, 251, 60, 147 ));
+   
    type ICoreDragUIOverride_Interface is interface and Windows.IInspectable_Interface;
    
    function SetContentFromSoftwareBitmap
@@ -215,10 +218,10 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       This       : access ICoreDragUIOverride_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreDragUIOverride : aliased constant Windows.IID := (2309509220, 13193, 20303, (136, 151, 126, 138, 63, 251, 60, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreDropOperationTarget : aliased constant Windows.IID := (3641860502, 19547, 16765, (187, 55, 118, 56, 29, 239, 141, 180 ));
+   
    type ICoreDropOperationTarget_Interface is interface and Windows.IInspectable_Interface;
    
    function EnterAsync
@@ -254,10 +257,10 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreDropOperationTarget : aliased constant Windows.IID := (3641860502, 19547, 16765, (187, 55, 118, 56, 29, 239, 141, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreDragOperation : aliased constant Windows.IID := (3423002191, 28080, 20066, (171, 27, 167, 74, 2, 220, 109, 133 ));
+   
    type ICoreDragOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Data
@@ -309,10 +312,10 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreDragOperation : aliased constant Windows.IID := (3423002191, 28080, 20066, (171, 27, 167, 74, 2, 220, 109, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreDragOperation2 : aliased constant Windows.IID := (2185961004, 55706, 20419, (133, 7, 108, 24, 47, 51, 180, 106 ));
+   
    type ICoreDragOperation2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllowedOperations
@@ -328,10 +331,10 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       ; value : Windows.ApplicationModel.DataTransfer.DataPackageOperation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreDragOperation2 : aliased constant Windows.IID := (2185961004, 55706, 20419, (133, 7, 108, 24, 47, 51, 180, 106 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreDragDropManagerStatics : aliased constant Windows.IID := (2504195530, 55826, 19484, (141, 6, 4, 29, 178, 151, 51, 195 ));
+   
    type ICoreDragDropManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -340,10 +343,10 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreDragDropManagerStatics : aliased constant Windows.IID := (2504195530, 55826, 19484, (141, 6, 4, 29, 178, 151, 51, 195 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreDragDropManager : aliased constant Windows.IID := (2102842180, 33892, 20399, (170, 73, 55, 234, 110, 45, 123, 209 ));
+   
    type ICoreDragDropManager_Interface is interface and Windows.IInspectable_Interface;
    
    function add_TargetRequested
@@ -374,10 +377,10 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreDragDropManager : aliased constant Windows.IID := (2102842180, 33892, 20399, (170, 73, 55, 234, 110, 45, 123, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreDropOperationTargetRequestedEventArgs : aliased constant Windows.IID := (717918874, 24104, 20134, (130, 158, 41, 19, 78, 102, 93, 109 ));
+   
    type ICoreDropOperationTargetRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function SetTarget
@@ -386,17 +389,15 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       ; target : Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreDropOperationTargetRequestedEventArgs : aliased constant Windows.IID := (717918874, 24104, 20134, (130, 158, 41, 19, 78, 102, 93, 109 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreDragDropManager_add_TargetRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager ; args : Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreDragDropManager_add_TargetRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreDragDropManager_add_TargetRequested : aliased constant Windows.IID := (2764288449, 47277, 22731, (172, 192, 142, 243, 126, 174, 78, 212 ));
+   
+   type TypedEventHandler_ICoreDragDropManager_add_TargetRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager ; args : Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreDragDropManager_add_TargetRequested'access) with null record;
    
    function Invoke
    (
@@ -405,8 +406,6 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       ; args : Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ICoreDragDropManager_add_TargetRequested : aliased constant Windows.IID := (2764288449, 47277, 22731, (172, 192, 142, 243, 126, 174, 78, 212 ));
    
    ------------------------------------------------------------------------
    -- Classes

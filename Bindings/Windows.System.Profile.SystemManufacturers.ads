@@ -65,6 +65,9 @@ package Windows.System.Profile.SystemManufacturers is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IOemSupportInfo : aliased constant Windows.IID := (2368646741, 34799, 16998, (134, 208, 196, 175, 190, 178, 155, 185 ));
+   
    type IOemSupportInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SupportLink
@@ -87,10 +90,10 @@ package Windows.System.Profile.SystemManufacturers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOemSupportInfo : aliased constant Windows.IID := (2368646741, 34799, 16998, (134, 208, 196, 175, 190, 178, 155, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemSupportInfoStatics : aliased constant Windows.IID := (4017424756, 50210, 17879, (164, 77, 92, 28, 0, 67, 162, 179 ));
+   
    type ISystemSupportInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LocalSystemEdition
@@ -106,10 +109,10 @@ package Windows.System.Profile.SystemManufacturers is
       ; RetVal : access Windows.System.Profile.SystemManufacturers.IOemSupportInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemSupportInfoStatics : aliased constant Windows.IID := (4017424756, 50210, 17879, (164, 77, 92, 28, 0, 67, 162, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmbiosInformationStatics : aliased constant Windows.IID := (135055996, 25468, 18628, (183, 40, 249, 39, 56, 18, 219, 142 ));
+   
    type ISmbiosInformationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SerialNumber
@@ -118,9 +121,6 @@ package Windows.System.Profile.SystemManufacturers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmbiosInformationStatics : aliased constant Windows.IID := (135055996, 25468, 18628, (183, 40, 249, 39, 56, 18, 219, 142 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

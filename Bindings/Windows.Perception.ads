@@ -57,6 +57,9 @@ package Windows.Perception is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionTimestamp : aliased constant Windows.IID := (2277656580, 41518, 19163, (186, 38, 215, 142, 246, 57, 188, 244 ));
+   
    type IPerceptionTimestamp_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetTime
@@ -72,10 +75,10 @@ package Windows.Perception is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionTimestamp : aliased constant Windows.IID := (2277656580, 41518, 19163, (186, 38, 215, 142, 246, 57, 188, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPerceptionTimestampHelperStatics : aliased constant Windows.IID := (1202065876, 43487, 20188, (133, 93, 244, 211, 57, 217, 103, 172 ));
+   
    type IPerceptionTimestampHelperStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromHistoricalTargetTime
@@ -85,9 +88,6 @@ package Windows.Perception is
       ; RetVal : access Windows.Perception.IPerceptionTimestamp
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPerceptionTimestampHelperStatics : aliased constant Windows.IID := (1202065876, 43487, 20188, (133, 93, 244, 211, 57, 217, 103, 172 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

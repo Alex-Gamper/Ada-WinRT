@@ -75,6 +75,9 @@ package Windows.Devices.Power is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IBattery : aliased constant Windows.IID := (3163115462, 114, 18376, (139, 93, 97, 74, 170, 122, 67, 126 ));
+   
    type IBattery_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -105,10 +108,10 @@ package Windows.Devices.Power is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBattery : aliased constant Windows.IID := (3163115462, 114, 18376, (139, 93, 97, 74, 170, 122, 67, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBatteryReport : aliased constant Windows.IID := (3380972602, 19987, 16906, (168, 208, 36, 241, 143, 57, 84, 1 ));
+   
    type IBatteryReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChargeRateInMilliwatts
@@ -145,10 +148,10 @@ package Windows.Devices.Power is
       ; RetVal : access Windows.System.Power.BatteryStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBatteryReport : aliased constant Windows.IID := (3380972602, 19987, 16906, (168, 208, 36, 241, 143, 57, 84, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBatteryStatics : aliased constant Windows.IID := (2043507382, 40542, 17490, (190, 166, 223, 205, 84, 30, 89, 127 ));
+   
    type IBatteryStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AggregateBattery
@@ -172,10 +175,10 @@ package Windows.Devices.Power is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBatteryStatics : aliased constant Windows.IID := (2043507382, 40542, 17490, (190, 166, 223, 205, 84, 30, 89, 127 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBattery : aliased constant Windows.IID := (3668170070, 5417, 22226, (165, 248, 191, 182, 194, 42, 61, 254 ));
+   
    type IAsyncOperation_IBattery_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -198,17 +201,15 @@ package Windows.Devices.Power is
       ; RetVal : access Windows.Devices.Power.IBattery
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IBattery : aliased constant Windows.IID := (3668170070, 5417, 22226, (165, 248, 191, 182, 194, 42, 61, 254 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IBattery_add_ReportUpdated_Interface(Callback : access procedure (sender : Windows.Devices.Power.IBattery ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBattery_add_ReportUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IBattery_add_ReportUpdated : aliased constant Windows.IID := (1296737862, 30335, 22085, (175, 92, 84, 100, 100, 211, 236, 9 ));
+   
+   type TypedEventHandler_IBattery_add_ReportUpdated_Interface(Callback : access procedure (sender : Windows.Devices.Power.IBattery ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBattery_add_ReportUpdated'access) with null record;
    
    function Invoke
    (
@@ -218,12 +219,11 @@ package Windows.Devices.Power is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IBattery_add_ReportUpdated : aliased constant Windows.IID := (1296737862, 30335, 22085, (175, 92, 84, 100, 100, 211, 236, 9 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IBattery_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Power.IAsyncOperation_IBattery ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBattery_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IBattery : aliased constant Windows.IID := (2549621013, 14370, 20603, (130, 230, 39, 119, 179, 54, 233, 142 ));
+   
+   type AsyncOperationCompletedHandler_IBattery_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Power.IAsyncOperation_IBattery ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBattery'access) with null record;
    
    function Invoke
    (
@@ -232,8 +232,6 @@ package Windows.Devices.Power is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IBattery : aliased constant Windows.IID := (2549621013, 14370, 20603, (130, 230, 39, 119, 179, 54, 233, 142 ));
    
    ------------------------------------------------------------------------
    -- Classes

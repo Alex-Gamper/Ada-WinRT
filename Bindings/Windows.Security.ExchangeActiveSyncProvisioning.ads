@@ -303,6 +303,9 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IEasClientDeviceInformation : aliased constant Windows.IID := (1423956353, 6504, 19619, (185, 88, 229, 149, 209, 101, 5, 235 ));
+   
    type IEasClientDeviceInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -346,10 +349,10 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasClientDeviceInformation : aliased constant Windows.IID := (1423956353, 6504, 19619, (185, 88, 229, 149, 209, 101, 5, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasClientDeviceInformation2 : aliased constant Windows.IID := (4289943843, 47910, 19818, (129, 188, 22, 90, 238, 10, 215, 84 ));
+   
    type IEasClientDeviceInformation2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SystemHardwareVersion
@@ -365,10 +368,10 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasClientDeviceInformation2 : aliased constant Windows.IID := (4289943843, 47910, 19818, (129, 188, 22, 90, 238, 10, 215, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasClientSecurityPolicy : aliased constant Windows.IID := (1169630050, 57274, 19099, (172, 237, 111, 226, 173, 203, 100, 32 ));
+   
    type IEasClientSecurityPolicy_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequireEncryption
@@ -496,10 +499,10 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.IAsyncOperation_IEasComplianceResults -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasClientSecurityPolicy : aliased constant Windows.IID := (1169630050, 57274, 19099, (172, 237, 111, 226, 173, 203, 100, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasComplianceResults : aliased constant Windows.IID := (1178347932, 32537, 19558, (180, 3, 203, 69, 221, 87, 162, 179 ));
+   
    type IEasComplianceResults_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Compliant
@@ -564,10 +567,10 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasComplianceResults : aliased constant Windows.IID := (1178347932, 32537, 19558, (180, 3, 203, 69, 221, 87, 162, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasComplianceResults2 : aliased constant Windows.IID := (801005769, 6824, 18421, (136, 187, 203, 62, 240, 191, 251, 21 ));
+   
    type IEasComplianceResults2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EncryptionProviderType
@@ -576,10 +579,10 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasComplianceResults2 : aliased constant Windows.IID := (801005769, 6824, 18421, (136, 187, 203, 62, 240, 191, 251, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEasComplianceResults : aliased constant Windows.IID := (4231689018, 32237, 24210, (165, 105, 180, 51, 137, 238, 136, 39 ));
+   
    type IAsyncOperation_IEasComplianceResults_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -602,17 +605,15 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEasComplianceResults : aliased constant Windows.IID := (4231689018, 32237, 24210, (165, 105, 180, 51, 137, 238, 136, 39 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEasComplianceResults_Interface(Callback : access procedure (asyncInfo : Windows.Security.ExchangeActiveSyncProvisioning.IAsyncOperation_IEasComplianceResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEasComplianceResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEasComplianceResults : aliased constant Windows.IID := (614732570, 60721, 24319, (151, 46, 117, 11, 149, 100, 4, 208 ));
+   
+   type AsyncOperationCompletedHandler_IEasComplianceResults_Interface(Callback : access procedure (asyncInfo : Windows.Security.ExchangeActiveSyncProvisioning.IAsyncOperation_IEasComplianceResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEasComplianceResults'access) with null record;
    
    function Invoke
    (
@@ -621,8 +622,6 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IEasComplianceResults : aliased constant Windows.IID := (614732570, 60721, 24319, (151, 46, 117, 11, 149, 100, 4, 208 ));
    
    ------------------------------------------------------------------------
    -- Classes

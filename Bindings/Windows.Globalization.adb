@@ -33,15 +33,16 @@ package body Windows.Globalization is
       m_hString     : Windows.String := To_String("Windows.Globalization.GeographicRegion");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.IGeographicRegion := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.IGeographicRegion) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Globalization.IID_IGeographicRegion'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Globalization.IID_IGeographicRegion'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateLanguage

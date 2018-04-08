@@ -304,6 +304,9 @@ package Windows.Media.MediaProperties is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMediaRatio : aliased constant Windows.IID := (3536912101, 35113, 16413, (172, 120, 125, 53, 126, 55, 129, 99 ));
+   
    type IMediaRatio_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Numerator
@@ -333,10 +336,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaRatio : aliased constant Windows.IID := (3536912101, 35113, 16413, (172, 120, 125, 53, 126, 55, 129, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMap_Guid_Object : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IMap_Guid_Object_Interface is interface and Windows.IInspectable_Interface;
    
    function Lookup
@@ -390,10 +393,10 @@ package Windows.Media.MediaProperties is
       This       : access IMap_Guid_Object_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMap_Guid_Object : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingProperties : aliased constant Windows.IID := (3019909878, 44244, 20058, (162, 75, 93, 116, 152, 168, 184, 196 ));
+   
    type IMediaEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Properties
@@ -423,10 +426,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaEncodingProperties : aliased constant Windows.IID := (3019909878, 44244, 20058, (162, 75, 93, 116, 152, 168, 184, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioEncodingProperties : aliased constant Windows.IID := (1656519190, 92, 19259, (138, 11, 10, 9, 14, 150, 135, 243 ));
+   
    type IAudioEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Bitrate
@@ -484,10 +487,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioEncodingProperties : aliased constant Windows.IID := (1656519190, 92, 19259, (138, 11, 10, 9, 14, 150, 135, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioEncodingPropertiesWithFormatUserData : aliased constant Windows.IID := (2565934457, 5098, 18943, (190, 112, 38, 115, 219, 105, 112, 44 ));
+   
    type IAudioEncodingPropertiesWithFormatUserData_Interface is interface and Windows.IInspectable_Interface;
    
    function SetFormatUserData
@@ -503,10 +506,10 @@ package Windows.Media.MediaProperties is
       ; value : access Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioEncodingPropertiesWithFormatUserData : aliased constant Windows.IID := (2565934457, 5098, 18943, (190, 112, 38, 115, 219, 105, 112, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioEncodingProperties2 : aliased constant Windows.IID := (3294450906, 32957, 19491, (128, 213, 114, 212, 161, 129, 232, 148 ));
+   
    type IAudioEncodingProperties2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsSpatial
@@ -515,10 +518,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioEncodingProperties2 : aliased constant Windows.IID := (3294450906, 32957, 19491, (128, 213, 114, 212, 161, 129, 232, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioEncodingPropertiesStatics : aliased constant Windows.IID := (212677420, 60393, 17703, (179, 109, 228, 42, 19, 207, 56, 219 ));
+   
    type IAudioEncodingPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAac
@@ -570,10 +573,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IAudioEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioEncodingPropertiesStatics : aliased constant Windows.IID := (212677420, 60393, 17703, (179, 109, 228, 42, 19, 207, 56, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioEncodingPropertiesStatics2 : aliased constant Windows.IID := (1955148143, 30624, 17213, (142, 213, 64, 64, 40, 14, 134, 101 ));
+   
    type IAudioEncodingPropertiesStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAlac
@@ -595,10 +598,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IAudioEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioEncodingPropertiesStatics2 : aliased constant Windows.IID := (1955148143, 30624, 17213, (142, 213, 64, 64, 40, 14, 134, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoEncodingProperties : aliased constant Windows.IID := (1995336858, 14274, 20266, (136, 10, 18, 130, 187, 180, 55, 61 ));
+   
    type IVideoEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Bitrate
@@ -656,10 +659,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IMediaRatio
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoEncodingProperties : aliased constant Windows.IID := (1995336858, 14274, 20266, (136, 10, 18, 130, 187, 180, 55, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingSubtypesStatics : aliased constant Windows.IID := (934696974, 41329, 17508, (186, 90, 83, 24, 158, 72, 193, 200 ));
+   
    type IMediaEncodingSubtypesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Aac
@@ -941,10 +944,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaEncodingSubtypesStatics : aliased constant Windows.IID := (934696974, 41329, 17508, (186, 90, 83, 24, 158, 72, 193, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingSubtypesStatics2 : aliased constant Windows.IID := (1266471485, 17151, 19763, (133, 49, 6, 38, 190, 228, 181, 45 ));
+   
    type IMediaEncodingSubtypesStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Vp9
@@ -974,10 +977,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaEncodingSubtypesStatics2 : aliased constant Windows.IID := (1266471485, 17151, 19763, (133, 49, 6, 38, 190, 228, 181, 45 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingSubtypesStatics3 : aliased constant Windows.IID := (3122926820, 34877, 17998, (164, 79, 9, 125, 160, 142, 247, 255 ));
+   
    type IMediaEncodingSubtypesStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Alac
@@ -993,10 +996,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaEncodingSubtypesStatics3 : aliased constant Windows.IID := (3122926820, 34877, 17998, (164, 79, 9, 125, 160, 142, 247, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IH264ProfileIdsStatics : aliased constant Windows.IID := (946162855, 33898, 20375, (162, 229, 195, 161, 91, 191, 112, 253 ));
+   
    type IH264ProfileIdsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ConstrainedBaseline
@@ -1068,10 +1071,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IH264ProfileIdsStatics : aliased constant Windows.IID := (946162855, 33898, 20375, (162, 229, 195, 161, 91, 191, 112, 253 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMpeg2ProfileIdsStatics : aliased constant Windows.IID := (2757885829, 58746, 16680, (155, 33, 213, 51, 27, 4, 35, 92 ));
+   
    type IMpeg2ProfileIdsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Simple
@@ -1108,10 +1111,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMpeg2ProfileIdsStatics : aliased constant Windows.IID := (2757885829, 58746, 16680, (155, 33, 213, 51, 27, 4, 35, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoEncodingProperties2 : aliased constant Windows.IID := (4148404719, 54373, 17040, (169, 75, 239, 15, 21, 40, 248, 227 ));
+   
    type IVideoEncodingProperties2_Interface is interface and Windows.IInspectable_Interface;
    
    function SetFormatUserData
@@ -1141,10 +1144,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoEncodingProperties2 : aliased constant Windows.IID := (4148404719, 54373, 17040, (169, 75, 239, 15, 21, 40, 248, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoEncodingProperties3 : aliased constant Windows.IID := (946589124, 34618, 18335, (179, 235, 86, 193, 252, 190, 198, 215 ));
+   
    type IVideoEncodingProperties3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StereoscopicVideoPackingMode
@@ -1153,10 +1156,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.StereoscopicVideoPackingMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoEncodingProperties3 : aliased constant Windows.IID := (946589124, 34618, 18335, (179, 235, 86, 193, 252, 190, 198, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoEncodingProperties4 : aliased constant Windows.IID := (1917775892, 49420, 16626, (157, 114, 62, 225, 59, 69, 250, 142 ));
+   
    type IVideoEncodingProperties4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SphericalVideoFrameFormat
@@ -1165,10 +1168,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.SphericalVideoFrameFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoEncodingProperties4 : aliased constant Windows.IID := (1917775892, 49420, 16626, (157, 114, 62, 225, 59, 69, 250, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoEncodingPropertiesStatics : aliased constant Windows.IID := (1021398340, 7621, 17371, (159, 56, 235, 235, 249, 1, 82, 203 ));
+   
    type IVideoEncodingPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateH264
@@ -1194,10 +1197,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IVideoEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoEncodingPropertiesStatics : aliased constant Windows.IID := (1021398340, 7621, 17371, (159, 56, 235, 235, 249, 1, 82, 203 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoEncodingPropertiesStatics2 : aliased constant Windows.IID := (3474898269, 18942, 19712, (181, 154, 207, 164, 223, 197, 25, 68 ));
+   
    type IVideoEncodingPropertiesStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateHevc
@@ -1206,10 +1209,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IVideoEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoEncodingPropertiesStatics2 : aliased constant Windows.IID := (3474898269, 18942, 19712, (181, 154, 207, 164, 223, 197, 25, 68 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IImageEncodingProperties : aliased constant Windows.IID := (2019710517, 62257, 16777, (177, 195, 180, 141, 90, 224, 52, 241 ));
+   
    type IImageEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Width
@@ -1239,10 +1242,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IImageEncodingProperties : aliased constant Windows.IID := (2019710517, 62257, 16777, (177, 195, 180, 141, 90, 224, 52, 241 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IImageEncodingPropertiesStatics : aliased constant Windows.IID := (628910300, 35737, 17310, (170, 89, 145, 58, 54, 22, 18, 151 ));
+   
    type IImageEncodingPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateJpeg
@@ -1265,10 +1268,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IImageEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IImageEncodingPropertiesStatics : aliased constant Windows.IID := (628910300, 35737, 17310, (170, 89, 145, 58, 54, 22, 18, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IImageEncodingPropertiesStatics2 : aliased constant Windows.IID := (4139932457, 14372, 18096, (149, 110, 80, 19, 41, 225, 190, 60 ));
+   
    type IImageEncodingPropertiesStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateUncompressed
@@ -1285,15 +1288,15 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IImageEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IImageEncodingPropertiesStatics2 : aliased constant Windows.IID := (4139932457, 14372, 18096, (149, 110, 80, 19, 41, 225, 190, 60 ));
-   
    ------------------------------------------------------------------------
-   type IContainerEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IContainerEncodingProperties : aliased constant Windows.IID := (1504455255, 45866, 18334, (138, 97, 75, 127, 46, 158, 126, 160 ));
    
+   type IContainerEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingProfileStatics : aliased constant Windows.IID := (427767084, 11998, 19013, (168, 150, 129, 122, 72, 84, 248, 254 ));
+   
    type IMediaEncodingProfileStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateM4a
@@ -1351,10 +1354,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IAsyncOperation_IMediaEncodingProfile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaEncodingProfileStatics : aliased constant Windows.IID := (427767084, 11998, 19013, (168, 150, 129, 122, 72, 84, 248, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingProfileStatics2 : aliased constant Windows.IID := (3465406287, 27380, 17032, (143, 226, 121, 173, 241, 247, 154, 67 ));
+   
    type IMediaEncodingProfileStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWav
@@ -1372,10 +1375,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProfile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaEncodingProfileStatics2 : aliased constant Windows.IID := (3465406287, 27380, 17032, (143, 226, 121, 173, 241, 247, 154, 67 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingProfileStatics3 : aliased constant Windows.IID := (2430256554, 53110, 17044, (169, 237, 26, 20, 32, 245, 31, 107 ));
+   
    type IMediaEncodingProfileStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAlac
@@ -1401,10 +1404,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProfile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaEncodingProfileStatics3 : aliased constant Windows.IID := (2430256554, 53110, 17044, (169, 237, 26, 20, 32, 245, 31, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingProfile : aliased constant Windows.IID := (3889952168, 7609, 18307, (135, 107, 61, 254, 18, 172, 253, 179 ));
+   
    type IMediaEncodingProfile_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Audio
@@ -1448,10 +1451,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IContainerEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaEncodingProfile : aliased constant Windows.IID := (3889952168, 7609, 18307, (135, 107, 61, 254, 18, 172, 253, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingProfile2 : aliased constant Windows.IID := (882589194, 16437, 18574, (152, 119, 133, 99, 40, 101, 237, 16 ));
+   
    type IMediaEncodingProfile2_Interface is interface and Windows.IInspectable_Interface;
    
    function SetAudioTracks
@@ -1481,10 +1484,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.Core.IVector_IVideoStreamDescriptor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaEncodingProfile2 : aliased constant Windows.IID := (882589194, 16437, 18574, (152, 119, 133, 99, 40, 101, 237, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMediaEncodingProfile : aliased constant Windows.IID := (3573051158, 50895, 22472, (151, 67, 94, 194, 12, 49, 171, 121 ));
+   
    type IAsyncOperation_IMediaEncodingProfile_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1507,10 +1510,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProfile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMediaEncodingProfile : aliased constant Windows.IID := (3573051158, 50895, 22472, (151, 67, 94, 194, 12, 49, 171, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMediaEncodingProperties : aliased constant Windows.IID := (2080983788, 51443, 24393, (153, 199, 182, 109, 132, 20, 32, 14 ));
+   
    type IIterator_IMediaEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1541,10 +1544,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMediaEncodingProperties : aliased constant Windows.IID := (2080983788, 51443, 24393, (153, 199, 182, 109, 132, 20, 32, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaEncodingProperties : aliased constant Windows.IID := (3623646677, 13458, 23483, (155, 52, 218, 195, 226, 78, 121, 208 ));
+   
    type IIterable_IMediaEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1553,10 +1556,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IIterator_IMediaEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMediaEncodingProperties : aliased constant Windows.IID := (3623646677, 13458, 23483, (155, 52, 218, 195, 226, 78, 121, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMediaEncodingProperties : aliased constant Windows.IID := (258751371, 22552, 23743, (191, 38, 102, 22, 191, 195, 8, 196 ));
+   
    type IVectorView_IMediaEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1591,10 +1594,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMediaEncodingProperties : aliased constant Windows.IID := (258751371, 22552, 23743, (191, 38, 102, 22, 191, 195, 8, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IVideoEncodingProperties : aliased constant Windows.IID := (155281135, 44639, 21269, (163, 191, 254, 84, 232, 195, 95, 205 ));
+   
    type IIterator_IVideoEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1625,10 +1628,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IVideoEncodingProperties : aliased constant Windows.IID := (155281135, 44639, 21269, (163, 191, 254, 84, 232, 195, 95, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IVideoEncodingProperties : aliased constant Windows.IID := (1942434172, 34434, 24449, (132, 162, 48, 196, 37, 250, 45, 36 ));
+   
    type IIterable_IVideoEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1637,10 +1640,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IIterator_IVideoEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IVideoEncodingProperties : aliased constant Windows.IID := (1942434172, 34434, 24449, (132, 162, 48, 196, 37, 250, 45, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IVideoEncodingProperties : aliased constant Windows.IID := (80198330, 1239, 20955, (164, 227, 81, 71, 150, 62, 197, 255 ));
+   
    type IVectorView_IVideoEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1675,10 +1678,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IVideoEncodingProperties : aliased constant Windows.IID := (80198330, 1239, 20955, (164, 227, 81, 71, 150, 62, 197, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IAudioEncodingProperties : aliased constant Windows.IID := (105605871, 15312, 21603, (132, 80, 114, 198, 22, 154, 245, 212 ));
+   
    type IIterator_IAudioEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1709,10 +1712,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IAudioEncodingProperties : aliased constant Windows.IID := (105605871, 15312, 21603, (132, 80, 114, 198, 22, 154, 245, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IAudioEncodingProperties : aliased constant Windows.IID := (9671784, 9688, 21311, (133, 78, 79, 32, 243, 108, 81, 220 ));
+   
    type IIterable_IAudioEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1721,10 +1724,10 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.Media.MediaProperties.IIterator_IAudioEncodingProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IAudioEncodingProperties : aliased constant Windows.IID := (9671784, 9688, 21311, (133, 78, 79, 32, 243, 108, 81, 220 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAudioEncodingProperties : aliased constant Windows.IID := (1689014380, 52432, 22219, (176, 136, 177, 163, 110, 135, 85, 223 ));
+   
    type IVectorView_IAudioEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1759,17 +1762,15 @@ package Windows.Media.MediaProperties is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IAudioEncodingProperties : aliased constant Windows.IID := (1689014380, 52432, 22219, (176, 136, 177, 163, 110, 135, 85, 223 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMediaEncodingProfile_Interface(Callback : access procedure (asyncInfo : Windows.Media.MediaProperties.IAsyncOperation_IMediaEncodingProfile ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaEncodingProfile_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMediaEncodingProfile : aliased constant Windows.IID := (925462465, 34522, 22688, (144, 192, 200, 7, 189, 148, 57, 94 ));
+   
+   type AsyncOperationCompletedHandler_IMediaEncodingProfile_Interface(Callback : access procedure (asyncInfo : Windows.Media.MediaProperties.IAsyncOperation_IMediaEncodingProfile ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMediaEncodingProfile'access) with null record;
    
    function Invoke
    (
@@ -1778,8 +1779,6 @@ package Windows.Media.MediaProperties is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IMediaEncodingProfile : aliased constant Windows.IID := (925462465, 34522, 22688, (144, 192, 200, 7, 189, 148, 57, 94 ));
    
    ------------------------------------------------------------------------
    -- Classes

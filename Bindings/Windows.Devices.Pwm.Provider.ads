@@ -66,6 +66,9 @@ package Windows.Devices.Pwm.Provider is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPwmControllerProvider : aliased constant Windows.IID := (318789947, 58083, 16548, (183, 217, 72, 223, 240, 55, 122, 82 ));
+   
    type IPwmControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PinCount
@@ -140,10 +143,10 @@ package Windows.Devices.Pwm.Provider is
       ; invertPolarity : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPwmControllerProvider : aliased constant Windows.IID := (318789947, 58083, 16548, (183, 217, 72, 223, 240, 55, 122, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPwmProvider : aliased constant Windows.IID := (2737836584, 21233, 18352, (147, 73, 102, 186, 67, 210, 89, 2 ));
+   
    type IPwmProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function GetControllers
@@ -152,10 +155,10 @@ package Windows.Devices.Pwm.Provider is
       ; RetVal : access Windows.Devices.Pwm.Provider.IVectorView_IPwmControllerProvider -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPwmProvider : aliased constant Windows.IID := (2737836584, 21233, 18352, (147, 73, 102, 186, 67, 210, 89, 2 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPwmControllerProvider : aliased constant Windows.IID := (2419627778, 61494, 22241, (169, 79, 109, 153, 213, 43, 149, 120 ));
+   
    type IIterator_IPwmControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -186,10 +189,10 @@ package Windows.Devices.Pwm.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPwmControllerProvider : aliased constant Windows.IID := (2419627778, 61494, 22241, (169, 79, 109, 153, 213, 43, 149, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPwmControllerProvider : aliased constant Windows.IID := (1228336473, 46228, 20776, (188, 126, 3, 230, 48, 52, 100, 117 ));
+   
    type IIterable_IPwmControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -198,10 +201,10 @@ package Windows.Devices.Pwm.Provider is
       ; RetVal : access Windows.Devices.Pwm.Provider.IIterator_IPwmControllerProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPwmControllerProvider : aliased constant Windows.IID := (1228336473, 46228, 20776, (188, 126, 3, 230, 48, 52, 100, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPwmControllerProvider : aliased constant Windows.IID := (437674131, 6778, 24082, (157, 56, 248, 146, 254, 195, 236, 102 ));
+   
    type IVectorView_IPwmControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -236,9 +239,6 @@ package Windows.Devices.Pwm.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPwmControllerProvider : aliased constant Windows.IID := (437674131, 6778, 24082, (157, 56, 248, 146, 254, 195, 236, 102 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

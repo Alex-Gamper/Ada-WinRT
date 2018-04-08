@@ -813,6 +813,9 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardTriggerDetails : aliased constant Windows.IID := (1604055326, 14831, 20267, (180, 79, 10, 145, 85, 177, 119, 188 ));
+   
    type ISmartCardTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TriggerType
@@ -835,10 +838,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardTriggerDetails : aliased constant Windows.IID := (1604055326, 14831, 20267, (180, 79, 10, 145, 85, 177, 119, 188 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardTriggerDetails2 : aliased constant Windows.IID := (692438377, 35189, 19025, (158, 26, 95, 138, 118, 238, 81, 175 ));
+   
    type ISmartCardTriggerDetails2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Emulator
@@ -864,10 +867,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardTriggerDetails2 : aliased constant Windows.IID := (692438377, 35189, 19025, (158, 26, 95, 138, 118, 238, 81, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardTriggerDetails3 : aliased constant Windows.IID := (3017982589, 6342, 19368, (131, 118, 239, 3, 212, 145, 38, 102 ));
+   
    type ISmartCardTriggerDetails3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SmartCard
@@ -876,10 +879,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCard
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardTriggerDetails3 : aliased constant Windows.IID := (3017982589, 6342, 19368, (131, 118, 239, 3, 212, 145, 38, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulatorStatics : aliased constant Windows.IID := (2057043019, 50387, 18767, (184, 162, 98, 21, 216, 30, 133, 178 ));
+   
    type ISmartCardEmulatorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultAsync
@@ -888,10 +891,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulatorStatics : aliased constant Windows.IID := (2057043019, 50387, 18767, (184, 162, 98, 21, 216, 30, 133, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulatorStatics2 : aliased constant Windows.IID := (1773051786, 46965, 18571, (132, 54, 108, 30, 40, 237, 115, 31 ));
+   
    type ISmartCardEmulatorStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAppletIdGroupRegistrationsAsync
@@ -923,10 +926,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulatorStatics2 : aliased constant Windows.IID := (1773051786, 46965, 18571, (132, 54, 108, 30, 40, 237, 115, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulatorStatics3 : aliased constant Windows.IID := (1508512810, 40713, 17397, (133, 101, 207, 168, 20, 142, 76, 178 ));
+   
    type ISmartCardEmulatorStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function IsSupported
@@ -935,10 +938,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulatorStatics3 : aliased constant Windows.IID := (1508512810, 40713, 17397, (133, 101, 207, 168, 20, 142, 76, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulator : aliased constant Windows.IID := (3753445042, 34654, 18405, (128, 119, 232, 191, 241, 177, 198, 251 ));
+   
    type ISmartCardEmulator_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EnablementPolicy
@@ -947,10 +950,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulator : aliased constant Windows.IID := (3753445042, 34654, 18405, (128, 119, 232, 191, 241, 177, 198, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulator2 : aliased constant Windows.IID := (4265590968, 34089, 16666, (128, 123, 72, 237, 194, 160, 171, 68 ));
+   
    type ISmartCardEmulator2_Interface is interface and Windows.IInspectable_Interface;
    
    function add_ApduReceived
@@ -995,10 +998,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulator2 : aliased constant Windows.IID := (4265590968, 34089, 16666, (128, 123, 72, 237, 194, 160, 171, 68 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulatorApduReceivedEventArgs : aliased constant Windows.IID := (3579647350, 27090, 21299, (91, 95, 248, 192, 214, 233, 240, 159 ));
+   
    type ISmartCardEmulatorApduReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CommandApdu
@@ -1029,10 +1032,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardAutomaticResponseStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulatorApduReceivedEventArgs : aliased constant Windows.IID := (3579647350, 27090, 21299, (91, 95, 248, 192, 214, 233, 240, 159 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulatorApduReceivedEventArgs2 : aliased constant Windows.IID := (2348367344, 8929, 16952, (134, 16, 148, 206, 74, 150, 84, 37 ));
+   
    type ISmartCardEmulatorApduReceivedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_State
@@ -1050,10 +1053,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulatorApduReceivedEventArgs2 : aliased constant Windows.IID := (2348367344, 8929, 16952, (134, 16, 148, 206, 74, 150, 84, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulatorConnectionProperties : aliased constant Windows.IID := (1311548910, 63849, 20605, (108, 249, 52, 226, 209, 141, 243, 17 ));
+   
    type ISmartCardEmulatorConnectionProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1069,10 +1072,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardEmulatorConnectionSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulatorConnectionProperties : aliased constant Windows.IID := (1311548910, 63849, 20605, (108, 249, 52, 226, 209, 141, 243, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulatorConnectionDeactivatedEventArgs : aliased constant Windows.IID := (562485459, 50667, 21090, (67, 223, 98, 160, 161, 181, 85, 87 ));
+   
    type ISmartCardEmulatorConnectionDeactivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ConnectionProperties
@@ -1088,10 +1091,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulatorConnectionDeactivatedEventArgs : aliased constant Windows.IID := (562485459, 50667, 21090, (67, 223, 98, 160, 161, 181, 85, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardAppletIdGroup : aliased constant Windows.IID := (2108777958, 25188, 22260, (94, 3, 200, 99, 133, 57, 94, 177 ));
+   
    type ISmartCardAppletIdGroup_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -1156,10 +1159,10 @@ package Windows.Devices.SmartCards is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardAppletIdGroup : aliased constant Windows.IID := (2108777958, 25188, 22260, (94, 3, 200, 99, 133, 57, 94, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardAppletIdGroupFactory : aliased constant Windows.IID := (2433084237, 19045, 20033, (128, 97, 203, 232, 63, 54, 149, 229 ));
+   
    type ISmartCardAppletIdGroupFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1172,10 +1175,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardAppletIdGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardAppletIdGroupFactory : aliased constant Windows.IID := (2433084237, 19045, 20033, (128, 97, 203, 232, 63, 54, 149, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardAppletIdGroupStatics : aliased constant Windows.IID := (2871564713, 59244, 17871, (191, 29, 144, 234, 166, 32, 89, 39 ));
+   
    type ISmartCardAppletIdGroupStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxAppletIds
@@ -1184,10 +1187,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardAppletIdGroupStatics : aliased constant Windows.IID := (2871564713, 59244, 17871, (191, 29, 144, 234, 166, 32, 89, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardAppletIdGroupRegistration : aliased constant Windows.IID := (3742501073, 12731, 21910, (67, 177, 109, 105, 160, 37, 123, 58 ));
+   
    type ISmartCardAppletIdGroupRegistration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ActivationPolicy
@@ -1226,10 +1229,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardAppletIdGroupRegistration : aliased constant Windows.IID := (3742501073, 12731, 21910, (67, 177, 109, 105, 160, 37, 123, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardAutomaticResponseApdu : aliased constant Windows.IID := (1377119147, 50750, 17713, (168, 87, 215, 86, 217, 155, 152, 106 ));
+   
    type ISmartCardAutomaticResponseApdu_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CommandApdu
@@ -1301,10 +1304,10 @@ package Windows.Devices.SmartCards is
       ; value : Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardAutomaticResponseApdu : aliased constant Windows.IID := (1377119147, 50750, 17713, (168, 87, 215, 86, 217, 155, 152, 106 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardAutomaticResponseApdu2 : aliased constant Windows.IID := (1152301844, 21917, 17713, (78, 81, 137, 219, 111, 168, 165, 122 ));
+   
    type ISmartCardAutomaticResponseApdu2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InputState
@@ -1334,10 +1337,10 @@ package Windows.Devices.SmartCards is
       ; value : Windows.Foundation.IReference_UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardAutomaticResponseApdu2 : aliased constant Windows.IID := (1152301844, 21917, 17713, (78, 81, 137, 219, 111, 168, 165, 122 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardAutomaticResponseApdu3 : aliased constant Windows.IID := (3208895092, 25974, 17298, (147, 103, 254, 59, 201, 226, 212, 150 ));
+   
    type ISmartCardAutomaticResponseApdu3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllowWhenCryptogramGeneratorNotPrepared
@@ -1353,10 +1356,10 @@ package Windows.Devices.SmartCards is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardAutomaticResponseApdu3 : aliased constant Windows.IID := (3208895092, 25974, 17298, (147, 103, 254, 59, 201, 226, 212, 150 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardAutomaticResponseApduFactory : aliased constant Windows.IID := (3917390586, 53292, 19541, (176, 42, 140, 255, 127, 169, 240, 91 ));
+   
    type ISmartCardAutomaticResponseApduFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1367,10 +1370,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardAutomaticResponseApdu
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardAutomaticResponseApduFactory : aliased constant Windows.IID := (3917390586, 53292, 19541, (176, 42, 140, 255, 127, 169, 240, 91 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardEmulatorApduReceivedEventArgsWithCryptograms : aliased constant Windows.IID := (3578837703, 47039, 20009, (146, 148, 12, 74, 195, 201, 65, 189 ));
+   
    type ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Interface is interface and Windows.IInspectable_Interface;
    
    function TryRespondWithCryptogramsAsync
@@ -1391,10 +1394,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IAsyncOperation_SmartCardCryptogramGeneratorOperationStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardEmulatorApduReceivedEventArgsWithCryptograms : aliased constant Windows.IID := (3578837703, 47039, 20009, (146, 148, 12, 74, 195, 201, 65, 189 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramStorageKeyInfo : aliased constant Windows.IID := (2008084493, 45207, 20321, (162, 106, 149, 97, 99, 156, 156, 58 ));
+   
    type ISmartCardCryptogramStorageKeyInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OperationStatus
@@ -1445,10 +1448,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramStorageKeyInfo : aliased constant Windows.IID := (2008084493, 45207, 20321, (162, 106, 149, 97, 99, 156, 156, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramStorageKeyInfo2 : aliased constant Windows.IID := (278777, 63485, 16765, (137, 225, 251, 176, 56, 42, 220, 77 ));
+   
    type ISmartCardCryptogramStorageKeyInfo2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OperationalRequirements
@@ -1457,10 +1460,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramStorageKeyInfo2 : aliased constant Windows.IID := (278777, 63485, 16765, (137, 225, 251, 176, 56, 42, 220, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramMaterialPossessionProof : aliased constant Windows.IID := (3854150540, 41281, 16693, (154, 221, 176, 210, 227, 170, 31, 201 ));
+   
    type ISmartCardCryptogramMaterialPossessionProof_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OperationStatus
@@ -1476,10 +1479,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramMaterialPossessionProof : aliased constant Windows.IID := (3854150540, 41281, 16693, (154, 221, 176, 210, 227, 170, 31, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramPlacementStep : aliased constant Windows.IID := (2491089899, 33602, 18322, (162, 229, 146, 86, 54, 55, 138, 83 ));
+   
    type ISmartCardCryptogramPlacementStep_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Algorithm
@@ -1607,10 +1610,10 @@ package Windows.Devices.SmartCards is
       ; value : Windows.Devices.SmartCards.ISmartCardCryptogramPlacementStep
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramPlacementStep : aliased constant Windows.IID := (2491089899, 33602, 18322, (162, 229, 146, 86, 54, 55, 138, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramStorageKeyCharacteristics : aliased constant Windows.IID := (2236765294, 17495, 18469, (180, 100, 99, 84, 113, 163, 159, 92 ));
+   
    type ISmartCardCryptogramStorageKeyCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StorageKeyName
@@ -1640,10 +1643,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramStorageKeyCharacteristics : aliased constant Windows.IID := (2236765294, 17495, 18469, (180, 100, 99, 84, 113, 163, 159, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult : aliased constant Windows.IID := (2356996183, 42983, 18589, (185, 214, 54, 128, 97, 81, 80, 18 ));
+   
    type ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OperationStatus
@@ -1659,10 +1662,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IVectorView_ISmartCardCryptogramStorageKeyCharacteristics -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult : aliased constant Windows.IID := (2356996183, 42983, 18589, (185, 214, 54, 128, 97, 81, 80, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramMaterialPackageCharacteristics : aliased constant Windows.IID := (4290088479, 1682, 19527, (147, 207, 52, 217, 31, 157, 205, 0 ));
+   
    type ISmartCardCryptogramMaterialPackageCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PackageName
@@ -1692,10 +1695,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramMaterialPackageCharacteristics : aliased constant Windows.IID := (4290088479, 1682, 19527, (147, 207, 52, 217, 31, 157, 205, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult : aliased constant Windows.IID := (1315605084, 38771, 18116, (163, 47, 177, 229, 67, 21, 158, 4 ));
+   
    type ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OperationStatus
@@ -1711,10 +1714,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IVectorView_ISmartCardCryptogramMaterialPackageCharacteristics -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult : aliased constant Windows.IID := (1315605084, 38771, 18116, (163, 47, 177, 229, 67, 21, 158, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramMaterialCharacteristics : aliased constant Windows.IID := (4238001612, 49623, 16723, (146, 59, 162, 212, 60, 108, 141, 73 ));
+   
    type ISmartCardCryptogramMaterialCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaterialName
@@ -1772,10 +1775,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramMaterialCharacteristics : aliased constant Windows.IID := (4238001612, 49623, 16723, (146, 59, 162, 212, 60, 108, 141, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult : aliased constant Windows.IID := (664330281, 54919, 19602, (134, 198, 57, 158, 154, 14, 203, 9 ));
+   
    type ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OperationStatus
@@ -1791,10 +1794,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IVectorView_ISmartCardCryptogramMaterialCharacteristics -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult : aliased constant Windows.IID := (664330281, 54919, 19602, (134, 198, 57, 158, 154, 14, 203, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramGeneratorStatics : aliased constant Windows.IID := (160643344, 52124, 16405, (150, 125, 82, 52, 243, 176, 41, 0 ));
+   
    type ISmartCardCryptogramGeneratorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetSmartCardCryptogramGeneratorAsync
@@ -1803,10 +1806,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramGeneratorStatics : aliased constant Windows.IID := (160643344, 52124, 16405, (150, 125, 82, 52, 243, 176, 41, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramGeneratorStatics2 : aliased constant Windows.IID := (163444197, 46269, 20003, (165, 136, 116, 70, 146, 4, 193, 40 ));
+   
    type ISmartCardCryptogramGeneratorStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function IsSupported
@@ -1815,10 +1818,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramGeneratorStatics2 : aliased constant Windows.IID := (163444197, 46269, 20003, (165, 136, 116, 70, 146, 4, 193, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramGenerator : aliased constant Windows.IID := (3818870907, 60883, 20041, (181, 148, 15, 245, 228, 208, 199, 111 ));
+   
    type ISmartCardCryptogramGenerator_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SupportedCryptogramMaterialTypes
@@ -1923,10 +1926,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IAsyncOperation_SmartCardCryptogramGeneratorOperationStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramGenerator : aliased constant Windows.IID := (3818870907, 60883, 20041, (181, 148, 15, 245, 228, 208, 199, 111 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardCryptogramGenerator2 : aliased constant Windows.IID := (1897310772, 23917, 19274, (150, 163, 239, 164, 125, 42, 126, 37 ));
+   
    type ISmartCardCryptogramGenerator2_Interface is interface and Windows.IInspectable_Interface;
    
    function ValidateRequestApduAsync
@@ -1969,10 +1972,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardCryptogramGenerator2 : aliased constant Windows.IID := (1897310772, 23917, 19274, (150, 163, 239, 164, 125, 42, 126, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardReaderStatics : aliased constant Windows.IID := (272368865, 41418, 18674, (162, 129, 91, 111, 102, 154, 241, 7 ));
+   
    type ISmartCardReaderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -1997,10 +2000,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardReaderStatics : aliased constant Windows.IID := (272368865, 41418, 18674, (162, 129, 91, 111, 102, 154, 241, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardReader : aliased constant Windows.IID := (276083936, 21698, 19952, (129, 122, 20, 193, 67, 120, 240, 108 ));
+   
    type ISmartCardReader_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -2067,10 +2070,10 @@ package Windows.Devices.SmartCards is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardReader : aliased constant Windows.IID := (276083936, 21698, 19952, (129, 122, 20, 193, 67, 120, 240, 108 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICardAddedEventArgs : aliased constant Windows.IID := (414969752, 61835, 19923, (177, 24, 223, 178, 200, 226, 60, 198 ));
+   
    type ICardAddedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SmartCard
@@ -2079,10 +2082,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCard
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICardAddedEventArgs : aliased constant Windows.IID := (414969752, 61835, 19923, (177, 24, 223, 178, 200, 226, 60, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICardRemovedEventArgs : aliased constant Windows.IID := (355670703, 8919, 18757, (175, 201, 3, 180, 111, 66, 166, 205 ));
+   
    type ICardRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SmartCard
@@ -2091,10 +2094,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCard
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICardRemovedEventArgs : aliased constant Windows.IID := (355670703, 8919, 18757, (175, 201, 3, 180, 111, 66, 166, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCard : aliased constant Windows.IID := (460425329, 25652, 17396, (181, 90, 106, 41, 98, 56, 112, 170 ));
+   
    type ISmartCard_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reader
@@ -2117,10 +2120,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCard : aliased constant Windows.IID := (460425329, 25652, 17396, (181, 90, 106, 41, 98, 56, 112, 170 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardProvisioningStatics : aliased constant Windows.IID := (327690312, 3347, 20080, (151, 53, 81, 218, 236, 165, 37, 79 ));
+   
    type ISmartCardProvisioningStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromSmartCardAsync
@@ -2159,10 +2162,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardProvisioningStatics : aliased constant Windows.IID := (327690312, 3347, 20080, (151, 53, 81, 218, 236, 165, 37, 79 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardProvisioningStatics2 : aliased constant Windows.IID := (877119144, 51616, 19414, (181, 13, 37, 31, 78, 141, 58, 98 ));
+   
    type ISmartCardProvisioningStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestAttestedVirtualSmartCardCreationAsync
@@ -2185,10 +2188,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardProvisioningStatics2 : aliased constant Windows.IID := (877119144, 51616, 19414, (181, 13, 37, 31, 78, 141, 58, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardProvisioning : aliased constant Windows.IID := (435088829, 8107, 18300, (183, 18, 26, 44, 90, 241, 253, 110 ));
+   
    type ISmartCardProvisioning_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SmartCard
@@ -2233,10 +2236,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardProvisioning : aliased constant Windows.IID := (435088829, 8107, 18300, (183, 18, 26, 44, 90, 241, 253, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardProvisioning2 : aliased constant Windows.IID := (285026539, 16249, 19302, (155, 124, 17, 193, 73, 183, 208, 188 ));
+   
    type ISmartCardProvisioning2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAuthorityKeyContainerNameAsync
@@ -2245,10 +2248,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardProvisioning2 : aliased constant Windows.IID := (285026539, 16249, 19302, (155, 124, 17, 193, 73, 183, 208, 188 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardPinResetRequest : aliased constant Windows.IID := (318651469, 24505, 20110, (159, 246, 97, 244, 117, 18, 79, 239 ));
+   
    type ISmartCardPinResetRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Challenge
@@ -2278,10 +2281,10 @@ package Windows.Devices.SmartCards is
       ; response : Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardPinResetRequest : aliased constant Windows.IID := (318651469, 24505, 20110, (159, 246, 97, 244, 117, 18, 79, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardPinResetDeferral : aliased constant Windows.IID := (415845036, 30725, 16388, (133, 228, 187, 239, 172, 143, 104, 132 ));
+   
    type ISmartCardPinResetDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -2289,10 +2292,10 @@ package Windows.Devices.SmartCards is
       This       : access ISmartCardPinResetDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardPinResetDeferral : aliased constant Windows.IID := (415845036, 30725, 16388, (133, 228, 187, 239, 172, 143, 104, 132 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardPinPolicy : aliased constant Windows.IID := (406643076, 19894, 18497, (172, 158, 42, 193, 243, 155, 115, 4 ));
+   
    type ISmartCardPinPolicy_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MinLength
@@ -2378,10 +2381,10 @@ package Windows.Devices.SmartCards is
       ; value : Windows.Devices.SmartCards.SmartCardPinCharacterPolicyOption
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardPinPolicy : aliased constant Windows.IID := (406643076, 19894, 18497, (172, 158, 42, 193, 243, 155, 115, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardConnect : aliased constant Windows.IID := (803178469, 653, 18718, (160, 88, 51, 130, 195, 152, 111, 64 ));
+   
    type ISmartCardConnect_Interface is interface and Windows.IInspectable_Interface;
    
    function ConnectAsync
@@ -2390,10 +2393,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IAsyncOperation_ISmartCardConnection -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardConnect : aliased constant Windows.IID := (803178469, 653, 18718, (160, 88, 51, 130, 195, 152, 111, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardChallengeContext : aliased constant Windows.IID := (422204185, 51652, 18759, (129, 204, 68, 121, 74, 97, 239, 145 ));
+   
    type ISmartCardChallengeContext_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Challenge
@@ -2438,10 +2441,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardChallengeContext : aliased constant Windows.IID := (422204185, 51652, 18759, (129, 204, 68, 121, 74, 97, 239, 145 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmartCardConnection : aliased constant Windows.IID := (2128320794, 43034, 18364, (166, 73, 21, 107, 230, 183, 242, 49 ));
+   
    type ISmartCardConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function TransmitAsync
@@ -2451,10 +2454,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmartCardConnection : aliased constant Windows.IID := (2128320794, 43034, 18364, (166, 73, 21, 107, 230, 183, 242, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardEmulator : aliased constant Windows.IID := (500734192, 51237, 23539, (149, 100, 71, 8, 147, 47, 149, 95 ));
+   
    type IAsyncOperation_ISmartCardEmulator_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2477,10 +2480,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardEmulator
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardEmulator : aliased constant Windows.IID := (500734192, 51237, 23539, (149, 100, 71, 8, 147, 47, 149, 95 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardAppletIdGroupRegistration : aliased constant Windows.IID := (3624075314, 24380, 20712, (145, 184, 105, 28, 69, 70, 9, 232 ));
+   
    type IAsyncOperation_ISmartCardAppletIdGroupRegistration_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2503,10 +2506,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardAppletIdGroupRegistration
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardAppletIdGroupRegistration : aliased constant Windows.IID := (3624075314, 24380, 20712, (145, 184, 105, 28, 69, 70, 9, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SmartCardActivationPolicyChangeResult : aliased constant Windows.IID := (3102825781, 12093, 21418, (181, 198, 250, 202, 76, 127, 241, 110 ));
+   
    type IAsyncOperation_SmartCardActivationPolicyChangeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2529,10 +2532,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardActivationPolicyChangeResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_SmartCardActivationPolicyChangeResult : aliased constant Windows.IID := (3102825781, 12093, 21418, (181, 198, 250, 202, 76, 127, 241, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmartCardAutomaticResponseApdu : aliased constant Windows.IID := (2028690514, 40402, 24117, (168, 104, 246, 73, 25, 235, 166, 182 ));
+   
    type IIterator_ISmartCardAutomaticResponseApdu_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2563,10 +2566,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ISmartCardAutomaticResponseApdu : aliased constant Windows.IID := (2028690514, 40402, 24117, (168, 104, 246, 73, 25, 235, 166, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ISmartCardAutomaticResponseApdu : aliased constant Windows.IID := (3679638390, 638, 21104, (164, 87, 251, 139, 74, 232, 149, 140 ));
+   
    type IIterable_ISmartCardAutomaticResponseApdu_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2575,10 +2578,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_ISmartCardAutomaticResponseApdu
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ISmartCardAutomaticResponseApdu : aliased constant Windows.IID := (3679638390, 638, 21104, (164, 87, 251, 139, 74, 232, 149, 140 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SmartCardCryptogramGeneratorOperationStatus : aliased constant Windows.IID := (4122010032, 22439, 23219, (174, 170, 214, 182, 53, 37, 120, 102 ));
+   
    type IAsyncOperation_SmartCardCryptogramGeneratorOperationStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2601,10 +2604,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardCryptogramGeneratorOperationStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_SmartCardCryptogramGeneratorOperationStatus : aliased constant Windows.IID := (4122010032, 22439, 23219, (174, 170, 214, 182, 53, 37, 120, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmartCardCryptogramPlacementStep : aliased constant Windows.IID := (2175150704, 35533, 22924, (141, 10, 162, 125, 35, 230, 203, 30 ));
+   
    type IIterator_ISmartCardCryptogramPlacementStep_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2635,10 +2638,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ISmartCardCryptogramPlacementStep : aliased constant Windows.IID := (2175150704, 35533, 22924, (141, 10, 162, 125, 35, 230, 203, 30 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ISmartCardCryptogramPlacementStep : aliased constant Windows.IID := (592098865, 60767, 20924, (138, 138, 213, 243, 73, 95, 50, 222 ));
+   
    type IIterable_ISmartCardCryptogramPlacementStep_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2647,10 +2650,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_ISmartCardCryptogramPlacementStep
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ISmartCardCryptogramPlacementStep : aliased constant Windows.IID := (592098865, 60767, 20924, (138, 138, 213, 243, 73, 95, 50, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmartCardCryptogramStorageKeyCharacteristics : aliased constant Windows.IID := (3328117015, 14124, 20823, (128, 226, 44, 251, 214, 94, 143, 234 ));
+   
    type IIterator_ISmartCardCryptogramStorageKeyCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2681,10 +2684,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ISmartCardCryptogramStorageKeyCharacteristics : aliased constant Windows.IID := (3328117015, 14124, 20823, (128, 226, 44, 251, 214, 94, 143, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ISmartCardCryptogramStorageKeyCharacteristics : aliased constant Windows.IID := (383110281, 12138, 22393, (142, 248, 45, 90, 32, 7, 129, 80 ));
+   
    type IIterable_ISmartCardCryptogramStorageKeyCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2693,10 +2696,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_ISmartCardCryptogramStorageKeyCharacteristics
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ISmartCardCryptogramStorageKeyCharacteristics : aliased constant Windows.IID := (383110281, 12138, 22393, (142, 248, 45, 90, 32, 7, 129, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ISmartCardCryptogramStorageKeyCharacteristics : aliased constant Windows.IID := (4048057017, 32588, 22776, (139, 250, 175, 118, 127, 88, 151, 26 ));
+   
    type IVectorView_ISmartCardCryptogramStorageKeyCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2731,10 +2734,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ISmartCardCryptogramStorageKeyCharacteristics : aliased constant Windows.IID := (4048057017, 32588, 22776, (139, 250, 175, 118, 127, 88, 151, 26 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmartCardCryptogramMaterialPackageCharacteristics : aliased constant Windows.IID := (3079553202, 28912, 24116, (170, 140, 202, 117, 161, 179, 177, 191 ));
+   
    type IIterator_ISmartCardCryptogramMaterialPackageCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2765,10 +2768,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ISmartCardCryptogramMaterialPackageCharacteristics : aliased constant Windows.IID := (3079553202, 28912, 24116, (170, 140, 202, 117, 161, 179, 177, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ISmartCardCryptogramMaterialPackageCharacteristics : aliased constant Windows.IID := (2870848609, 7129, 21670, (180, 7, 29, 196, 229, 177, 161, 151 ));
+   
    type IIterable_ISmartCardCryptogramMaterialPackageCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2777,10 +2780,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_ISmartCardCryptogramMaterialPackageCharacteristics
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ISmartCardCryptogramMaterialPackageCharacteristics : aliased constant Windows.IID := (2870848609, 7129, 21670, (180, 7, 29, 196, 229, 177, 161, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ISmartCardCryptogramMaterialPackageCharacteristics : aliased constant Windows.IID := (2497263593, 3804, 23981, (163, 173, 178, 235, 90, 184, 134, 113 ));
+   
    type IVectorView_ISmartCardCryptogramMaterialPackageCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2815,10 +2818,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ISmartCardCryptogramMaterialPackageCharacteristics : aliased constant Windows.IID := (2497263593, 3804, 23981, (163, 173, 178, 235, 90, 184, 134, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_SmartCardCryptogramAlgorithm : aliased constant Windows.IID := (1327367314, 55986, 21443, (181, 251, 196, 180, 55, 59, 30, 194 ));
+   
    type IIterator_SmartCardCryptogramAlgorithm_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2849,10 +2852,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_SmartCardCryptogramAlgorithm : aliased constant Windows.IID := (1327367314, 55986, 21443, (181, 251, 196, 180, 55, 59, 30, 194 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_SmartCardCryptogramAlgorithm : aliased constant Windows.IID := (2383274217, 1858, 21918, (155, 27, 70, 2, 104, 98, 44, 31 ));
+   
    type IIterable_SmartCardCryptogramAlgorithm_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2861,10 +2864,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_SmartCardCryptogramAlgorithm
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_SmartCardCryptogramAlgorithm : aliased constant Windows.IID := (2383274217, 1858, 21918, (155, 27, 70, 2, 104, 98, 44, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_SmartCardCryptogramAlgorithm : aliased constant Windows.IID := (2849997596, 49707, 23856, (168, 108, 90, 49, 254, 25, 36, 51 ));
+   
    type IVectorView_SmartCardCryptogramAlgorithm_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2899,10 +2902,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_SmartCardCryptogramAlgorithm : aliased constant Windows.IID := (2849997596, 49707, 23856, (168, 108, 90, 49, 254, 25, 36, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_SmartCardCryptogramMaterialPackageConfirmationResponseFormat : aliased constant Windows.IID := (2635108782, 48695, 23527, (142, 223, 96, 197, 22, 72, 128, 182 ));
+   
    type IIterator_SmartCardCryptogramMaterialPackageConfirmationResponseFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2933,10 +2936,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_SmartCardCryptogramMaterialPackageConfirmationResponseFormat : aliased constant Windows.IID := (2635108782, 48695, 23527, (142, 223, 96, 197, 22, 72, 128, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_SmartCardCryptogramMaterialPackageConfirmationResponseFormat : aliased constant Windows.IID := (3289138257, 20155, 22069, (156, 125, 51, 200, 197, 211, 122, 9 ));
+   
    type IIterable_SmartCardCryptogramMaterialPackageConfirmationResponseFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2945,10 +2948,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_SmartCardCryptogramMaterialPackageConfirmationResponseFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_SmartCardCryptogramMaterialPackageConfirmationResponseFormat : aliased constant Windows.IID := (3289138257, 20155, 22069, (156, 125, 51, 200, 197, 211, 122, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_SmartCardCryptogramMaterialPackageConfirmationResponseFormat : aliased constant Windows.IID := (977368738, 53793, 23199, (164, 194, 165, 184, 115, 109, 162, 216 ));
+   
    type IVectorView_SmartCardCryptogramMaterialPackageConfirmationResponseFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2983,10 +2986,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_SmartCardCryptogramMaterialPackageConfirmationResponseFormat : aliased constant Windows.IID := (977368738, 53793, 23199, (164, 194, 165, 184, 115, 109, 162, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmartCardCryptogramMaterialCharacteristics : aliased constant Windows.IID := (3802731169, 24883, 22300, (176, 169, 42, 170, 178, 131, 160, 122 ));
+   
    type IIterator_ISmartCardCryptogramMaterialCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3017,10 +3020,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ISmartCardCryptogramMaterialCharacteristics : aliased constant Windows.IID := (3802731169, 24883, 22300, (176, 169, 42, 170, 178, 131, 160, 122 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ISmartCardCryptogramMaterialCharacteristics : aliased constant Windows.IID := (2449834825, 46147, 21208, (142, 70, 156, 243, 129, 93, 209, 90 ));
+   
    type IIterable_ISmartCardCryptogramMaterialCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3029,10 +3032,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_ISmartCardCryptogramMaterialCharacteristics
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ISmartCardCryptogramMaterialCharacteristics : aliased constant Windows.IID := (2449834825, 46147, 21208, (142, 70, 156, 243, 129, 93, 209, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ISmartCardCryptogramMaterialCharacteristics : aliased constant Windows.IID := (1851671623, 5458, 22811, (175, 160, 56, 123, 38, 183, 172, 147 ));
+   
    type IVectorView_ISmartCardCryptogramMaterialCharacteristics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3067,10 +3070,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ISmartCardCryptogramMaterialCharacteristics : aliased constant Windows.IID := (1851671623, 5458, 22811, (175, 160, 56, 123, 38, 183, 172, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardCryptogramGenerator : aliased constant Windows.IID := (1576920189, 38768, 24388, (169, 131, 242, 254, 228, 48, 118, 142 ));
+   
    type IAsyncOperation_ISmartCardCryptogramGenerator_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3093,10 +3096,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardCryptogramGenerator
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardCryptogramGenerator : aliased constant Windows.IID := (1576920189, 38768, 24388, (169, 131, 242, 254, 228, 48, 118, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_SmartCardCryptogramMaterialType : aliased constant Windows.IID := (2548121933, 17306, 24002, (129, 252, 217, 136, 227, 44, 141, 171 ));
+   
    type IIterator_SmartCardCryptogramMaterialType_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3127,10 +3130,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_SmartCardCryptogramMaterialType : aliased constant Windows.IID := (2548121933, 17306, 24002, (129, 252, 217, 136, 227, 44, 141, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_SmartCardCryptogramMaterialType : aliased constant Windows.IID := (758620036, 14492, 22537, (162, 198, 145, 155, 71, 202, 171, 136 ));
+   
    type IIterable_SmartCardCryptogramMaterialType_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3139,10 +3142,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_SmartCardCryptogramMaterialType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_SmartCardCryptogramMaterialType : aliased constant Windows.IID := (758620036, 14492, 22537, (162, 198, 145, 155, 71, 202, 171, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_SmartCardCryptogramMaterialType : aliased constant Windows.IID := (961265868, 50721, 23459, (180, 240, 113, 47, 207, 89, 19, 146 ));
+   
    type IVectorView_SmartCardCryptogramMaterialType_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3177,10 +3180,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_SmartCardCryptogramMaterialType : aliased constant Windows.IID := (961265868, 50721, 23459, (180, 240, 113, 47, 207, 89, 19, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_SmartCardCryptogramMaterialPackageFormat : aliased constant Windows.IID := (2079808002, 61054, 20794, (128, 248, 247, 216, 240, 4, 201, 7 ));
+   
    type IIterator_SmartCardCryptogramMaterialPackageFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3211,10 +3214,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_SmartCardCryptogramMaterialPackageFormat : aliased constant Windows.IID := (2079808002, 61054, 20794, (128, 248, 247, 216, 240, 4, 201, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_SmartCardCryptogramMaterialPackageFormat : aliased constant Windows.IID := (1042553548, 5957, 22478, (147, 104, 33, 186, 33, 48, 195, 193 ));
+   
    type IIterable_SmartCardCryptogramMaterialPackageFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3223,10 +3226,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_SmartCardCryptogramMaterialPackageFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_SmartCardCryptogramMaterialPackageFormat : aliased constant Windows.IID := (1042553548, 5957, 22478, (147, 104, 33, 186, 33, 48, 195, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_SmartCardCryptogramMaterialPackageFormat : aliased constant Windows.IID := (3083658226, 39049, 22636, (190, 177, 104, 254, 221, 183, 203, 21 ));
+   
    type IVectorView_SmartCardCryptogramMaterialPackageFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3261,10 +3264,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_SmartCardCryptogramMaterialPackageFormat : aliased constant Windows.IID := (3083658226, 39049, 22636, (190, 177, 104, 254, 221, 183, 203, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_SmartCardCryptogramStorageKeyCapabilities : aliased constant Windows.IID := (3361265568, 50510, 20796, (160, 151, 164, 47, 211, 213, 105, 175 ));
+   
    type IIterator_SmartCardCryptogramStorageKeyCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3295,10 +3298,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_SmartCardCryptogramStorageKeyCapabilities : aliased constant Windows.IID := (3361265568, 50510, 20796, (160, 151, 164, 47, 211, 213, 105, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_SmartCardCryptogramStorageKeyCapabilities : aliased constant Windows.IID := (2553682417, 17849, 21847, (152, 0, 234, 162, 188, 166, 218, 87 ));
+   
    type IIterable_SmartCardCryptogramStorageKeyCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3307,10 +3310,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.IIterator_SmartCardCryptogramStorageKeyCapabilities
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_SmartCardCryptogramStorageKeyCapabilities : aliased constant Windows.IID := (2553682417, 17849, 21847, (152, 0, 234, 162, 188, 166, 218, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_SmartCardCryptogramStorageKeyCapabilities : aliased constant Windows.IID := (2618162336, 19298, 22184, (138, 243, 131, 118, 137, 138, 21, 188 ));
+   
    type IVectorView_SmartCardCryptogramStorageKeyCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3345,10 +3348,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_SmartCardCryptogramStorageKeyCapabilities : aliased constant Windows.IID := (2618162336, 19298, 22184, (138, 243, 131, 118, 137, 138, 21, 188 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardCryptogramStorageKeyInfo : aliased constant Windows.IID := (562558372, 26908, 20705, (191, 79, 221, 237, 195, 230, 132, 184 ));
+   
    type IAsyncOperation_ISmartCardCryptogramStorageKeyInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3371,10 +3374,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardCryptogramStorageKeyInfo : aliased constant Windows.IID := (562558372, 26908, 20705, (191, 79, 221, 237, 195, 230, 132, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardCryptogramMaterialPossessionProof : aliased constant Windows.IID := (1865345590, 56896, 21940, (144, 195, 37, 86, 115, 247, 27, 46 ));
+   
    type IAsyncOperation_ISmartCardCryptogramMaterialPossessionProof_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3397,10 +3400,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPossessionProof
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardCryptogramMaterialPossessionProof : aliased constant Windows.IID := (1865345590, 56896, 21940, (144, 195, 37, 86, 115, 247, 27, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult : aliased constant Windows.IID := (2165372641, 13600, 23762, (186, 181, 8, 49, 24, 93, 44, 46 ));
+   
    type IAsyncOperation_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3423,10 +3426,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult : aliased constant Windows.IID := (2165372641, 13600, 23762, (186, 181, 8, 49, 24, 93, 44, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult : aliased constant Windows.IID := (749437352, 15401, 20689, (151, 97, 95, 57, 39, 201, 109, 202 ));
+   
    type IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3449,10 +3452,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult : aliased constant Windows.IID := (749437352, 15401, 20689, (151, 97, 95, 57, 39, 201, 109, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult : aliased constant Windows.IID := (1704085, 10972, 21698, (133, 148, 58, 54, 186, 22, 253, 134 ));
+   
    type IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3475,10 +3478,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult : aliased constant Windows.IID := (1704085, 10972, 21698, (133, 148, 58, 54, 186, 22, 253, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardReader : aliased constant Windows.IID := (57312013, 48074, 23737, (151, 127, 178, 158, 163, 4, 33, 73 ));
+   
    type IAsyncOperation_ISmartCardReader_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3501,10 +3504,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardReader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardReader : aliased constant Windows.IID := (57312013, 48074, 23737, (151, 127, 178, 158, 163, 4, 33, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SmartCardReaderStatus : aliased constant Windows.IID := (1524892410, 7970, 21872, (160, 200, 178, 50, 10, 222, 219, 129 ));
+   
    type IAsyncOperation_SmartCardReaderStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3527,10 +3530,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardReaderStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_SmartCardReaderStatus : aliased constant Windows.IID := (1524892410, 7970, 21872, (160, 200, 178, 50, 10, 222, 219, 129 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SmartCardStatus : aliased constant Windows.IID := (3793892214, 36086, 20925, (153, 7, 19, 68, 170, 102, 94, 93 ));
+   
    type IAsyncOperation_SmartCardStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3553,10 +3556,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_SmartCardStatus : aliased constant Windows.IID := (3793892214, 36086, 20925, (153, 7, 19, 68, 170, 102, 94, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardProvisioning : aliased constant Windows.IID := (1636105344, 46930, 23784, (161, 54, 245, 113, 116, 187, 147, 9 ));
+   
    type IAsyncOperation_ISmartCardProvisioning_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3579,10 +3582,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardProvisioning
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardProvisioning : aliased constant Windows.IID := (1636105344, 46930, 23784, (161, 54, 245, 113, 116, 187, 147, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardChallengeContext : aliased constant Windows.IID := (476382819, 16232, 22939, (185, 212, 195, 80, 241, 62, 228, 228 ));
+   
    type IAsyncOperation_ISmartCardChallengeContext_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3605,10 +3608,10 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardChallengeContext
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardChallengeContext : aliased constant Windows.IID := (476382819, 16232, 22939, (185, 212, 195, 80, 241, 62, 228, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmartCardConnection : aliased constant Windows.IID := (2006695003, 42844, 22920, (151, 143, 52, 219, 198, 41, 213, 118 ));
+   
    type IAsyncOperation_ISmartCardConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3631,17 +3634,15 @@ package Windows.Devices.SmartCards is
       ; RetVal : access Windows.Devices.SmartCards.ISmartCardConnection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmartCardConnection : aliased constant Windows.IID := (2006695003, 42844, 22920, (151, 143, 52, 219, 198, 41, 213, 118 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type SmartCardPinResetHandler_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardProvisioning ; request : Windows.Devices.SmartCards.ISmartCardPinResetRequest)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SmartCardPinResetHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_SmartCardPinResetHandler : aliased constant Windows.IID := (328031808, 62396, 19036, (180, 29, 75, 78, 246, 132, 226, 55 ));
+   
+   type SmartCardPinResetHandler_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardProvisioning ; request : Windows.Devices.SmartCards.ISmartCardPinResetRequest)) is new Windows.IMulticastDelegate_Interface(IID_SmartCardPinResetHandler'access) with null record;
    
    function Invoke
    (
@@ -3651,12 +3652,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_SmartCardPinResetHandler : aliased constant Windows.IID := (328031808, 62396, 19036, (180, 29, 75, 78, 246, 132, 226, 55 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardEmulator_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardEmulator_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardEmulator : aliased constant Windows.IID := (1233314822, 1324, 22402, (165, 125, 84, 249, 244, 79, 132, 18 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardEmulator_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardEmulator'access) with null record;
    
    function Invoke
    (
@@ -3666,12 +3666,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardEmulator : aliased constant Windows.IID := (1233314822, 1324, 22402, (165, 125, 84, 249, 244, 79, 132, 18 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardAppletIdGroupRegistration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration : aliased constant Windows.IID := (923813371, 18836, 21523, (137, 190, 186, 78, 151, 173, 130, 160 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardAppletIdGroupRegistration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration'access) with null record;
    
    function Invoke
    (
@@ -3681,12 +3680,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardAppletIdGroupRegistration : aliased constant Windows.IID := (923813371, 18836, 21523, (137, 190, 186, 78, 151, 173, 130, 160 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISmartCardEmulator2_add_ApduReceived_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardEmulator ; args : Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmartCardEmulator2_add_ApduReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISmartCardEmulator2_add_ApduReceived : aliased constant Windows.IID := (342856707, 17140, 22946, (168, 90, 130, 148, 175, 62, 62, 120 ));
+   
+   type TypedEventHandler_ISmartCardEmulator2_add_ApduReceived_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardEmulator ; args : Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISmartCardEmulator2_add_ApduReceived'access) with null record;
    
    function Invoke
    (
@@ -3696,12 +3694,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISmartCardEmulator2_add_ApduReceived : aliased constant Windows.IID := (342856707, 17140, 22946, (168, 90, 130, 148, 175, 62, 62, 120 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardEmulator ; args : Windows.Devices.SmartCards.ISmartCardEmulatorConnectionDeactivatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated : aliased constant Windows.IID := (3415752907, 52294, 23607, (171, 0, 221, 35, 215, 123, 38, 59 ));
+   
+   type TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardEmulator ; args : Windows.Devices.SmartCards.ISmartCardEmulatorConnectionDeactivatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated'access) with null record;
    
    function Invoke
    (
@@ -3711,12 +3708,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISmartCardEmulator2_add_ConnectionDeactivated : aliased constant Windows.IID := (3415752907, 52294, 23607, (171, 0, 221, 35, 215, 123, 38, 59 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardActivationPolicyChangeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult : aliased constant Windows.IID := (2502490443, 1147, 24106, (143, 192, 112, 23, 245, 218, 221, 255 ));
+   
+   type AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardActivationPolicyChangeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult'access) with null record;
    
    function Invoke
    (
@@ -3726,12 +3722,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_SmartCardActivationPolicyChangeResult : aliased constant Windows.IID := (2502490443, 1147, 24106, (143, 192, 112, 23, 245, 218, 221, 255 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardCryptogramGeneratorOperationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus : aliased constant Windows.IID := (3334752199, 42509, 20490, (155, 254, 89, 242, 92, 51, 233, 121 ));
+   
+   type AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardCryptogramGeneratorOperationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus'access) with null record;
    
    function Invoke
    (
@@ -3741,12 +3736,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_SmartCardCryptogramGeneratorOperationStatus : aliased constant Windows.IID := (3334752199, 42509, 20490, (155, 254, 89, 242, 92, 51, 233, 121 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator : aliased constant Windows.IID := (634164322, 18081, 20646, (173, 20, 154, 151, 24, 55, 32, 5 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator'access) with null record;
    
    function Invoke
    (
@@ -3756,12 +3750,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGenerator : aliased constant Windows.IID := (634164322, 18081, 20646, (173, 20, 154, 151, 24, 55, 32, 5 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramStorageKeyInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo : aliased constant Windows.IID := (1060431463, 2614, 21524, (136, 171, 99, 113, 209, 179, 176, 126 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramStorageKeyInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo'access) with null record;
    
    function Invoke
    (
@@ -3771,12 +3764,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramStorageKeyInfo : aliased constant Windows.IID := (1060431463, 2614, 21524, (136, 171, 99, 113, 209, 179, 176, 126 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramMaterialPossessionProof ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof : aliased constant Windows.IID := (3404875598, 34832, 23319, (149, 214, 129, 117, 138, 229, 25, 133 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramMaterialPossessionProof ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof'access) with null record;
    
    function Invoke
    (
@@ -3786,12 +3778,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramMaterialPossessionProof : aliased constant Windows.IID := (3404875598, 34832, 23319, (149, 214, 129, 117, 138, 229, 25, 133 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult : aliased constant Windows.IID := (3378551101, 45864, 24198, (176, 163, 37, 240, 159, 126, 69, 223 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult'access) with null record;
    
    function Invoke
    (
@@ -3801,12 +3792,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult : aliased constant Windows.IID := (3378551101, 45864, 24198, (176, 163, 37, 240, 159, 126, 69, 223 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult : aliased constant Windows.IID := (3444616196, 59446, 21797, (158, 219, 6, 109, 98, 5, 162, 167 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult'access) with null record;
    
    function Invoke
    (
@@ -3816,12 +3806,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult : aliased constant Windows.IID := (3444616196, 59446, 21797, (158, 219, 6, 109, 98, 5, 162, 167 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult : aliased constant Windows.IID := (1171257866, 45908, 20675, (143, 36, 61, 212, 241, 103, 127, 190 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult'access) with null record;
    
    function Invoke
    (
@@ -3831,12 +3820,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult : aliased constant Windows.IID := (1171257866, 45908, 20675, (143, 36, 61, 212, 241, 103, 127, 190 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardReader_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardReader : aliased constant Windows.IID := (550708301, 14170, 24445, (137, 68, 22, 79, 223, 237, 66, 57 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardReader_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardReader'access) with null record;
    
    function Invoke
    (
@@ -3846,12 +3834,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardReader : aliased constant Windows.IID := (550708301, 14170, 24445, (137, 68, 22, 79, 223, 237, 66, 57 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_SmartCardReaderStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardReaderStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardReaderStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_SmartCardReaderStatus : aliased constant Windows.IID := (1031696041, 59193, 21852, (156, 2, 7, 57, 108, 83, 33, 245 ));
+   
+   type AsyncOperationCompletedHandler_SmartCardReaderStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardReaderStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SmartCardReaderStatus'access) with null record;
    
    function Invoke
    (
@@ -3861,12 +3848,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_SmartCardReaderStatus : aliased constant Windows.IID := (1031696041, 59193, 21852, (156, 2, 7, 57, 108, 83, 33, 245 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISmartCardReader_add_CardAdded_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardReader ; args : Windows.Devices.SmartCards.ICardAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmartCardReader_add_CardAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISmartCardReader_add_CardAdded : aliased constant Windows.IID := (3547278777, 22132, 24436, (159, 105, 60, 220, 69, 89, 153, 159 ));
+   
+   type TypedEventHandler_ISmartCardReader_add_CardAdded_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardReader ; args : Windows.Devices.SmartCards.ICardAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISmartCardReader_add_CardAdded'access) with null record;
    
    function Invoke
    (
@@ -3876,12 +3862,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISmartCardReader_add_CardAdded : aliased constant Windows.IID := (3547278777, 22132, 24436, (159, 105, 60, 220, 69, 89, 153, 159 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISmartCardReader_add_CardRemoved_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardReader ; args : Windows.Devices.SmartCards.ICardRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmartCardReader_add_CardRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISmartCardReader_add_CardRemoved : aliased constant Windows.IID := (1775896518, 45670, 23068, (147, 124, 216, 43, 74, 130, 50, 198 ));
+   
+   type TypedEventHandler_ISmartCardReader_add_CardRemoved_Interface(Callback : access procedure (sender : Windows.Devices.SmartCards.ISmartCardReader ; args : Windows.Devices.SmartCards.ICardRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISmartCardReader_add_CardRemoved'access) with null record;
    
    function Invoke
    (
@@ -3891,12 +3876,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISmartCardReader_add_CardRemoved : aliased constant Windows.IID := (1775896518, 45670, 23068, (147, 124, 216, 43, 74, 130, 50, 198 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_SmartCardStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SmartCardStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_SmartCardStatus : aliased constant Windows.IID := (3182381633, 15178, 22192, (174, 236, 254, 231, 28, 199, 243, 40 ));
+   
+   type AsyncOperationCompletedHandler_SmartCardStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_SmartCardStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SmartCardStatus'access) with null record;
    
    function Invoke
    (
@@ -3906,12 +3890,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_SmartCardStatus : aliased constant Windows.IID := (3182381633, 15178, 22192, (174, 236, 254, 231, 28, 199, 243, 40 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardProvisioning_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardProvisioning_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardProvisioning : aliased constant Windows.IID := (2049857756, 8942, 23736, (131, 204, 167, 166, 27, 157, 205, 44 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardProvisioning_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardProvisioning'access) with null record;
    
    function Invoke
    (
@@ -3921,12 +3904,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardProvisioning : aliased constant Windows.IID := (2049857756, 8942, 23736, (131, 204, 167, 166, 27, 157, 205, 44 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardChallengeContext_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardChallengeContext ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardChallengeContext_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardChallengeContext : aliased constant Windows.IID := (2528211702, 57051, 24382, (175, 144, 123, 15, 16, 33, 147, 82 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardChallengeContext_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardChallengeContext ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardChallengeContext'access) with null record;
    
    function Invoke
    (
@@ -3936,12 +3918,11 @@ package Windows.Devices.SmartCards is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmartCardChallengeContext : aliased constant Windows.IID := (2528211702, 57051, 24382, (175, 144, 123, 15, 16, 33, 147, 82 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmartCardConnection_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardConnection ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmartCardConnection_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmartCardConnection : aliased constant Windows.IID := (3340697830, 44838, 24156, (145, 61, 14, 254, 183, 208, 142, 247 ));
+   
+   type AsyncOperationCompletedHandler_ISmartCardConnection_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SmartCards.IAsyncOperation_ISmartCardConnection ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmartCardConnection'access) with null record;
    
    function Invoke
    (
@@ -3950,8 +3931,6 @@ package Windows.Devices.SmartCards is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_ISmartCardConnection : aliased constant Windows.IID := (3340697830, 44838, 24156, (145, 61, 14, 254, 183, 208, 142, 247 ));
    
    ------------------------------------------------------------------------
    -- Classes

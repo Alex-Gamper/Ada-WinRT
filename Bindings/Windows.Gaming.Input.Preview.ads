@@ -54,6 +54,9 @@ package Windows.Gaming.Input.Preview is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IGameControllerProviderInfoStatics : aliased constant Windows.IID := (199354053, 55741, 17646, (131, 98, 72, 139, 46, 70, 75, 251 ));
+   
    type IGameControllerProviderInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetParentProviderId
@@ -71,9 +74,6 @@ package Windows.Gaming.Input.Preview is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGameControllerProviderInfoStatics : aliased constant Windows.IID := (199354053, 55741, 17646, (131, 98, 72, 139, 46, 70, 75, 251 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

@@ -35,15 +35,16 @@ package body Windows.Media.Devices.Core is
       m_hString     : Windows.String := To_String("Windows.Media.Devices.Core.FrameController");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Devices.Core.IFrameController := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Devices.Core.IFrameController) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Devices.Core.IID_IFrameController'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Media.Devices.Core.IID_IFrameController'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

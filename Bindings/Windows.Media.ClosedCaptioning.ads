@@ -160,6 +160,9 @@ package Windows.Media.ClosedCaptioning is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IClosedCaptionPropertiesStatics : aliased constant Windows.IID := (279584644, 52272, 16705, (181, 3, 82, 114, 40, 158, 12, 32 ));
+   
    type IClosedCaptionPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FontColor
@@ -245,9 +248,6 @@ package Windows.Media.ClosedCaptioning is
       ; RetVal : access Windows.Media.ClosedCaptioning.ClosedCaptionOpacity
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IClosedCaptionPropertiesStatics : aliased constant Windows.IID := (279584644, 52272, 16705, (181, 3, 82, 114, 40, 158, 12, 32 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

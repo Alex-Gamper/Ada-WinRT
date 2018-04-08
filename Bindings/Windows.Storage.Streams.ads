@@ -242,6 +242,9 @@ package Windows.Storage.Streams is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_UInt32 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IAsyncOperation_UInt32_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -264,10 +267,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_UInt32 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataReader : aliased constant Windows.IID := (3803512873, 46273, 17172, (164, 184, 251, 129, 58, 47, 39, 94 ));
+   
    type IDataReader_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UnconsumedBufferLength
@@ -454,10 +457,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IInputStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataReader : aliased constant Windows.IID := (3803512873, 46273, 17172, (164, 184, 251, 129, 58, 47, 39, 94 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataReaderFactory : aliased constant Windows.IID := (3612506183, 22490, 19989, (145, 76, 6, 128, 102, 153, 160, 152 ));
+   
    type IDataReaderFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateDataReader
@@ -467,10 +470,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IDataReader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataReaderFactory : aliased constant Windows.IID := (3612506183, 22490, 19989, (145, 76, 6, 128, 102, 153, 160, 152 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataReaderStatics : aliased constant Windows.IID := (301776840, 63802, 18203, (177, 33, 243, 121, 227, 73, 49, 60 ));
+   
    type IDataReaderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromBuffer
@@ -480,10 +483,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IDataReader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataReaderStatics : aliased constant Windows.IID := (301776840, 63802, 18203, (177, 33, 243, 121, 227, 73, 49, 60 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataWriter : aliased constant Windows.IID := (1689817701, 54081, 18722, (179, 138, 221, 74, 248, 128, 140, 78 ));
+   
    type IDataWriter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UnstoredBufferLength
@@ -678,10 +681,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IOutputStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataWriter : aliased constant Windows.IID := (1689817701, 54081, 18722, (179, 138, 221, 74, 248, 128, 140, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataWriterFactory : aliased constant Windows.IID := (864839618, 35716, 19499, (156, 80, 123, 135, 103, 132, 122, 31 ));
+   
    type IDataWriterFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateDataWriter
@@ -691,10 +694,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IDataWriter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataWriterFactory : aliased constant Windows.IID := (864839618, 35716, 19499, (156, 80, 123, 135, 103, 132, 122, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBufferFactory : aliased constant Windows.IID := (1907331405, 49423, 18507, (188, 80, 20, 188, 98, 59, 58, 39 ));
+   
    type IBufferFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -704,10 +707,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBufferFactory : aliased constant Windows.IID := (1907331405, 49423, 18507, (188, 80, 20, 188, 98, 59, 58, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBuffer : aliased constant Windows.IID := (2421821408, 48211, 4575, (140, 73, 0, 30, 79, 198, 134, 218 ));
+   
    type IBuffer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Capacity
@@ -730,10 +733,10 @@ package Windows.Storage.Streams is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBuffer : aliased constant Windows.IID := (2421821408, 48211, 4575, (140, 73, 0, 30, 79, 198, 134, 218 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBufferStatics : aliased constant Windows.IID := (3909215835, 55062, 18266, (169, 10, 175, 114, 41, 177, 231, 65 ));
+   
    type IBufferStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateCopyFromMemoryBuffer
@@ -751,10 +754,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Foundation.IMemoryBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBufferStatics : aliased constant Windows.IID := (3909215835, 55062, 18266, (169, 10, 175, 114, 41, 177, 231, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContentTypeProvider : aliased constant Windows.IID := (2547030181, 15257, 19945, (136, 165, 225, 29, 47, 80, 199, 149 ));
+   
    type IContentTypeProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContentType
@@ -763,10 +766,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContentTypeProvider : aliased constant Windows.IID := (2547030181, 15257, 19945, (136, 165, 225, 29, 47, 80, 199, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputStream : aliased constant Windows.IID := (2421821410, 48211, 4575, (140, 73, 0, 30, 79, 198, 134, 218 ));
+   
    type IInputStream_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadAsync
@@ -778,10 +781,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputStream : aliased constant Windows.IID := (2421821410, 48211, 4575, (140, 73, 0, 30, 79, 198, 134, 218 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOutputStream : aliased constant Windows.IID := (2421821414, 48211, 4575, (140, 73, 0, 30, 79, 198, 134, 218 ));
+   
    type IOutputStream_Interface is interface and Windows.IInspectable_Interface;
    
    function WriteAsync
@@ -798,10 +801,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOutputStream : aliased constant Windows.IID := (2421821414, 48211, 4575, (140, 73, 0, 30, 79, 198, 134, 218 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRandomAccessStream : aliased constant Windows.IID := (2421821409, 48211, 4575, (140, 73, 0, 30, 79, 198, 134, 218 ));
+   
    type IRandomAccessStream_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Size
@@ -868,15 +871,15 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRandomAccessStream : aliased constant Windows.IID := (2421821409, 48211, 4575, (140, 73, 0, 30, 79, 198, 134, 218 ));
-   
    ------------------------------------------------------------------------
-   type IRandomAccessStreamWithContentType_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRandomAccessStreamWithContentType : aliased constant Windows.IID := (3424995367, 19261, 17295, (146, 50, 16, 199, 107, 199, 224, 56 ));
    
+   type IRandomAccessStreamWithContentType_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRandomAccessStreamReference : aliased constant Windows.IID := (871248180, 7638, 20026, (128, 103, 209, 193, 98, 232, 100, 43 ));
+   
    type IRandomAccessStreamReference_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenReadAsync
@@ -885,10 +888,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRandomAccessStreamReference : aliased constant Windows.IID := (871248180, 7638, 20026, (128, 103, 209, 193, 98, 232, 100, 43 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRandomAccessStreamStatics : aliased constant Windows.IID := (1380773327, 28201, 19685, (149, 115, 107, 117, 61, 182, 108, 58 ));
+   
    type IRandomAccessStreamStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CopyAsync
@@ -918,10 +921,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRandomAccessStreamStatics : aliased constant Windows.IID := (1380773327, 28201, 19685, (149, 115, 107, 117, 61, 182, 108, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputStreamReference : aliased constant Windows.IID := (1133681944, 24265, 19290, (145, 156, 66, 5, 176, 200, 4, 182 ));
+   
    type IInputStreamReference_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenSequentialReadAsync
@@ -930,10 +933,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IInputStream -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputStreamReference : aliased constant Windows.IID := (1133681944, 24265, 19290, (145, 156, 66, 5, 176, 200, 4, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRandomAccessStreamReferenceStatics : aliased constant Windows.IID := (2238908892, 16319, 20093, (152, 111, 239, 59, 26, 7, 169, 100 ));
+   
    type IRandomAccessStreamReferenceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFromFile
@@ -959,10 +962,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRandomAccessStreamReferenceStatics : aliased constant Windows.IID := (2238908892, 16319, 20093, (152, 111, 239, 59, 26, 7, 169, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileRandomAccessStreamStatics : aliased constant Windows.IID := (1934950663, 15191, 19293, (131, 69, 85, 77, 47, 198, 33, 240 ));
+   
    type IFileRandomAccessStreamStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenAsync
@@ -1044,10 +1047,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageStreamTransaction -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileRandomAccessStreamStatics : aliased constant Windows.IID := (1934950663, 15191, 19293, (131, 69, 85, 77, 47, 198, 33, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IRandomAccessStreamWithContentType : aliased constant Windows.IID := (3299179614, 12976, 21939, (173, 19, 206, 28, 35, 4, 30, 214 ));
+   
    type IAsyncOperation_IRandomAccessStreamWithContentType_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1070,10 +1073,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamWithContentType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IRandomAccessStreamWithContentType : aliased constant Windows.IID := (3299179614, 12976, 21939, (173, 19, 206, 28, 35, 4, 30, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IBuffer : aliased constant Windows.IID := (2951624928, 63618, 24336, (150, 85, 31, 201, 140, 200, 204, 229 ));
+   
    type IIterator_IBuffer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1104,10 +1107,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IBuffer : aliased constant Windows.IID := (2951624928, 63618, 24336, (150, 85, 31, 201, 140, 200, 204, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IBuffer : aliased constant Windows.IID := (2418635455, 43396, 21571, (177, 197, 47, 4, 169, 158, 31, 202 ));
+   
    type IIterable_IBuffer_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1116,10 +1119,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IIterator_IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IBuffer : aliased constant Windows.IID := (2418635455, 43396, 21571, (177, 197, 47, 4, 169, 158, 31, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IBuffer : aliased constant Windows.IID := (4254352738, 4566, 24235, (189, 114, 112, 25, 147, 182, 143, 172 ));
+   
    type IVectorView_IBuffer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1154,10 +1157,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IBuffer : aliased constant Windows.IID := (4254352738, 4566, 24235, (189, 114, 112, 25, 147, 182, 143, 172 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IBuffer : aliased constant Windows.IID := (814737556, 52230, 20487, (188, 133, 203, 233, 74, 193, 167, 12 ));
+   
    type IVector_IBuffer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1248,10 +1251,10 @@ package Windows.Storage.Streams is
       ; items : Windows.Storage.Streams.IBuffer_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IBuffer : aliased constant Windows.IID := (814737556, 52230, 20487, (188, 133, 203, 233, 74, 193, 167, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBuffer : aliased constant Windows.IID := (1005488180, 47527, 23168, (167, 70, 94, 240, 151, 34, 120, 120 ));
+   
    type IAsyncOperation_IBuffer_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1274,10 +1277,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IBuffer : aliased constant Windows.IID := (1005488180, 47527, 23168, (167, 70, 94, 240, 151, 34, 120, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IRandomAccessStreamReference : aliased constant Windows.IID := (1696042320, 59042, 23830, (178, 68, 101, 233, 114, 94, 90, 12 ));
+   
    type IAsyncOperation_IRandomAccessStreamReference_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1300,10 +1303,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IRandomAccessStreamReference : aliased constant Windows.IID := (1696042320, 59042, 23830, (178, 68, 101, 233, 114, 94, 90, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IRandomAccessStream : aliased constant Windows.IID := (1125043918, 5144, 23833, (129, 178, 93, 219, 56, 22, 3, 204 ));
+   
    type IAsyncOperation_IRandomAccessStream_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1326,10 +1329,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IRandomAccessStream : aliased constant Windows.IID := (1125043918, 5144, 23833, (129, 178, 93, 219, 56, 22, 3, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IInputStream : aliased constant Windows.IID := (2835220274, 21869, 22593, (183, 238, 179, 69, 15, 181, 38, 102 ));
+   
    type IAsyncOperation_IInputStream_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1352,10 +1355,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IInputStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IInputStream : aliased constant Windows.IID := (2835220274, 21869, 22593, (183, 238, 179, 69, 15, 181, 38, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IOutputStream : aliased constant Windows.IID := (3899877427, 53267, 21345, (151, 125, 197, 233, 153, 52, 104, 14 ));
+   
    type IAsyncOperation_IOutputStream_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1378,10 +1381,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IOutputStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IOutputStream : aliased constant Windows.IID := (3899877427, 53267, 21345, (151, 125, 197, 233, 153, 52, 104, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IRandomAccessStream : aliased constant Windows.IID := (3363128426, 22655, 22746, (137, 126, 59, 190, 94, 199, 195, 11 ));
+   
    type IIterator_IRandomAccessStream_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1412,10 +1415,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IRandomAccessStream : aliased constant Windows.IID := (3363128426, 22655, 22746, (137, 126, 59, 190, 94, 199, 195, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IRandomAccessStream : aliased constant Windows.IID := (3127273984, 5461, 24052, (129, 165, 7, 210, 63, 127, 252, 235 ));
+   
    type IIterable_IRandomAccessStream_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1424,10 +1427,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IIterator_IRandomAccessStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IRandomAccessStream : aliased constant Windows.IID := (3127273984, 5461, 24052, (129, 165, 7, 210, 63, 127, 252, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IRandomAccessStream : aliased constant Windows.IID := (2462911046, 8806, 23766, (146, 147, 225, 17, 41, 159, 39, 147 ));
+   
    type IVectorView_IRandomAccessStream_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1462,10 +1465,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IRandomAccessStream : aliased constant Windows.IID := (2462911046, 8806, 23766, (146, 147, 225, 17, 41, 159, 39, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IRandomAccessStream : aliased constant Windows.IID := (657897067, 55971, 24076, (152, 66, 106, 15, 68, 181, 68, 11 ));
+   
    type IVector_IRandomAccessStream_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1556,10 +1559,10 @@ package Windows.Storage.Streams is
       ; items : Windows.Storage.Streams.IRandomAccessStream_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IRandomAccessStream : aliased constant Windows.IID := (657897067, 55971, 24076, (152, 66, 106, 15, 68, 181, 68, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IRandomAccessStreamReference : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IIterator_IRandomAccessStreamReference_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1590,10 +1593,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IRandomAccessStreamReference : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IRandomAccessStreamReference : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IIterable_IRandomAccessStreamReference_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1602,10 +1605,10 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.Storage.Streams.IIterator_IRandomAccessStreamReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IRandomAccessStreamReference : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IRandomAccessStreamReference : aliased constant Windows.IID := (3960307915, 39559, 24331, (182, 223, 44, 9, 182, 49, 1, 119 ));
+   
    type IVectorView_IRandomAccessStreamReference_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1640,17 +1643,15 @@ package Windows.Storage.Streams is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IRandomAccessStreamReference : aliased constant Windows.IID := (3960307915, 39559, 24331, (182, 223, 44, 9, 182, 49, 1, 119 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType : aliased constant Windows.IID := (1037954292, 7481, 22760, (131, 177, 219, 237, 84, 28, 127, 53 ));
+   
+   type AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType'access) with null record;
    
    function Invoke
    (
@@ -1660,12 +1661,11 @@ package Windows.Storage.Streams is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType : aliased constant Windows.IID := (1037954292, 7481, 22760, (131, 177, 219, 237, 84, 28, 127, 53 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IBuffer_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IBuffer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBuffer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IBuffer : aliased constant Windows.IID := (1371788029, 47265, 22048, (183, 70, 126, 230, 213, 51, 172, 163 ));
+   
+   type AsyncOperationCompletedHandler_IBuffer_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IBuffer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBuffer'access) with null record;
    
    function Invoke
    (
@@ -1675,12 +1675,11 @@ package Windows.Storage.Streams is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IBuffer : aliased constant Windows.IID := (1371788029, 47265, 22048, (183, 70, 126, 230, 213, 51, 172, 163 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IRandomAccessStreamReference : aliased constant Windows.IID := (1619292809, 59915, 24054, (137, 223, 242, 198, 44, 186, 150, 147 ));
+   
+   type AsyncOperationCompletedHandler_IRandomAccessStreamReference_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IRandomAccessStreamReference'access) with null record;
    
    function Invoke
    (
@@ -1690,12 +1689,11 @@ package Windows.Storage.Streams is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IRandomAccessStreamReference : aliased constant Windows.IID := (1619292809, 59915, 24054, (137, 223, 242, 198, 44, 186, 150, 147 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IRandomAccessStream_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRandomAccessStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IRandomAccessStream : aliased constant Windows.IID := (965493123, 31037, 23296, (129, 155, 74, 239, 146, 72, 94, 148 ));
+   
+   type AsyncOperationCompletedHandler_IRandomAccessStream_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IRandomAccessStream'access) with null record;
    
    function Invoke
    (
@@ -1705,12 +1703,11 @@ package Windows.Storage.Streams is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IRandomAccessStream : aliased constant Windows.IID := (965493123, 31037, 23296, (129, 155, 74, 239, 146, 72, 94, 148 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IInputStream_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IInputStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IInputStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IInputStream : aliased constant Windows.IID := (3502047525, 36937, 22435, (189, 102, 226, 82, 93, 152, 200, 20 ));
+   
+   type AsyncOperationCompletedHandler_IInputStream_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IInputStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IInputStream'access) with null record;
    
    function Invoke
    (
@@ -1720,12 +1717,11 @@ package Windows.Storage.Streams is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IInputStream : aliased constant Windows.IID := (3502047525, 36937, 22435, (189, 102, 226, 82, 93, 152, 200, 20 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IOutputStream_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IOutputStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOutputStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IOutputStream : aliased constant Windows.IID := (3165880143, 15092, 22044, (169, 227, 238, 241, 115, 132, 148, 215 ));
+   
+   type AsyncOperationCompletedHandler_IOutputStream_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Streams.IAsyncOperation_IOutputStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IOutputStream'access) with null record;
    
    function Invoke
    (
@@ -1734,8 +1730,6 @@ package Windows.Storage.Streams is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IOutputStream : aliased constant Windows.IID := (3165880143, 15092, 22044, (169, 227, 238, 241, 115, 132, 148, 215 ));
    
    ------------------------------------------------------------------------
    -- Classes

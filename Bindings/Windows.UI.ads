@@ -84,11 +84,14 @@ package Windows.UI is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type IColorHelper_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IColorHelper : aliased constant Windows.IID := (423427047, 26055, 17728, (173, 8, 98, 131, 186, 118, 135, 154 ));
    
+   type IColorHelper_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IColorHelperStatics : aliased constant Windows.IID := (2231688170, 64362, 16708, (166, 194, 51, 73, 156, 146, 132, 245 ));
+   
    type IColorHelperStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromArgb
@@ -101,10 +104,10 @@ package Windows.UI is
       ; RetVal : access Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorHelperStatics : aliased constant Windows.IID := (2231688170, 64362, 16708, (166, 194, 51, 73, 156, 146, 132, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IColorHelperStatics2 : aliased constant Windows.IID := (618245890, 28336, 19348, (133, 92, 252, 240, 129, 141, 154, 22 ));
+   
    type IColorHelperStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function ToDisplayName
@@ -114,15 +117,15 @@ package Windows.UI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorHelperStatics2 : aliased constant Windows.IID := (618245890, 28336, 19348, (133, 92, 252, 240, 129, 141, 154, 22 ));
-   
    ------------------------------------------------------------------------
-   type IColors_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IColors : aliased constant Windows.IID := (2609681190, 19622, 19685, (137, 148, 158, 255, 101, 202, 189, 204 ));
    
+   type IColors_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IColorsStatics : aliased constant Windows.IID := (3488951812, 52390, 17940, (161, 126, 117, 73, 16, 200, 74, 153 ));
+   
    type IColorsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AliceBlue
@@ -1111,10 +1114,10 @@ package Windows.UI is
       ; RetVal : access Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorsStatics : aliased constant Windows.IID := (3488951812, 52390, 17940, (161, 126, 117, 73, 16, 200, 74, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_Color : aliased constant Windows.IID := (2878233873, 45249, 23073, (149, 174, 241, 107, 243, 163, 118, 36 ));
+   
    type IReference_Color_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -1123,10 +1126,10 @@ package Windows.UI is
       ; RetVal : access Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_Color : aliased constant Windows.IID := (2878233873, 45249, 23073, (149, 174, 241, 107, 243, 163, 118, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_Color : aliased constant Windows.IID := (3291548434, 31426, 24155, (181, 17, 229, 70, 238, 164, 115, 180 ));
+   
    type IIterator_Color_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1157,10 +1160,10 @@ package Windows.UI is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_Color : aliased constant Windows.IID := (3291548434, 31426, 24155, (181, 17, 229, 70, 238, 164, 115, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_Color : aliased constant Windows.IID := (2469326686, 11311, 24238, (146, 154, 116, 233, 115, 181, 124, 39 ));
+   
    type IIterable_Color_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1169,9 +1172,6 @@ package Windows.UI is
       ; RetVal : access Windows.UI.IIterator_Color
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_Color : aliased constant Windows.IID := (2469326686, 11311, 24238, (146, 154, 116, 233, 115, 181, 124, 39 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

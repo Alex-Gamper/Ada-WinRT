@@ -59,6 +59,9 @@ package Windows.Perception.Automation.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICorePerceptionAutomationStatics : aliased constant Windows.IID := (196101441, 19682, 18723, (154, 118, 129, 135, 236, 197, 145, 18 ));
+   
    type ICorePerceptionAutomationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function SetActivationFactoryProvider
@@ -67,9 +70,6 @@ package Windows.Perception.Automation.Core is
       ; provider : Windows.Foundation.IGetActivationFactory
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICorePerceptionAutomationStatics : aliased constant Windows.IID := (196101441, 19682, 18723, (154, 118, 129, 135, 236, 197, 145, 18 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

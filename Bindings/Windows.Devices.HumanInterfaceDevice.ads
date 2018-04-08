@@ -190,6 +190,9 @@ package Windows.Devices.HumanInterfaceDevice is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IHidDeviceStatics : aliased constant Windows.IID := (2656666084, 38998, 16780, (159, 115, 119, 222, 12, 216, 87, 84 ));
+   
    type IHidDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -220,10 +223,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidDeviceStatics : aliased constant Windows.IID := (2656666084, 38998, 16780, (159, 115, 119, 222, 12, 216, 87, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidDevice : aliased constant Windows.IID := (1602884839, 8704, 17198, (149, 218, 208, 155, 135, 213, 116, 168 ));
+   
    type IHidDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function get_VendorId
@@ -371,10 +374,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidDevice : aliased constant Windows.IID := (1602884839, 8704, 17198, (149, 218, 208, 155, 135, 213, 116, 168 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidBooleanControlDescription : aliased constant Windows.IID := (1637279043, 10712, 18986, (134, 131, 132, 158, 32, 123, 190, 49 ));
+   
    type IHidBooleanControlDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -418,10 +421,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IVectorView_IHidCollection -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidBooleanControlDescription : aliased constant Windows.IID := (1637279043, 10712, 18986, (134, 131, 132, 158, 32, 123, 190, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidBooleanControlDescription2 : aliased constant Windows.IID := (3371094762, 35447, 19510, (170, 0, 95, 240, 68, 157, 62, 115 ));
+   
    type IHidBooleanControlDescription2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsAbsolute
@@ -430,10 +433,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidBooleanControlDescription2 : aliased constant Windows.IID := (3371094762, 35447, 19510, (170, 0, 95, 240, 68, 157, 62, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidNumericControlDescription : aliased constant Windows.IID := (1670209158, 7575, 19573, (146, 127, 95, 245, 139, 160, 94, 50 ));
+   
    type IHidNumericControlDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -547,10 +550,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IVectorView_IHidCollection -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidNumericControlDescription : aliased constant Windows.IID := (1670209158, 7575, 19573, (146, 127, 95, 245, 139, 160, 94, 50 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidCollection : aliased constant Windows.IID := (1904866723, 13041, 18147, (190, 253, 68, 210, 102, 59, 126, 106 ));
+   
    type IHidCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -580,10 +583,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidCollection : aliased constant Windows.IID := (1904866723, 13041, 18147, (190, 253, 68, 210, 102, 59, 126, 106 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidInputReport : aliased constant Windows.IID := (3277655632, 63463, 20109, (178, 62, 202, 187, 229, 107, 144, 233 ));
+   
    type IHidInputReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -647,10 +650,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidInputReport : aliased constant Windows.IID := (3277655632, 63463, 20109, (178, 62, 202, 187, 229, 107, 144, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidOutputReport : aliased constant Windows.IID := (1657480516, 51350, 17507, (147, 193, 223, 157, 176, 83, 196, 80 ));
+   
    type IHidOutputReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -707,10 +710,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidOutputReport : aliased constant Windows.IID := (1657480516, 51350, 17507, (147, 193, 223, 157, 176, 83, 196, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidFeatureReport : aliased constant Windows.IID := (2216532857, 23269, 18147, (130, 239, 31, 236, 92, 137, 66, 244 ));
+   
    type IHidFeatureReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -767,10 +770,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControl
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidFeatureReport : aliased constant Windows.IID := (2216532857, 23269, 18147, (130, 239, 31, 236, 92, 137, 66, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidInputReportReceivedEventArgs : aliased constant Windows.IID := (1884931531, 22962, 19906, (152, 92, 10, 220, 97, 54, 250, 45 ));
+   
    type IHidInputReportReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Report
@@ -779,10 +782,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidInputReport
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidInputReportReceivedEventArgs : aliased constant Windows.IID := (1884931531, 22962, 19906, (152, 92, 10, 220, 97, 54, 250, 45 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidBooleanControl : aliased constant Windows.IID := (1380840586, 13973, 16524, (187, 162, 226, 235, 90, 191, 188, 32 ));
+   
    type IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -826,10 +829,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidBooleanControlDescription
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidBooleanControl : aliased constant Windows.IID := (1380840586, 13973, 16524, (187, 162, 226, 235, 90, 191, 188, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHidNumericControl : aliased constant Windows.IID := (3817476773, 13735, 19317, (137, 200, 251, 31, 40, 177, 8, 35 ));
+   
    type IHidNumericControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -894,10 +897,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHidNumericControl : aliased constant Windows.IID := (3817476773, 13735, 19317, (137, 200, 251, 31, 40, 177, 8, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IHidDevice : aliased constant Windows.IID := (2808762303, 20855, 21078, (132, 168, 179, 26, 141, 207, 16, 72 ));
+   
    type IAsyncOperation_IHidDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -920,10 +923,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IHidDevice : aliased constant Windows.IID := (2808762303, 20855, 21078, (132, 168, 179, 26, 141, 207, 16, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IHidInputReport : aliased constant Windows.IID := (3017967895, 52552, 22451, (160, 177, 50, 20, 50, 232, 91, 214 ));
+   
    type IAsyncOperation_IHidInputReport_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -946,10 +949,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidInputReport
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IHidInputReport : aliased constant Windows.IID := (3017967895, 52552, 22451, (160, 177, 50, 20, 50, 232, 91, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IHidFeatureReport : aliased constant Windows.IID := (3610228473, 17142, 24389, (191, 227, 41, 175, 36, 124, 46, 133 ));
+   
    type IAsyncOperation_IHidFeatureReport_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -972,10 +975,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IHidFeatureReport
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IHidFeatureReport : aliased constant Windows.IID := (3610228473, 17142, 24389, (191, 227, 41, 175, 36, 124, 46, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IHidBooleanControlDescription : aliased constant Windows.IID := (540148656, 47092, 21549, (176, 208, 156, 170, 31, 181, 93, 127 ));
+   
    type IIterator_IHidBooleanControlDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1006,10 +1009,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IHidBooleanControlDescription : aliased constant Windows.IID := (540148656, 47092, 21549, (176, 208, 156, 170, 31, 181, 93, 127 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IHidBooleanControlDescription : aliased constant Windows.IID := (3506376685, 41302, 22719, (148, 17, 87, 119, 223, 157, 87, 191 ));
+   
    type IIterable_IHidBooleanControlDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1018,10 +1021,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidBooleanControlDescription
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IHidBooleanControlDescription : aliased constant Windows.IID := (3506376685, 41302, 22719, (148, 17, 87, 119, 223, 157, 87, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IHidBooleanControlDescription : aliased constant Windows.IID := (2864129926, 60468, 21359, (167, 197, 39, 57, 71, 83, 223, 44 ));
+   
    type IVectorView_IHidBooleanControlDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1056,10 +1059,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IHidBooleanControlDescription : aliased constant Windows.IID := (2864129926, 60468, 21359, (167, 197, 39, 57, 71, 83, 223, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IHidNumericControlDescription : aliased constant Windows.IID := (1387905902, 32149, 23836, (172, 171, 35, 193, 158, 167, 111, 1 ));
+   
    type IIterator_IHidNumericControlDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1090,10 +1093,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IHidNumericControlDescription : aliased constant Windows.IID := (1387905902, 32149, 23836, (172, 171, 35, 193, 158, 167, 111, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IHidNumericControlDescription : aliased constant Windows.IID := (2257520141, 57556, 22299, (178, 247, 67, 29, 105, 132, 165, 19 ));
+   
    type IIterable_IHidNumericControlDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1102,10 +1105,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidNumericControlDescription
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IHidNumericControlDescription : aliased constant Windows.IID := (2257520141, 57556, 22299, (178, 247, 67, 29, 105, 132, 165, 19 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IHidNumericControlDescription : aliased constant Windows.IID := (3761022572, 24842, 20916, (174, 249, 55, 7, 182, 151, 185, 133 ));
+   
    type IVectorView_IHidNumericControlDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1140,10 +1143,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IHidNumericControlDescription : aliased constant Windows.IID := (3761022572, 24842, 20916, (174, 249, 55, 7, 182, 151, 185, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IHidCollection : aliased constant Windows.IID := (3472682608, 51199, 22465, (166, 117, 160, 223, 137, 118, 169, 136 ));
+   
    type IIterator_IHidCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1174,10 +1177,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IHidCollection : aliased constant Windows.IID := (3472682608, 51199, 22465, (166, 117, 160, 223, 137, 118, 169, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IHidCollection : aliased constant Windows.IID := (3152730639, 28815, 23390, (160, 23, 92, 100, 255, 185, 107, 105 ));
+   
    type IIterable_IHidCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1186,10 +1189,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidCollection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IHidCollection : aliased constant Windows.IID := (3152730639, 28815, 23390, (160, 23, 92, 100, 255, 185, 107, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IHidCollection : aliased constant Windows.IID := (2532440748, 13455, 23439, (167, 29, 45, 101, 14, 11, 17, 242 ));
+   
    type IVectorView_IHidCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1224,10 +1227,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IHidCollection : aliased constant Windows.IID := (2532440748, 13455, 23439, (167, 29, 45, 101, 14, 11, 17, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IHidBooleanControl : aliased constant Windows.IID := (1558068259, 53332, 21462, (171, 241, 65, 231, 51, 121, 180, 114 ));
+   
    type IIterator_IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1258,10 +1261,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IHidBooleanControl : aliased constant Windows.IID := (1558068259, 53332, 21462, (171, 241, 65, 231, 51, 121, 180, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IHidBooleanControl : aliased constant Windows.IID := (286385541, 23216, 23851, (138, 237, 182, 214, 24, 109, 28, 63 ));
+   
    type IIterable_IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1270,10 +1273,10 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.Devices.HumanInterfaceDevice.IIterator_IHidBooleanControl
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IHidBooleanControl : aliased constant Windows.IID := (286385541, 23216, 23851, (138, 237, 182, 214, 24, 109, 28, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IHidBooleanControl : aliased constant Windows.IID := (239173036, 22810, 24032, (175, 214, 11, 44, 4, 195, 4, 231 ));
+   
    type IVectorView_IHidBooleanControl_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1308,17 +1311,15 @@ package Windows.Devices.HumanInterfaceDevice is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IHidBooleanControl : aliased constant Windows.IID := (239173036, 22810, 24032, (175, 214, 11, 44, 4, 195, 4, 231 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IHidDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHidDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IHidDevice : aliased constant Windows.IID := (2968052041, 3254, 21927, (188, 193, 217, 150, 50, 77, 101, 196 ));
+   
+   type AsyncOperationCompletedHandler_IHidDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IHidDevice'access) with null record;
    
    function Invoke
    (
@@ -1328,12 +1329,11 @@ package Windows.Devices.HumanInterfaceDevice is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IHidDevice : aliased constant Windows.IID := (2968052041, 3254, 21927, (188, 193, 217, 150, 50, 77, 101, 196 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IHidInputReport_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidInputReport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHidInputReport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IHidInputReport : aliased constant Windows.IID := (29898608, 939, 21878, (152, 180, 141, 117, 206, 26, 152, 133 ));
+   
+   type AsyncOperationCompletedHandler_IHidInputReport_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidInputReport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IHidInputReport'access) with null record;
    
    function Invoke
    (
@@ -1343,12 +1343,11 @@ package Windows.Devices.HumanInterfaceDevice is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IHidInputReport : aliased constant Windows.IID := (29898608, 939, 21878, (152, 180, 141, 117, 206, 26, 152, 133 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IHidFeatureReport_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidFeatureReport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IHidFeatureReport_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IHidFeatureReport : aliased constant Windows.IID := (3680777557, 15638, 22526, (183, 239, 43, 219, 215, 25, 253, 191 ));
+   
+   type AsyncOperationCompletedHandler_IHidFeatureReport_Interface(Callback : access procedure (asyncInfo : Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidFeatureReport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IHidFeatureReport'access) with null record;
    
    function Invoke
    (
@@ -1358,12 +1357,11 @@ package Windows.Devices.HumanInterfaceDevice is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IHidFeatureReport : aliased constant Windows.IID := (3680777557, 15638, 22526, (183, 239, 43, 219, 215, 25, 253, 191 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IHidDevice_add_InputReportReceived_Interface(Callback : access procedure (sender : Windows.Devices.HumanInterfaceDevice.IHidDevice ; args : Windows.Devices.HumanInterfaceDevice.IHidInputReportReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHidDevice_add_InputReportReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IHidDevice_add_InputReportReceived : aliased constant Windows.IID := (837244872, 36714, 21515, (147, 139, 171, 167, 155, 111, 3, 236 ));
+   
+   type TypedEventHandler_IHidDevice_add_InputReportReceived_Interface(Callback : access procedure (sender : Windows.Devices.HumanInterfaceDevice.IHidDevice ; args : Windows.Devices.HumanInterfaceDevice.IHidInputReportReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHidDevice_add_InputReportReceived'access) with null record;
    
    function Invoke
    (
@@ -1372,8 +1370,6 @@ package Windows.Devices.HumanInterfaceDevice is
       ; args : Windows.Devices.HumanInterfaceDevice.IHidInputReportReceivedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IHidDevice_add_InputReportReceived : aliased constant Windows.IID := (837244872, 36714, 21515, (147, 139, 171, 167, 155, 111, 3, 236 ));
    
    ------------------------------------------------------------------------
    -- Classes

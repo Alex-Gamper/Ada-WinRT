@@ -133,6 +133,9 @@ package Windows.ApplicationModel.Search is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneVisibilityChangedEventArgs : aliased constant Windows.IID := (1011691590, 44107, 18930, (151, 214, 2, 14, 97, 130, 203, 156 ));
+   
    type ISearchPaneVisibilityChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Visible
@@ -141,10 +144,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneVisibilityChangedEventArgs : aliased constant Windows.IID := (1011691590, 44107, 18930, (151, 214, 2, 14, 97, 130, 203, 156 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneQueryChangedEventArgs : aliased constant Windows.IID := (1007046633, 9041, 16968, (165, 41, 113, 16, 244, 100, 167, 133 ));
+   
    type ISearchPaneQueryChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_QueryText
@@ -167,10 +170,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneQueryChangedEventArgs : aliased constant Windows.IID := (1007046633, 9041, 16968, (165, 41, 113, 16, 244, 100, 167, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneQuerySubmittedEventArgs : aliased constant Windows.IID := (339453180, 59845, 18230, (145, 178, 232, 235, 156, 184, 131, 86 ));
+   
    type ISearchPaneQuerySubmittedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_QueryText
@@ -186,10 +189,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneQuerySubmittedEventArgs : aliased constant Windows.IID := (339453180, 59845, 18230, (145, 178, 232, 235, 156, 184, 131, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails : aliased constant Windows.IID := (1175229157, 19506, 17720, (164, 212, 182, 180, 64, 13, 20, 15 ));
+   
    type ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LinguisticDetails
@@ -198,10 +201,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails : aliased constant Windows.IID := (1175229157, 19506, 17720, (164, 212, 182, 180, 64, 13, 20, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneResultSuggestionChosenEventArgs : aliased constant Windows.IID := (3358682304, 44754, 16864, (188, 224, 194, 108, 167, 79, 133, 236 ));
+   
    type ISearchPaneResultSuggestionChosenEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Tag
@@ -210,10 +213,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneResultSuggestionChosenEventArgs : aliased constant Windows.IID := (3358682304, 44754, 16864, (188, 224, 194, 108, 167, 79, 133, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneSuggestionsRequestDeferral : aliased constant Windows.IID := (2697988599, 34632, 20194, (173, 68, 175, 166, 190, 153, 124, 81 ));
+   
    type ISearchPaneSuggestionsRequestDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -221,10 +224,10 @@ package Windows.ApplicationModel.Search is
       This       : access ISearchPaneSuggestionsRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneSuggestionsRequestDeferral : aliased constant Windows.IID := (2697988599, 34632, 20194, (173, 68, 175, 166, 190, 153, 124, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneSuggestionsRequest : aliased constant Windows.IID := (2175863580, 58721, 16531, (155, 77, 42, 212, 130, 121, 74, 83 ));
+   
    type ISearchPaneSuggestionsRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsCanceled
@@ -247,10 +250,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneSuggestionsRequest : aliased constant Windows.IID := (2175863580, 58721, 16531, (155, 77, 42, 212, 130, 121, 74, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneSuggestionsRequestedEventArgs : aliased constant Windows.IID := (3365636655, 44118, 17504, (141, 47, 128, 2, 59, 236, 79, 197 ));
+   
    type ISearchPaneSuggestionsRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -259,10 +262,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneSuggestionsRequestedEventArgs : aliased constant Windows.IID := (3365636655, 44118, 17504, (141, 47, 128, 2, 59, 236, 79, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneStatics : aliased constant Windows.IID := (2507320817, 36637, 18463, (161, 91, 198, 22, 85, 241, 106, 14 ));
+   
    type ISearchPaneStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -271,10 +274,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchPane
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneStatics : aliased constant Windows.IID := (2507320817, 36637, 18463, (161, 91, 198, 22, 85, 241, 106, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneStaticsWithHideThisApplication : aliased constant Windows.IID := (7546928, 20721, 19715, (153, 172, 198, 100, 76, 142, 216, 181 ));
+   
    type ISearchPaneStaticsWithHideThisApplication_Interface is interface and Windows.IInspectable_Interface;
    
    function HideThisApplication
@@ -282,10 +285,10 @@ package Windows.ApplicationModel.Search is
       This       : access ISearchPaneStaticsWithHideThisApplication_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneStaticsWithHideThisApplication : aliased constant Windows.IID := (7546928, 20721, 19715, (153, 172, 198, 100, 76, 142, 216, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPane : aliased constant Windows.IID := (4255968312, 14080, 19827, (145, 161, 47, 153, 134, 116, 35, 138 ));
+   
    type ISearchPane_Interface is interface and Windows.IInspectable_Interface;
    
    function put_SearchHistoryEnabled
@@ -467,10 +470,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPane : aliased constant Windows.IID := (4255968312, 14080, 19827, (145, 161, 47, 153, 134, 116, 35, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchPaneQueryLinguisticDetails : aliased constant Windows.IID := (2197505550, 2368, 19309, (184, 208, 100, 43, 48, 152, 158, 21 ));
+   
    type ISearchPaneQueryLinguisticDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_QueryTextAlternatives
@@ -493,10 +496,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchPaneQueryLinguisticDetails : aliased constant Windows.IID := (2197505550, 2368, 19309, (184, 208, 100, 43, 48, 152, 158, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchSuggestionCollection : aliased constant Windows.IID := (842697291, 64490, 17478, (171, 188, 61, 167, 145, 95, 221, 58 ));
+   
    type ISearchSuggestionCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Size
@@ -537,10 +540,10 @@ package Windows.ApplicationModel.Search is
       ; label : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchSuggestionCollection : aliased constant Windows.IID := (842697291, 64490, 17478, (171, 188, 61, 167, 145, 95, 221, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILocalContentSuggestionSettings : aliased constant Windows.IID := (4004425826, 29757, 17774, (132, 163, 35, 240, 111, 45, 21, 215 ));
+   
    type ILocalContentSuggestionSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Enabled
@@ -584,10 +587,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILocalContentSuggestionSettings : aliased constant Windows.IID := (4004425826, 29757, 17774, (132, 163, 35, 240, 111, 45, 21, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchQueryLinguisticDetailsFactory : aliased constant Windows.IID := (3402023864, 15460, 19965, (173, 159, 71, 158, 77, 64, 101, 164 ));
+   
    type ISearchQueryLinguisticDetailsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -599,10 +602,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchQueryLinguisticDetails
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchQueryLinguisticDetailsFactory : aliased constant Windows.IID := (3402023864, 15460, 19965, (173, 159, 71, 158, 77, 64, 101, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchQueryLinguisticDetails : aliased constant Windows.IID := (1184964699, 27081, 18245, (183, 47, 168, 164, 252, 143, 36, 174 ));
+   
    type ISearchQueryLinguisticDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_QueryTextAlternatives
@@ -625,10 +628,10 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchQueryLinguisticDetails : aliased constant Windows.IID := (1184964699, 27081, 18245, (183, 47, 168, 164, 252, 143, 36, 174 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchSuggestionsRequestDeferral : aliased constant Windows.IID := (3071645865, 49253, 17773, (168, 69, 30, 204, 236, 93, 194, 139 ));
+   
    type ISearchSuggestionsRequestDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -636,10 +639,10 @@ package Windows.ApplicationModel.Search is
       This       : access ISearchSuggestionsRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchSuggestionsRequestDeferral : aliased constant Windows.IID := (3071645865, 49253, 17773, (168, 69, 30, 204, 236, 93, 194, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISearchSuggestionsRequest : aliased constant Windows.IID := (1313744551, 17637, 16441, (144, 153, 96, 0, 234, 209, 240, 198 ));
+   
    type ISearchSuggestionsRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsCanceled
@@ -662,17 +665,15 @@ package Windows.ApplicationModel.Search is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchSuggestionsRequestDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISearchSuggestionsRequest : aliased constant Windows.IID := (1313744551, 17637, 16441, (144, 153, 96, 0, 234, 209, 240, 198 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISearchPane_add_VisibilityChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_VisibilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISearchPane_add_VisibilityChanged : aliased constant Windows.IID := (964034418, 38683, 21686, (155, 95, 204, 68, 46, 42, 135, 240 ));
+   
+   type TypedEventHandler_ISearchPane_add_VisibilityChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISearchPane_add_VisibilityChanged'access) with null record;
    
    function Invoke
    (
@@ -682,12 +683,11 @@ package Windows.ApplicationModel.Search is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISearchPane_add_VisibilityChanged : aliased constant Windows.IID := (964034418, 38683, 21686, (155, 95, 204, 68, 46, 42, 135, 240 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISearchPane_add_QueryChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_QueryChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISearchPane_add_QueryChanged : aliased constant Windows.IID := (2093841825, 34663, 24303, (151, 45, 49, 208, 159, 27, 243, 8 ));
+   
+   type TypedEventHandler_ISearchPane_add_QueryChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISearchPane_add_QueryChanged'access) with null record;
    
    function Invoke
    (
@@ -697,12 +697,11 @@ package Windows.ApplicationModel.Search is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISearchPane_add_QueryChanged : aliased constant Windows.IID := (2093841825, 34663, 24303, (151, 45, 49, 208, 159, 27, 243, 8 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISearchPane_add_SuggestionsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_SuggestionsRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISearchPane_add_SuggestionsRequested : aliased constant Windows.IID := (2500365760, 27668, 21944, (138, 143, 157, 241, 202, 68, 209, 212 ));
+   
+   type TypedEventHandler_ISearchPane_add_SuggestionsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISearchPane_add_SuggestionsRequested'access) with null record;
    
    function Invoke
    (
@@ -712,12 +711,11 @@ package Windows.ApplicationModel.Search is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISearchPane_add_SuggestionsRequested : aliased constant Windows.IID := (2500365760, 27668, 21944, (138, 143, 157, 241, 202, 68, 209, 212 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISearchPane_add_QuerySubmitted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneQuerySubmittedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_QuerySubmitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISearchPane_add_QuerySubmitted : aliased constant Windows.IID := (1594167835, 24998, 24427, (176, 7, 32, 129, 109, 254, 112, 9 ));
+   
+   type TypedEventHandler_ISearchPane_add_QuerySubmitted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneQuerySubmittedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISearchPane_add_QuerySubmitted'access) with null record;
    
    function Invoke
    (
@@ -727,12 +725,11 @@ package Windows.ApplicationModel.Search is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISearchPane_add_QuerySubmitted : aliased constant Windows.IID := (1594167835, 24998, 24427, (176, 7, 32, 129, 109, 254, 112, 9 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISearchPane_add_ResultSuggestionChosen_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneResultSuggestionChosenEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISearchPane_add_ResultSuggestionChosen_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISearchPane_add_ResultSuggestionChosen : aliased constant Windows.IID := (3962693076, 15244, 22359, (150, 191, 20, 9, 107, 233, 70, 205 ));
+   
+   type TypedEventHandler_ISearchPane_add_ResultSuggestionChosen_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.ISearchPane ; args : Windows.ApplicationModel.Search.ISearchPaneResultSuggestionChosenEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISearchPane_add_ResultSuggestionChosen'access) with null record;
    
    function Invoke
    (
@@ -741,8 +738,6 @@ package Windows.ApplicationModel.Search is
       ; args : Windows.ApplicationModel.Search.ISearchPaneResultSuggestionChosenEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ISearchPane_add_ResultSuggestionChosen : aliased constant Windows.IID := (3962693076, 15244, 22359, (150, 191, 20, 9, 107, 233, 70, 205 ));
    
    ------------------------------------------------------------------------
    -- Classes

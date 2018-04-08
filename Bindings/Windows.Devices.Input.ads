@@ -141,6 +141,9 @@ package Windows.Devices.Input is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMouseCapabilities : aliased constant Windows.IID := (3164987427, 32217, 19307, (154, 146, 85, 212, 60, 179, 143, 115 ));
+   
    type IMouseCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MousePresent
@@ -177,10 +180,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMouseCapabilities : aliased constant Windows.IID := (3164987427, 32217, 19307, (154, 146, 85, 212, 60, 179, 143, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyboardCapabilities : aliased constant Windows.IID := (977247062, 26520, 19388, (131, 62, 15, 52, 177, 124, 101, 255 ));
+   
    type IKeyboardCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeyboardPresent
@@ -189,10 +192,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyboardCapabilities : aliased constant Windows.IID := (977247062, 26520, 19388, (131, 62, 15, 52, 177, 124, 101, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITouchCapabilities : aliased constant Windows.IID := (551376377, 5105, 18120, (146, 133, 44, 5, 250, 62, 218, 111 ));
+   
    type ITouchCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TouchPresent
@@ -208,10 +211,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITouchCapabilities : aliased constant Windows.IID := (551376377, 5105, 18120, (146, 133, 44, 5, 250, 62, 218, 111 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointerDeviceStatics : aliased constant Windows.IID := (3635976865, 53702, 16750, (189, 141, 87, 144, 145, 77, 197, 99 ));
+   
    type IPointerDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetPointerDevice
@@ -228,10 +231,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.Devices.Input.IVectorView_IPointerDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointerDeviceStatics : aliased constant Windows.IID := (3635976865, 53702, 16750, (189, 141, 87, 144, 145, 77, 197, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointerDevice : aliased constant Windows.IID := (2479471356, 60363, 18046, (130, 198, 39, 111, 234, 227, 107, 90 ));
+   
    type IPointerDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PointerDeviceType
@@ -275,10 +278,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.Devices.Input.IVectorView_PointerDeviceUsage -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointerDevice : aliased constant Windows.IID := (2479471356, 60363, 18046, (130, 198, 39, 111, 234, 227, 107, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointerDevice2 : aliased constant Windows.IID := (4171682464, 50308, 18591, (174, 62, 48, 210, 238, 31, 253, 62 ));
+   
    type IPointerDevice2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxPointersWithZDistance
@@ -287,10 +290,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointerDevice2 : aliased constant Windows.IID := (4171682464, 50308, 18591, (174, 62, 48, 210, 238, 31, 253, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMouseEventArgs : aliased constant Windows.IID := (4129663581, 9044, 19655, (146, 48, 150, 148, 28, 150, 159, 222 ));
+   
    type IMouseEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MouseDelta
@@ -299,10 +302,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.Devices.Input.MouseDelta
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMouseEventArgs : aliased constant Windows.IID := (4129663581, 9044, 19655, (146, 48, 150, 148, 28, 150, 159, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMouseDevice : aliased constant Windows.IID := (2297295960, 62152, 18932, (190, 31, 194, 86, 179, 136, 188, 17 ));
+   
    type IMouseDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function add_MouseMoved
@@ -319,10 +322,10 @@ package Windows.Devices.Input is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMouseDevice : aliased constant Windows.IID := (2297295960, 62152, 18932, (190, 31, 194, 86, 179, 136, 188, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMouseDeviceStatics : aliased constant Windows.IID := (1212846149, 28016, 18907, (142, 104, 70, 255, 189, 23, 211, 141 ));
+   
    type IMouseDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -331,10 +334,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.Devices.Input.IMouseDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMouseDeviceStatics : aliased constant Windows.IID := (1212846149, 28016, 18907, (142, 104, 70, 255, 189, 23, 211, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPointerDevice : aliased constant Windows.IID := (3734266908, 31072, 24525, (171, 232, 214, 186, 96, 158, 247, 211 ));
+   
    type IIterator_IPointerDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -365,10 +368,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPointerDevice : aliased constant Windows.IID := (3734266908, 31072, 24525, (171, 232, 214, 186, 96, 158, 247, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPointerDevice : aliased constant Windows.IID := (2904974892, 33883, 23661, (174, 170, 64, 111, 72, 194, 26, 233 ));
+   
    type IIterable_IPointerDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -377,10 +380,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.Devices.Input.IIterator_IPointerDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPointerDevice : aliased constant Windows.IID := (2904974892, 33883, 23661, (174, 170, 64, 111, 72, 194, 26, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPointerDevice : aliased constant Windows.IID := (3478549745, 38920, 23083, (128, 184, 86, 132, 237, 14, 168, 22 ));
+   
    type IVectorView_IPointerDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -415,10 +418,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPointerDevice : aliased constant Windows.IID := (3478549745, 38920, 23083, (128, 184, 86, 132, 237, 14, 168, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_PointerDeviceUsage : aliased constant Windows.IID := (2595362317, 4591, 24266, (141, 217, 62, 19, 170, 78, 95, 153 ));
+   
    type IIterator_PointerDeviceUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -449,10 +452,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_PointerDeviceUsage : aliased constant Windows.IID := (2595362317, 4591, 24266, (141, 217, 62, 19, 170, 78, 95, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_PointerDeviceUsage : aliased constant Windows.IID := (1496147480, 60075, 23161, (164, 122, 199, 252, 11, 116, 154, 78 ));
+   
    type IIterable_PointerDeviceUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -461,10 +464,10 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.Devices.Input.IIterator_PointerDeviceUsage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_PointerDeviceUsage : aliased constant Windows.IID := (1496147480, 60075, 23161, (164, 122, 199, 252, 11, 116, 154, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_PointerDeviceUsage : aliased constant Windows.IID := (2388274302, 14384, 20693, (146, 186, 49, 99, 200, 156, 187, 208 ));
+   
    type IVectorView_PointerDeviceUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -499,17 +502,15 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_PointerDeviceUsage : aliased constant Windows.IID := (2388274302, 14384, 20693, (146, 186, 49, 99, 200, 156, 187, 208 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMouseDevice_add_MouseMoved_Interface(Callback : access procedure (sender : Windows.Devices.Input.IMouseDevice ; args : Windows.Devices.Input.IMouseEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMouseDevice_add_MouseMoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMouseDevice_add_MouseMoved : aliased constant Windows.IID := (1567810964, 10468, 22677, (163, 75, 234, 145, 15, 112, 253, 187 ));
+   
+   type TypedEventHandler_IMouseDevice_add_MouseMoved_Interface(Callback : access procedure (sender : Windows.Devices.Input.IMouseDevice ; args : Windows.Devices.Input.IMouseEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMouseDevice_add_MouseMoved'access) with null record;
    
    function Invoke
    (
@@ -518,8 +519,6 @@ package Windows.Devices.Input is
       ; args : Windows.Devices.Input.IMouseEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IMouseDevice_add_MouseMoved : aliased constant Windows.IID := (1567810964, 10468, 22677, (163, 75, 234, 145, 15, 112, 253, 187 ));
    
    ------------------------------------------------------------------------
    -- Classes

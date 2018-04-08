@@ -34,15 +34,16 @@ package body Windows.UI.Input.Preview.Injection is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputGamepadInfo'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputGamepadInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInjectedInputKeyboardInfo return Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo is
@@ -50,15 +51,16 @@ package body Windows.UI.Input.Preview.Injection is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputKeyboardInfo'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputKeyboardInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInjectedInputMouseInfo return Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo is
@@ -66,15 +68,16 @@ package body Windows.UI.Input.Preview.Injection is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputMouseInfo'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputMouseInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInjectedInputTouchInfo return Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo is
@@ -82,15 +85,16 @@ package body Windows.UI.Input.Preview.Injection is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputTouchInfo'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputTouchInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInjectedInputPenInfo return Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo is
@@ -98,15 +102,16 @@ package body Windows.UI.Input.Preview.Injection is
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputPenInfo");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputPenInfo'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Input.Preview.Injection.IID_IInjectedInputPenInfo'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

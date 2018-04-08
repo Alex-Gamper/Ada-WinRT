@@ -80,6 +80,9 @@ package Windows.Media.AppBroadcasting is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IAppBroadcastingUI : aliased constant Windows.IID := (3849297807, 61081, 19914, (163, 195, 112, 175, 61, 180, 79, 95 ));
+   
    type IAppBroadcastingUI_Interface is interface and Windows.IInspectable_Interface;
    
    function GetStatus
@@ -94,10 +97,10 @@ package Windows.Media.AppBroadcasting is
       This       : access IAppBroadcastingUI_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppBroadcastingUI : aliased constant Windows.IID := (3849297807, 61081, 19914, (163, 195, 112, 175, 61, 180, 79, 95 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppBroadcastingUIStatics : aliased constant Windows.IID := (1437116317, 9163, 17785, (156, 52, 136, 111, 224, 44, 4, 90 ));
+   
    type IAppBroadcastingUIStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -114,10 +117,10 @@ package Windows.Media.AppBroadcasting is
       ; RetVal : access Windows.Media.AppBroadcasting.IAppBroadcastingUI
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppBroadcastingUIStatics : aliased constant Windows.IID := (1437116317, 9163, 17785, (156, 52, 136, 111, 224, 44, 4, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppBroadcastingMonitor : aliased constant Windows.IID := (16341608, 35079, 18592, (184, 239, 36, 210, 8, 19, 117, 66 ));
+   
    type IAppBroadcastingMonitor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsCurrentAppBroadcasting
@@ -141,10 +144,10 @@ package Windows.Media.AppBroadcasting is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppBroadcastingMonitor : aliased constant Windows.IID := (16341608, 35079, 18592, (184, 239, 36, 210, 8, 19, 117, 66 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppBroadcastingStatus : aliased constant Windows.IID := (304473311, 929, 17144, (139, 128, 201, 34, 140, 217, 207, 46 ));
+   
    type IAppBroadcastingStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanStartBroadcast
@@ -160,10 +163,10 @@ package Windows.Media.AppBroadcasting is
       ; RetVal : access Windows.Media.AppBroadcasting.IAppBroadcastingStatusDetails
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppBroadcastingStatus : aliased constant Windows.IID := (304473311, 929, 17144, (139, 128, 201, 34, 140, 217, 207, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppBroadcastingStatusDetails : aliased constant Windows.IID := (110996900, 46451, 20028, (142, 25, 27, 175, 172, 208, 151, 19 ));
+   
    type IAppBroadcastingStatusDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsAnyAppBroadcasting
@@ -221,17 +224,15 @@ package Windows.Media.AppBroadcasting is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppBroadcastingStatusDetails : aliased constant Windows.IID := (110996900, 46451, 20028, (142, 25, 27, 175, 172, 208, 151, 19 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged_Interface(Callback : access procedure (sender : Windows.Media.AppBroadcasting.IAppBroadcastingMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged : aliased constant Windows.IID := (3697545611, 1273, 20833, (167, 192, 230, 169, 96, 112, 168, 209 ));
+   
+   type TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged_Interface(Callback : access procedure (sender : Windows.Media.AppBroadcasting.IAppBroadcastingMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged'access) with null record;
    
    function Invoke
    (
@@ -240,8 +241,6 @@ package Windows.Media.AppBroadcasting is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged : aliased constant Windows.IID := (3697545611, 1273, 20833, (167, 192, 230, 169, 96, 112, 168, 209 ));
    
    ------------------------------------------------------------------------
    -- Classes

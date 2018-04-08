@@ -138,6 +138,9 @@ package Windows.Devices.I2c is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_II2cConnectionSettingsFactory : aliased constant Windows.IID := (2176157363, 38547, 16817, (162, 67, 222, 212, 246, 230, 105, 38 ));
+   
    type II2cConnectionSettingsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -147,10 +150,10 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.II2cConnectionSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_II2cConnectionSettingsFactory : aliased constant Windows.IID := (2176157363, 38547, 16817, (162, 67, 222, 212, 246, 230, 105, 38 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_II2cConnectionSettings : aliased constant Windows.IID := (4074443527, 43887, 17977, (167, 103, 84, 83, 109, 195, 70, 15 ));
+   
    type II2cConnectionSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SlaveAddress
@@ -194,10 +197,10 @@ package Windows.Devices.I2c is
       ; value : Windows.Devices.I2c.I2cSharingMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_II2cConnectionSettings : aliased constant Windows.IID := (4074443527, 43887, 17977, (167, 103, 84, 83, 109, 195, 70, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_II2cDeviceStatics : aliased constant Windows.IID := (2443394019, 29492, 17682, (150, 188, 251, 174, 148, 89, 245, 246 ));
+   
    type II2cDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -223,10 +226,10 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.IAsyncOperation_II2cDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_II2cDeviceStatics : aliased constant Windows.IID := (2443394019, 29492, 17682, (150, 188, 251, 174, 148, 89, 245, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_II2cController : aliased constant Windows.IID := (3297423794, 34720, 16742, (142, 62, 180, 184, 249, 124, 215, 41 ));
+   
    type II2cController_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDevice
@@ -236,10 +239,10 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.II2cDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_II2cController : aliased constant Windows.IID := (3297423794, 34720, 16742, (142, 62, 180, 184, 249, 124, 215, 41 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_II2cControllerStatics : aliased constant Windows.IID := (1090257765, 24325, 20094, (132, 189, 16, 13, 184, 224, 174, 197 ));
+   
    type II2cControllerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetControllersAsync
@@ -256,10 +259,10 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.IAsyncOperation_II2cController -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_II2cControllerStatics : aliased constant Windows.IID := (1090257765, 24325, 20094, (132, 189, 16, 13, 184, 224, 174, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_II2cDevice : aliased constant Windows.IID := (2251735350, 47557, 20336, (148, 73, 204, 70, 220, 111, 87, 235 ));
+   
    type II2cDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -322,10 +325,10 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.I2cTransferResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_II2cDevice : aliased constant Windows.IID := (2251735350, 47557, 20336, (148, 73, 204, 70, 220, 111, 87, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_II2cDevice : aliased constant Windows.IID := (512392408, 58395, 23105, (130, 177, 128, 5, 80, 18, 174, 0 ));
+   
    type IAsyncOperation_II2cDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -348,10 +351,10 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.II2cDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_II2cDevice : aliased constant Windows.IID := (512392408, 58395, 23105, (130, 177, 128, 5, 80, 18, 174, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_II2cController : aliased constant Windows.IID := (2767920596, 32969, 23137, (174, 141, 200, 167, 175, 192, 50, 117 ));
+   
    type IAsyncOperation_II2cController_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -374,17 +377,15 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.II2cController
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_II2cController : aliased constant Windows.IID := (2767920596, 32969, 23137, (174, 141, 200, 167, 175, 192, 50, 117 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_II2cDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_II2cDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_II2cDevice : aliased constant Windows.IID := (771079018, 24179, 23267, (160, 178, 34, 225, 201, 216, 239, 77 ));
+   
+   type AsyncOperationCompletedHandler_II2cDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_II2cDevice'access) with null record;
    
    function Invoke
    (
@@ -394,12 +395,11 @@ package Windows.Devices.I2c is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_II2cDevice : aliased constant Windows.IID := (771079018, 24179, 23267, (160, 178, 34, 225, 201, 216, 239, 77 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_II2cController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_II2cController_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_II2cController : aliased constant Windows.IID := (1878412146, 42410, 22918, (181, 99, 39, 97, 42, 251, 55, 60 ));
+   
+   type AsyncOperationCompletedHandler_II2cController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_II2cController'access) with null record;
    
    function Invoke
    (
@@ -408,8 +408,6 @@ package Windows.Devices.I2c is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_II2cController : aliased constant Windows.IID := (1878412146, 42410, 22918, (181, 99, 39, 97, 42, 251, 55, 60 ));
    
    ------------------------------------------------------------------------
    -- Classes

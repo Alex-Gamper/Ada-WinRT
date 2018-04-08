@@ -446,6 +446,9 @@ package Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDataUsage : aliased constant Windows.IID := (3242401235, 45382, 19769, (185, 89, 12, 105, 176, 150, 197, 18 ));
+   
    type IDataUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BytesSent
@@ -461,10 +464,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataUsage : aliased constant Windows.IID := (3242401235, 45382, 19769, (185, 89, 12, 105, 176, 150, 197, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataPlanUsage : aliased constant Windows.IID := (3105966381, 15172, 18431, (179, 97, 190, 89, 230, 158, 209, 176 ));
+   
    type IDataPlanUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MegabytesUsed
@@ -480,10 +483,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataPlanUsage : aliased constant Windows.IID := (3105966381, 15172, 18431, (179, 97, 190, 89, 230, 158, 209, 176 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataPlanStatus : aliased constant Windows.IID := (2541390732, 14469, 16627, (136, 81, 66, 205, 43, 213, 104, 187 ));
+   
    type IDataPlanStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DataPlanUsage
@@ -527,10 +530,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataPlanStatus : aliased constant Windows.IID := (2541390732, 14469, 16627, (136, 81, 66, 205, 43, 213, 104, 187 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectionCost : aliased constant Windows.IID := (3134707753, 13334, 19216, (162, 2, 186, 192, 176, 117, 189, 174 ));
+   
    type IConnectionCost_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NetworkCostType
@@ -560,10 +563,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectionCost : aliased constant Windows.IID := (3134707753, 13334, 19216, (162, 2, 186, 192, 176, 117, 189, 174 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectionCost2 : aliased constant Windows.IID := (2383493637, 57865, 17737, (187, 37, 94, 13, 182, 145, 203, 5 ));
+   
    type IConnectionCost2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BackgroundDataUsageRestricted
@@ -572,10 +575,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectionCost2 : aliased constant Windows.IID := (2383493637, 57865, 17737, (187, 37, 94, 13, 182, 145, 203, 5 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INetworkSecuritySettings : aliased constant Windows.IID := (2090892941, 37243, 19295, (184, 77, 40, 247, 165, 172, 84, 2 ));
+   
    type INetworkSecuritySettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NetworkAuthenticationType
@@ -591,10 +594,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.NetworkEncryptionType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INetworkSecuritySettings : aliased constant Windows.IID := (2090892941, 37243, 19295, (184, 77, 40, 247, 165, 172, 84, 2 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectionProfile : aliased constant Windows.IID := (1908020284, 22926, 18896, (132, 235, 143, 235, 174, 220, 193, 149 ));
+   
    type IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProfileName
@@ -664,10 +667,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.INetworkSecuritySettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectionProfile : aliased constant Windows.IID := (1908020284, 22926, 18896, (132, 235, 143, 235, 174, 220, 193, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWlanConnectionProfileDetails : aliased constant Windows.IID := (1444976843, 45914, 19441, (168, 132, 183, 85, 126, 136, 255, 134 ));
+   
    type IWlanConnectionProfileDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function GetConnectedSsid
@@ -676,10 +679,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWlanConnectionProfileDetails : aliased constant Windows.IID := (1444976843, 45914, 19441, (168, 132, 183, 85, 126, 136, 255, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectivityInterval : aliased constant Windows.IID := (1336557567, 26438, 18468, (169, 100, 238, 216, 232, 127, 135, 9 ));
+   
    type IConnectivityInterval_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StartTime
@@ -695,10 +698,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectivityInterval : aliased constant Windows.IID := (1336557567, 26438, 18468, (169, 100, 238, 216, 232, 127, 135, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INetworkUsage : aliased constant Windows.IID := (1239060430, 39301, 18727, (191, 91, 7, 43, 92, 101, 248, 217 ));
+   
    type INetworkUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BytesSent
@@ -721,10 +724,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INetworkUsage : aliased constant Windows.IID := (1239060430, 39301, 18727, (191, 91, 7, 43, 92, 101, 248, 217 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAttributedNetworkUsage : aliased constant Windows.IID := (4150898745, 60578, 17899, (173, 225, 176, 54, 139, 117, 108, 73 ));
+   
    type IAttributedNetworkUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BytesSent
@@ -761,10 +764,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAttributedNetworkUsage : aliased constant Windows.IID := (4150898745, 60578, 17899, (173, 225, 176, 54, 139, 117, 108, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProviderNetworkUsage : aliased constant Windows.IID := (1590074884, 31025, 18632, (184, 243, 70, 48, 15, 164, 39, 40 ));
+   
    type IProviderNetworkUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BytesSent
@@ -787,10 +790,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProviderNetworkUsage : aliased constant Windows.IID := (1590074884, 31025, 18632, (184, 243, 70, 48, 15, 164, 39, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectionProfile2 : aliased constant Windows.IID := (3791933765, 19615, 16396, (145, 80, 126, 199, 214, 226, 136, 138 ));
+   
    type IConnectionProfile2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsWwanConnectionProfile
@@ -862,10 +865,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectionProfile2 : aliased constant Windows.IID := (3791933765, 19615, 16396, (145, 80, 126, 199, 214, 226, 136, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectionProfile3 : aliased constant Windows.IID := (1468802344, 19673, 16737, (128, 69, 32, 28, 253, 91, 17, 92 ));
+   
    type IConnectionProfile3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAttributedNetworkUsageAsync
@@ -877,10 +880,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectionProfile3 : aliased constant Windows.IID := (1468802344, 19673, 16737, (128, 69, 32, 28, 253, 91, 17, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectionProfile4 : aliased constant Windows.IID := (2049786573, 33248, 19174, (171, 237, 171, 156, 161, 62, 183, 20 ));
+   
    type IConnectionProfile4_Interface is interface and Windows.IInspectable_Interface;
    
    function GetProviderNetworkUsageAsync
@@ -892,10 +895,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectionProfile4 : aliased constant Windows.IID := (2049786573, 33248, 19174, (171, 237, 171, 156, 161, 62, 183, 20 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILanIdentifierData : aliased constant Windows.IID := (2806940611, 54841, 17854, (163, 106, 196, 228, 174, 175, 109, 155 ));
+   
    type ILanIdentifierData_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Type
@@ -911,10 +914,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt8 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanIdentifierData : aliased constant Windows.IID := (2806940611, 54841, 17854, (163, 106, 196, 228, 174, 175, 109, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILanIdentifier : aliased constant Windows.IID := (1219122090, 4360, 17734, (166, 203, 154, 116, 218, 75, 123, 160 ));
+   
    type ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InfrastructureId
@@ -937,10 +940,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanIdentifier : aliased constant Windows.IID := (1219122090, 4360, 17734, (166, 203, 154, 116, 218, 75, 123, 160 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INetworkInformationStatics : aliased constant Windows.IID := (1349843025, 38157, 16741, (156, 21, 54, 86, 25, 72, 30, 234 ));
+   
    type INetworkInformationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetConnectionProfiles
@@ -1002,10 +1005,10 @@ package Windows.Networking.Connectivity is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INetworkInformationStatics : aliased constant Windows.IID := (1349843025, 38157, 16741, (156, 21, 54, 86, 25, 72, 30, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectionProfileFilter : aliased constant Windows.IID := (541883592, 48429, 20109, (164, 179, 69, 94, 195, 55, 56, 138 ));
+   
    type IConnectionProfileFilter_Interface is interface and Windows.IInspectable_Interface;
    
    function put_IsConnected
@@ -1077,10 +1080,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Foundation.IReference_Guid -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectionProfileFilter : aliased constant Windows.IID := (541883592, 48429, 20109, (164, 179, 69, 94, 195, 55, 56, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectionProfileFilter2 : aliased constant Windows.IID := (3439759073, 50172, 20397, (157, 220, 89, 63, 170, 75, 120, 133 ));
+   
    type IConnectionProfileFilter2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_IsRoaming
@@ -1131,10 +1134,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectionProfileFilter2 : aliased constant Windows.IID := (3439759073, 50172, 20397, (157, 220, 89, 63, 170, 75, 120, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INetworkInformationStatics2 : aliased constant Windows.IID := (1167912212, 10290, 18870, (186, 110, 226, 101, 240, 71, 134, 168 ));
+   
    type INetworkInformationStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function FindConnectionProfilesAsync
@@ -1144,10 +1147,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INetworkInformationStatics2 : aliased constant Windows.IID := (1167912212, 10290, 18870, (186, 110, 226, 101, 240, 71, 134, 168 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INetworkItem : aliased constant Windows.IID := (29117753, 62944, 17767, (162, 140, 66, 8, 12, 131, 27, 43 ));
+   
    type INetworkItem_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NetworkId
@@ -1163,10 +1166,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.NetworkTypes
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INetworkItem : aliased constant Windows.IID := (29117753, 62944, 17767, (162, 140, 66, 8, 12, 131, 27, 43 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INetworkAdapter : aliased constant Windows.IID := (995372547, 21384, 18796, (168, 163, 175, 253, 57, 174, 194, 230 ));
+   
    type INetworkAdapter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OutboundMaxBitsPerSecond
@@ -1210,10 +1213,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.IAsyncOperation_IConnectionProfile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INetworkAdapter : aliased constant Windows.IID := (995372547, 21384, 18796, (168, 163, 175, 253, 57, 174, 194, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIPInformation : aliased constant Windows.IID := (3629204960, 5007, 18391, (155, 58, 54, 187, 72, 140, 239, 51 ));
+   
    type IIPInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NetworkAdapter
@@ -1229,10 +1232,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Foundation.IReference_UInt8 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIPInformation : aliased constant Windows.IID := (3629204960, 5007, 18391, (155, 58, 54, 187, 72, 140, 239, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProxyConfiguration : aliased constant Windows.IID := (4013580468, 36868, 19926, (183, 216, 179, 229, 2, 244, 170, 208 ));
+   
    type IProxyConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProxyUris
@@ -1248,10 +1251,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProxyConfiguration : aliased constant Windows.IID := (4013580468, 36868, 19926, (183, 216, 179, 229, 2, 244, 170, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectionSession : aliased constant Windows.IID := (4287651148, 63547, 16816, (138, 12, 20, 98, 217, 197, 107, 115 ));
+   
    type IConnectionSession_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ConnectionProfile
@@ -1260,10 +1263,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectionSession : aliased constant Windows.IID := (4287651148, 63547, 16816, (138, 12, 20, 98, 217, 197, 107, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRoutePolicy : aliased constant Windows.IID := (296469676, 4039, 17124, (135, 66, 86, 153, 35, 177, 202, 17 ));
+   
    type IRoutePolicy_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ConnectionProfile
@@ -1286,10 +1289,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.DomainNameType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRoutePolicy : aliased constant Windows.IID := (296469676, 4039, 17124, (135, 66, 86, 153, 35, 177, 202, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRoutePolicyFactory : aliased constant Windows.IID := (906131763, 41358, 19893, (166, 151, 245, 143, 167, 54, 78, 68 ));
+   
    type IRoutePolicyFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateRoutePolicy
@@ -1301,10 +1304,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.IRoutePolicy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRoutePolicyFactory : aliased constant Windows.IID := (906131763, 41358, 19893, (166, 151, 245, 143, 167, 54, 78, 68 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICellularApnContext : aliased constant Windows.IID := (1873095156, 61437, 17730, (154, 178, 112, 91, 191, 148, 148, 58 ));
+   
    type ICellularApnContext_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProviderId
@@ -1390,10 +1393,10 @@ package Windows.Networking.Connectivity is
       ; value : Windows.Networking.Connectivity.CellularApnAuthenticationType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICellularApnContext : aliased constant Windows.IID := (1873095156, 61437, 17730, (154, 178, 112, 91, 191, 148, 148, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectivityManagerStatics : aliased constant Windows.IID := (1361106097, 20401, 18608, (175, 201, 66, 224, 9, 42, 129, 100 ));
+   
    type IConnectivityManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function AcquireConnectionAsync
@@ -1417,10 +1420,10 @@ package Windows.Networking.Connectivity is
       ; routePolicy : Windows.Networking.Connectivity.IRoutePolicy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectivityManagerStatics : aliased constant Windows.IID := (1361106097, 20401, 18608, (175, 201, 66, 224, 9, 42, 129, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INetworkStateChangeEventDetails : aliased constant Windows.IID := (520942387, 55206, 17629, (164, 233, 104, 124, 71, 107, 144, 61 ));
+   
    type INetworkStateChangeEventDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HasNewInternetConnectionProfile
@@ -1464,10 +1467,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INetworkStateChangeEventDetails : aliased constant Windows.IID := (520942387, 55206, 17629, (164, 233, 104, 124, 71, 107, 144, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INetworkStateChangeEventDetails2 : aliased constant Windows.IID := (3594764520, 12499, 20330, (173, 71, 106, 24, 115, 206, 179, 193 ));
+   
    type INetworkStateChangeEventDetails2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HasNewTetheringOperationalState
@@ -1483,10 +1486,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INetworkStateChangeEventDetails2 : aliased constant Windows.IID := (3594764520, 12499, 20330, (173, 71, 106, 24, 115, 206, 179, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWwanConnectionProfileDetails : aliased constant Windows.IID := (239970558, 33631, 19955, (130, 253, 223, 85, 110, 188, 9, 239 ));
+   
    type IWwanConnectionProfileDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HomeProviderId
@@ -1516,10 +1519,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.WwanDataClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWwanConnectionProfileDetails : aliased constant Windows.IID := (239970558, 33631, 19955, (130, 253, 223, 85, 110, 188, 9, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IConnectionProfile : aliased constant Windows.IID := (2307995442, 41099, 23730, (175, 22, 187, 187, 34, 35, 131, 158 ));
+   
    type IIterator_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1550,10 +1553,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IConnectionProfile : aliased constant Windows.IID := (2307995442, 41099, 23730, (175, 22, 187, 187, 34, 35, 131, 158 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IConnectionProfile : aliased constant Windows.IID := (886750969, 34768, 23324, (167, 172, 157, 41, 10, 222, 176, 200 ));
+   
    type IIterable_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1562,10 +1565,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.IIterator_IConnectionProfile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IConnectionProfile : aliased constant Windows.IID := (886750969, 34768, 23324, (167, 172, 157, 41, 10, 222, 176, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IConnectionProfile : aliased constant Windows.IID := (1840362642, 14418, 24056, (162, 157, 105, 68, 0, 47, 88, 212 ));
+   
    type IVectorView_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1600,10 +1603,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IConnectionProfile : aliased constant Windows.IID := (1840362642, 14418, 24056, (162, 157, 105, 68, 0, 47, 88, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ILanIdentifier : aliased constant Windows.IID := (744304510, 52892, 21075, (160, 244, 1, 229, 189, 193, 25, 136 ));
+   
    type IIterator_ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1634,10 +1637,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ILanIdentifier : aliased constant Windows.IID := (744304510, 52892, 21075, (160, 244, 1, 229, 189, 193, 25, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ILanIdentifier : aliased constant Windows.IID := (2899243981, 23954, 23553, (138, 196, 121, 254, 116, 205, 115, 62 ));
+   
    type IIterable_ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1646,10 +1649,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.IIterator_ILanIdentifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ILanIdentifier : aliased constant Windows.IID := (2899243981, 23954, 23553, (138, 196, 121, 254, 116, 205, 115, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ILanIdentifier : aliased constant Windows.IID := (1093165401, 47389, 22326, (173, 139, 225, 111, 207, 138, 206, 208 ));
+   
    type IVectorView_ILanIdentifier_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1684,10 +1687,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ILanIdentifier : aliased constant Windows.IID := (1093165401, 47389, 22326, (173, 139, 225, 111, 207, 138, 206, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IProxyConfiguration : aliased constant Windows.IID := (511070710, 25954, 22983, (154, 243, 135, 86, 99, 110, 238, 226 ));
+   
    type IAsyncOperation_IProxyConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1710,10 +1713,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.IProxyConfiguration
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IProxyConfiguration : aliased constant Windows.IID := (511070710, 25954, 22983, (154, 243, 135, 86, 99, 110, 238, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IConnectionProfile : aliased constant Windows.IID := (1542789578, 35547, 23221, (171, 184, 255, 27, 190, 93, 45, 232 ));
+   
    type IAsyncOperation_IConnectionProfile_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1736,10 +1739,10 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.IConnectionProfile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IConnectionProfile : aliased constant Windows.IID := (1542789578, 35547, 23221, (171, 184, 255, 27, 190, 93, 45, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IConnectionSession : aliased constant Windows.IID := (2499568145, 18178, 23844, (129, 191, 23, 12, 167, 129, 137, 149 ));
+   
    type IAsyncOperation_IConnectionSession_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1762,17 +1765,15 @@ package Windows.Networking.Connectivity is
       ; RetVal : access Windows.Networking.Connectivity.IConnectionSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IConnectionSession : aliased constant Windows.IID := (2499568145, 18178, 23844, (129, 191, 23, 12, 167, 129, 137, 149 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type NetworkStatusChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NetworkStatusChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_NetworkStatusChangedEventHandler : aliased constant Windows.IID := (1908020287, 22926, 18896, (132, 235, 143, 235, 174, 220, 193, 149 ));
+   
+   type NetworkStatusChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_NetworkStatusChangedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -1781,12 +1782,11 @@ package Windows.Networking.Connectivity is
    )
    return Windows.HRESULT;
    
-   IID_NetworkStatusChangedEventHandler : aliased constant Windows.IID := (1908020287, 22926, 18896, (132, 235, 143, 235, 174, 220, 193, 149 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IProxyConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProxyConfiguration_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IProxyConfiguration : aliased constant Windows.IID := (56304999, 61369, 23491, (182, 9, 249, 168, 194, 11, 112, 1 ));
+   
+   type AsyncOperationCompletedHandler_IProxyConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IProxyConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IProxyConfiguration'access) with null record;
    
    function Invoke
    (
@@ -1796,12 +1796,11 @@ package Windows.Networking.Connectivity is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IProxyConfiguration : aliased constant Windows.IID := (56304999, 61369, 23491, (182, 9, 249, 168, 194, 11, 112, 1 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IConnectionProfile_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IConnectionProfile ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IConnectionProfile_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IConnectionProfile : aliased constant Windows.IID := (3840985450, 1393, 23028, (169, 169, 175, 172, 62, 97, 202, 160 ));
+   
+   type AsyncOperationCompletedHandler_IConnectionProfile_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IConnectionProfile ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IConnectionProfile'access) with null record;
    
    function Invoke
    (
@@ -1811,12 +1810,11 @@ package Windows.Networking.Connectivity is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IConnectionProfile : aliased constant Windows.IID := (3840985450, 1393, 23028, (169, 169, 175, 172, 62, 97, 202, 160 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IConnectionSession_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IConnectionSession_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IConnectionSession : aliased constant Windows.IID := (1002864856, 40579, 20614, (143, 73, 122, 41, 191, 177, 199, 225 ));
+   
+   type AsyncOperationCompletedHandler_IConnectionSession_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IConnectionSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IConnectionSession'access) with null record;
    
    function Invoke
    (
@@ -1825,8 +1823,6 @@ package Windows.Networking.Connectivity is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IConnectionSession : aliased constant Windows.IID := (1002864856, 40579, 20614, (143, 73, 122, 41, 191, 177, 199, 225 ));
    
    ------------------------------------------------------------------------
    -- Classes

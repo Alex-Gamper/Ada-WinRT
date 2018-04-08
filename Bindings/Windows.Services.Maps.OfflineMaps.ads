@@ -142,6 +142,9 @@ package Windows.Services.Maps.OfflineMaps is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IOfflineMapPackageQueryResult : aliased constant Windows.IID := (1431852049, 14817, 20033, (164, 225, 95, 72, 114, 190, 225, 153 ));
+   
    type IOfflineMapPackageQueryResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -157,10 +160,10 @@ package Windows.Services.Maps.OfflineMaps is
       ; RetVal : access Windows.Services.Maps.OfflineMaps.IVectorView_IOfflineMapPackage -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOfflineMapPackageQueryResult : aliased constant Windows.IID := (1431852049, 14817, 20033, (164, 225, 95, 72, 114, 190, 225, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOfflineMapPackageStartDownloadResult : aliased constant Windows.IID := (3647322392, 54486, 19198, (147, 120, 62, 199, 30, 241, 28, 61 ));
+   
    type IOfflineMapPackageStartDownloadResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -169,10 +172,10 @@ package Windows.Services.Maps.OfflineMaps is
       ; RetVal : access Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOfflineMapPackageStartDownloadResult : aliased constant Windows.IID := (3647322392, 54486, 19198, (147, 120, 62, 199, 30, 241, 28, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOfflineMapPackage : aliased constant Windows.IID := (2811717435, 42421, 16708, (181, 37, 230, 140, 136, 98, 102, 75 ));
+   
    type IOfflineMapPackage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -224,10 +227,10 @@ package Windows.Services.Maps.OfflineMaps is
       ; RetVal : access Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageStartDownloadResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOfflineMapPackage : aliased constant Windows.IID := (2811717435, 42421, 16708, (181, 37, 230, 140, 136, 98, 102, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOfflineMapPackageStatics : aliased constant Windows.IID := (408844578, 43057, 19120, (148, 31, 105, 152, 250, 146, 146, 133 ));
+   
    type IOfflineMapPackageStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FindPackagesAsync
@@ -253,10 +256,10 @@ package Windows.Services.Maps.OfflineMaps is
       ; RetVal : access Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageQueryResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOfflineMapPackageStatics : aliased constant Windows.IID := (408844578, 43057, 19120, (148, 31, 105, 152, 250, 146, 146, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IOfflineMapPackage : aliased constant Windows.IID := (1963937079, 14182, 22594, (164, 37, 204, 217, 184, 216, 7, 134 ));
+   
    type IIterator_IOfflineMapPackage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -287,10 +290,10 @@ package Windows.Services.Maps.OfflineMaps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IOfflineMapPackage : aliased constant Windows.IID := (1963937079, 14182, 22594, (164, 37, 204, 217, 184, 216, 7, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IOfflineMapPackage : aliased constant Windows.IID := (1965172860, 2802, 22636, (187, 63, 69, 124, 7, 152, 74, 111 ));
+   
    type IIterable_IOfflineMapPackage_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -299,10 +302,10 @@ package Windows.Services.Maps.OfflineMaps is
       ; RetVal : access Windows.Services.Maps.OfflineMaps.IIterator_IOfflineMapPackage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IOfflineMapPackage : aliased constant Windows.IID := (1965172860, 2802, 22636, (187, 63, 69, 124, 7, 152, 74, 111 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IOfflineMapPackage : aliased constant Windows.IID := (623045570, 48543, 21787, (185, 14, 108, 40, 21, 41, 88, 160 ));
+   
    type IVectorView_IOfflineMapPackage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -337,10 +340,10 @@ package Windows.Services.Maps.OfflineMaps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IOfflineMapPackage : aliased constant Windows.IID := (623045570, 48543, 21787, (185, 14, 108, 40, 21, 41, 88, 160 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IOfflineMapPackageStartDownloadResult : aliased constant Windows.IID := (2433905399, 62890, 21395, (148, 161, 233, 106, 223, 173, 61, 164 ));
+   
    type IAsyncOperation_IOfflineMapPackageStartDownloadResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -363,10 +366,10 @@ package Windows.Services.Maps.OfflineMaps is
       ; RetVal : access Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStartDownloadResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IOfflineMapPackageStartDownloadResult : aliased constant Windows.IID := (2433905399, 62890, 21395, (148, 161, 233, 106, 223, 173, 61, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IOfflineMapPackageQueryResult : aliased constant Windows.IID := (3222955581, 28059, 21381, (174, 104, 10, 101, 169, 84, 69, 20 ));
+   
    type IAsyncOperation_IOfflineMapPackageQueryResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -389,17 +392,15 @@ package Windows.Services.Maps.OfflineMaps is
       ; RetVal : access Windows.Services.Maps.OfflineMaps.IOfflineMapPackageQueryResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IOfflineMapPackageQueryResult : aliased constant Windows.IID := (3222955581, 28059, 21381, (174, 104, 10, 101, 169, 84, 69, 20 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IOfflineMapPackage_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Services.Maps.OfflineMaps.IOfflineMapPackage ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IOfflineMapPackage_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IOfflineMapPackage_add_StatusChanged : aliased constant Windows.IID := (757992736, 33391, 22028, (177, 193, 180, 189, 111, 191, 50, 154 ));
+   
+   type TypedEventHandler_IOfflineMapPackage_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Services.Maps.OfflineMaps.IOfflineMapPackage ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IOfflineMapPackage_add_StatusChanged'access) with null record;
    
    function Invoke
    (
@@ -409,12 +410,11 @@ package Windows.Services.Maps.OfflineMaps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IOfflineMapPackage_add_StatusChanged : aliased constant Windows.IID := (757992736, 33391, 22028, (177, 193, 180, 189, 111, 191, 50, 154 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IOfflineMapPackageStartDownloadResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageStartDownloadResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOfflineMapPackageStartDownloadResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IOfflineMapPackageStartDownloadResult : aliased constant Windows.IID := (2253694878, 50479, 24472, (175, 10, 82, 36, 102, 194, 114, 70 ));
+   
+   type AsyncOperationCompletedHandler_IOfflineMapPackageStartDownloadResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageStartDownloadResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IOfflineMapPackageStartDownloadResult'access) with null record;
    
    function Invoke
    (
@@ -424,12 +424,11 @@ package Windows.Services.Maps.OfflineMaps is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IOfflineMapPackageStartDownloadResult : aliased constant Windows.IID := (2253694878, 50479, 24472, (175, 10, 82, 36, 102, 194, 114, 70 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageQueryResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult : aliased constant Windows.IID := (2320364489, 9621, 23532, (139, 161, 193, 217, 85, 241, 104, 192 ));
+   
+   type AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageQueryResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult'access) with null record;
    
    function Invoke
    (
@@ -438,8 +437,6 @@ package Windows.Services.Maps.OfflineMaps is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IOfflineMapPackageQueryResult : aliased constant Windows.IID := (2320364489, 9621, 23532, (139, 161, 193, 217, 85, 241, 104, 192 ));
    
    ------------------------------------------------------------------------
    -- Classes

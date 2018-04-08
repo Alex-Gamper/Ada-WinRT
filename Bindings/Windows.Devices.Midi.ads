@@ -214,6 +214,9 @@ package Windows.Devices.Midi is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMidiMessage : aliased constant Windows.IID := (2037807429, 4244, 17027, (155, 224, 40, 159, 192, 238, 131, 52 ));
+   
    type IMidiMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -236,10 +239,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.MidiMessageType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiMessage : aliased constant Windows.IID := (2037807429, 4244, 17027, (155, 224, 40, 159, 192, 238, 131, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiNoteOffMessage : aliased constant Windows.IID := (385714932, 6542, 19855, (166, 84, 211, 5, 162, 147, 84, 143 ));
+   
    type IMidiNoteOffMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Channel
@@ -262,10 +265,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiNoteOffMessage : aliased constant Windows.IID := (385714932, 6542, 19855, (166, 84, 211, 5, 162, 147, 84, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiNoteOnMessage : aliased constant Windows.IID := (3760343797, 24961, 18141, (175, 162, 65, 0, 4, 192, 87, 170 ));
+   
    type IMidiNoteOnMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Channel
@@ -288,10 +291,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiNoteOnMessage : aliased constant Windows.IID := (3760343797, 24961, 18141, (175, 162, 65, 0, 4, 192, 87, 170 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiPolyphonicKeyPressureMessage : aliased constant Windows.IID := (527644670, 44264, 18592, (134, 142, 124, 219, 242, 15, 4, 214 ));
+   
    type IMidiPolyphonicKeyPressureMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Channel
@@ -314,10 +317,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiPolyphonicKeyPressureMessage : aliased constant Windows.IID := (527644670, 44264, 18592, (134, 142, 124, 219, 242, 15, 4, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiControlChangeMessage : aliased constant Windows.IID := (3085000579, 30733, 16479, (183, 129, 62, 21, 152, 201, 127, 64 ));
+   
    type IMidiControlChangeMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Channel
@@ -340,10 +343,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiControlChangeMessage : aliased constant Windows.IID := (3085000579, 30733, 16479, (183, 129, 62, 21, 152, 201, 127, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiProgramChangeMessage : aliased constant Windows.IID := (2629516408, 31294, 17191, (170, 152, 32, 184, 228, 72, 90, 248 ));
+   
    type IMidiProgramChangeMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Channel
@@ -359,10 +362,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiProgramChangeMessage : aliased constant Windows.IID := (2629516408, 31294, 17191, (170, 152, 32, 184, 228, 72, 90, 248 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiChannelPressureMessage : aliased constant Windows.IID := (3189745760, 25268, 19794, (163, 126, 146, 229, 77, 53, 185, 9 ));
+   
    type IMidiChannelPressureMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Channel
@@ -378,10 +381,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiChannelPressureMessage : aliased constant Windows.IID := (3189745760, 25268, 19794, (163, 126, 146, 229, 77, 53, 185, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiPitchBendChangeMessage : aliased constant Windows.IID := (702500017, 11935, 20399, (140, 43, 156, 184, 42, 144, 121, 202 ));
+   
    type IMidiPitchBendChangeMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Channel
@@ -397,10 +400,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiPitchBendChangeMessage : aliased constant Windows.IID := (702500017, 11935, 20399, (140, 43, 156, 184, 42, 144, 121, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiTimeCodeMessage : aliased constant Windows.IID := (200738941, 64099, 18972, (141, 235, 192, 232, 119, 150, 166, 215 ));
+   
    type IMidiTimeCodeMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FrameType
@@ -416,10 +419,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiTimeCodeMessage : aliased constant Windows.IID := (200738941, 64099, 18972, (141, 235, 192, 232, 119, 150, 166, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiSongPositionPointerMessage : aliased constant Windows.IID := (1285885014, 60510, 19172, (161, 21, 136, 220, 87, 204, 43, 121 ));
+   
    type IMidiSongPositionPointerMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Beats
@@ -428,10 +431,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiSongPositionPointerMessage : aliased constant Windows.IID := (1285885014, 60510, 19172, (161, 21, 136, 220, 87, 204, 43, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiSongSelectMessage : aliased constant Windows.IID := (1240527487, 28035, 18241, (165, 191, 70, 41, 246, 190, 151, 79 ));
+   
    type IMidiSongSelectMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Song
@@ -440,10 +443,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiSongSelectMessage : aliased constant Windows.IID := (1240527487, 28035, 18241, (165, 191, 70, 41, 246, 190, 151, 79 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiNoteOffMessageFactory : aliased constant Windows.IID := (2796699872, 42825, 16991, (138, 244, 164, 217, 121, 204, 21, 181 ));
+   
    type IMidiNoteOffMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiNoteOffMessage
@@ -455,10 +458,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiNoteOffMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiNoteOffMessageFactory : aliased constant Windows.IID := (2796699872, 42825, 16991, (138, 244, 164, 217, 121, 204, 21, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiNoteOnMessageFactory : aliased constant Windows.IID := (2604826784, 22977, 16910, (181, 23, 21, 161, 10, 169, 96, 107 ));
+   
    type IMidiNoteOnMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiNoteOnMessage
@@ -470,10 +473,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiNoteOnMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiNoteOnMessageFactory : aliased constant Windows.IID := (2604826784, 22977, 16910, (181, 23, 21, 161, 10, 169, 96, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiPolyphonicKeyPressureMessageFactory : aliased constant Windows.IID := (3918481470, 50355, 19922, (145, 124, 227, 73, 129, 90, 27, 59 ));
+   
    type IMidiPolyphonicKeyPressureMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiPolyphonicKeyPressureMessage
@@ -485,10 +488,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiPolyphonicKeyPressureMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiPolyphonicKeyPressureMessageFactory : aliased constant Windows.IID := (3918481470, 50355, 19922, (145, 124, 227, 73, 129, 90, 27, 59 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiControlChangeMessageFactory : aliased constant Windows.IID := (716260129, 38252, 18093, (151, 82, 248, 127, 85, 5, 47, 227 ));
+   
    type IMidiControlChangeMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiControlChangeMessage
@@ -500,10 +503,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiControlChangeMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiControlChangeMessageFactory : aliased constant Windows.IID := (716260129, 38252, 18093, (151, 82, 248, 127, 85, 5, 47, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiProgramChangeMessageFactory : aliased constant Windows.IID := (3601875847, 21067, 16644, (156, 153, 101, 114, 191, 210, 226, 97 ));
+   
    type IMidiProgramChangeMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiProgramChangeMessage
@@ -514,10 +517,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiProgramChangeMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiProgramChangeMessageFactory : aliased constant Windows.IID := (3601875847, 21067, 16644, (156, 153, 101, 114, 191, 210, 226, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiChannelPressureMessageFactory : aliased constant Windows.IID := (1645800751, 8836, 16682, (148, 207, 16, 251, 4, 132, 44, 108 ));
+   
    type IMidiChannelPressureMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiChannelPressureMessage
@@ -528,10 +531,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiChannelPressureMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiChannelPressureMessageFactory : aliased constant Windows.IID := (1645800751, 8836, 16682, (148, 207, 16, 251, 4, 132, 44, 108 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiPitchBendChangeMessageFactory : aliased constant Windows.IID := (4126072661, 53192, 18726, (179, 14, 163, 98, 35, 147, 48, 108 ));
+   
    type IMidiPitchBendChangeMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiPitchBendChangeMessage
@@ -542,10 +545,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiPitchBendChangeMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiPitchBendChangeMessageFactory : aliased constant Windows.IID := (4126072661, 53192, 18726, (179, 14, 163, 98, 35, 147, 48, 108 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiSystemExclusiveMessageFactory : aliased constant Windows.IID := (138273314, 15220, 17184, (155, 66, 12, 168, 84, 95, 138, 36 ));
+   
    type IMidiSystemExclusiveMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiSystemExclusiveMessage
@@ -555,10 +558,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiSystemExclusiveMessageFactory : aliased constant Windows.IID := (138273314, 15220, 17184, (155, 66, 12, 168, 84, 95, 138, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiTimeCodeMessageFactory : aliased constant Windows.IID := (3945830853, 30492, 16606, (185, 97, 23, 90, 116, 137, 168, 94 ));
+   
    type IMidiTimeCodeMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiTimeCodeMessage
@@ -569,10 +572,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiTimeCodeMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiTimeCodeMessageFactory : aliased constant Windows.IID := (3945830853, 30492, 16606, (185, 97, 23, 90, 116, 137, 168, 94 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiSongPositionPointerMessageFactory : aliased constant Windows.IID := (2617305494, 61707, 20458, (179, 149, 245, 214, 207, 128, 246, 78 ));
+   
    type IMidiSongPositionPointerMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiSongPositionPointerMessage
@@ -582,10 +585,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiSongPositionPointerMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiSongPositionPointerMessageFactory : aliased constant Windows.IID := (2617305494, 61707, 20458, (179, 149, 245, 214, 207, 128, 246, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiSongSelectMessageFactory : aliased constant Windows.IID := (2223536356, 34632, 16681, (166, 108, 160, 84, 147, 247, 93, 170 ));
+   
    type IMidiSongSelectMessageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMidiSongSelectMessage
@@ -595,10 +598,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiSongSelectMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiSongSelectMessageFactory : aliased constant Windows.IID := (2223536356, 34632, 16681, (166, 108, 160, 84, 147, 247, 93, 170 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiMessageReceivedEventArgs : aliased constant Windows.IID := (1985375830, 62248, 19281, (144, 125, 179, 168, 206, 150, 191, 128 ));
+   
    type IMidiMessageReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Message
@@ -607,10 +610,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiMessageReceivedEventArgs : aliased constant Windows.IID := (1985375830, 62248, 19281, (144, 125, 179, 168, 206, 150, 191, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiInPortStatics : aliased constant Windows.IID := (1153710556, 26623, 19054, (139, 172, 253, 182, 97, 12, 242, 150 ));
+   
    type IMidiInPortStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdAsync
@@ -627,10 +630,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiInPortStatics : aliased constant Windows.IID := (1153710556, 26623, 19054, (139, 172, 253, 182, 97, 12, 242, 150 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiOutPortStatics : aliased constant Windows.IID := (106742761, 3976, 17547, (155, 100, 169, 88, 38, 198, 91, 143 ));
+   
    type IMidiOutPortStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdAsync
@@ -647,10 +650,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiOutPortStatics : aliased constant Windows.IID := (106742761, 3976, 17547, (155, 100, 169, 88, 38, 198, 91, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiOutPort : aliased constant Windows.IID := (2468179359, 22434, 19002, (173, 184, 70, 64, 136, 111, 102, 147 ));
+   
    type IMidiOutPort_Interface is interface and Windows.IInspectable_Interface;
    
    function SendMessage
@@ -673,10 +676,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiOutPort : aliased constant Windows.IID := (2468179359, 22434, 19002, (173, 184, 70, 64, 136, 111, 102, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiInPort : aliased constant Windows.IID := (3586251227, 38682, 20143, (162, 61, 234, 25, 254, 96, 127, 249 ));
+   
    type IMidiInPort_Interface is interface and Windows.IInspectable_Interface;
    
    function add_MessageReceived
@@ -700,10 +703,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiInPort : aliased constant Windows.IID := (3586251227, 38682, 20143, (162, 61, 234, 25, 254, 96, 127, 249 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiSynthesizerStatics : aliased constant Windows.IID := (1109715624, 26153, 19819, (170, 143, 212, 82, 26, 90, 49, 206 ));
+   
    type IMidiSynthesizerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAsync
@@ -728,10 +731,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiSynthesizerStatics : aliased constant Windows.IID := (1109715624, 26153, 19819, (170, 143, 212, 82, 26, 90, 49, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMidiSynthesizer : aliased constant Windows.IID := (4040824158, 56208, 16479, (184, 174, 33, 210, 225, 127, 46, 69 ));
+   
    type IMidiSynthesizer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AudioDevice
@@ -754,10 +757,10 @@ package Windows.Devices.Midi is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMidiSynthesizer : aliased constant Windows.IID := (4040824158, 56208, 16479, (184, 174, 33, 210, 225, 127, 46, 69 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMidiInPort : aliased constant Windows.IID := (3429256974, 60849, 21960, (158, 247, 236, 144, 7, 228, 86, 28 ));
+   
    type IAsyncOperation_IMidiInPort_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -780,10 +783,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiInPort
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMidiInPort : aliased constant Windows.IID := (3429256974, 60849, 21960, (158, 247, 236, 144, 7, 228, 86, 28 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMidiOutPort : aliased constant Windows.IID := (845781581, 7360, 23068, (157, 166, 135, 81, 151, 135, 80, 134 ));
+   
    type IAsyncOperation_IMidiOutPort_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -806,10 +809,10 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiOutPort
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMidiOutPort : aliased constant Windows.IID := (845781581, 7360, 23068, (157, 166, 135, 81, 151, 135, 80, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMidiSynthesizer : aliased constant Windows.IID := (2475211128, 5105, 24119, (129, 51, 148, 67, 13, 144, 221, 80 ));
+   
    type IAsyncOperation_IMidiSynthesizer_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -832,17 +835,15 @@ package Windows.Devices.Midi is
       ; RetVal : access Windows.Devices.Midi.IMidiSynthesizer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMidiSynthesizer : aliased constant Windows.IID := (2475211128, 5105, 24119, (129, 51, 148, 67, 13, 144, 221, 80 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMidiInPort_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiInPort ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMidiInPort_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMidiInPort : aliased constant Windows.IID := (1812533170, 32921, 21903, (138, 146, 154, 142, 168, 6, 230, 251 ));
+   
+   type AsyncOperationCompletedHandler_IMidiInPort_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiInPort ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMidiInPort'access) with null record;
    
    function Invoke
    (
@@ -852,12 +853,11 @@ package Windows.Devices.Midi is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMidiInPort : aliased constant Windows.IID := (1812533170, 32921, 21903, (138, 146, 154, 142, 168, 6, 230, 251 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMidiOutPort_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiOutPort ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMidiOutPort_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMidiOutPort : aliased constant Windows.IID := (4006836229, 10825, 22964, (180, 212, 17, 136, 198, 129, 145, 34 ));
+   
+   type AsyncOperationCompletedHandler_IMidiOutPort_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiOutPort ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMidiOutPort'access) with null record;
    
    function Invoke
    (
@@ -867,12 +867,11 @@ package Windows.Devices.Midi is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMidiOutPort : aliased constant Windows.IID := (4006836229, 10825, 22964, (180, 212, 17, 136, 198, 129, 145, 34 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMidiInPort_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Devices.Midi.IMidiInPort ; args : Windows.Devices.Midi.IMidiMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMidiInPort_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMidiInPort_add_MessageReceived : aliased constant Windows.IID := (1342272064, 52281, 22389, (138, 107, 246, 242, 35, 134, 191, 202 ));
+   
+   type TypedEventHandler_IMidiInPort_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Devices.Midi.IMidiInPort ; args : Windows.Devices.Midi.IMidiMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMidiInPort_add_MessageReceived'access) with null record;
    
    function Invoke
    (
@@ -882,12 +881,11 @@ package Windows.Devices.Midi is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMidiInPort_add_MessageReceived : aliased constant Windows.IID := (1342272064, 52281, 22389, (138, 107, 246, 242, 35, 134, 191, 202 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMidiSynthesizer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiSynthesizer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMidiSynthesizer_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMidiSynthesizer : aliased constant Windows.IID := (1567712053, 53383, 20847, (173, 10, 99, 246, 28, 188, 243, 66 ));
+   
+   type AsyncOperationCompletedHandler_IMidiSynthesizer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Midi.IAsyncOperation_IMidiSynthesizer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMidiSynthesizer'access) with null record;
    
    function Invoke
    (
@@ -896,8 +894,6 @@ package Windows.Devices.Midi is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IMidiSynthesizer : aliased constant Windows.IID := (1567712053, 53383, 20847, (173, 10, 99, 246, 28, 188, 243, 66 ));
    
    ------------------------------------------------------------------------
    -- Classes

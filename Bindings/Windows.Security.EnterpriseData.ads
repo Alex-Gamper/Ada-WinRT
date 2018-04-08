@@ -328,6 +328,9 @@ package Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IFileRevocationManagerStatics : aliased constant Windows.IID := (627817533, 7261, 16992, (140, 117, 145, 68, 207, 183, 139, 169 ));
+   
    type IFileRevocationManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ProtectAsync
@@ -362,10 +365,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileRevocationManagerStatics : aliased constant Windows.IID := (627817533, 7261, 16992, (140, 117, 145, 68, 207, 183, 139, 169 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileProtectionManagerStatics : aliased constant Windows.IID := (1481047195, 58899, 17003, (187, 56, 136, 203, 161, 220, 154, 219 ));
+   
    type IFileProtectionManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ProtectAsync
@@ -429,10 +432,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileProtectionManagerStatics : aliased constant Windows.IID := (1481047195, 58899, 17003, (187, 56, 136, 203, 161, 220, 154, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileProtectionManagerStatics2 : aliased constant Windows.IID := (2211620677, 1155, 16811, (178, 213, 188, 127, 35, 215, 78, 187 ));
+   
    type IFileProtectionManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function IsContainerAsync
@@ -461,10 +464,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileProtectionManagerStatics2 : aliased constant Windows.IID := (2211620677, 1155, 16811, (178, 213, 188, 127, 35, 215, 78, 187 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileUnprotectOptionsFactory : aliased constant Windows.IID := (1370403740, 55948, 19519, (155, 251, 203, 115, 167, 204, 224, 221 ));
+   
    type IFileUnprotectOptionsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -474,10 +477,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IFileUnprotectOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileUnprotectOptionsFactory : aliased constant Windows.IID := (1370403740, 55948, 19519, (155, 251, 203, 115, 167, 204, 224, 221 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileUnprotectOptions : aliased constant Windows.IID := (2098402033, 15117, 19928, (161, 248, 30, 197, 56, 34, 226, 243 ));
+   
    type IFileUnprotectOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Audit
@@ -493,10 +496,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileUnprotectOptions : aliased constant Windows.IID := (2098402033, 15117, 19928, (161, 248, 30, 197, 56, 34, 226, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileProtectionManagerStatics3 : aliased constant Windows.IID := (1763214490, 25167, 18134, (178, 65, 233, 205, 95, 223, 62, 63 ));
+   
    type IFileProtectionManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function UnprotectAsync
@@ -515,10 +518,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileProtectionManagerStatics3 : aliased constant Windows.IID := (1763214490, 25167, 18134, (178, 65, 233, 205, 95, 223, 62, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectedFileCreateResult : aliased constant Windows.IID := (686026090, 59879, 18947, (159, 83, 189, 177, 97, 114, 105, 155 ));
+   
    type IProtectedFileCreateResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_File
@@ -541,10 +544,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IFileProtectionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectedFileCreateResult : aliased constant Windows.IID := (686026090, 59879, 18947, (159, 83, 189, 177, 97, 114, 105, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileProtectionInfo : aliased constant Windows.IID := (1323918470, 5246, 19920, (143, 175, 82, 83, 237, 145, 173, 12 ));
+   
    type IFileProtectionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -567,10 +570,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileProtectionInfo : aliased constant Windows.IID := (1323918470, 5246, 19920, (143, 175, 82, 83, 237, 145, 173, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileProtectionInfo2 : aliased constant Windows.IID := (2182232652, 21882, 18829, (142, 148, 148, 76, 213, 131, 100, 50 ));
+   
    type IFileProtectionInfo2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsProtectWhileOpenSupported
@@ -579,10 +582,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileProtectionInfo2 : aliased constant Windows.IID := (2182232652, 21882, 18829, (142, 148, 148, 76, 213, 131, 100, 50 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectedContainerExportResult : aliased constant Windows.IID := (961081237, 63483, 19266, (175, 176, 223, 112, 180, 21, 67, 193 ));
+   
    type IProtectedContainerExportResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -598,10 +601,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectedContainerExportResult : aliased constant Windows.IID := (961081237, 63483, 19266, (175, 176, 223, 112, 180, 21, 67, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectedContainerImportResult : aliased constant Windows.IID := (3451355345, 59323, 19738, (147, 57, 52, 220, 65, 20, 159, 155 ));
+   
    type IProtectedContainerImportResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -617,10 +620,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectedContainerImportResult : aliased constant Windows.IID := (3451355345, 59323, 19738, (147, 57, 52, 220, 65, 20, 159, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataProtectionManagerStatics : aliased constant Windows.IID := (3054803828, 37188, 20196, (138, 138, 48, 181, 243, 97, 67, 14 ));
+   
    type IDataProtectionManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ProtectAsync
@@ -674,10 +677,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataProtectionManagerStatics : aliased constant Windows.IID := (3054803828, 37188, 20196, (138, 138, 48, 181, 243, 97, 67, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataProtectionInfo : aliased constant Windows.IID := (2216734913, 24113, 17413, (149, 64, 63, 148, 58, 240, 203, 38 ));
+   
    type IDataProtectionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -693,10 +696,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataProtectionInfo : aliased constant Windows.IID := (2216734913, 24113, 17413, (149, 64, 63, 148, 58, 240, 203, 38 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBufferProtectUnprotectResult : aliased constant Windows.IID := (1201233628, 27884, 20026, (178, 81, 158, 116, 133, 215, 158, 122 ));
+   
    type IBufferProtectUnprotectResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Buffer
@@ -712,10 +715,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IDataProtectionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBufferProtectUnprotectResult : aliased constant Windows.IID := (1201233628, 27884, 20026, (178, 81, 158, 116, 133, 215, 158, 122 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectionPolicyAuditInfoFactory : aliased constant Windows.IID := (2127829003, 37608, 17109, (131, 212, 37, 68, 11, 66, 53, 73 ));
+   
    type IProtectionPolicyAuditInfoFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -737,10 +740,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectionPolicyAuditInfoFactory : aliased constant Windows.IID := (2127829003, 37608, 17109, (131, 212, 37, 68, 11, 66, 53, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectionPolicyAuditInfo : aliased constant Windows.IID := (1113241572, 65207, 17660, (179, 187, 195, 196, 215, 236, 190, 187 ));
+   
    type IProtectionPolicyAuditInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Action
@@ -798,10 +801,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectionPolicyAuditInfo : aliased constant Windows.IID := (1113241572, 65207, 17660, (179, 187, 195, 196, 215, 236, 190, 187 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectionPolicyManager : aliased constant Windows.IID := (3580902936, 41101, 18406, (162, 64, 153, 52, 215, 22, 94, 181 ));
+   
    type IProtectionPolicyManager_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Identity
@@ -817,10 +820,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectionPolicyManager : aliased constant Windows.IID := (3580902936, 41101, 18406, (162, 64, 153, 52, 215, 22, 94, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectionPolicyManager2 : aliased constant Windows.IID := (2885112442, 33845, 16767, (153, 182, 81, 190, 175, 54, 88, 136 ));
+   
    type IProtectionPolicyManager2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ShowEnterpriseIndicator
@@ -836,10 +839,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectionPolicyManager2 : aliased constant Windows.IID := (2885112442, 33845, 16767, (153, 182, 81, 190, 175, 54, 88, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectionPolicyManagerStatics : aliased constant Windows.IID := (3233807462, 35901, 19798, (136, 4, 198, 143, 10, 211, 46, 197 ));
+   
    type IProtectionPolicyManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function IsIdentityManaged
@@ -956,10 +959,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectionPolicyManagerStatics : aliased constant Windows.IID := (3233807462, 35901, 19798, (136, 4, 198, 143, 10, 211, 46, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectionPolicyManagerStatics2 : aliased constant Windows.IID := (3062864524, 14816, 17993, (178, 228, 7, 10, 184, 165, 121, 179 ));
+   
    type IProtectionPolicyManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function HasContentBeenRevokedSince
@@ -1034,10 +1037,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectionPolicyManagerStatics2 : aliased constant Windows.IID := (3062864524, 14816, 17993, (178, 228, 7, 10, 184, 165, 121, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectionPolicyManagerStatics3 : aliased constant Windows.IID := (1224711820, 27247, 19871, (188, 237, 24, 171, 83, 122, 160, 21 ));
+   
    type IProtectionPolicyManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestAccessWithAuditingInfoAsync
@@ -1090,10 +1093,10 @@ package Windows.Security.EnterpriseData is
       ; auditInfo : Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectionPolicyManagerStatics3 : aliased constant Windows.IID := (1224711820, 27247, 19871, (188, 237, 24, 171, 83, 122, 160, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectionPolicyManagerStatics4 : aliased constant Windows.IID := (548902107, 52413, 18703, (140, 131, 73, 204, 183, 122, 234, 108 ));
+   
    type IProtectionPolicyManagerStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function IsRoamableProtectionEnabled
@@ -1205,15 +1208,15 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectionPolicyManagerStatics4 : aliased constant Windows.IID := (548902107, 52413, 18703, (140, 131, 73, 204, 183, 122, 234, 108 ));
-   
    ------------------------------------------------------------------------
-   type IThreadNetworkContext_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IThreadNetworkContext : aliased constant Windows.IID := (4199459049, 61203, 16474, (177, 44, 215, 52, 140, 111, 65, 252 ));
    
+   type IThreadNetworkContext_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IProtectedAccessSuspendingEventArgs : aliased constant Windows.IID := (1973523424, 41796, 17055, (185, 117, 4, 252, 31, 136, 193, 133 ));
+   
    type IProtectedAccessSuspendingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Identities
@@ -1236,10 +1239,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectedAccessSuspendingEventArgs : aliased constant Windows.IID := (1973523424, 41796, 17055, (185, 117, 4, 252, 31, 136, 193, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectedAccessResumedEventArgs : aliased constant Windows.IID := (2890779225, 23936, 20117, (140, 95, 133, 57, 69, 14, 235, 224 ));
+   
    type IProtectedAccessResumedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Identities
@@ -1248,10 +1251,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectedAccessResumedEventArgs : aliased constant Windows.IID := (2890779225, 23936, 20117, (140, 95, 133, 57, 69, 14, 235, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProtectedContentRevokedEventArgs : aliased constant Windows.IID := (1667786785, 22713, 18414, (147, 217, 240, 247, 65, 207, 67, 240 ));
+   
    type IProtectedContentRevokedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Identities
@@ -1260,10 +1263,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProtectedContentRevokedEventArgs : aliased constant Windows.IID := (1667786785, 22713, 18414, (147, 217, 240, 247, 65, 207, 67, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ProtectionPolicyEvaluationResult : aliased constant Windows.IID := (3906475797, 50540, 23147, (183, 56, 93, 246, 194, 119, 91, 123 ));
+   
    type IAsyncOperation_ProtectionPolicyEvaluationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1286,10 +1289,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ProtectionPolicyEvaluationResult : aliased constant Windows.IID := (3906475797, 50540, 23147, (183, 56, 93, 246, 194, 119, 91, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_FileProtectionStatus : aliased constant Windows.IID := (54460028, 28830, 21416, (142, 100, 205, 171, 107, 209, 237, 89 ));
+   
    type IAsyncOperation_FileProtectionStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1312,10 +1315,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.FileProtectionStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_FileProtectionStatus : aliased constant Windows.IID := (54460028, 28830, 21416, (142, 100, 205, 171, 107, 209, 237, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IFileProtectionInfo : aliased constant Windows.IID := (1742751121, 11537, 20504, (159, 240, 11, 133, 82, 11, 136, 139 ));
+   
    type IAsyncOperation_IFileProtectionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1338,10 +1341,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IFileProtectionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IFileProtectionInfo : aliased constant Windows.IID := (1742751121, 11537, 20504, (159, 240, 11, 133, 82, 11, 136, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IProtectedContainerExportResult : aliased constant Windows.IID := (3382643502, 26541, 20874, (134, 111, 227, 155, 69, 103, 177, 16 ));
+   
    type IAsyncOperation_IProtectedContainerExportResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1364,10 +1367,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IProtectedContainerExportResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IProtectedContainerExportResult : aliased constant Windows.IID := (3382643502, 26541, 20874, (134, 111, 227, 155, 69, 103, 177, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IProtectedContainerImportResult : aliased constant Windows.IID := (944673945, 54417, 21143, (190, 186, 179, 58, 61, 103, 242, 7 ));
+   
    type IAsyncOperation_IProtectedContainerImportResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1390,10 +1393,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IProtectedContainerImportResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IProtectedContainerImportResult : aliased constant Windows.IID := (944673945, 54417, 21143, (190, 186, 179, 58, 61, 103, 242, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IProtectedFileCreateResult : aliased constant Windows.IID := (3623455388, 29582, 20726, (147, 227, 38, 8, 186, 245, 75, 233 ));
+   
    type IAsyncOperation_IProtectedFileCreateResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1416,10 +1419,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IProtectedFileCreateResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IProtectedFileCreateResult : aliased constant Windows.IID := (3623455388, 29582, 20726, (147, 227, 38, 8, 186, 245, 75, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBufferProtectUnprotectResult : aliased constant Windows.IID := (301554222, 11911, 21577, (188, 163, 220, 223, 42, 230, 225, 122 ));
+   
    type IAsyncOperation_IBufferProtectUnprotectResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1442,10 +1445,10 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IBufferProtectUnprotectResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IBufferProtectUnprotectResult : aliased constant Windows.IID := (301554222, 11911, 21577, (188, 163, 220, 223, 42, 230, 225, 122 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IDataProtectionInfo : aliased constant Windows.IID := (3371122454, 56688, 24200, (147, 35, 133, 221, 221, 205, 44, 165 ));
+   
    type IAsyncOperation_IDataProtectionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1468,17 +1471,15 @@ package Windows.Security.EnterpriseData is
       ; RetVal : access Windows.Security.EnterpriseData.IDataProtectionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IDataProtectionInfo : aliased constant Windows.IID := (3371122454, 56688, 24200, (147, 35, 133, 221, 221, 205, 44, 165 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult : aliased constant Windows.IID := (674478676, 42209, 23597, (138, 122, 19, 110, 133, 16, 199, 139 ));
+   
+   type AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult'access) with null record;
    
    function Invoke
    (
@@ -1488,12 +1489,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult : aliased constant Windows.IID := (674478676, 42209, 23597, (138, 122, 19, 110, 133, 16, 199, 139 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_FileProtectionStatus_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_FileProtectionStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_FileProtectionStatus : aliased constant Windows.IID := (3775197787, 47447, 24276, (177, 197, 25, 147, 96, 76, 254, 174 ));
+   
+   type AsyncOperationCompletedHandler_FileProtectionStatus_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_FileProtectionStatus'access) with null record;
    
    function Invoke
    (
@@ -1503,12 +1503,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_FileProtectionStatus : aliased constant Windows.IID := (3775197787, 47447, 24276, (177, 197, 25, 147, 96, 76, 254, 174 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IFileProtectionInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IFileProtectionInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IFileProtectionInfo : aliased constant Windows.IID := (689504234, 57489, 21474, (189, 229, 97, 124, 155, 179, 216, 254 ));
+   
+   type AsyncOperationCompletedHandler_IFileProtectionInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IFileProtectionInfo'access) with null record;
    
    function Invoke
    (
@@ -1518,12 +1517,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IFileProtectionInfo : aliased constant Windows.IID := (689504234, 57489, 21474, (189, 229, 97, 124, 155, 179, 216, 254 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IProtectedContainerExportResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProtectedContainerExportResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IProtectedContainerExportResult : aliased constant Windows.IID := (1443648801, 20488, 21106, (167, 102, 148, 31, 112, 113, 139, 198 ));
+   
+   type AsyncOperationCompletedHandler_IProtectedContainerExportResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerExportResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IProtectedContainerExportResult'access) with null record;
    
    function Invoke
    (
@@ -1533,12 +1531,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IProtectedContainerExportResult : aliased constant Windows.IID := (1443648801, 20488, 21106, (167, 102, 148, 31, 112, 113, 139, 198 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IProtectedContainerImportResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProtectedContainerImportResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IProtectedContainerImportResult : aliased constant Windows.IID := (3488219384, 53933, 23250, (163, 150, 228, 247, 27, 154, 124, 63 ));
+   
+   type AsyncOperationCompletedHandler_IProtectedContainerImportResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IProtectedContainerImportResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IProtectedContainerImportResult'access) with null record;
    
    function Invoke
    (
@@ -1548,12 +1545,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IProtectedContainerImportResult : aliased constant Windows.IID := (3488219384, 53933, 23250, (163, 150, 228, 247, 27, 154, 124, 63 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IProtectedFileCreateResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IProtectedFileCreateResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IProtectedFileCreateResult : aliased constant Windows.IID := (1816438888, 31872, 20871, (160, 141, 55, 155, 228, 25, 9, 246 ));
+   
+   type AsyncOperationCompletedHandler_IProtectedFileCreateResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IProtectedFileCreateResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IProtectedFileCreateResult'access) with null record;
    
    function Invoke
    (
@@ -1563,12 +1559,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IProtectedFileCreateResult : aliased constant Windows.IID := (1816438888, 31872, 20871, (160, 141, 55, 155, 228, 25, 9, 246 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IBufferProtectUnprotectResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IBufferProtectUnprotectResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IBufferProtectUnprotectResult : aliased constant Windows.IID := (1943503051, 44344, 23014, (162, 54, 204, 13, 246, 159, 21, 168 ));
+   
+   type AsyncOperationCompletedHandler_IBufferProtectUnprotectResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IBufferProtectUnprotectResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBufferProtectUnprotectResult'access) with null record;
    
    function Invoke
    (
@@ -1578,12 +1573,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IBufferProtectUnprotectResult : aliased constant Windows.IID := (1943503051, 44344, 23014, (162, 54, 204, 13, 246, 159, 21, 168 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IDataProtectionInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDataProtectionInfo_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IDataProtectionInfo : aliased constant Windows.IID := (3777737845, 16171, 20937, (131, 198, 165, 102, 16, 134, 182, 195 ));
+   
+   type AsyncOperationCompletedHandler_IDataProtectionInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDataProtectionInfo'access) with null record;
    
    function Invoke
    (
@@ -1593,12 +1587,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IDataProtectionInfo : aliased constant Windows.IID := (3777737845, 16171, 20937, (131, 198, 165, 102, 16, 134, 182, 195 ));
-   
    ------------------------------------------------------------------------
-   type EventHandler_IProtectedAccessSuspendingEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.EnterpriseData.IProtectedAccessSuspendingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IProtectedAccessSuspendingEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_EventHandler_IProtectedAccessSuspendingEventArgs : aliased constant Windows.IID := (4270568664, 3389, 21526, (179, 144, 158, 173, 93, 217, 179, 132 ));
+   
+   type EventHandler_IProtectedAccessSuspendingEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.EnterpriseData.IProtectedAccessSuspendingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IProtectedAccessSuspendingEventArgs'access) with null record;
    
    function Invoke
    (
@@ -1608,12 +1601,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_EventHandler_IProtectedAccessSuspendingEventArgs : aliased constant Windows.IID := (4270568664, 3389, 21526, (179, 144, 158, 173, 93, 217, 179, 132 ));
-   
    ------------------------------------------------------------------------
-   type EventHandler_IProtectedAccessResumedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.EnterpriseData.IProtectedAccessResumedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IProtectedAccessResumedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_EventHandler_IProtectedAccessResumedEventArgs : aliased constant Windows.IID := (2667466038, 25929, 21026, (155, 194, 77, 93, 146, 157, 0, 92 ));
+   
+   type EventHandler_IProtectedAccessResumedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.EnterpriseData.IProtectedAccessResumedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IProtectedAccessResumedEventArgs'access) with null record;
    
    function Invoke
    (
@@ -1623,12 +1615,11 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.HRESULT;
    
-   IID_EventHandler_IProtectedAccessResumedEventArgs : aliased constant Windows.IID := (2667466038, 25929, 21026, (155, 194, 77, 93, 146, 157, 0, 92 ));
-   
    ------------------------------------------------------------------------
-   type EventHandler_IProtectedContentRevokedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.EnterpriseData.IProtectedContentRevokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IProtectedContentRevokedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_EventHandler_IProtectedContentRevokedEventArgs : aliased constant Windows.IID := (1341612887, 26629, 22334, (166, 125, 44, 89, 79, 80, 4, 183 ));
+   
+   type EventHandler_IProtectedContentRevokedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.EnterpriseData.IProtectedContentRevokedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IProtectedContentRevokedEventArgs'access) with null record;
    
    function Invoke
    (
@@ -1637,8 +1628,6 @@ package Windows.Security.EnterpriseData is
       ; args : Windows.Security.EnterpriseData.IProtectedContentRevokedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_EventHandler_IProtectedContentRevokedEventArgs : aliased constant Windows.IID := (1341612887, 26629, 22334, (166, 125, 44, 89, 79, 80, 4, 183 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -166,6 +166,9 @@ package Windows.Globalization is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICalendarIdentifiersStatics : aliased constant Windows.IID := (2154119016, 11442, 19487, (181, 144, 240, 245, 43, 244, 253, 26 ));
+   
    type ICalendarIdentifiersStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Gregorian
@@ -230,10 +233,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICalendarIdentifiersStatics : aliased constant Windows.IID := (2154119016, 11442, 19487, (181, 144, 240, 245, 43, 244, 253, 26 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICalendarIdentifiersStatics2 : aliased constant Windows.IID := (2113197192, 24528, 17063, (149, 181, 125, 152, 216, 35, 7, 95 ));
+   
    type ICalendarIdentifiersStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Persian
@@ -242,10 +245,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICalendarIdentifiersStatics2 : aliased constant Windows.IID := (2113197192, 24528, 17063, (149, 181, 125, 152, 216, 35, 7, 95 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICalendarIdentifiersStatics3 : aliased constant Windows.IID := (740447267, 8109, 16576, (147, 52, 168, 235, 144, 219, 4, 245 ));
+   
    type ICalendarIdentifiersStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChineseLunar
@@ -282,10 +285,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICalendarIdentifiersStatics3 : aliased constant Windows.IID := (740447267, 8109, 16576, (147, 52, 168, 235, 144, 219, 4, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IClockIdentifiersStatics : aliased constant Windows.IID := (1379403195, 4844, 20355, (188, 49, 177, 180, 55, 107, 8, 8 ));
+   
    type IClockIdentifiersStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TwelveHour
@@ -301,10 +304,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IClockIdentifiersStatics : aliased constant Windows.IID := (1379403195, 4844, 20355, (188, 49, 177, 180, 55, 107, 8, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INumeralSystemIdentifiersStatics : aliased constant Windows.IID := (2781242051, 26825, 19773, (183, 101, 151, 32, 41, 226, 29, 236 ));
+   
    type INumeralSystemIdentifiersStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Arab
@@ -558,10 +561,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INumeralSystemIdentifiersStatics : aliased constant Windows.IID := (2781242051, 26825, 19773, (183, 101, 151, 32, 41, 226, 29, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INumeralSystemIdentifiersStatics2 : aliased constant Windows.IID := (2130719272, 40411, 18996, (145, 4, 2, 96, 192, 145, 167, 199 ));
+   
    type INumeralSystemIdentifiersStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Brah
@@ -647,10 +650,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INumeralSystemIdentifiersStatics2 : aliased constant Windows.IID := (2130719272, 40411, 18996, (145, 4, 2, 96, 192, 145, 167, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICurrencyIdentifiersStatics : aliased constant Windows.IID := (2669480219, 54662, 18707, (155, 106, 169, 189, 45, 193, 40, 116 ));
+   
    type ICurrencyIdentifiersStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AED
@@ -1751,10 +1754,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICurrencyIdentifiersStatics : aliased constant Windows.IID := (2669480219, 54662, 18707, (155, 106, 169, 189, 45, 193, 40, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICurrencyIdentifiersStatics2 : aliased constant Windows.IID := (403995007, 50098, 19507, (149, 145, 152, 0, 17, 149, 13, 55 ));
+   
    type ICurrencyIdentifiersStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BYN
@@ -1763,10 +1766,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICurrencyIdentifiersStatics2 : aliased constant Windows.IID := (403995007, 50098, 19507, (149, 145, 152, 0, 17, 149, 13, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeographicRegion : aliased constant Windows.IID := (32089633, 19044, 20185, (149, 79, 158, 222, 176, 123, 217, 3 ));
+   
    type IGeographicRegion_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Code
@@ -1817,10 +1820,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeographicRegion : aliased constant Windows.IID := (32089633, 19044, 20185, (149, 79, 158, 222, 176, 123, 217, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeographicRegionFactory : aliased constant Windows.IID := (1396855408, 30644, 17003, (133, 159, 129, 225, 157, 81, 37, 70 ));
+   
    type IGeographicRegionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateGeographicRegion
@@ -1830,10 +1833,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Globalization.IGeographicRegion
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeographicRegionFactory : aliased constant Windows.IID := (1396855408, 30644, 17003, (133, 159, 129, 225, 157, 81, 37, 70 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGeographicRegionStatics : aliased constant Windows.IID := (702712180, 31449, 20212, (135, 153, 179, 180, 79, 173, 236, 8 ));
+   
    type IGeographicRegionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function IsSupported
@@ -1843,10 +1846,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGeographicRegionStatics : aliased constant Windows.IID := (702712180, 31449, 20212, (135, 153, 179, 180, 79, 173, 236, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILanguage : aliased constant Windows.IID := (3933841234, 63426, 16997, (177, 189, 196, 222, 196, 228, 240, 128 ));
+   
    type ILanguage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LanguageTag
@@ -1876,10 +1879,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanguage : aliased constant Windows.IID := (3933841234, 63426, 16997, (177, 189, 196, 222, 196, 228, 240, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILanguageExtensionSubtags : aliased constant Windows.IID := (2105388869, 13965, 17252, (133, 43, 222, 201, 39, 3, 123, 133 ));
+   
    type ILanguageExtensionSubtags_Interface is interface and Windows.IInspectable_Interface;
    
    function GetExtensionSubtags
@@ -1889,10 +1892,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanguageExtensionSubtags : aliased constant Windows.IID := (2105388869, 13965, 17252, (133, 43, 222, 201, 39, 3, 123, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILanguageFactory : aliased constant Windows.IID := (2600620716, 3111, 17656, (183, 146, 151, 147, 251, 102, 198, 62 ));
+   
    type ILanguageFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateLanguage
@@ -1902,10 +1905,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Globalization.ILanguage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanguageFactory : aliased constant Windows.IID := (2600620716, 3111, 17656, (183, 146, 151, 147, 251, 102, 198, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILanguageStatics : aliased constant Windows.IID := (2990331223, 2149, 18132, (137, 184, 213, 155, 232, 153, 15, 13 ));
+   
    type ILanguageStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function IsWellFormed
@@ -1922,10 +1925,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanguageStatics : aliased constant Windows.IID := (2990331223, 2149, 18132, (137, 184, 213, 155, 232, 153, 15, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILanguageStatics2 : aliased constant Windows.IID := (806985582, 37195, 19242, (157, 110, 227, 176, 226, 125, 190, 79 ));
+   
    type ILanguageStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function TrySetInputMethodLanguageTag
@@ -1935,10 +1938,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILanguageStatics2 : aliased constant Windows.IID := (806985582, 37195, 19242, (157, 110, 227, 176, 226, 125, 190, 79 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICalendar : aliased constant Windows.IID := (3392152093, 34521, 16635, (162, 107, 212, 78, 183, 207, 8, 234 ));
+   
    type ICalendar_Interface is interface and Windows.IInspectable_Interface;
    
    function Clone
@@ -2639,10 +2642,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICalendar : aliased constant Windows.IID := (3392152093, 34521, 16635, (162, 107, 212, 78, 183, 207, 8, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICalendarFactory2 : aliased constant Windows.IID := (3024828300, 51838, 17808, (158, 114, 234, 43, 236, 26, 81, 21 ));
+   
    type ICalendarFactory2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateCalendarWithTimeZone
@@ -2655,10 +2658,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Globalization.ICalendar
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICalendarFactory2 : aliased constant Windows.IID := (3024828300, 51838, 17808, (158, 114, 234, 43, 236, 26, 81, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITimeZoneOnCalendar : aliased constant Windows.IID := (3141281253, 18127, 17175, (163, 245, 2, 98, 26, 213, 68, 120 ));
+   
    type ITimeZoneOnCalendar_Interface is interface and Windows.IInspectable_Interface;
    
    function GetTimeZone
@@ -2689,10 +2692,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITimeZoneOnCalendar : aliased constant Windows.IID := (3141281253, 18127, 17175, (163, 245, 2, 98, 26, 213, 68, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICalendarFactory : aliased constant Windows.IID := (2213905426, 58731, 19573, (166, 110, 15, 99, 213, 119, 88, 166 ));
+   
    type ICalendarFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateCalendarDefaultCalendarAndClock
@@ -2712,10 +2715,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Globalization.ICalendar
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICalendarFactory : aliased constant Windows.IID := (2213905426, 58731, 19573, (166, 110, 15, 99, 213, 119, 88, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IApplicationLanguagesStatics : aliased constant Windows.IID := (1974732871, 2636, 19090, (149, 101, 253, 99, 201, 95, 122, 237 ));
+   
    type IApplicationLanguagesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrimaryLanguageOverride
@@ -2745,10 +2748,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationLanguagesStatics : aliased constant Windows.IID := (1974732871, 2636, 19090, (149, 101, 253, 99, 201, 95, 122, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IJapanesePhoneticAnalyzerStatics : aliased constant Windows.IID := (2292948624, 37854, 16818, (180, 213, 142, 219, 34, 127, 209, 194 ));
+   
    type IJapanesePhoneticAnalyzerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetWords
@@ -2767,10 +2770,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Globalization.IVectorView_IJapanesePhoneme -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IJapanesePhoneticAnalyzerStatics : aliased constant Windows.IID := (2292948624, 37854, 16818, (180, 213, 142, 219, 34, 127, 209, 194 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IJapanesePhoneme : aliased constant Windows.IID := (795513600, 59483, 17382, (137, 125, 93, 130, 248, 98, 223, 33 ));
+   
    type IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayText
@@ -2793,10 +2796,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IJapanesePhoneme : aliased constant Windows.IID := (795513600, 59483, 17382, (137, 125, 93, 130, 248, 98, 223, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ILanguage : aliased constant Windows.IID := (820615910, 62484, 21059, (141, 178, 170, 179, 142, 163, 241, 241 ));
+   
    type IIterator_ILanguage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2827,10 +2830,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ILanguage : aliased constant Windows.IID := (820615910, 62484, 21059, (141, 178, 170, 179, 142, 163, 241, 241 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ILanguage : aliased constant Windows.IID := (1212193296, 25014, 23985, (166, 157, 138, 188, 70, 172, 96, 138 ));
+   
    type IIterable_ILanguage_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2839,10 +2842,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Globalization.IIterator_ILanguage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ILanguage : aliased constant Windows.IID := (1212193296, 25014, 23985, (166, 157, 138, 188, 70, 172, 96, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ILanguage : aliased constant Windows.IID := (340463421, 11609, 24018, (176, 18, 144, 142, 195, 224, 100, 53 ));
+   
    type IVectorView_ILanguage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2877,10 +2880,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ILanguage : aliased constant Windows.IID := (340463421, 11609, 24018, (176, 18, 144, 142, 195, 224, 100, 53 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IJapanesePhoneme : aliased constant Windows.IID := (4049381351, 27048, 22093, (156, 32, 77, 167, 90, 119, 52, 50 ));
+   
    type IIterator_IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2911,10 +2914,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IJapanesePhoneme : aliased constant Windows.IID := (4049381351, 27048, 22093, (156, 32, 77, 167, 90, 119, 52, 50 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IJapanesePhoneme : aliased constant Windows.IID := (447551435, 6185, 21046, (138, 239, 11, 117, 248, 223, 215, 166 ));
+   
    type IIterable_IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2923,10 +2926,10 @@ package Windows.Globalization is
       ; RetVal : access Windows.Globalization.IIterator_IJapanesePhoneme
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IJapanesePhoneme : aliased constant Windows.IID := (447551435, 6185, 21046, (138, 239, 11, 117, 248, 223, 215, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IJapanesePhoneme : aliased constant Windows.IID := (1289509840, 54442, 23392, (191, 37, 113, 68, 144, 80, 80, 249 ));
+   
    type IVectorView_IJapanesePhoneme_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2961,9 +2964,6 @@ package Windows.Globalization is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IJapanesePhoneme : aliased constant Windows.IID := (1289509840, 54442, 23392, (191, 37, 113, 68, 144, 80, 80, 249 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

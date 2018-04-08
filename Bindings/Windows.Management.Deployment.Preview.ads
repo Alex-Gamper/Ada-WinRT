@@ -61,6 +61,9 @@ package Windows.Management.Deployment.Preview is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IInstalledClassicAppInfo : aliased constant Windows.IID := (175979939, 26064, 16518, (128, 214, 6, 16, 215, 96, 32, 125 ));
+   
    type IInstalledClassicAppInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -76,10 +79,10 @@ package Windows.Management.Deployment.Preview is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInstalledClassicAppInfo : aliased constant Windows.IID := (175979939, 26064, 16518, (128, 214, 6, 16, 215, 96, 32, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IClassicAppManagerStatics : aliased constant Windows.IID := (3808089704, 34860, 20275, (176, 53, 13, 247, 185, 13, 103, 230 ));
+   
    type IClassicAppManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FindInstalledApp
@@ -89,9 +92,6 @@ package Windows.Management.Deployment.Preview is
       ; RetVal : access Windows.Management.Deployment.Preview.IInstalledClassicAppInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IClassicAppManagerStatics : aliased constant Windows.IID := (3808089704, 34860, 20275, (176, 53, 13, 247, 185, 13, 103, 230 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

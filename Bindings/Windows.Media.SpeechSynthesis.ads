@@ -128,6 +128,9 @@ package Windows.Media.SpeechSynthesis is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IVoiceInformation : aliased constant Windows.IID := (2972178084, 4753, 17924, (170, 156, 131, 19, 64, 131, 53, 44 ));
+   
    type IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -164,10 +167,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Media.SpeechSynthesis.VoiceGender
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVoiceInformation : aliased constant Windows.IID := (2972178084, 4753, 17924, (170, 156, 131, 19, 64, 131, 53, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInstalledVoicesStatic : aliased constant Windows.IID := (2102554316, 30003, 19519, (133, 190, 136, 140, 43, 174, 235, 220 ));
+   
    type IInstalledVoicesStatic_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllVoices
@@ -183,10 +186,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Media.SpeechSynthesis.IVoiceInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInstalledVoicesStatic : aliased constant Windows.IID := (2102554316, 30003, 19519, (133, 190, 136, 140, 43, 174, 235, 220 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInstalledVoicesStatic2 : aliased constant Windows.IID := (1680170798, 13709, 16472, (190, 154, 253, 63, 203, 66, 53, 48 ));
+   
    type IInstalledVoicesStatic2_Interface is interface and Windows.IInspectable_Interface;
    
    function TrySetDefaultVoiceAsync
@@ -196,10 +199,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInstalledVoicesStatic2 : aliased constant Windows.IID := (1680170798, 13709, 16472, (190, 154, 253, 63, 203, 66, 53, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpeechSynthesisStream : aliased constant Windows.IID := (2212785811, 9292, 17954, (186, 11, 98, 41, 196, 208, 214, 93 ));
+   
    type ISpeechSynthesisStream_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Markers
@@ -208,10 +211,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Media.IVectorView_IMediaMarker -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpeechSynthesisStream : aliased constant Windows.IID := (2212785811, 9292, 17954, (186, 11, 98, 41, 196, 208, 214, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpeechSynthesizer : aliased constant Windows.IID := (3466558582, 38900, 19693, (173, 104, 213, 28, 69, 142, 69, 198 ));
+   
    type ISpeechSynthesizer_Interface is interface and Windows.IInspectable_Interface;
    
    function SynthesizeTextToStreamAsync
@@ -243,10 +246,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Media.SpeechSynthesis.IVoiceInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpeechSynthesizer : aliased constant Windows.IID := (3466558582, 38900, 19693, (173, 104, 213, 28, 69, 142, 69, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpeechSynthesizer2 : aliased constant Windows.IID := (2814766258, 17209, 19818, (187, 248, 199, 164, 241, 84, 76, 46 ));
+   
    type ISpeechSynthesizer2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Options
@@ -255,10 +258,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpeechSynthesizer2 : aliased constant Windows.IID := (2814766258, 17209, 19818, (187, 248, 199, 164, 241, 84, 76, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpeechSynthesizerOptions : aliased constant Windows.IID := (2699180145, 52285, 17353, (145, 177, 238, 24, 83, 36, 216, 61 ));
+   
    type ISpeechSynthesizerOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IncludeWordBoundaryMetadata
@@ -288,10 +291,10 @@ package Windows.Media.SpeechSynthesis is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpeechSynthesizerOptions : aliased constant Windows.IID := (2699180145, 52285, 17353, (145, 177, 238, 24, 83, 36, 216, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpeechSynthesizerOptions2 : aliased constant Windows.IID := (482276878, 4508, 19437, (177, 24, 210, 80, 195, 162, 87, 147 ));
+   
    type ISpeechSynthesizerOptions2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AudioVolume
@@ -335,13 +338,11 @@ package Windows.Media.SpeechSynthesis is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpeechSynthesizerOptions2 : aliased constant Windows.IID := (482276878, 4508, 19437, (177, 24, 210, 80, 195, 162, 87, 147 ));
-   
    ------------------------------------------------------------------------
+   
    type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
    ------------------------------------------------------------------------
+   
    type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContentType
@@ -350,8 +351,8 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Size
@@ -418,8 +419,8 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function WriteAsync
@@ -436,8 +437,8 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadAsync
@@ -449,8 +450,8 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type ITimedMetadataTrackProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TimedMetadataTracks
@@ -459,8 +460,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Media.Core.IVectorView_ITimedMetadataTrack -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IVoiceInformation : aliased constant Windows.IID := (315886119, 44685, 24496, (143, 237, 0, 22, 93, 89, 198, 171 ));
+   
    type IIterator_IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -491,10 +494,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IVoiceInformation : aliased constant Windows.IID := (315886119, 44685, 24496, (143, 237, 0, 22, 93, 89, 198, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IVoiceInformation : aliased constant Windows.IID := (1010023250, 48536, 23692, (173, 238, 238, 141, 160, 98, 142, 252 ));
+   
    type IIterable_IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -503,10 +506,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Media.SpeechSynthesis.IIterator_IVoiceInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IVoiceInformation : aliased constant Windows.IID := (1010023250, 48536, 23692, (173, 238, 238, 141, 160, 98, 142, 252 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IVoiceInformation : aliased constant Windows.IID := (4002243534, 20908, 22916, (137, 27, 210, 50, 250, 127, 100, 83 ));
+   
    type IVectorView_IVoiceInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -541,10 +544,10 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IVoiceInformation : aliased constant Windows.IID := (4002243534, 20908, 22916, (137, 27, 210, 50, 250, 127, 100, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISpeechSynthesisStream : aliased constant Windows.IID := (3751626925, 40170, 22028, (158, 220, 203, 136, 82, 203, 85, 227 ));
+   
    type IAsyncOperation_ISpeechSynthesisStream_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -567,17 +570,15 @@ package Windows.Media.SpeechSynthesis is
       ; RetVal : access Windows.Media.SpeechSynthesis.ISpeechSynthesisStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISpeechSynthesisStream : aliased constant Windows.IID := (3751626925, 40170, 22028, (158, 220, 203, 136, 82, 203, 85, 227 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISpeechSynthesisStream_Interface(Callback : access procedure (asyncInfo : Windows.Media.SpeechSynthesis.IAsyncOperation_ISpeechSynthesisStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpeechSynthesisStream_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISpeechSynthesisStream : aliased constant Windows.IID := (3379739030, 24933, 20692, (175, 96, 168, 195, 223, 81, 208, 146 ));
+   
+   type AsyncOperationCompletedHandler_ISpeechSynthesisStream_Interface(Callback : access procedure (asyncInfo : Windows.Media.SpeechSynthesis.IAsyncOperation_ISpeechSynthesisStream ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpeechSynthesisStream'access) with null record;
    
    function Invoke
    (
@@ -586,8 +587,6 @@ package Windows.Media.SpeechSynthesis is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_ISpeechSynthesisStream : aliased constant Windows.IID := (3379739030, 24933, 20692, (175, 96, 168, 195, 223, 81, 208, 146 ));
    
    ------------------------------------------------------------------------
    -- Classes

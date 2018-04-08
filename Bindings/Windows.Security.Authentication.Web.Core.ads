@@ -157,6 +157,9 @@ package Windows.Security.Authentication.Web.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IWebTokenRequest : aliased constant Windows.IID := (3078311272, 44491, 18035, (179, 100, 12, 247, 179, 92, 175, 151 ));
+   
    type IWebTokenRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_WebAccountProvider
@@ -193,10 +196,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebTokenRequest : aliased constant Windows.IID := (3078311272, 44491, 18035, (179, 100, 12, 247, 179, 92, 175, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebTokenRequest2 : aliased constant Windows.IID := (3607150713, 12488, 17303, (150, 84, 150, 28, 59, 232, 184, 85 ));
+   
    type IWebTokenRequest2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppProperties
@@ -205,10 +208,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebTokenRequest2 : aliased constant Windows.IID := (3607150713, 12488, 17303, (150, 84, 150, 28, 59, 232, 184, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebTokenRequest3 : aliased constant Windows.IID := (1517640529, 15281, 16805, (166, 61, 144, 188, 50, 199, 219, 154 ));
+   
    type IWebTokenRequest3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CorrelationId
@@ -224,10 +227,10 @@ package Windows.Security.Authentication.Web.Core is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebTokenRequest3 : aliased constant Windows.IID := (1517640529, 15281, 16805, (166, 61, 144, 188, 50, 199, 219, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebTokenRequestFactory : aliased constant Windows.IID := (1827804188, 4080, 19559, (184, 79, 153, 221, 190, 74, 114, 201 ));
+   
    type IWebTokenRequestFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -267,10 +270,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Security.Authentication.Web.Core.IWebTokenRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebTokenRequestFactory : aliased constant Windows.IID := (1827804188, 4080, 19559, (184, 79, 153, 221, 190, 74, 114, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAccountEventArgs : aliased constant Windows.IID := (1874264957, 16974, 17644, (151, 124, 239, 36, 21, 70, 42, 90 ));
+   
    type IWebAccountEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Account
@@ -279,10 +282,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Security.Credentials.IWebAccount
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAccountEventArgs : aliased constant Windows.IID := (1874264957, 16974, 17644, (151, 124, 239, 36, 21, 70, 42, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAuthenticationCoreManagerStatics : aliased constant Windows.IID := (1791655058, 42369, 17529, (156, 16, 117, 46, 255, 68, 253, 52 ));
+   
    type IWebAuthenticationCoreManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetTokenSilentlyAsync
@@ -344,10 +347,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAuthenticationCoreManagerStatics : aliased constant Windows.IID := (1791655058, 42369, 17529, (156, 16, 117, 46, 255, 68, 253, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAuthenticationCoreManagerStatics2 : aliased constant Windows.IID := (4119074890, 35671, 18464, (182, 164, 112, 165, 182, 252, 244, 74 ));
+   
    type IWebAuthenticationCoreManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function FindAccountProviderWithAuthorityForUserAsync
@@ -359,10 +362,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAuthenticationCoreManagerStatics2 : aliased constant Windows.IID := (4119074890, 35671, 18464, (182, 164, 112, 165, 182, 252, 244, 74 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAuthenticationCoreManagerStatics3 : aliased constant Windows.IID := (604303026, 35108, 19859, (171, 58, 153, 104, 139, 65, 157, 86 ));
+   
    type IWebAuthenticationCoreManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWebAccountMonitor
@@ -372,10 +375,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Security.Authentication.Web.Core.IWebAccountMonitor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAuthenticationCoreManagerStatics3 : aliased constant Windows.IID := (604303026, 35108, 19859, (171, 58, 153, 104, 139, 65, 157, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebAccountMonitor : aliased constant Windows.IID := (1950742013, 43677, 17945, (141, 93, 193, 56, 164, 237, 227, 229 ));
+   
    type IWebAccountMonitor_Interface is interface and Windows.IInspectable_Interface;
    
    function add_Updated
@@ -422,10 +425,10 @@ package Windows.Security.Authentication.Web.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebAccountMonitor : aliased constant Windows.IID := (1950742013, 43677, 17945, (141, 93, 193, 56, 164, 237, 227, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebProviderError : aliased constant Windows.IID := (3675855793, 20677, 18441, (141, 202, 9, 201, 148, 16, 36, 92 ));
+   
    type IWebProviderError_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ErrorCode
@@ -448,10 +451,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebProviderError : aliased constant Windows.IID := (3675855793, 20677, 18441, (141, 202, 9, 201, 148, 16, 36, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebProviderErrorFactory : aliased constant Windows.IID := (3821275693, 35311, 20023, (132, 127, 168, 185, 213, 163, 41, 16 ));
+   
    type IWebProviderErrorFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -462,10 +465,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Security.Authentication.Web.Core.IWebProviderError
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebProviderErrorFactory : aliased constant Windows.IID := (3821275693, 35311, 20023, (132, 127, 168, 185, 213, 163, 41, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebTokenRequestResult : aliased constant Windows.IID := (3240788741, 53752, 17539, (141, 84, 56, 254, 41, 39, 132, 255 ));
+   
    type IWebTokenRequestResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ResponseData
@@ -495,10 +498,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebTokenRequestResult : aliased constant Windows.IID := (3240788741, 53752, 17539, (141, 84, 56, 254, 41, 39, 132, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebTokenResponse : aliased constant Windows.IID := (1739048394, 33782, 17606, (163, 177, 14, 182, 158, 65, 250, 138 ));
+   
    type IWebTokenResponse_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Token
@@ -528,10 +531,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebTokenResponse : aliased constant Windows.IID := (1739048394, 33782, 17606, (163, 177, 14, 182, 158, 65, 250, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWebTokenResponseFactory : aliased constant Windows.IID := (2875979768, 21584, 20214, (151, 247, 5, 43, 4, 49, 192, 240 ));
+   
    type IWebTokenResponseFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithToken
@@ -560,10 +563,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Security.Authentication.Web.Core.IWebTokenResponse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWebTokenResponseFactory : aliased constant Windows.IID := (2875979768, 21584, 20214, (151, 247, 5, 43, 4, 49, 192, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IWebTokenRequestResult : aliased constant Windows.IID := (176248914, 31812, 22132, (179, 210, 250, 46, 76, 30, 70, 201 ));
+   
    type IAsyncOperation_IWebTokenRequestResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -586,10 +589,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Security.Authentication.Web.Core.IWebTokenRequestResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IWebTokenRequestResult : aliased constant Windows.IID := (176248914, 31812, 22132, (179, 210, 250, 46, 76, 30, 70, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IWebTokenResponse : aliased constant Windows.IID := (4034965705, 41109, 23354, (161, 220, 209, 126, 125, 41, 130, 199 ));
+   
    type IIterator_IWebTokenResponse_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -620,10 +623,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IWebTokenResponse : aliased constant Windows.IID := (4034965705, 41109, 23354, (161, 220, 209, 126, 125, 41, 130, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IWebTokenResponse : aliased constant Windows.IID := (2119940076, 48087, 21877, (154, 97, 245, 129, 95, 162, 42, 14 ));
+   
    type IIterable_IWebTokenResponse_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -632,10 +635,10 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.Security.Authentication.Web.Core.IIterator_IWebTokenResponse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IWebTokenResponse : aliased constant Windows.IID := (2119940076, 48087, 21877, (154, 97, 245, 129, 95, 162, 42, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IWebTokenResponse : aliased constant Windows.IID := (429786716, 33173, 21978, (156, 16, 138, 234, 249, 172, 16, 98 ));
+   
    type IVectorView_IWebTokenResponse_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -670,17 +673,15 @@ package Windows.Security.Authentication.Web.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IWebTokenResponse : aliased constant Windows.IID := (429786716, 33173, 21978, (156, 16, 138, 234, 249, 172, 16, 98 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IWebTokenRequestResult : aliased constant Windows.IID := (3736423202, 28914, 21931, (151, 192, 108, 189, 197, 221, 182, 240 ));
+   
+   type AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWebTokenRequestResult'access) with null record;
    
    function Invoke
    (
@@ -690,12 +691,11 @@ package Windows.Security.Authentication.Web.Core is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IWebTokenRequestResult : aliased constant Windows.IID := (3736423202, 28914, 21931, (151, 192, 108, 189, 197, 221, 182, 240 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IWebAccountMonitor_add_Updated_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebAccountMonitor_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IWebAccountMonitor_add_Updated : aliased constant Windows.IID := (4201664260, 34742, 20843, (149, 150, 205, 124, 192, 146, 22, 155 ));
+   
+   type TypedEventHandler_IWebAccountMonitor_add_Updated_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebAccountMonitor_add_Updated'access) with null record;
    
    function Invoke
    (
@@ -705,12 +705,11 @@ package Windows.Security.Authentication.Web.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IWebAccountMonitor_add_Updated : aliased constant Windows.IID := (4201664260, 34742, 20843, (149, 150, 205, 124, 192, 146, 22, 155 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IWebAccountMonitor_add_Removed_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebAccountMonitor_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IWebAccountMonitor_add_Removed : aliased constant Windows.IID := (4201664260, 34742, 20843, (149, 150, 205, 124, 192, 146, 22, 155 ));
+   
+   type TypedEventHandler_IWebAccountMonitor_add_Removed_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebAccountMonitor_add_Removed'access) with null record;
    
    function Invoke
    (
@@ -720,12 +719,11 @@ package Windows.Security.Authentication.Web.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IWebAccountMonitor_add_Removed : aliased constant Windows.IID := (4201664260, 34742, 20843, (149, 150, 205, 124, 192, 146, 22, 155 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged : aliased constant Windows.IID := (3368765837, 57562, 21153, (171, 249, 113, 152, 199, 245, 203, 66 ));
+   
+   type TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged'access) with null record;
    
    function Invoke
    (
@@ -734,8 +732,6 @@ package Windows.Security.Authentication.Web.Core is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IWebAccountMonitor_add_DefaultSignInAccountChanged : aliased constant Windows.IID := (3368765837, 57562, 21153, (171, 249, 113, 152, 199, 245, 203, 66 ));
    
    ------------------------------------------------------------------------
    -- Classes

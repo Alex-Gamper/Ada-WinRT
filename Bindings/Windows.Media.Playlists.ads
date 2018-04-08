@@ -89,6 +89,9 @@ package Windows.Media.Playlists is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPlaylist : aliased constant Windows.IID := (2151102197, 53060, 19863, (131, 179, 122, 8, 158, 154, 182, 99 ));
+   
    type IPlaylist_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Files
@@ -125,10 +128,10 @@ package Windows.Media.Playlists is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlaylist : aliased constant Windows.IID := (2151102197, 53060, 19863, (131, 179, 122, 8, 158, 154, 182, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlaylistStatics : aliased constant Windows.IID := (3317903821, 33273, 20467, (149, 185, 112, 182, 255, 4, 107, 104 ));
+   
    type IPlaylistStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function LoadAsync
@@ -138,10 +141,10 @@ package Windows.Media.Playlists is
       ; RetVal : access Windows.Media.Playlists.IAsyncOperation_IPlaylist -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlaylistStatics : aliased constant Windows.IID := (3317903821, 33273, 20467, (149, 185, 112, 182, 255, 4, 107, 104 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPlaylist : aliased constant Windows.IID := (2415621291, 37167, 23489, (135, 250, 40, 101, 246, 115, 203, 252 ));
+   
    type IAsyncOperation_IPlaylist_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -164,17 +167,15 @@ package Windows.Media.Playlists is
       ; RetVal : access Windows.Media.Playlists.IPlaylist
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPlaylist : aliased constant Windows.IID := (2415621291, 37167, 23489, (135, 250, 40, 101, 246, 115, 203, 252 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPlaylist_Interface(Callback : access procedure (asyncInfo : Windows.Media.Playlists.IAsyncOperation_IPlaylist ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPlaylist_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPlaylist : aliased constant Windows.IID := (1115548413, 45606, 24304, (147, 32, 201, 243, 37, 227, 116, 116 ));
+   
+   type AsyncOperationCompletedHandler_IPlaylist_Interface(Callback : access procedure (asyncInfo : Windows.Media.Playlists.IAsyncOperation_IPlaylist ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPlaylist'access) with null record;
    
    function Invoke
    (
@@ -183,8 +184,6 @@ package Windows.Media.Playlists is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IPlaylist : aliased constant Windows.IID := (1115548413, 45606, 24304, (147, 32, 201, 243, 37, 227, 116, 116 ));
    
    ------------------------------------------------------------------------
    -- Classes

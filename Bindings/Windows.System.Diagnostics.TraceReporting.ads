@@ -156,6 +156,9 @@ package Windows.System.Diagnostics.TraceReporting is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (4168150423, 54679, 19447, (136, 220, 207, 92, 125, 194, 161, 210 ));
+   
    type IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ScenarioId
@@ -199,10 +202,10 @@ package Windows.System.Diagnostics.TraceReporting is
       ; RetVal : access Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (4168150423, 54679, 19447, (136, 220, 207, 92, 125, 194, 161, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlatformDiagnosticTraceRuntimeInfo : aliased constant Windows.IID := (1028480557, 472, 18280, (133, 84, 30, 177, 202, 97, 9, 134 ));
+   
    type IPlatformDiagnosticTraceRuntimeInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RuntimeFileTime
@@ -218,10 +221,10 @@ package Windows.System.Diagnostics.TraceReporting is
       ; RetVal : access Windows.Int64
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlatformDiagnosticTraceRuntimeInfo : aliased constant Windows.IID := (1028480557, 472, 18280, (133, 84, 30, 177, 202, 97, 9, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlatformDiagnosticActionsStatics : aliased constant Windows.IID := (3239337210, 37522, 16999, (137, 10, 158, 163, 237, 7, 35, 18 ));
+   
    type IPlatformDiagnosticActionsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function IsScenarioEnabled
@@ -299,10 +302,10 @@ package Windows.System.Diagnostics.TraceReporting is
       ; RetVal : access Windows.System.Diagnostics.TraceReporting.IVectorView_IPlatformDiagnosticTraceInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlatformDiagnosticActionsStatics : aliased constant Windows.IID := (3239337210, 37522, 16999, (137, 10, 158, 163, 237, 7, 35, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -311,10 +314,10 @@ package Windows.System.Diagnostics.TraceReporting is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPlatformDiagnosticActionsStatics_TryEscalateScenario : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
+   
    type IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario_Interface is interface and Windows.IInspectable_Interface;
    
    function Lookup
@@ -347,10 +350,10 @@ package Windows.System.Diagnostics.TraceReporting is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapView_IPlatformDiagnosticActionsStatics_TryEscalateScenario : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (452221325, 39099, 24145, (132, 43, 207, 105, 25, 37, 182, 194 ));
+   
    type IIterator_IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -381,10 +384,10 @@ package Windows.System.Diagnostics.TraceReporting is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (452221325, 39099, 24145, (132, 43, 207, 105, 25, 37, 182, 194 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (3971006727, 51579, 21246, (165, 230, 163, 62, 147, 73, 55, 105 ));
+   
    type IIterable_IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -393,10 +396,10 @@ package Windows.System.Diagnostics.TraceReporting is
       ; RetVal : access Windows.System.Diagnostics.TraceReporting.IIterator_IPlatformDiagnosticTraceInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (3971006727, 51579, 21246, (165, 230, 163, 62, 147, 73, 55, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (2400924567, 19907, 23410, (145, 250, 15, 220, 145, 93, 149, 12 ));
+   
    type IVectorView_IPlatformDiagnosticTraceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -431,9 +434,6 @@ package Windows.System.Diagnostics.TraceReporting is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPlatformDiagnosticTraceInfo : aliased constant Windows.IID := (2400924567, 19907, 23410, (145, 250, 15, 220, 145, 93, 149, 12 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

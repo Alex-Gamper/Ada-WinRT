@@ -56,6 +56,9 @@ package Windows.System.Power.Diagnostics is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundEnergyDiagnosticsStatics : aliased constant Windows.IID := (3613800194, 54182, 18144, (143, 155, 80, 185, 91, 180, 249, 197 ));
+   
    type IBackgroundEnergyDiagnosticsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceSpecificConversionFactor
@@ -77,10 +80,10 @@ package Windows.System.Power.Diagnostics is
       This       : access IBackgroundEnergyDiagnosticsStatics_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundEnergyDiagnosticsStatics : aliased constant Windows.IID := (3613800194, 54182, 18144, (143, 155, 80, 185, 91, 180, 249, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IForegroundEnergyDiagnosticsStatics : aliased constant Windows.IID := (600443159, 52487, 17929, (190, 21, 143, 232, 148, 197, 228, 30 ));
+   
    type IForegroundEnergyDiagnosticsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceSpecificConversionFactor
@@ -102,9 +105,6 @@ package Windows.System.Power.Diagnostics is
       This       : access IForegroundEnergyDiagnosticsStatics_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IForegroundEnergyDiagnosticsStatics : aliased constant Windows.IID := (600443159, 52487, 17929, (190, 21, 143, 232, 148, 197, 228, 30 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

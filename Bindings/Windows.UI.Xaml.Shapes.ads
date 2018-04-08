@@ -100,6 +100,9 @@ package Windows.UI.Xaml.Shapes is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IShape : aliased constant Windows.IID := (2020551541, 39584, 17741, (174, 6, 162, 70, 110, 55, 200, 50 ));
+   
    type IShape_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Fill
@@ -262,10 +265,10 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Xaml.Media.ITransform
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IShape : aliased constant Windows.IID := (2020551541, 39584, 17741, (174, 6, 162, 70, 110, 55, 200, 50 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IShapeStatics : aliased constant Windows.IID := (494619733, 40435, 18652, (145, 148, 157, 48, 111, 170, 96, 137 ));
+   
    type IShapeStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FillProperty
@@ -344,10 +347,10 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IShapeStatics : aliased constant Windows.IID := (494619733, 40435, 18652, (145, 148, 157, 48, 111, 170, 96, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IShapeFactory : aliased constant Windows.IID := (1265726995, 63146, 18645, (149, 136, 225, 209, 136, 234, 203, 201 ));
+   
    type IShapeFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -358,10 +361,10 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Xaml.Shapes.IShape
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IShapeFactory : aliased constant Windows.IID := (1265726995, 63146, 18645, (149, 136, 225, 209, 136, 234, 203, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IShape2 : aliased constant Windows.IID := (2535755194, 18930, 18852, (165, 221, 22, 77, 248, 36, 219, 20 ));
+   
    type IShape2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAlphaMask
@@ -370,15 +373,15 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Composition.ICompositionBrush
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IShape2 : aliased constant Windows.IID := (2535755194, 18930, 18852, (165, 221, 22, 77, 248, 36, 219, 20 ));
-   
    ------------------------------------------------------------------------
-   type IEllipse_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IEllipse : aliased constant Windows.IID := (1893751492, 54157, 19371, (131, 31, 74, 34, 239, 82, 172, 134 ));
    
+   type IEllipse_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ILine : aliased constant Windows.IID := (1185235773, 20475, 18655, (135, 50, 78, 21, 200, 52, 129, 107 ));
+   
    type ILine_Interface is interface and Windows.IInspectable_Interface;
    
    function get_X1
@@ -436,10 +439,10 @@ package Windows.UI.Xaml.Shapes is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILine : aliased constant Windows.IID := (1185235773, 20475, 18655, (135, 50, 78, 21, 200, 52, 129, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILineStatics : aliased constant Windows.IID := (645665341, 28324, 19536, (139, 29, 80, 32, 122, 255, 30, 138 ));
+   
    type ILineStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_X1Property
@@ -469,10 +472,10 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILineStatics : aliased constant Windows.IID := (645665341, 28324, 19536, (139, 29, 80, 32, 122, 255, 30, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPath : aliased constant Windows.IID := (2022192649, 15703, 20284, (184, 165, 108, 171, 202, 201, 113, 31 ));
+   
    type IPath_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Data
@@ -488,10 +491,10 @@ package Windows.UI.Xaml.Shapes is
       ; value : Windows.UI.Xaml.Media.IGeometry
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPath : aliased constant Windows.IID := (2022192649, 15703, 20284, (184, 165, 108, 171, 202, 201, 113, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPathStatics : aliased constant Windows.IID := (4129809821, 34780, 16706, (129, 241, 151, 252, 127, 248, 100, 28 ));
+   
    type IPathStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DataProperty
@@ -500,10 +503,10 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPathStatics : aliased constant Windows.IID := (4129809821, 34780, 16706, (129, 241, 151, 252, 127, 248, 100, 28 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPathFactory : aliased constant Windows.IID := (591439075, 23174, 20422, (154, 80, 203, 185, 59, 130, 135, 102 ));
+   
    type IPathFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -514,10 +517,10 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Xaml.Shapes.IPath
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPathFactory : aliased constant Windows.IID := (591439075, 23174, 20422, (154, 80, 203, 185, 59, 130, 135, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPolygon : aliased constant Windows.IID := (3816119321, 11853, 19404, (141, 52, 134, 135, 25, 87, 250, 1 ));
+   
    type IPolygon_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FillRule
@@ -547,10 +550,10 @@ package Windows.UI.Xaml.Shapes is
       ; value : Windows.UI.Xaml.Media.IVector_Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPolygon : aliased constant Windows.IID := (3816119321, 11853, 19404, (141, 52, 134, 135, 25, 87, 250, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPolygonStatics : aliased constant Windows.IID := (908757675, 54371, 17254, (158, 26, 190, 186, 114, 129, 15, 183 ));
+   
    type IPolygonStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FillRuleProperty
@@ -566,10 +569,10 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPolygonStatics : aliased constant Windows.IID := (908757675, 54371, 17254, (158, 26, 190, 186, 114, 129, 15, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPolyline : aliased constant Windows.IID := (2447139576, 17075, 18419, (132, 118, 197, 81, 36, 167, 196, 198 ));
+   
    type IPolyline_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FillRule
@@ -599,10 +602,10 @@ package Windows.UI.Xaml.Shapes is
       ; value : Windows.UI.Xaml.Media.IVector_Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPolyline : aliased constant Windows.IID := (2447139576, 17075, 18419, (132, 118, 197, 81, 36, 167, 196, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPolylineStatics : aliased constant Windows.IID := (3349818577, 41580, 17328, (170, 165, 130, 47, 166, 74, 17, 185 ));
+   
    type IPolylineStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FillRuleProperty
@@ -618,10 +621,10 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPolylineStatics : aliased constant Windows.IID := (3349818577, 41580, 17328, (170, 165, 130, 47, 166, 74, 17, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRectangle : aliased constant Windows.IID := (2237383216, 35345, 19992, (161, 54, 75, 194, 28, 120, 39, 176 ));
+   
    type IRectangle_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RadiusX
@@ -651,10 +654,10 @@ package Windows.UI.Xaml.Shapes is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRectangle : aliased constant Windows.IID := (2237383216, 35345, 19992, (161, 54, 75, 194, 28, 120, 39, 176 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRectangleStatics : aliased constant Windows.IID := (2670045779, 47930, 19516, (137, 219, 111, 188, 13, 31, 160, 204 ));
+   
    type IRectangleStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RadiusXProperty
@@ -670,9 +673,6 @@ package Windows.UI.Xaml.Shapes is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRectangleStatics : aliased constant Windows.IID := (2670045779, 47930, 19516, (137, 219, 111, 188, 13, 31, 160, 204 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -681,9 +681,9 @@ package Windows.UI.Xaml.Shapes is
    
    type IShape_Interface_Impl is new IShape_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IShape := null;
       m_IShape : IShape := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IShape_Impl is access all IShape_Interface_Impl'Class;
@@ -693,7 +693,7 @@ package Windows.UI.Xaml.Shapes is
    (
       This       : access IShape_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -905,9 +905,9 @@ package Windows.UI.Xaml.Shapes is
    
    type IPath_Interface_Impl is new IPath_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IPath := null;
       m_IPath : IPath := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IPath_Impl is access all IPath_Interface_Impl'Class;
@@ -917,7 +917,7 @@ package Windows.UI.Xaml.Shapes is
    (
       This       : access IPath_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    

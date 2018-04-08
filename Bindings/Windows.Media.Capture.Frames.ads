@@ -314,6 +314,9 @@ package Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameSourceGroup : aliased constant Windows.IID := (2137021319, 18482, 19295, (174, 61, 65, 47, 170, 179, 125, 52 ));
+   
    type IMediaFrameSourceGroup_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -336,10 +339,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IVectorView_IMediaFrameSourceInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameSourceGroup : aliased constant Windows.IID := (2137021319, 18482, 19295, (174, 61, 65, 47, 170, 179, 125, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameSourceGroupStatics : aliased constant Windows.IID := (474529733, 17263, 17672, (148, 207, 213, 216, 183, 50, 100, 69 ));
+   
    type IMediaFrameSourceGroupStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FindAllAsync
@@ -363,10 +366,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameSourceGroupStatics : aliased constant Windows.IID := (474529733, 17263, 17672, (148, 207, 213, 216, 183, 50, 100, 69 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameSourceInfo : aliased constant Windows.IID := (2277362125, 17921, 16527, (145, 207, 3, 131, 24, 205, 10, 243 ));
+   
    type IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -417,10 +420,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Perception.Spatial.ISpatialCoordinateSystem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameSourceInfo : aliased constant Windows.IID := (2277362125, 17921, 16527, (145, 207, 3, 131, 24, 205, 10, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameSource : aliased constant Windows.IID := (3598199123, 37083, 18088, (138, 221, 42, 168, 132, 168, 210, 83 ));
+   
    type IMediaFrameSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Info
@@ -481,15 +484,15 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Devices.Core.ICameraIntrinsics
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameSource : aliased constant Windows.IID := (3598199123, 37083, 18088, (138, 221, 42, 168, 132, 168, 210, 83 ));
-   
    ------------------------------------------------------------------------
-   type IMediaFrameArrivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMediaFrameArrivedEventArgs : aliased constant Windows.IID := (188943069, 42128, 17461, (173, 161, 154, 255, 213, 82, 57, 247 ));
    
+   type IMediaFrameArrivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameReader : aliased constant Windows.IID := (3838395285, 8232, 18669, (144, 176, 209, 193, 177, 98, 226, 76 ));
+   
    type IMediaFrameReader_Interface is interface and Windows.IInspectable_Interface;
    
    function add_FrameArrived
@@ -527,10 +530,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameReader : aliased constant Windows.IID := (3838395285, 8232, 18669, (144, 176, 209, 193, 177, 98, 226, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameReader2 : aliased constant Windows.IID := (2266048435, 34097, 16464, (135, 204, 161, 55, 51, 207, 62, 155 ));
+   
    type IMediaFrameReader2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_AcquisitionMode
@@ -546,15 +549,15 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameReader2 : aliased constant Windows.IID := (2266048435, 34097, 16464, (135, 204, 161, 55, 51, 207, 62, 155 ));
-   
    ------------------------------------------------------------------------
-   type IMultiSourceMediaFrameArrivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMultiSourceMediaFrameArrivedEventArgs : aliased constant Windows.IID := (1662082561, 53073, 18685, (170, 176, 109, 105, 62, 180, 129, 39 ));
    
+   type IMultiSourceMediaFrameArrivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMultiSourceMediaFrameReader : aliased constant Windows.IID := (2366915586, 63331, 18573, (152, 242, 180, 55, 188, 240, 117, 231 ));
+   
    type IMultiSourceMediaFrameReader_Interface is interface and Windows.IInspectable_Interface;
    
    function add_FrameArrived
@@ -592,10 +595,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMultiSourceMediaFrameReader : aliased constant Windows.IID := (2366915586, 63331, 18573, (152, 242, 180, 55, 188, 240, 117, 231 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMultiSourceMediaFrameReader2 : aliased constant Windows.IID := (4015819453, 64604, 19563, (157, 129, 60, 185, 204, 99, 124, 38 ));
+   
    type IMultiSourceMediaFrameReader2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_AcquisitionMode
@@ -611,10 +614,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMultiSourceMediaFrameReader2 : aliased constant Windows.IID := (4015819453, 64604, 19563, (157, 129, 60, 185, 204, 99, 124, 38 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameSourceController : aliased constant Windows.IID := (1829201461, 12653, 19343, (183, 182, 238, 176, 74, 140, 101, 37 ));
+   
    type IMediaFrameSourceController_Interface is interface and Windows.IInspectable_Interface;
    
    function GetPropertyAsync
@@ -640,10 +643,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Devices.IVideoDeviceController
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameSourceController : aliased constant Windows.IID := (1829201461, 12653, 19343, (183, 182, 238, 176, 74, 140, 101, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameSourceController2 : aliased constant Windows.IID := (4022640596, 64754, 18947, (180, 228, 172, 150, 40, 115, 155, 238 ));
+   
    type IMediaFrameSourceController2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetPropertyByExtendedIdAsync
@@ -663,10 +666,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IAsyncOperation_MediaFrameSourceSetPropertyStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameSourceController2 : aliased constant Windows.IID := (4022640596, 64754, 18947, (180, 228, 172, 150, 40, 115, 155, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameSourceGetPropertyResult : aliased constant Windows.IID := (143005378, 14948, 19413, (189, 43, 231, 200, 152, 210, 243, 122 ));
+   
    type IMediaFrameSourceGetPropertyResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -682,10 +685,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameSourceGetPropertyResult : aliased constant Windows.IID := (143005378, 14948, 19413, (189, 43, 231, 200, 152, 210, 243, 122 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameFormat : aliased constant Windows.IID := (1905273678, 45689, 19095, (169, 219, 189, 90, 47, 183, 143, 57 ));
+   
    type IMediaFrameFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MajorType
@@ -722,10 +725,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IVideoMediaFrameFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameFormat : aliased constant Windows.IID := (1905273678, 45689, 19095, (169, 219, 189, 90, 47, 183, 143, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoMediaFrameFormat : aliased constant Windows.IID := (1174568896, 55067, 17863, (143, 20, 109, 154, 10, 230, 4, 228 ));
+   
    type IVideoMediaFrameFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MediaFrameFormat
@@ -755,10 +758,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoMediaFrameFormat : aliased constant Windows.IID := (1174568896, 55067, 17863, (143, 20, 109, 154, 10, 230, 4, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrameReference : aliased constant Windows.IID := (4139288129, 61660, 16452, (141, 201, 150, 28, 237, 208, 91, 173 ));
+   
    type IMediaFrameReference_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SourceKind
@@ -816,10 +819,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Perception.Spatial.ISpatialCoordinateSystem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrameReference : aliased constant Windows.IID := (4139288129, 61660, 16452, (141, 201, 150, 28, 237, 208, 91, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMultiSourceMediaFrameReference : aliased constant Windows.IID := (563497754, 32738, 17622, (146, 229, 41, 142, 109, 40, 16, 233 ));
+   
    type IMultiSourceMediaFrameReference_Interface is interface and Windows.IInspectable_Interface;
    
    function TryGetFrameReferenceBySourceId
@@ -829,10 +832,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IMediaFrameReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMultiSourceMediaFrameReference : aliased constant Windows.IID := (563497754, 32738, 17622, (146, 229, 41, 142, 109, 40, 16, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBufferMediaFrame : aliased constant Windows.IID := (3048297415, 39812, 16482, (183, 156, 163, 101, 178, 89, 104, 84 ));
+   
    type IBufferMediaFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FrameReference
@@ -848,10 +851,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBufferMediaFrame : aliased constant Windows.IID := (3048297415, 39812, 16482, (183, 156, 163, 101, 178, 89, 104, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoMediaFrame : aliased constant Windows.IID := (14503115, 12989, 20449, (160, 19, 124, 193, 60, 245, 219, 207 ));
+   
    type IVideoMediaFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FrameReference
@@ -909,10 +912,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.IVideoFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoMediaFrame : aliased constant Windows.IID := (14503115, 12989, 20449, (160, 19, 124, 193, 60, 245, 219, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInfraredMediaFrame : aliased constant Windows.IID := (1070675203, 75, 20238, (145, 172, 70, 82, 153, 180, 22, 88 ));
+   
    type IInfraredMediaFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FrameReference
@@ -935,10 +938,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInfraredMediaFrame : aliased constant Windows.IID := (1070675203, 75, 20238, (145, 172, 70, 82, 153, 180, 22, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDepthMediaFrame : aliased constant Windows.IID := (1192451663, 34121, 17856, (146, 91, 128, 211, 94, 253, 177, 10 ));
+   
    type IDepthMediaFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FrameReference
@@ -970,10 +973,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Devices.Core.IDepthCorrelatedCoordinateMapper
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDepthMediaFrame : aliased constant Windows.IID := (1192451663, 34121, 17856, (146, 91, 128, 211, 94, 253, 177, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDepthMediaFrame2 : aliased constant Windows.IID := (1825195837, 50340, 16758, (176, 205, 51, 234, 227, 179, 90, 163 ));
+   
    type IDepthMediaFrame2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MaxReliableDepth
@@ -989,10 +992,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDepthMediaFrame2 : aliased constant Windows.IID := (1825195837, 50340, 16758, (176, 205, 51, 234, 227, 179, 90, 163 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDepthMediaFrameFormat : aliased constant Windows.IID := (3272789824, 55081, 17726, (135, 128, 46, 4, 241, 64, 210, 142 ));
+   
    type IDepthMediaFrameFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_VideoFormat
@@ -1008,10 +1011,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDepthMediaFrameFormat : aliased constant Windows.IID := (3272789824, 55081, 17726, (135, 128, 46, 4, 241, 64, 210, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMediaFrameReader : aliased constant Windows.IID := (2701963597, 31029, 23687, (144, 38, 138, 190, 121, 42, 59, 229 ));
+   
    type IAsyncOperation_IMediaFrameReader_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1034,10 +1037,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IMediaFrameReader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMediaFrameReader : aliased constant Windows.IID := (2701963597, 31029, 23687, (144, 38, 138, 190, 121, 42, 59, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMultiSourceMediaFrameReader : aliased constant Windows.IID := (1406495720, 61712, 21030, (156, 225, 168, 194, 106, 87, 37, 118 ));
+   
    type IAsyncOperation_IMultiSourceMediaFrameReader_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1060,10 +1063,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IMultiSourceMediaFrameReader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMultiSourceMediaFrameReader : aliased constant Windows.IID := (1406495720, 61712, 21030, (156, 225, 168, 194, 106, 87, 37, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMediaFrameSource : aliased constant Windows.IID := (3495842765, 48108, 24503, (142, 78, 222, 134, 17, 91, 94, 136 ));
+   
    type IIterator_IMediaFrameSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1094,10 +1097,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMediaFrameSource : aliased constant Windows.IID := (3495842765, 48108, 24503, (142, 78, 222, 134, 17, 91, 94, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaFrameSource : aliased constant Windows.IID := (222591971, 35985, 22557, (128, 113, 23, 152, 75, 139, 89, 148 ));
+   
    type IIterable_IMediaFrameSource_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1106,10 +1109,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IIterator_IMediaFrameSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMediaFrameSource : aliased constant Windows.IID := (222591971, 35985, 22557, (128, 113, 23, 152, 75, 139, 89, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMediaFrameSourceInfo : aliased constant Windows.IID := (1144807640, 8334, 21401, (188, 68, 237, 198, 254, 240, 34, 147 ));
+   
    type IIterator_IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1140,10 +1143,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMediaFrameSourceInfo : aliased constant Windows.IID := (1144807640, 8334, 21401, (188, 68, 237, 198, 254, 240, 34, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaFrameSourceInfo : aliased constant Windows.IID := (774489520, 27305, 20722, (145, 164, 91, 103, 165, 89, 143, 46 ));
+   
    type IIterable_IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1152,10 +1155,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IIterator_IMediaFrameSourceInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMediaFrameSourceInfo : aliased constant Windows.IID := (774489520, 27305, 20722, (145, 164, 91, 103, 165, 89, 143, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMediaFrameSourceInfo : aliased constant Windows.IID := (3688593734, 39728, 20944, (156, 140, 199, 16, 90, 246, 144, 224 ));
+   
    type IVectorView_IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1190,10 +1193,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMediaFrameSourceInfo : aliased constant Windows.IID := (3688593734, 39728, 20944, (156, 140, 199, 16, 90, 246, 144, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMediaFrameSourceGroup : aliased constant Windows.IID := (4079315591, 45519, 22851, (182, 100, 159, 25, 54, 125, 39, 121 ));
+   
    type IAsyncOperation_IMediaFrameSourceGroup_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1216,10 +1219,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IMediaFrameSourceGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMediaFrameSourceGroup : aliased constant Windows.IID := (4079315591, 45519, 22851, (182, 100, 159, 25, 54, 125, 39, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMediaFrameFormat : aliased constant Windows.IID := (2208354218, 25926, 23139, (140, 215, 246, 33, 82, 167, 93, 39 ));
+   
    type IIterator_IMediaFrameFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1250,10 +1253,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMediaFrameFormat : aliased constant Windows.IID := (2208354218, 25926, 23139, (140, 215, 246, 33, 82, 167, 93, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaFrameFormat : aliased constant Windows.IID := (520264231, 4387, 21386, (146, 97, 138, 56, 14, 18, 186, 198 ));
+   
    type IIterable_IMediaFrameFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1262,10 +1265,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IIterator_IMediaFrameFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMediaFrameFormat : aliased constant Windows.IID := (520264231, 4387, 21386, (146, 97, 138, 56, 14, 18, 186, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMediaFrameFormat : aliased constant Windows.IID := (3135394941, 16302, 21965, (178, 9, 69, 195, 181, 178, 248, 22 ));
+   
    type IVectorView_IMediaFrameFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1300,10 +1303,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMediaFrameFormat : aliased constant Windows.IID := (3135394941, 16302, 21965, (178, 9, 69, 195, 181, 178, 248, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_MediaFrameReaderStartStatus : aliased constant Windows.IID := (3683525914, 44486, 22355, (135, 132, 196, 75, 77, 124, 91, 7 ));
+   
    type IAsyncOperation_MediaFrameReaderStartStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1326,10 +1329,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.MediaFrameReaderStartStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_MediaFrameReaderStartStatus : aliased constant Windows.IID := (3683525914, 44486, 22355, (135, 132, 196, 75, 77, 124, 91, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_MultiSourceMediaFrameReaderStartStatus : aliased constant Windows.IID := (2722281810, 30378, 21733, (161, 59, 168, 112, 124, 16, 152, 225 ));
+   
    type IAsyncOperation_MultiSourceMediaFrameReaderStartStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1352,10 +1355,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_MultiSourceMediaFrameReaderStartStatus : aliased constant Windows.IID := (2722281810, 30378, 21733, (161, 59, 168, 112, 124, 16, 152, 225 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMediaFrameSourceGetPropertyResult : aliased constant Windows.IID := (2147498361, 18822, 21159, (178, 39, 174, 107, 228, 210, 181, 205 ));
+   
    type IAsyncOperation_IMediaFrameSourceGetPropertyResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1378,10 +1381,10 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.IMediaFrameSourceGetPropertyResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMediaFrameSourceGetPropertyResult : aliased constant Windows.IID := (2147498361, 18822, 21159, (178, 39, 174, 107, 228, 210, 181, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_MediaFrameSourceSetPropertyStatus : aliased constant Windows.IID := (2706406422, 24452, 22638, (140, 169, 34, 79, 55, 224, 224, 222 ));
+   
    type IAsyncOperation_MediaFrameSourceSetPropertyStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1404,17 +1407,15 @@ package Windows.Media.Capture.Frames is
       ; RetVal : access Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_MediaFrameSourceSetPropertyStatus : aliased constant Windows.IID := (2706406422, 24452, 22638, (140, 169, 34, 79, 55, 224, 224, 222 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMediaFrameReader_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaFrameReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMediaFrameReader : aliased constant Windows.IID := (2787200429, 47383, 23689, (160, 104, 227, 44, 154, 112, 55, 211 ));
+   
+   type AsyncOperationCompletedHandler_IMediaFrameReader_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMediaFrameReader'access) with null record;
    
    function Invoke
    (
@@ -1424,12 +1425,11 @@ package Windows.Media.Capture.Frames is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMediaFrameReader : aliased constant Windows.IID := (2787200429, 47383, 23689, (160, 104, 227, 44, 154, 112, 55, 211 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMultiSourceMediaFrameReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader : aliased constant Windows.IID := (1771648888, 42124, 20684, (166, 240, 83, 104, 245, 138, 41, 122 ));
+   
+   type AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMultiSourceMediaFrameReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader'access) with null record;
    
    function Invoke
    (
@@ -1439,12 +1439,11 @@ package Windows.Media.Capture.Frames is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMultiSourceMediaFrameReader : aliased constant Windows.IID := (1771648888, 42124, 20684, (166, 240, 83, 104, 245, 138, 41, 122 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMediaFrameSourceGroup_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameSourceGroup ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaFrameSourceGroup_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMediaFrameSourceGroup : aliased constant Windows.IID := (2918256363, 40901, 21819, (145, 100, 41, 66, 70, 153, 42, 42 ));
+   
+   type AsyncOperationCompletedHandler_IMediaFrameSourceGroup_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameSourceGroup ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMediaFrameSourceGroup'access) with null record;
    
    function Invoke
    (
@@ -1454,12 +1453,11 @@ package Windows.Media.Capture.Frames is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMediaFrameSourceGroup : aliased constant Windows.IID := (2918256363, 40901, 21819, (145, 100, 41, 66, 70, 153, 42, 42 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMediaFrameSource_add_FormatChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.Frames.IMediaFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaFrameSource_add_FormatChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMediaFrameSource_add_FormatChanged : aliased constant Windows.IID := (3353746087, 18198, 21780, (169, 19, 239, 23, 150, 185, 141, 189 ));
+   
+   type TypedEventHandler_IMediaFrameSource_add_FormatChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.Frames.IMediaFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaFrameSource_add_FormatChanged'access) with null record;
    
    function Invoke
    (
@@ -1469,12 +1467,11 @@ package Windows.Media.Capture.Frames is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMediaFrameSource_add_FormatChanged : aliased constant Windows.IID := (3353746087, 18198, 21780, (169, 19, 239, 23, 150, 185, 141, 189 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMediaFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.Frames.IMediaFrameReader ; args : Windows.Media.Capture.Frames.IMediaFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMediaFrameReader_add_FrameArrived : aliased constant Windows.IID := (3554494923, 36133, 22810, (128, 247, 131, 99, 213, 192, 62, 201 ));
+   
+   type TypedEventHandler_IMediaFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.Frames.IMediaFrameReader ; args : Windows.Media.Capture.Frames.IMediaFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaFrameReader_add_FrameArrived'access) with null record;
    
    function Invoke
    (
@@ -1484,12 +1481,11 @@ package Windows.Media.Capture.Frames is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMediaFrameReader_add_FrameArrived : aliased constant Windows.IID := (3554494923, 36133, 22810, (128, 247, 131, 99, 213, 192, 62, 201 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_MediaFrameReaderStartStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MediaFrameReaderStartStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MediaFrameReaderStartStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_MediaFrameReaderStartStatus : aliased constant Windows.IID := (2672407269, 12136, 23640, (141, 139, 18, 23, 111, 246, 234, 80 ));
+   
+   type AsyncOperationCompletedHandler_MediaFrameReaderStartStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MediaFrameReaderStartStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_MediaFrameReaderStartStatus'access) with null record;
    
    function Invoke
    (
@@ -1499,12 +1495,11 @@ package Windows.Media.Capture.Frames is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_MediaFrameReaderStartStatus : aliased constant Windows.IID := (2672407269, 12136, 23640, (141, 139, 18, 23, 111, 246, 234, 80 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.Frames.IMultiSourceMediaFrameReader ; args : Windows.Media.Capture.Frames.IMultiSourceMediaFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived : aliased constant Windows.IID := (2192682317, 39047, 22260, (154, 158, 58, 177, 139, 2, 25, 140 ));
+   
+   type TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.Frames.IMultiSourceMediaFrameReader ; args : Windows.Media.Capture.Frames.IMultiSourceMediaFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived'access) with null record;
    
    function Invoke
    (
@@ -1514,12 +1509,11 @@ package Windows.Media.Capture.Frames is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMultiSourceMediaFrameReader_add_FrameArrived : aliased constant Windows.IID := (2192682317, 39047, 22260, (154, 158, 58, 177, 139, 2, 25, 140 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MultiSourceMediaFrameReaderStartStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus : aliased constant Windows.IID := (418312778, 13106, 24558, (160, 240, 114, 206, 237, 51, 6, 69 ));
+   
+   type AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MultiSourceMediaFrameReaderStartStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus'access) with null record;
    
    function Invoke
    (
@@ -1529,12 +1523,11 @@ package Windows.Media.Capture.Frames is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_MultiSourceMediaFrameReaderStartStatus : aliased constant Windows.IID := (418312778, 13106, 24558, (160, 240, 114, 206, 237, 51, 6, 69 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameSourceGetPropertyResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult : aliased constant Windows.IID := (3495395085, 52806, 23623, (143, 124, 74, 229, 98, 108, 199, 109 ));
+   
+   type AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameSourceGetPropertyResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult'access) with null record;
    
    function Invoke
    (
@@ -1544,12 +1537,11 @@ package Windows.Media.Capture.Frames is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMediaFrameSourceGetPropertyResult : aliased constant Windows.IID := (3495395085, 52806, 23623, (143, 124, 74, 229, 98, 108, 199, 109 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_MediaFrameSourceSetPropertyStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MediaFrameSourceSetPropertyStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_MediaFrameSourceSetPropertyStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_MediaFrameSourceSetPropertyStatus : aliased constant Windows.IID := (4128466490, 50821, 24000, (177, 51, 96, 217, 67, 3, 166, 227 ));
+   
+   type AsyncOperationCompletedHandler_MediaFrameSourceSetPropertyStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Frames.IAsyncOperation_MediaFrameSourceSetPropertyStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_MediaFrameSourceSetPropertyStatus'access) with null record;
    
    function Invoke
    (
@@ -1558,8 +1550,6 @@ package Windows.Media.Capture.Frames is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_MediaFrameSourceSetPropertyStatus : aliased constant Windows.IID := (4128466490, 50821, 24000, (177, 51, 96, 217, 67, 3, 166, 227 ));
    
    ------------------------------------------------------------------------
    -- Classes

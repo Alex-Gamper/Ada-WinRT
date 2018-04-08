@@ -172,6 +172,9 @@ package Windows.ApplicationModel.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IAppListEntry : aliased constant Windows.IID := (4009816191, 8456, 18698, (135, 122, 138, 159, 23, 194, 95, 173 ));
+   
    type IAppListEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayInfo
@@ -187,10 +190,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppListEntry : aliased constant Windows.IID := (4009816191, 8456, 18698, (135, 122, 138, 159, 23, 194, 95, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppListEntry2 : aliased constant Windows.IID := (3500546221, 48949, 17068, (172, 6, 134, 238, 235, 65, 208, 75 ));
+   
    type IAppListEntry2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppUserModelId
@@ -199,10 +202,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppListEntry2 : aliased constant Windows.IID := (3500546221, 48949, 17068, (172, 6, 134, 238, 235, 65, 208, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFrameworkView : aliased constant Windows.IID := (4205534416, 35108, 17836, (173, 15, 160, 143, 174, 93, 3, 36 ));
+   
    type IFrameworkView_Interface is interface and Windows.IInspectable_Interface;
    
    function Initialize
@@ -237,10 +240,10 @@ package Windows.ApplicationModel.Core is
       This       : access IFrameworkView_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFrameworkView : aliased constant Windows.IID := (4205534416, 35108, 17836, (173, 15, 160, 143, 174, 93, 3, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFrameworkViewSource : aliased constant Windows.IID := (3447129620, 26052, 17004, (148, 148, 52, 252, 67, 85, 72, 98 ));
+   
    type IFrameworkViewSource_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateView
@@ -249,10 +252,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.ApplicationModel.Core.IFrameworkView
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFrameworkViewSource : aliased constant Windows.IID := (3447129620, 26052, 17004, (148, 148, 52, 252, 67, 85, 72, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplication : aliased constant Windows.IID := (179107748, 24093, 18911, (128, 52, 251, 106, 104, 188, 94, 209 ));
+   
    type ICoreApplication_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -319,10 +322,10 @@ package Windows.ApplicationModel.Core is
       ; activationFactoryCallback : Windows.Foundation.IGetActivationFactory
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplication : aliased constant Windows.IID := (179107748, 24093, 18911, (128, 52, 251, 106, 104, 188, 94, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplicationUseCount : aliased constant Windows.IID := (1368245256, 49271, 18267, (128, 158, 11, 192, 197, 126, 75, 116 ));
+   
    type ICoreApplicationUseCount_Interface is interface and Windows.IInspectable_Interface;
    
    function IncrementApplicationUseCount
@@ -336,10 +339,10 @@ package Windows.ApplicationModel.Core is
       This       : access ICoreApplicationUseCount_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplicationUseCount : aliased constant Windows.IID := (1368245256, 49271, 18267, (128, 158, 11, 192, 197, 126, 75, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplicationExit : aliased constant Windows.IID := (3481683485, 9758, 19314, (154, 205, 68, 237, 42, 206, 106, 41 ));
+   
    type ICoreApplicationExit_Interface is interface and Windows.IInspectable_Interface;
    
    function Exit_x
@@ -362,10 +365,10 @@ package Windows.ApplicationModel.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplicationExit : aliased constant Windows.IID := (3481683485, 9758, 19314, (154, 205, 68, 237, 42, 206, 106, 41 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplication2 : aliased constant Windows.IID := (2575729147, 6838, 19327, (190, 74, 154, 6, 69, 34, 76, 4 ));
+   
    type ICoreApplication2_Interface is interface and Windows.IInspectable_Interface;
    
    function add_BackgroundActivated
@@ -419,10 +422,10 @@ package Windows.ApplicationModel.Core is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplication2 : aliased constant Windows.IID := (2575729147, 6838, 19327, (190, 74, 154, 6, 69, 34, 76, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplication3 : aliased constant Windows.IID := (4276882745, 22923, 17671, (138, 103, 119, 38, 50, 88, 10, 87 ));
+   
    type ICoreApplication3_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestRestartAsync
@@ -441,10 +444,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplication3 : aliased constant Windows.IID := (4276882745, 22923, 17671, (138, 103, 119, 38, 50, 88, 10, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreImmersiveApplication : aliased constant Windows.IID := (450498110, 58530, 16675, (180, 81, 220, 150, 191, 128, 4, 25 ));
+   
    type ICoreImmersiveApplication_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Views
@@ -469,10 +472,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.ApplicationModel.Core.ICoreApplicationView
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreImmersiveApplication : aliased constant Windows.IID := (450498110, 58530, 16675, (180, 81, 220, 150, 191, 128, 4, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreImmersiveApplication2 : aliased constant Windows.IID := (2190351926, 59875, 19708, (155, 102, 72, 183, 142, 169, 187, 44 ));
+   
    type ICoreImmersiveApplication2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateNewViewFromMainView
@@ -481,10 +484,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.ApplicationModel.Core.ICoreApplicationView
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreImmersiveApplication2 : aliased constant Windows.IID := (2190351926, 59875, 19708, (155, 102, 72, 183, 142, 169, 187, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreImmersiveApplication3 : aliased constant Windows.IID := (882924335, 60941, 16869, (131, 20, 207, 16, 201, 27, 240, 175 ));
+   
    type ICoreImmersiveApplication3_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateNewViewWithViewSource
@@ -494,10 +497,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.ApplicationModel.Core.ICoreApplicationView
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreImmersiveApplication3 : aliased constant Windows.IID := (882924335, 60941, 16869, (131, 20, 207, 16, 201, 27, 240, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplicationUnhandledError : aliased constant Windows.IID := (4041362096, 56585, 17121, (176, 188, 224, 225, 49, 247, 141, 126 ));
+   
    type ICoreApplicationUnhandledError_Interface is interface and Windows.IInspectable_Interface;
    
    function add_UnhandledErrorDetected
@@ -514,10 +517,10 @@ package Windows.ApplicationModel.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplicationUnhandledError : aliased constant Windows.IID := (4041362096, 56585, 17121, (176, 188, 224, 225, 49, 247, 141, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplicationView : aliased constant Windows.IID := (1670099675, 17693, 18017, (176, 153, 65, 79, 52, 255, 185, 241 ));
+   
    type ICoreApplicationView_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CoreWindow
@@ -555,10 +558,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplicationView : aliased constant Windows.IID := (1670099675, 17693, 18017, (176, 153, 65, 79, 52, 255, 185, 241 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplicationView2 : aliased constant Windows.IID := (1760262879, 37247, 18667, (154, 235, 125, 229, 62, 8, 106, 177 ));
+   
    type ICoreApplicationView2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Dispatcher
@@ -567,10 +570,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.UI.Core.ICoreDispatcher
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplicationView2 : aliased constant Windows.IID := (1760262879, 37247, 18667, (154, 235, 125, 229, 62, 8, 106, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplicationView3 : aliased constant Windows.IID := (132899251, 42191, 17744, (171, 112, 176, 126, 133, 51, 11, 200 ));
+   
    type ICoreApplicationView3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsComponent
@@ -601,10 +604,10 @@ package Windows.ApplicationModel.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplicationView3 : aliased constant Windows.IID := (132899251, 42191, 17744, (171, 112, 176, 126, 133, 51, 11, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplicationView5 : aliased constant Windows.IID := (734041512, 36592, 17517, (158, 96, 58, 62, 4, 40, 198, 113 ));
+   
    type ICoreApplicationView5_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Properties
@@ -613,10 +616,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplicationView5 : aliased constant Windows.IID := (734041512, 36592, 17517, (158, 96, 58, 62, 4, 40, 198, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplicationView6 : aliased constant Windows.IID := (3239695514, 1657, 18874, (128, 63, 183, 156, 92, 243, 76, 202 ));
+   
    type ICoreApplicationView6_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DispatcherQueue
@@ -625,10 +628,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.System.IDispatcherQueue
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplicationView6 : aliased constant Windows.IID := (3239695514, 1657, 18874, (128, 63, 183, 156, 92, 243, 76, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHostedViewClosingEventArgs : aliased constant Windows.IID := (3526923324, 45646, 18320, (172, 181, 62, 66, 67, 196, 255, 135 ));
+   
    type IHostedViewClosingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -637,10 +640,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHostedViewClosingEventArgs : aliased constant Windows.IID := (3526923324, 45646, 18320, (172, 181, 62, 66, 67, 196, 255, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICoreApplicationViewTitleBar : aliased constant Windows.IID := (7157219, 57841, 17179, (149, 8, 41, 185, 105, 38, 172, 83 ));
+   
    type ICoreApplicationViewTitleBar_Interface is interface and Windows.IInspectable_Interface;
    
    function put_ExtendViewIntoTitleBar
@@ -714,10 +717,10 @@ package Windows.ApplicationModel.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreApplicationViewTitleBar : aliased constant Windows.IID := (7157219, 57841, 17179, (149, 8, 41, 185, 105, 38, 172, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUnhandledErrorDetectedEventArgs : aliased constant Windows.IID := (1738192779, 45878, 18466, (172, 64, 13, 117, 15, 11, 122, 43 ));
+   
    type IUnhandledErrorDetectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UnhandledError
@@ -726,10 +729,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.ApplicationModel.Core.IUnhandledError
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUnhandledErrorDetectedEventArgs : aliased constant Windows.IID := (1738192779, 45878, 18466, (172, 64, 13, 117, 15, 11, 122, 43 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUnhandledError : aliased constant Windows.IID := (2488907558, 21429, 18054, (158, 175, 250, 129, 98, 220, 57, 128 ));
+   
    type IUnhandledError_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Handled
@@ -744,10 +747,10 @@ package Windows.ApplicationModel.Core is
       This       : access IUnhandledError_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUnhandledError : aliased constant Windows.IID := (2488907558, 21429, 18054, (158, 175, 250, 129, 98, 220, 57, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_AppRestartFailureReason : aliased constant Windows.IID := (154701917, 21696, 22319, (132, 81, 75, 253, 43, 82, 237, 218 ));
+   
    type IAsyncOperation_AppRestartFailureReason_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -770,10 +773,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.ApplicationModel.Core.AppRestartFailureReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_AppRestartFailureReason : aliased constant Windows.IID := (154701917, 21696, 22319, (132, 81, 75, 253, 43, 82, 237, 218 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ICoreApplicationView : aliased constant Windows.IID := (1331652932, 9803, 22632, (128, 158, 199, 172, 26, 197, 237, 173 ));
+   
    type IIterator_ICoreApplicationView_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -804,10 +807,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ICoreApplicationView : aliased constant Windows.IID := (1331652932, 9803, 22632, (128, 158, 199, 172, 26, 197, 237, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ICoreApplicationView : aliased constant Windows.IID := (851186385, 9811, 23105, (165, 94, 136, 161, 42, 242, 2, 106 ));
+   
    type IIterable_ICoreApplicationView_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -816,10 +819,10 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.ApplicationModel.Core.IIterator_ICoreApplicationView
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ICoreApplicationView : aliased constant Windows.IID := (851186385, 9811, 23105, (165, 94, 136, 161, 42, 242, 2, 106 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ICoreApplicationView : aliased constant Windows.IID := (3734902468, 7036, 20774, (177, 216, 124, 208, 79, 19, 189, 8 ));
+   
    type IVectorView_ICoreApplicationView_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -854,17 +857,15 @@ package Windows.ApplicationModel.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ICoreApplicationView : aliased constant Windows.IID := (3734902468, 7036, 20774, (177, 216, 124, 208, 79, 19, 189, 8 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_AppRestartFailureReason_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_AppRestartFailureReason_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_AppRestartFailureReason : aliased constant Windows.IID := (3706472330, 40743, 23645, (175, 219, 201, 26, 238, 79, 31, 2 ));
+   
+   type AsyncOperationCompletedHandler_AppRestartFailureReason_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_AppRestartFailureReason'access) with null record;
    
    function Invoke
    (
@@ -874,12 +875,11 @@ package Windows.ApplicationModel.Core is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_AppRestartFailureReason : aliased constant Windows.IID := (3706472330, 40743, 23645, (175, 219, 201, 26, 238, 79, 31, 2 ));
-   
    ------------------------------------------------------------------------
-   type EventHandler_IUnhandledErrorDetectedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.Core.IUnhandledErrorDetectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_IUnhandledErrorDetectedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_EventHandler_IUnhandledErrorDetectedEventArgs : aliased constant Windows.IID := (4136354849, 27476, 21915, (156, 221, 72, 154, 173, 11, 212, 29 ));
+   
+   type EventHandler_IUnhandledErrorDetectedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.Core.IUnhandledErrorDetectedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IUnhandledErrorDetectedEventArgs'access) with null record;
    
    function Invoke
    (
@@ -889,12 +889,11 @@ package Windows.ApplicationModel.Core is
    )
    return Windows.HRESULT;
    
-   IID_EventHandler_IUnhandledErrorDetectedEventArgs : aliased constant Windows.IID := (4136354849, 27476, 21915, (156, 221, 72, 154, 173, 11, 212, 29 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreApplicationView_add_Activated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationView ; args : Windows.ApplicationModel.Activation.IActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationView_add_Activated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreApplicationView_add_Activated : aliased constant Windows.IID := (3474537110, 60179, 24123, (139, 223, 135, 182, 239, 174, 131, 57 ));
+   
+   type TypedEventHandler_ICoreApplicationView_add_Activated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationView ; args : Windows.ApplicationModel.Activation.IActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreApplicationView_add_Activated'access) with null record;
    
    function Invoke
    (
@@ -904,12 +903,11 @@ package Windows.ApplicationModel.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreApplicationView_add_Activated : aliased constant Windows.IID := (3474537110, 60179, 24123, (139, 223, 135, 182, 239, 174, 131, 57 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreApplicationView3_add_HostedViewClosing_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationView ; args : Windows.ApplicationModel.Core.IHostedViewClosingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationView3_add_HostedViewClosing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreApplicationView3_add_HostedViewClosing : aliased constant Windows.IID := (3651400755, 39884, 21718, (179, 207, 123, 1, 240, 38, 212, 205 ));
+   
+   type TypedEventHandler_ICoreApplicationView3_add_HostedViewClosing_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationView ; args : Windows.ApplicationModel.Core.IHostedViewClosingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreApplicationView3_add_HostedViewClosing'access) with null record;
    
    function Invoke
    (
@@ -919,12 +917,11 @@ package Windows.ApplicationModel.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreApplicationView3_add_HostedViewClosing : aliased constant Windows.IID := (3651400755, 39884, 21718, (179, 207, 123, 1, 240, 38, 212, 205 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged : aliased constant Windows.IID := (674508321, 56019, 24114, (186, 225, 175, 231, 178, 108, 102, 251 ));
+   
+   type TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged'access) with null record;
    
    function Invoke
    (
@@ -934,12 +931,11 @@ package Windows.ApplicationModel.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICoreApplicationViewTitleBar_add_LayoutMetricsChanged : aliased constant Windows.IID := (674508321, 56019, 24114, (186, 225, 175, 231, 178, 108, 102, 251 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged : aliased constant Windows.IID := (674508321, 56019, 24114, (186, 225, 175, 231, 178, 108, 102, 251 ));
+   
+   type TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged'access) with null record;
    
    function Invoke
    (
@@ -948,8 +944,6 @@ package Windows.ApplicationModel.Core is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ICoreApplicationViewTitleBar_add_IsVisibleChanged : aliased constant Windows.IID := (674508321, 56019, 24114, (186, 225, 175, 231, 178, 108, 102, 251 ));
    
    ------------------------------------------------------------------------
    -- Classes

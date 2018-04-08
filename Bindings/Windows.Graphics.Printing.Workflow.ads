@@ -156,6 +156,9 @@ package Windows.Graphics.Printing.Workflow is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowBackgroundSession : aliased constant Windows.IID := (1534661562, 3166, 21130, (116, 88, 134, 164, 108, 189, 220, 69 ));
+   
    type IPrintWorkflowBackgroundSession_Interface is interface and Windows.IInspectable_Interface;
    
    function add_SetupRequested
@@ -200,10 +203,10 @@ package Windows.Graphics.Printing.Workflow is
       This       : access IPrintWorkflowBackgroundSession_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowBackgroundSession : aliased constant Windows.IID := (1534661562, 3166, 21130, (116, 88, 134, 164, 108, 189, 220, 69 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowConfiguration : aliased constant Windows.IID := (3500852461, 64843, 24053, (75, 182, 141, 13, 21, 158, 190, 63 ));
+   
    type IPrintWorkflowConfiguration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SourceAppDisplayName
@@ -226,10 +229,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowConfiguration : aliased constant Windows.IID := (3500852461, 64843, 24053, (75, 182, 141, 13, 21, 158, 190, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowForegroundSession : aliased constant Windows.IID := (3348849616, 63724, 19691, (149, 58, 200, 135, 97, 87, 221, 51 ));
+   
    type IPrintWorkflowForegroundSession_Interface is interface and Windows.IInspectable_Interface;
    
    function add_SetupRequested
@@ -274,10 +277,10 @@ package Windows.Graphics.Printing.Workflow is
       This       : access IPrintWorkflowForegroundSession_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowForegroundSession : aliased constant Windows.IID := (3348849616, 63724, 19691, (149, 58, 200, 135, 97, 87, 221, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowBackgroundSetupRequestedEventArgs : aliased constant Windows.IID := (1139372866, 5968, 22985, (97, 251, 56, 55, 72, 162, 3, 98 ));
+   
    type IPrintWorkflowBackgroundSetupRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetUserPrintTicketAsync
@@ -306,10 +309,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowBackgroundSetupRequestedEventArgs : aliased constant Windows.IID := (1139372866, 5968, 22985, (97, 251, 56, 55, 72, 162, 3, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowForegroundSetupRequestedEventArgs : aliased constant Windows.IID := (3152249415, 39963, 19923, (155, 43, 200, 4, 104, 217, 65, 179 ));
+   
    type IPrintWorkflowForegroundSetupRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetUserPrintTicketAsync
@@ -332,10 +335,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowForegroundSetupRequestedEventArgs : aliased constant Windows.IID := (3152249415, 39963, 19923, (155, 43, 200, 4, 104, 217, 65, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowSubmittedOperation : aliased constant Windows.IID := (776888854, 15329, 24335, (92, 129, 165, 162, 189, 78, 171, 14 ));
+   
    type IPrintWorkflowSubmittedOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -358,10 +361,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowSourceContent
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowSubmittedOperation : aliased constant Windows.IID := (776888854, 15329, 24335, (92, 129, 165, 162, 189, 78, 171, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowSubmittedEventArgs : aliased constant Windows.IID := (987564609, 14228, 21865, (92, 135, 64, 232, 255, 114, 15, 131 ));
+   
    type IPrintWorkflowSubmittedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Operation
@@ -385,10 +388,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowSubmittedEventArgs : aliased constant Windows.IID := (987564609, 14228, 21865, (92, 135, 64, 232, 255, 114, 15, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowTarget : aliased constant Windows.IID := (702162796, 2675, 23277, (79, 61, 151, 13, 50, 81, 240, 87 ));
+   
    type IPrintWorkflowTarget_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetAsStream
@@ -404,10 +407,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelTargetPackage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowTarget : aliased constant Windows.IID := (702162796, 2675, 23277, (79, 61, 151, 13, 50, 81, 240, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowUIActivatedEventArgs : aliased constant Windows.IID := (3163194445, 2539, 22342, (114, 166, 141, 200, 181, 237, 190, 155 ));
+   
    type IPrintWorkflowUIActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrintWorkflowSession
@@ -416,10 +419,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowUIActivatedEventArgs : aliased constant Windows.IID := (3163194445, 2539, 22342, (114, 166, 141, 200, 181, 237, 190, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowXpsDataAvailableEventArgs : aliased constant Windows.IID := (1293009713, 21713, 17230, (190, 14, 130, 197, 250, 88, 229, 178 ));
+   
    type IPrintWorkflowXpsDataAvailableEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Operation
@@ -435,10 +438,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowXpsDataAvailableEventArgs : aliased constant Windows.IID := (1293009713, 21713, 17230, (190, 14, 130, 197, 250, 88, 229, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowSourceContent : aliased constant Windows.IID := (438879809, 52913, 17715, (187, 115, 251, 230, 62, 239, 219, 24 ));
+   
    type IPrintWorkflowSourceContent_Interface is interface and Windows.IInspectable_Interface;
    
    function GetJobPrintTicketAsync
@@ -461,10 +464,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelSourceFileContent
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowSourceContent : aliased constant Windows.IID := (438879809, 52913, 17715, (187, 115, 251, 230, 62, 239, 219, 24 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowSpoolStreamContent : aliased constant Windows.IID := (1927634638, 58374, 19316, (132, 225, 63, 243, 253, 205, 175, 112 ));
+   
    type IPrintWorkflowSpoolStreamContent_Interface is interface and Windows.IInspectable_Interface;
    
    function GetInputStream
@@ -473,15 +476,15 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Storage.Streams.IInputStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowSpoolStreamContent : aliased constant Windows.IID := (1927634638, 58374, 19316, (132, 225, 63, 243, 253, 205, 175, 112 ));
-   
    ------------------------------------------------------------------------
-   type IPrintWorkflowObjectModelSourceFileContent_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPrintWorkflowObjectModelSourceFileContent : aliased constant Windows.IID := (3278670442, 35370, 16794, (179, 195, 32, 144, 230, 191, 171, 47 ));
    
+   type IPrintWorkflowObjectModelSourceFileContent_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowStreamTarget : aliased constant Windows.IID := (2990258820, 34149, 18571, (152, 57, 28, 158, 124, 122, 169, 22 ));
+   
    type IPrintWorkflowStreamTarget_Interface is interface and Windows.IInspectable_Interface;
    
    function GetOutputStream
@@ -490,10 +493,10 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Storage.Streams.IOutputStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowStreamTarget : aliased constant Windows.IID := (2990258820, 34149, 18571, (152, 57, 28, 158, 124, 122, 169, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintWorkflowTriggerDetails : aliased constant Windows.IID := (1463408744, 40326, 16466, (176, 203, 243, 16, 190, 205, 89, 187 ));
+   
    type IPrintWorkflowTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrintWorkflowSession
@@ -502,15 +505,13 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintWorkflowTriggerDetails : aliased constant Windows.IID := (1463408744, 40326, 16466, (176, 203, 243, 16, 190, 205, 89, 187 ));
-   
    ------------------------------------------------------------------------
-   type IPrintWorkflowObjectModelTargetPackage_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPrintWorkflowObjectModelTargetPackage : aliased constant Windows.IID := (2107030644, 39764, 19617, (173, 58, 151, 156, 61, 68, 221, 172 ));
    
+   type IPrintWorkflowObjectModelTargetPackage_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
    type IActivatedEventArgsWithUser_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_User
@@ -519,8 +520,8 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Kind
@@ -543,15 +544,15 @@ package Windows.Graphics.Printing.Workflow is
       ; RetVal : access Windows.ApplicationModel.Activation.ISplashScreen
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSetupRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested : aliased constant Windows.IID := (3143370129, 19217, 20764, (142, 243, 24, 34, 203, 113, 66, 124 ));
+   
+   type TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSetupRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested'access) with null record;
    
    function Invoke
    (
@@ -561,12 +562,11 @@ package Windows.Graphics.Printing.Workflow is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested : aliased constant Windows.IID := (3143370129, 19217, 20764, (142, 243, 24, 34, 203, 113, 66, 124 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPrintWorkflowBackgroundSession_add_Submitted_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowBackgroundSession_add_Submitted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPrintWorkflowBackgroundSession_add_Submitted : aliased constant Windows.IID := (2663888227, 20548, 24051, (152, 181, 58, 86, 67, 252, 89, 254 ));
+   
+   type TypedEventHandler_IPrintWorkflowBackgroundSession_add_Submitted_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintWorkflowBackgroundSession_add_Submitted'access) with null record;
    
    function Invoke
    (
@@ -576,12 +576,11 @@ package Windows.Graphics.Printing.Workflow is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPrintWorkflowBackgroundSession_add_Submitted : aliased constant Windows.IID := (2663888227, 20548, 24051, (152, 181, 58, 86, 67, 252, 89, 254 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPrintWorkflowForegroundSession_add_SetupRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSetupRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowForegroundSession_add_SetupRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPrintWorkflowForegroundSession_add_SetupRequested : aliased constant Windows.IID := (3629861104, 38411, 24421, (152, 177, 95, 155, 9, 254, 178, 246 ));
+   
+   type TypedEventHandler_IPrintWorkflowForegroundSession_add_SetupRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSetupRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintWorkflowForegroundSession_add_SetupRequested'access) with null record;
    
    function Invoke
    (
@@ -591,12 +590,11 @@ package Windows.Graphics.Printing.Workflow is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPrintWorkflowForegroundSession_add_SetupRequested : aliased constant Windows.IID := (3629861104, 38411, 24421, (152, 177, 95, 155, 9, 254, 178, 246 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPrintWorkflowForegroundSession_add_XpsDataAvailable_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPrintWorkflowForegroundSession_add_XpsDataAvailable_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPrintWorkflowForegroundSession_add_XpsDataAvailable : aliased constant Windows.IID := (1832430377, 11187, 22601, (128, 205, 236, 225, 58, 88, 157, 19 ));
+   
+   type TypedEventHandler_IPrintWorkflowForegroundSession_add_XpsDataAvailable_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintWorkflowForegroundSession_add_XpsDataAvailable'access) with null record;
    
    function Invoke
    (
@@ -605,8 +603,6 @@ package Windows.Graphics.Printing.Workflow is
       ; args : Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IPrintWorkflowForegroundSession_add_XpsDataAvailable : aliased constant Windows.IID := (1832430377, 11187, 22601, (128, 205, 236, 225, 58, 88, 157, 19 ));
    
    ------------------------------------------------------------------------
    -- Classes

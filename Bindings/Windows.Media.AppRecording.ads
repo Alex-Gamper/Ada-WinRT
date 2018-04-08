@@ -117,6 +117,9 @@ package Windows.Media.AppRecording is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IAppRecordingManager : aliased constant Windows.IID := (3890372726, 41028, 18658, (165, 18, 48, 148, 213, 116, 199, 204 ));
+   
    type IAppRecordingManager_Interface is interface and Windows.IInspectable_Interface;
    
    function GetStatus
@@ -161,10 +164,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.Media.AppRecording.IAsyncOperation_IAppRecordingSaveScreenshotResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppRecordingManager : aliased constant Windows.IID := (3890372726, 41028, 18658, (165, 18, 48, 148, 213, 116, 199, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppRecordingManagerStatics : aliased constant Windows.IID := (1357318647, 14542, 19411, (157, 178, 231, 43, 190, 157, 225, 29 ));
+   
    type IAppRecordingManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -173,10 +176,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.Media.AppRecording.IAppRecordingManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppRecordingManagerStatics : aliased constant Windows.IID := (1357318647, 14542, 19411, (157, 178, 231, 43, 190, 157, 225, 29 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppRecordingStatus : aliased constant Windows.IID := (487376940, 48152, 19338, (166, 239, 18, 126, 250, 179, 181, 217 ));
+   
    type IAppRecordingStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanRecord
@@ -206,10 +209,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.Media.AppRecording.IAppRecordingStatusDetails
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppRecordingStatus : aliased constant Windows.IID := (487376940, 48152, 19338, (166, 239, 18, 126, 250, 179, 181, 217 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppRecordingStatusDetails : aliased constant Windows.IID := (3040389552, 5357, 17426, (172, 69, 109, 103, 44, 156, 153, 73 ));
+   
    type IAppRecordingStatusDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsAnyAppBroadcasting
@@ -274,10 +277,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppRecordingStatusDetails : aliased constant Windows.IID := (3040389552, 5357, 17426, (172, 69, 109, 103, 44, 156, 153, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppRecordingResult : aliased constant Windows.IID := (982517860, 50797, 18169, (178, 217, 91, 194, 218, 208, 112, 215 ));
+   
    type IAppRecordingResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Succeeded
@@ -307,10 +310,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppRecordingResult : aliased constant Windows.IID := (982517860, 50797, 18169, (178, 217, 91, 194, 218, 208, 112, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppRecordingSaveScreenshotResult : aliased constant Windows.IID := (2623245578, 2747, 17495, (170, 238, 36, 249, 193, 46, 199, 120 ));
+   
    type IAppRecordingSaveScreenshotResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Succeeded
@@ -333,10 +336,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.Media.AppRecording.IVectorView_IAppRecordingSavedScreenshotInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppRecordingSaveScreenshotResult : aliased constant Windows.IID := (2623245578, 2747, 17495, (170, 238, 36, 249, 193, 46, 199, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (2607033610, 6298, 19712, (191, 37, 225, 187, 18, 73, 213, 148 ));
+   
    type IAppRecordingSavedScreenshotInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_File
@@ -352,10 +355,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (2607033610, 6298, 19712, (191, 37, 225, 187, 18, 73, 213, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppRecordingResult : aliased constant Windows.IID := (745719574, 12522, 21804, (170, 202, 81, 209, 35, 35, 78, 227 ));
+   
    type IAsyncOperation_IAppRecordingResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -378,10 +381,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.Media.AppRecording.IAppRecordingResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IAppRecordingResult : aliased constant Windows.IID := (745719574, 12522, 21804, (170, 202, 81, 209, 35, 35, 78, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppRecordingSaveScreenshotResult : aliased constant Windows.IID := (2689123646, 58916, 20779, (142, 7, 172, 78, 100, 57, 27, 42 ));
+   
    type IAsyncOperation_IAppRecordingSaveScreenshotResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -404,10 +407,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.Media.AppRecording.IAppRecordingSaveScreenshotResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IAppRecordingSaveScreenshotResult : aliased constant Windows.IID := (2689123646, 58916, 20779, (142, 7, 172, 78, 100, 57, 27, 42 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (1010855958, 6464, 24107, (136, 48, 197, 75, 236, 187, 224, 218 ));
+   
    type IIterator_IAppRecordingSavedScreenshotInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -438,10 +441,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (1010855958, 6464, 24107, (136, 48, 197, 75, 236, 187, 224, 218 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (3709273124, 31053, 20824, (169, 175, 104, 36, 53, 63, 145, 178 ));
+   
    type IIterable_IAppRecordingSavedScreenshotInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -450,10 +453,10 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.Media.AppRecording.IIterator_IAppRecordingSavedScreenshotInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (3709273124, 31053, 20824, (169, 175, 104, 36, 53, 63, 145, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (1137194883, 45933, 23182, (185, 147, 225, 156, 130, 62, 108, 26 ));
+   
    type IVectorView_IAppRecordingSavedScreenshotInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -488,17 +491,15 @@ package Windows.Media.AppRecording is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IAppRecordingSavedScreenshotInfo : aliased constant Windows.IID := (1137194883, 45933, 23182, (185, 147, 225, 156, 130, 62, 108, 26 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IAppRecordingResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.AppRecording.IAsyncOperation_IAppRecordingResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppRecordingResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IAppRecordingResult : aliased constant Windows.IID := (527386511, 27819, 22757, (129, 148, 152, 8, 60, 114, 221, 252 ));
+   
+   type AsyncOperationCompletedHandler_IAppRecordingResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.AppRecording.IAsyncOperation_IAppRecordingResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppRecordingResult'access) with null record;
    
    function Invoke
    (
@@ -508,12 +509,11 @@ package Windows.Media.AppRecording is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IAppRecordingResult : aliased constant Windows.IID := (527386511, 27819, 22757, (129, 148, 152, 8, 60, 114, 221, 252 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IAppRecordingSaveScreenshotResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.AppRecording.IAsyncOperation_IAppRecordingSaveScreenshotResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppRecordingSaveScreenshotResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IAppRecordingSaveScreenshotResult : aliased constant Windows.IID := (2384480195, 19677, 21508, (159, 104, 82, 157, 10, 53, 190, 101 ));
+   
+   type AsyncOperationCompletedHandler_IAppRecordingSaveScreenshotResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.AppRecording.IAsyncOperation_IAppRecordingSaveScreenshotResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppRecordingSaveScreenshotResult'access) with null record;
    
    function Invoke
    (
@@ -522,8 +522,6 @@ package Windows.Media.AppRecording is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IAppRecordingSaveScreenshotResult : aliased constant Windows.IID := (2384480195, 19677, 21508, (159, 104, 82, 157, 10, 53, 190, 101 ));
    
    ------------------------------------------------------------------------
    -- Classes

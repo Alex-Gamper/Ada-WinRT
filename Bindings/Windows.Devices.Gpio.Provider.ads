@@ -144,6 +144,9 @@ package Windows.Devices.Gpio.Provider is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IGpioPinProviderValueChangedEventArgsFactory : aliased constant Windows.IID := (1053494105, 22156, 17298, (178, 74, 138, 89, 169, 2, 177, 241 ));
+   
    type IGpioPinProviderValueChangedEventArgsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -153,10 +156,10 @@ package Windows.Devices.Gpio.Provider is
       ; RetVal : access Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGpioPinProviderValueChangedEventArgsFactory : aliased constant Windows.IID := (1053494105, 22156, 17298, (178, 74, 138, 89, 169, 2, 177, 241 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGpioPinProviderValueChangedEventArgs : aliased constant Windows.IID := (849794802, 15707, 17613, (143, 190, 19, 166, 159, 46, 219, 36 ));
+   
    type IGpioPinProviderValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Edge
@@ -165,10 +168,10 @@ package Windows.Devices.Gpio.Provider is
       ; RetVal : access Windows.Devices.Gpio.Provider.ProviderGpioPinEdge
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGpioPinProviderValueChangedEventArgs : aliased constant Windows.IID := (849794802, 15707, 17613, (143, 190, 19, 166, 159, 46, 219, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGpioPinProvider : aliased constant Windows.IID := (1110723767, 27324, 16639, (156, 231, 115, 184, 83, 1, 185, 0 ));
+   
    type IGpioPinProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function add_ValueChanged
@@ -249,10 +252,10 @@ package Windows.Devices.Gpio.Provider is
       ; RetVal : access Windows.Devices.Gpio.Provider.ProviderGpioPinValue
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGpioPinProvider : aliased constant Windows.IID := (1110723767, 27324, 16639, (156, 231, 115, 184, 83, 1, 185, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGpioControllerProvider : aliased constant Windows.IID := (2903625415, 6634, 19233, (135, 79, 185, 26, 237, 74, 37, 219 ));
+   
    type IGpioControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PinCount
@@ -270,10 +273,10 @@ package Windows.Devices.Gpio.Provider is
       ; RetVal : access Windows.Devices.Gpio.Provider.IGpioPinProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGpioControllerProvider : aliased constant Windows.IID := (2903625415, 6634, 19233, (135, 79, 185, 26, 237, 74, 37, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGpioProvider : aliased constant Windows.IID := (1156065031, 2250, 17226, (175, 224, 214, 21, 128, 68, 111, 126 ));
+   
    type IGpioProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function GetControllers
@@ -282,10 +285,10 @@ package Windows.Devices.Gpio.Provider is
       ; RetVal : access Windows.Devices.Gpio.Provider.IVectorView_IGpioControllerProvider -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGpioProvider : aliased constant Windows.IID := (1156065031, 2250, 17226, (175, 224, 214, 21, 128, 68, 111, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IGpioControllerProvider : aliased constant Windows.IID := (1791028665, 58313, 22592, (138, 168, 27, 196, 83, 102, 246, 202 ));
+   
    type IIterator_IGpioControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -316,10 +319,10 @@ package Windows.Devices.Gpio.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IGpioControllerProvider : aliased constant Windows.IID := (1791028665, 58313, 22592, (138, 168, 27, 196, 83, 102, 246, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IGpioControllerProvider : aliased constant Windows.IID := (153168852, 34075, 21181, (184, 44, 66, 27, 243, 214, 245, 17 ));
+   
    type IIterable_IGpioControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -328,10 +331,10 @@ package Windows.Devices.Gpio.Provider is
       ; RetVal : access Windows.Devices.Gpio.Provider.IIterator_IGpioControllerProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IGpioControllerProvider : aliased constant Windows.IID := (153168852, 34075, 21181, (184, 44, 66, 27, 243, 214, 245, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IGpioControllerProvider : aliased constant Windows.IID := (4096341343, 31254, 24015, (165, 117, 219, 125, 42, 32, 236, 237 ));
+   
    type IVectorView_IGpioControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -366,17 +369,15 @@ package Windows.Devices.Gpio.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IGpioControllerProvider : aliased constant Windows.IID := (4096341343, 31254, 24015, (165, 117, 219, 125, 42, 32, 236, 237 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IGpioPinProvider_add_ValueChanged_Interface(Callback : access procedure (sender : Windows.Devices.Gpio.Provider.IGpioPinProvider ; args : Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IGpioPinProvider_add_ValueChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IGpioPinProvider_add_ValueChanged : aliased constant Windows.IID := (2938477961, 40449, 21150, (168, 121, 198, 118, 49, 66, 209, 96 ));
+   
+   type TypedEventHandler_IGpioPinProvider_add_ValueChanged_Interface(Callback : access procedure (sender : Windows.Devices.Gpio.Provider.IGpioPinProvider ; args : Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGpioPinProvider_add_ValueChanged'access) with null record;
    
    function Invoke
    (
@@ -385,8 +386,6 @@ package Windows.Devices.Gpio.Provider is
       ; args : Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IGpioPinProvider_add_ValueChanged : aliased constant Windows.IID := (2938477961, 40449, 21150, (168, 121, 198, 118, 49, 66, 209, 96 ));
    
    ------------------------------------------------------------------------
    -- Classes

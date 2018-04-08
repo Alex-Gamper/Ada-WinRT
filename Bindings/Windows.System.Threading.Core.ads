@@ -71,6 +71,9 @@ package Windows.System.Threading.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISignalNotifierStatics : aliased constant Windows.IID := (474891622, 33792, 18131, (161, 21, 125, 12, 13, 252, 159, 98 ));
+   
    type ISignalNotifierStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function AttachToEvent
@@ -110,10 +113,10 @@ package Windows.System.Threading.Core is
       ; RetVal : access Windows.System.Threading.Core.ISignalNotifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISignalNotifierStatics : aliased constant Windows.IID := (474891622, 33792, 18131, (161, 21, 125, 12, 13, 252, 159, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPreallocatedWorkItemFactory : aliased constant Windows.IID := (3822267205, 57322, 18075, (130, 197, 246, 227, 206, 253, 234, 251 ));
+   
    type IPreallocatedWorkItemFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWorkItem
@@ -142,10 +145,10 @@ package Windows.System.Threading.Core is
       ; RetVal : access Windows.System.Threading.Core.IPreallocatedWorkItem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPreallocatedWorkItemFactory : aliased constant Windows.IID := (3822267205, 57322, 18075, (130, 197, 246, 227, 206, 253, 234, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPreallocatedWorkItem : aliased constant Windows.IID := (3067783676, 48219, 16410, (168, 178, 110, 117, 77, 20, 218, 166 ));
+   
    type IPreallocatedWorkItem_Interface is interface and Windows.IInspectable_Interface;
    
    function RunAsync
@@ -154,10 +157,10 @@ package Windows.System.Threading.Core is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPreallocatedWorkItem : aliased constant Windows.IID := (3067783676, 48219, 16410, (168, 178, 110, 117, 77, 20, 218, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISignalNotifier : aliased constant Windows.IID := (338189830, 25511, 18195, (182, 217, 98, 246, 75, 86, 251, 139 ));
+   
    type ISignalNotifier_Interface is interface and Windows.IInspectable_Interface;
    
    function Enable
@@ -171,17 +174,15 @@ package Windows.System.Threading.Core is
       This       : access ISignalNotifier_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISignalNotifier : aliased constant Windows.IID := (338189830, 25511, 18195, (182, 217, 98, 246, 75, 86, 251, 139 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type SignalHandler_Interface(Callback : access procedure (signalNotifier : Windows.System.Threading.Core.ISignalNotifier ; timedOut : Windows.Boolean)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SignalHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_SignalHandler : aliased constant Windows.IID := (2453422126, 18209, 17422, (157, 218, 85, 182, 242, 224, 119, 16 ));
+   
+   type SignalHandler_Interface(Callback : access procedure (signalNotifier : Windows.System.Threading.Core.ISignalNotifier ; timedOut : Windows.Boolean)) is new Windows.IMulticastDelegate_Interface(IID_SignalHandler'access) with null record;
    
    function Invoke
    (
@@ -190,8 +191,6 @@ package Windows.System.Threading.Core is
       ; timedOut : Windows.Boolean
    )
    return Windows.HRESULT;
-   
-   IID_SignalHandler : aliased constant Windows.IID := (2453422126, 18209, 17422, (157, 218, 85, 182, 242, 224, 119, 16 ));
    
    ------------------------------------------------------------------------
    -- Classes

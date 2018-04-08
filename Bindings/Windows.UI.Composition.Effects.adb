@@ -34,15 +34,16 @@ package body Windows.UI.Composition.Effects is
       m_hString     : Windows.String := To_String("Windows.UI.Composition.Effects.SceneLightingEffect");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Composition.Effects.ISceneLightingEffect := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Composition.Effects.ISceneLightingEffect) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.Composition.Effects.IID_ISceneLightingEffect'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.Composition.Effects.IID_ISceneLightingEffect'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

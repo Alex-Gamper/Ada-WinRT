@@ -58,6 +58,9 @@ package Windows.Security.Cryptography.DataProtection is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDataProtectionProvider : aliased constant Windows.IID := (157522248, 60706, 17008, (189, 28, 109, 114, 192, 15, 135, 135 ));
+   
    type IDataProtectionProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function ProtectAsync
@@ -93,10 +96,10 @@ package Windows.Security.Cryptography.DataProtection is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataProtectionProvider : aliased constant Windows.IID := (157522248, 60706, 17008, (189, 28, 109, 114, 192, 15, 135, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDataProtectionProviderFactory : aliased constant Windows.IID := (2918399404, 18738, 19679, (172, 65, 114, 20, 51, 53, 20, 202 ));
+   
    type IDataProtectionProviderFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateOverloadExplicit
@@ -106,9 +109,6 @@ package Windows.Security.Cryptography.DataProtection is
       ; RetVal : access Windows.Security.Cryptography.DataProtection.IDataProtectionProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDataProtectionProviderFactory : aliased constant Windows.IID := (2918399404, 18738, 19679, (172, 65, 114, 20, 51, 53, 20, 202 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

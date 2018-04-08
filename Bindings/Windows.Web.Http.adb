@@ -59,15 +59,16 @@ package body Windows.Web.Http is
       m_hString     : Windows.String := To_String("Windows.Web.Http.HttpResponseMessage");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Web.Http.IHttpResponseMessage := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Http.IHttpResponseMessage) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Web.Http.IID_IHttpResponseMessage'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Web.Http.IID_IHttpResponseMessage'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateHttpClient return Windows.Web.Http.IHttpClient is
@@ -75,15 +76,16 @@ package body Windows.Web.Http is
       m_hString     : Windows.String := To_String("Windows.Web.Http.HttpClient");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Web.Http.IHttpClient := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Http.IHttpClient) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Web.Http.IID_IHttpClient'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Web.Http.IID_IHttpClient'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create

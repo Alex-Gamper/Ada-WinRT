@@ -53,6 +53,9 @@ package Windows.Data.Html is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IHtmlUtilities : aliased constant Windows.IID := (4273998557, 9113, 20396, (181, 167, 5, 233, 172, 215, 24, 29 ));
+   
    type IHtmlUtilities_Interface is interface and Windows.IInspectable_Interface;
    
    function ConvertToText
@@ -62,9 +65,6 @@ package Windows.Data.Html is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHtmlUtilities : aliased constant Windows.IID := (4273998557, 9113, 20396, (181, 167, 5, 233, 172, 215, 24, 29 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

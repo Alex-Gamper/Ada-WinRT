@@ -245,6 +245,9 @@ package Windows.Devices.WiFiDirect is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectDeviceStatics : aliased constant Windows.IID := (3899438460, 15020, 18513, (167, 146, 72, 42, 175, 147, 27, 4 ));
+   
    type IWiFiDirectDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -261,10 +264,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.IAsyncOperation_IWiFiDirectDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectDeviceStatics : aliased constant Windows.IID := (3899438460, 15020, 18513, (167, 146, 72, 42, 175, 147, 27, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectDeviceStatics2 : aliased constant Windows.IID := (445988425, 45315, 17278, (146, 38, 171, 103, 151, 19, 66, 249 ));
+   
    type IWiFiDirectDeviceStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -283,10 +286,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.IAsyncOperation_IWiFiDirectDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectDeviceStatics2 : aliased constant Windows.IID := (445988425, 45315, 17278, (146, 38, 171, 103, 151, 19, 66, 249 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectDevice : aliased constant Windows.IID := (1927195304, 29419, 19886, (138, 40, 133, 19, 53, 93, 39, 119 ));
+   
    type IWiFiDirectDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ConnectionStatus
@@ -324,10 +327,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Networking.IVectorView_IEndpointPair -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectDevice : aliased constant Windows.IID := (1927195304, 29419, 19886, (138, 40, 133, 19, 53, 93, 39, 119 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectInformationElementStatics : aliased constant Windows.IID := (3687853846, 4517, 20064, (140, 170, 52, 119, 33, 72, 55, 138 ));
+   
    type IWiFiDirectInformationElementStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFromBuffer
@@ -345,10 +348,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.IVector_IWiFiDirectInformationElement -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectInformationElementStatics : aliased constant Windows.IID := (3687853846, 4517, 20064, (140, 170, 52, 119, 33, 72, 55, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectInformationElement : aliased constant Windows.IID := (2952491734, 30395, 18814, (172, 139, 220, 114, 131, 139, 195, 9 ));
+   
    type IWiFiDirectInformationElement_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Oui
@@ -392,10 +395,10 @@ package Windows.Devices.WiFiDirect is
       ; value : Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectInformationElement : aliased constant Windows.IID := (2952491734, 30395, 18814, (172, 139, 220, 114, 131, 139, 195, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectLegacySettings : aliased constant Windows.IID := (2790251450, 62205, 17767, (169, 27, 245, 194, 245, 50, 16, 87 ));
+   
    type IWiFiDirectLegacySettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsEnabled
@@ -439,10 +442,10 @@ package Windows.Devices.WiFiDirect is
       ; value : Windows.Security.Credentials.IPasswordCredential
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectLegacySettings : aliased constant Windows.IID := (2790251450, 62205, 17767, (169, 27, 245, 194, 245, 50, 16, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectAdvertisement : aliased constant Windows.IID := (2874219053, 10758, 18849, (165, 132, 97, 67, 92, 121, 5, 166 ));
+   
    type IWiFiDirectAdvertisement_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InformationElements
@@ -493,10 +496,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.IWiFiDirectLegacySettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectAdvertisement : aliased constant Windows.IID := (2874219053, 10758, 18849, (165, 132, 97, 67, 92, 121, 5, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectAdvertisement2 : aliased constant Windows.IID := (3076106822, 55318, 18715, (145, 122, 180, 13, 125, 196, 3, 162 ));
+   
    type IWiFiDirectAdvertisement2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SupportedConfigurationMethods
@@ -505,10 +508,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.IVector_WiFiDirectConfigurationMethod -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectAdvertisement2 : aliased constant Windows.IID := (3076106822, 55318, 18715, (145, 122, 180, 13, 125, 196, 3, 162 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectAdvertisementPublisherStatusChangedEventArgs : aliased constant Windows.IID := (2868766012, 21633, 18150, (144, 221, 50, 17, 101, 24, 241, 146 ));
+   
    type IWiFiDirectAdvertisementPublisherStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -524,10 +527,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.WiFiDirectError
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectAdvertisementPublisherStatusChangedEventArgs : aliased constant Windows.IID := (2868766012, 21633, 18150, (144, 221, 50, 17, 101, 24, 241, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectAdvertisementPublisher : aliased constant Windows.IID := (3009031450, 39711, 17881, (146, 90, 105, 77, 102, 223, 104, 239 ));
+   
    type IWiFiDirectAdvertisementPublisher_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Advertisement
@@ -570,10 +573,10 @@ package Windows.Devices.WiFiDirect is
       This       : access IWiFiDirectAdvertisementPublisher_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectAdvertisementPublisher : aliased constant Windows.IID := (3009031450, 39711, 17881, (146, 90, 105, 77, 102, 223, 104, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectConnectionParametersStatics : aliased constant Windows.IID := (1502278803, 30274, 17775, (185, 216, 232, 169, 235, 31, 64, 26 ));
+   
    type IWiFiDirectConnectionParametersStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDevicePairingKinds
@@ -583,10 +586,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.Enumeration.DevicePairingKinds
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectConnectionParametersStatics : aliased constant Windows.IID := (1502278803, 30274, 17775, (185, 216, 232, 169, 235, 31, 64, 26 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectConnectionParameters : aliased constant Windows.IID := (3001373701, 22274, 19222, (160, 44, 187, 205, 33, 239, 96, 152 ));
+   
    type IWiFiDirectConnectionParameters_Interface is interface and Windows.IInspectable_Interface;
    
    function get_GroupOwnerIntent
@@ -602,10 +605,10 @@ package Windows.Devices.WiFiDirect is
       ; value : Windows.Int16
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectConnectionParameters : aliased constant Windows.IID := (3001373701, 22274, 19222, (160, 44, 187, 205, 33, 239, 96, 152 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectConnectionParameters2 : aliased constant Windows.IID := (2872774590, 43650, 17588, (136, 200, 227, 5, 107, 137, 128, 29 ));
+   
    type IWiFiDirectConnectionParameters2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PreferenceOrderedConfigurationMethods
@@ -628,10 +631,10 @@ package Windows.Devices.WiFiDirect is
       ; value : Windows.Devices.WiFiDirect.WiFiDirectPairingProcedure
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectConnectionParameters2 : aliased constant Windows.IID := (2872774590, 43650, 17588, (136, 200, 227, 5, 107, 137, 128, 29 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectConnectionRequest : aliased constant Windows.IID := (2394527237, 37199, 18883, (166, 20, 209, 141, 197, 177, 155, 67 ));
+   
    type IWiFiDirectConnectionRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceInformation
@@ -640,10 +643,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectConnectionRequest : aliased constant Windows.IID := (2394527237, 37199, 18883, (166, 20, 209, 141, 197, 177, 155, 67 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectConnectionRequestedEventArgs : aliased constant Windows.IID := (4187824318, 54157, 18511, (130, 21, 231, 182, 90, 191, 36, 76 ));
+   
    type IWiFiDirectConnectionRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetConnectionRequest
@@ -652,10 +655,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.IWiFiDirectConnectionRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectConnectionRequestedEventArgs : aliased constant Windows.IID := (4187824318, 54157, 18511, (130, 21, 231, 182, 90, 191, 36, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWiFiDirectConnectionListener : aliased constant Windows.IID := (1771838221, 36115, 20201, (185, 236, 156, 114, 248, 37, 31, 125 ));
+   
    type IWiFiDirectConnectionListener_Interface is interface and Windows.IInspectable_Interface;
    
    function add_ConnectionRequested
@@ -672,13 +675,13 @@ package Windows.Devices.WiFiDirect is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWiFiDirectConnectionListener : aliased constant Windows.IID := (1771838221, 36115, 20201, (185, 236, 156, 114, 248, 37, 31, 125 ));
-   
    ------------------------------------------------------------------------
+   
    type IDevicePairingSettings_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IWiFiDirectDevice : aliased constant Windows.IID := (3671071585, 43053, 22124, (186, 130, 34, 76, 17, 80, 6, 105 ));
+   
    type IAsyncOperation_IWiFiDirectDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -701,10 +704,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.IWiFiDirectDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IWiFiDirectDevice : aliased constant Windows.IID := (3671071585, 43053, 22124, (186, 130, 34, 76, 17, 80, 6, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IWiFiDirectInformationElement : aliased constant Windows.IID := (3481296934, 51477, 21822, (175, 60, 141, 164, 56, 113, 182, 147 ));
+   
    type IIterator_IWiFiDirectInformationElement_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -735,10 +738,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IWiFiDirectInformationElement : aliased constant Windows.IID := (3481296934, 51477, 21822, (175, 60, 141, 164, 56, 113, 182, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IWiFiDirectInformationElement : aliased constant Windows.IID := (432130638, 38241, 21075, (150, 217, 219, 175, 40, 212, 125, 137 ));
+   
    type IIterable_IWiFiDirectInformationElement_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -747,10 +750,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.IIterator_IWiFiDirectInformationElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IWiFiDirectInformationElement : aliased constant Windows.IID := (432130638, 38241, 21075, (150, 217, 219, 175, 40, 212, 125, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IWiFiDirectInformationElement : aliased constant Windows.IID := (1842346715, 1221, 21342, (173, 212, 19, 137, 179, 190, 110, 202 ));
+   
    type IVectorView_IWiFiDirectInformationElement_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -785,10 +788,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IWiFiDirectInformationElement : aliased constant Windows.IID := (1842346715, 1221, 21342, (173, 212, 19, 137, 179, 190, 110, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IWiFiDirectInformationElement : aliased constant Windows.IID := (3099939986, 58590, 23463, (132, 118, 211, 186, 181, 87, 205, 214 ));
+   
    type IVector_IWiFiDirectInformationElement_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -879,10 +882,10 @@ package Windows.Devices.WiFiDirect is
       ; items : Windows.Devices.WiFiDirect.IWiFiDirectInformationElement_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IWiFiDirectInformationElement : aliased constant Windows.IID := (3099939986, 58590, 23463, (132, 118, 211, 186, 181, 87, 205, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_WiFiDirectConfigurationMethod : aliased constant Windows.IID := (538525945, 41832, 22516, (158, 242, 63, 100, 226, 67, 224, 164 ));
+   
    type IIterator_WiFiDirectConfigurationMethod_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -913,10 +916,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_WiFiDirectConfigurationMethod : aliased constant Windows.IID := (538525945, 41832, 22516, (158, 242, 63, 100, 226, 67, 224, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_WiFiDirectConfigurationMethod : aliased constant Windows.IID := (2035225306, 11718, 21111, (130, 220, 176, 120, 22, 16, 83, 123 ));
+   
    type IIterable_WiFiDirectConfigurationMethod_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -925,10 +928,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.Devices.WiFiDirect.IIterator_WiFiDirectConfigurationMethod
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_WiFiDirectConfigurationMethod : aliased constant Windows.IID := (2035225306, 11718, 21111, (130, 220, 176, 120, 22, 16, 83, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_WiFiDirectConfigurationMethod : aliased constant Windows.IID := (1638082160, 1235, 21789, (173, 102, 189, 4, 233, 239, 92, 120 ));
+   
    type IVectorView_WiFiDirectConfigurationMethod_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -963,10 +966,10 @@ package Windows.Devices.WiFiDirect is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_WiFiDirectConfigurationMethod : aliased constant Windows.IID := (1638082160, 1235, 21789, (173, 102, 189, 4, 233, 239, 92, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_WiFiDirectConfigurationMethod : aliased constant Windows.IID := (2605288384, 46196, 21895, (182, 92, 230, 0, 150, 95, 143, 208 ));
+   
    type IVector_WiFiDirectConfigurationMethod_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1057,17 +1060,15 @@ package Windows.Devices.WiFiDirect is
       ; items : Windows.Devices.WiFiDirect.WiFiDirectConfigurationMethod_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_WiFiDirectConfigurationMethod : aliased constant Windows.IID := (2605288384, 46196, 21895, (182, 92, 230, 0, 150, 95, 143, 208 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IWiFiDirectDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFiDirect.IAsyncOperation_IWiFiDirectDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IWiFiDirectDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IWiFiDirectDevice : aliased constant Windows.IID := (3544890903, 64281, 22462, (188, 65, 14, 184, 61, 234, 21, 28 ));
+   
+   type AsyncOperationCompletedHandler_IWiFiDirectDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFiDirect.IAsyncOperation_IWiFiDirectDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWiFiDirectDevice'access) with null record;
    
    function Invoke
    (
@@ -1077,12 +1078,11 @@ package Windows.Devices.WiFiDirect is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IWiFiDirectDevice : aliased constant Windows.IID := (3544890903, 64281, 22462, (188, 65, 14, 184, 61, 234, 21, 28 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.IWiFiDirectDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged : aliased constant Windows.IID := (2450035354, 10812, 20653, (170, 8, 160, 169, 134, 237, 186, 190 ));
+   
+   type TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.IWiFiDirectDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged'access) with null record;
    
    function Invoke
    (
@@ -1092,12 +1092,11 @@ package Windows.Devices.WiFiDirect is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IWiFiDirectDevice_add_ConnectionStatusChanged : aliased constant Windows.IID := (2450035354, 10812, 20653, (170, 8, 160, 169, 134, 237, 186, 190 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisher ; args : Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisherStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged : aliased constant Windows.IID := (3732130727, 14093, 21772, (178, 58, 83, 221, 11, 78, 72, 13 ));
+   
+   type TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisher ; args : Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisherStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged'access) with null record;
    
    function Invoke
    (
@@ -1107,12 +1106,11 @@ package Windows.Devices.WiFiDirect is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IWiFiDirectAdvertisementPublisher_add_StatusChanged : aliased constant Windows.IID := (3732130727, 14093, 21772, (178, 58, 83, 221, 11, 78, 72, 13 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IWiFiDirectConnectionListener_add_ConnectionRequested_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.IWiFiDirectConnectionListener ; args : Windows.Devices.WiFiDirect.IWiFiDirectConnectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IWiFiDirectConnectionListener_add_ConnectionRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IWiFiDirectConnectionListener_add_ConnectionRequested : aliased constant Windows.IID := (3494577155, 8162, 21295, (142, 71, 72, 35, 161, 78, 98, 79 ));
+   
+   type TypedEventHandler_IWiFiDirectConnectionListener_add_ConnectionRequested_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.IWiFiDirectConnectionListener ; args : Windows.Devices.WiFiDirect.IWiFiDirectConnectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiDirectConnectionListener_add_ConnectionRequested'access) with null record;
    
    function Invoke
    (
@@ -1121,8 +1119,6 @@ package Windows.Devices.WiFiDirect is
       ; args : Windows.Devices.WiFiDirect.IWiFiDirectConnectionRequestedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IWiFiDirectConnectionListener_add_ConnectionRequested : aliased constant Windows.IID := (3494577155, 8162, 21295, (142, 71, 72, 35, 161, 78, 98, 79 ));
    
    ------------------------------------------------------------------------
    -- Classes

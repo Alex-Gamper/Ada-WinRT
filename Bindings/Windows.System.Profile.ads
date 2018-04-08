@@ -136,6 +136,9 @@ package Windows.System.Profile is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISystemIdentificationInfo : aliased constant Windows.IID := (207986301, 50114, 19763, (162, 223, 33, 188, 65, 145, 110, 179 ));
+   
    type ISystemIdentificationInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -151,10 +154,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.System.Profile.SystemIdentificationSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemIdentificationInfo : aliased constant Windows.IID := (207986301, 50114, 19763, (162, 223, 33, 188, 65, 145, 110, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemIdentificationStatics : aliased constant Windows.IID := (1434580010, 54239, 19859, (163, 125, 196, 26, 97, 108, 109, 1 ));
+   
    type ISystemIdentificationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetSystemIdForPublisher
@@ -171,10 +174,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.System.Profile.ISystemIdentificationInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemIdentificationStatics : aliased constant Windows.IID := (1434580010, 54239, 19859, (163, 125, 196, 26, 97, 108, 109, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAnalyticsInfoStatics : aliased constant Windows.IID := (492757094, 6285, 23465, (67, 135, 172, 174, 176, 231, 227, 5 ));
+   
    type IAnalyticsInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_VersionInfo
@@ -190,10 +193,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAnalyticsInfoStatics : aliased constant Windows.IID := (492757094, 6285, 23465, (67, 135, 172, 174, 176, 231, 227, 5 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAnalyticsVersionInfo : aliased constant Windows.IID := (2455843000, 39253, 19572, (189, 193, 124, 208, 222, 207, 155, 3 ));
+   
    type IAnalyticsVersionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceFamily
@@ -209,10 +212,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAnalyticsVersionInfo : aliased constant Windows.IID := (2455843000, 39253, 19572, (189, 193, 124, 208, 222, 207, 155, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEducationSettingsStatics : aliased constant Windows.IID := (4233359599, 19774, 19987, (155, 35, 80, 95, 77, 9, 30, 146 ));
+   
    type IEducationSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsEducationEnvironment
@@ -221,10 +224,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEducationSettingsStatics : aliased constant Windows.IID := (4233359599, 19774, 19987, (155, 35, 80, 95, 77, 9, 30, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlatformDiagnosticsAndUsageDataSettingsStatics : aliased constant Windows.IID := (3068283931, 31516, 19250, (140, 98, 166, 101, 151, 206, 114, 58 ));
+   
    type IPlatformDiagnosticsAndUsageDataSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CollectionLevel
@@ -256,10 +259,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlatformDiagnosticsAndUsageDataSettingsStatics : aliased constant Windows.IID := (3068283931, 31516, 19250, (140, 98, 166, 101, 151, 206, 114, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHardwareToken : aliased constant Windows.IID := (687264960, 64274, 16548, (129, 103, 127, 78, 3, 210, 114, 76 ));
+   
    type IHardwareToken_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -282,10 +285,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHardwareToken : aliased constant Windows.IID := (687264960, 64274, 16548, (129, 103, 127, 78, 3, 210, 114, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHardwareIdentificationStatics : aliased constant Windows.IID := (2534564064, 61808, 19010, (189, 85, 169, 0, 178, 18, 218, 226 ));
+   
    type IHardwareIdentificationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetPackageSpecificToken
@@ -295,10 +298,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.System.Profile.IHardwareToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHardwareIdentificationStatics : aliased constant Windows.IID := (2534564064, 61808, 19010, (189, 85, 169, 0, 178, 18, 218, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRetailInfoStatics : aliased constant Windows.IID := (118671032, 35730, 20266, (132, 153, 3, 31, 23, 152, 214, 239 ));
+   
    type IRetailInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsDemoModeEnabled
@@ -314,10 +317,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRetailInfoStatics : aliased constant Windows.IID := (118671032, 35730, 20266, (132, 153, 3, 31, 23, 152, 214, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKnownRetailInfoPropertiesStatics : aliased constant Windows.IID := (2572620152, 20495, 18558, (142, 117, 41, 229, 81, 114, 135, 18 ));
+   
    type IKnownRetailInfoPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RetailAccessCode
@@ -473,10 +476,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKnownRetailInfoPropertiesStatics : aliased constant Windows.IID := (2572620152, 20495, 18558, (142, 117, 41, 229, 81, 114, 135, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISharedModeSettingsStatics : aliased constant Windows.IID := (2302538766, 51926, 19792, (140, 73, 111, 207, 192, 62, 219, 41 ));
+   
    type ISharedModeSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsEnabled
@@ -485,10 +488,10 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISharedModeSettingsStatics : aliased constant Windows.IID := (2302538766, 51926, 19792, (140, 73, 111, 207, 192, 62, 219, 41 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISharedModeSettingsStatics2 : aliased constant Windows.IID := (1619626148, 52465, 20200, (165, 226, 253, 106, 29, 12, 250, 200 ));
+   
    type ISharedModeSettingsStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ShouldAvoidLocalStorage
@@ -497,9 +500,6 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISharedModeSettingsStatics2 : aliased constant Windows.IID := (1619626148, 52465, 20200, (165, 226, 253, 106, 29, 12, 250, 200 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

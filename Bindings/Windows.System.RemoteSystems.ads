@@ -447,11 +447,14 @@ package Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type IRemoteSystemFilter_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRemoteSystemFilter : aliased constant Windows.IID := (1245424100, 39403, 17899, (186, 22, 3, 103, 114, 143, 243, 116 ));
    
+   type IRemoteSystemFilter_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemStatics : aliased constant Windows.IID := (2760225682, 65323, 19271, (190, 98, 116, 63, 47, 20, 15, 48 ));
+   
    type IRemoteSystemStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FindByHostNameAsync
@@ -483,10 +486,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IAsyncOperation_RemoteSystemAccessStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemStatics : aliased constant Windows.IID := (2760225682, 65323, 19271, (190, 98, 116, 63, 47, 20, 15, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemStatics2 : aliased constant Windows.IID := (211348938, 28569, 19538, (162, 114, 234, 79, 54, 71, 23, 68 ));
+   
    type IRemoteSystemStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function IsAuthorizationKindEnabled
@@ -496,10 +499,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemStatics2 : aliased constant Windows.IID := (211348938, 28569, 19538, (162, 114, 234, 79, 54, 71, 23, 68 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystem : aliased constant Windows.IID := (3981981901, 7696, 19084, (180, 166, 78, 95, 214, 249, 119, 33 ));
+   
    type IRemoteSystem_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -536,10 +539,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystem : aliased constant Windows.IID := (3981981901, 7696, 19084, (180, 166, 78, 95, 214, 249, 119, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystem2 : aliased constant Windows.IID := (165668076, 64395, 18952, (167, 88, 104, 118, 67, 93, 118, 158 ));
+   
    type IRemoteSystem2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsAvailableBySpatialProximity
@@ -556,10 +559,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystem2 : aliased constant Windows.IID := (165668076, 64395, 18952, (167, 88, 104, 118, 67, 93, 118, 158 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystem3 : aliased constant Windows.IID := (1924445333, 47046, 16574, (131, 27, 115, 86, 47, 18, 255, 168 ));
+   
    type IRemoteSystem3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ManufacturerDisplayName
@@ -575,10 +578,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystem3 : aliased constant Windows.IID := (1924445333, 47046, 16574, (131, 27, 115, 86, 47, 18, 255, 168 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKnownRemoteSystemCapabilitiesStatics : aliased constant Windows.IID := (2164843392, 32650, 17636, (146, 205, 3, 182, 70, 155, 148, 163 ));
+   
    type IKnownRemoteSystemCapabilitiesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppService
@@ -608,10 +611,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKnownRemoteSystemCapabilitiesStatics : aliased constant Windows.IID := (2164843392, 32650, 17636, (146, 205, 3, 182, 70, 155, 148, 163 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemAuthorizationKindFilterFactory : aliased constant Windows.IID := (2909134669, 46698, 17828, (129, 119, 140, 174, 215, 93, 158, 90 ));
+   
    type IRemoteSystemAuthorizationKindFilterFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -621,10 +624,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemAuthorizationKindFilter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemAuthorizationKindFilterFactory : aliased constant Windows.IID := (2909134669, 46698, 17828, (129, 119, 140, 174, 215, 93, 158, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemAuthorizationKindFilter : aliased constant Windows.IID := (1796071054, 1232, 16628, (162, 127, 194, 172, 187, 214, 183, 52 ));
+   
    type IRemoteSystemAuthorizationKindFilter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoteSystemAuthorizationKind
@@ -633,10 +636,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.RemoteSystemAuthorizationKind
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemAuthorizationKindFilter : aliased constant Windows.IID := (1796071054, 1232, 16628, (162, 127, 194, 172, 187, 214, 183, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemWatcher : aliased constant Windows.IID := (1566575742, 11271, 18629, (136, 156, 69, 93, 43, 9, 151, 113 ));
+   
    type IRemoteSystemWatcher_Interface is interface and Windows.IInspectable_Interface;
    
    function Start
@@ -695,10 +698,10 @@ package Windows.System.RemoteSystems is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemWatcher : aliased constant Windows.IID := (1566575742, 11271, 18629, (136, 156, 69, 93, 43, 9, 151, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemAddedEventArgs : aliased constant Windows.IID := (2402899471, 58676, 18071, (136, 54, 122, 190, 161, 81, 81, 110 ));
+   
    type IRemoteSystemAddedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoteSystem
@@ -707,10 +710,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemAddedEventArgs : aliased constant Windows.IID := (2402899471, 58676, 18071, (136, 54, 122, 190, 161, 81, 81, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemUpdatedEventArgs : aliased constant Windows.IID := (1963130638, 56267, 16725, (180, 202, 179, 10, 4, 242, 118, 39 ));
+   
    type IRemoteSystemUpdatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoteSystem
@@ -719,10 +722,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemUpdatedEventArgs : aliased constant Windows.IID := (1963130638, 56267, 16725, (180, 202, 179, 10, 4, 242, 118, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemRemovedEventArgs : aliased constant Windows.IID := (2336036539, 29446, 18922, (183, 223, 103, 213, 113, 76, 176, 19 ));
+   
    type IRemoteSystemRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoteSystemId
@@ -731,10 +734,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemRemovedEventArgs : aliased constant Windows.IID := (2336036539, 29446, 18922, (183, 223, 103, 213, 113, 76, 176, 19 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemConnectionRequestFactory : aliased constant Windows.IID := (2852784672, 47851, 17781, (181, 48, 129, 11, 185, 120, 99, 52 ));
+   
    type IRemoteSystemConnectionRequestFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -744,10 +747,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemConnectionRequestFactory : aliased constant Windows.IID := (2852784672, 47851, 17781, (181, 48, 129, 11, 185, 120, 99, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemConnectionRequest : aliased constant Windows.IID := (2230141188, 36190, 19826, (130, 56, 118, 33, 87, 108, 122, 103 ));
+   
    type IRemoteSystemConnectionRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoteSystem
@@ -756,10 +759,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemConnectionRequest : aliased constant Windows.IID := (2230141188, 36190, 19826, (130, 56, 118, 33, 87, 108, 122, 103 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemKindStatics : aliased constant Windows.IID := (4130436659, 43796, 16848, (149, 83, 121, 106, 173, 184, 130, 219 ));
+   
    type IRemoteSystemKindStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Phone
@@ -796,10 +799,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemKindStatics : aliased constant Windows.IID := (4130436659, 43796, 16848, (149, 83, 121, 106, 173, 184, 130, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemKindStatics2 : aliased constant Windows.IID := (3118703568, 1126, 18249, (145, 232, 101, 249, 209, 154, 150, 165 ));
+   
    type IRemoteSystemKindStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Iot
@@ -822,10 +825,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemKindStatics2 : aliased constant Windows.IID := (3118703568, 1126, 18249, (145, 232, 101, 249, 209, 154, 150, 165 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemKindFilterFactory : aliased constant Windows.IID := (2717587694, 39402, 16572, (154, 57, 198, 112, 170, 128, 74, 40 ));
+   
    type IRemoteSystemKindFilterFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -835,10 +838,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemKindFilter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemKindFilterFactory : aliased constant Windows.IID := (2717587694, 39402, 16572, (154, 57, 198, 112, 170, 128, 74, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemKindFilter : aliased constant Windows.IID := (954321388, 8899, 20214, (144, 26, 187, 177, 199, 170, 212, 237 ));
+   
    type IRemoteSystemKindFilter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoteSystemKinds
@@ -847,10 +850,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemKindFilter : aliased constant Windows.IID := (954321388, 8899, 20214, (144, 26, 187, 177, 199, 170, 212, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemDiscoveryTypeFilterFactory : aliased constant Windows.IID := (2677979539, 49760, 16737, (146, 242, 156, 2, 31, 35, 254, 93 ));
+   
    type IRemoteSystemDiscoveryTypeFilterFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -860,10 +863,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemDiscoveryTypeFilter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemDiscoveryTypeFilterFactory : aliased constant Windows.IID := (2677979539, 49760, 16737, (146, 242, 156, 2, 31, 35, 254, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemDiscoveryTypeFilter : aliased constant Windows.IID := (1121518623, 61018, 17370, (172, 106, 111, 238, 37, 70, 7, 65 ));
+   
    type IRemoteSystemDiscoveryTypeFilter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoteSystemDiscoveryType
@@ -872,10 +875,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.RemoteSystemDiscoveryType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemDiscoveryTypeFilter : aliased constant Windows.IID := (1121518623, 61018, 17370, (172, 106, 111, 238, 37, 70, 7, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemStatusTypeFilterFactory : aliased constant Windows.IID := (869234938, 55076, 16677, (172, 122, 141, 40, 30, 68, 201, 73 ));
+   
    type IRemoteSystemStatusTypeFilterFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -885,10 +888,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemStatusTypeFilterFactory : aliased constant Windows.IID := (869234938, 55076, 16677, (172, 122, 141, 40, 30, 68, 201, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemStatusTypeFilter : aliased constant Windows.IID := (205082958, 52150, 18295, (133, 52, 46, 12, 82, 26, 255, 162 ));
+   
    type IRemoteSystemStatusTypeFilter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoteSystemStatusType
@@ -897,10 +900,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.RemoteSystemStatusType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemStatusTypeFilter : aliased constant Windows.IID := (205082958, 52150, 18295, (133, 52, 46, 12, 82, 26, 255, 162 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionJoinResult : aliased constant Windows.IID := (3464175364, 41022, 16804, (144, 11, 30, 121, 50, 140, 18, 103 ));
+   
    type IRemoteSystemSessionJoinResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -916,10 +919,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionJoinResult : aliased constant Windows.IID := (3464175364, 41022, 16804, (144, 11, 30, 121, 50, 140, 18, 103 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionInfo : aliased constant Windows.IID := (4283299400, 35594, 20122, (153, 5, 105, 228, 184, 65, 197, 136 ));
+   
    type IRemoteSystemSessionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -942,10 +945,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionJoinResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionInfo : aliased constant Windows.IID := (4283299400, 35594, 20122, (153, 5, 105, 228, 184, 65, 197, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionAddedEventArgs : aliased constant Windows.IID := (3582318420, 48279, 19513, (153, 180, 190, 202, 118, 224, 76, 63 ));
+   
    type IRemoteSystemSessionAddedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SessionInfo
@@ -954,10 +957,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionAddedEventArgs : aliased constant Windows.IID := (3582318420, 48279, 19513, (153, 180, 190, 202, 118, 224, 76, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionUpdatedEventArgs : aliased constant Windows.IID := (377966697, 8990, 19601, (142, 200, 179, 163, 157, 158, 85, 163 ));
+   
    type IRemoteSystemSessionUpdatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SessionInfo
@@ -966,10 +969,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionUpdatedEventArgs : aliased constant Windows.IID := (377966697, 8990, 19601, (142, 200, 179, 163, 157, 158, 85, 163 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionRemovedEventArgs : aliased constant Windows.IID := (2944569678, 14753, 19946, (157, 99, 67, 121, 141, 91, 187, 208 ));
+   
    type IRemoteSystemSessionRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SessionInfo
@@ -978,10 +981,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionRemovedEventArgs : aliased constant Windows.IID := (2944569678, 14753, 19946, (157, 99, 67, 121, 141, 91, 187, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionWatcher : aliased constant Windows.IID := (2147738432, 3137, 19042, (182, 215, 189, 190, 43, 25, 190, 45 ));
+   
    type IRemoteSystemSessionWatcher_Interface is interface and Windows.IInspectable_Interface;
    
    function Start
@@ -1047,10 +1050,10 @@ package Windows.System.RemoteSystems is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionWatcher : aliased constant Windows.IID := (2147738432, 3137, 19042, (182, 215, 189, 190, 43, 25, 190, 45 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionInvitation : aliased constant Windows.IID := (1043516561, 20951, 18278, (161, 33, 37, 81, 108, 59, 130, 148 ));
+   
    type IRemoteSystemSessionInvitation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Sender
@@ -1066,10 +1069,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionInvitation : aliased constant Windows.IID := (1043516561, 20951, 18278, (161, 33, 37, 81, 108, 59, 130, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionInvitationReceivedEventArgs : aliased constant Windows.IID := (1586907693, 41229, 20187, (141, 234, 84, 210, 10, 193, 149, 67 ));
+   
    type IRemoteSystemSessionInvitationReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Invitation
@@ -1078,10 +1081,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionInvitation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionInvitationReceivedEventArgs : aliased constant Windows.IID := (1586907693, 41229, 20187, (141, 234, 84, 210, 10, 193, 149, 67 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionInvitationListener : aliased constant Windows.IID := (150208575, 48241, 18913, (135, 74, 49, 221, 255, 154, 39, 185 ));
+   
    type IRemoteSystemSessionInvitationListener_Interface is interface and Windows.IInspectable_Interface;
    
    function add_InvitationReceived
@@ -1098,10 +1101,10 @@ package Windows.System.RemoteSystems is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionInvitationListener : aliased constant Windows.IID := (150208575, 48241, 18913, (135, 74, 49, 221, 255, 154, 39, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionParticipant : aliased constant Windows.IID := (2123367820, 44281, 18217, (138, 23, 68, 231, 186, 237, 93, 204 ));
+   
    type IRemoteSystemSessionParticipant_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemoteSystem
@@ -1117,10 +1120,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.Networking.IVectorView_IHostName -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionParticipant : aliased constant Windows.IID := (2123367820, 44281, 18217, (138, 23, 68, 231, 186, 237, 93, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionParticipantAddedEventArgs : aliased constant Windows.IID := (3545913304, 51617, 19383, (182, 176, 121, 187, 145, 173, 249, 61 ));
+   
    type IRemoteSystemSessionParticipantAddedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Participant
@@ -1129,10 +1132,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionParticipant
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionParticipantAddedEventArgs : aliased constant Windows.IID := (3545913304, 51617, 19383, (182, 176, 121, 187, 145, 173, 249, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionParticipantRemovedEventArgs : aliased constant Windows.IID := (2255417480, 56936, 19135, (136, 161, 249, 13, 22, 39, 65, 146 ));
+   
    type IRemoteSystemSessionParticipantRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Participant
@@ -1141,10 +1144,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionParticipant
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionParticipantRemovedEventArgs : aliased constant Windows.IID := (2255417480, 56936, 19135, (136, 161, 249, 13, 22, 39, 65, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionParticipantWatcher : aliased constant Windows.IID := (3705471692, 43655, 19833, (182, 204, 68, 89, 179, 233, 32, 117 ));
+   
    type IRemoteSystemSessionParticipantWatcher_Interface is interface and Windows.IInspectable_Interface;
    
    function Start
@@ -1210,10 +1213,10 @@ package Windows.System.RemoteSystems is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionParticipantWatcher : aliased constant Windows.IID := (3705471692, 43655, 19833, (182, 204, 68, 89, 179, 233, 32, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionJoinRequest : aliased constant Windows.IID := (543162472, 31124, 17201, (134, 209, 216, 157, 136, 37, 133, 238 ));
+   
    type IRemoteSystemSessionJoinRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Participant
@@ -1228,10 +1231,10 @@ package Windows.System.RemoteSystems is
       This       : access IRemoteSystemSessionJoinRequest_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionJoinRequest : aliased constant Windows.IID := (543162472, 31124, 17201, (134, 209, 216, 157, 136, 37, 133, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionJoinRequestedEventArgs : aliased constant Windows.IID := (3687468995, 33465, 18454, (156, 36, 228, 14, 97, 119, 75, 216 ));
+   
    type IRemoteSystemSessionJoinRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_JoinRequest
@@ -1247,10 +1250,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionJoinRequestedEventArgs : aliased constant Windows.IID := (3687468995, 33465, 18454, (156, 36, 228, 14, 97, 119, 75, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionCreationResult : aliased constant Windows.IID := (2811761346, 14302, 17548, (139, 131, 163, 10, 163, 196, 234, 214 ));
+   
    type IRemoteSystemSessionCreationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -1266,10 +1269,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionCreationResult : aliased constant Windows.IID := (2811761346, 14302, 17548, (139, 131, 163, 10, 163, 196, 234, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionOptions : aliased constant Windows.IID := (1947129685, 33816, 20225, (147, 83, 226, 28, 158, 204, 108, 252 ));
+   
    type IRemoteSystemSessionOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsInviteOnly
@@ -1285,10 +1288,10 @@ package Windows.System.RemoteSystems is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionOptions : aliased constant Windows.IID := (1947129685, 33816, 20225, (147, 83, 226, 28, 158, 204, 108, 252 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionController : aliased constant Windows.IID := (3834326482, 26656, 18535, (180, 37, 216, 156, 10, 62, 247, 186 ));
+   
    type IRemoteSystemSessionController_Interface is interface and Windows.IInspectable_Interface;
    
    function add_JoinRequested
@@ -1320,10 +1323,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionCreationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionController : aliased constant Windows.IID := (3834326482, 26656, 18535, (180, 37, 216, 156, 10, 62, 247, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionControllerFactory : aliased constant Windows.IID := (3217829739, 44093, 16793, (130, 205, 102, 112, 167, 115, 239, 46 ));
+   
    type IRemoteSystemSessionControllerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateController
@@ -1342,10 +1345,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionController
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionControllerFactory : aliased constant Windows.IID := (3217829739, 44093, 16793, (130, 205, 102, 112, 167, 115, 239, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionDisconnectedEventArgs : aliased constant Windows.IID := (3725313691, 30661, 17948, (130, 9, 124, 108, 93, 49, 17, 171 ));
+   
    type IRemoteSystemSessionDisconnectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reason
@@ -1354,10 +1357,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionDisconnectedEventArgs : aliased constant Windows.IID := (3725313691, 30661, 17948, (130, 9, 124, 108, 93, 49, 17, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSession : aliased constant Windows.IID := (1766287873, 39642, 18703, (149, 73, 211, 28, 177, 76, 158, 149 ));
+   
    type IRemoteSystemSession_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1410,10 +1413,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSession : aliased constant Windows.IID := (1766287873, 39642, 18703, (149, 73, 211, 28, 177, 76, 158, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionStatics : aliased constant Windows.IID := (2233764255, 64800, 17635, (149, 101, 231, 90, 59, 20, 198, 110 ));
+   
    type IRemoteSystemSessionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWatcher
@@ -1422,10 +1425,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionWatcher
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionStatics : aliased constant Windows.IID := (2233764255, 64800, 17635, (149, 101, 231, 90, 59, 20, 198, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionValueSetReceivedEventArgs : aliased constant Windows.IID := (116594565, 11685, 20056, (167, 143, 158, 141, 7, 132, 238, 37 ));
+   
    type IRemoteSystemSessionValueSetReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Sender
@@ -1441,10 +1444,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionValueSetReceivedEventArgs : aliased constant Windows.IID := (116594565, 11685, 20056, (167, 143, 158, 141, 7, 132, 238, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionMessageChannel : aliased constant Windows.IID := (2502218026, 29657, 19472, (183, 81, 194, 103, 132, 67, 113, 39 ));
+   
    type IRemoteSystemSessionMessageChannel_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Session
@@ -1494,10 +1497,10 @@ package Windows.System.RemoteSystems is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionMessageChannel : aliased constant Windows.IID := (2502218026, 29657, 19472, (183, 81, 194, 103, 132, 67, 113, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemSessionMessageChannelFactory : aliased constant Windows.IID := (694033482, 48406, 17048, (183, 206, 65, 84, 130, 176, 225, 29 ));
+   
    type IRemoteSystemSessionMessageChannelFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1518,10 +1521,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRemoteSystemSessionMessageChannelFactory : aliased constant Windows.IID := (694033482, 48406, 17048, (183, 206, 65, 84, 130, 176, 225, 29 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IRemoteSystem : aliased constant Windows.IID := (221902150, 3786, 21046, (165, 202, 126, 54, 96, 101, 132, 98 ));
+   
    type IAsyncOperation_IRemoteSystem_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1544,10 +1547,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IRemoteSystem : aliased constant Windows.IID := (221902150, 3786, 21046, (165, 202, 126, 54, 96, 101, 132, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IRemoteSystemFilter : aliased constant Windows.IID := (1781291759, 40752, 22702, (166, 203, 154, 201, 200, 9, 42, 65 ));
+   
    type IIterator_IRemoteSystemFilter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1578,10 +1581,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IRemoteSystemFilter : aliased constant Windows.IID := (1781291759, 40752, 22702, (166, 203, 154, 201, 200, 9, 42, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IRemoteSystemFilter : aliased constant Windows.IID := (328625298, 43230, 20672, (177, 107, 0, 194, 196, 143, 95, 55 ));
+   
    type IIterable_IRemoteSystemFilter_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1590,10 +1593,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IIterator_IRemoteSystemFilter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IRemoteSystemFilter : aliased constant Windows.IID := (328625298, 43230, 20672, (177, 107, 0, 194, 196, 143, 95, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_RemoteSystemAccessStatus : aliased constant Windows.IID := (3614287480, 56694, 21600, (135, 69, 145, 91, 68, 16, 201, 5 ));
+   
    type IAsyncOperation_RemoteSystemAccessStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1616,10 +1619,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.RemoteSystemAccessStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_RemoteSystemAccessStatus : aliased constant Windows.IID := (3614287480, 56694, 21600, (135, 69, 145, 91, 68, 16, 201, 5 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IRemoteSystemSessionJoinResult : aliased constant Windows.IID := (3314400542, 58112, 21928, (173, 165, 226, 90, 170, 168, 102, 103 ));
+   
    type IAsyncOperation_IRemoteSystemSessionJoinResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1642,10 +1645,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionJoinResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IRemoteSystemSessionJoinResult : aliased constant Windows.IID := (3314400542, 58112, 21928, (173, 165, 226, 90, 170, 168, 102, 103 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IRemoteSystemSessionCreationResult : aliased constant Windows.IID := (2419477493, 53380, 24400, (151, 41, 130, 2, 83, 38, 171, 239 ));
+   
    type IAsyncOperation_IRemoteSystemSessionCreationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1668,10 +1671,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemSessionCreationResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IRemoteSystemSessionCreationResult : aliased constant Windows.IID := (2419477493, 53380, 24400, (151, 41, 130, 2, 83, 38, 171, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IRemoteSystemSessionParticipant : aliased constant Windows.IID := (100582475, 15833, 23793, (161, 0, 190, 220, 146, 51, 41, 45 ));
+   
    type IIterator_IRemoteSystemSessionParticipant_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1702,10 +1705,10 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IRemoteSystemSessionParticipant : aliased constant Windows.IID := (100582475, 15833, 23793, (161, 0, 190, 220, 146, 51, 41, 45 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IRemoteSystemSessionParticipant : aliased constant Windows.IID := (1613072, 5868, 23834, (131, 105, 72, 112, 198, 158, 82, 179 ));
+   
    type IIterable_IRemoteSystemSessionParticipant_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1714,17 +1717,15 @@ package Windows.System.RemoteSystems is
       ; RetVal : access Windows.System.RemoteSystems.IIterator_IRemoteSystemSessionParticipant
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IRemoteSystemSessionParticipant : aliased constant Windows.IID := (1613072, 5868, 23834, (131, 105, 72, 112, 198, 158, 82, 179 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IRemoteSystem_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRemoteSystem_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IRemoteSystem : aliased constant Windows.IID := (973820461, 39120, 23860, (172, 230, 44, 115, 70, 97, 63, 29 ));
+   
+   type AsyncOperationCompletedHandler_IRemoteSystem_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IRemoteSystem'access) with null record;
    
    function Invoke
    (
@@ -1734,12 +1735,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IRemoteSystem : aliased constant Windows.IID := (973820461, 39120, 23860, (172, 230, 44, 115, 70, 97, 63, 29 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_RemoteSystemAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_RemoteSystemAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_RemoteSystemAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_RemoteSystemAccessStatus : aliased constant Windows.IID := (1413095965, 61241, 22517, (151, 65, 176, 82, 219, 194, 146, 73 ));
+   
+   type AsyncOperationCompletedHandler_RemoteSystemAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_RemoteSystemAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_RemoteSystemAccessStatus'access) with null record;
    
    function Invoke
    (
@@ -1749,12 +1749,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_RemoteSystemAccessStatus : aliased constant Windows.IID := (1413095965, 61241, 22517, (151, 65, 176, 82, 219, 194, 146, 73 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded : aliased constant Windows.IID := (2847510346, 46653, 23815, (146, 187, 226, 172, 179, 148, 85, 209 ));
+   
+   type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded'access) with null record;
    
    function Invoke
    (
@@ -1764,12 +1763,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemAdded : aliased constant Windows.IID := (2847510346, 46653, 23815, (146, 187, 226, 172, 179, 148, 85, 209 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated : aliased constant Windows.IID := (2298073663, 35142, 23070, (141, 161, 130, 198, 105, 130, 166, 210 ));
+   
+   type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated'access) with null record;
    
    function Invoke
    (
@@ -1779,12 +1777,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemUpdated : aliased constant Windows.IID := (2298073663, 35142, 23070, (141, 161, 130, 198, 105, 130, 166, 210 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved : aliased constant Windows.IID := (3264281434, 16080, 22616, (175, 25, 248, 85, 83, 203, 150, 184 ));
+   
+   type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved'access) with null record;
    
    function Invoke
    (
@@ -1794,12 +1791,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved : aliased constant Windows.IID := (3264281434, 16080, 22616, (175, 25, 248, 85, 83, 203, 150, 184 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionJoinResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult : aliased constant Windows.IID := (932896565, 19636, 21039, (145, 190, 145, 59, 86, 144, 86, 143 ));
+   
+   type AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionJoinResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult'access) with null record;
    
    function Invoke
    (
@@ -1809,12 +1805,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult : aliased constant Windows.IID := (932896565, 19636, 21039, (145, 190, 145, 59, 86, 144, 86, 143 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Added : aliased constant Windows.IID := (453209167, 27535, 21974, (182, 223, 69, 228, 106, 130, 59, 29 ));
+   
+   type TypedEventHandler_IRemoteSystemSessionWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Added'access) with null record;
    
    function Invoke
    (
@@ -1824,12 +1819,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Added : aliased constant Windows.IID := (453209167, 27535, 21974, (182, 223, 69, 228, 106, 130, 59, 29 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated : aliased constant Windows.IID := (68110519, 3393, 23202, (133, 232, 99, 17, 102, 111, 3, 36 ));
+   
+   type TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated'access) with null record;
    
    function Invoke
    (
@@ -1839,12 +1833,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Updated : aliased constant Windows.IID := (68110519, 3393, 23202, (133, 232, 99, 17, 102, 111, 3, 36 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed : aliased constant Windows.IID := (482104560, 3229, 22988, (128, 85, 94, 1, 122, 49, 120, 18 ));
+   
+   type TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed'access) with null record;
    
    function Invoke
    (
@@ -1854,12 +1847,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemSessionWatcher_add_Removed : aliased constant Windows.IID := (482104560, 3229, 22988, (128, 85, 94, 1, 122, 49, 120, 18 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener ; args : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived : aliased constant Windows.IID := (413287099, 54072, 22212, (149, 89, 86, 141, 92, 44, 62, 147 ));
+   
+   type TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener ; args : Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived'access) with null record;
    
    function Invoke
    (
@@ -1869,12 +1861,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemSessionInvitationListener_add_InvitationReceived : aliased constant Windows.IID := (413287099, 54072, 22212, (149, 89, 86, 141, 92, 44, 62, 147 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added : aliased constant Windows.IID := (2101542899, 64801, 24085, (178, 26, 117, 225, 187, 205, 19, 199 ));
+   
+   type TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added'access) with null record;
    
    function Invoke
    (
@@ -1884,12 +1875,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Added : aliased constant Windows.IID := (2101542899, 64801, 24085, (178, 26, 117, 225, 187, 205, 19, 199 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed : aliased constant Windows.IID := (1943529651, 32068, 20680, (175, 173, 69, 13, 229, 159, 208, 174 ));
+   
+   type TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed'access) with null record;
    
    function Invoke
    (
@@ -1899,12 +1889,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_Removed : aliased constant Windows.IID := (1943529651, 32068, 20680, (175, 173, 69, 13, 229, 159, 208, 174 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (3570359258, 52346, 21231, (162, 86, 196, 179, 97, 99, 190, 236 ));
+   
+   type TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted'access) with null record;
    
    function Invoke
    (
@@ -1914,12 +1903,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemSessionParticipantWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (3570359258, 52346, 21231, (162, 86, 196, 179, 97, 99, 190, 236 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionController ; args : Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested : aliased constant Windows.IID := (3638577430, 46162, 21282, (174, 201, 227, 212, 213, 129, 199, 114 ));
+   
+   type TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionController ; args : Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested'access) with null record;
    
    function Invoke
    (
@@ -1929,12 +1917,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemSessionController_add_JoinRequested : aliased constant Windows.IID := (3638577430, 46162, 21282, (174, 201, 227, 212, 213, 129, 199, 114 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionCreationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult : aliased constant Windows.IID := (1853015369, 29610, 20840, (133, 96, 199, 35, 100, 147, 181, 4 ));
+   
+   type AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionCreationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult'access) with null record;
    
    function Invoke
    (
@@ -1944,12 +1931,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IRemoteSystemSessionCreationResult : aliased constant Windows.IID := (1853015369, 29610, 20840, (133, 96, 199, 35, 100, 147, 181, 4 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSession ; args : Windows.System.RemoteSystems.IRemoteSystemSessionDisconnectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSession_add_Disconnected : aliased constant Windows.IID := (4221650803, 20536, 20762, (149, 163, 75, 164, 83, 73, 16, 10 ));
+   
+   type TypedEventHandler_IRemoteSystemSession_add_Disconnected_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSession ; args : Windows.System.RemoteSystems.IRemoteSystemSessionDisconnectedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSession_add_Disconnected'access) with null record;
    
    function Invoke
    (
@@ -1959,12 +1945,11 @@ package Windows.System.RemoteSystems is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IRemoteSystemSession_add_Disconnected : aliased constant Windows.IID := (4221650803, 20536, 20762, (149, 163, 75, 164, 83, 73, 16, 10 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel ; args : Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived : aliased constant Windows.IID := (3296076589, 35958, 23462, (153, 245, 20, 85, 116, 132, 194, 13 ));
+   
+   type TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel ; args : Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived'access) with null record;
    
    function Invoke
    (
@@ -1973,8 +1958,6 @@ package Windows.System.RemoteSystems is
       ; args : Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IRemoteSystemSessionMessageChannel_add_ValueSetReceived : aliased constant Windows.IID := (3296076589, 35958, 23462, (153, 245, 20, 85, 116, 132, 194, 13 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -897,6 +897,9 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IEmailManagerStatics : aliased constant Windows.IID := (4111631956, 21957, 18576, (168, 36, 33, 108, 38, 24, 206, 127 ));
+   
    type IEmailManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowComposeNewEmailAsync
@@ -906,10 +909,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailManagerStatics : aliased constant Windows.IID := (4111631956, 21957, 18576, (168, 36, 33, 108, 38, 24, 206, 127 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailManagerStatics2 : aliased constant Windows.IID := (2886020515, 45460, 16989, (182, 217, 208, 240, 65, 53, 237, 162 ));
+   
    type IEmailManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestStoreAsync
@@ -919,10 +922,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailManagerStatics2 : aliased constant Windows.IID := (2886020515, 45460, 16989, (182, 217, 208, 240, 65, 53, 237, 162 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailManagerStatics3 : aliased constant Windows.IID := (1248994197, 33854, 18757, (179, 170, 52, 158, 7, 163, 98, 197 ));
+   
    type IEmailManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForUser
@@ -932,10 +935,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailManagerForUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailManagerStatics3 : aliased constant Windows.IID := (1248994197, 33854, 18757, (179, 170, 52, 158, 7, 163, 98, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailManagerForUser : aliased constant Windows.IID := (4151565983, 15525, 19215, (144, 193, 21, 110, 64, 23, 76, 229 ));
+   
    type IEmailManagerForUser_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowComposeNewEmailAsync
@@ -960,10 +963,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailManagerForUser : aliased constant Windows.IID := (4151565983, 15525, 19215, (144, 193, 21, 110, 64, 23, 76, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailStore : aliased constant Windows.IID := (4160954990, 37175, 20363, (164, 112, 39, 154, 195, 5, 142, 182 ));
+   
    type IEmailStore_Interface is interface and Windows.IInspectable_Interface;
    
    function FindMailboxesAsync
@@ -1053,10 +1056,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailbox -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailStore : aliased constant Windows.IID := (4160954990, 37175, 20363, (164, 112, 39, 154, 195, 5, 142, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailRecipient : aliased constant Windows.IID := (3404211635, 17528, 18452, (185, 0, 201, 2, 181, 225, 155, 83 ));
+   
    type IEmailRecipient_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -1086,10 +1089,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailRecipient : aliased constant Windows.IID := (3404211635, 17528, 18452, (185, 0, 201, 2, 181, 225, 155, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailRecipientFactory : aliased constant Windows.IID := (1426110541, 51098, 20216, (185, 9, 114, 46, 24, 227, 147, 93 ));
+   
    type IEmailRecipientFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1108,10 +1111,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailRecipient
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailRecipientFactory : aliased constant Windows.IID := (1426110541, 51098, 20216, (185, 9, 114, 46, 24, 227, 147, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailIrmTemplate : aliased constant Windows.IID := (4079449485, 21613, 19434, (169, 99, 84, 163, 139, 44, 192, 22 ));
+   
    type IEmailIrmTemplate_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1155,10 +1158,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailIrmTemplate : aliased constant Windows.IID := (4079449485, 21613, 19434, (169, 99, 84, 163, 139, 44, 192, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailIrmTemplateFactory : aliased constant Windows.IID := (1034098806, 34616, 17432, (185, 203, 71, 27, 147, 111, 231, 30 ));
+   
    type IEmailIrmTemplateFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1170,10 +1173,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailIrmTemplate
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailIrmTemplateFactory : aliased constant Windows.IID := (1034098806, 34616, 17432, (185, 203, 71, 27, 147, 111, 231, 30 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailIrmInfo : aliased constant Windows.IID := (2431984019, 45472, 20157, (166, 182, 221, 202, 85, 96, 110, 14 ));
+   
    type IEmailIrmInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanEdit
@@ -1343,10 +1346,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.ApplicationModel.Email.IEmailIrmTemplate
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailIrmInfo : aliased constant Windows.IID := (2431984019, 45472, 20157, (166, 182, 221, 202, 85, 96, 110, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailIrmInfoFactory : aliased constant Windows.IID := (827044236, 58342, 19835, (190, 141, 145, 169, 99, 17, 176, 27 ));
+   
    type IEmailIrmInfoFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1357,10 +1360,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailIrmInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailIrmInfoFactory : aliased constant Windows.IID := (827044236, 58342, 19835, (190, 141, 145, 169, 99, 17, 176, 27 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMessage : aliased constant Windows.IID := (1819120781, 32949, 18680, (176, 177, 224, 78, 67, 15, 68, 229 ));
+   
    type IEmailMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Subject
@@ -1418,10 +1421,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IVector_IEmailAttachment -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMessage : aliased constant Windows.IID := (1819120781, 32949, 18680, (176, 177, 224, 78, 67, 15, 68, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMessage2 : aliased constant Windows.IID := (4257752203, 40730, 17627, (189, 60, 101, 195, 132, 119, 15, 134 ));
+   
    type IEmailMessage2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1740,10 +1743,10 @@ package Windows.ApplicationModel.Email is
       ; stream : Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMessage2 : aliased constant Windows.IID := (4257752203, 40730, 17627, (189, 60, 101, 195, 132, 119, 15, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMessage3 : aliased constant Windows.IID := (2716493660, 58776, 19753, (160, 24, 252, 123, 126, 236, 224, 161 ));
+   
    type IEmailMessage3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SmimeData
@@ -1773,10 +1776,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.ApplicationModel.Email.EmailMessageSmimeKind
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMessage3 : aliased constant Windows.IID := (2716493660, 58776, 19753, (160, 24, 252, 123, 126, 236, 224, 161 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMessage4 : aliased constant Windows.IID := (830271873, 15999, 18949, (131, 148, 62, 16, 51, 109, 212, 53 ));
+   
    type IEmailMessage4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ReplyTo
@@ -1799,10 +1802,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.ApplicationModel.Email.IEmailRecipient
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMessage4 : aliased constant Windows.IID := (830271873, 15999, 18949, (131, 148, 62, 16, 51, 109, 212, 53 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailAttachment : aliased constant Windows.IID := (4082354937, 22472, 19163, (185, 146, 96, 252, 235, 88, 79, 84 ));
+   
    type IEmailAttachment_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FileName
@@ -1832,10 +1835,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailAttachment : aliased constant Windows.IID := (4082354937, 22472, 19163, (185, 146, 96, 252, 235, 88, 79, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailAttachment2 : aliased constant Windows.IID := (576655472, 45311, 17777, (157, 84, 167, 6, 196, 141, 85, 198 ));
+   
    type IEmailAttachment2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1935,10 +1938,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailAttachment2 : aliased constant Windows.IID := (576655472, 45311, 17777, (157, 84, 167, 6, 196, 141, 85, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailAttachmentFactory : aliased constant Windows.IID := (2037296198, 60758, 18809, (135, 8, 171, 184, 188, 133, 75, 125 ));
+   
    type IEmailAttachmentFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1949,10 +1952,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailAttachment
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailAttachmentFactory : aliased constant Windows.IID := (2037296198, 60758, 18809, (135, 8, 171, 184, 188, 133, 75, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailAttachmentFactory2 : aliased constant Windows.IID := (589665333, 20985, 17021, (173, 205, 36, 16, 35, 200, 207, 183 ));
+   
    type IEmailAttachmentFactory2_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1964,10 +1967,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailAttachment
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailAttachmentFactory2 : aliased constant Windows.IID := (589665333, 20985, 17021, (173, 205, 36, 16, 35, 200, 207, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxChangedEventArgs : aliased constant Windows.IID := (1023237998, 468, 20042, (164, 76, 178, 45, 212, 46, 194, 7 ));
+   
    type IEmailMailboxChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -1976,10 +1979,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailMailboxChangedDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxChangedEventArgs : aliased constant Windows.IID := (1023237998, 468, 20042, (164, 76, 178, 45, 212, 46, 194, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxChangedDeferral : aliased constant Windows.IID := (2006611137, 38853, 19284, (179, 13, 48, 98, 50, 98, 62, 109 ));
+   
    type IEmailMailboxChangedDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -1987,15 +1990,15 @@ package Windows.ApplicationModel.Email is
       This       : access IEmailMailboxChangedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxChangedDeferral : aliased constant Windows.IID := (2006611137, 38853, 19284, (179, 13, 48, 98, 50, 98, 62, 109 ));
-   
    ------------------------------------------------------------------------
-   type IEmailStoreNotificationTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IEmailStoreNotificationTriggerDetails : aliased constant Windows.IID := (3457635900, 18150, 17353, (150, 247, 250, 207, 125, 215, 16, 203 ));
    
+   type IEmailStoreNotificationTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxPolicies : aliased constant Windows.IID := (523453893, 7227, 19911, (180, 16, 99, 115, 120, 62, 84, 93 ));
+   
    type IEmailMailboxPolicies_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllowedSmimeEncryptionAlgorithmNegotiation
@@ -2025,10 +2028,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IReference_EmailMailboxSmimeSigningAlgorithm -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxPolicies : aliased constant Windows.IID := (523453893, 7227, 19911, (180, 16, 99, 115, 120, 62, 84, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxPolicies2 : aliased constant Windows.IID := (3132459771, 41291, 18812, (168, 226, 85, 234, 194, 156, 196, 181 ));
+   
    type IEmailMailboxPolicies2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MustEncryptSmimeMessages
@@ -2044,10 +2047,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxPolicies2 : aliased constant Windows.IID := (3132459771, 41291, 18812, (168, 226, 85, 234, 194, 156, 196, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxPolicies3 : aliased constant Windows.IID := (3184828447, 18535, 16714, (129, 162, 128, 57, 25, 196, 65, 145 ));
+   
    type IEmailMailboxPolicies3_Interface is interface and Windows.IInspectable_Interface;
    
    function put_AllowedSmimeEncryptionAlgorithmNegotiation
@@ -2091,10 +2094,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxPolicies3 : aliased constant Windows.IID := (3184828447, 18535, 16714, (129, 162, 128, 57, 25, 196, 65, 145 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxCapabilities : aliased constant Windows.IID := (4007576486, 35291, 17157, (130, 196, 67, 158, 10, 51, 218, 17 ));
+   
    type IEmailMailboxCapabilities_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanForwardMeetings
@@ -2152,10 +2155,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxCapabilities : aliased constant Windows.IID := (4007576486, 35291, 17157, (130, 196, 67, 158, 10, 51, 218, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxCapabilities2 : aliased constant Windows.IID := (1769094884, 12065, 19644, (136, 171, 46, 118, 2, 164, 128, 107 ));
+   
    type IEmailMailboxCapabilities2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanResolveRecipients
@@ -2199,10 +2202,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxCapabilities2 : aliased constant Windows.IID := (1769094884, 12065, 19644, (136, 171, 46, 118, 2, 164, 128, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxCapabilities3 : aliased constant Windows.IID := (4136692036, 22258, 17834, (135, 44, 12, 233, 243, 219, 11, 92 ));
+   
    type IEmailMailboxCapabilities3_Interface is interface and Windows.IInspectable_Interface;
    
    function put_CanForwardMeetings
@@ -2302,10 +2305,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxCapabilities3 : aliased constant Windows.IID := (4136692036, 22258, 17834, (135, 44, 12, 233, 243, 219, 11, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailbox : aliased constant Windows.IID := (2826503753, 53083, 16667, (128, 177, 74, 106, 20, 132, 206, 37 ));
+   
    type IEmailMailbox_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Capabilities
@@ -2709,10 +2712,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxAutoReplySettings -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailbox : aliased constant Windows.IID := (2826503753, 53083, 16667, (128, 177, 74, 106, 20, 132, 206, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailbox2 : aliased constant Windows.IID := (351855620, 27810, 19122, (146, 65, 121, 205, 123, 244, 99, 70 ));
+   
    type IEmailMailbox2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LinkedMailboxId
@@ -2735,10 +2738,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailbox2 : aliased constant Windows.IID := (351855620, 27810, 19122, (146, 65, 121, 205, 123, 244, 99, 70 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailbox3 : aliased constant Windows.IID := (1034258811, 17803, 16522, (142, 55, 172, 139, 5, 216, 175, 86 ));
+   
    type IEmailMailbox3_Interface is interface and Windows.IInspectable_Interface;
    
    function ResolveRecipientsAsync
@@ -2781,10 +2784,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IAsyncOperation_EmailMailboxDeleteFolderStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailbox3 : aliased constant Windows.IID := (1034258811, 17803, 16522, (142, 55, 172, 139, 5, 216, 175, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailbox4 : aliased constant Windows.IID := (1562325019, 61986, 18599, (183, 182, 113, 99, 86, 205, 38, 161 ));
+   
    type IEmailMailbox4_Interface is interface and Windows.IInspectable_Interface;
    
    function RegisterSyncManagerAsync
@@ -2793,10 +2796,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailbox4 : aliased constant Windows.IID := (1562325019, 61986, 18599, (183, 182, 113, 99, 86, 205, 38, 161 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailbox5 : aliased constant Windows.IID := (966160519, 146, 18878, (189, 14, 93, 77, 201, 217, 109, 144 ));
+   
    type IEmailMailbox5_Interface is interface and Windows.IInspectable_Interface;
    
    function GetChangeTracker
@@ -2806,10 +2809,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailMailboxChangeTracker
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailbox5 : aliased constant Windows.IID := (966160519, 146, 18878, (189, 14, 93, 77, 201, 217, 109, 144 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailRecipientResolutionResult : aliased constant Windows.IID := (2441296122, 36237, 17779, (128, 209, 7, 23, 42, 52, 185, 141 ));
+   
    type IEmailRecipientResolutionResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -2825,10 +2828,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailRecipientResolutionResult : aliased constant Windows.IID := (2441296122, 36237, 17779, (128, 209, 7, 23, 42, 52, 185, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailRecipientResolutionResult2 : aliased constant Windows.IID := (1581386678, 52827, 19422, (185, 212, 225, 109, 160, 176, 159, 202 ));
+   
    type IEmailRecipientResolutionResult2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Status
@@ -2844,10 +2847,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.Security.Cryptography.Certificates.IIterable_ICertificate
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailRecipientResolutionResult2 : aliased constant Windows.IID := (1581386678, 52827, 19422, (185, 212, 225, 109, 160, 176, 159, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxCreateFolderResult : aliased constant Windows.IID := (2988987775, 10373, 18840, (181, 149, 138, 45, 55, 76, 233, 80 ));
+   
    type IEmailMailboxCreateFolderResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -2863,10 +2866,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailFolder
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxCreateFolderResult : aliased constant Windows.IID := (2988987775, 10373, 18840, (181, 149, 138, 45, 55, 76, 233, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxAutoReplySettings : aliased constant Windows.IID := (2826608552, 2758, 19319, (186, 119, 166, 185, 158, 154, 39, 184 ));
+   
    type IEmailMailboxAutoReplySettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsEnabled
@@ -2945,10 +2948,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailMailboxAutoReply
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxAutoReplySettings : aliased constant Windows.IID := (2826608552, 2758, 19319, (186, 119, 166, 185, 158, 154, 39, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxAutoReply : aliased constant Windows.IID := (3793954124, 35508, 18523, (179, 31, 4, 209, 84, 118, 189, 89 ));
+   
    type IEmailMailboxAutoReply_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsEnabled
@@ -2978,10 +2981,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxAutoReply : aliased constant Windows.IID := (3793954124, 35508, 18523, (179, 31, 4, 209, 84, 118, 189, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxSyncManager : aliased constant Windows.IID := (1367000410, 13713, 19293, (133, 188, 199, 29, 222, 134, 34, 99 ));
+   
    type IEmailMailboxSyncManager_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -3026,10 +3029,10 @@ package Windows.ApplicationModel.Email is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxSyncManager : aliased constant Windows.IID := (1367000410, 13713, 19293, (133, 188, 199, 29, 222, 134, 34, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxSyncManager2 : aliased constant Windows.IID := (3448621438, 38337, 20361, (129, 183, 230, 174, 203, 102, 149, 252 ));
+   
    type IEmailMailboxSyncManager2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Status
@@ -3052,10 +3055,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxSyncManager2 : aliased constant Windows.IID := (3448621438, 38337, 20361, (129, 183, 230, 174, 203, 102, 149, 252 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailFolder : aliased constant Windows.IID := (2723116913, 39276, 18532, (177, 186, 237, 18, 64, 229, 125, 17 ));
+   
    type IEmailFolder_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -3240,10 +3243,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailFolder : aliased constant Windows.IID := (2723116913, 39276, 18532, (177, 186, 237, 18, 64, 229, 125, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailConversation : aliased constant Windows.IID := (3659055688, 41148, 17225, (144, 45, 144, 246, 99, 137, 245, 27 ));
+   
    type IEmailConversation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -3351,10 +3354,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailConversation : aliased constant Windows.IID := (3659055688, 41148, 17225, (144, 45, 144, 246, 99, 137, 245, 27 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxAction : aliased constant Windows.IID := (2895677946, 8698, 18727, (146, 16, 212, 16, 88, 47, 223, 62 ));
+   
    type IEmailMailboxAction_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Kind
@@ -3370,10 +3373,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxAction : aliased constant Windows.IID := (2895677946, 8698, 18727, (146, 16, 212, 16, 88, 47, 223, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailQueryTextSearch : aliased constant Windows.IID := (2678104712, 15453, 18085, (166, 226, 49, 214, 253, 23, 229, 64 ));
+   
    type IEmailQueryTextSearch_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Fields
@@ -3417,10 +3420,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailQueryTextSearch : aliased constant Windows.IID := (2678104712, 15453, 18085, (166, 226, 49, 214, 253, 23, 229, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailQueryOptionsFactory : aliased constant Windows.IID := (2297536952, 30891, 20200, (180, 227, 4, 109, 110, 47, 229, 226 ));
+   
    type IEmailQueryOptionsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithText
@@ -3439,10 +3442,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailQueryOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailQueryOptionsFactory : aliased constant Windows.IID := (2297536952, 30891, 20200, (180, 227, 4, 109, 110, 47, 229, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailQueryOptions : aliased constant Windows.IID := (1162890139, 15999, 19794, (182, 221, 214, 253, 78, 31, 189, 154 ));
+   
    type IEmailQueryOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextSearch
@@ -3500,10 +3503,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailQueryOptions : aliased constant Windows.IID := (1162890139, 15999, 19794, (182, 221, 214, 253, 78, 31, 189, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailConversationBatch : aliased constant Windows.IID := (3099700097, 453, 17194, (157, 241, 254, 133, 217, 138, 39, 154 ));
+   
    type IEmailConversationBatch_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Conversations
@@ -3519,10 +3522,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.EmailBatchStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailConversationBatch : aliased constant Windows.IID := (3099700097, 453, 17194, (157, 241, 254, 133, 217, 138, 39, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailConversationReader : aliased constant Windows.IID := (3026390914, 10357, 17608, (155, 140, 133, 190, 179, 163, 198, 83 ));
+   
    type IEmailConversationReader_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadBatchAsync
@@ -3531,10 +3534,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IAsyncOperation_IEmailConversationBatch -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailConversationReader : aliased constant Windows.IID := (3026390914, 10357, 17608, (155, 140, 133, 190, 179, 163, 198, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMessageBatch : aliased constant Windows.IID := (1616695439, 9689, 20251, (158, 81, 5, 20, 192, 20, 150, 83 ));
+   
    type IEmailMessageBatch_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Messages
@@ -3550,10 +3553,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.EmailBatchStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMessageBatch : aliased constant Windows.IID := (1616695439, 9689, 20251, (158, 81, 5, 20, 192, 20, 150, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMessageReader : aliased constant Windows.IID := (793427615, 25107, 19077, (163, 176, 249, 45, 26, 131, 157, 25 ));
+   
    type IEmailMessageReader_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadBatchAsync
@@ -3562,10 +3565,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessageBatch -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMessageReader : aliased constant Windows.IID := (793427615, 25107, 19077, (163, 176, 249, 45, 26, 131, 157, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxChange : aliased constant Windows.IID := (1642984779, 4591, 16396, (173, 222, 140, 222, 101, 200, 94, 102 ));
+   
    type IEmailMailboxChange_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeType
@@ -3595,10 +3598,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailFolder
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxChange : aliased constant Windows.IID := (1642984779, 4591, 16396, (173, 222, 140, 222, 101, 200, 94, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxChangeReader : aliased constant Windows.IID := (3183283899, 50493, 17201, (151, 190, 190, 117, 162, 20, 106, 117 ));
+   
    type IEmailMailboxChangeReader_Interface is interface and Windows.IInspectable_Interface;
    
    function AcceptChanges
@@ -3620,10 +3623,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxChangeReader : aliased constant Windows.IID := (3183283899, 50493, 17201, (151, 190, 190, 117, 162, 20, 106, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMailboxChangeTracker : aliased constant Windows.IID := (2061796920, 20838, 17079, (136, 130, 253, 33, 201, 43, 221, 75 ));
+   
    type IEmailMailboxChangeTracker_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsTracking
@@ -3651,10 +3654,10 @@ package Windows.ApplicationModel.Email is
       This       : access IEmailMailboxChangeTracker_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMailboxChangeTracker : aliased constant Windows.IID := (2061796920, 20838, 17079, (136, 130, 253, 33, 201, 43, 221, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMeetingInfo : aliased constant Windows.IID := (834682793, 31027, 16735, (162, 117, 209, 101, 186, 7, 2, 107 ));
+   
    type IEmailMeetingInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllowNewTimeProposal
@@ -3838,10 +3841,10 @@ package Windows.ApplicationModel.Email is
       ; value : Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMeetingInfo : aliased constant Windows.IID := (834682793, 31027, 16735, (162, 117, 209, 101, 186, 7, 2, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailMeetingInfo2 : aliased constant Windows.IID := (2119776365, 45273, 20453, (134, 124, 227, 30, 210, 181, 136, 184 ));
+   
    type IEmailMeetingInfo2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsReportedOutOfDateByServer
@@ -3850,10 +3853,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailMeetingInfo2 : aliased constant Windows.IID := (2119776365, 45273, 20453, (134, 124, 227, 30, 210, 181, 136, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEmailItemCounts : aliased constant Windows.IID := (1540436769, 65224, 19371, (131, 186, 11, 175, 60, 31, 108, 189 ));
+   
    type IEmailItemCounts_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Flagged
@@ -3883,10 +3886,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEmailItemCounts : aliased constant Windows.IID := (1540436769, 65224, 19371, (131, 186, 11, 175, 60, 31, 108, 189 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailStore : aliased constant Windows.IID := (2090727825, 23961, 21940, (180, 57, 6, 78, 221, 9, 122, 196 ));
+   
    type IAsyncOperation_IEmailStore_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3909,10 +3912,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailStore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailStore : aliased constant Windows.IID := (2090727825, 23961, 21940, (180, 57, 6, 78, 221, 9, 122, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailMailbox : aliased constant Windows.IID := (1862398046, 39053, 23336, (171, 168, 219, 170, 187, 78, 176, 217 ));
+   
    type IAsyncOperation_IEmailMailbox_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3935,10 +3938,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailMailbox
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailMailbox : aliased constant Windows.IID := (1862398046, 39053, 23336, (171, 168, 219, 170, 187, 78, 176, 217 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailConversation : aliased constant Windows.IID := (1753585260, 5049, 22988, (179, 88, 173, 248, 46, 236, 132, 42 ));
+   
    type IAsyncOperation_IEmailConversation_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3961,10 +3964,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailConversation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailConversation : aliased constant Windows.IID := (1753585260, 5049, 22988, (179, 88, 173, 248, 46, 236, 132, 42 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailFolder : aliased constant Windows.IID := (1630676815, 29501, 21393, (144, 119, 8, 103, 252, 51, 9, 22 ));
+   
    type IAsyncOperation_IEmailFolder_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -3987,10 +3990,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailFolder
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailFolder : aliased constant Windows.IID := (1630676815, 29501, 21393, (144, 119, 8, 103, 252, 51, 9, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailMessage : aliased constant Windows.IID := (1930785049, 64088, 23853, (129, 124, 181, 99, 12, 21, 17, 228 ));
+   
    type IAsyncOperation_IEmailMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4013,10 +4016,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailMessage : aliased constant Windows.IID := (1930785049, 64088, 23853, (129, 124, 181, 99, 12, 21, 17, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IEmailRecipient : aliased constant Windows.IID := (304319880, 6703, 24186, (137, 177, 141, 193, 64, 83, 107, 172 ));
+   
    type IIterator_IEmailRecipient_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4047,10 +4050,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IEmailRecipient : aliased constant Windows.IID := (304319880, 6703, 24186, (137, 177, 141, 193, 64, 83, 107, 172 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IEmailRecipient : aliased constant Windows.IID := (1595460274, 9069, 24261, (188, 100, 227, 230, 61, 41, 231, 116 ));
+   
    type IIterable_IEmailRecipient_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4059,10 +4062,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IIterator_IEmailRecipient
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IEmailRecipient : aliased constant Windows.IID := (1595460274, 9069, 24261, (188, 100, 227, 230, 61, 41, 231, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IEmailRecipient : aliased constant Windows.IID := (4141264736, 61722, 23555, (128, 204, 71, 52, 7, 165, 170, 191 ));
+   
    type IVectorView_IEmailRecipient_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4097,10 +4100,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IEmailRecipient : aliased constant Windows.IID := (4141264736, 61722, 23555, (128, 204, 71, 52, 7, 165, 170, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IEmailRecipient : aliased constant Windows.IID := (290584164, 14789, 23210, (138, 46, 51, 80, 230, 17, 98, 75 ));
+   
    type IVector_IEmailRecipient_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4191,10 +4194,10 @@ package Windows.ApplicationModel.Email is
       ; items : Windows.ApplicationModel.Email.IEmailRecipient_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IEmailRecipient : aliased constant Windows.IID := (290584164, 14789, 23210, (138, 46, 51, 80, 230, 17, 98, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IEmailAttachment : aliased constant Windows.IID := (1147493256, 39577, 22932, (142, 15, 91, 150, 64, 146, 65, 32 ));
+   
    type IIterator_IEmailAttachment_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4225,10 +4228,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IEmailAttachment : aliased constant Windows.IID := (1147493256, 39577, 22932, (142, 15, 91, 150, 64, 146, 65, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IEmailAttachment : aliased constant Windows.IID := (2779447524, 3799, 21230, (170, 203, 131, 216, 64, 214, 248, 250 ));
+   
    type IIterable_IEmailAttachment_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4237,10 +4240,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IIterator_IEmailAttachment
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IEmailAttachment : aliased constant Windows.IID := (2779447524, 3799, 21230, (170, 203, 131, 216, 64, 214, 248, 250 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IEmailAttachment : aliased constant Windows.IID := (493992166, 16193, 20940, (137, 75, 219, 193, 14, 188, 157, 82 ));
+   
    type IVectorView_IEmailAttachment_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4275,10 +4278,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IEmailAttachment : aliased constant Windows.IID := (493992166, 16193, 20940, (137, 75, 219, 193, 14, 188, 157, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IEmailAttachment : aliased constant Windows.IID := (129035208, 28847, 24043, (152, 97, 220, 147, 226, 176, 56, 233 ));
+   
    type IVector_IEmailAttachment_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4369,10 +4372,10 @@ package Windows.ApplicationModel.Email is
       ; items : Windows.ApplicationModel.Email.IEmailAttachment_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IEmailAttachment : aliased constant Windows.IID := (129035208, 28847, 24043, (152, 97, 220, 147, 226, 176, 56, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_EmailMailboxSmimeEncryptionAlgorithm : aliased constant Windows.IID := (1127944781, 24806, 23418, (150, 188, 134, 129, 222, 95, 94, 117 ));
+   
    type IReference_EmailMailboxSmimeEncryptionAlgorithm_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -4381,10 +4384,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_EmailMailboxSmimeEncryptionAlgorithm : aliased constant Windows.IID := (1127944781, 24806, 23418, (150, 188, 134, 129, 222, 95, 94, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_EmailMailboxSmimeSigningAlgorithm : aliased constant Windows.IID := (3835209250, 61800, 20740, (165, 59, 250, 249, 150, 245, 22, 50 ));
+   
    type IReference_EmailMailboxSmimeSigningAlgorithm_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -4393,10 +4396,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_EmailMailboxSmimeSigningAlgorithm : aliased constant Windows.IID := (3835209250, 61800, 20740, (165, 59, 250, 249, 150, 245, 22, 50 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailMailboxAutoReplySettings : aliased constant Windows.IID := (3008681156, 58528, 23100, (184, 151, 141, 235, 69, 138, 198, 115 ));
+   
    type IAsyncOperation_IEmailMailboxAutoReplySettings_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4419,10 +4422,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailMailboxAutoReplySettings : aliased constant Windows.IID := (3008681156, 58528, 23100, (184, 151, 141, 235, 69, 138, 198, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_EmailMailboxEmptyFolderStatus : aliased constant Windows.IID := (3385166, 39850, 24400, (141, 110, 35, 134, 53, 230, 253, 211 ));
+   
    type IAsyncOperation_EmailMailboxEmptyFolderStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4445,10 +4448,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_EmailMailboxEmptyFolderStatus : aliased constant Windows.IID := (3385166, 39850, 24400, (141, 110, 35, 134, 53, 230, 253, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailMailboxCreateFolderResult : aliased constant Windows.IID := (1834618497, 26953, 20729, (191, 251, 146, 190, 18, 22, 114, 77 ));
+   
    type IAsyncOperation_IEmailMailboxCreateFolderResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4471,10 +4474,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailMailboxCreateFolderResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailMailboxCreateFolderResult : aliased constant Windows.IID := (1834618497, 26953, 20729, (191, 251, 146, 190, 18, 22, 114, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_EmailMailboxDeleteFolderStatus : aliased constant Windows.IID := (1751185535, 663, 23263, (170, 22, 159, 31, 8, 226, 217, 80 ));
+   
    type IAsyncOperation_EmailMailboxDeleteFolderStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4497,10 +4500,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_EmailMailboxDeleteFolderStatus : aliased constant Windows.IID := (1751185535, 663, 23263, (170, 22, 159, 31, 8, 226, 217, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailItemCounts : aliased constant Windows.IID := (1482062093, 20996, 23193, (182, 158, 199, 22, 47, 210, 88, 105 ));
+   
    type IAsyncOperation_IEmailItemCounts_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4523,10 +4526,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailItemCounts
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailItemCounts : aliased constant Windows.IID := (1482062093, 20996, 23193, (182, 158, 199, 22, 47, 210, 88, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IEmailConversation : aliased constant Windows.IID := (4208646695, 58921, 23092, (178, 233, 29, 37, 201, 53, 68, 181 ));
+   
    type IIterator_IEmailConversation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4557,10 +4560,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IEmailConversation : aliased constant Windows.IID := (4208646695, 58921, 23092, (178, 233, 29, 37, 201, 53, 68, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IEmailConversation : aliased constant Windows.IID := (3566598364, 17191, 23498, (165, 6, 68, 177, 114, 214, 212, 53 ));
+   
    type IIterable_IEmailConversation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4569,10 +4572,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IIterator_IEmailConversation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IEmailConversation : aliased constant Windows.IID := (3566598364, 17191, 23498, (165, 6, 68, 177, 114, 214, 212, 53 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IEmailConversation : aliased constant Windows.IID := (175923927, 64537, 23511, (179, 122, 13, 98, 66, 223, 72, 192 ));
+   
    type IVectorView_IEmailConversation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4607,10 +4610,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IEmailConversation : aliased constant Windows.IID := (175923927, 64537, 23511, (179, 122, 13, 98, 66, 223, 72, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailConversationBatch : aliased constant Windows.IID := (2106055580, 38013, 24076, (140, 242, 36, 89, 152, 209, 157, 143 ));
+   
    type IAsyncOperation_IEmailConversationBatch_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4633,10 +4636,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailConversationBatch
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailConversationBatch : aliased constant Windows.IID := (2106055580, 38013, 24076, (140, 242, 36, 89, 152, 209, 157, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IEmailMessage : aliased constant Windows.IID := (3394673656, 54999, 21521, (150, 0, 171, 149, 236, 6, 92, 114 ));
+   
    type IIterator_IEmailMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4667,10 +4670,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IEmailMessage : aliased constant Windows.IID := (3394673656, 54999, 21521, (150, 0, 171, 149, 236, 6, 92, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IEmailMessage : aliased constant Windows.IID := (2784675875, 36461, 23486, (173, 22, 131, 80, 174, 164, 70, 224 ));
+   
    type IIterable_IEmailMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4679,10 +4682,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IIterator_IEmailMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IEmailMessage : aliased constant Windows.IID := (2784675875, 36461, 23486, (173, 22, 131, 80, 174, 164, 70, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IEmailMessage : aliased constant Windows.IID := (1371074034, 27814, 21982, (190, 69, 29, 31, 197, 29, 240, 118 ));
+   
    type IVectorView_IEmailMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4717,10 +4720,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IEmailMessage : aliased constant Windows.IID := (1371074034, 27814, 21982, (190, 69, 29, 31, 197, 29, 240, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IEmailMessageBatch : aliased constant Windows.IID := (939434265, 3870, 20498, (136, 187, 240, 23, 159, 143, 77, 229 ));
+   
    type IAsyncOperation_IEmailMessageBatch_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -4743,10 +4746,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IEmailMessageBatch
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IEmailMessageBatch : aliased constant Windows.IID := (939434265, 3870, 20498, (136, 187, 240, 23, 159, 143, 77, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IEmailMailboxAction : aliased constant Windows.IID := (3118001856, 61664, 23117, (136, 208, 117, 138, 203, 198, 56, 15 ));
+   
    type IIterator_IEmailMailboxAction_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4777,10 +4780,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IEmailMailboxAction : aliased constant Windows.IID := (3118001856, 61664, 23117, (136, 208, 117, 138, 203, 198, 56, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IEmailMailboxAction : aliased constant Windows.IID := (641831697, 7383, 23467, (156, 74, 233, 88, 132, 213, 83, 156 ));
+   
    type IIterable_IEmailMailboxAction_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4789,10 +4792,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IIterator_IEmailMailboxAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IEmailMailboxAction : aliased constant Windows.IID := (641831697, 7383, 23467, (156, 74, 233, 88, 132, 213, 83, 156 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IEmailMailboxAction : aliased constant Windows.IID := (4156419985, 48895, 23522, (142, 249, 47, 129, 18, 229, 154, 111 ));
+   
    type IVectorView_IEmailMailboxAction_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4827,10 +4830,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IEmailMailboxAction : aliased constant Windows.IID := (4156419985, 48895, 23522, (142, 249, 47, 129, 18, 229, 154, 111 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IEmailMailboxAction : aliased constant Windows.IID := (1284853426, 61788, 22633, (171, 215, 46, 50, 141, 228, 164, 175 ));
+   
    type IVector_IEmailMailboxAction_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -4921,10 +4924,10 @@ package Windows.ApplicationModel.Email is
       ; items : Windows.ApplicationModel.Email.IEmailMailboxAction_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IEmailMailboxAction : aliased constant Windows.IID := (1284853426, 61788, 22633, (171, 215, 46, 50, 141, 228, 164, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IEmailRecipientResolutionResult : aliased constant Windows.IID := (1543769302, 38291, 24180, (154, 94, 114, 132, 205, 27, 114, 0 ));
+   
    type IIterator_IEmailRecipientResolutionResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -4955,10 +4958,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IEmailRecipientResolutionResult : aliased constant Windows.IID := (1543769302, 38291, 24180, (154, 94, 114, 132, 205, 27, 114, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IEmailRecipientResolutionResult : aliased constant Windows.IID := (3403923908, 50825, 22407, (151, 111, 26, 21, 143, 253, 209, 107 ));
+   
    type IIterable_IEmailRecipientResolutionResult_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -4967,10 +4970,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IIterator_IEmailRecipientResolutionResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IEmailRecipientResolutionResult : aliased constant Windows.IID := (3403923908, 50825, 22407, (151, 111, 26, 21, 143, 253, 209, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_EmailCertificateValidationStatus : aliased constant Windows.IID := (486423873, 5797, 20518, (166, 254, 44, 176, 163, 3, 166, 5 ));
+   
    type IIterator_EmailCertificateValidationStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5001,10 +5004,10 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_EmailCertificateValidationStatus : aliased constant Windows.IID := (486423873, 5797, 20518, (166, 254, 44, 176, 163, 3, 166, 5 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_EmailCertificateValidationStatus : aliased constant Windows.IID := (2117231920, 29769, 20903, (177, 188, 196, 53, 51, 167, 142, 6 ));
+   
    type IIterable_EmailCertificateValidationStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5013,17 +5016,15 @@ package Windows.ApplicationModel.Email is
       ; RetVal : access Windows.ApplicationModel.Email.IIterator_EmailCertificateValidationStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_EmailCertificateValidationStatus : aliased constant Windows.IID := (2117231920, 29769, 20903, (177, 188, 196, 53, 51, 167, 142, 6 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailStore : aliased constant Windows.IID := (3719782867, 29112, 23627, (173, 139, 30, 101, 34, 102, 73, 33 ));
+   
+   type AsyncOperationCompletedHandler_IEmailStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailStore'access) with null record;
    
    function Invoke
    (
@@ -5033,12 +5034,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IEmailStore : aliased constant Windows.IID := (3719782867, 29112, 23627, (173, 139, 30, 101, 34, 102, 73, 33 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailMailbox_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailbox ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMailbox_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailMailbox : aliased constant Windows.IID := (1298094047, 57564, 23797, (178, 229, 250, 30, 92, 0, 6, 250 ));
+   
+   type AsyncOperationCompletedHandler_IEmailMailbox_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailbox ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailMailbox'access) with null record;
    
    function Invoke
    (
@@ -5048,12 +5048,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IEmailMailbox : aliased constant Windows.IID := (1298094047, 57564, 23797, (178, 229, 250, 30, 92, 0, 6, 250 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailConversation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailConversation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailConversation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailConversation : aliased constant Windows.IID := (43305117, 36248, 21314, (184, 47, 1, 16, 36, 21, 200, 112 ));
+   
+   type AsyncOperationCompletedHandler_IEmailConversation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailConversation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailConversation'access) with null record;
    
    function Invoke
    (
@@ -5063,12 +5062,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IEmailConversation : aliased constant Windows.IID := (43305117, 36248, 21314, (184, 47, 1, 16, 36, 21, 200, 112 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailFolder_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailFolder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailFolder_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailFolder : aliased constant Windows.IID := (4055265015, 1317, 23973, (163, 214, 178, 91, 63, 83, 58, 161 ));
+   
+   type AsyncOperationCompletedHandler_IEmailFolder_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailFolder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailFolder'access) with null record;
    
    function Invoke
    (
@@ -5078,12 +5076,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IEmailFolder : aliased constant Windows.IID := (4055265015, 1317, 23973, (163, 214, 178, 91, 63, 83, 58, 161 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailMessage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMessage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailMessage : aliased constant Windows.IID := (1775312158, 61627, 24347, (172, 181, 18, 12, 38, 254, 189, 237 ));
+   
+   type AsyncOperationCompletedHandler_IEmailMessage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailMessage'access) with null record;
    
    function Invoke
    (
@@ -5093,12 +5090,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IEmailMessage : aliased constant Windows.IID := (1775312158, 61627, 24347, (172, 181, 18, 12, 38, 254, 189, 237 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.IEmailMailbox ; args : Windows.ApplicationModel.Email.IEmailMailboxChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IEmailMailbox_add_MailboxChanged : aliased constant Windows.IID := (544774925, 5461, 20988, (135, 165, 34, 34, 37, 11, 155, 6 ));
+   
+   type TypedEventHandler_IEmailMailbox_add_MailboxChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.IEmailMailbox ; args : Windows.ApplicationModel.Email.IEmailMailboxChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailMailbox_add_MailboxChanged'access) with null record;
    
    function Invoke
    (
@@ -5108,12 +5104,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IEmailMailbox_add_MailboxChanged : aliased constant Windows.IID := (544774925, 5461, 20988, (135, 165, 34, 34, 37, 11, 155, 6 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxAutoReplySettings ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings : aliased constant Windows.IID := (3753977690, 51120, 24548, (147, 112, 50, 185, 74, 208, 186, 142 ));
+   
+   type AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxAutoReplySettings ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings'access) with null record;
    
    function Invoke
    (
@@ -5123,12 +5118,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IEmailMailboxAutoReplySettings : aliased constant Windows.IID := (3753977690, 51120, 24548, (147, 112, 50, 185, 74, 208, 186, 142 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_EmailMailboxEmptyFolderStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus : aliased constant Windows.IID := (1345531909, 56045, 22142, (187, 136, 177, 188, 70, 99, 176, 117 ));
+   
+   type AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_EmailMailboxEmptyFolderStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus'access) with null record;
    
    function Invoke
    (
@@ -5138,12 +5132,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_EmailMailboxEmptyFolderStatus : aliased constant Windows.IID := (1345531909, 56045, 22142, (187, 136, 177, 188, 70, 99, 176, 117 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxCreateFolderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult : aliased constant Windows.IID := (2459897818, 62288, 21950, (133, 85, 233, 141, 129, 234, 241, 165 ));
+   
+   type AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMailboxCreateFolderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult'access) with null record;
    
    function Invoke
    (
@@ -5153,12 +5146,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IEmailMailboxCreateFolderResult : aliased constant Windows.IID := (2459897818, 62288, 21950, (133, 85, 233, 141, 129, 234, 241, 165 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_EmailMailboxDeleteFolderStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus : aliased constant Windows.IID := (1382043046, 18523, 21573, (142, 111, 100, 204, 19, 5, 96, 69 ));
+   
+   type AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_EmailMailboxDeleteFolderStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus'access) with null record;
    
    function Invoke
    (
@@ -5168,12 +5160,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_EmailMailboxDeleteFolderStatus : aliased constant Windows.IID := (1382043046, 18523, 21573, (142, 111, 100, 204, 19, 5, 96, 69 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.IEmailMailboxSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged : aliased constant Windows.IID := (1555980731, 54805, 23426, (187, 17, 65, 46, 50, 102, 76, 7 ));
+   
+   type TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.IEmailMailboxSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged'access) with null record;
    
    function Invoke
    (
@@ -5183,12 +5174,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IEmailMailboxSyncManager_add_SyncStatusChanged : aliased constant Windows.IID := (1555980731, 54805, 23426, (187, 17, 65, 46, 50, 102, 76, 7 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailItemCounts_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailItemCounts ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailItemCounts_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailItemCounts : aliased constant Windows.IID := (46481952, 57048, 21653, (132, 29, 212, 50, 200, 121, 184, 38 ));
+   
+   type AsyncOperationCompletedHandler_IEmailItemCounts_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailItemCounts ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailItemCounts'access) with null record;
    
    function Invoke
    (
@@ -5198,12 +5188,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IEmailItemCounts : aliased constant Windows.IID := (46481952, 57048, 21653, (132, 29, 212, 50, 200, 121, 184, 38 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailConversationBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailConversationBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailConversationBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailConversationBatch : aliased constant Windows.IID := (4047528067, 10869, 22310, (186, 72, 144, 227, 46, 173, 215, 250 ));
+   
+   type AsyncOperationCompletedHandler_IEmailConversationBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailConversationBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailConversationBatch'access) with null record;
    
    function Invoke
    (
@@ -5213,12 +5202,11 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IEmailConversationBatch : aliased constant Windows.IID := (4047528067, 10869, 22310, (186, 72, 144, 227, 46, 173, 215, 250 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IEmailMessageBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessageBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IEmailMessageBatch_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IEmailMessageBatch : aliased constant Windows.IID := (3060220309, 34808, 21877, (145, 8, 156, 86, 33, 213, 41, 177 ));
+   
+   type AsyncOperationCompletedHandler_IEmailMessageBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Email.IAsyncOperation_IEmailMessageBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEmailMessageBatch'access) with null record;
    
    function Invoke
    (
@@ -5227,8 +5215,6 @@ package Windows.ApplicationModel.Email is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IEmailMessageBatch : aliased constant Windows.IID := (3060220309, 34808, 21877, (145, 8, 156, 86, 33, 213, 41, 177 ));
    
    ------------------------------------------------------------------------
    -- Classes

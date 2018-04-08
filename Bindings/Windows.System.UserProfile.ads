@@ -178,6 +178,9 @@ package Windows.System.UserProfile is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IAdvertisingManagerStatics : aliased constant Windows.IID := (2916304524, 41587, 18635, (179, 70, 53, 68, 82, 45, 85, 129 ));
+   
    type IAdvertisingManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AdvertisingId
@@ -186,10 +189,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvertisingManagerStatics : aliased constant Windows.IID := (2916304524, 41587, 18635, (179, 70, 53, 68, 82, 45, 85, 129 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAdvertisingManagerForUser : aliased constant Windows.IID := (2458645456, 53116, 19120, (167, 220, 109, 197, 188, 212, 66, 82 ));
+   
    type IAdvertisingManagerForUser_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AdvertisingId
@@ -205,10 +208,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvertisingManagerForUser : aliased constant Windows.IID := (2458645456, 53116, 19120, (167, 220, 109, 197, 188, 212, 66, 82 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAdvertisingManagerStatics2 : aliased constant Windows.IID := (3708372911, 6765, 18096, (149, 188, 243, 249, 214, 190, 185, 251 ));
+   
    type IAdvertisingManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForUser
@@ -218,10 +221,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.System.UserProfile.IAdvertisingManagerForUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAdvertisingManagerStatics2 : aliased constant Windows.IID := (3708372911, 6765, 18096, (149, 188, 243, 249, 214, 190, 185, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDiagnosticsSettingsStatics : aliased constant Windows.IID := (1926424591, 21392, 18323, (153, 11, 60, 204, 125, 106, 201, 200 ));
+   
    type IDiagnosticsSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -238,10 +241,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.System.UserProfile.IDiagnosticsSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDiagnosticsSettingsStatics : aliased constant Windows.IID := (1926424591, 21392, 18323, (153, 11, 60, 204, 125, 106, 201, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDiagnosticsSettings : aliased constant Windows.IID := (3857312973, 10001, 17632, (151, 60, 73, 29, 120, 4, 141, 36 ));
+   
    type IDiagnosticsSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CanUseDiagnosticsToTailorExperiences
@@ -257,10 +260,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDiagnosticsSettings : aliased constant Windows.IID := (3857312973, 10001, 17632, (151, 60, 73, 29, 120, 4, 141, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserProfilePersonalizationSettings : aliased constant Windows.IID := (2364398260, 31128, 18133, (141, 211, 24, 79, 28, 95, 154, 185 ));
+   
    type IUserProfilePersonalizationSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function TrySetLockScreenImageAsync
@@ -278,10 +281,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserProfilePersonalizationSettings : aliased constant Windows.IID := (2364398260, 31128, 18133, (141, 211, 24, 79, 28, 95, 154, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserProfilePersonalizationSettingsStatics : aliased constant Windows.IID := (2444015681, 20535, 17739, (152, 131, 187, 119, 45, 8, 221, 22 ));
+   
    type IUserProfilePersonalizationSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -297,10 +300,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserProfilePersonalizationSettingsStatics : aliased constant Windows.IID := (2444015681, 20535, 17739, (152, 131, 187, 119, 45, 8, 221, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGlobalizationPreferencesStatics : aliased constant Windows.IID := (29311782, 60727, 20118, (176, 233, 193, 52, 13, 30, 161, 88 ));
+   
    type IGlobalizationPreferencesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Calendars
@@ -344,10 +347,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.Globalization.DayOfWeek
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGlobalizationPreferencesStatics : aliased constant Windows.IID := (29311782, 60727, 20118, (176, 233, 193, 52, 13, 30, 161, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGlobalizationPreferencesStatics2 : aliased constant Windows.IID := (4241393137, 17152, 19664, (156, 172, 26, 142, 123, 126, 24, 244 ));
+   
    type IGlobalizationPreferencesStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function TrySetHomeGeographicRegion
@@ -365,15 +368,15 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGlobalizationPreferencesStatics2 : aliased constant Windows.IID := (4241393137, 17152, 19664, (156, 172, 26, 142, 123, 126, 24, 244 ));
-   
    ------------------------------------------------------------------------
-   type IFirstSignInSettings_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IFirstSignInSettings : aliased constant Windows.IID := (1049907539, 14942, 17710, (166, 1, 245, 186, 173, 42, 72, 112 ));
    
+   type IFirstSignInSettings_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IFirstSignInSettingsStatics : aliased constant Windows.IID := (484544271, 7233, 20128, (183, 162, 111, 12, 28, 126, 132, 56 ));
+   
    type IFirstSignInSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -382,10 +385,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.System.UserProfile.IFirstSignInSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFirstSignInSettingsStatics : aliased constant Windows.IID := (484544271, 7233, 20128, (183, 162, 111, 12, 28, 126, 132, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapView_String_Object : aliased constant Windows.IID := (3145224234, 63389, 21754, (146, 201, 144, 197, 3, 159, 223, 126 ));
+   
    type IMapView_String_Object_Interface is interface and Windows.IInspectable_Interface;
    
    function Lookup
@@ -418,10 +421,10 @@ package Windows.System.UserProfile is
       ; second : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapView_String_Object : aliased constant Windows.IID := (3145224234, 63389, 21754, (146, 201, 144, 197, 3, 159, 223, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IIterable_IKeyValuePair_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -430,10 +433,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserInformationStatics : aliased constant Windows.IID := (2012457232, 18682, 18588, (147, 78, 42, 232, 91, 168, 247, 114 ));
+   
    type IUserInformationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AccountPictureChangeEnabled
@@ -550,10 +553,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserInformationStatics : aliased constant Windows.IID := (2012457232, 18682, 18588, (147, 78, 42, 232, 91, 168, 247, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockScreenStatics : aliased constant Windows.IID := (1055511469, 46599, 16558, (180, 38, 118, 49, 217, 130, 18, 105 ));
+   
    type ILockScreenStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OriginalImageFile
@@ -585,10 +588,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockScreenStatics : aliased constant Windows.IID := (1055511469, 46599, 16558, (180, 38, 118, 49, 217, 130, 18, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockScreenImageFeedStatics : aliased constant Windows.IID := (739079158, 937, 16806, (155, 1, 73, 82, 81, 255, 81, 213 ));
+   
    type ILockScreenImageFeedStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestSetImageFeedAsync
@@ -605,10 +608,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockScreenImageFeedStatics : aliased constant Windows.IID := (739079158, 937, 16806, (155, 1, 73, 82, 81, 255, 81, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SetAccountPictureResult : aliased constant Windows.IID := (1745478662, 27963, 20836, (143, 50, 184, 69, 176, 120, 20, 5 ));
+   
    type IAsyncOperation_SetAccountPictureResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -631,10 +634,10 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.System.UserProfile.SetAccountPictureResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_SetAccountPictureResult : aliased constant Windows.IID := (1745478662, 27963, 20836, (143, 50, 184, 69, 176, 120, 20, 5 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SetImageFeedResult : aliased constant Windows.IID := (1398915017, 1856, 21578, (151, 151, 31, 254, 94, 115, 197, 78 ));
+   
    type IAsyncOperation_SetImageFeedResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -657,17 +660,15 @@ package Windows.System.UserProfile is
       ; RetVal : access Windows.System.UserProfile.SetImageFeedResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_SetImageFeedResult : aliased constant Windows.IID := (1398915017, 1856, 21578, (151, 151, 31, 254, 94, 115, 197, 78 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_SetAccountPictureResult_Interface(Callback : access procedure (asyncInfo : Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SetAccountPictureResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_SetAccountPictureResult : aliased constant Windows.IID := (1614757425, 31313, 20876, (146, 128, 193, 136, 234, 66, 19, 216 ));
+   
+   type AsyncOperationCompletedHandler_SetAccountPictureResult_Interface(Callback : access procedure (asyncInfo : Windows.System.UserProfile.IAsyncOperation_SetAccountPictureResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SetAccountPictureResult'access) with null record;
    
    function Invoke
    (
@@ -677,12 +678,11 @@ package Windows.System.UserProfile is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_SetAccountPictureResult : aliased constant Windows.IID := (1614757425, 31313, 20876, (146, 128, 193, 136, 234, 66, 19, 216 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_SetImageFeedResult_Interface(Callback : access procedure (asyncInfo : Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SetImageFeedResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_SetImageFeedResult : aliased constant Windows.IID := (4061426458, 4869, 23364, (147, 44, 175, 154, 30, 77, 120, 201 ));
+   
+   type AsyncOperationCompletedHandler_SetImageFeedResult_Interface(Callback : access procedure (asyncInfo : Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SetImageFeedResult'access) with null record;
    
    function Invoke
    (
@@ -691,8 +691,6 @@ package Windows.System.UserProfile is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_SetImageFeedResult : aliased constant Windows.IID := (4061426458, 4869, 23364, (147, 44, 175, 154, 30, 77, 120, 201 ));
    
    ------------------------------------------------------------------------
    -- Classes

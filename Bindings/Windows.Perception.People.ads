@@ -54,6 +54,9 @@ package Windows.Perception.People is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IHeadPose : aliased constant Windows.IID := (2136655269, 18907, 14239, (148, 41, 50, 162, 250, 243, 79, 166 ));
+   
    type IHeadPose_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -76,9 +79,6 @@ package Windows.Perception.People is
       ; RetVal : access Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHeadPose : aliased constant Windows.IID := (2136655269, 18907, 14239, (148, 41, 50, 162, 250, 243, 79, 166 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

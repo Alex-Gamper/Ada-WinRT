@@ -253,6 +253,9 @@ package Windows.Management.Deployment is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDeploymentResult : aliased constant Windows.IID := (627292590, 46973, 19487, (138, 123, 32, 230, 173, 81, 94, 243 ));
+   
    type IDeploymentResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ErrorText
@@ -275,10 +278,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDeploymentResult : aliased constant Windows.IID := (627292590, 46973, 19487, (138, 123, 32, 230, 173, 81, 94, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDeploymentResult2 : aliased constant Windows.IID := (4228804956, 23041, 19415, (188, 241, 56, 28, 140, 130, 224, 74 ));
+   
    type IDeploymentResult2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsRegistered
@@ -287,10 +290,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDeploymentResult2 : aliased constant Windows.IID := (4228804956, 23041, 19415, (188, 241, 56, 28, 140, 130, 224, 74 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageUserInformation : aliased constant Windows.IID := (4130878499, 64009, 19644, (144, 85, 21, 202, 39, 94, 46, 126 ));
+   
    type IPackageUserInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UserSecurityId
@@ -306,10 +309,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Management.Deployment.PackageInstallState
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageUserInformation : aliased constant Windows.IID := (4130878499, 64009, 19644, (144, 85, 21, 202, 39, 94, 46, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageManager : aliased constant Windows.IID := (2591902565, 24207, 20423, (162, 229, 127, 105, 37, 203, 139, 83 ));
+   
    type IPackageManager_Interface is interface and Windows.IInspectable_Interface;
    
    function AddPackageAsync
@@ -451,10 +454,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.ApplicationModel.IPackage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageManager : aliased constant Windows.IID := (2591902565, 24207, 20423, (162, 229, 127, 105, 37, 203, 139, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageManager2 : aliased constant Windows.IID := (4155166861, 2112, 18162, (181, 216, 202, 212, 118, 147, 160, 149 ));
+   
    type IPackageManager2_Interface is interface and Windows.IInspectable_Interface;
    
    function RemovePackageWithOptionsAsync
@@ -550,10 +553,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageManager2 : aliased constant Windows.IID := (4155166861, 2112, 18162, (181, 216, 202, 212, 118, 147, 160, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageManager3 : aliased constant Windows.IID := (3668810056, 14065, 16807, (145, 136, 188, 38, 62, 13, 203, 114 ));
+   
    type IPackageManager3_Interface is interface and Windows.IInspectable_Interface;
    
    function AddPackageVolumeAsync
@@ -684,10 +687,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageManager3 : aliased constant Windows.IID := (3668810056, 14065, 16807, (145, 136, 188, 38, 62, 13, 203, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageManager4 : aliased constant Windows.IID := (1014077795, 47798, 18111, (143, 247, 218, 71, 25, 35, 10, 230 ));
+   
    type IPackageManager4_Interface is interface and Windows.IInspectable_Interface;
    
    function GetPackageVolumesAsync
@@ -696,10 +699,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageManager4 : aliased constant Windows.IID := (1014077795, 47798, 18111, (143, 247, 218, 71, 25, 35, 10, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageManager5 : aliased constant Windows.IID := (1897869591, 6909, 17171, (151, 140, 155, 182, 225, 184, 100, 167 ));
+   
    type IPackageManager5_Interface is interface and Windows.IInspectable_Interface;
    
    function AddPackageToVolumeAndOptionalPackagesAsync
@@ -746,10 +749,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Management.Deployment.IPackageManagerDebugSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageManager5 : aliased constant Windows.IID := (1897869591, 6909, 17171, (151, 140, 155, 182, 225, 184, 100, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageManager6 : aliased constant Windows.IID := (138930441, 21453, 20047, (131, 46, 87, 209, 128, 246, 228, 71 ));
+   
    type IPackageManager6_Interface is interface and Windows.IInspectable_Interface;
    
    function ProvisionPackageForAllUsersAsync
@@ -820,10 +823,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageManager6 : aliased constant Windows.IID := (138930441, 21453, 20047, (131, 46, 87, 209, 128, 246, 228, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageVolume : aliased constant Windows.IID := (3475403459, 6720, 17488, (151, 57, 42, 206, 46, 137, 136, 83 ));
+   
    type IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsOffline
@@ -992,10 +995,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.ApplicationModel.IVector_IPackage -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageVolume : aliased constant Windows.IID := (3475403459, 6720, 17488, (151, 57, 42, 206, 46, 137, 136, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageVolume2 : aliased constant Windows.IID := (1185664814, 40404, 18338, (171, 140, 198, 64, 131, 73, 188, 216 ));
+   
    type IPackageVolume2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsFullTrustPackageSupported
@@ -1018,10 +1021,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Foundation.IAsyncOperation_UInt64 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageVolume2 : aliased constant Windows.IID := (1185664814, 40404, 18338, (171, 140, 198, 64, 131, 73, 188, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPackageManagerDebugSettings : aliased constant Windows.IID := (442570371, 43400, 20431, (143, 15, 206, 23, 88, 152, 232, 235 ));
+   
    type IPackageManagerDebugSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function SetContentGroupStateAsync
@@ -1044,10 +1047,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPackageManagerDebugSettings : aliased constant Windows.IID := (442570371, 43400, 20431, (143, 15, 206, 23, 88, 152, 232, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPackageUserInformation : aliased constant Windows.IID := (1969620326, 44611, 22616, (173, 166, 213, 125, 218, 233, 2, 119 ));
+   
    type IIterator_IPackageUserInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1078,10 +1081,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPackageUserInformation : aliased constant Windows.IID := (1969620326, 44611, 22616, (173, 166, 213, 125, 218, 233, 2, 119 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPackageUserInformation : aliased constant Windows.IID := (873679033, 21192, 23383, (158, 145, 241, 159, 42, 5, 177, 136 ));
+   
    type IIterable_IPackageUserInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1090,10 +1093,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Management.Deployment.IIterator_IPackageUserInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPackageUserInformation : aliased constant Windows.IID := (873679033, 21192, 23383, (158, 145, 241, 159, 42, 5, 177, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPackageVolume : aliased constant Windows.IID := (51768758, 56408, 20940, (165, 25, 68, 144, 26, 210, 207, 21 ));
+   
    type IAsyncOperation_IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1116,10 +1119,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Management.Deployment.IPackageVolume
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPackageVolume : aliased constant Windows.IID := (51768758, 56408, 20940, (165, 25, 68, 144, 26, 210, 207, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPackageVolume : aliased constant Windows.IID := (2832578358, 20072, 24305, (159, 7, 240, 104, 55, 152, 140, 115 ));
+   
    type IIterator_IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1150,10 +1153,10 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPackageVolume : aliased constant Windows.IID := (2832578358, 20072, 24305, (159, 7, 240, 104, 55, 152, 140, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPackageVolume : aliased constant Windows.IID := (2786693474, 45411, 22177, (153, 128, 219, 12, 63, 78, 146, 132 ));
+   
    type IIterable_IPackageVolume_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1162,17 +1165,15 @@ package Windows.Management.Deployment is
       ; RetVal : access Windows.Management.Deployment.IIterator_IPackageVolume
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPackageVolume : aliased constant Windows.IID := (2786693474, 45411, 22177, (153, 128, 219, 12, 63, 78, 146, 132 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPackageVolume_Interface(Callback : access procedure (asyncInfo : Windows.Management.Deployment.IAsyncOperation_IPackageVolume ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPackageVolume_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPackageVolume : aliased constant Windows.IID := (905896801, 27882, 24156, (142, 218, 52, 179, 242, 45, 244, 231 ));
+   
+   type AsyncOperationCompletedHandler_IPackageVolume_Interface(Callback : access procedure (asyncInfo : Windows.Management.Deployment.IAsyncOperation_IPackageVolume ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPackageVolume'access) with null record;
    
    function Invoke
    (
@@ -1181,8 +1182,6 @@ package Windows.Management.Deployment is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IPackageVolume : aliased constant Windows.IID := (905896801, 27882, 24156, (142, 218, 52, 179, 242, 45, 244, 231 ));
    
    ------------------------------------------------------------------------
    -- Classes

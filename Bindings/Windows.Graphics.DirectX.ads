@@ -321,6 +321,9 @@ package Windows.Graphics.DirectX is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IIterator_DirectXPixelFormat : aliased constant Windows.IID := (3925959056, 44160, 22592, (143, 88, 255, 67, 76, 123, 41, 7 ));
+   
    type IIterator_DirectXPixelFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -351,10 +354,10 @@ package Windows.Graphics.DirectX is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_DirectXPixelFormat : aliased constant Windows.IID := (3925959056, 44160, 22592, (143, 88, 255, 67, 76, 123, 41, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_DirectXPixelFormat : aliased constant Windows.IID := (956887750, 6894, 20777, (185, 166, 42, 110, 1, 217, 80, 126 ));
+   
    type IIterable_DirectXPixelFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -363,10 +366,10 @@ package Windows.Graphics.DirectX is
       ; RetVal : access Windows.Graphics.DirectX.IIterator_DirectXPixelFormat
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_DirectXPixelFormat : aliased constant Windows.IID := (956887750, 6894, 20777, (185, 166, 42, 110, 1, 217, 80, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_DirectXPixelFormat : aliased constant Windows.IID := (517841346, 3950, 20844, (128, 184, 118, 135, 220, 209, 40, 14 ));
+   
    type IVectorView_DirectXPixelFormat_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -401,9 +404,6 @@ package Windows.Graphics.DirectX is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_DirectXPixelFormat : aliased constant Windows.IID := (517841346, 3950, 20844, (128, 184, 118, 135, 220, 209, 40, 14 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

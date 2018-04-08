@@ -33,15 +33,16 @@ package body Windows.System.Diagnostics.Telemetry is
       m_hString     : Windows.String := To_String("Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.System.Diagnostics.Telemetry.IID_IPlatformTelemetryRegistrationSettings'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.System.Diagnostics.Telemetry.IID_IPlatformTelemetryRegistrationSettings'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

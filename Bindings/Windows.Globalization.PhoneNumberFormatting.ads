@@ -148,6 +148,9 @@ package Windows.Globalization.PhoneNumberFormatting is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPhoneNumberInfo : aliased constant Windows.IID := (477947101, 51380, 20131, (154, 239, 179, 66, 226, 197, 180, 23 ));
+   
    type IPhoneNumberInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CountryCode
@@ -206,10 +209,10 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneNumberInfo : aliased constant Windows.IID := (477947101, 51380, 20131, (154, 239, 179, 66, 226, 197, 180, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneNumberFormatter : aliased constant Windows.IID := (358003870, 47828, 19274, (144, 13, 68, 7, 173, 183, 201, 129 ));
+   
    type IPhoneNumberFormatter_Interface is interface and Windows.IInspectable_Interface;
    
    function Format
@@ -252,10 +255,10 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneNumberFormatter : aliased constant Windows.IID := (358003870, 47828, 19274, (144, 13, 68, 7, 173, 183, 201, 129 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneNumberInfoFactory : aliased constant Windows.IID := (2181216612, 44458, 19711, (143, 207, 23, 231, 81, 106, 40, 255 ));
+   
    type IPhoneNumberInfoFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -265,10 +268,10 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneNumberInfoFactory : aliased constant Windows.IID := (2181216612, 44458, 19711, (143, 207, 23, 231, 81, 106, 40, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneNumberInfoStatics : aliased constant Windows.IID := (1530875754, 34473, 16617, (134, 73, 109, 97, 22, 25, 40, 212 ));
+   
    type IPhoneNumberInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TryParse
@@ -289,10 +292,10 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneNumberInfoStatics : aliased constant Windows.IID := (1530875754, 34473, 16617, (134, 73, 109, 97, 22, 25, 40, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPhoneNumberFormatterStatics : aliased constant Windows.IID := (1554446641, 34009, 16715, (171, 78, 160, 85, 44, 135, 134, 2 ));
+   
    type IPhoneNumberFormatterStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TryCreate
@@ -327,9 +330,6 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPhoneNumberFormatterStatics : aliased constant Windows.IID := (1554446641, 34009, 16715, (171, 78, 160, 85, 44, 135, 134, 2 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

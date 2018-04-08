@@ -56,11 +56,14 @@ package Windows.Graphics.Effects is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type IGraphicsEffectSource_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IGraphicsEffectSource : aliased constant Windows.IID := (764386780, 17209, 20153, (146, 22, 249, 222, 183, 86, 88, 162 ));
    
+   type IGraphicsEffectSource_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IGraphicsEffect : aliased constant Windows.IID := (3411132622, 36838, 17974, (178, 2, 134, 31, 170, 7, 216, 243 ));
+   
    type IGraphicsEffect_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -76,8 +79,5 @@ package Windows.Graphics.Effects is
       ; name : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGraphicsEffect : aliased constant Windows.IID := (3411132622, 36838, 17974, (178, 2, 134, 31, 170, 7, 216, 243 ));
-   
 
 end;

@@ -185,6 +185,9 @@ package Windows.Foundation.Metadata is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IApiInformationStatics : aliased constant Windows.IID := (2574531070, 63105, 18961, (180, 22, 193, 58, 71, 232, 186, 54 ));
+   
    type IApiInformationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function IsTypePresent
@@ -277,9 +280,6 @@ package Windows.Foundation.Metadata is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApiInformationStatics : aliased constant Windows.IID := (2574531070, 63105, 18961, (180, 22, 193, 58, 71, 232, 186, 54 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

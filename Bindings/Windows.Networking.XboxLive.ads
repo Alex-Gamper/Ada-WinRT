@@ -323,6 +323,9 @@ package Windows.Networking.XboxLive is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveDeviceAddressStatics : aliased constant Windows.IID := (1498720281, 19065, 18737, (130, 124, 127, 80, 62, 150, 50, 99 ));
+   
    type IXboxLiveDeviceAddressStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFromSnapshotBase64
@@ -362,10 +365,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveDeviceAddressStatics : aliased constant Windows.IID := (1498720281, 19065, 18737, (130, 124, 127, 80, 62, 150, 50, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveDeviceAddress : aliased constant Windows.IID := (4122727033, 15494, 19287, (163, 26, 185, 70, 36, 8, 253, 1 ));
+   
    type IXboxLiveDeviceAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function add_SnapshotChanged
@@ -433,10 +436,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.XboxLiveNetworkAccessKind
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveDeviceAddress : aliased constant Windows.IID := (4122727033, 15494, 19287, (163, 26, 185, 70, 36, 8, 253, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveInboundEndpointPairCreatedEventArgs : aliased constant Windows.IID := (3692575586, 8890, 18642, (128, 222, 194, 57, 104, 189, 25, 139 ));
+   
    type IXboxLiveInboundEndpointPairCreatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EndpointPair
@@ -445,10 +448,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IXboxLiveEndpointPair
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveInboundEndpointPairCreatedEventArgs : aliased constant Windows.IID := (3692575586, 8890, 18642, (128, 222, 194, 57, 104, 189, 25, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveEndpointPairCreationResult : aliased constant Windows.IID := (3651713941, 10923, 19742, (151, 148, 51, 236, 192, 220, 240, 254 ));
+   
    type IXboxLiveEndpointPairCreationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceAddress
@@ -478,10 +481,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IXboxLiveEndpointPair
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveEndpointPairCreationResult : aliased constant Windows.IID := (3651713941, 10923, 19742, (151, 148, 51, 236, 192, 220, 240, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveEndpointPairTemplateStatics : aliased constant Windows.IID := (504566651, 29563, 18979, (188, 100, 8, 112, 247, 86, 85, 186 ));
+   
    type IXboxLiveEndpointPairTemplateStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetTemplateByName
@@ -498,10 +501,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IVectorView_IXboxLiveEndpointPairTemplate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveEndpointPairTemplateStatics : aliased constant Windows.IID := (504566651, 29563, 18979, (188, 100, 8, 112, 247, 86, 85, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveEndpointPairTemplate : aliased constant Windows.IID := (1797811919, 13399, 16590, (185, 161, 192, 207, 224, 33, 62, 167 ));
+   
    type IXboxLiveEndpointPairTemplate_Interface is interface and Windows.IInspectable_Interface;
    
    function add_InboundEndpointPairCreated
@@ -605,10 +608,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IVectorView_IXboxLiveEndpointPair -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveEndpointPairTemplate : aliased constant Windows.IID := (1797811919, 13399, 16590, (185, 161, 192, 207, 224, 33, 62, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveEndpointPairStateChangedEventArgs : aliased constant Windows.IID := (1496202069, 56840, 17639, (172, 59, 185, 185, 161, 105, 88, 58 ));
+   
    type IXboxLiveEndpointPairStateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OldState
@@ -624,10 +627,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.XboxLiveEndpointPairState
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveEndpointPairStateChangedEventArgs : aliased constant Windows.IID := (1496202069, 56840, 17639, (172, 59, 185, 185, 161, 105, 88, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveEndpointPairStatics : aliased constant Windows.IID := (1680960304, 8570, 16963, (142, 225, 103, 41, 40, 29, 39, 219 ));
+   
    type IXboxLiveEndpointPairStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FindEndpointPairBySocketAddressBytes
@@ -649,10 +652,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IXboxLiveEndpointPair
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveEndpointPairStatics : aliased constant Windows.IID := (1680960304, 8570, 16963, (142, 225, 103, 41, 40, 29, 39, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveEndpointPair : aliased constant Windows.IID := (513442715, 33086, 17632, (184, 127, 200, 122, 9, 52, 117, 228 ));
+   
    type IXboxLiveEndpointPair_Interface is interface and Windows.IInspectable_Interface;
    
    function add_StateChanged
@@ -739,10 +742,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveEndpointPair : aliased constant Windows.IID := (513442715, 33086, 17632, (184, 127, 200, 122, 9, 52, 117, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveQualityOfServiceMetricResult : aliased constant Windows.IID := (2934723537, 13665, 18306, (176, 207, 211, 174, 41, 217, 250, 135 ));
+   
    type IXboxLiveQualityOfServiceMetricResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -772,10 +775,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveQualityOfServiceMetricResult : aliased constant Windows.IID := (2934723537, 13665, 18306, (176, 207, 211, 174, 41, 217, 250, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveQualityOfServicePrivatePayloadResult : aliased constant Windows.IID := (1516438190, 28472, 16832, (159, 204, 234, 108, 185, 120, 202, 252 ));
+   
    type IXboxLiveQualityOfServicePrivatePayloadResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -798,10 +801,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveQualityOfServicePrivatePayloadResult : aliased constant Windows.IID := (1516438190, 28472, 16832, (159, 204, 234, 108, 185, 120, 202, 252 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveQualityOfServiceMeasurementStatics : aliased constant Windows.IID := (1848978890, 9167, 17418, (176, 119, 94, 48, 133, 122, 130, 52 ));
+   
    type IXboxLiveQualityOfServiceMeasurementStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function PublishPrivatePayloadBytes
@@ -879,10 +882,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveQualityOfServiceMeasurementStatics : aliased constant Windows.IID := (1848978890, 9167, 17418, (176, 119, 94, 48, 133, 122, 130, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IXboxLiveQualityOfServiceMeasurement : aliased constant Windows.IID := (1298672590, 42454, 18406, (162, 54, 207, 222, 95, 189, 242, 237 ));
+   
    type IXboxLiveQualityOfServiceMeasurement_Interface is interface and Windows.IInspectable_Interface;
    
    function MeasureAsync
@@ -1001,10 +1004,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IVectorView_IXboxLiveQualityOfServicePrivatePayloadResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IXboxLiveQualityOfServiceMeasurement : aliased constant Windows.IID := (1298672590, 42454, 18406, (162, 54, 207, 222, 95, 189, 242, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IXboxLiveEndpointPairTemplate : aliased constant Windows.IID := (1364406726, 14817, 23751, (132, 84, 127, 28, 139, 203, 161, 142 ));
+   
    type IIterator_IXboxLiveEndpointPairTemplate_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1035,10 +1038,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IXboxLiveEndpointPairTemplate : aliased constant Windows.IID := (1364406726, 14817, 23751, (132, 84, 127, 28, 139, 203, 161, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IXboxLiveEndpointPairTemplate : aliased constant Windows.IID := (2681099715, 21888, 22554, (133, 181, 136, 221, 94, 157, 79, 247 ));
+   
    type IIterable_IXboxLiveEndpointPairTemplate_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1047,10 +1050,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IIterator_IXboxLiveEndpointPairTemplate
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IXboxLiveEndpointPairTemplate : aliased constant Windows.IID := (2681099715, 21888, 22554, (133, 181, 136, 221, 94, 157, 79, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IXboxLiveEndpointPairTemplate : aliased constant Windows.IID := (287880459, 15044, 21566, (157, 126, 215, 150, 198, 34, 102, 105 ));
+   
    type IVectorView_IXboxLiveEndpointPairTemplate_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1085,10 +1088,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IXboxLiveEndpointPairTemplate : aliased constant Windows.IID := (287880459, 15044, 21566, (157, 126, 215, 150, 198, 34, 102, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IXboxLiveEndpointPairCreationResult : aliased constant Windows.IID := (2763641886, 19244, 23545, (161, 157, 237, 57, 91, 35, 130, 60 ));
+   
    type IAsyncOperation_IXboxLiveEndpointPairCreationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1111,10 +1114,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IXboxLiveEndpointPairCreationResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IXboxLiveEndpointPairCreationResult : aliased constant Windows.IID := (2763641886, 19244, 23545, (161, 157, 237, 57, 91, 35, 130, 60 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IXboxLiveEndpointPair : aliased constant Windows.IID := (3885410667, 39072, 21154, (187, 84, 157, 186, 91, 182, 79, 196 ));
+   
    type IIterator_IXboxLiveEndpointPair_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1145,10 +1148,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IXboxLiveEndpointPair : aliased constant Windows.IID := (3885410667, 39072, 21154, (187, 84, 157, 186, 91, 182, 79, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IXboxLiveEndpointPair : aliased constant Windows.IID := (2144007782, 56768, 20700, (167, 111, 155, 182, 5, 139, 227, 201 ));
+   
    type IIterable_IXboxLiveEndpointPair_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1157,10 +1160,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IIterator_IXboxLiveEndpointPair
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IXboxLiveEndpointPair : aliased constant Windows.IID := (2144007782, 56768, 20700, (167, 111, 155, 182, 5, 139, 227, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IXboxLiveEndpointPair : aliased constant Windows.IID := (3364661783, 44618, 24140, (132, 53, 214, 219, 107, 18, 4, 100 ));
+   
    type IVectorView_IXboxLiveEndpointPair_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1195,10 +1198,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IXboxLiveEndpointPair : aliased constant Windows.IID := (3364661783, 44618, 24140, (132, 53, 214, 219, 107, 18, 4, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IXboxLiveQualityOfServiceMetricResult : aliased constant Windows.IID := (3765004326, 105, 22486, (154, 216, 208, 179, 104, 98, 158, 46 ));
+   
    type IIterator_IXboxLiveQualityOfServiceMetricResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1229,10 +1232,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IXboxLiveQualityOfServiceMetricResult : aliased constant Windows.IID := (3765004326, 105, 22486, (154, 216, 208, 179, 104, 98, 158, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IXboxLiveQualityOfServiceMetricResult : aliased constant Windows.IID := (1707907564, 38777, 22154, (137, 130, 174, 228, 57, 250, 36, 206 ));
+   
    type IIterable_IXboxLiveQualityOfServiceMetricResult_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1241,10 +1244,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IIterator_IXboxLiveQualityOfServiceMetricResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IXboxLiveQualityOfServiceMetricResult : aliased constant Windows.IID := (1707907564, 38777, 22154, (137, 130, 174, 228, 57, 250, 36, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IXboxLiveQualityOfServiceMetricResult : aliased constant Windows.IID := (4250428975, 53766, 23895, (166, 173, 168, 69, 103, 24, 127, 48 ));
+   
    type IVectorView_IXboxLiveQualityOfServiceMetricResult_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1279,10 +1282,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IXboxLiveQualityOfServiceMetricResult : aliased constant Windows.IID := (4250428975, 53766, 23895, (166, 173, 168, 69, 103, 24, 127, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_XboxLiveQualityOfServiceMetric : aliased constant Windows.IID := (2994859802, 22204, 23978, (187, 226, 101, 230, 23, 180, 153, 37 ));
+   
    type IIterator_XboxLiveQualityOfServiceMetric_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1313,10 +1316,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_XboxLiveQualityOfServiceMetric : aliased constant Windows.IID := (2994859802, 22204, 23978, (187, 226, 101, 230, 23, 180, 153, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_XboxLiveQualityOfServiceMetric : aliased constant Windows.IID := (3791843062, 37821, 24482, (145, 252, 124, 166, 164, 237, 195, 138 ));
+   
    type IIterable_XboxLiveQualityOfServiceMetric_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1325,10 +1328,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IIterator_XboxLiveQualityOfServiceMetric
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_XboxLiveQualityOfServiceMetric : aliased constant Windows.IID := (3791843062, 37821, 24482, (145, 252, 124, 166, 164, 237, 195, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_XboxLiveQualityOfServiceMetric : aliased constant Windows.IID := (95512799, 38520, 20637, (144, 87, 167, 159, 216, 75, 84, 191 ));
+   
    type IVectorView_XboxLiveQualityOfServiceMetric_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1363,10 +1366,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_XboxLiveQualityOfServiceMetric : aliased constant Windows.IID := (95512799, 38520, 20637, (144, 87, 167, 159, 216, 75, 84, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_XboxLiveQualityOfServiceMetric : aliased constant Windows.IID := (2402355669, 56427, 22737, (159, 112, 96, 204, 71, 191, 28, 237 ));
+   
    type IVector_XboxLiveQualityOfServiceMetric_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1457,10 +1460,10 @@ package Windows.Networking.XboxLive is
       ; items : Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_XboxLiveQualityOfServiceMetric : aliased constant Windows.IID := (2402355669, 56427, 22737, (159, 112, 96, 204, 71, 191, 28, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IXboxLiveDeviceAddress : aliased constant Windows.IID := (2247848195, 61278, 22342, (147, 65, 29, 251, 178, 29, 114, 13 ));
+   
    type IIterator_IXboxLiveDeviceAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1491,10 +1494,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IXboxLiveDeviceAddress : aliased constant Windows.IID := (2247848195, 61278, 22342, (147, 65, 29, 251, 178, 29, 114, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IXboxLiveDeviceAddress : aliased constant Windows.IID := (1155498364, 46197, 24539, (134, 42, 74, 150, 237, 29, 173, 92 ));
+   
    type IIterable_IXboxLiveDeviceAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1503,10 +1506,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IIterator_IXboxLiveDeviceAddress
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IXboxLiveDeviceAddress : aliased constant Windows.IID := (1155498364, 46197, 24539, (134, 42, 74, 150, 237, 29, 173, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IXboxLiveDeviceAddress : aliased constant Windows.IID := (2690206303, 26189, 21234, (164, 239, 83, 162, 60, 13, 234, 61 ));
+   
    type IVectorView_IXboxLiveDeviceAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1541,10 +1544,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IXboxLiveDeviceAddress : aliased constant Windows.IID := (2690206303, 26189, 21234, (164, 239, 83, 162, 60, 13, 234, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IXboxLiveDeviceAddress : aliased constant Windows.IID := (2326573786, 50046, 23520, (171, 70, 186, 68, 89, 16, 185, 203 ));
+   
    type IVector_IXboxLiveDeviceAddress_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1635,10 +1638,10 @@ package Windows.Networking.XboxLive is
       ; items : Windows.Networking.XboxLive.IXboxLiveDeviceAddress_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IXboxLiveDeviceAddress : aliased constant Windows.IID := (2326573786, 50046, 23520, (171, 70, 186, 68, 89, 16, 185, 203 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IXboxLiveQualityOfServicePrivatePayloadResult : aliased constant Windows.IID := (3948674548, 30871, 23743, (170, 165, 53, 130, 250, 251, 77, 120 ));
+   
    type IIterator_IXboxLiveQualityOfServicePrivatePayloadResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1669,10 +1672,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IXboxLiveQualityOfServicePrivatePayloadResult : aliased constant Windows.IID := (3948674548, 30871, 23743, (170, 165, 53, 130, 250, 251, 77, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IXboxLiveQualityOfServicePrivatePayloadResult : aliased constant Windows.IID := (973479380, 989, 21243, (154, 131, 6, 125, 226, 124, 43, 177 ));
+   
    type IIterable_IXboxLiveQualityOfServicePrivatePayloadResult_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1681,10 +1684,10 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.Networking.XboxLive.IIterator_IXboxLiveQualityOfServicePrivatePayloadResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IXboxLiveQualityOfServicePrivatePayloadResult : aliased constant Windows.IID := (973479380, 989, 21243, (154, 131, 6, 125, 226, 124, 43, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IXboxLiveQualityOfServicePrivatePayloadResult : aliased constant Windows.IID := (2182840629, 30721, 23733, (186, 164, 253, 116, 119, 47, 185, 28 ));
+   
    type IVectorView_IXboxLiveQualityOfServicePrivatePayloadResult_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1719,17 +1722,15 @@ package Windows.Networking.XboxLive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IXboxLiveQualityOfServicePrivatePayloadResult : aliased constant Windows.IID := (2182840629, 30721, 23733, (186, 164, 253, 116, 119, 47, 185, 28 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface(Callback : access procedure (sender : Windows.Networking.XboxLive.IXboxLiveDeviceAddress ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged : aliased constant Windows.IID := (2141675929, 53688, 21652, (160, 66, 112, 2, 164, 22, 173, 195 ));
+   
+   type TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface(Callback : access procedure (sender : Windows.Networking.XboxLive.IXboxLiveDeviceAddress ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged'access) with null record;
    
    function Invoke
    (
@@ -1739,12 +1740,11 @@ package Windows.Networking.XboxLive is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged : aliased constant Windows.IID := (2141675929, 53688, 21652, (160, 66, 112, 2, 164, 22, 173, 195 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface(Callback : access procedure (sender : Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate ; args : Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated : aliased constant Windows.IID := (720326966, 28282, 20984, (136, 83, 204, 12, 228, 102, 254, 249 ));
+   
+   type TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated_Interface(Callback : access procedure (sender : Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate ; args : Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated'access) with null record;
    
    function Invoke
    (
@@ -1754,12 +1754,11 @@ package Windows.Networking.XboxLive is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IXboxLiveEndpointPairTemplate_add_InboundEndpointPairCreated : aliased constant Windows.IID := (720326966, 28282, 20984, (136, 83, 204, 12, 228, 102, 254, 249 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.XboxLive.IAsyncOperation_IXboxLiveEndpointPairCreationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult : aliased constant Windows.IID := (2908224029, 56091, 24053, (150, 148, 247, 27, 155, 213, 98, 91 ));
+   
+   type AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.XboxLive.IAsyncOperation_IXboxLiveEndpointPairCreationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult'access) with null record;
    
    function Invoke
    (
@@ -1769,12 +1768,11 @@ package Windows.Networking.XboxLive is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IXboxLiveEndpointPairCreationResult : aliased constant Windows.IID := (2908224029, 56091, 24053, (150, 148, 247, 27, 155, 213, 98, 91 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Networking.XboxLive.IXboxLiveEndpointPair ; args : Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged : aliased constant Windows.IID := (1359180384, 17929, 22721, (173, 179, 6, 24, 184, 155, 153, 117 ));
+   
+   type TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Networking.XboxLive.IXboxLiveEndpointPair ; args : Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged'access) with null record;
    
    function Invoke
    (
@@ -1783,8 +1781,6 @@ package Windows.Networking.XboxLive is
       ; args : Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IXboxLiveEndpointPair_add_StateChanged : aliased constant Windows.IID := (1359180384, 17929, 22721, (173, 179, 6, 24, 184, 155, 153, 117 ));
    
    ------------------------------------------------------------------------
    -- Classes

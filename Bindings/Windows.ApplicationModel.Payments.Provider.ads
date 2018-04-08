@@ -87,6 +87,9 @@ package Windows.ApplicationModel.Payments.Provider is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPaymentAppManager : aliased constant Windows.IID := (239577683, 34081, 18793, (169, 87, 223, 37, 56, 163, 169, 143 ));
+   
    type IPaymentAppManager_Interface is interface and Windows.IInspectable_Interface;
    
    function RegisterAsync
@@ -103,10 +106,10 @@ package Windows.ApplicationModel.Payments.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentAppManager : aliased constant Windows.IID := (239577683, 34081, 18793, (169, 87, 223, 37, 56, 163, 169, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentAppManagerStatics : aliased constant Windows.IID := (2738990120, 64649, 17414, (180, 217, 52, 231, 254, 121, 223, 182 ));
+   
    type IPaymentAppManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -115,10 +118,10 @@ package Windows.ApplicationModel.Payments.Provider is
       ; RetVal : access Windows.ApplicationModel.Payments.Provider.IPaymentAppManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentAppManagerStatics : aliased constant Windows.IID := (2738990120, 64649, 17414, (180, 217, 52, 231, 254, 121, 223, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentTransaction : aliased constant Windows.IID := (1649941920, 9893, 20123, (166, 235, 102, 96, 108, 240, 1, 211 ));
+   
    type IPaymentTransaction_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PaymentRequest
@@ -199,10 +202,10 @@ package Windows.ApplicationModel.Payments.Provider is
       This       : access IPaymentTransaction_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentTransaction : aliased constant Windows.IID := (1649941920, 9893, 20123, (166, 235, 102, 96, 108, 240, 1, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (101593718, 54028, 18455, (149, 162, 223, 122, 233, 39, 59, 86 ));
+   
    type IPaymentTransactionAcceptResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -211,10 +214,10 @@ package Windows.ApplicationModel.Payments.Provider is
       ; RetVal : access Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (101593718, 54028, 18455, (149, 162, 223, 122, 233, 39, 59, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentTransactionStatics : aliased constant Windows.IID := (2372114256, 60938, 19957, (155, 30, 28, 15, 158, 197, 152, 129 ));
+   
    type IPaymentTransactionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdAsync
@@ -224,10 +227,10 @@ package Windows.ApplicationModel.Payments.Provider is
       ; RetVal : access Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransaction -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentTransactionStatics : aliased constant Windows.IID := (2372114256, 60938, 19957, (155, 30, 28, 15, 158, 197, 152, 129 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaymentAppCanMakePaymentTriggerDetails : aliased constant Windows.IID := (216138224, 35731, 20150, (140, 70, 46, 74, 108, 106, 38, 246 ));
+   
    type IPaymentAppCanMakePaymentTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -243,10 +246,10 @@ package Windows.ApplicationModel.Payments.Provider is
       ; value : Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaymentAppCanMakePaymentTriggerDetails : aliased constant Windows.IID := (216138224, 35731, 20150, (140, 70, 46, 74, 108, 106, 38, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (3326470383, 2147, 21940, (138, 237, 66, 189, 21, 45, 128, 4 ));
+   
    type IAsyncOperation_IPaymentTransactionAcceptResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -269,10 +272,10 @@ package Windows.ApplicationModel.Payments.Provider is
       ; RetVal : access Windows.ApplicationModel.Payments.Provider.IPaymentTransactionAcceptResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (3326470383, 2147, 21940, (138, 237, 66, 189, 21, 45, 128, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPaymentTransaction : aliased constant Windows.IID := (3768205181, 27344, 22735, (171, 76, 46, 76, 156, 121, 24, 115 ));
+   
    type IAsyncOperation_IPaymentTransaction_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -295,17 +298,15 @@ package Windows.ApplicationModel.Payments.Provider is
       ; RetVal : access Windows.ApplicationModel.Payments.Provider.IPaymentTransaction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPaymentTransaction : aliased constant Windows.IID := (3768205181, 27344, 22735, (171, 76, 46, 76, 156, 121, 24, 115 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransactionAcceptResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (1161361546, 35247, 20665, (129, 101, 126, 98, 105, 99, 152, 132 ));
+   
+   type AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransactionAcceptResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult'access) with null record;
    
    function Invoke
    (
@@ -315,12 +316,11 @@ package Windows.ApplicationModel.Payments.Provider is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult : aliased constant Windows.IID := (1161361546, 35247, 20665, (129, 101, 126, 98, 105, 99, 152, 132 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPaymentTransaction_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransaction ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPaymentTransaction_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPaymentTransaction : aliased constant Windows.IID := (3176895205, 4230, 23613, (157, 225, 153, 130, 231, 118, 209, 147 ));
+   
+   type AsyncOperationCompletedHandler_IPaymentTransaction_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransaction ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPaymentTransaction'access) with null record;
    
    function Invoke
    (
@@ -329,8 +329,6 @@ package Windows.ApplicationModel.Payments.Provider is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IPaymentTransaction : aliased constant Windows.IID := (3176895205, 4230, 23613, (157, 225, 153, 130, 231, 118, 209, 147 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -138,6 +138,9 @@ package Windows.Storage.Pickers.Provider is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IFileRemovedEventArgs : aliased constant Windows.IID := (319045031, 32714, 19499, (158, 202, 104, 144, 249, 240, 1, 133 ));
+   
    type IFileRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -146,10 +149,10 @@ package Windows.Storage.Pickers.Provider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileRemovedEventArgs : aliased constant Windows.IID := (319045031, 32714, 19499, (158, 202, 104, 144, 249, 240, 1, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileOpenPickerUI : aliased constant Windows.IID := (3718535696, 63956, 16580, (138, 245, 197, 182, 181, 166, 29, 29 ));
+   
    type IFileOpenPickerUI_Interface is interface and Windows.IInspectable_Interface;
    
    function AddFile
@@ -248,10 +251,10 @@ package Windows.Storage.Pickers.Provider is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileOpenPickerUI : aliased constant Windows.IID := (3718535696, 63956, 16580, (138, 245, 197, 182, 181, 166, 29, 29 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPickerClosingEventArgs : aliased constant Windows.IID := (2119823908, 45874, 20242, (139, 159, 168, 194, 240, 107, 50, 205 ));
+   
    type IPickerClosingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ClosingOperation
@@ -267,10 +270,10 @@ package Windows.Storage.Pickers.Provider is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPickerClosingEventArgs : aliased constant Windows.IID := (2119823908, 45874, 20242, (139, 159, 168, 194, 240, 107, 50, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPickerClosingOperation : aliased constant Windows.IID := (1290402692, 48878, 20025, (167, 115, 252, 95, 14, 174, 50, 141 ));
+   
    type IPickerClosingOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -286,10 +289,10 @@ package Windows.Storage.Pickers.Provider is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPickerClosingOperation : aliased constant Windows.IID := (1290402692, 48878, 20025, (167, 115, 252, 95, 14, 174, 50, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPickerClosingDeferral : aliased constant Windows.IID := (2063071006, 6759, 18993, (174, 128, 233, 7, 112, 138, 97, 155 ));
+   
    type IPickerClosingDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -297,10 +300,10 @@ package Windows.Storage.Pickers.Provider is
       This       : access IPickerClosingDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPickerClosingDeferral : aliased constant Windows.IID := (2063071006, 6759, 18993, (174, 128, 233, 7, 112, 138, 97, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileSavePickerUI : aliased constant Windows.IID := (2522268135, 15958, 17356, (138, 57, 51, 199, 61, 157, 84, 43 ));
+   
    type IFileSavePickerUI_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Title
@@ -375,10 +378,10 @@ package Windows.Storage.Pickers.Provider is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileSavePickerUI : aliased constant Windows.IID := (2522268135, 15958, 17356, (138, 57, 51, 199, 61, 157, 84, 43 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITargetFileRequestedEventArgs : aliased constant Windows.IID := (2976111553, 6993, 19593, (165, 145, 15, 212, 11, 60, 87, 201 ));
+   
    type ITargetFileRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -387,10 +390,10 @@ package Windows.Storage.Pickers.Provider is
       ; RetVal : access Windows.Storage.Pickers.Provider.ITargetFileRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITargetFileRequestedEventArgs : aliased constant Windows.IID := (2976111553, 6993, 19593, (165, 145, 15, 212, 11, 60, 87, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITargetFileRequest : aliased constant Windows.IID := (1119695701, 32648, 18315, (142, 129, 105, 11, 32, 52, 6, 120 ));
+   
    type ITargetFileRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetFile
@@ -413,10 +416,10 @@ package Windows.Storage.Pickers.Provider is
       ; RetVal : access Windows.Storage.Pickers.Provider.ITargetFileRequestDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITargetFileRequest : aliased constant Windows.IID := (1119695701, 32648, 18315, (142, 129, 105, 11, 32, 52, 6, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITargetFileRequestDeferral : aliased constant Windows.IID := (1257151889, 48917, 19881, (149, 246, 246, 183, 213, 88, 34, 91 ));
+   
    type ITargetFileRequestDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -424,17 +427,15 @@ package Windows.Storage.Pickers.Provider is
       This       : access ITargetFileRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITargetFileRequestDeferral : aliased constant Windows.IID := (1257151889, 48917, 19881, (149, 246, 246, 183, 213, 88, 34, 91 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI ; args : Windows.Storage.Pickers.Provider.IFileRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IFileOpenPickerUI_add_FileRemoved : aliased constant Windows.IID := (4059769145, 26971, 24406, (132, 26, 165, 42, 125, 20, 133, 114 ));
+   
+   type TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI ; args : Windows.Storage.Pickers.Provider.IFileRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFileOpenPickerUI_add_FileRemoved'access) with null record;
    
    function Invoke
    (
@@ -444,12 +445,11 @@ package Windows.Storage.Pickers.Provider is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IFileOpenPickerUI_add_FileRemoved : aliased constant Windows.IID := (4059769145, 26971, 24406, (132, 26, 165, 42, 125, 20, 133, 114 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI ; args : Windows.Storage.Pickers.Provider.IPickerClosingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IFileOpenPickerUI_add_Closing : aliased constant Windows.IID := (721862060, 38971, 21842, (181, 201, 176, 153, 10, 45, 179, 161 ));
+   
+   type TypedEventHandler_IFileOpenPickerUI_add_Closing_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileOpenPickerUI ; args : Windows.Storage.Pickers.Provider.IPickerClosingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFileOpenPickerUI_add_Closing'access) with null record;
    
    function Invoke
    (
@@ -459,12 +459,11 @@ package Windows.Storage.Pickers.Provider is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IFileOpenPickerUI_add_Closing : aliased constant Windows.IID := (721862060, 38971, 21842, (181, 201, 176, 153, 10, 45, 179, 161 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IFileSavePickerUI_add_FileNameChanged_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileSavePickerUI ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileSavePickerUI_add_FileNameChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IFileSavePickerUI_add_FileNameChanged : aliased constant Windows.IID := (4058424882, 63871, 21721, (158, 27, 167, 20, 237, 195, 255, 6 ));
+   
+   type TypedEventHandler_IFileSavePickerUI_add_FileNameChanged_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileSavePickerUI ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFileSavePickerUI_add_FileNameChanged'access) with null record;
    
    function Invoke
    (
@@ -474,12 +473,11 @@ package Windows.Storage.Pickers.Provider is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IFileSavePickerUI_add_FileNameChanged : aliased constant Windows.IID := (4058424882, 63871, 21721, (158, 27, 167, 20, 237, 195, 255, 6 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IFileSavePickerUI_add_TargetFileRequested_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileSavePickerUI ; args : Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileSavePickerUI_add_TargetFileRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IFileSavePickerUI_add_TargetFileRequested : aliased constant Windows.IID := (3554801863, 17861, 21065, (179, 54, 161, 17, 191, 170, 152, 91 ));
+   
+   type TypedEventHandler_IFileSavePickerUI_add_TargetFileRequested_Interface(Callback : access procedure (sender : Windows.Storage.Pickers.Provider.IFileSavePickerUI ; args : Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFileSavePickerUI_add_TargetFileRequested'access) with null record;
    
    function Invoke
    (
@@ -488,8 +486,6 @@ package Windows.Storage.Pickers.Provider is
       ; args : Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IFileSavePickerUI_add_TargetFileRequested : aliased constant Windows.IID := (3554801863, 17861, 21065, (179, 54, 161, 17, 191, 170, 152, 91 ));
    
    ------------------------------------------------------------------------
    -- Classes

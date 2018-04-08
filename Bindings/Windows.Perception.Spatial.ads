@@ -307,6 +307,9 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISpatialCoordinateSystem : aliased constant Windows.IID := (1777060427, 24739, 13702, (166, 83, 89, 167, 189, 103, 109, 7 ));
+   
    type ISpatialCoordinateSystem_Interface is interface and Windows.IInspectable_Interface;
    
    function TryGetTransformTo
@@ -316,10 +319,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.IReference_Matrix4x4 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialCoordinateSystem : aliased constant Windows.IID := (1777060427, 24739, 13702, (166, 83, 89, 167, 189, 103, 109, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchorRawCoordinateSystemAdjustedEventArgs : aliased constant Windows.IID := (2716343992, 22215, 12567, (162, 228, 129, 224, 252, 242, 142, 0 ));
+   
    type ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OldRawCoordinateSystemToNewRawCoordinateSystemTransform
@@ -328,10 +331,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.Matrix4x4
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialAnchorRawCoordinateSystemAdjustedEventArgs : aliased constant Windows.IID := (2716343992, 22215, 12567, (162, 228, 129, 224, 252, 242, 142, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchor : aliased constant Windows.IID := (86631886, 7476, 14082, (188, 236, 234, 191, 245, 120, 168, 105 ));
+   
    type ISpatialAnchor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CoordinateSystem
@@ -362,10 +365,10 @@ package Windows.Perception.Spatial is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialAnchor : aliased constant Windows.IID := (86631886, 7476, 14082, (188, 236, 234, 191, 245, 120, 168, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchor2 : aliased constant Windows.IID := (3977758984, 42645, 19702, (146, 253, 151, 38, 59, 167, 16, 71 ));
+   
    type ISpatialAnchor2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemovedByUser
@@ -374,10 +377,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialAnchor2 : aliased constant Windows.IID := (3977758984, 42645, 19702, (146, 253, 151, 38, 59, 167, 16, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchorStatics : aliased constant Windows.IID := (2844952130, 372, 12572, (174, 121, 14, 81, 7, 102, 159, 22 ));
+   
    type ISpatialAnchorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TryCreateRelativeTo
@@ -406,10 +409,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialAnchor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialAnchorStatics : aliased constant Windows.IID := (2844952130, 372, 12572, (174, 121, 14, 81, 7, 102, 159, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchorStore : aliased constant Windows.IID := (2965124662, 18538, 15536, (158, 111, 18, 69, 22, 92, 77, 182 ));
+   
    type ISpatialAnchorStore_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAllSavedAnchors
@@ -440,10 +443,10 @@ package Windows.Perception.Spatial is
       This       : access ISpatialAnchorStore_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialAnchorStore : aliased constant Windows.IID := (2965124662, 18538, 15536, (158, 111, 18, 69, 22, 92, 77, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchorManagerStatics : aliased constant Windows.IID := (2296581803, 62391, 16907, (176, 134, 138, 128, 192, 125, 145, 13 ));
+   
    type ISpatialAnchorManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestStoreAsync
@@ -452,10 +455,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialAnchorManagerStatics : aliased constant Windows.IID := (2296581803, 62391, 16907, (176, 134, 138, 128, 192, 125, 145, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchorTransferManagerStatics : aliased constant Windows.IID := (62650809, 4824, 19406, (136, 53, 197, 223, 58, 192, 173, 171 ));
+   
    type ISpatialAnchorTransferManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TryImportAnchorsAsync
@@ -481,10 +484,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialAnchorTransferManagerStatics : aliased constant Windows.IID := (62650809, 4824, 19406, (136, 53, 197, 223, 58, 192, 173, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialLocatorPositionalTrackingDeactivatingEventArgs : aliased constant Windows.IID := (3098034275, 58356, 13963, (144, 97, 158, 169, 209, 214, 204, 22 ));
+   
    type ISpatialLocatorPositionalTrackingDeactivatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Canceled
@@ -500,10 +503,10 @@ package Windows.Perception.Spatial is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialLocatorPositionalTrackingDeactivatingEventArgs : aliased constant Windows.IID := (3098034275, 58356, 13963, (144, 97, 158, 169, 209, 214, 204, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialLocatorAttachedFrameOfReference : aliased constant Windows.IID := (3782692598, 8015, 18844, (150, 37, 239, 94, 110, 215, 160, 72 ));
+   
    type ISpatialLocatorAttachedFrameOfReference_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RelativePosition
@@ -556,10 +559,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialLocatorAttachedFrameOfReference : aliased constant Windows.IID := (3782692598, 8015, 18844, (150, 37, 239, 94, 110, 215, 160, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialStationaryFrameOfReference : aliased constant Windows.IID := (165399737, 48376, 15999, (190, 126, 126, 220, 203, 177, 120, 168 ));
+   
    type ISpatialStationaryFrameOfReference_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CoordinateSystem
@@ -568,10 +571,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialCoordinateSystem
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialStationaryFrameOfReference : aliased constant Windows.IID := (165399737, 48376, 15999, (190, 126, 126, 220, 203, 177, 120, 168 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialLocation : aliased constant Windows.IID := (495047325, 9377, 14293, (143, 161, 57, 180, 249, 173, 103, 226 ));
+   
    type ISpatialLocation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -615,10 +618,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.Quaternion
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialLocation : aliased constant Windows.IID := (495047325, 9377, 14293, (143, 161, 57, 180, 249, 173, 103, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialLocator : aliased constant Windows.IID := (4131883301, 40460, 15286, (153, 126, 182, 78, 204, 162, 76, 244 ));
+   
    type ISpatialLocator_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Locatability
@@ -734,10 +737,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialStationaryFrameOfReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialLocator : aliased constant Windows.IID := (4131883301, 40460, 15286, (153, 126, 182, 78, 204, 162, 76, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialLocatorStatics : aliased constant Windows.IID := (3077452608, 42946, 13851, (187, 130, 86, 233, 59, 137, 177, 187 ));
+   
    type ISpatialLocatorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -746,15 +749,15 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialLocator
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialLocatorStatics : aliased constant Windows.IID := (3077452608, 42946, 13851, (187, 130, 86, 233, 59, 137, 177, 187 ));
-   
    ------------------------------------------------------------------------
-   type ISpatialBoundingVolume_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISpatialBoundingVolume : aliased constant Windows.IID := (4213204442, 26819, 13279, (183, 175, 76, 120, 114, 7, 153, 156 ));
    
+   type ISpatialBoundingVolume_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ISpatialBoundingVolumeStatics : aliased constant Windows.IID := (92836119, 46049, 14040, (176, 23, 86, 97, 129, 165, 177, 150 ));
+   
    type ISpatialBoundingVolumeStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromBox
@@ -792,10 +795,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialBoundingVolume
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialBoundingVolumeStatics : aliased constant Windows.IID := (92836119, 46049, 14040, (176, 23, 86, 97, 129, 165, 177, 150 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialStageFrameOfReference : aliased constant Windows.IID := (2055877732, 44301, 17808, (171, 134, 51, 6, 43, 103, 73, 38 ));
+   
    type ISpatialStageFrameOfReference_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CoordinateSystem
@@ -834,10 +837,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.Vector3_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialStageFrameOfReference : aliased constant Windows.IID := (2055877732, 44301, 17808, (171, 134, 51, 6, 43, 103, 73, 38 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialStageFrameOfReferenceStatics : aliased constant Windows.IID := (4153236557, 41124, 18844, (141, 145, 168, 201, 101, 212, 6, 84 ));
+   
    type ISpatialStageFrameOfReferenceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -868,10 +871,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.IAsyncOperation_ISpatialStageFrameOfReference -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialStageFrameOfReferenceStatics : aliased constant Windows.IID := (4153236557, 41124, 18844, (141, 145, 168, 201, 101, 212, 6, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialEntity : aliased constant Windows.IID := (376301909, 57835, 17740, (186, 8, 230, 192, 102, 141, 220, 101 ));
+   
    type ISpatialEntity_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -894,10 +897,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialEntity : aliased constant Windows.IID := (376301909, 57835, 17740, (186, 8, 230, 192, 102, 141, 220, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialEntityFactory : aliased constant Windows.IID := (3790725925, 13471, 16933, (162, 243, 75, 1, 193, 95, 224, 86 ));
+   
    type ISpatialEntityFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithSpatialAnchor
@@ -916,10 +919,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialEntity
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialEntityFactory : aliased constant Windows.IID := (3790725925, 13471, 16933, (162, 243, 75, 1, 193, 95, 224, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialEntityAddedEventArgs : aliased constant Windows.IID := (2744644763, 5482, 18183, (172, 44, 211, 29, 87, 14, 211, 153 ));
+   
    type ISpatialEntityAddedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Entity
@@ -928,10 +931,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialEntity
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialEntityAddedEventArgs : aliased constant Windows.IID := (2744644763, 5482, 18183, (172, 44, 211, 29, 87, 14, 211, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialEntityUpdatedEventArgs : aliased constant Windows.IID := (3848738662, 25211, 17355, (164, 159, 179, 190, 109, 71, 222, 237 ));
+   
    type ISpatialEntityUpdatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Entity
@@ -940,10 +943,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialEntity
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialEntityUpdatedEventArgs : aliased constant Windows.IID := (3848738662, 25211, 17355, (164, 159, 179, 190, 109, 71, 222, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialEntityRemovedEventArgs : aliased constant Windows.IID := (2440304640, 21357, 20127, (171, 246, 65, 91, 84, 68, 214, 81 ));
+   
    type ISpatialEntityRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Entity
@@ -952,10 +955,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialEntity
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialEntityRemovedEventArgs : aliased constant Windows.IID := (2440304640, 21357, 20127, (171, 246, 65, 91, 84, 68, 214, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialEntityWatcher : aliased constant Windows.IID := (3015204768, 27998, 19388, (128, 93, 95, 229, 185, 186, 25, 89 ));
+   
    type ISpatialEntityWatcher_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -1036,10 +1039,10 @@ package Windows.Perception.Spatial is
       This       : access ISpatialEntityWatcher_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialEntityWatcher : aliased constant Windows.IID := (3015204768, 27998, 19388, (128, 93, 95, 229, 185, 186, 25, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialEntityStore : aliased constant Windows.IID := (848791738, 58643, 20230, (136, 157, 27, 227, 14, 207, 67, 230 ));
+   
    type ISpatialEntityStore_Interface is interface and Windows.IInspectable_Interface;
    
    function SaveAsync
@@ -1064,10 +1067,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialEntityWatcher
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialEntityStore : aliased constant Windows.IID := (848791738, 58643, 20230, (136, 157, 27, 227, 14, 207, 67, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialEntityStoreStatics : aliased constant Windows.IID := (1800091806, 31824, 20114, (138, 98, 77, 29, 75, 124, 205, 62 ));
+   
    type ISpatialEntityStoreStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsSupported
@@ -1084,10 +1087,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialEntityStore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialEntityStoreStatics : aliased constant Windows.IID := (1800091806, 31824, 20114, (138, 98, 77, 29, 75, 124, 205, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_SpatialBoundingBox : aliased constant Windows.IID := (2872210649, 39810, 21398, (187, 0, 215, 12, 83, 151, 150, 179 ));
+   
    type IReference_SpatialBoundingBox_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -1096,10 +1099,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.SpatialBoundingBox
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_SpatialBoundingBox : aliased constant Windows.IID := (2872210649, 39810, 21398, (187, 0, 215, 12, 83, 151, 150, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISpatialAnchorStore : aliased constant Windows.IID := (483417681, 5207, 20515, (143, 93, 254, 94, 90, 149, 52, 35 ));
+   
    type IAsyncOperation_ISpatialAnchorStore_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1122,10 +1125,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialAnchorStore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISpatialAnchorStore : aliased constant Windows.IID := (483417681, 5207, 20515, (143, 93, 254, 94, 90, 149, 52, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SpatialPerceptionAccessStatus : aliased constant Windows.IID := (3022377254, 4201, 22079, (168, 99, 68, 163, 10, 143, 7, 29 ));
+   
    type IAsyncOperation_SpatialPerceptionAccessStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1148,10 +1151,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.SpatialPerceptionAccessStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_SpatialPerceptionAccessStatus : aliased constant Windows.IID := (3022377254, 4201, 22079, (168, 99, 68, 163, 10, 143, 7, 29 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_SpatialBoundingFrustum : aliased constant Windows.IID := (4097112782, 3126, 22345, (168, 160, 11, 182, 206, 120, 166, 20 ));
+   
    type IReference_SpatialBoundingFrustum_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -1160,10 +1163,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.SpatialBoundingFrustum
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_SpatialBoundingFrustum : aliased constant Windows.IID := (4097112782, 3126, 22345, (168, 160, 11, 182, 206, 120, 166, 20 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReference_SpatialBoundingOrientedBox : aliased constant Windows.IID := (167281417, 40833, 20999, (189, 178, 171, 239, 146, 109, 177, 143 ));
+   
    type IReference_SpatialBoundingOrientedBox_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -1172,10 +1175,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.SpatialBoundingOrientedBox
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReference_SpatialBoundingOrientedBox : aliased constant Windows.IID := (167281417, 40833, 20999, (189, 178, 171, 239, 146, 109, 177, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ISpatialBoundingVolume : aliased constant Windows.IID := (3951265221, 1909, 21525, (143, 118, 50, 126, 110, 56, 138, 197 ));
+   
    type IIterator_ISpatialBoundingVolume_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1206,10 +1209,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ISpatialBoundingVolume : aliased constant Windows.IID := (3951265221, 1909, 21525, (143, 118, 50, 126, 110, 56, 138, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ISpatialBoundingVolume : aliased constant Windows.IID := (2313744878, 14890, 23401, (167, 134, 205, 220, 247, 69, 106, 58 ));
+   
    type IIterable_ISpatialBoundingVolume_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1218,10 +1221,10 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.IIterator_ISpatialBoundingVolume
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ISpatialBoundingVolume : aliased constant Windows.IID := (2313744878, 14890, 23401, (167, 134, 205, 220, 247, 69, 106, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISpatialStageFrameOfReference : aliased constant Windows.IID := (3034100159, 7526, 21592, (165, 223, 63, 79, 108, 54, 108, 88 ));
+   
    type IAsyncOperation_ISpatialStageFrameOfReference_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1244,17 +1247,15 @@ package Windows.Perception.Spatial is
       ; RetVal : access Windows.Perception.Spatial.ISpatialStageFrameOfReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISpatialStageFrameOfReference : aliased constant Windows.IID := (3034100159, 7526, 21592, (165, 223, 63, 79, 108, 54, 108, 88 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialAnchor ; args : Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted : aliased constant Windows.IID := (4198758884, 13656, 22984, (154, 119, 110, 139, 118, 90, 220, 200 ));
+   
+   type TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialAnchor ; args : Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted'access) with null record;
    
    function Invoke
    (
@@ -1264,12 +1265,11 @@ package Windows.Perception.Spatial is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted : aliased constant Windows.IID := (4198758884, 13656, 22984, (154, 119, 110, 139, 118, 90, 220, 200 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISpatialAnchorStore : aliased constant Windows.IID := (2227313210, 890, 20543, (128, 6, 171, 87, 123, 127, 111, 102 ));
+   
+   type AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpatialAnchorStore'access) with null record;
    
    function Invoke
    (
@@ -1279,12 +1279,11 @@ package Windows.Perception.Spatial is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISpatialAnchorStore : aliased constant Windows.IID := (2227313210, 890, 20543, (128, 6, 171, 87, 123, 127, 111, 102 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_SpatialPerceptionAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_SpatialPerceptionAccessStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_SpatialPerceptionAccessStatus : aliased constant Windows.IID := (1827493064, 30345, 21082, (128, 225, 149, 106, 157, 133, 205, 131 ));
+   
+   type AsyncOperationCompletedHandler_SpatialPerceptionAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SpatialPerceptionAccessStatus'access) with null record;
    
    function Invoke
    (
@@ -1294,12 +1293,11 @@ package Windows.Perception.Spatial is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_SpatialPerceptionAccessStatus : aliased constant Windows.IID := (1827493064, 30345, 21082, (128, 225, 149, 106, 157, 133, 205, 131 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISpatialLocator_add_LocatabilityChanged_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialLocator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialLocator_add_LocatabilityChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISpatialLocator_add_LocatabilityChanged : aliased constant Windows.IID := (3685780149, 27456, 22011, (131, 211, 80, 213, 55, 58, 59, 32 ));
+   
+   type TypedEventHandler_ISpatialLocator_add_LocatabilityChanged_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialLocator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialLocator_add_LocatabilityChanged'access) with null record;
    
    function Invoke
    (
@@ -1309,12 +1307,11 @@ package Windows.Perception.Spatial is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISpatialLocator_add_LocatabilityChanged : aliased constant Windows.IID := (3685780149, 27456, 22011, (131, 211, 80, 213, 55, 58, 59, 32 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISpatialLocator_add_PositionalTrackingDeactivating_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialLocator ; args : Windows.Perception.Spatial.ISpatialLocatorPositionalTrackingDeactivatingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialLocator_add_PositionalTrackingDeactivating_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISpatialLocator_add_PositionalTrackingDeactivating : aliased constant Windows.IID := (884941676, 58838, 20511, (134, 147, 188, 29, 141, 67, 29, 126 ));
+   
+   type TypedEventHandler_ISpatialLocator_add_PositionalTrackingDeactivating_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialLocator ; args : Windows.Perception.Spatial.ISpatialLocatorPositionalTrackingDeactivatingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialLocator_add_PositionalTrackingDeactivating'access) with null record;
    
    function Invoke
    (
@@ -1324,12 +1321,11 @@ package Windows.Perception.Spatial is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISpatialLocator_add_PositionalTrackingDeactivating : aliased constant Windows.IID := (884941676, 58838, 20511, (134, 147, 188, 29, 141, 67, 29, 126 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISpatialStageFrameOfReference_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialStageFrameOfReference ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpatialStageFrameOfReference_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISpatialStageFrameOfReference : aliased constant Windows.IID := (4223134203, 58522, 21729, (140, 131, 209, 168, 126, 77, 35, 4 ));
+   
+   type AsyncOperationCompletedHandler_ISpatialStageFrameOfReference_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialStageFrameOfReference ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpatialStageFrameOfReference'access) with null record;
    
    function Invoke
    (
@@ -1339,12 +1335,11 @@ package Windows.Perception.Spatial is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISpatialStageFrameOfReference : aliased constant Windows.IID := (4223134203, 58522, 21729, (140, 131, 209, 168, 126, 77, 35, 4 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISpatialEntityWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Perception.Spatial.ISpatialEntityAddedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_Added_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISpatialEntityWatcher_add_Added : aliased constant Windows.IID := (4176326145, 27184, 21196, (181, 67, 138, 189, 178, 101, 41, 180 ));
+   
+   type TypedEventHandler_ISpatialEntityWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Perception.Spatial.ISpatialEntityAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialEntityWatcher_add_Added'access) with null record;
    
    function Invoke
    (
@@ -1354,12 +1349,11 @@ package Windows.Perception.Spatial is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISpatialEntityWatcher_add_Added : aliased constant Windows.IID := (4176326145, 27184, 21196, (181, 67, 138, 189, 178, 101, 41, 180 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISpatialEntityWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Perception.Spatial.ISpatialEntityUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_Updated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISpatialEntityWatcher_add_Updated : aliased constant Windows.IID := (2707411136, 35338, 23165, (137, 122, 242, 6, 204, 80, 145, 144 ));
+   
+   type TypedEventHandler_ISpatialEntityWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Perception.Spatial.ISpatialEntityUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialEntityWatcher_add_Updated'access) with null record;
    
    function Invoke
    (
@@ -1369,12 +1363,11 @@ package Windows.Perception.Spatial is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISpatialEntityWatcher_add_Updated : aliased constant Windows.IID := (2707411136, 35338, 23165, (137, 122, 242, 6, 204, 80, 145, 144 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISpatialEntityWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Perception.Spatial.ISpatialEntityRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_Removed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISpatialEntityWatcher_add_Removed : aliased constant Windows.IID := (922321581, 60066, 21091, (134, 30, 42, 207, 3, 12, 158, 23 ));
+   
+   type TypedEventHandler_ISpatialEntityWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Perception.Spatial.ISpatialEntityRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialEntityWatcher_add_Removed'access) with null record;
    
    function Invoke
    (
@@ -1384,12 +1377,11 @@ package Windows.Perception.Spatial is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISpatialEntityWatcher_add_Removed : aliased constant Windows.IID := (922321581, 60066, 21091, (134, 30, 42, 207, 3, 12, 158, 23 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (1343690787, 12457, 22840, (159, 59, 53, 141, 134, 22, 159, 46 ));
+   
+   type TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.ISpatialEntityWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted'access) with null record;
    
    function Invoke
    (
@@ -1398,8 +1390,6 @@ package Windows.Perception.Spatial is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ISpatialEntityWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (1343690787, 12457, 22840, (159, 59, 53, 141, 134, 22, 159, 46 ));
    
    ------------------------------------------------------------------------
    -- Classes

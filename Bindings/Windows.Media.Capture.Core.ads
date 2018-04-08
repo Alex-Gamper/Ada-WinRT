@@ -77,6 +77,9 @@ package Windows.Media.Capture.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IVariablePhotoCapturedEventArgs : aliased constant Windows.IID := (3521858652, 6995, 20042, (139, 92, 219, 120, 135, 172, 148, 155 ));
+   
    type IVariablePhotoCapturedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Frame
@@ -106,10 +109,10 @@ package Windows.Media.Capture.Core is
       ; RetVal : access Windows.Media.Capture.ICapturedFrameControlValues
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVariablePhotoCapturedEventArgs : aliased constant Windows.IID := (3521858652, 6995, 20042, (139, 92, 219, 120, 135, 172, 148, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVariablePhotoSequenceCapture : aliased constant Windows.IID := (3490786589, 798, 16449, (166, 214, 189, 116, 36, 118, 168, 238 ));
+   
    type IVariablePhotoSequenceCapture_Interface is interface and Windows.IInspectable_Interface;
    
    function StartAsync
@@ -162,10 +165,10 @@ package Windows.Media.Capture.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVariablePhotoSequenceCapture : aliased constant Windows.IID := (3490786589, 798, 16449, (166, 214, 189, 116, 36, 118, 168, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVariablePhotoSequenceCapture2 : aliased constant Windows.IID := (4264321724, 20656, 17379, (145, 124, 227, 185, 39, 152, 148, 47 ));
+   
    type IVariablePhotoSequenceCapture2_Interface is interface and Windows.IInspectable_Interface;
    
    function UpdateSettingsAsync
@@ -174,10 +177,10 @@ package Windows.Media.Capture.Core is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVariablePhotoSequenceCapture2 : aliased constant Windows.IID := (4264321724, 20656, 17379, (145, 124, 227, 185, 39, 152, 148, 47 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IVariablePhotoSequenceCapture : aliased constant Windows.IID := (52938940, 12616, 21491, (138, 61, 205, 177, 46, 73, 225, 50 ));
+   
    type IAsyncOperation_IVariablePhotoSequenceCapture_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -200,17 +203,15 @@ package Windows.Media.Capture.Core is
       ; RetVal : access Windows.Media.Capture.Core.IVariablePhotoSequenceCapture
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IVariablePhotoSequenceCapture : aliased constant Windows.IID := (52938940, 12616, 21491, (138, 61, 205, 177, 46, 73, 225, 50 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Core.IAsyncOperation_IVariablePhotoSequenceCapture ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture : aliased constant Windows.IID := (413490643, 483, 23269, (155, 94, 200, 74, 212, 12, 246, 183 ));
+   
+   type AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.Core.IAsyncOperation_IVariablePhotoSequenceCapture ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture'access) with null record;
    
    function Invoke
    (
@@ -220,12 +221,11 @@ package Windows.Media.Capture.Core is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture : aliased constant Windows.IID := (413490643, 483, 23269, (155, 94, 200, 74, 212, 12, 246, 183 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IVariablePhotoSequenceCapture_add_PhotoCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.Core.IVariablePhotoSequenceCapture ; args : Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVariablePhotoSequenceCapture_add_PhotoCaptured_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IVariablePhotoSequenceCapture_add_PhotoCaptured : aliased constant Windows.IID := (3132293680, 15821, 22754, (170, 197, 164, 95, 62, 111, 128, 151 ));
+   
+   type TypedEventHandler_IVariablePhotoSequenceCapture_add_PhotoCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.Core.IVariablePhotoSequenceCapture ; args : Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVariablePhotoSequenceCapture_add_PhotoCaptured'access) with null record;
    
    function Invoke
    (
@@ -235,12 +235,11 @@ package Windows.Media.Capture.Core is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IVariablePhotoSequenceCapture_add_PhotoCaptured : aliased constant Windows.IID := (3132293680, 15821, 22754, (170, 197, 164, 95, 62, 111, 128, 151 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IVariablePhotoSequenceCapture_add_Stopped_Interface(Callback : access procedure (sender : Windows.Media.Capture.Core.IVariablePhotoSequenceCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IVariablePhotoSequenceCapture_add_Stopped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IVariablePhotoSequenceCapture_add_Stopped : aliased constant Windows.IID := (571516480, 3707, 24207, (166, 23, 44, 187, 16, 49, 74, 90 ));
+   
+   type TypedEventHandler_IVariablePhotoSequenceCapture_add_Stopped_Interface(Callback : access procedure (sender : Windows.Media.Capture.Core.IVariablePhotoSequenceCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVariablePhotoSequenceCapture_add_Stopped'access) with null record;
    
    function Invoke
    (
@@ -249,8 +248,6 @@ package Windows.Media.Capture.Core is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IVariablePhotoSequenceCapture_add_Stopped : aliased constant Windows.IID := (571516480, 3707, 24207, (166, 23, 44, 187, 16, 49, 74, 90 ));
    
    ------------------------------------------------------------------------
    -- Classes

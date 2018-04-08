@@ -163,6 +163,9 @@ package Windows.Security.Credentials.UI is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICredentialPickerOptions : aliased constant Windows.IID := (2522483532, 38394, 18047, (153, 43, 11, 34, 229, 133, 155, 246 ));
+   
    type ICredentialPickerOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Caption
@@ -304,10 +307,10 @@ package Windows.Security.Credentials.UI is
       ; RetVal : access Windows.Security.Credentials.UI.CredentialSaveOption
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICredentialPickerOptions : aliased constant Windows.IID := (2522483532, 38394, 18047, (153, 43, 11, 34, 229, 133, 155, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICredentialPickerStatics : aliased constant Windows.IID := (2855951475, 51690, 18306, (153, 251, 230, 215, 233, 56, 225, 45 ));
+   
    type ICredentialPickerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function PickWithOptionsAsync
@@ -336,10 +339,10 @@ package Windows.Security.Credentials.UI is
       ; RetVal : access Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICredentialPickerStatics : aliased constant Windows.IID := (2855951475, 51690, 18306, (153, 251, 230, 215, 233, 56, 225, 45 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICredentialPickerResults : aliased constant Windows.IID := (424212890, 52272, 16652, (156, 56, 204, 8, 132, 197, 179, 215 ));
+   
    type ICredentialPickerResults_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ErrorCode
@@ -390,10 +393,10 @@ package Windows.Security.Credentials.UI is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICredentialPickerResults : aliased constant Windows.IID := (424212890, 52272, 16652, (156, 56, 204, 8, 132, 197, 179, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUserConsentVerifierStatics : aliased constant Windows.IID := (2941206417, 22092, 19932, (184, 181, 151, 52, 71, 98, 124, 101 ));
+   
    type IUserConsentVerifierStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CheckAvailabilityAsync
@@ -410,10 +413,10 @@ package Windows.Security.Credentials.UI is
       ; RetVal : access Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUserConsentVerifierStatics : aliased constant Windows.IID := (2941206417, 22092, 19932, (184, 181, 151, 52, 71, 98, 124, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICredentialPickerResults : aliased constant Windows.IID := (2214398372, 8701, 23553, (156, 246, 130, 147, 178, 146, 154, 159 ));
+   
    type IAsyncOperation_ICredentialPickerResults_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -436,10 +439,10 @@ package Windows.Security.Credentials.UI is
       ; RetVal : access Windows.Security.Credentials.UI.ICredentialPickerResults
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ICredentialPickerResults : aliased constant Windows.IID := (2214398372, 8701, 23553, (156, 246, 130, 147, 178, 146, 154, 159 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_UserConsentVerifierAvailability : aliased constant Windows.IID := (3721626867, 55320, 23939, (171, 75, 50, 17, 156, 40, 88, 124 ));
+   
    type IAsyncOperation_UserConsentVerifierAvailability_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -462,10 +465,10 @@ package Windows.Security.Credentials.UI is
       ; RetVal : access Windows.Security.Credentials.UI.UserConsentVerifierAvailability
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_UserConsentVerifierAvailability : aliased constant Windows.IID := (3721626867, 55320, 23939, (171, 75, 50, 17, 156, 40, 88, 124 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_UserConsentVerificationResult : aliased constant Windows.IID := (4250497021, 8984, 21903, (157, 190, 210, 29, 244, 55, 100, 165 ));
+   
    type IAsyncOperation_UserConsentVerificationResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -488,17 +491,15 @@ package Windows.Security.Credentials.UI is
       ; RetVal : access Windows.Security.Credentials.UI.UserConsentVerificationResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_UserConsentVerificationResult : aliased constant Windows.IID := (4250497021, 8984, 21903, (157, 190, 210, 29, 244, 55, 100, 165 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ICredentialPickerResults_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICredentialPickerResults_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ICredentialPickerResults : aliased constant Windows.IID := (152737464, 21158, 21050, (140, 148, 127, 156, 17, 198, 218, 229 ));
+   
+   type AsyncOperationCompletedHandler_ICredentialPickerResults_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_ICredentialPickerResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICredentialPickerResults'access) with null record;
    
    function Invoke
    (
@@ -508,12 +509,11 @@ package Windows.Security.Credentials.UI is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ICredentialPickerResults : aliased constant Windows.IID := (152737464, 21158, 21050, (140, 148, 127, 156, 17, 198, 218, 229 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerifierAvailability ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_UserConsentVerifierAvailability : aliased constant Windows.IID := (681083252, 44258, 23573, (160, 223, 88, 10, 38, 217, 66, 148 ));
+   
+   type AsyncOperationCompletedHandler_UserConsentVerifierAvailability_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerifierAvailability ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UserConsentVerifierAvailability'access) with null record;
    
    function Invoke
    (
@@ -523,12 +523,11 @@ package Windows.Security.Credentials.UI is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_UserConsentVerifierAvailability : aliased constant Windows.IID := (681083252, 44258, 23573, (160, 223, 88, 10, 38, 217, 66, 148 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_UserConsentVerificationResult : aliased constant Windows.IID := (218089161, 19499, 23764, (179, 140, 123, 141, 243, 255, 90, 251 ));
+   
+   type AsyncOperationCompletedHandler_UserConsentVerificationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UserConsentVerificationResult'access) with null record;
    
    function Invoke
    (
@@ -537,8 +536,6 @@ package Windows.Security.Credentials.UI is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_UserConsentVerificationResult : aliased constant Windows.IID := (218089161, 19499, 23764, (179, 140, 123, 141, 243, 255, 90, 251 ));
    
    ------------------------------------------------------------------------
    -- Classes

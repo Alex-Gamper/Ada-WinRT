@@ -121,6 +121,9 @@ package Windows.Media.ContentRestrictions is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IRatedContentDescription : aliased constant Windows.IID := (1766352607, 26290, 19907, (150, 177, 240, 144, 238, 222, 226, 85 ));
+   
    type IRatedContentDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -192,10 +195,10 @@ package Windows.Media.ContentRestrictions is
       ; value : Windows.Foundation.Collections.IVector_String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRatedContentDescription : aliased constant Windows.IID := (1766352607, 26290, 19907, (150, 177, 240, 144, 238, 222, 226, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRatedContentDescriptionFactory : aliased constant Windows.IID := (775479138, 39824, 20390, (137, 193, 75, 141, 47, 251, 53, 115 ));
+   
    type IRatedContentDescriptionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -207,10 +210,10 @@ package Windows.Media.ContentRestrictions is
       ; RetVal : access Windows.Media.ContentRestrictions.IRatedContentDescription
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRatedContentDescriptionFactory : aliased constant Windows.IID := (775479138, 39824, 20390, (137, 193, 75, 141, 47, 251, 53, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (2348888996, 17454, 17946, (135, 87, 250, 210, 245, 189, 55, 228 ));
+   
    type IContentRestrictionsBrowsePolicy_Interface is interface and Windows.IInspectable_Interface;
    
    function get_GeographicRegion
@@ -233,10 +236,10 @@ package Windows.Media.ContentRestrictions is
       ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (2348888996, 17454, 17946, (135, 87, 250, 210, 245, 189, 55, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRatedContentRestrictions : aliased constant Windows.IID := (1065296843, 47623, 17409, (164, 157, 139, 146, 34, 32, 87, 35 ));
+   
    type IRatedContentRestrictions_Interface is interface and Windows.IInspectable_Interface;
    
    function GetBrowsePolicyAsync
@@ -276,10 +279,10 @@ package Windows.Media.ContentRestrictions is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRatedContentRestrictions : aliased constant Windows.IID := (1065296843, 47623, 17409, (164, 157, 139, 146, 34, 32, 87, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRatedContentRestrictionsFactory : aliased constant Windows.IID := (4216007062, 50109, 18704, (150, 25, 151, 207, 208, 105, 77, 86 ));
+   
    type IRatedContentRestrictionsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithMaxAgeRating
@@ -289,10 +292,10 @@ package Windows.Media.ContentRestrictions is
       ; RetVal : access Windows.Media.ContentRestrictions.IRatedContentRestrictions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRatedContentRestrictionsFactory : aliased constant Windows.IID := (4216007062, 50109, 18704, (150, 25, 151, 207, 208, 105, 77, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (2922617266, 51157, 24347, (159, 185, 248, 189, 129, 233, 249, 190 ));
+   
    type IAsyncOperation_IContentRestrictionsBrowsePolicy_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -315,10 +318,10 @@ package Windows.Media.ContentRestrictions is
       ; RetVal : access Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (2922617266, 51157, 24347, (159, 185, 248, 189, 129, 233, 249, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ContentAccessRestrictionLevel : aliased constant Windows.IID := (2248933753, 48641, 21613, (169, 206, 89, 86, 70, 76, 152, 171 ));
+   
    type IAsyncOperation_ContentAccessRestrictionLevel_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -341,17 +344,15 @@ package Windows.Media.ContentRestrictions is
       ; RetVal : access Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ContentAccessRestrictionLevel : aliased constant Windows.IID := (2248933753, 48641, 21613, (169, 206, 89, 86, 70, 76, 152, 171 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface(Callback : access procedure (asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_IContentRestrictionsBrowsePolicy ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (1924012566, 50949, 21735, (177, 196, 252, 5, 160, 224, 122, 119 ));
+   
+   type AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface(Callback : access procedure (asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_IContentRestrictionsBrowsePolicy ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy'access) with null record;
    
    function Invoke
    (
@@ -361,12 +362,11 @@ package Windows.Media.ContentRestrictions is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy : aliased constant Windows.IID := (1924012566, 50949, 21735, (177, 196, 252, 5, 160, 224, 122, 119 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ContentAccessRestrictionLevel_Interface(Callback : access procedure (asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_ContentAccessRestrictionLevel ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ContentAccessRestrictionLevel_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ContentAccessRestrictionLevel : aliased constant Windows.IID := (3479289437, 16579, 21636, (132, 106, 63, 130, 184, 186, 87, 56 ));
+   
+   type AsyncOperationCompletedHandler_ContentAccessRestrictionLevel_Interface(Callback : access procedure (asyncInfo : Windows.Media.ContentRestrictions.IAsyncOperation_ContentAccessRestrictionLevel ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ContentAccessRestrictionLevel'access) with null record;
    
    function Invoke
    (
@@ -375,8 +375,6 @@ package Windows.Media.ContentRestrictions is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_ContentAccessRestrictionLevel : aliased constant Windows.IID := (3479289437, 16579, 21636, (132, 106, 63, 130, 184, 186, 87, 56 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -614,11 +614,14 @@ package Windows.UI.Xaml.Media.Animation is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type IKeyTimeHelper_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IKeyTimeHelper : aliased constant Windows.IID := (910419072, 18467, 18026, (171, 229, 94, 121, 200, 237, 119, 237 ));
    
+   type IKeyTimeHelper_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IKeyTimeHelperStatics : aliased constant Windows.IID := (2141348140, 8873, 17897, (154, 247, 199, 65, 110, 255, 247, 165 ));
+   
    type IKeyTimeHelperStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromTimeSpan
@@ -628,15 +631,15 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.KeyTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyTimeHelperStatics : aliased constant Windows.IID := (2141348140, 8873, 17897, (154, 247, 199, 65, 110, 255, 247, 165 ));
-   
    ------------------------------------------------------------------------
-   type IRepeatBehaviorHelper_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRepeatBehaviorHelper : aliased constant Windows.IID := (1751362418, 18839, 18425, (135, 173, 55, 239, 183, 89, 147, 234 ));
    
+   type IRepeatBehaviorHelper_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRepeatBehaviorHelperStatics : aliased constant Windows.IID := (2054770739, 31219, 19929, (178, 103, 156, 245, 15, 181, 31, 132 ));
+   
    type IRepeatBehaviorHelperStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Forever
@@ -686,10 +689,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRepeatBehaviorHelperStatics : aliased constant Windows.IID := (2054770739, 31219, 19929, (178, 103, 156, 245, 15, 181, 31, 132 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_Transition : aliased constant Windows.IID := (3885520671, 32318, 24090, (170, 85, 203, 201, 59, 131, 248, 33 ));
+   
    type IVector_Transition_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -780,10 +783,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; items : Windows.UI.Xaml.Media.Animation.ITransition_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_Transition : aliased constant Windows.IID := (3885520671, 32318, 24090, (170, 85, 203, 201, 59, 131, 248, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_Transition : aliased constant Windows.IID := (4273279896, 20443, 20754, (138, 155, 106, 135, 134, 202, 1, 206 ));
+   
    type IIterable_Transition_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -792,10 +795,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.ITransition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_Transition : aliased constant Windows.IID := (4273279896, 20443, 20754, (138, 155, 106, 135, 134, 202, 1, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_DoubleKeyFrame : aliased constant Windows.IID := (3620462114, 34495, 22319, (132, 115, 7, 157, 21, 7, 108, 62 ));
+   
    type IVector_DoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -886,10 +889,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; items : Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_DoubleKeyFrame : aliased constant Windows.IID := (3620462114, 34495, 22319, (132, 115, 7, 157, 21, 7, 108, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_DoubleKeyFrame : aliased constant Windows.IID := (1595307738, 41989, 23418, (186, 241, 150, 141, 228, 57, 31, 183 ));
+   
    type IIterable_DoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -898,10 +901,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_DoubleKeyFrame : aliased constant Windows.IID := (1595307738, 41989, 23418, (186, 241, 150, 141, 228, 57, 31, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_ObjectKeyFrame : aliased constant Windows.IID := (1601387839, 29350, 21251, (151, 39, 43, 3, 234, 231, 221, 76 ));
+   
    type IVector_ObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -992,10 +995,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; items : Windows.UI.Xaml.Media.Animation.IObjectKeyFrame_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_ObjectKeyFrame : aliased constant Windows.IID := (1601387839, 29350, 21251, (151, 39, 43, 3, 234, 231, 221, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ObjectKeyFrame : aliased constant Windows.IID := (2424613089, 36685, 24035, (177, 198, 229, 240, 87, 36, 202, 237 ));
+   
    type IIterable_ObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1004,10 +1007,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ObjectKeyFrame : aliased constant Windows.IID := (2424613089, 36685, 24035, (177, 198, 229, 240, 87, 36, 202, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_Timeline : aliased constant Windows.IID := (537249785, 51159, 21019, (168, 28, 44, 157, 173, 119, 169, 232 ));
+   
    type IVector_Timeline_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1098,10 +1101,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; items : Windows.UI.Xaml.Media.Animation.ITimeline_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_Timeline : aliased constant Windows.IID := (537249785, 51159, 21019, (168, 28, 44, 157, 173, 119, 169, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_Timeline : aliased constant Windows.IID := (2703401798, 59093, 23636, (133, 125, 3, 142, 96, 245, 217, 193 ));
+   
    type IIterable_Timeline_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1110,10 +1113,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_Timeline : aliased constant Windows.IID := (2703401798, 59093, 23636, (133, 125, 3, 142, 96, 245, 217, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDoubleKeyFrame : aliased constant Windows.IID := (1732531965, 59422, 20302, (180, 173, 10, 207, 237, 158, 205, 104 ));
+   
    type IDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -1143,10 +1146,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.KeyTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDoubleKeyFrame : aliased constant Windows.IID := (1732531965, 59422, 20302, (180, 173, 10, 207, 237, 158, 205, 104 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDoubleKeyFrameStatics : aliased constant Windows.IID := (843465136, 32055, 17018, (173, 235, 67, 243, 139, 182, 26, 77 ));
+   
    type IDoubleKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ValueProperty
@@ -1162,10 +1165,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDoubleKeyFrameStatics : aliased constant Windows.IID := (843465136, 32055, 17018, (173, 235, 67, 243, 139, 182, 26, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDoubleKeyFrameFactory : aliased constant Windows.IID := (2895634115, 30008, 16569, (177, 82, 105, 111, 127, 191, 71, 34 ));
+   
    type IDoubleKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1176,10 +1179,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDoubleKeyFrameFactory : aliased constant Windows.IID := (2895634115, 30008, 16569, (177, 82, 105, 111, 127, 191, 71, 34 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasingFunctionBase : aliased constant Windows.IID := (3238541375, 11266, 16721, (142, 205, 104, 221, 170, 63, 13, 155 ));
+   
    type IEasingFunctionBase_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EasingMode
@@ -1203,10 +1206,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasingFunctionBase : aliased constant Windows.IID := (3238541375, 11266, 16721, (142, 205, 104, 221, 170, 63, 13, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasingFunctionBaseStatics : aliased constant Windows.IID := (709898666, 11344, 18973, (187, 4, 215, 94, 7, 183, 21, 72 ));
+   
    type IEasingFunctionBaseStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EasingModeProperty
@@ -1215,15 +1218,15 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasingFunctionBaseStatics : aliased constant Windows.IID := (709898666, 11344, 18973, (187, 4, 215, 94, 7, 183, 21, 72 ));
-   
    ------------------------------------------------------------------------
-   type IEasingFunctionBaseFactory_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IEasingFunctionBaseFactory : aliased constant Windows.IID := (405864042, 61467, 17376, (182, 31, 180, 82, 161, 198, 111, 210 ));
    
+   type IEasingFunctionBaseFactory_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IKeySpline : aliased constant Windows.IID := (2007065531, 54730, 18994, (186, 11, 125, 255, 152, 142, 88, 160 ));
+   
    type IKeySpline_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ControlPoint1
@@ -1253,15 +1256,15 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeySpline : aliased constant Windows.IID := (2007065531, 54730, 18994, (186, 11, 125, 255, 152, 142, 88, 160 ));
-   
    ------------------------------------------------------------------------
-   type INavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    IID_INavigationTransitionInfo : aliased constant Windows.IID := (2846904465, 44618, 17266, (134, 37, 33, 183, 168, 185, 140, 164 ));
    
+   type INavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_INavigationTransitionInfoOverrides : aliased constant Windows.IID := (3645996650, 43472, 19447, (157, 176, 70, 51, 166, 157, 175, 242 ));
+   
    type INavigationTransitionInfoOverrides_Interface is interface and Windows.IInspectable_Interface;
    
    function GetNavigationStateCore
@@ -1277,10 +1280,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; navigationState : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigationTransitionInfoOverrides : aliased constant Windows.IID := (3645996650, 43472, 19447, (157, 176, 70, 51, 166, 157, 175, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INavigationTransitionInfoFactory : aliased constant Windows.IID := (3992254677, 44899, 20395, (157, 74, 135, 146, 127, 130, 221, 107 ));
+   
    type INavigationTransitionInfoFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1291,10 +1294,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigationTransitionInfoFactory : aliased constant Windows.IID := (3992254677, 44899, 20395, (157, 74, 135, 146, 127, 130, 221, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IObjectKeyFrame : aliased constant Windows.IID := (2555553873, 34195, 18670, (166, 164, 213, 212, 114, 15, 2, 154 ));
+   
    type IObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -1324,10 +1327,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.KeyTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IObjectKeyFrame : aliased constant Windows.IID := (2555553873, 34195, 18670, (166, 164, 213, 212, 114, 15, 2, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IObjectKeyFrameStatics : aliased constant Windows.IID := (752265984, 21273, 17030, (142, 237, 78, 117, 94, 160, 207, 156 ));
+   
    type IObjectKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ValueProperty
@@ -1343,10 +1346,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IObjectKeyFrameStatics : aliased constant Windows.IID := (752265984, 21273, 17030, (142, 237, 78, 117, 94, 160, 207, 156 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IObjectKeyFrameFactory : aliased constant Windows.IID := (371594302, 15981, 17624, (155, 154, 4, 174, 167, 15, 132, 146 ));
+   
    type IObjectKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1357,10 +1360,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IObjectKeyFrameFactory : aliased constant Windows.IID := (371594302, 15981, 17624, (155, 154, 4, 174, 167, 15, 132, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITimeline : aliased constant Windows.IID := (197420508, 48717, 19725, (149, 73, 34, 8, 183, 21, 244, 13 ));
+   
    type ITimeline_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AutoReverse
@@ -1461,10 +1464,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITimeline : aliased constant Windows.IID := (197420508, 48717, 19725, (149, 73, 34, 8, 183, 21, 244, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITimelineStatics : aliased constant Windows.IID := (2835541326, 61200, 19823, (154, 64, 147, 203, 136, 149, 244, 229 ));
+   
    type ITimelineStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllowDependentAnimations
@@ -1522,10 +1525,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITimelineStatics : aliased constant Windows.IID := (2835541326, 61200, 19823, (154, 64, 147, 203, 136, 149, 244, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITimelineFactory : aliased constant Windows.IID := (492223239, 48548, 18315, (138, 218, 235, 4, 213, 128, 205, 94 ));
+   
    type ITimelineFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1536,25 +1539,25 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITimelineFactory : aliased constant Windows.IID := (492223239, 48548, 18315, (138, 218, 235, 4, 213, 128, 205, 94 ));
-   
    ------------------------------------------------------------------------
-   type ITransition_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITransition : aliased constant Windows.IID := (1013415036, 464, 19918, (179, 51, 151, 111, 147, 49, 43, 8 ));
    
+   type ITransition_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type ITransitionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITransitionFactory : aliased constant Windows.IID := (3701125839, 15305, 17578, (179, 252, 136, 58, 131, 35, 58, 44 ));
    
+   type ITransitionFactory_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IAddDeleteThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IAddDeleteThemeTransition : aliased constant Windows.IID := (2917958958, 17444, 19883, (153, 193, 58, 4, 227, 106, 60, 72 ));
    
+   type IAddDeleteThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IBackEase : aliased constant Windows.IID := (3833042663, 63493, 19087, (129, 201, 56, 230, 71, 44, 170, 148 ));
+   
    type IBackEase_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Amplitude
@@ -1570,10 +1573,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackEase : aliased constant Windows.IID := (3833042663, 63493, 19087, (129, 201, 56, 230, 71, 44, 170, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackEaseStatics : aliased constant Windows.IID := (1014014719, 41120, 18310, (146, 108, 34, 50, 31, 143, 37, 183 ));
+   
    type IBackEaseStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AmplitudeProperty
@@ -1582,10 +1585,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackEaseStatics : aliased constant Windows.IID := (1014014719, 41120, 18310, (146, 108, 34, 50, 31, 143, 37, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBeginStoryboard : aliased constant Windows.IID := (1679335373, 18924, 20050, (166, 246, 85, 50, 76, 146, 16, 83 ));
+   
    type IBeginStoryboard_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Storyboard
@@ -1601,10 +1604,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.IStoryboard
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBeginStoryboard : aliased constant Windows.IID := (1679335373, 18924, 20050, (166, 246, 85, 50, 76, 146, 16, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBeginStoryboardStatics : aliased constant Windows.IID := (315617676, 43665, 19530, (184, 47, 223, 52, 252, 87, 249, 75 ));
+   
    type IBeginStoryboardStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StoryboardProperty
@@ -1613,10 +1616,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBeginStoryboardStatics : aliased constant Windows.IID := (315617676, 43665, 19530, (184, 47, 223, 52, 252, 87, 249, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBounceEase : aliased constant Windows.IID := (737232462, 64625, 18413, (133, 161, 59, 169, 87, 119, 24, 180 ));
+   
    type IBounceEase_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Bounces
@@ -1646,10 +1649,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBounceEase : aliased constant Windows.IID := (737232462, 64625, 18413, (133, 161, 59, 169, 87, 119, 24, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBounceEaseStatics : aliased constant Windows.IID := (3228573090, 20339, 16841, (178, 203, 46, 163, 16, 81, 7, 255 ));
+   
    type IBounceEaseStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BouncesProperty
@@ -1665,15 +1668,15 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBounceEaseStatics : aliased constant Windows.IID := (3228573090, 20339, 16841, (178, 203, 46, 163, 16, 81, 7, 255 ));
-   
    ------------------------------------------------------------------------
-   type ICircleEase_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ICircleEase : aliased constant Windows.IID := (1403239858, 37239, 20078, (160, 67, 80, 130, 216, 137, 171, 31 ));
    
+   type ICircleEase_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IColorAnimation : aliased constant Windows.IID := (3098446357, 3939, 18068, (148, 103, 189, 175, 172, 18, 83, 234 ));
+   
    type IColorAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_From
@@ -1745,10 +1748,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorAnimation : aliased constant Windows.IID := (3098446357, 3939, 18068, (148, 103, 189, 175, 172, 18, 83, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IColorAnimationStatics : aliased constant Windows.IID := (1441461986, 34787, 20296, (149, 143, 133, 91, 47, 158, 169, 236 ));
+   
    type IColorAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FromProperty
@@ -1785,10 +1788,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorAnimationStatics : aliased constant Windows.IID := (1441461986, 34787, 20296, (149, 143, 133, 91, 47, 158, 169, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContentThemeTransition : aliased constant Windows.IID := (4134520259, 22805, 17277, (142, 59, 173, 248, 231, 240, 171, 87 ));
+   
    type IContentThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HorizontalOffset
@@ -1818,10 +1821,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContentThemeTransition : aliased constant Windows.IID := (4134520259, 22805, 17277, (142, 59, 173, 248, 231, 240, 171, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContentThemeTransitionStatics : aliased constant Windows.IID := (244245381, 39490, 17497, (175, 169, 51, 125, 196, 30, 21, 135 ));
+   
    type IContentThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HorizontalOffsetProperty
@@ -1837,25 +1840,25 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContentThemeTransitionStatics : aliased constant Windows.IID := (244245381, 39490, 17497, (175, 169, 51, 125, 196, 30, 21, 135 ));
-   
    ------------------------------------------------------------------------
-   type ICubicEase_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ICubicEase : aliased constant Windows.IID := (462748790, 56023, 17236, (177, 162, 121, 105, 251, 246, 167, 13 ));
    
+   type ICubicEase_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IDiscreteDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IDiscreteDoubleKeyFrame : aliased constant Windows.IID := (4126482234, 44305, 18894, (142, 28, 8, 253, 241, 68, 116, 70 ));
    
+   type IDiscreteDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IDiscreteObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IDiscreteObjectKeyFrame : aliased constant Windows.IID := (3353140873, 61741, 19100, (129, 153, 231, 169, 236, 227, 164, 115 ));
    
+   type IDiscreteObjectKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IDoubleAnimation : aliased constant Windows.IID := (2124365145, 3847, 19401, (151, 125, 3, 118, 63, 248, 21, 79 ));
+   
    type IDoubleAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_From
@@ -1927,10 +1930,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDoubleAnimation : aliased constant Windows.IID := (2124365145, 3847, 19401, (151, 125, 3, 118, 63, 248, 21, 79 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDoubleAnimationStatics : aliased constant Windows.IID := (3799683933, 61713, 17335, (184, 36, 131, 43, 88, 215, 120, 107 ));
+   
    type IDoubleAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FromProperty
@@ -1967,10 +1970,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDoubleAnimationStatics : aliased constant Windows.IID := (3799683933, 61713, 17335, (184, 36, 131, 43, 88, 215, 120, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDoubleAnimationUsingKeyFrames : aliased constant Windows.IID := (1341022863, 49134, 20341, (131, 194, 169, 59, 57, 72, 132, 115 ));
+   
    type IDoubleAnimationUsingKeyFrames_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeyFrames
@@ -1993,10 +1996,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDoubleAnimationUsingKeyFrames : aliased constant Windows.IID := (1341022863, 49134, 20341, (131, 194, 169, 59, 57, 72, 132, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDoubleAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (278655734, 50703, 18858, (171, 246, 246, 150, 212, 146, 17, 107 ));
+   
    type IDoubleAnimationUsingKeyFramesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EnableDependentAnimationProperty
@@ -2005,10 +2008,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDoubleAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (278655734, 50703, 18858, (171, 246, 246, 150, 212, 146, 17, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasingDoubleKeyFrame : aliased constant Windows.IID := (2522536845, 39508, 16648, (180, 255, 181, 165, 33, 44, 179, 56 ));
+   
    type IEasingDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EasingFunction
@@ -2024,10 +2027,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasingDoubleKeyFrame : aliased constant Windows.IID := (2522536845, 39508, 16648, (180, 255, 181, 165, 33, 44, 179, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasingDoubleKeyFrameStatics : aliased constant Windows.IID := (3369326661, 56238, 20059, (139, 132, 217, 83, 115, 152, 229, 177 ));
+   
    type IEasingDoubleKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EasingFunctionProperty
@@ -2036,10 +2039,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasingDoubleKeyFrameStatics : aliased constant Windows.IID := (3369326661, 56238, 20059, (139, 132, 217, 83, 115, 152, 229, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEdgeUIThemeTransition : aliased constant Windows.IID := (1552335259, 18903, 6636, (207, 25, 131, 167, 60, 109, 231, 94 ));
+   
    type IEdgeUIThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Edge
@@ -2055,10 +2058,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEdgeUIThemeTransition : aliased constant Windows.IID := (1552335259, 18903, 6636, (207, 25, 131, 167, 60, 109, 231, 94 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEdgeUIThemeTransitionStatics : aliased constant Windows.IID := (379760955, 18181, 12331, (39, 198, 42, 172, 146, 246, 69, 172 ));
+   
    type IEdgeUIThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EdgeProperty
@@ -2067,10 +2070,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEdgeUIThemeTransitionStatics : aliased constant Windows.IID := (379760955, 18181, 12331, (39, 198, 42, 172, 146, 246, 69, 172 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IElasticEase : aliased constant Windows.IID := (4015760780, 45238, 19052, (156, 168, 251, 66, 51, 241, 36, 89 ));
+   
    type IElasticEase_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Oscillations
@@ -2100,10 +2103,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IElasticEase : aliased constant Windows.IID := (4015760780, 45238, 19052, (156, 168, 251, 66, 51, 241, 36, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IElasticEaseStatics : aliased constant Windows.IID := (2851432172, 65180, 19243, (142, 82, 187, 120, 93, 86, 33, 133 ));
+   
    type IElasticEaseStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OscillationsProperty
@@ -2119,10 +2122,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IElasticEaseStatics : aliased constant Windows.IID := (2851432172, 65180, 19243, (142, 82, 187, 120, 93, 86, 33, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEntranceThemeTransition : aliased constant Windows.IID := (124357641, 43235, 16794, (160, 29, 116, 16, 160, 174, 142, 200 ));
+   
    type IEntranceThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FromHorizontalOffset
@@ -2166,10 +2169,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEntranceThemeTransition : aliased constant Windows.IID := (124357641, 43235, 16794, (160, 29, 116, 16, 160, 174, 142, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEntranceThemeTransitionStatics : aliased constant Windows.IID := (936117623, 65432, 19181, (184, 110, 94, 194, 55, 2, 248, 119 ));
+   
    type IEntranceThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FromHorizontalOffsetProperty
@@ -2192,10 +2195,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEntranceThemeTransitionStatics : aliased constant Windows.IID := (936117623, 65432, 19181, (184, 110, 94, 194, 55, 2, 248, 119 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IExponentialEase : aliased constant Windows.IID := (2092557341, 61627, 19402, (157, 165, 155, 163, 161, 23, 52, 196 ));
+   
    type IExponentialEase_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Exponent
@@ -2211,10 +2214,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IExponentialEase : aliased constant Windows.IID := (2092557341, 61627, 19402, (157, 165, 155, 163, 161, 23, 52, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IExponentialEaseStatics : aliased constant Windows.IID := (4085180387, 42849, 17234, (154, 214, 112, 121, 69, 103, 88, 26 ));
+   
    type IExponentialEaseStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ExponentProperty
@@ -2223,15 +2226,15 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IExponentialEaseStatics : aliased constant Windows.IID := (4085180387, 42849, 17234, (154, 214, 112, 121, 69, 103, 88, 26 ));
-   
    ------------------------------------------------------------------------
-   type ILinearDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ILinearDoubleKeyFrame : aliased constant Windows.IID := (2399007333, 39547, 17181, (143, 12, 20, 197, 107, 94, 164, 217 ));
    
+   type ILinearDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IObjectAnimationUsingKeyFrames : aliased constant Windows.IID := (860499346, 46922, 19556, (185, 166, 88, 188, 250, 49, 79, 34 ));
+   
    type IObjectAnimationUsingKeyFrames_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeyFrames
@@ -2254,10 +2257,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IObjectAnimationUsingKeyFrames : aliased constant Windows.IID := (860499346, 46922, 19556, (185, 166, 88, 188, 250, 49, 79, 34 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IObjectAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (3950207362, 27377, 18851, (151, 182, 120, 62, 217, 116, 0, 254 ));
+   
    type IObjectAnimationUsingKeyFramesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EnableDependentAnimationProperty
@@ -2266,10 +2269,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IObjectAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (3950207362, 27377, 18851, (151, 182, 120, 62, 217, 116, 0, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaneThemeTransition : aliased constant Windows.IID := (1191766926, 19452, 60998, (212, 249, 112, 141, 239, 63, 187, 43 ));
+   
    type IPaneThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Edge
@@ -2285,10 +2288,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaneThemeTransition : aliased constant Windows.IID := (1191766926, 19452, 60998, (212, 249, 112, 141, 239, 63, 187, 43 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPaneThemeTransitionStatics : aliased constant Windows.IID := (829110319, 19428, 6039, (180, 92, 205, 144, 11, 190, 12, 170 ));
+   
    type IPaneThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EdgeProperty
@@ -2297,10 +2300,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPaneThemeTransitionStatics : aliased constant Windows.IID := (829110319, 19428, 6039, (180, 92, 205, 144, 11, 190, 12, 170 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointAnimation : aliased constant Windows.IID := (821052178, 30502, 20360, (184, 226, 47, 165, 69, 24, 150, 59 ));
+   
    type IPointAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_From
@@ -2372,10 +2375,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointAnimation : aliased constant Windows.IID := (821052178, 30502, 20360, (184, 226, 47, 165, 69, 24, 150, 59 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointAnimationStatics : aliased constant Windows.IID := (798602070, 59191, 16523, (160, 253, 50, 120, 38, 211, 34, 85 ));
+   
    type IPointAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FromProperty
@@ -2412,10 +2415,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointAnimationStatics : aliased constant Windows.IID := (798602070, 59191, 16523, (160, 253, 50, 120, 38, 211, 34, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPopupThemeTransition : aliased constant Windows.IID := (1199846738, 17027, 21598, (199, 145, 38, 141, 202, 34, 206, 75 ));
+   
    type IPopupThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FromHorizontalOffset
@@ -2445,10 +2448,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPopupThemeTransition : aliased constant Windows.IID := (1199846738, 17027, 21598, (199, 145, 38, 141, 202, 34, 206, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPopupThemeTransitionStatics : aliased constant Windows.IID := (3852559374, 18701, 5381, (159, 107, 143, 175, 192, 68, 222, 197 ));
+   
    type IPopupThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FromHorizontalOffsetProperty
@@ -2464,10 +2467,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPopupThemeTransitionStatics : aliased constant Windows.IID := (3852559374, 18701, 5381, (159, 107, 143, 175, 192, 68, 222, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPowerEase : aliased constant Windows.IID := (1774716281, 61151, 16475, (134, 128, 217, 96, 104, 128, 201, 55 ));
+   
    type IPowerEase_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Power
@@ -2483,10 +2486,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPowerEase : aliased constant Windows.IID := (1774716281, 61151, 16475, (134, 128, 217, 96, 104, 128, 201, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPowerEaseStatics : aliased constant Windows.IID := (2778026243, 37282, 17932, (156, 65, 210, 143, 106, 147, 155, 218 ));
+   
    type IPowerEaseStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PowerProperty
@@ -2495,35 +2498,35 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPowerEaseStatics : aliased constant Windows.IID := (2778026243, 37282, 17932, (156, 65, 210, 143, 106, 147, 155, 218 ));
-   
    ------------------------------------------------------------------------
-   type IQuadraticEase_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IQuadraticEase : aliased constant Windows.IID := (3780185745, 61293, 17648, (128, 61, 104, 209, 109, 224, 221, 252 ));
    
+   type IQuadraticEase_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IQuarticEase_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IQuarticEase : aliased constant Windows.IID := (3899230228, 65090, 18949, (181, 184, 8, 31, 65, 21, 120, 21 ));
    
+   type IQuarticEase_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IQuinticEase_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IQuinticEase : aliased constant Windows.IID := (2465102139, 15433, 16648, (170, 17, 171, 120, 102, 3, 218, 33 ));
    
+   type IQuinticEase_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IReorderThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IReorderThemeTransition : aliased constant Windows.IID := (4060503148, 53330, 19153, (131, 98, 183, 27, 54, 223, 116, 151 ));
    
+   type IReorderThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IRepositionThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IRepositionThemeTransition : aliased constant Windows.IID := (2285017986, 39155, 17754, (172, 83, 46, 112, 131, 182, 226, 44 ));
    
+   type IRepositionThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IRepositionThemeTransition2 : aliased constant Windows.IID := (3468683364, 56298, 17412, (142, 110, 222, 85, 173, 167, 82, 57 ));
+   
    type IRepositionThemeTransition2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsStaggeringEnabled
@@ -2539,10 +2542,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRepositionThemeTransition2 : aliased constant Windows.IID := (3468683364, 56298, 17412, (142, 110, 222, 85, 173, 167, 82, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRepositionThemeTransitionStatics2 : aliased constant Windows.IID := (2453727536, 2585, 18059, (140, 42, 104, 250, 180, 80, 0, 39 ));
+   
    type IRepositionThemeTransitionStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsStaggeringEnabledProperty
@@ -2551,15 +2554,15 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRepositionThemeTransitionStatics2 : aliased constant Windows.IID := (2453727536, 2585, 18059, (140, 42, 104, 250, 180, 80, 0, 39 ));
-   
    ------------------------------------------------------------------------
-   type ISineEase_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISineEase : aliased constant Windows.IID := (2839030114, 8971, 18906, (158, 13, 102, 73, 135, 137, 35, 67 ));
    
+   type ISineEase_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ISplineDoubleKeyFrame : aliased constant Windows.IID := (14101816, 27435, 18499, (131, 142, 200, 177, 21, 238, 200, 1 ));
+   
    type ISplineDoubleKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeySpline
@@ -2575,10 +2578,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.IKeySpline
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplineDoubleKeyFrame : aliased constant Windows.IID := (14101816, 27435, 18499, (131, 142, 200, 177, 21, 238, 200, 1 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISplineDoubleKeyFrameStatics : aliased constant Windows.IID := (101355516, 38751, 20046, (158, 199, 19, 197, 174, 224, 32, 98 ));
+   
    type ISplineDoubleKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeySplineProperty
@@ -2587,10 +2590,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplineDoubleKeyFrameStatics : aliased constant Windows.IID := (101355516, 38751, 20046, (158, 199, 19, 197, 174, 224, 32, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStoryboard : aliased constant Windows.IID := (3562806894, 13716, 17934, (152, 26, 50, 39, 27, 211, 170, 6 ));
+   
    type IStoryboard_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Children
@@ -2657,10 +2660,10 @@ package Windows.UI.Xaml.Media.Animation is
       This       : access IStoryboard_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStoryboard : aliased constant Windows.IID := (3562806894, 13716, 17934, (152, 26, 50, 39, 27, 211, 170, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStoryboardStatics : aliased constant Windows.IID := (3626960856, 29653, 17273, (189, 72, 126, 5, 24, 74, 139, 173 ));
+   
    type IStoryboardStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetPropertyProperty
@@ -2716,10 +2719,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; target : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStoryboardStatics : aliased constant Windows.IID := (3626960856, 29653, 17273, (189, 72, 126, 5, 24, 74, 139, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_ColorKeyFrame : aliased constant Windows.IID := (2463256504, 44884, 20864, (152, 136, 87, 86, 86, 106, 19, 255 ));
+   
    type IVector_ColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2810,10 +2813,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; items : Windows.UI.Xaml.Media.Animation.IColorKeyFrame_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_ColorKeyFrame : aliased constant Windows.IID := (2463256504, 44884, 20864, (152, 136, 87, 86, 86, 106, 19, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ColorKeyFrame : aliased constant Windows.IID := (408542472, 22573, 20956, (130, 161, 70, 97, 17, 202, 249, 68 ));
+   
    type IIterable_ColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2822,10 +2825,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ColorKeyFrame : aliased constant Windows.IID := (408542472, 22573, 20956, (130, 161, 70, 97, 17, 202, 249, 68 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimation : aliased constant Windows.IID := (890790540, 62343, 19493, (172, 152, 68, 232, 108, 60, 173, 240 ));
+   
    type IConnectedAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function add_Completed
@@ -2856,10 +2859,10 @@ package Windows.UI.Xaml.Media.Animation is
       This       : access IConnectedAnimation_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectedAnimation : aliased constant Windows.IID := (890790540, 62343, 19493, (172, 152, 68, 232, 108, 60, 173, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimation2 : aliased constant Windows.IID := (1563397724, 22603, 19933, (182, 104, 151, 56, 145, 67, 20, 89 ));
+   
    type IConnectedAnimation2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsScaleAnimationEnabled
@@ -2892,10 +2895,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; animation : Windows.UI.Composition.ICompositionAnimationBase
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectedAnimation2 : aliased constant Windows.IID := (1563397724, 22603, 19933, (182, 104, 151, 56, 145, 67, 20, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimationService : aliased constant Windows.IID := (476607945, 6587, 19783, (185, 170, 102, 200, 2, 220, 185, 255 ));
+   
    type IConnectedAnimationService_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DefaultDuration
@@ -2942,10 +2945,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IConnectedAnimation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectedAnimationService : aliased constant Windows.IID := (476607945, 6587, 19783, (185, 170, 102, 200, 2, 220, 185, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimationServiceStatics : aliased constant Windows.IID := (3339161253, 54920, 16616, (143, 144, 150, 166, 39, 146, 115, 210 ));
+   
    type IConnectedAnimationServiceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -2954,10 +2957,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IConnectedAnimationService
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IConnectedAnimationServiceStatics : aliased constant Windows.IID := (3339161253, 54920, 16616, (143, 144, 150, 166, 39, 146, 115, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_PointKeyFrame : aliased constant Windows.IID := (2977834718, 40151, 21590, (190, 224, 73, 136, 42, 135, 249, 69 ));
+   
    type IVector_PointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3048,10 +3051,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; items : Windows.UI.Xaml.Media.Animation.IPointKeyFrame_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_PointKeyFrame : aliased constant Windows.IID := (2977834718, 40151, 21590, (190, 224, 73, 136, 42, 135, 249, 69 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_PointKeyFrame : aliased constant Windows.IID := (3101576649, 35945, 22003, (175, 88, 4, 15, 19, 25, 100, 156 ));
+   
    type IIterable_PointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3060,10 +3063,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_PointKeyFrame : aliased constant Windows.IID := (3101576649, 35945, 22003, (175, 88, 4, 15, 19, 25, 100, 156 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IColorKeyFrame : aliased constant Windows.IID := (3038610137, 2320, 17801, (162, 132, 176, 201, 32, 88, 88, 233 ));
+   
    type IColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -3093,10 +3096,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.KeyTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorKeyFrame : aliased constant Windows.IID := (3038610137, 2320, 17801, (162, 132, 176, 201, 32, 88, 88, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IColorKeyFrameStatics : aliased constant Windows.IID := (3225661081, 8460, 17167, (157, 165, 223, 16, 130, 105, 32, 85 ));
+   
    type IColorKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ValueProperty
@@ -3112,10 +3115,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorKeyFrameStatics : aliased constant Windows.IID := (3225661081, 8460, 17167, (157, 165, 223, 16, 130, 105, 32, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IColorKeyFrameFactory : aliased constant Windows.IID := (1989925002, 40187, 19069, (150, 196, 161, 231, 222, 111, 219, 75 ));
+   
    type IColorKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -3126,10 +3129,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorKeyFrameFactory : aliased constant Windows.IID := (1989925002, 40187, 19069, (150, 196, 161, 231, 222, 111, 219, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointKeyFrame : aliased constant Windows.IID := (4241001729, 32642, 19886, (128, 38, 123, 126, 8, 104, 120, 179 ));
+   
    type IPointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Value
@@ -3159,10 +3162,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.KeyTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointKeyFrame : aliased constant Windows.IID := (4241001729, 32642, 19886, (128, 38, 123, 126, 8, 104, 120, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointKeyFrameStatics : aliased constant Windows.IID := (2513378087, 31077, 19436, (185, 251, 251, 233, 75, 101, 81, 142 ));
+   
    type IPointKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ValueProperty
@@ -3178,10 +3181,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointKeyFrameStatics : aliased constant Windows.IID := (2513378087, 31077, 19436, (185, 251, 251, 233, 75, 101, 81, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointKeyFrameFactory : aliased constant Windows.IID := (3407956959, 17002, 17298, (131, 85, 194, 174, 82, 133, 38, 35 ));
+   
    type IPointKeyFrameFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -3192,10 +3195,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointKeyFrameFactory : aliased constant Windows.IID := (3407956959, 17002, 17298, (131, 85, 194, 174, 82, 133, 38, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IColorAnimationUsingKeyFrames : aliased constant Windows.IID := (4123534912, 5059, 17066, (154, 226, 126, 107, 81, 201, 47, 149 ));
+   
    type IColorAnimationUsingKeyFrames_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeyFrames
@@ -3218,10 +3221,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorAnimationUsingKeyFrames : aliased constant Windows.IID := (4123534912, 5059, 17066, (154, 226, 126, 107, 81, 201, 47, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IColorAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (3027385564, 38633, 18681, (141, 146, 155, 100, 139, 47, 28, 198 ));
+   
    type IColorAnimationUsingKeyFramesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EnableDependentAnimationProperty
@@ -3230,20 +3233,20 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IColorAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (3027385564, 38633, 18681, (141, 146, 155, 100, 139, 47, 28, 198 ));
-   
    ------------------------------------------------------------------------
-   type IDiscreteColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IDiscreteColorKeyFrame : aliased constant Windows.IID := (587991284, 57442, 19633, (142, 42, 20, 9, 61, 115, 237, 140 ));
    
+   type IDiscreteColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IDiscretePointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IDiscretePointKeyFrame : aliased constant Windows.IID := (3769173773, 19522, 19088, (152, 58, 117, 245, 168, 58, 47, 190 ));
    
+   type IDiscretePointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IDragItemThemeAnimation : aliased constant Windows.IID := (209542581, 32470, 18761, (180, 230, 167, 140, 159, 79, 151, 141 ));
+   
    type IDragItemThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3259,10 +3262,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDragItemThemeAnimation : aliased constant Windows.IID := (209542581, 32470, 18761, (180, 230, 167, 140, 159, 79, 151, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDragItemThemeAnimationStatics : aliased constant Windows.IID := (1645787637, 314, 20401, (134, 252, 146, 188, 78, 141, 2, 65 ));
+   
    type IDragItemThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3271,10 +3274,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDragItemThemeAnimationStatics : aliased constant Windows.IID := (1645787637, 314, 20401, (134, 252, 146, 188, 78, 141, 2, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDragOverThemeAnimation : aliased constant Windows.IID := (1928815351, 32337, 19051, (185, 55, 220, 75, 76, 28, 84, 88 ));
+   
    type IDragOverThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3318,10 +3321,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Controls.Primitives.AnimationDirection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDragOverThemeAnimation : aliased constant Windows.IID := (1928815351, 32337, 19051, (185, 55, 220, 75, 76, 28, 84, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDragOverThemeAnimationStatics : aliased constant Windows.IID := (342883927, 15517, 16857, (165, 255, 141, 114, 57, 81, 104, 16 ));
+   
    type IDragOverThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3344,10 +3347,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDragOverThemeAnimationStatics : aliased constant Windows.IID := (342883927, 15517, 16857, (165, 255, 141, 114, 57, 81, 104, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDrillInThemeAnimation : aliased constant Windows.IID := (2962274340, 61906, 16824, (135, 186, 120, 3, 65, 38, 89, 76 ));
+   
    type IDrillInThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EntranceTargetName
@@ -3405,10 +3408,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDrillInThemeAnimation : aliased constant Windows.IID := (2962274340, 61906, 16824, (135, 186, 120, 3, 65, 38, 89, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDrillInThemeAnimationStatics : aliased constant Windows.IID := (3323978888, 41338, 19217, (181, 59, 164, 241, 160, 125, 75, 169 ));
+   
    type IDrillInThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EntranceTargetNameProperty
@@ -3438,10 +3441,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDrillInThemeAnimationStatics : aliased constant Windows.IID := (3323978888, 41338, 19217, (181, 59, 164, 241, 160, 125, 75, 169 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDrillOutThemeAnimation : aliased constant Windows.IID := (3633368287, 1747, 20350, (142, 74, 79, 183, 110, 37, 97, 57 ));
+   
    type IDrillOutThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EntranceTargetName
@@ -3499,10 +3502,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDrillOutThemeAnimation : aliased constant Windows.IID := (3633368287, 1747, 20350, (142, 74, 79, 183, 110, 37, 97, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDrillOutThemeAnimationStatics : aliased constant Windows.IID := (3199589275, 9751, 18568, (128, 221, 114, 250, 123, 182, 250, 195 ));
+   
    type IDrillOutThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EntranceTargetNameProperty
@@ -3532,10 +3535,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDrillOutThemeAnimationStatics : aliased constant Windows.IID := (3199589275, 9751, 18568, (128, 221, 114, 250, 123, 182, 250, 195 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDropTargetItemThemeAnimation : aliased constant Windows.IID := (411158888, 6180, 17963, (135, 232, 195, 87, 33, 43, 151, 123 ));
+   
    type IDropTargetItemThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3551,10 +3554,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDropTargetItemThemeAnimation : aliased constant Windows.IID := (411158888, 6180, 17963, (135, 232, 195, 87, 33, 43, 151, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDropTargetItemThemeAnimationStatics : aliased constant Windows.IID := (2927686790, 11862, 17683, (191, 24, 215, 116, 112, 22, 74, 229 ));
+   
    type IDropTargetItemThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3563,10 +3566,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDropTargetItemThemeAnimationStatics : aliased constant Windows.IID := (2927686790, 11862, 17683, (191, 24, 215, 116, 112, 22, 74, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasingColorKeyFrame : aliased constant Windows.IID := (3342063152, 62649, 18740, (155, 221, 39, 172, 94, 209, 207, 216 ));
+   
    type IEasingColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EasingFunction
@@ -3582,10 +3585,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasingColorKeyFrame : aliased constant Windows.IID := (3342063152, 62649, 18740, (155, 221, 39, 172, 94, 209, 207, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasingColorKeyFrameStatics : aliased constant Windows.IID := (1865955324, 36413, 17698, (155, 15, 0, 61, 184, 96, 152, 81 ));
+   
    type IEasingColorKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EasingFunctionProperty
@@ -3594,10 +3597,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasingColorKeyFrameStatics : aliased constant Windows.IID := (1865955324, 36413, 17698, (155, 15, 0, 61, 184, 96, 152, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasingPointKeyFrame : aliased constant Windows.IID := (3016299392, 26728, 16933, (167, 11, 57, 129, 204, 11, 41, 71 ));
+   
    type IEasingPointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EasingFunction
@@ -3613,10 +3616,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.IEasingFunctionBase
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasingPointKeyFrame : aliased constant Windows.IID := (3016299392, 26728, 16933, (167, 11, 57, 129, 204, 11, 41, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEasingPointKeyFrameStatics : aliased constant Windows.IID := (3794649028, 2060, 16428, (166, 181, 244, 141, 10, 152, 17, 107 ));
+   
    type IEasingPointKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EasingFunctionProperty
@@ -3625,10 +3628,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEasingPointKeyFrameStatics : aliased constant Windows.IID := (3794649028, 2060, 16428, (166, 181, 244, 141, 10, 152, 17, 107 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFadeInThemeAnimation : aliased constant Windows.IID := (1833683189, 43288, 17527, (128, 120, 85, 76, 104, 129, 42, 184 ));
+   
    type IFadeInThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3644,10 +3647,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFadeInThemeAnimation : aliased constant Windows.IID := (1833683189, 43288, 17527, (128, 120, 85, 76, 104, 129, 42, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFadeInThemeAnimationStatics : aliased constant Windows.IID := (2130778081, 48809, 18723, (178, 58, 13, 223, 77, 123, 135, 55 ));
+   
    type IFadeInThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3656,10 +3659,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFadeInThemeAnimationStatics : aliased constant Windows.IID := (2130778081, 48809, 18723, (178, 58, 13, 223, 77, 123, 135, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFadeOutThemeAnimation : aliased constant Windows.IID := (2301062057, 65492, 17846, (155, 154, 206, 212, 137, 81, 231, 18 ));
+   
    type IFadeOutThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3675,10 +3678,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFadeOutThemeAnimation : aliased constant Windows.IID := (2301062057, 65492, 17846, (155, 154, 206, 212, 137, 81, 231, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFadeOutThemeAnimationStatics : aliased constant Windows.IID := (4262963226, 16744, 20328, (162, 140, 229, 221, 152, 207, 104, 15 ));
+   
    type IFadeOutThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3687,20 +3690,20 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFadeOutThemeAnimationStatics : aliased constant Windows.IID := (4262963226, 16744, 20328, (162, 140, 229, 221, 152, 207, 104, 15 ));
-   
    ------------------------------------------------------------------------
-   type ILinearColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ILinearColorKeyFrame : aliased constant Windows.IID := (1727903471, 44161, 17937, (177, 210, 97, 245, 69, 152, 63, 3 ));
    
+   type ILinearColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type ILinearPointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ILinearPointKeyFrame : aliased constant Windows.IID := (3888756975, 44836, 18926, (132, 241, 168, 102, 0, 164, 227, 25 ));
    
+   type ILinearPointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IPointAnimationUsingKeyFrames : aliased constant Windows.IID := (2610188146, 17514, 16848, (161, 41, 65, 166, 32, 244, 89, 93 ));
+   
    type IPointAnimationUsingKeyFrames_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeyFrames
@@ -3723,10 +3726,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointAnimationUsingKeyFrames : aliased constant Windows.IID := (2610188146, 17514, 16848, (161, 41, 65, 166, 32, 244, 89, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (1598377095, 9104, 18154, (186, 167, 118, 47, 75, 195, 13, 4 ));
+   
    type IPointAnimationUsingKeyFramesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EnableDependentAnimationProperty
@@ -3735,10 +3738,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointAnimationUsingKeyFramesStatics : aliased constant Windows.IID := (1598377095, 9104, 18154, (186, 167, 118, 47, 75, 195, 13, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointerDownThemeAnimation : aliased constant Windows.IID := (3046011214, 50333, 18312, (162, 51, 10, 232, 93, 153, 221, 90 ));
+   
    type IPointerDownThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3754,10 +3757,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointerDownThemeAnimation : aliased constant Windows.IID := (3046011214, 50333, 18312, (162, 51, 10, 232, 93, 153, 221, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointerDownThemeAnimationStatics : aliased constant Windows.IID := (1671940987, 27974, 17556, (185, 74, 231, 47, 59, 73, 42, 97 ));
+   
    type IPointerDownThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3766,10 +3769,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointerDownThemeAnimationStatics : aliased constant Windows.IID := (1671940987, 27974, 17556, (185, 74, 231, 47, 59, 73, 42, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointerUpThemeAnimation : aliased constant Windows.IID := (3924414589, 25408, 18472, (173, 18, 105, 6, 148, 185, 145, 11 ));
+   
    type IPointerUpThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3785,10 +3788,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointerUpThemeAnimation : aliased constant Windows.IID := (3924414589, 25408, 18472, (173, 18, 105, 6, 148, 185, 145, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointerUpThemeAnimationStatics : aliased constant Windows.IID := (2086768540, 31122, 16697, (139, 252, 8, 131, 185, 114, 122, 126 ));
+   
    type IPointerUpThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3797,10 +3800,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointerUpThemeAnimationStatics : aliased constant Windows.IID := (2086768540, 31122, 16697, (139, 252, 8, 131, 185, 114, 122, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPopInThemeAnimation : aliased constant Windows.IID := (426326209, 7175, 19496, (136, 71, 249, 240, 85, 179, 40, 85 ));
+   
    type IPopInThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3844,10 +3847,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPopInThemeAnimation : aliased constant Windows.IID := (426326209, 7175, 19496, (136, 71, 249, 240, 85, 179, 40, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPopInThemeAnimationStatics : aliased constant Windows.IID := (4020935123, 8586, 18177, (151, 127, 241, 191, 174, 139, 166, 73 ));
+   
    type IPopInThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3870,10 +3873,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPopInThemeAnimationStatics : aliased constant Windows.IID := (4020935123, 8586, 18177, (151, 127, 241, 191, 174, 139, 166, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPopOutThemeAnimation : aliased constant Windows.IID := (1200008009, 3656, 20097, (162, 229, 204, 90, 161, 158, 72, 211 ));
+   
    type IPopOutThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3889,10 +3892,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPopOutThemeAnimation : aliased constant Windows.IID := (1200008009, 3656, 20097, (162, 229, 204, 90, 161, 158, 72, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPopOutThemeAnimationStatics : aliased constant Windows.IID := (491334665, 961, 17552, (153, 220, 144, 159, 234, 179, 87, 251 ));
+   
    type IPopOutThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3901,10 +3904,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPopOutThemeAnimationStatics : aliased constant Windows.IID := (491334665, 961, 17552, (153, 220, 144, 159, 234, 179, 87, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRepositionThemeAnimation : aliased constant Windows.IID := (3973719272, 35141, 18761, (161, 191, 98, 16, 153, 101, 167, 233 ));
+   
    type IRepositionThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -3948,10 +3951,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRepositionThemeAnimation : aliased constant Windows.IID := (3973719272, 35141, 18761, (161, 191, 98, 16, 153, 101, 167, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRepositionThemeAnimationStatics : aliased constant Windows.IID := (1301459377, 34315, 19449, (165, 157, 30, 177, 204, 190, 143, 224 ));
+   
    type IRepositionThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -3974,10 +3977,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRepositionThemeAnimationStatics : aliased constant Windows.IID := (1301459377, 34315, 19449, (165, 157, 30, 177, 204, 190, 143, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISplineColorKeyFrame : aliased constant Windows.IID := (441080129, 8160, 18234, (142, 254, 67, 22, 216, 200, 98, 41 ));
+   
    type ISplineColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeySpline
@@ -3993,10 +3996,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.IKeySpline
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplineColorKeyFrame : aliased constant Windows.IID := (441080129, 8160, 18234, (142, 254, 67, 22, 216, 200, 98, 41 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISplineColorKeyFrameStatics : aliased constant Windows.IID := (1641142679, 34185, 20271, (143, 187, 125, 3, 237, 201, 141, 211 ));
+   
    type ISplineColorKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeySplineProperty
@@ -4005,10 +4008,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplineColorKeyFrameStatics : aliased constant Windows.IID := (1641142679, 34185, 20271, (143, 187, 125, 3, 237, 201, 141, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISplinePointKeyFrame : aliased constant Windows.IID := (253358854, 28726, 18767, (188, 60, 120, 13, 240, 204, 82, 74 ));
+   
    type ISplinePointKeyFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeySpline
@@ -4024,10 +4027,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.IKeySpline
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplinePointKeyFrame : aliased constant Windows.IID := (253358854, 28726, 18767, (188, 60, 120, 13, 240, 204, 82, 74 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISplinePointKeyFrameStatics : aliased constant Windows.IID := (3917099714, 2682, 18278, (149, 203, 13, 105, 38, 17, 203, 76 ));
+   
    type ISplinePointKeyFrameStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeySplineProperty
@@ -4036,10 +4039,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplinePointKeyFrameStatics : aliased constant Windows.IID := (3917099714, 2682, 18278, (149, 203, 13, 105, 38, 17, 203, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISplitCloseThemeAnimation : aliased constant Windows.IID := (1333368088, 65337, 20112, (187, 116, 42, 189, 86, 2, 116, 2 ));
+   
    type ISplitCloseThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OpenedTargetName
@@ -4195,10 +4198,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplitCloseThemeAnimation : aliased constant Windows.IID := (1333368088, 65337, 20112, (187, 116, 42, 189, 86, 2, 116, 2 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISplitCloseThemeAnimationStatics : aliased constant Windows.IID := (2057915881, 52379, 20112, (161, 26, 0, 80, 162, 33, 106, 158 ));
+   
    type ISplitCloseThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OpenedTargetNameProperty
@@ -4277,10 +4280,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplitCloseThemeAnimationStatics : aliased constant Windows.IID := (2057915881, 52379, 20112, (161, 26, 0, 80, 162, 33, 106, 158 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISplitOpenThemeAnimation : aliased constant Windows.IID := (2019547050, 21590, 17977, (143, 210, 38, 186, 230, 165, 255, 228 ));
+   
    type ISplitOpenThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OpenedTargetName
@@ -4436,10 +4439,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplitOpenThemeAnimation : aliased constant Windows.IID := (2019547050, 21590, 17977, (143, 210, 38, 186, 230, 165, 255, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISplitOpenThemeAnimationStatics : aliased constant Windows.IID := (2370632329, 14993, 17805, (176, 251, 76, 173, 98, 92, 191, 141 ));
+   
    type ISplitOpenThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OpenedTargetNameProperty
@@ -4518,10 +4521,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISplitOpenThemeAnimationStatics : aliased constant Windows.IID := (2370632329, 14993, 17805, (176, 251, 76, 173, 98, 92, 191, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISwipeBackThemeAnimation : aliased constant Windows.IID := (2743747092, 3018, 19757, (149, 247, 206, 186, 87, 251, 175, 96 ));
+   
    type ISwipeBackThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -4565,10 +4568,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISwipeBackThemeAnimation : aliased constant Windows.IID := (2743747092, 3018, 19757, (149, 247, 206, 186, 87, 251, 175, 96 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISwipeBackThemeAnimationStatics : aliased constant Windows.IID := (1765749183, 19878, 18058, (140, 224, 153, 108, 154, 173, 66, 224 ));
+   
    type ISwipeBackThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -4591,10 +4594,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISwipeBackThemeAnimationStatics : aliased constant Windows.IID := (1765749183, 19878, 18058, (140, 224, 153, 108, 154, 173, 66, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISwipeHintThemeAnimation : aliased constant Windows.IID := (3452987328, 22542, 20032, (190, 152, 242, 2, 211, 216, 67, 101 ));
+   
    type ISwipeHintThemeAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetName
@@ -4638,10 +4641,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISwipeHintThemeAnimation : aliased constant Windows.IID := (3452987328, 22542, 20032, (190, 152, 242, 2, 211, 216, 67, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISwipeHintThemeAnimationStatics : aliased constant Windows.IID := (601234007, 37141, 19811, (176, 74, 184, 159, 28, 116, 77, 192 ));
+   
    type ISwipeHintThemeAnimationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetNameProperty
@@ -4664,10 +4667,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISwipeHintThemeAnimationStatics : aliased constant Windows.IID := (601234007, 37141, 19811, (176, 74, 184, 159, 28, 116, 77, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICommonNavigationTransitionInfo : aliased constant Windows.IID := (1345607314, 42325, 17956, (163, 97, 10, 145, 193, 112, 100, 115 ));
+   
    type ICommonNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsStaggeringEnabled
@@ -4683,10 +4686,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICommonNavigationTransitionInfo : aliased constant Windows.IID := (1345607314, 42325, 17956, (163, 97, 10, 145, 193, 112, 100, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICommonNavigationTransitionInfoStatics : aliased constant Windows.IID := (507444787, 20670, 17475, (136, 60, 229, 98, 114, 1, 194, 229 ));
+   
    type ICommonNavigationTransitionInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsStaggeringEnabledProperty
@@ -4718,10 +4721,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICommonNavigationTransitionInfoStatics : aliased constant Windows.IID := (507444787, 20670, 17475, (136, 60, 229, 98, 114, 1, 194, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContinuumNavigationTransitionInfo : aliased constant Windows.IID := (1273093037, 35750, 16388, (132, 56, 138, 144, 23, 151, 133, 67 ));
+   
    type IContinuumNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ExitElement
@@ -4737,10 +4740,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContinuumNavigationTransitionInfo : aliased constant Windows.IID := (1273093037, 35750, 16388, (132, 56, 138, 144, 23, 151, 133, 67 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContinuumNavigationTransitionInfoStatics : aliased constant Windows.IID := (1042668883, 45455, 19441, (179, 188, 146, 245, 22, 242, 153, 3 ));
+   
    type IContinuumNavigationTransitionInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ExitElementProperty
@@ -4818,20 +4821,20 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContinuumNavigationTransitionInfoStatics : aliased constant Windows.IID := (1042668883, 45455, 19441, (179, 188, 146, 245, 22, 242, 153, 3 ));
-   
    ------------------------------------------------------------------------
-   type IDrillInNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IDrillInNavigationTransitionInfo : aliased constant Windows.IID := (998645786, 17875, 17979, (147, 158, 200, 89, 95, 67, 155, 204 ));
    
+   type IDrillInNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IEntranceNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IEntranceNavigationTransitionInfo : aliased constant Windows.IID := (1913267563, 7306, 16878, (130, 236, 138, 135, 192, 207, 71, 218 ));
    
+   type IEntranceNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IEntranceNavigationTransitionInfoStatics : aliased constant Windows.IID := (4182295162, 16585, 18079, (143, 51, 191, 69, 200, 129, 31, 33 ));
+   
    type IEntranceNavigationTransitionInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsTargetElementProperty
@@ -4856,10 +4859,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEntranceNavigationTransitionInfoStatics : aliased constant Windows.IID := (4182295162, 16585, 18079, (143, 51, 191, 69, 200, 129, 31, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INavigationThemeTransition : aliased constant Windows.IID := (2285077644, 20151, 16882, (135, 153, 158, 239, 10, 33, 59, 115 ));
+   
    type INavigationThemeTransition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DefaultNavigationTransitionInfo
@@ -4875,10 +4878,10 @@ package Windows.UI.Xaml.Media.Animation is
       ; value : Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigationThemeTransition : aliased constant Windows.IID := (2285077644, 20151, 16882, (135, 153, 158, 239, 10, 33, 59, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INavigationThemeTransitionStatics : aliased constant Windows.IID := (3928950496, 24160, 20366, (188, 175, 67, 20, 135, 162, 148, 171 ));
+   
    type INavigationThemeTransitionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DefaultNavigationTransitionInfoProperty
@@ -4887,27 +4890,25 @@ package Windows.UI.Xaml.Media.Animation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigationThemeTransitionStatics : aliased constant Windows.IID := (3928950496, 24160, 20366, (188, 175, 67, 20, 135, 162, 148, 171 ));
-   
    ------------------------------------------------------------------------
-   type ISlideNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISlideNavigationTransitionInfo : aliased constant Windows.IID := (3601636727, 11779, 16479, (128, 237, 230, 43, 238, 243, 102, 143 ));
    
+   type ISlideNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type ISuppressNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ISuppressNavigationTransitionInfo : aliased constant Windows.IID := (609057548, 45495, 18545, (157, 62, 213, 98, 3, 163, 165, 180 ));
    
+   type ISuppressNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IConnectedAnimation_add_Completed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.Animation.IConnectedAnimation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IConnectedAnimation_add_Completed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IConnectedAnimation_add_Completed : aliased constant Windows.IID := (1154132458, 30104, 20858, (183, 142, 171, 210, 13, 147, 213, 135 ));
+   
+   type TypedEventHandler_IConnectedAnimation_add_Completed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.Animation.IConnectedAnimation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IConnectedAnimation_add_Completed'access) with null record;
    
    function Invoke
    (
@@ -4916,8 +4917,6 @@ package Windows.UI.Xaml.Media.Animation is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IConnectedAnimation_add_Completed : aliased constant Windows.IID := (1154132458, 30104, 20858, (183, 142, 171, 210, 13, 147, 213, 135 ));
    
    ------------------------------------------------------------------------
    -- Classes
@@ -4945,9 +4944,9 @@ package Windows.UI.Xaml.Media.Animation is
    
    type IDoubleKeyFrame_Interface_Impl is new IDoubleKeyFrame_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IDoubleKeyFrame := null;
       m_IDoubleKeyFrame : IDoubleKeyFrame := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IDoubleKeyFrame_Impl is access all IDoubleKeyFrame_Interface_Impl'Class;
@@ -4957,7 +4956,7 @@ package Windows.UI.Xaml.Media.Animation is
    (
       This       : access IDoubleKeyFrame_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -5034,9 +5033,9 @@ package Windows.UI.Xaml.Media.Animation is
    
    type INavigationTransitionInfoOverrides_Interface_Impl is new INavigationTransitionInfoOverrides_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased INavigationTransitionInfoOverrides := null;
       m_INavigationTransitionInfo : INavigationTransitionInfo := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type INavigationTransitionInfoOverrides_Impl is access all INavigationTransitionInfoOverrides_Interface_Impl'Class;
@@ -5046,7 +5045,7 @@ package Windows.UI.Xaml.Media.Animation is
    (
       This       : access INavigationTransitionInfoOverrides_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -5101,9 +5100,9 @@ package Windows.UI.Xaml.Media.Animation is
    
    type INavigationTransitionInfo_Interface_Impl is new INavigationTransitionInfo_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased INavigationTransitionInfo := null;
       m_INavigationTransitionInfo : INavigationTransitionInfo := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type INavigationTransitionInfo_Impl is access all INavigationTransitionInfo_Interface_Impl'Class;
@@ -5113,7 +5112,7 @@ package Windows.UI.Xaml.Media.Animation is
    (
       This       : access INavigationTransitionInfo_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -5156,9 +5155,9 @@ package Windows.UI.Xaml.Media.Animation is
    
    type IObjectKeyFrame_Interface_Impl is new IObjectKeyFrame_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IObjectKeyFrame := null;
       m_IObjectKeyFrame : IObjectKeyFrame := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IObjectKeyFrame_Impl is access all IObjectKeyFrame_Interface_Impl'Class;
@@ -5168,7 +5167,7 @@ package Windows.UI.Xaml.Media.Animation is
    (
       This       : access IObjectKeyFrame_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -5239,9 +5238,9 @@ package Windows.UI.Xaml.Media.Animation is
    
    type ITimeline_Interface_Impl is new ITimeline_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased ITimeline := null;
       m_ITimeline : ITimeline := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type ITimeline_Impl is access all ITimeline_Interface_Impl'Class;
@@ -5251,7 +5250,7 @@ package Windows.UI.Xaml.Media.Animation is
    (
       This       : access ITimeline_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -5529,9 +5528,9 @@ package Windows.UI.Xaml.Media.Animation is
    
    type IColorKeyFrame_Interface_Impl is new IColorKeyFrame_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IColorKeyFrame := null;
       m_IColorKeyFrame : IColorKeyFrame := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IColorKeyFrame_Impl is access all IColorKeyFrame_Interface_Impl'Class;
@@ -5541,7 +5540,7 @@ package Windows.UI.Xaml.Media.Animation is
    (
       This       : access IColorKeyFrame_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -5612,9 +5611,9 @@ package Windows.UI.Xaml.Media.Animation is
    
    type IPointKeyFrame_Interface_Impl is new IPointKeyFrame_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IPointKeyFrame := null;
       m_IPointKeyFrame : IPointKeyFrame := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IPointKeyFrame_Impl is access all IPointKeyFrame_Interface_Impl'Class;
@@ -5624,7 +5623,7 @@ package Windows.UI.Xaml.Media.Animation is
    (
       This       : access IPointKeyFrame_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    

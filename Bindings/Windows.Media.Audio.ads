@@ -393,6 +393,9 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICreateAudioGraphResult : aliased constant Windows.IID := (1414786942, 31710, 19318, (187, 93, 72, 247, 156, 252, 140, 11 ));
+   
    type ICreateAudioGraphResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -408,10 +411,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioGraph
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICreateAudioGraphResult : aliased constant Windows.IID := (1414786942, 31710, 19318, (187, 93, 72, 247, 156, 252, 140, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioGraphSettingsFactory : aliased constant Windows.IID := (2782469318, 49899, 19041, (162, 20, 29, 102, 215, 95, 131, 218 ));
+   
    type IAudioGraphSettingsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -421,10 +424,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioGraphSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioGraphSettingsFactory : aliased constant Windows.IID := (2782469318, 49899, 19041, (162, 20, 29, 102, 215, 95, 131, 218 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioGraphSettings : aliased constant Windows.IID := (492397695, 59134, 17960, (132, 248, 157, 139, 219, 162, 87, 133 ));
+   
    type IAudioGraphSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EncodingProperties
@@ -510,10 +513,10 @@ package Windows.Media.Audio is
       ; value : Windows.Media.AudioProcessing
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioGraphSettings : aliased constant Windows.IID := (492397695, 59134, 17960, (132, 248, 157, 139, 219, 162, 87, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioGraphStatics : aliased constant Windows.IID := (1995190578, 57689, 19127, (168, 42, 23, 190, 180, 179, 30, 148 ));
+   
    type IAudioGraphStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAsync
@@ -523,10 +526,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioGraphStatics : aliased constant Windows.IID := (1995190578, 57689, 19127, (168, 42, 23, 190, 180, 179, 30, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (384747432, 7335, 16623, (145, 164, 211, 70, 224, 170, 27, 186 ));
+   
    type ICreateAudioDeviceInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -542,10 +545,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioDeviceInputNode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (384747432, 7335, 16623, (145, 164, 211, 70, 224, 170, 27, 186 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (4151799079, 7578, 18423, (156, 212, 40, 89, 204, 27, 123, 255 ));
+   
    type ICreateAudioDeviceOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -561,10 +564,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioDeviceOutputNode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (4151799079, 7578, 18423, (156, 212, 40, 89, 204, 27, 123, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (3464746524, 58007, 19536, (156, 231, 28, 122, 105, 214, 189, 9 ));
+   
    type ICreateAudioFileInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -580,10 +583,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioFileInputNode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (3464746524, 58007, 19536, (156, 231, 28, 122, 105, 214, 189, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (1205254779, 59657, 17727, (134, 110, 85, 64, 205, 167, 52, 255 ));
+   
    type ICreateAudioFileOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -599,10 +602,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioFileOutputNode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (1205254779, 59657, 17727, (134, 110, 85, 64, 205, 167, 52, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioGraphUnrecoverableErrorOccurredEventArgs : aliased constant Windows.IID := (3285830624, 16374, 20403, (178, 98, 80, 212, 53, 197, 84, 35 ));
+   
    type IAudioGraphUnrecoverableErrorOccurredEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Error
@@ -611,10 +614,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.AudioGraphUnrecoverableError
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioGraphUnrecoverableErrorOccurredEventArgs : aliased constant Windows.IID := (3285830624, 16374, 20403, (178, 98, 80, 212, 53, 197, 84, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioGraph : aliased constant Windows.IID := (450129645, 58508, 19988, (150, 96, 44, 79, 131, 233, 205, 216 ));
+   
    type IAudioGraph_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFrameInputNode
@@ -825,10 +828,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioGraph : aliased constant Windows.IID := (450129645, 58508, 19988, (150, 96, 44, 79, 131, 233, 205, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioGraph2 : aliased constant Windows.IID := (1313618901, 20417, 17910, (169, 71, 60, 211, 143, 79, 216, 57 ));
+   
    type IAudioGraph2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFrameInputNodeWithFormatAndEmitter
@@ -875,10 +878,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Foundation.IClosable
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioGraph2 : aliased constant Windows.IID := (1313618901, 20417, 17910, (169, 71, 60, 211, 143, 79, 216, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNode : aliased constant Windows.IID := (356031871, 56280, 18457, (191, 3, 102, 142, 147, 87, 205, 109 ));
+   
    type IAudioNode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EffectDefinitions
@@ -954,10 +957,10 @@ package Windows.Media.Audio is
       ; definition : Windows.Media.Effects.IAudioEffectDefinition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNode : aliased constant Windows.IID := (356031871, 56280, 18457, (191, 3, 102, 142, 147, 87, 205, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeWithListener : aliased constant Windows.IID := (235901052, 31231, 17732, (158, 235, 1, 37, 123, 21, 16, 90 ));
+   
    type IAudioNodeWithListener_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Listener
@@ -973,10 +976,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioNodeListener
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeWithListener : aliased constant Windows.IID := (235901052, 31231, 17732, (158, 235, 1, 37, 123, 21, 16, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioInputNode : aliased constant Windows.IID := (3511156828, 33832, 18308, (183, 253, 169, 157, 70, 140, 93, 32 ));
+   
    type IAudioInputNode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OutgoingConnections
@@ -1007,10 +1010,10 @@ package Windows.Media.Audio is
       ; destination : Windows.Media.Audio.IAudioNode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioInputNode : aliased constant Windows.IID := (3511156828, 33832, 18308, (183, 253, 169, 157, 70, 140, 93, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioInputNode2 : aliased constant Windows.IID := (2421249719, 51816, 19565, (168, 188, 227, 238, 23, 254, 63, 210 ));
+   
    type IAudioInputNode2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Emitter
@@ -1019,10 +1022,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioNodeEmitter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioInputNode2 : aliased constant Windows.IID := (2421249719, 51816, 19565, (168, 188, 227, 238, 23, 254, 63, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioFrameInputNode : aliased constant Windows.IID := (28468935, 64918, 20469, (163, 197, 210, 122, 155, 244, 66, 55 ));
+   
    type IAudioFrameInputNode_Interface is interface and Windows.IInspectable_Interface;
    
    function put_PlaybackSpeedFactor
@@ -1088,10 +1091,10 @@ package Windows.Media.Audio is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioFrameInputNode : aliased constant Windows.IID := (28468935, 64918, 20469, (163, 197, 210, 122, 155, 244, 66, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioFileInputNode : aliased constant Windows.IID := (2421909448, 28517, 19668, (136, 144, 70, 148, 132, 60, 39, 109 ));
+   
    type IAudioFileInputNode_Interface is interface and Windows.IInspectable_Interface;
    
    function put_PlaybackSpeedFactor
@@ -1192,10 +1195,10 @@ package Windows.Media.Audio is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioFileInputNode : aliased constant Windows.IID := (2421909448, 28517, 19668, (136, 144, 70, 148, 132, 60, 39, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioDeviceInputNode : aliased constant Windows.IID := (2954587105, 28494, 18914, (172, 1, 85, 157, 98, 190, 179, 169 ));
+   
    type IAudioDeviceInputNode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Device
@@ -1204,10 +1207,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioDeviceInputNode : aliased constant Windows.IID := (2954587105, 28494, 18914, (172, 1, 85, 157, 98, 190, 179, 169 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioDeviceOutputNode : aliased constant Windows.IID := (909040639, 65308, 17460, (158, 15, 189, 46, 245, 34, 172, 130 ));
+   
    type IAudioDeviceOutputNode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Device
@@ -1216,10 +1219,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioDeviceOutputNode : aliased constant Windows.IID := (909040639, 65308, 17460, (158, 15, 189, 46, 245, 34, 172, 130 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioFrameOutputNode : aliased constant Windows.IID := (3091674907, 12953, 17909, (136, 179, 201, 209, 42, 63, 28, 200 ));
+   
    type IAudioFrameOutputNode_Interface is interface and Windows.IInspectable_Interface;
    
    function GetFrame
@@ -1228,10 +1231,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.IAudioFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioFrameOutputNode : aliased constant Windows.IID := (3091674907, 12953, 17909, (136, 179, 201, 209, 42, 63, 28, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioFileOutputNode : aliased constant Windows.IID := (1356863872, 20838, 16531, (128, 248, 173, 160, 0, 137, 233, 207 ));
+   
    type IAudioFileOutputNode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_File
@@ -1254,10 +1257,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioFileOutputNode : aliased constant Windows.IID := (1356863872, 20838, 16531, (128, 248, 173, 160, 0, 137, 233, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioFrameCompletedEventArgs : aliased constant Windows.IID := (3699147422, 520, 17668, (165, 168, 240, 242, 104, 146, 10, 101 ));
+   
    type IAudioFrameCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Frame
@@ -1266,10 +1269,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.IAudioFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioFrameCompletedEventArgs : aliased constant Windows.IID := (3699147422, 520, 17668, (165, 168, 240, 242, 104, 146, 10, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFrameInputNodeQuantumStartedEventArgs : aliased constant Windows.IID := (1033622680, 41734, 20230, (189, 159, 233, 239, 200, 34, 99, 4 ));
+   
    type IFrameInputNodeQuantumStartedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequiredSamples
@@ -1278,10 +1281,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFrameInputNodeQuantumStartedEventArgs : aliased constant Windows.IID := (1033622680, 41734, 20230, (189, 159, 233, 239, 200, 34, 99, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioGraphConnection : aliased constant Windows.IID := (1982886125, 53326, 20396, (178, 51, 96, 11, 66, 237, 212, 105 ));
+   
    type IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Destination
@@ -1304,10 +1307,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioGraphConnection : aliased constant Windows.IID := (1982886125, 53326, 20396, (178, 51, 96, 11, 66, 237, 212, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEqualizerBand : aliased constant Windows.IID := (3221903978, 9773, 19333, (155, 183, 67, 40, 11, 98, 237, 12 ));
+   
    type IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Bandwidth
@@ -1351,10 +1354,10 @@ package Windows.Media.Audio is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEqualizerBand : aliased constant Windows.IID := (3221903978, 9773, 19333, (155, 183, 67, 40, 11, 98, 237, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEqualizerEffectDefinitionFactory : aliased constant Windows.IID := (3532091332, 54288, 20149, (158, 105, 201, 170, 18, 119, 234, 240 ));
+   
    type IEqualizerEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1364,10 +1367,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IEqualizerEffectDefinition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEqualizerEffectDefinitionFactory : aliased constant Windows.IID := (3532091332, 54288, 20149, (158, 105, 201, 170, 18, 119, 234, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReverbEffectDefinitionFactory : aliased constant Windows.IID := (2815806462, 4107, 20464, (157, 166, 220, 78, 5, 167, 89, 240 ));
+   
    type IReverbEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1377,10 +1380,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IReverbEffectDefinition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReverbEffectDefinitionFactory : aliased constant Windows.IID := (2815806462, 4107, 20464, (157, 166, 220, 78, 5, 167, 89, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEchoEffectDefinitionFactory : aliased constant Windows.IID := (223224407, 43762, 20102, (165, 76, 251, 121, 219, 143, 108, 18 ));
+   
    type IEchoEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1390,10 +1393,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IEchoEffectDefinition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEchoEffectDefinitionFactory : aliased constant Windows.IID := (223224407, 43762, 20102, (165, 76, 251, 121, 219, 143, 108, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILimiterEffectDefinitionFactory : aliased constant Windows.IID := (3971671793, 25087, 17903, (184, 245, 72, 101, 154, 87, 199, 45 ));
+   
    type ILimiterEffectDefinitionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1403,10 +1406,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.ILimiterEffectDefinition
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILimiterEffectDefinitionFactory : aliased constant Windows.IID := (3971671793, 25087, 17903, (184, 245, 72, 101, 154, 87, 199, 45 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterConeProperties : aliased constant Windows.IID := (3919260910, 714, 17269, (147, 38, 12, 106, 228, 188, 223, 181 ));
+   
    type IAudioNodeEmitterConeProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InnerAngle
@@ -1429,10 +1432,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeEmitterConeProperties : aliased constant Windows.IID := (3919260910, 714, 17269, (147, 38, 12, 106, 228, 188, 223, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterShape : aliased constant Windows.IID := (3926069701, 59197, 17596, (133, 156, 69, 85, 59, 188, 72, 40 ));
+   
    type IAudioNodeEmitterShape_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Kind
@@ -1448,10 +1451,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterConeProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeEmitterShape : aliased constant Windows.IID := (3926069701, 59197, 17596, (133, 156, 69, 85, 59, 188, 72, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterShapeStatics : aliased constant Windows.IID := (1471883121, 65445, 19334, (167, 121, 226, 100, 174, 185, 20, 95 ));
+   
    type IAudioNodeEmitterShapeStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateCone
@@ -1470,10 +1473,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterShape
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeEmitterShapeStatics : aliased constant Windows.IID := (1471883121, 65445, 19334, (167, 121, 226, 100, 174, 185, 20, 95 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterNaturalDecayModelProperties : aliased constant Windows.IID := (1217612751, 53036, 20220, (147, 49, 117, 189, 34, 223, 31, 12 ));
+   
    type IAudioNodeEmitterNaturalDecayModelProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UnityGainDistance
@@ -1489,10 +1492,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeEmitterNaturalDecayModelProperties : aliased constant Windows.IID := (1217612751, 53036, 20220, (147, 49, 117, 189, 34, 223, 31, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterDecayModel : aliased constant Windows.IID := (488463095, 3411, 20393, (189, 132, 213, 129, 106, 134, 243, 255 ));
+   
    type IAudioNodeEmitterDecayModel_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Kind
@@ -1522,10 +1525,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterNaturalDecayModelProperties
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeEmitterDecayModel : aliased constant Windows.IID := (488463095, 3411, 20393, (189, 132, 213, 129, 106, 134, 243, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterDecayModelStatics : aliased constant Windows.IID := (3346562216, 61816, 17967, (188, 129, 141, 213, 203, 229, 218, 232 ));
+   
    type IAudioNodeEmitterDecayModelStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateNatural
@@ -1547,10 +1550,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioNodeEmitterDecayModel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeEmitterDecayModelStatics : aliased constant Windows.IID := (3346562216, 61816, 17967, (188, 129, 141, 213, 203, 229, 218, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitter : aliased constant Windows.IID := (913741597, 34826, 18360, (173, 247, 19, 35, 169, 217, 101, 190 ));
+   
    type IAudioNodeEmitter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1657,10 +1660,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeEmitter : aliased constant Windows.IID := (913741597, 34826, 18360, (173, 247, 19, 35, 169, 217, 101, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitter2 : aliased constant Windows.IID := (1253502667, 60457, 18424, (129, 140, 182, 182, 96, 165, 174, 177 ));
+   
    type IAudioNodeEmitter2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SpatialAudioModel
@@ -1676,10 +1679,10 @@ package Windows.Media.Audio is
       ; value : Windows.Media.Audio.SpatialAudioModel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeEmitter2 : aliased constant Windows.IID := (1253502667, 60457, 18424, (129, 140, 182, 182, 96, 165, 174, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeEmitterFactory : aliased constant Windows.IID := (4257761434, 27350, 19684, (183, 247, 169, 147, 112, 223, 126, 233 ));
+   
    type IAudioNodeEmitterFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAudioNodeEmitter
@@ -1691,10 +1694,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IAudioNodeEmitter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeEmitterFactory : aliased constant Windows.IID := (4257761434, 27350, 19684, (183, 247, 169, 147, 112, 223, 126, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioNodeListener : aliased constant Windows.IID := (3648138774, 3082, 16858, (183, 85, 108, 119, 131, 95, 177, 235 ));
+   
    type IAudioNodeListener_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1752,10 +1755,10 @@ package Windows.Media.Audio is
       ; value : Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioNodeListener : aliased constant Windows.IID := (3648138774, 3082, 16858, (183, 85, 108, 119, 131, 95, 177, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEqualizerEffectDefinition : aliased constant Windows.IID := (37711647, 33790, 17562, (168, 34, 198, 150, 68, 45, 22, 176 ));
+   
    type IEqualizerEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Bands
@@ -1764,10 +1767,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IVectorView_IEqualizerBand -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEqualizerEffectDefinition : aliased constant Windows.IID := (37711647, 33790, 17562, (168, 34, 198, 150, 68, 45, 22, 176 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IReverbEffectDefinition : aliased constant Windows.IID := (1174841993, 62819, 19722, (143, 110, 240, 205, 223, 243, 93, 132 ));
+   
    type IReverbEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
    
    function put_WetDryMix
@@ -2091,10 +2094,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IReverbEffectDefinition : aliased constant Windows.IID := (1174841993, 62819, 19722, (143, 110, 240, 205, 223, 243, 93, 132 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEchoEffectDefinition : aliased constant Windows.IID := (239943594, 14008, 19601, (185, 218, 17, 244, 74, 138, 102, 16 ));
+   
    type IEchoEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
    
    function put_WetDryMix
@@ -2138,10 +2141,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEchoEffectDefinition : aliased constant Windows.IID := (239943594, 14008, 19601, (185, 218, 17, 244, 74, 138, 102, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILimiterEffectDefinition : aliased constant Windows.IID := (1802853657, 9731, 18362, (189, 235, 57, 5, 94, 52, 134, 220 ));
+   
    type ILimiterEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Release
@@ -2171,10 +2174,8 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILimiterEffectDefinition : aliased constant Windows.IID := (1802853657, 9731, 18362, (189, 235, 57, 5, 94, 52, 134, 220 ));
-   
    ------------------------------------------------------------------------
+   
    type IAudioEffectDefinition_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ActivatableClassId
@@ -2190,8 +2191,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICreateAudioGraphResult : aliased constant Windows.IID := (1041478705, 26062, 23547, (176, 170, 250, 200, 223, 149, 139, 149 ));
+   
    type IAsyncOperation_ICreateAudioGraphResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2214,10 +2217,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.ICreateAudioGraphResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ICreateAudioGraphResult : aliased constant Windows.IID := (1041478705, 26062, 23547, (176, 170, 250, 200, 223, 149, 139, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (1907049601, 60490, 24297, (163, 66, 58, 49, 116, 120, 41, 184 ));
+   
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2240,10 +2243,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.ICreateAudioDeviceInputNodeResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (1907049601, 60490, 24297, (163, 66, 58, 49, 116, 120, 41, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (4161853232, 56853, 22752, (165, 244, 193, 89, 247, 54, 105, 237 ));
+   
    type IAsyncOperation_ICreateAudioDeviceOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2266,10 +2269,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (4161853232, 56853, 22752, (165, 244, 193, 89, 247, 54, 105, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (1195050687, 14459, 22218, (190, 225, 82, 116, 128, 39, 43, 15 ));
+   
    type IAsyncOperation_ICreateAudioFileInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2292,10 +2295,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.ICreateAudioFileInputNodeResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (1195050687, 14459, 22218, (190, 225, 82, 116, 128, 39, 43, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (291787133, 59731, 21525, (165, 179, 66, 73, 169, 105, 190, 123 ));
+   
    type IAsyncOperation_ICreateAudioFileOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2318,10 +2321,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.ICreateAudioFileOutputNodeResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (291787133, 59731, 21525, (165, 179, 66, 73, 169, 105, 190, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IAudioGraphConnection : aliased constant Windows.IID := (1257679100, 59387, 22871, (145, 193, 45, 249, 96, 11, 34, 235 ));
+   
    type IIterator_IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2352,10 +2355,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IAudioGraphConnection : aliased constant Windows.IID := (1257679100, 59387, 22871, (145, 193, 45, 249, 96, 11, 34, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IAudioGraphConnection : aliased constant Windows.IID := (2518060294, 42266, 21632, (148, 3, 251, 215, 99, 30, 59, 60 ));
+   
    type IIterable_IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2364,10 +2367,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IIterator_IAudioGraphConnection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IAudioGraphConnection : aliased constant Windows.IID := (2518060294, 42266, 21632, (148, 3, 251, 215, 99, 30, 59, 60 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAudioGraphConnection : aliased constant Windows.IID := (2223353553, 39692, 22994, (162, 6, 105, 155, 247, 70, 195, 255 ));
+   
    type IVectorView_IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2402,10 +2405,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IAudioGraphConnection : aliased constant Windows.IID := (2223353553, 39692, 22994, (162, 6, 105, 155, 247, 70, 195, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IEqualizerBand : aliased constant Windows.IID := (3947858794, 31016, 24367, (183, 242, 123, 144, 192, 132, 53, 111 ));
+   
    type IIterator_IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2436,10 +2439,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IEqualizerBand : aliased constant Windows.IID := (3947858794, 31016, 24367, (183, 242, 123, 144, 192, 132, 53, 111 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IEqualizerBand : aliased constant Windows.IID := (1870057800, 574, 22106, (159, 9, 74, 212, 163, 42, 215, 79 ));
+   
    type IIterable_IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2448,10 +2451,10 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.Media.Audio.IIterator_IEqualizerBand
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IEqualizerBand : aliased constant Windows.IID := (1870057800, 574, 22106, (159, 9, 74, 212, 163, 42, 215, 79 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IEqualizerBand : aliased constant Windows.IID := (1223843923, 60029, 23009, (149, 43, 251, 120, 175, 66, 210, 226 ));
+   
    type IVectorView_IEqualizerBand_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2486,17 +2489,15 @@ package Windows.Media.Audio is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IEqualizerBand : aliased constant Windows.IID := (1223843923, 60029, 23009, (149, 43, 251, 120, 175, 66, 210, 226 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ICreateAudioGraphResult : aliased constant Windows.IID := (1315310554, 54328, 22337, (139, 102, 133, 254, 114, 87, 74, 171 ));
+   
+   type AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioGraphResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICreateAudioGraphResult'access) with null record;
    
    function Invoke
    (
@@ -2506,12 +2507,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ICreateAudioGraphResult : aliased constant Windows.IID := (1315310554, 54328, 22337, (139, 102, 133, 254, 114, 87, 74, 171 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceInputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (1824875600, 58600, 22985, (131, 216, 99, 228, 110, 172, 178, 11 ));
+   
+   type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceInputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult'access) with null record;
    
    function Invoke
    (
@@ -2521,12 +2521,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (1824875600, 58600, 22985, (131, 216, 99, 228, 110, 172, 178, 11 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceOutputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (3988560729, 31918, 20799, (176, 220, 23, 102, 109, 55, 186, 119 ));
+   
+   type AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceOutputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult'access) with null record;
    
    function Invoke
    (
@@ -2536,12 +2535,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (3988560729, 31918, 20799, (176, 220, 23, 102, 109, 55, 186, 119 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioFileInputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (1347231485, 49436, 20590, (184, 201, 175, 23, 199, 113, 239, 181 ));
+   
+   type AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioFileInputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult'access) with null record;
    
    function Invoke
    (
@@ -2551,12 +2549,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ICreateAudioFileInputNodeResult : aliased constant Windows.IID := (1347231485, 49436, 20590, (184, 201, 175, 23, 199, 113, 239, 181 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioFileOutputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (2812892947, 41103, 24543, (137, 198, 150, 39, 188, 245, 216, 10 ));
+   
+   type AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioFileOutputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult'access) with null record;
    
    function Invoke
    (
@@ -2566,12 +2563,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (2812892947, 41103, 24543, (137, 198, 150, 39, 188, 245, 216, 10 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAudioGraph_add_QuantumStarted : aliased constant Windows.IID := (3779096884, 2535, 21470, (181, 76, 138, 6, 89, 57, 123, 136 ));
+   
+   type TypedEventHandler_IAudioGraph_add_QuantumStarted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioGraph_add_QuantumStarted'access) with null record;
    
    function Invoke
    (
@@ -2581,12 +2577,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAudioGraph_add_QuantumStarted : aliased constant Windows.IID := (3779096884, 2535, 21470, (181, 76, 138, 6, 89, 57, 123, 136 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAudioGraph_add_QuantumProcessed : aliased constant Windows.IID := (3779096884, 2535, 21470, (181, 76, 138, 6, 89, 57, 123, 136 ));
+   
+   type TypedEventHandler_IAudioGraph_add_QuantumProcessed_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioGraph_add_QuantumProcessed'access) with null record;
    
    function Invoke
    (
@@ -2596,12 +2591,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAudioGraph_add_QuantumProcessed : aliased constant Windows.IID := (3779096884, 2535, 21470, (181, 76, 138, 6, 89, 57, 123, 136 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred : aliased constant Windows.IID := (2308337865, 56703, 24338, (152, 203, 139, 23, 254, 128, 164, 127 ));
+   
+   type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioGraph ; args : Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred'access) with null record;
    
    function Invoke
    (
@@ -2611,12 +2605,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred : aliased constant Windows.IID := (2308337865, 56703, 24338, (152, 203, 139, 23, 254, 128, 164, 127 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFrameInputNode ; args : Windows.Media.Audio.IAudioFrameCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted : aliased constant Windows.IID := (2908347646, 29104, 24086, (153, 194, 205, 144, 100, 77, 142, 232 ));
+   
+   type TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFrameInputNode ; args : Windows.Media.Audio.IAudioFrameCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted'access) with null record;
    
    function Invoke
    (
@@ -2626,12 +2619,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted : aliased constant Windows.IID := (2908347646, 29104, 24086, (153, 194, 205, 144, 100, 77, 142, 232 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFrameInputNode ; args : Windows.Media.Audio.IFrameInputNodeQuantumStartedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted : aliased constant Windows.IID := (1160827169, 48026, 22526, (146, 47, 169, 142, 238, 223, 89, 175 ));
+   
+   type TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFrameInputNode ; args : Windows.Media.Audio.IFrameInputNodeQuantumStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted'access) with null record;
    
    function Invoke
    (
@@ -2641,12 +2633,11 @@ package Windows.Media.Audio is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAudioFrameInputNode_add_QuantumStarted : aliased constant Windows.IID := (1160827169, 48026, 22526, (146, 47, 169, 142, 238, 223, 89, 175 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFileInputNode ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted : aliased constant Windows.IID := (1149306971, 35723, 21792, (152, 37, 233, 103, 29, 162, 168, 159 ));
+   
+   type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFileInputNode ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted'access) with null record;
    
    function Invoke
    (
@@ -2655,8 +2646,6 @@ package Windows.Media.Audio is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted : aliased constant Windows.IID := (1149306971, 35723, 21792, (152, 37, 233, 103, 29, 162, 168, 159 ));
    
    ------------------------------------------------------------------------
    -- Classes

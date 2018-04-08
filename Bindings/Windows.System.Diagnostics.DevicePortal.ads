@@ -96,6 +96,9 @@ package Windows.System.Diagnostics.DevicePortal is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDevicePortalConnectionClosedEventArgs : aliased constant Windows.IID := (4244049464, 28722, 17036, (159, 80, 148, 92, 21, 169, 240, 203 ));
+   
    type IDevicePortalConnectionClosedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Reason
@@ -104,10 +107,10 @@ package Windows.System.Diagnostics.DevicePortal is
       ; RetVal : access Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDevicePortalConnectionClosedEventArgs : aliased constant Windows.IID := (4244049464, 28722, 17036, (159, 80, 148, 92, 21, 169, 240, 203 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDevicePortalConnectionRequestReceivedEventArgs : aliased constant Windows.IID := (1692065861, 28634, 17497, (158, 189, 236, 206, 34, 227, 133, 89 ));
+   
    type IDevicePortalConnectionRequestReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestMessage
@@ -123,10 +126,10 @@ package Windows.System.Diagnostics.DevicePortal is
       ; RetVal : access Windows.Web.Http.IHttpResponseMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDevicePortalConnectionRequestReceivedEventArgs : aliased constant Windows.IID := (1692065861, 28634, 17497, (158, 189, 236, 206, 34, 227, 133, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDevicePortalConnectionStatics : aliased constant Windows.IID := (1270755815, 59833, 17989, (143, 237, 165, 62, 234, 14, 219, 214 ));
+   
    type IDevicePortalConnectionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForAppServiceConnection
@@ -136,10 +139,10 @@ package Windows.System.Diagnostics.DevicePortal is
       ; RetVal : access Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDevicePortalConnectionStatics : aliased constant Windows.IID := (1270755815, 59833, 17989, (143, 237, 165, 62, 234, 14, 219, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDevicePortalConnection : aliased constant Windows.IID := (256147281, 4504, 19873, (141, 84, 189, 239, 57, 62, 9, 182 ));
+   
    type IDevicePortalConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function add_Closed
@@ -171,17 +174,15 @@ package Windows.System.Diagnostics.DevicePortal is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDevicePortalConnection : aliased constant Windows.IID := (256147281, 4504, 19873, (141, 84, 189, 239, 57, 62, 9, 182 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IDevicePortalConnection_add_Closed_Interface(Callback : access procedure (sender : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection ; args : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionClosedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDevicePortalConnection_add_Closed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IDevicePortalConnection_add_Closed : aliased constant Windows.IID := (716018600, 21242, 21683, (149, 86, 21, 214, 81, 32, 139, 63 ));
+   
+   type TypedEventHandler_IDevicePortalConnection_add_Closed_Interface(Callback : access procedure (sender : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection ; args : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDevicePortalConnection_add_Closed'access) with null record;
    
    function Invoke
    (
@@ -191,12 +192,11 @@ package Windows.System.Diagnostics.DevicePortal is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IDevicePortalConnection_add_Closed : aliased constant Windows.IID := (716018600, 21242, 21683, (149, 86, 21, 214, 81, 32, 139, 63 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IDevicePortalConnection_add_RequestReceived_Interface(Callback : access procedure (sender : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection ; args : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDevicePortalConnection_add_RequestReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IDevicePortalConnection_add_RequestReceived : aliased constant Windows.IID := (3638771704, 35524, 24537, (177, 132, 138, 232, 125, 130, 142, 185 ));
+   
+   type TypedEventHandler_IDevicePortalConnection_add_RequestReceived_Interface(Callback : access procedure (sender : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection ; args : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDevicePortalConnection_add_RequestReceived'access) with null record;
    
    function Invoke
    (
@@ -205,8 +205,6 @@ package Windows.System.Diagnostics.DevicePortal is
       ; args : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IDevicePortalConnection_add_RequestReceived : aliased constant Windows.IID := (3638771704, 35524, 24537, (177, 132, 138, 232, 125, 130, 142, 185 ));
    
    ------------------------------------------------------------------------
    -- Classes

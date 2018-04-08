@@ -223,6 +223,9 @@ package Windows.UI.Core.AnimationMetrics is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPropertyAnimation : aliased constant Windows.IID := (973190362, 19852, 16670, (182, 21, 26, 222, 104, 58, 153, 3 ));
+   
    type IPropertyAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Type
@@ -259,10 +262,10 @@ package Windows.UI.Core.AnimationMetrics is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPropertyAnimation : aliased constant Windows.IID := (973190362, 19852, 16670, (182, 21, 26, 222, 104, 58, 153, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IScaleAnimation : aliased constant Windows.IID := (37049031, 29099, 17036, (156, 159, 211, 23, 128, 150, 73, 149 ));
+   
    type IScaleAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InitialScaleX
@@ -299,10 +302,10 @@ package Windows.UI.Core.AnimationMetrics is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IScaleAnimation : aliased constant Windows.IID := (37049031, 29099, 17036, (156, 159, 211, 23, 128, 150, 73, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IOpacityAnimation : aliased constant Windows.IID := (2151328741, 61054, 17759, (132, 233, 37, 6, 175, 184, 210, 180 ));
+   
    type IOpacityAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InitialOpacity
@@ -318,10 +321,10 @@ package Windows.UI.Core.AnimationMetrics is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IOpacityAnimation : aliased constant Windows.IID := (2151328741, 61054, 17759, (132, 233, 37, 6, 175, 184, 210, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAnimationDescription : aliased constant Windows.IID := (2098308425, 48701, 16862, (176, 129, 5, 193, 73, 150, 47, 155 ));
+   
    type IAnimationDescription_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Animations
@@ -358,10 +361,10 @@ package Windows.UI.Core.AnimationMetrics is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAnimationDescription : aliased constant Windows.IID := (2098308425, 48701, 16862, (176, 129, 5, 193, 73, 150, 47, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAnimationDescriptionFactory : aliased constant Windows.IID := (3336731326, 49659, 18613, (146, 113, 236, 199, 10, 200, 110, 240 ));
+   
    type IAnimationDescriptionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -372,10 +375,10 @@ package Windows.UI.Core.AnimationMetrics is
       ; RetVal : access Windows.UI.Core.AnimationMetrics.IAnimationDescription
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAnimationDescriptionFactory : aliased constant Windows.IID := (3336731326, 49659, 18613, (146, 113, 236, 199, 10, 200, 110, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPropertyAnimation : aliased constant Windows.IID := (3144128979, 40730, 23118, (169, 64, 148, 95, 26, 184, 196, 254 ));
+   
    type IIterator_IPropertyAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -406,10 +409,10 @@ package Windows.UI.Core.AnimationMetrics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPropertyAnimation : aliased constant Windows.IID := (3144128979, 40730, 23118, (169, 64, 148, 95, 26, 184, 196, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPropertyAnimation : aliased constant Windows.IID := (3344899025, 41921, 22657, (157, 160, 30, 205, 184, 229, 27, 195 ));
+   
    type IIterable_IPropertyAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -418,10 +421,10 @@ package Windows.UI.Core.AnimationMetrics is
       ; RetVal : access Windows.UI.Core.AnimationMetrics.IIterator_IPropertyAnimation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPropertyAnimation : aliased constant Windows.IID := (3344899025, 41921, 22657, (157, 160, 30, 205, 184, 229, 27, 195 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPropertyAnimation : aliased constant Windows.IID := (980343133, 27216, 24237, (164, 198, 9, 248, 186, 188, 99, 44 ));
+   
    type IVectorView_IPropertyAnimation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -456,9 +459,6 @@ package Windows.UI.Core.AnimationMetrics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPropertyAnimation : aliased constant Windows.IID := (980343133, 27216, 24237, (164, 198, 9, 248, 186, 188, 99, 44 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

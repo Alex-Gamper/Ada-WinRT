@@ -95,6 +95,9 @@ package Windows.ApplicationModel.Resources.Management is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IResourceIndexer : aliased constant Windows.IID := (760019365, 58159, 19122, (135, 72, 150, 53, 10, 1, 109, 163 ));
+   
    type IResourceIndexer_Interface is interface and Windows.IInspectable_Interface;
    
    function IndexFilePath
@@ -112,10 +115,10 @@ package Windows.ApplicationModel.Resources.Management is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResourceIndexer : aliased constant Windows.IID := (760019365, 58159, 19122, (135, 72, 150, 53, 10, 1, 109, 163 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IResourceIndexerFactory : aliased constant Windows.IID := (3101572873, 12749, 19863, (189, 48, 141, 57, 247, 66, 188, 97 ));
+   
    type IResourceIndexerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateResourceIndexer
@@ -125,10 +128,10 @@ package Windows.ApplicationModel.Resources.Management is
       ; RetVal : access Windows.ApplicationModel.Resources.Management.IResourceIndexer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResourceIndexerFactory : aliased constant Windows.IID := (3101572873, 12749, 19863, (189, 48, 141, 57, 247, 66, 188, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IResourceIndexerFactory2 : aliased constant Windows.IID := (1614868877, 54757, 19296, (146, 1, 205, 39, 156, 188, 254, 217 ));
+   
    type IResourceIndexerFactory2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateResourceIndexerWithExtension
@@ -139,10 +142,10 @@ package Windows.ApplicationModel.Resources.Management is
       ; RetVal : access Windows.ApplicationModel.Resources.Management.IResourceIndexer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResourceIndexerFactory2 : aliased constant Windows.IID := (1614868877, 54757, 19296, (146, 1, 205, 39, 156, 188, 254, 217 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIndexedResourceQualifier : aliased constant Windows.IID := (3672357787, 54020, 18815, (161, 104, 163, 64, 4, 44, 138, 219 ));
+   
    type IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
    
    function get_QualifierName
@@ -158,10 +161,10 @@ package Windows.ApplicationModel.Resources.Management is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIndexedResourceQualifier : aliased constant Windows.IID := (3672357787, 54020, 18815, (161, 104, 163, 64, 4, 44, 138, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIndexedResourceCandidate : aliased constant Windows.IID := (241278707, 64236, 17428, (169, 215, 84, 172, 213, 149, 63, 41 ));
+   
    type IIndexedResourceCandidate_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Type
@@ -206,10 +209,10 @@ package Windows.ApplicationModel.Resources.Management is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIndexedResourceCandidate : aliased constant Windows.IID := (241278707, 64236, 17428, (169, 215, 84, 172, 213, 149, 63, 41 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IIndexedResourceQualifier : aliased constant Windows.IID := (438496238, 31122, 20888, (151, 43, 5, 69, 128, 148, 87, 65 ));
+   
    type IIterator_IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -240,10 +243,10 @@ package Windows.ApplicationModel.Resources.Management is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IIndexedResourceQualifier : aliased constant Windows.IID := (438496238, 31122, 20888, (151, 43, 5, 69, 128, 148, 87, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IIndexedResourceQualifier : aliased constant Windows.IID := (3782083669, 29505, 21952, (160, 36, 38, 217, 173, 67, 200, 204 ));
+   
    type IIterable_IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -252,10 +255,10 @@ package Windows.ApplicationModel.Resources.Management is
       ; RetVal : access Windows.ApplicationModel.Resources.Management.IIterator_IIndexedResourceQualifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IIndexedResourceQualifier : aliased constant Windows.IID := (3782083669, 29505, 21952, (160, 36, 38, 217, 173, 67, 200, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IIndexedResourceQualifier : aliased constant Windows.IID := (597552456, 52740, 20978, (178, 201, 165, 229, 171, 103, 27, 141 ));
+   
    type IVectorView_IIndexedResourceQualifier_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -290,9 +293,6 @@ package Windows.ApplicationModel.Resources.Management is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IIndexedResourceQualifier : aliased constant Windows.IID := (597552456, 52740, 20978, (178, 201, 165, 229, 171, 103, 27, 141 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

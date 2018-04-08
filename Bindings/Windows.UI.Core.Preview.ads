@@ -68,6 +68,9 @@ package Windows.UI.Core.Preview is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISystemNavigationManagerPreview : aliased constant Windows.IID := (3965650056, 25637, 18295, (165, 54, 203, 86, 52, 66, 127, 13 ));
+   
    type ISystemNavigationManagerPreview_Interface is interface and Windows.IInspectable_Interface;
    
    function add_CloseRequested
@@ -84,10 +87,10 @@ package Windows.UI.Core.Preview is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemNavigationManagerPreview : aliased constant Windows.IID := (3965650056, 25637, 18295, (165, 54, 203, 86, 52, 66, 127, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemNavigationManagerPreviewStatics : aliased constant Windows.IID := (244781920, 57204, 19406, (132, 203, 189, 17, 129, 172, 10, 113 ));
+   
    type ISystemNavigationManagerPreviewStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -96,10 +99,10 @@ package Windows.UI.Core.Preview is
       ; RetVal : access Windows.UI.Core.Preview.ISystemNavigationManagerPreview
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemNavigationManagerPreviewStatics : aliased constant Windows.IID := (244781920, 57204, 19406, (132, 203, 189, 17, 129, 172, 10, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemNavigationCloseRequestedPreviewEventArgs : aliased constant Windows.IID := (2211450337, 52197, 20273, (132, 20, 54, 29, 160, 70, 81, 143 ));
+   
    type ISystemNavigationCloseRequestedPreviewEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Handled
@@ -122,17 +125,15 @@ package Windows.UI.Core.Preview is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemNavigationCloseRequestedPreviewEventArgs : aliased constant Windows.IID := (2211450337, 52197, 20273, (132, 20, 54, 29, 160, 70, 81, 143 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs : aliased constant Windows.IID := (29139011, 19721, 23012, (177, 179, 162, 206, 36, 98, 158, 65 ));
+   
+   type EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs'access) with null record;
    
    function Invoke
    (
@@ -141,8 +142,6 @@ package Windows.UI.Core.Preview is
       ; args : Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs : aliased constant Windows.IID := (29139011, 19721, 23012, (177, 179, 162, 206, 36, 98, 158, 65 ));
    
    ------------------------------------------------------------------------
    -- Classes

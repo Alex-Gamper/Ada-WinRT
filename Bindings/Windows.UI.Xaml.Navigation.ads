@@ -139,6 +139,9 @@ package Windows.UI.Xaml.Navigation is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_INavigatingCancelEventArgs : aliased constant Windows.IID := (4246562734, 60155, 16505, (190, 128, 109, 201, 42, 3, 174, 223 ));
+   
    type INavigatingCancelEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Cancel
@@ -168,10 +171,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UI.Xaml.Interop.TypeName
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigatingCancelEventArgs : aliased constant Windows.IID := (4246562734, 60155, 16505, (190, 128, 109, 201, 42, 3, 174, 223 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INavigatingCancelEventArgs2 : aliased constant Windows.IID := (1409791748, 33095, 17219, (131, 143, 221, 30, 233, 8, 193, 55 ));
+   
    type INavigatingCancelEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Parameter
@@ -187,10 +190,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigatingCancelEventArgs2 : aliased constant Windows.IID := (1409791748, 33095, 17219, (131, 143, 221, 30, 233, 8, 193, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INavigationEventArgs : aliased constant Windows.IID := (3064633396, 26257, 17617, (189, 247, 88, 130, 12, 39, 176, 208 ));
+   
    type INavigationEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Content
@@ -234,10 +237,10 @@ package Windows.UI.Xaml.Navigation is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigationEventArgs : aliased constant Windows.IID := (3064633396, 26257, 17617, (189, 247, 88, 130, 12, 39, 176, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INavigationEventArgs2 : aliased constant Windows.IID := (3690951129, 38810, 19246, (164, 155, 59, 177, 127, 222, 245, 116 ));
+   
    type INavigationEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NavigationTransitionInfo
@@ -246,10 +249,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigationEventArgs2 : aliased constant Windows.IID := (3690951129, 38810, 19246, (164, 155, 59, 177, 127, 222, 245, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INavigationFailedEventArgs : aliased constant Windows.IID := (297918455, 14018, 16642, (178, 239, 2, 23, 169, 114, 137, 179 ));
+   
    type INavigationFailedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Exception
@@ -279,10 +282,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UI.Xaml.Interop.TypeName
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INavigationFailedEventArgs : aliased constant Windows.IID := (297918455, 14018, 16642, (178, 239, 2, 23, 169, 114, 137, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPageStackEntry : aliased constant Windows.IID := (4018672806, 37768, 19146, (133, 114, 64, 81, 148, 6, 144, 128 ));
+   
    type IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SourcePageType
@@ -305,10 +308,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPageStackEntry : aliased constant Windows.IID := (4018672806, 37768, 19146, (133, 114, 64, 81, 148, 6, 144, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPageStackEntryStatics : aliased constant Windows.IID := (2901407971, 9324, 16435, (159, 1, 1, 203, 13, 165, 37, 78 ));
+   
    type IPageStackEntryStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SourcePageTypeProperty
@@ -317,10 +320,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPageStackEntryStatics : aliased constant Windows.IID := (2901407971, 9324, 16435, (159, 1, 1, 203, 13, 165, 37, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPageStackEntryFactory : aliased constant Windows.IID := (1146356874, 43193, 20344, (155, 132, 31, 81, 245, 136, 81, 255 ));
+   
    type IPageStackEntryFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -332,10 +335,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UI.Xaml.Navigation.IPageStackEntry
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPageStackEntryFactory : aliased constant Windows.IID := (1146356874, 43193, 20344, (155, 132, 31, 81, 245, 136, 81, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPageStackEntry : aliased constant Windows.IID := (3097274732, 57041, 21437, (135, 68, 202, 168, 78, 135, 186, 135 ));
+   
    type IIterator_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -366,10 +369,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPageStackEntry : aliased constant Windows.IID := (3097274732, 57041, 21437, (135, 68, 202, 168, 78, 135, 186, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPageStackEntry : aliased constant Windows.IID := (3710023845, 19476, 22887, (138, 65, 154, 71, 195, 197, 196, 167 ));
+   
    type IIterable_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -378,10 +381,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UI.Xaml.Navigation.IIterator_IPageStackEntry
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPageStackEntry : aliased constant Windows.IID := (3710023845, 19476, 22887, (138, 65, 154, 71, 195, 197, 196, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPageStackEntry : aliased constant Windows.IID := (2943188652, 2159, 23647, (190, 75, 8, 88, 175, 117, 6, 247 ));
+   
    type IVectorView_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -416,10 +419,10 @@ package Windows.UI.Xaml.Navigation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPageStackEntry : aliased constant Windows.IID := (2943188652, 2159, 23647, (190, 75, 8, 88, 175, 117, 6, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IPageStackEntry : aliased constant Windows.IID := (3848380735, 35233, 24306, (163, 254, 235, 161, 180, 83, 155, 70 ));
+   
    type IVector_IPageStackEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -510,17 +513,15 @@ package Windows.UI.Xaml.Navigation is
       ; items : Windows.UI.Xaml.Navigation.IPageStackEntry_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IPageStackEntry : aliased constant Windows.IID := (3848380735, 35233, 24306, (163, 254, 235, 161, 180, 83, 155, 70 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type LoadCompletedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access LoadCompletedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_LoadCompletedEventHandler : aliased constant Windows.IID := (2931488645, 17404, 20012, (149, 195, 151, 174, 132, 234, 188, 142 ));
+   
+   type LoadCompletedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_LoadCompletedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -530,12 +531,11 @@ package Windows.UI.Xaml.Navigation is
    )
    return Windows.HRESULT;
    
-   IID_LoadCompletedEventHandler : aliased constant Windows.IID := (2931488645, 17404, 20012, (149, 195, 151, 174, 132, 234, 188, 142 ));
-   
    ------------------------------------------------------------------------
-   type NavigatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigatedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_NavigatedEventHandler : aliased constant Windows.IID := (2077347668, 9167, 19662, (178, 245, 76, 231, 141, 150, 137, 110 ));
+   
+   type NavigatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_NavigatedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -545,12 +545,11 @@ package Windows.UI.Xaml.Navigation is
    )
    return Windows.HRESULT;
    
-   IID_NavigatedEventHandler : aliased constant Windows.IID := (2077347668, 9167, 19662, (178, 245, 76, 231, 141, 150, 137, 110 ));
-   
    ------------------------------------------------------------------------
-   type NavigatingCancelEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigatingCancelEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigatingCancelEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_NavigatingCancelEventHandler : aliased constant Windows.IID := (1977001871, 41730, 17545, (152, 152, 36, 234, 73, 24, 41, 16 ));
+   
+   type NavigatingCancelEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigatingCancelEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_NavigatingCancelEventHandler'access) with null record;
    
    function Invoke
    (
@@ -560,12 +559,11 @@ package Windows.UI.Xaml.Navigation is
    )
    return Windows.HRESULT;
    
-   IID_NavigatingCancelEventHandler : aliased constant Windows.IID := (1977001871, 41730, 17545, (152, 152, 36, 234, 73, 24, 41, 16 ));
-   
    ------------------------------------------------------------------------
-   type NavigationFailedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigationFailedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_NavigationFailedEventHandler : aliased constant Windows.IID := (1303070321, 4786, 17351, (184, 146, 155, 226, 220, 211, 232, 141 ));
+   
+   type NavigationFailedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationFailedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_NavigationFailedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -575,12 +573,11 @@ package Windows.UI.Xaml.Navigation is
    )
    return Windows.HRESULT;
    
-   IID_NavigationFailedEventHandler : aliased constant Windows.IID := (1303070321, 4786, 17351, (184, 146, 155, 226, 220, 211, 232, 141 ));
-   
    ------------------------------------------------------------------------
-   type NavigationStoppedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NavigationStoppedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_NavigationStoppedEventHandler : aliased constant Windows.IID := (4027678171, 4858, 19853, (139, 38, 179, 131, 208, 156, 43, 60 ));
+   
+   type NavigationStoppedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_NavigationStoppedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -589,8 +586,6 @@ package Windows.UI.Xaml.Navigation is
       ; e : Windows.UI.Xaml.Navigation.INavigationEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_NavigationStoppedEventHandler : aliased constant Windows.IID := (4027678171, 4858, 19853, (139, 38, 179, 131, 208, 156, 43, 60 ));
    
    ------------------------------------------------------------------------
    -- Classes

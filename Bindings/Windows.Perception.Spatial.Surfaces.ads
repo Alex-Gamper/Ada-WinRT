@@ -94,6 +94,9 @@ package Windows.Perception.Spatial.Surfaces is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISpatialSurfaceMeshBuffer : aliased constant Windows.IID := (2479839712, 34591, 13304, (152, 178, 3, 209, 1, 69, 143, 111 ));
+   
    type ISpatialSurfaceMeshBuffer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Format
@@ -123,10 +126,10 @@ package Windows.Perception.Spatial.Surfaces is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialSurfaceMeshBuffer : aliased constant Windows.IID := (2479839712, 34591, 13304, (152, 178, 3, 209, 1, 69, 143, 111 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialSurfaceMesh : aliased constant Windows.IID := (277829593, 57101, 14672, (160, 253, 249, 114, 199, 124, 39, 180 ));
+   
    type ISpatialSurfaceMesh_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SurfaceInfo
@@ -170,10 +173,10 @@ package Windows.Perception.Spatial.Surfaces is
       ; RetVal : access Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialSurfaceMesh : aliased constant Windows.IID := (277829593, 57101, 14672, (160, 253, 249, 114, 199, 124, 39, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialSurfaceMeshOptionsStatics : aliased constant Windows.IID := (2603879103, 38785, 17669, (137, 53, 1, 53, 117, 202, 174, 94 ));
+   
    type ISpatialSurfaceMeshOptionsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SupportedVertexPositionFormats
@@ -196,10 +199,10 @@ package Windows.Perception.Spatial.Surfaces is
       ; RetVal : access Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialSurfaceMeshOptionsStatics : aliased constant Windows.IID := (2603879103, 38785, 17669, (137, 53, 1, 53, 117, 202, 174, 94 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialSurfaceMeshOptions : aliased constant Windows.IID := (3530923913, 13682, 15661, (161, 13, 95, 238, 147, 148, 170, 55 ));
+   
    type ISpatialSurfaceMeshOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_VertexPositionFormat
@@ -257,10 +260,10 @@ package Windows.Perception.Spatial.Surfaces is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialSurfaceMeshOptions : aliased constant Windows.IID := (3530923913, 13682, 15661, (161, 13, 95, 238, 147, 148, 170, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialSurfaceInfo : aliased constant Windows.IID := (4176079847, 14775, 14690, (187, 3, 87, 245, 110, 31, 176, 161 ));
+   
    type ISpatialSurfaceInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -301,10 +304,10 @@ package Windows.Perception.Spatial.Surfaces is
       ; RetVal : access Windows.Perception.Spatial.Surfaces.IAsyncOperation_ISpatialSurfaceMesh -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialSurfaceInfo : aliased constant Windows.IID := (4176079847, 14775, 14690, (187, 3, 87, 245, 110, 31, 176, 161 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialSurfaceObserverStatics : aliased constant Windows.IID := (374952429, 8456, 16744, (145, 117, 135, 224, 39, 188, 146, 133 ));
+   
    type ISpatialSurfaceObserverStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestAccessAsync
@@ -313,10 +316,10 @@ package Windows.Perception.Spatial.Surfaces is
       ; RetVal : access Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialSurfaceObserverStatics : aliased constant Windows.IID := (374952429, 8456, 16744, (145, 117, 135, 224, 39, 188, 146, 133 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialSurfaceObserverStatics2 : aliased constant Windows.IID := (257114721, 50525, 20075, (168, 149, 161, 157, 230, 154, 66, 227 ));
+   
    type ISpatialSurfaceObserverStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function IsSupported
@@ -325,10 +328,10 @@ package Windows.Perception.Spatial.Surfaces is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialSurfaceObserverStatics2 : aliased constant Windows.IID := (257114721, 50525, 20075, (168, 149, 161, 157, 230, 154, 66, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpatialSurfaceObserver : aliased constant Windows.IID := (280401945, 56778, 13443, (172, 58, 116, 143, 232, 200, 109, 245 ));
+   
    type ISpatialSurfaceObserver_Interface is interface and Windows.IInspectable_Interface;
    
    function GetObservedSurfaces
@@ -366,10 +369,10 @@ package Windows.Perception.Spatial.Surfaces is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpatialSurfaceObserver : aliased constant Windows.IID := (280401945, 56778, 13443, (172, 58, 116, 143, 232, 200, 109, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISpatialSurfaceMesh : aliased constant Windows.IID := (4120088493, 43169, 24446, (148, 64, 189, 183, 129, 173, 38, 182 ));
+   
    type IAsyncOperation_ISpatialSurfaceMesh_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -392,17 +395,15 @@ package Windows.Perception.Spatial.Surfaces is
       ; RetVal : access Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMesh
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISpatialSurfaceMesh : aliased constant Windows.IID := (4120088493, 43169, 24446, (148, 64, 189, 183, 129, 173, 38, 182 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISpatialSurfaceMesh_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.Surfaces.IAsyncOperation_ISpatialSurfaceMesh ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISpatialSurfaceMesh_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISpatialSurfaceMesh : aliased constant Windows.IID := (1182857206, 17605, 24518, (141, 81, 214, 150, 41, 21, 250, 35 ));
+   
+   type AsyncOperationCompletedHandler_ISpatialSurfaceMesh_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.Surfaces.IAsyncOperation_ISpatialSurfaceMesh ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpatialSurfaceMesh'access) with null record;
    
    function Invoke
    (
@@ -412,12 +413,11 @@ package Windows.Perception.Spatial.Surfaces is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISpatialSurfaceMesh : aliased constant Windows.IID := (1182857206, 17605, 24518, (141, 81, 214, 150, 41, 21, 250, 35 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISpatialSurfaceObserver_add_ObservedSurfacesChanged_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISpatialSurfaceObserver_add_ObservedSurfacesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISpatialSurfaceObserver_add_ObservedSurfacesChanged : aliased constant Windows.IID := (2335254346, 30355, 21182, (144, 20, 176, 245, 246, 90, 53, 57 ));
+   
+   type TypedEventHandler_ISpatialSurfaceObserver_add_ObservedSurfacesChanged_Interface(Callback : access procedure (sender : Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialSurfaceObserver_add_ObservedSurfacesChanged'access) with null record;
    
    function Invoke
    (
@@ -426,8 +426,6 @@ package Windows.Perception.Spatial.Surfaces is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ISpatialSurfaceObserver_add_ObservedSurfacesChanged : aliased constant Windows.IID := (2335254346, 30355, 21182, (144, 20, 176, 245, 246, 90, 53, 57 ));
    
    ------------------------------------------------------------------------
    -- Classes

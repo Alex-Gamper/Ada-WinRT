@@ -28,28 +28,6 @@ package body Windows.Devices.Input is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IMouseDevice_add_MouseMoved_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IMouseDevice_add_MouseMoved or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMouseDevice_add_MouseMoved_Interface
@@ -73,15 +51,16 @@ package body Windows.Devices.Input is
       m_hString     : Windows.String := To_String("Windows.Devices.Input.MouseCapabilities");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Input.IMouseCapabilities := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Input.IMouseCapabilities) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Input.IID_IMouseCapabilities'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Devices.Input.IID_IMouseCapabilities'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateKeyboardCapabilities return Windows.Devices.Input.IKeyboardCapabilities is
@@ -89,15 +68,16 @@ package body Windows.Devices.Input is
       m_hString     : Windows.String := To_String("Windows.Devices.Input.KeyboardCapabilities");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Input.IKeyboardCapabilities := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Input.IKeyboardCapabilities) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Input.IID_IKeyboardCapabilities'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Devices.Input.IID_IKeyboardCapabilities'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateTouchCapabilities return Windows.Devices.Input.ITouchCapabilities is
@@ -105,15 +85,16 @@ package body Windows.Devices.Input is
       m_hString     : Windows.String := To_String("Windows.Devices.Input.TouchCapabilities");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Input.ITouchCapabilities := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Input.ITouchCapabilities) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Devices.Input.IID_ITouchCapabilities'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Devices.Input.IID_ITouchCapabilities'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

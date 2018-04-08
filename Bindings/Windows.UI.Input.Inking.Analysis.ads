@@ -198,6 +198,9 @@ package Windows.UI.Input.Inking.Analysis is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalyzer : aliased constant Windows.IID := (4046163861, 2150, 19909, (140, 119, 248, 134, 20, 223, 227, 140 ));
+   
    type IInkAnalyzer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AnalysisRoot
@@ -269,10 +272,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.UI.Input.Inking.Analysis.IAsyncOperation_IInkAnalysisResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalyzer : aliased constant Windows.IID := (4046163861, 2150, 19909, (140, 119, 248, 134, 20, 223, 227, 140 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalyzerFactory : aliased constant Windows.IID := (689145478, 6499, 18904, (149, 137, 225, 67, 132, 199, 105, 227 ));
+   
    type IInkAnalyzerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateAnalyzer
@@ -281,10 +284,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.UI.Input.Inking.Analysis.IInkAnalyzer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalyzerFactory : aliased constant Windows.IID := (689145478, 6499, 18904, (149, 137, 225, 67, 132, 199, 105, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisResult : aliased constant Windows.IID := (2303244921, 41539, 19107, (162, 148, 31, 152, 189, 15, 245, 128 ));
+   
    type IInkAnalysisResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -293,10 +296,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.UI.Input.Inking.Analysis.InkAnalysisStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisResult : aliased constant Windows.IID := (2303244921, 41539, 19107, (162, 148, 31, 152, 189, 15, 245, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisNode : aliased constant Windows.IID := (813899525, 24420, 18988, (186, 55, 79, 72, 135, 135, 149, 116 ));
+   
    type IInkAnalysisNode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -347,10 +350,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisNode : aliased constant Windows.IID := (813899525, 24420, 18988, (186, 55, 79, 72, 135, 135, 149, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisRoot : aliased constant Windows.IID := (1068934084, 12254, 16481, (133, 2, 169, 15, 50, 84, 91, 132 ));
+   
    type IInkAnalysisRoot_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RecognizedText
@@ -367,10 +370,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.UI.Input.Inking.Analysis.IVectorView_IInkAnalysisNode -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisRoot : aliased constant Windows.IID := (1068934084, 12254, 16481, (133, 2, 169, 15, 50, 84, 91, 132 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisWritingRegion : aliased constant Windows.IID := (3714933297, 48406, 18019, (181, 174, 148, 29, 48, 67, 239, 91 ));
+   
    type IInkAnalysisWritingRegion_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RecognizedText
@@ -379,10 +382,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisWritingRegion : aliased constant Windows.IID := (3714933297, 48406, 18019, (181, 174, 148, 29, 48, 67, 239, 91 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisParagraph : aliased constant Windows.IID := (3651994716, 3281, 19924, (166, 139, 235, 31, 18, 179, 215, 39 ));
+   
    type IInkAnalysisParagraph_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RecognizedText
@@ -391,10 +394,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisParagraph : aliased constant Windows.IID := (3651994716, 3281, 19924, (166, 139, 235, 31, 18, 179, 215, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisListItem : aliased constant Windows.IID := (3034825279, 50371, 19514, (161, 166, 157, 133, 84, 126, 229, 134 ));
+   
    type IInkAnalysisListItem_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RecognizedText
@@ -403,10 +406,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisListItem : aliased constant Windows.IID := (3034825279, 50371, 19514, (161, 166, 157, 133, 84, 126, 229, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisInkBullet : aliased constant Windows.IID := (3993277288, 24848, 16694, (149, 249, 238, 128, 159, 194, 0, 48 ));
+   
    type IInkAnalysisInkBullet_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RecognizedText
@@ -415,10 +418,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisInkBullet : aliased constant Windows.IID := (3993277288, 24848, 16694, (149, 249, 238, 128, 159, 194, 0, 48 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisLine : aliased constant Windows.IID := (2691499149, 11149, 18260, (173, 90, 208, 135, 17, 147, 169, 86 ));
+   
    type IInkAnalysisLine_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RecognizedText
@@ -434,10 +437,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisLine : aliased constant Windows.IID := (2691499149, 11149, 18260, (173, 90, 208, 135, 17, 147, 169, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisInkWord : aliased constant Windows.IID := (1272064173, 33711, 16436, (143, 59, 248, 104, 125, 255, 244, 54 ));
+   
    type IInkAnalysisInkWord_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RecognizedText
@@ -453,10 +456,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisInkWord : aliased constant Windows.IID := (1272064173, 33711, 16436, (143, 59, 248, 104, 125, 255, 244, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInkAnalysisInkDrawing : aliased constant Windows.IID := (1787161887, 8164, 19989, (137, 140, 142, 17, 35, 119, 224, 33 ));
+   
    type IInkAnalysisInkDrawing_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DrawingKind
@@ -479,10 +482,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.Foundation.IVectorView_Point -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInkAnalysisInkDrawing : aliased constant Windows.IID := (1787161887, 8164, 19989, (137, 140, 142, 17, 35, 119, 224, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IInkAnalysisResult : aliased constant Windows.IID := (742838717, 28091, 20487, (186, 133, 61, 1, 6, 189, 223, 80 ));
+   
    type IAsyncOperation_IInkAnalysisResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -505,10 +508,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.UI.Input.Inking.Analysis.IInkAnalysisResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IInkAnalysisResult : aliased constant Windows.IID := (742838717, 28091, 20487, (186, 133, 61, 1, 6, 189, 223, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IInkAnalysisNode : aliased constant Windows.IID := (2905992540, 24460, 23144, (166, 225, 103, 242, 9, 160, 94, 167 ));
+   
    type IIterator_IInkAnalysisNode_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -539,10 +542,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IInkAnalysisNode : aliased constant Windows.IID := (2905992540, 24460, 23144, (166, 225, 103, 242, 9, 160, 94, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IInkAnalysisNode : aliased constant Windows.IID := (2018444958, 47837, 21080, (189, 143, 66, 206, 32, 92, 201, 90 ));
+   
    type IIterable_IInkAnalysisNode_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -551,10 +554,10 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.UI.Input.Inking.Analysis.IIterator_IInkAnalysisNode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IInkAnalysisNode : aliased constant Windows.IID := (2018444958, 47837, 21080, (189, 143, 66, 206, 32, 92, 201, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IInkAnalysisNode : aliased constant Windows.IID := (725610001, 21429, 21936, (141, 113, 196, 11, 66, 125, 224, 41 ));
+   
    type IVectorView_IInkAnalysisNode_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -589,17 +592,15 @@ package Windows.UI.Input.Inking.Analysis is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IInkAnalysisNode : aliased constant Windows.IID := (725610001, 21429, 21936, (141, 113, 196, 11, 66, 125, 224, 41 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IInkAnalysisResult_Interface(Callback : access procedure (asyncInfo : Windows.UI.Input.Inking.Analysis.IAsyncOperation_IInkAnalysisResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IInkAnalysisResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IInkAnalysisResult : aliased constant Windows.IID := (2817468006, 28612, 22159, (187, 243, 25, 193, 3, 106, 38, 191 ));
+   
+   type AsyncOperationCompletedHandler_IInkAnalysisResult_Interface(Callback : access procedure (asyncInfo : Windows.UI.Input.Inking.Analysis.IAsyncOperation_IInkAnalysisResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IInkAnalysisResult'access) with null record;
    
    function Invoke
    (
@@ -608,8 +609,6 @@ package Windows.UI.Input.Inking.Analysis is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IInkAnalysisResult : aliased constant Windows.IID := (2817468006, 28612, 22159, (187, 243, 25, 193, 3, 106, 38, 191 ));
    
    ------------------------------------------------------------------------
    -- Classes

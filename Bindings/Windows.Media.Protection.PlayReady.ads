@@ -482,6 +482,9 @@ package Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyContentHeader : aliased constant Windows.IID := (2588117610, 32588, 17710, (136, 189, 1, 72, 198, 56, 122, 44 ));
+   
    type IPlayReadyContentHeader_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeyId
@@ -553,10 +556,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IPlayReadyContentHeader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyContentHeader : aliased constant Windows.IID := (2588117610, 32588, 17710, (136, 189, 1, 72, 198, 56, 122, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyContentHeaderFactory : aliased constant Windows.IID := (3415722239, 46936, 18294, (191, 1, 33, 122, 139, 81, 11, 44 ));
+   
    type IPlayReadyContentHeaderFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceFromWindowsMediaDrmHeader
@@ -592,10 +595,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IPlayReadyContentHeader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyContentHeaderFactory : aliased constant Windows.IID := (3415722239, 46936, 18294, (191, 1, 33, 122, 139, 81, 11, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyContentHeader2 : aliased constant Windows.IID := (899447284, 8576, 18828, (150, 91, 231, 84, 216, 117, 234, 178 ));
+   
    type IPlayReadyContentHeader2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeyIds
@@ -611,10 +614,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access String_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyContentHeader2 : aliased constant Windows.IID := (899447284, 8576, 18828, (150, 91, 231, 84, 216, 117, 234, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyContentHeaderFactory2 : aliased constant Windows.IID := (3508772085, 44653, 18296, (151, 253, 110, 58, 46, 234, 219, 235 ));
+   
    type IPlayReadyContentHeaderFactory2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceFromComponents2
@@ -631,10 +634,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IPlayReadyContentHeader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyContentHeaderFactory2 : aliased constant Windows.IID := (3508772085, 44653, 18296, (151, 253, 110, 58, 46, 234, 219, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyContentResolver : aliased constant Windows.IID := (4227671331, 36973, 18818, (166, 184, 104, 73, 86, 90, 124, 232 ));
+   
    type IPlayReadyContentResolver_Interface is interface and Windows.IInspectable_Interface;
    
    function ServiceRequest
@@ -644,10 +647,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IPlayReadyServiceRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyContentResolver : aliased constant Windows.IID := (4227671331, 36973, 18818, (166, 184, 104, 73, 86, 90, 124, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPlayReadyLicense : aliased constant Windows.IID := (2670261943, 46570, 20595, (186, 61, 140, 178, 240, 114, 145, 161 ));
+   
    type IIterable_IPlayReadyLicense_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -656,10 +659,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IPlayReadyLicense
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPlayReadyLicense : aliased constant Windows.IID := (2670261943, 46570, 20595, (186, 61, 140, 178, 240, 114, 145, 161 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicenseManagement : aliased constant Windows.IID := (2867536193, 2391, 17413, (184, 146, 139, 243, 236, 93, 173, 217 ));
+   
    type IPlayReadyLicenseManagement_Interface is interface and Windows.IInspectable_Interface;
    
    function DeleteLicenses
@@ -669,10 +672,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicenseManagement : aliased constant Windows.IID := (2867536193, 2391, 17413, (184, 146, 139, 243, 236, 93, 173, 217 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicense : aliased constant Windows.IID := (3997649998, 64060, 16717, (169, 242, 63, 252, 30, 248, 50, 212 ));
+   
    type IPlayReadyLicense_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FullyEvaluated
@@ -724,10 +727,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicense : aliased constant Windows.IID := (3997649998, 64060, 16717, (169, 242, 63, 252, 30, 248, 50, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicense2 : aliased constant Windows.IID := (821356455, 55523, 18592, (188, 218, 255, 159, 64, 83, 4, 54 ));
+   
    type IPlayReadyLicense2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SecureStopId
@@ -757,10 +760,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicense2 : aliased constant Windows.IID := (821356455, 55523, 18592, (188, 218, 255, 159, 64, 83, 4, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicenseIterableFactory : aliased constant Windows.IID := (3558317832, 2103, 18808, (142, 104, 190, 66, 147, 200, 215, 166 ));
+   
    type IPlayReadyLicenseIterableFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -771,10 +774,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicenseIterableFactory : aliased constant Windows.IID := (3558317832, 2103, 18808, (142, 104, 190, 66, 147, 200, 215, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPlayReadyLicense : aliased constant Windows.IID := (1785528330, 52774, 21531, (161, 88, 132, 87, 64, 155, 38, 4 ));
+   
    type IIterator_IPlayReadyLicense_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -805,10 +808,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPlayReadyLicense : aliased constant Windows.IID := (1785528330, 52774, 21531, (161, 88, 132, 87, 64, 155, 38, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyDomain : aliased constant Windows.IID := (2915865516, 38886, 17391, (149, 228, 215, 134, 143, 59, 22, 169 ));
+   
    type IPlayReadyDomain_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AccountId
@@ -845,10 +848,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyDomain : aliased constant Windows.IID := (2915865516, 38886, 17391, (149, 228, 215, 134, 143, 59, 22, 169 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyDomainIterableFactory : aliased constant Windows.IID := (1307804910, 12577, 19955, (165, 232, 208, 194, 76, 5, 0, 252 ));
+   
    type IPlayReadyDomainIterableFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -858,10 +861,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IIterable_IPlayReadyDomain
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyDomainIterableFactory : aliased constant Windows.IID := (1307804910, 12577, 19955, (165, 232, 208, 194, 76, 5, 0, 252 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPlayReadyDomain : aliased constant Windows.IID := (2229899142, 19438, 24385, (147, 161, 37, 88, 135, 18, 45, 159 ));
+   
    type IIterable_IPlayReadyDomain_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -870,10 +873,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IPlayReadyDomain
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPlayReadyDomain : aliased constant Windows.IID := (2229899142, 19438, 24385, (147, 161, 37, 88, 135, 18, 45, 159 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPlayReadyDomain : aliased constant Windows.IID := (1547036837, 19159, 24176, (190, 223, 145, 245, 213, 136, 141, 53 ));
+   
    type IIterator_IPlayReadyDomain_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -904,10 +907,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPlayReadyDomain : aliased constant Windows.IID := (1547036837, 19159, 24176, (190, 223, 145, 245, 213, 136, 141, 53 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyStatics : aliased constant Windows.IID := (1583988749, 9340, 18074, (143, 49, 92, 26, 21, 113, 217, 198 ));
+   
    type IPlayReadyStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DomainJoinServiceRequestType
@@ -965,10 +968,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyStatics : aliased constant Windows.IID := (1583988749, 9340, 18074, (143, 49, 92, 26, 21, 113, 217, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyStatics2 : aliased constant Windows.IID := (529361554, 24474, 16958, (148, 102, 179, 57, 105, 175, 122, 61 ));
+   
    type IPlayReadyStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PlayReadyCertificateSecurityLevel
@@ -977,10 +980,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyStatics2 : aliased constant Windows.IID := (529361554, 24474, 16958, (148, 102, 179, 57, 105, 175, 122, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyStatics3 : aliased constant Windows.IID := (1067663217, 11731, 19437, (174, 73, 247, 20, 142, 99, 231, 16 ));
+   
    type IPlayReadyStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SecureStopServiceRequestType
@@ -997,10 +1000,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyStatics3 : aliased constant Windows.IID := (1067663217, 11731, 19437, (174, 73, 247, 20, 142, 99, 231, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyStatics4 : aliased constant Windows.IID := (1353257728, 55332, 16945, (157, 94, 120, 239, 136, 68, 199, 215 ));
+   
    type IPlayReadyStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InputTrustAuthorityToCreate
@@ -1016,10 +1019,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyStatics4 : aliased constant Windows.IID := (1353257728, 55332, 16945, (157, 94, 120, 239, 136, 68, 199, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadySecureStopServiceRequestFactory : aliased constant Windows.IID := (239373001, 59006, 18766, (159, 73, 98, 133, 67, 140, 118, 207 ));
+   
    type IPlayReadySecureStopServiceRequestFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1038,10 +1041,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadySecureStopServiceRequestFactory : aliased constant Windows.IID := (239373001, 59006, 18766, (159, 73, 98, 133, 67, 140, 118, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadySecureStopIterableFactory : aliased constant Windows.IID := (1595867493, 16916, 19870, (129, 235, 232, 159, 157, 41, 74, 238 ));
+   
    type IPlayReadySecureStopIterableFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1051,10 +1054,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IIterable_IPlayReadySecureStopServiceRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadySecureStopIterableFactory : aliased constant Windows.IID := (1595867493, 16916, 19870, (129, 235, 232, 159, 157, 41, 74, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPlayReadySecureStopServiceRequest : aliased constant Windows.IID := (2374681209, 45181, 21256, (156, 120, 28, 92, 153, 108, 160, 60 ));
+   
    type IIterable_IPlayReadySecureStopServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1063,10 +1066,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPlayReadySecureStopServiceRequest : aliased constant Windows.IID := (2374681209, 45181, 21256, (156, 120, 28, 92, 153, 108, 160, 60 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPlayReadySecureStopServiceRequest : aliased constant Windows.IID := (2008039835, 16203, 24313, (174, 11, 136, 17, 67, 177, 114, 201 ));
+   
    type IIterator_IPlayReadySecureStopServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1097,10 +1100,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPlayReadySecureStopServiceRequest : aliased constant Windows.IID := (2008039835, 16203, 24313, (174, 11, 136, 17, 67, 177, 114, 201 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadySoapMessage : aliased constant Windows.IID := (3059350709, 52801, 16826, (138, 13, 97, 223, 95, 255, 161, 57 ));
+   
    type IPlayReadySoapMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetMessageBody
@@ -1123,10 +1126,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadySoapMessage : aliased constant Windows.IID := (3059350709, 52801, 16826, (138, 13, 97, 223, 95, 255, 161, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyITADataGenerator : aliased constant Windows.IID := (608463758, 4281, 17712, (178, 91, 144, 26, 128, 41, 169, 178 ));
+   
    type IPlayReadyITADataGenerator_Interface is interface and Windows.IInspectable_Interface;
    
    function GenerateData
@@ -1139,10 +1142,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access UInt8_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyITADataGenerator : aliased constant Windows.IID := (608463758, 4281, 17712, (178, 91, 144, 26, 128, 41, 169, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicenseSession : aliased constant Windows.IID := (2708617785, 34810, 20445, (171, 187, 169, 114, 14, 132, 82, 89 ));
+   
    type IPlayReadyLicenseSession_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateLAServiceRequest
@@ -1158,10 +1161,10 @@ package Windows.Media.Protection.PlayReady is
       ; mpm : Windows.Media.Protection.IMediaProtectionManager
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicenseSession : aliased constant Windows.IID := (2708617785, 34810, 20445, (171, 187, 169, 114, 14, 132, 82, 89 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicenseSession2 : aliased constant Windows.IID := (1225375290, 15085, 18006, (138, 215, 238, 15, 215, 121, 149, 16 ));
+   
    type IPlayReadyLicenseSession2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateLicenseIterable
@@ -1172,10 +1175,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicenseSession2 : aliased constant Windows.IID := (1225375290, 15085, 18006, (138, 215, 238, 15, 215, 121, 149, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicenseSessionFactory : aliased constant Windows.IID := (1648961177, 25895, 17054, (152, 190, 72, 215, 152, 172, 39, 57 ));
+   
    type IPlayReadyLicenseSessionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1185,10 +1188,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicenseSessionFactory : aliased constant Windows.IID := (1648961177, 25895, 17054, (152, 190, 72, 215, 152, 172, 39, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDDownloadEngine : aliased constant Windows.IID := (757218661, 50358, 17464, (141, 70, 185, 110, 109, 15, 178, 31 ));
+   
    type INDDownloadEngine_Interface is interface and Windows.IInspectable_Interface;
    
    function Open
@@ -1251,10 +1254,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDDownloadEngine : aliased constant Windows.IID := (757218661, 50358, 17464, (141, 70, 185, 110, 109, 15, 178, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDDownloadEngineNotifier : aliased constant Windows.IID := (3609244884, 62648, 17712, (168, 9, 145, 147, 165, 113, 231, 252 ));
+   
    type INDDownloadEngineNotifier_Interface is interface and Windows.IInspectable_Interface;
    
    function OnStreamOpened
@@ -1296,10 +1299,10 @@ package Windows.Media.Protection.PlayReady is
       This       : access INDDownloadEngineNotifier_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDDownloadEngineNotifier : aliased constant Windows.IID := (3609244884, 62648, 17712, (168, 9, 145, 147, 165, 113, 231, 252 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDLicenseFetchDescriptor : aliased constant Windows.IID := (1419301690, 59014, 18741, (165, 103, 124, 167, 122, 210, 15, 164 ));
+   
    type INDLicenseFetchDescriptor_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContentIDType
@@ -1329,10 +1332,10 @@ package Windows.Media.Protection.PlayReady is
       ; licenseFetchChallengeCustomData : Windows.Media.Protection.PlayReady.INDCustomData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDLicenseFetchDescriptor : aliased constant Windows.IID := (1419301690, 59014, 18741, (165, 103, 124, 167, 122, 210, 15, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDCustomData : aliased constant Windows.IID := (4123725788, 11529, 20249, (181, 225, 118, 160, 179, 238, 146, 103 ));
+   
    type INDCustomData_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CustomDataTypeID
@@ -1348,10 +1351,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access UInt8_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDCustomData : aliased constant Windows.IID := (4123725788, 11529, 20249, (181, 225, 118, 160, 179, 238, 146, 103 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDStreamParser : aliased constant Windows.IID := (3770327448, 38806, 16841, (134, 149, 89, 67, 126, 103, 230, 106 ));
+   
    type INDStreamParser_Interface is interface and Windows.IInspectable_Interface;
    
    function ParseData
@@ -1388,10 +1391,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDStreamParserNotifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDStreamParser : aliased constant Windows.IID := (3770327448, 38806, 16841, (134, 149, 89, 67, 126, 103, 230, 106 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDStreamParserNotifier : aliased constant Windows.IID := (3244797136, 11494, 17004, (172, 229, 94, 146, 117, 254, 167, 21 ));
+   
    type INDStreamParserNotifier_Interface is interface and Windows.IInspectable_Interface;
    
    function OnContentIDReceived
@@ -1429,10 +1432,10 @@ package Windows.Media.Protection.PlayReady is
       ; proBytes : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDStreamParserNotifier : aliased constant Windows.IID := (3244797136, 11494, 17004, (172, 229, 94, 146, 117, 254, 167, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDSendResult : aliased constant Windows.IID := (3815265559, 42372, 18333, (144, 183, 214, 137, 199, 191, 124, 128 ));
+   
    type INDSendResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Response
@@ -1441,10 +1444,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access UInt8_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDSendResult : aliased constant Windows.IID := (3815265559, 42372, 18333, (144, 183, 214, 137, 199, 191, 124, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDMessenger : aliased constant Windows.IID := (3559782749, 42843, 18367, (130, 73, 188, 131, 130, 13, 163, 138 ));
+   
    type INDMessenger_Interface is interface and Windows.IInspectable_Interface;
    
    function SendRegistrationRequestAsync
@@ -1486,10 +1489,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IAsyncOperation_INDSendResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDMessenger : aliased constant Windows.IID := (3559782749, 42843, 18367, (130, 73, 188, 131, 130, 13, 163, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDTCPMessengerFactory : aliased constant Windows.IID := (2111331582, 7065, 20328, (143, 130, 129, 119, 247, 206, 223, 43 ));
+   
    type INDTCPMessengerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1500,10 +1503,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDMessenger
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDTCPMessengerFactory : aliased constant Windows.IID := (2111331582, 7065, 20328, (143, 130, 129, 119, 247, 206, 223, 43 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDTransmitterProperties : aliased constant Windows.IID := (3845566243, 44111, 19164, (140, 102, 79, 247, 194, 112, 45, 214 ));
+   
    type INDTransmitterProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CertificateType
@@ -1582,10 +1585,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDTransmitterProperties : aliased constant Windows.IID := (3845566243, 44111, 19164, (140, 102, 79, 247, 194, 112, 45, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDStartResult : aliased constant Windows.IID := (2046224750, 62735, 16405, (139, 164, 194, 188, 52, 78, 189, 78 ));
+   
    type INDStartResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MediaStreamSource
@@ -1594,10 +1597,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Core.IMediaStreamSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDStartResult : aliased constant Windows.IID := (2046224750, 62735, 16405, (139, 164, 194, 188, 52, 78, 189, 78 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDLicenseFetchResult : aliased constant Windows.IID := (567514776, 43618, 17919, (165, 255, 128, 55, 229, 67, 56, 37 ));
+   
    type INDLicenseFetchResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ResponseCustomData
@@ -1606,10 +1609,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDCustomData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDLicenseFetchResult : aliased constant Windows.IID := (567514776, 43618, 17919, (165, 255, 128, 55, 229, 67, 56, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDLicenseFetchDescriptorFactory : aliased constant Windows.IID := (3489862146, 53164, 20224, (174, 106, 151, 175, 128, 184, 72, 242 ));
+   
    type INDLicenseFetchDescriptorFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1621,10 +1624,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDLicenseFetchDescriptorFactory : aliased constant Windows.IID := (3489862146, 53164, 20224, (174, 106, 151, 175, 128, 184, 72, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDRegistrationCompletedEventArgs : aliased constant Windows.IID := (2654582349, 43867, 18693, (172, 220, 120, 122, 119, 198, 55, 77 ));
+   
    type INDRegistrationCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ResponseCustomData
@@ -1654,10 +1657,10 @@ package Windows.Media.Protection.PlayReady is
       ; accept_x : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDRegistrationCompletedEventArgs : aliased constant Windows.IID := (2654582349, 43867, 18693, (172, 220, 120, 122, 119, 198, 55, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDCustomDataFactory : aliased constant Windows.IID := (3595830699, 13348, 18483, (140, 154, 175, 95, 222, 178, 40, 114 ));
+   
    type INDCustomDataFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1668,10 +1671,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDCustomData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDCustomDataFactory : aliased constant Windows.IID := (3595830699, 13348, 18483, (140, 154, 175, 95, 222, 178, 40, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDProximityDetectionCompletedEventArgs : aliased constant Windows.IID := (712008488, 55845, 20364, (158, 183, 93, 15, 195, 101, 139, 202 ));
+   
    type INDProximityDetectionCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProximityDetectionRetryCount
@@ -1680,10 +1683,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDProximityDetectionCompletedEventArgs : aliased constant Windows.IID := (712008488, 55845, 20364, (158, 183, 93, 15, 195, 101, 139, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDLicenseFetchCompletedEventArgs : aliased constant Windows.IID := (518195738, 4530, 17752, (136, 101, 227, 165, 22, 146, 37, 23 ));
+   
    type INDLicenseFetchCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ResponseCustomData
@@ -1692,10 +1695,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDCustomData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDLicenseFetchCompletedEventArgs : aliased constant Windows.IID := (518195738, 4530, 17752, (136, 101, 227, 165, 22, 146, 37, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDClient : aliased constant Windows.IID := (1003911195, 25016, 18146, (153, 165, 138, 188, 182, 185, 247, 214 ));
+   
    type INDClient_Interface is interface and Windows.IInspectable_Interface;
    
    function add_RegistrationCompleted
@@ -1805,10 +1808,10 @@ package Windows.Media.Protection.PlayReady is
       This       : access INDClient_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDClient : aliased constant Windows.IID := (1003911195, 25016, 18146, (153, 165, 138, 188, 182, 185, 247, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDClosedCaptionDataReceivedEventArgs : aliased constant Windows.IID := (1194906271, 49989, 17993, (132, 104, 184, 197, 252, 53, 113, 144 ));
+   
    type INDClosedCaptionDataReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ClosedCaptionDataFormat
@@ -1831,10 +1834,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access UInt8_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDClosedCaptionDataReceivedEventArgs : aliased constant Windows.IID := (1194906271, 49989, 17993, (132, 104, 184, 197, 252, 53, 113, 144 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDClientFactory : aliased constant Windows.IID := (1045683554, 65256, 17695, (176, 212, 247, 6, 204, 163, 224, 55 ));
+   
    type INDClientFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1846,10 +1849,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDClient
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDClientFactory : aliased constant Windows.IID := (1045683554, 65256, 17695, (176, 212, 247, 6, 204, 163, 224, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INDStorageFileHelper : aliased constant Windows.IID := (3639656184, 37330, 19783, (163, 249, 234, 255, 78, 219, 114, 159 ));
+   
    type INDStorageFileHelper_Interface is interface and Windows.IInspectable_Interface;
    
    function GetFileURLs
@@ -1859,10 +1862,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INDStorageFileHelper : aliased constant Windows.IID := (3639656184, 37330, 19783, (163, 249, 234, 255, 78, 219, 114, 159 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyServiceRequest : aliased constant Windows.IID := (2343381046, 42755, 17830, (161, 128, 118, 243, 86, 90, 167, 37 ));
+   
    type IPlayReadyServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Uri
@@ -1928,15 +1931,15 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyServiceRequest : aliased constant Windows.IID := (2343381046, 42755, 17830, (161, 128, 118, 243, 86, 90, 167, 37 ));
-   
    ------------------------------------------------------------------------
-   type IPlayReadyIndividualizationServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPlayReadyIndividualizationServiceRequest : aliased constant Windows.IID := (569747563, 140, 17937, (171, 47, 170, 166, 198, 159, 14, 36 ));
    
+   type IPlayReadyIndividualizationServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyDomainJoinServiceRequest : aliased constant Windows.IID := (387664474, 16479, 18233, (176, 64, 103, 185, 240, 195, 135, 88 ));
+   
    type IPlayReadyDomainJoinServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DomainAccountId
@@ -1980,10 +1983,10 @@ package Windows.Media.Protection.PlayReady is
       ; value : Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyDomainJoinServiceRequest : aliased constant Windows.IID := (387664474, 16479, 18233, (176, 64, 103, 185, 240, 195, 135, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyDomainLeaveServiceRequest : aliased constant Windows.IID := (103635134, 38829, 18711, (170, 3, 70, 212, 194, 82, 212, 100 ));
+   
    type IPlayReadyDomainLeaveServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DomainAccountId
@@ -2013,10 +2016,10 @@ package Windows.Media.Protection.PlayReady is
       ; value : Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyDomainLeaveServiceRequest : aliased constant Windows.IID := (103635134, 38829, 18711, (170, 3, 70, 212, 194, 82, 212, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicenseAcquisitionServiceRequest : aliased constant Windows.IID := (1569062725, 16031, 20296, (147, 225, 149, 48, 200, 213, 140, 62 ));
+   
    type IPlayReadyLicenseAcquisitionServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContentHeader
@@ -2046,10 +2049,10 @@ package Windows.Media.Protection.PlayReady is
       ; value : Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicenseAcquisitionServiceRequest : aliased constant Windows.IID := (1569062725, 16031, 20296, (147, 225, 149, 48, 200, 213, 140, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicenseAcquisitionServiceRequest2 : aliased constant Windows.IID := (3086638773, 65036, 45605, (188, 96, 90, 158, 221, 50, 206, 181 ));
+   
    type IPlayReadyLicenseAcquisitionServiceRequest2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SessionId
@@ -2058,10 +2061,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicenseAcquisitionServiceRequest2 : aliased constant Windows.IID := (3086638773, 65036, 45605, (188, 96, 90, 158, 221, 50, 206, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyLicenseAcquisitionServiceRequest3 : aliased constant Windows.IID := (961437517, 32629, 17165, (178, 231, 127, 117, 243, 75, 45, 117 ));
+   
    type IPlayReadyLicenseAcquisitionServiceRequest3_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateLicenseIterable
@@ -2072,10 +2075,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyLicenseAcquisitionServiceRequest3 : aliased constant Windows.IID := (961437517, 32629, 17165, (178, 231, 127, 117, 243, 75, 45, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyMeteringReportServiceRequest : aliased constant Windows.IID := (3240829724, 3789, 20241, (161, 133, 30, 36, 164, 166, 127, 183 ));
+   
    type IPlayReadyMeteringReportServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MeteringCertificate
@@ -2091,15 +2094,15 @@ package Windows.Media.Protection.PlayReady is
       ; meteringCertBytes : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadyMeteringReportServiceRequest : aliased constant Windows.IID := (3240829724, 3789, 20241, (161, 133, 30, 36, 164, 166, 127, 183 ));
-   
    ------------------------------------------------------------------------
-   type IPlayReadyRevocationServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IPlayReadyRevocationServiceRequest : aliased constant Windows.IID := (1413310124, 64240, 17760, (132, 165, 14, 74, 206, 201, 57, 228 ));
    
+   type IPlayReadyRevocationServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadySecureStopServiceRequest : aliased constant Windows.IID := (3041926885, 447, 17409, (150, 119, 5, 99, 10, 106, 76, 200 ));
+   
    type IPlayReadySecureStopServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SessionID
@@ -2136,10 +2139,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access UInt8_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayReadySecureStopServiceRequest : aliased constant Windows.IID := (3041926885, 447, 17409, (150, 119, 5, 99, 10, 106, 76, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_INDSendResult : aliased constant Windows.IID := (1815578792, 3693, 24105, (154, 209, 216, 138, 101, 235, 80, 11 ));
+   
    type IAsyncOperation_INDSendResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2162,10 +2165,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDSendResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_INDSendResult : aliased constant Windows.IID := (1815578792, 3693, 24105, (154, 209, 216, 138, 101, 235, 80, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_INDStartResult : aliased constant Windows.IID := (33207870, 27307, 21666, (128, 247, 219, 237, 34, 245, 141, 86 ));
+   
    type IAsyncOperation_INDStartResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2188,10 +2191,10 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDStartResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_INDStartResult : aliased constant Windows.IID := (33207870, 27307, 21666, (128, 247, 219, 237, 34, 245, 141, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_INDLicenseFetchResult : aliased constant Windows.IID := (2610760808, 15058, 23297, (141, 199, 111, 127, 193, 238, 214, 246 ));
+   
    type IAsyncOperation_INDLicenseFetchResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2214,17 +2217,15 @@ package Windows.Media.Protection.PlayReady is
       ; RetVal : access Windows.Media.Protection.PlayReady.INDLicenseFetchResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_INDLicenseFetchResult : aliased constant Windows.IID := (2610760808, 15058, 23297, (141, 199, 111, 127, 193, 238, 214, 246 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_INDSendResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDSendResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_INDSendResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_INDSendResult : aliased constant Windows.IID := (3334768080, 64939, 20802, (176, 121, 151, 175, 5, 103, 240, 182 ));
+   
+   type AsyncOperationCompletedHandler_INDSendResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDSendResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_INDSendResult'access) with null record;
    
    function Invoke
    (
@@ -2234,12 +2235,11 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_INDSendResult : aliased constant Windows.IID := (3334768080, 64939, 20802, (176, 121, 151, 175, 5, 103, 240, 182 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_INDClient_add_RegistrationCompleted_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_RegistrationCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_INDClient_add_RegistrationCompleted : aliased constant Windows.IID := (1186197590, 49568, 20928, (133, 33, 205, 226, 34, 21, 126, 255 ));
+   
+   type TypedEventHandler_INDClient_add_RegistrationCompleted_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INDClient_add_RegistrationCompleted'access) with null record;
    
    function Invoke
    (
@@ -2249,12 +2249,11 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_INDClient_add_RegistrationCompleted : aliased constant Windows.IID := (1186197590, 49568, 20928, (133, 33, 205, 226, 34, 21, 126, 255 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_INDClient_add_ProximityDetectionCompleted_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_ProximityDetectionCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_INDClient_add_ProximityDetectionCompleted : aliased constant Windows.IID := (3041207946, 51150, 20984, (189, 220, 2, 157, 44, 102, 182, 107 ));
+   
+   type TypedEventHandler_INDClient_add_ProximityDetectionCompleted_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INDClient_add_ProximityDetectionCompleted'access) with null record;
    
    function Invoke
    (
@@ -2264,12 +2263,11 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_INDClient_add_ProximityDetectionCompleted : aliased constant Windows.IID := (3041207946, 51150, 20984, (189, 220, 2, 157, 44, 102, 182, 107 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_INDClient_add_LicenseFetchCompleted_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDLicenseFetchCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_LicenseFetchCompleted_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_INDClient_add_LicenseFetchCompleted : aliased constant Windows.IID := (2772439672, 58049, 21332, (133, 143, 111, 50, 203, 223, 190, 167 ));
+   
+   type TypedEventHandler_INDClient_add_LicenseFetchCompleted_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDLicenseFetchCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INDClient_add_LicenseFetchCompleted'access) with null record;
    
    function Invoke
    (
@@ -2279,12 +2277,11 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_INDClient_add_LicenseFetchCompleted : aliased constant Windows.IID := (2772439672, 58049, 21332, (133, 143, 111, 50, 203, 223, 190, 167 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_INDClient_add_ReRegistrationNeeded_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_ReRegistrationNeeded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_INDClient_add_ReRegistrationNeeded : aliased constant Windows.IID := (3524211591, 46069, 20496, (155, 11, 232, 81, 174, 132, 148, 13 ));
+   
+   type TypedEventHandler_INDClient_add_ReRegistrationNeeded_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INDClient_add_ReRegistrationNeeded'access) with null record;
    
    function Invoke
    (
@@ -2294,12 +2291,11 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_INDClient_add_ReRegistrationNeeded : aliased constant Windows.IID := (3524211591, 46069, 20496, (155, 11, 232, 81, 174, 132, 148, 13 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_INDClient_add_ClosedCaptionDataReceived_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_INDClient_add_ClosedCaptionDataReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_INDClient_add_ClosedCaptionDataReceived : aliased constant Windows.IID := (921476676, 9718, 23869, (135, 238, 138, 209, 10, 51, 92, 131 ));
+   
+   type TypedEventHandler_INDClient_add_ClosedCaptionDataReceived_Interface(Callback : access procedure (sender : Windows.Media.Protection.PlayReady.INDClient ; args : Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INDClient_add_ClosedCaptionDataReceived'access) with null record;
    
    function Invoke
    (
@@ -2309,12 +2305,11 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_INDClient_add_ClosedCaptionDataReceived : aliased constant Windows.IID := (921476676, 9718, 23869, (135, 238, 138, 209, 10, 51, 92, 131 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_INDStartResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDStartResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_INDStartResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_INDStartResult : aliased constant Windows.IID := (508442464, 45611, 24330, (144, 88, 71, 90, 255, 49, 13, 181 ));
+   
+   type AsyncOperationCompletedHandler_INDStartResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDStartResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_INDStartResult'access) with null record;
    
    function Invoke
    (
@@ -2324,12 +2319,11 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_INDStartResult : aliased constant Windows.IID := (508442464, 45611, 24330, (144, 88, 71, 90, 255, 49, 13, 181 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_INDLicenseFetchResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDLicenseFetchResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_INDLicenseFetchResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_INDLicenseFetchResult : aliased constant Windows.IID := (4147109767, 36949, 22744, (150, 171, 44, 192, 77, 6, 204, 215 ));
+   
+   type AsyncOperationCompletedHandler_INDLicenseFetchResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Protection.PlayReady.IAsyncOperation_INDLicenseFetchResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_INDLicenseFetchResult'access) with null record;
    
    function Invoke
    (
@@ -2338,8 +2332,6 @@ package Windows.Media.Protection.PlayReady is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_INDLicenseFetchResult : aliased constant Windows.IID := (4147109767, 36949, 22744, (150, 171, 44, 192, 77, 6, 204, 215 ));
    
    ------------------------------------------------------------------------
    -- Classes

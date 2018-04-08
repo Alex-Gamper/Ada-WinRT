@@ -219,6 +219,9 @@ package Windows.Security.Cryptography.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IKeyDerivationParameters : aliased constant Windows.IID := (2079349095, 1147, 19084, (150, 74, 70, 159, 253, 85, 34, 226 ));
+   
    type IKeyDerivationParameters_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KdfGenericBinary
@@ -241,10 +244,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyDerivationParameters : aliased constant Windows.IID := (2079349095, 1147, 19084, (150, 74, 70, 159, 253, 85, 34, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyDerivationParameters2 : aliased constant Windows.IID := (3443615441, 16766, 20300, (182, 102, 192, 216, 121, 243, 248, 224 ));
+   
    type IKeyDerivationParameters2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Capi1KdfTargetAlgorithm
@@ -260,10 +263,10 @@ package Windows.Security.Cryptography.Core is
       ; value : Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyDerivationParameters2 : aliased constant Windows.IID := (3443615441, 16766, 20300, (182, 102, 192, 216, 121, 243, 248, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyDerivationParametersStatics : aliased constant Windows.IID := (3935707070, 62335, 16710, (157, 254, 164, 86, 241, 115, 95, 75 ));
+   
    type IKeyDerivationParametersStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function BuildForPbkdf2
@@ -295,10 +298,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.IKeyDerivationParameters
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyDerivationParametersStatics : aliased constant Windows.IID := (3935707070, 62335, 16710, (157, 254, 164, 86, 241, 115, 95, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyDerivationParametersStatics2 : aliased constant Windows.IID := (2776120789, 22755, 20219, (178, 131, 161, 101, 49, 38, 225, 190 ));
+   
    type IKeyDerivationParametersStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function BuildForCapi1Kdf
@@ -308,10 +311,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.IKeyDerivationParameters
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyDerivationParametersStatics2 : aliased constant Windows.IID := (2776120789, 22755, 20219, (178, 131, 161, 101, 49, 38, 225, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICryptographicKey : aliased constant Windows.IID := (3978967920, 36475, 16393, (132, 1, 255, 209, 166, 46, 235, 39 ));
+   
    type ICryptographicKey_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeySize
@@ -350,10 +353,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICryptographicKey : aliased constant Windows.IID := (3978967920, 36475, 16393, (132, 1, 255, 209, 166, 46, 235, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHashComputation : aliased constant Windows.IID := (1493488054, 44337, 17923, (163, 164, 177, 189, 169, 142, 37, 98 ));
+   
    type IHashComputation_Interface is interface and Windows.IInspectable_Interface;
    
    function Append
@@ -369,10 +372,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHashComputation : aliased constant Windows.IID := (1493488054, 44337, 17923, (163, 164, 177, 189, 169, 142, 37, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHashAlgorithmProvider : aliased constant Windows.IID := (3197841536, 45763, 16939, (188, 225, 236, 144, 239, 181, 215, 181 ));
+   
    type IHashAlgorithmProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlgorithmName
@@ -403,10 +406,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.IHashComputation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHashAlgorithmProvider : aliased constant Windows.IID := (3197841536, 45763, 16939, (188, 225, 236, 144, 239, 181, 215, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMacAlgorithmProvider : aliased constant Windows.IID := (1245693379, 7357, 16846, (160, 146, 170, 11, 197, 210, 210, 245 ));
+   
    type IMacAlgorithmProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlgorithmName
@@ -430,10 +433,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.ICryptographicKey
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMacAlgorithmProvider : aliased constant Windows.IID := (1245693379, 7357, 16846, (160, 146, 170, 11, 197, 210, 210, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMacAlgorithmProvider2 : aliased constant Windows.IID := (1839409685, 55601, 17133, (142, 126, 195, 1, 202, 238, 17, 156 ));
+   
    type IMacAlgorithmProvider2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateHash
@@ -443,10 +446,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.IHashComputation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMacAlgorithmProvider2 : aliased constant Windows.IID := (1839409685, 55601, 17133, (142, 126, 195, 1, 202, 238, 17, 156 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyDerivationAlgorithmProvider : aliased constant Windows.IID := (3791366203, 18033, 17335, (145, 88, 118, 58, 170, 152, 182, 191 ));
+   
    type IKeyDerivationAlgorithmProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlgorithmName
@@ -463,10 +466,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.ICryptographicKey
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyDerivationAlgorithmProvider : aliased constant Windows.IID := (3791366203, 18033, 17335, (145, 88, 118, 58, 170, 152, 182, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISymmetricKeyAlgorithmProvider : aliased constant Windows.IID := (1031686707, 15312, 18690, (138, 200, 71, 13, 80, 210, 19, 118 ));
+   
    type ISymmetricKeyAlgorithmProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlgorithmName
@@ -490,10 +493,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.ICryptographicKey
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISymmetricKeyAlgorithmProvider : aliased constant Windows.IID := (1031686707, 15312, 18690, (138, 200, 71, 13, 80, 210, 19, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsymmetricKeyAlgorithmProvider : aliased constant Windows.IID := (3906142007, 25177, 20104, (183, 224, 148, 25, 31, 222, 105, 158 ));
+   
    type IAsymmetricKeyAlgorithmProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlgorithmName
@@ -544,10 +547,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.ICryptographicKey
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsymmetricKeyAlgorithmProvider : aliased constant Windows.IID := (3906142007, 25177, 20104, (183, 224, 148, 25, 31, 222, 105, 158 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsymmetricKeyAlgorithmProvider2 : aliased constant Windows.IID := (1311910526, 31821, 18839, (172, 79, 27, 132, 139, 54, 48, 110 ));
+   
    type IAsymmetricKeyAlgorithmProvider2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateKeyPairWithCurveName
@@ -565,10 +568,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.ICryptographicKey
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsymmetricKeyAlgorithmProvider2 : aliased constant Windows.IID := (1311910526, 31821, 18839, (172, 79, 27, 132, 139, 54, 48, 110 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPersistedKeyProviderStatics : aliased constant Windows.IID := (1999063060, 55764, 19701, (182, 104, 224, 69, 125, 243, 8, 148 ));
+   
    type IPersistedKeyProviderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenKeyPairFromCertificateAsync
@@ -590,10 +593,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.ICryptographicKey
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPersistedKeyProviderStatics : aliased constant Windows.IID := (1999063060, 55764, 19701, (182, 104, 224, 69, 125, 243, 8, 148 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEncryptedAndAuthenticatedData : aliased constant Windows.IID := (1873031143, 7883, 19200, (190, 165, 96, 184, 63, 134, 47, 23 ));
+   
    type IEncryptedAndAuthenticatedData_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EncryptedData
@@ -609,10 +612,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEncryptedAndAuthenticatedData : aliased constant Windows.IID := (1873031143, 7883, 19200, (190, 165, 96, 184, 63, 134, 47, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICryptographicEngineStatics : aliased constant Windows.IID := (2682914361, 28663, 19589, (160, 149, 149, 235, 49, 113, 94, 185 ));
+   
    type ICryptographicEngineStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Encrypt
@@ -686,10 +689,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICryptographicEngineStatics : aliased constant Windows.IID := (2682914361, 28663, 19589, (160, 149, 149, 235, 49, 113, 94, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICryptographicEngineStatics2 : aliased constant Windows.IID := (1733904638, 57247, 16785, (146, 199, 108, 230, 245, 132, 32, 224 ));
+   
    type ICryptographicEngineStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function SignHashedData
@@ -738,10 +741,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICryptographicEngineStatics2 : aliased constant Windows.IID := (1733904638, 57247, 16785, (146, 199, 108, 230, 245, 132, 32, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHashAlgorithmProviderStatics : aliased constant Windows.IID := (2678888257, 23748, 17206, (174, 56, 98, 18, 183, 90, 145, 90 ));
+   
    type IHashAlgorithmProviderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenAlgorithm
@@ -751,10 +754,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.IHashAlgorithmProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHashAlgorithmProviderStatics : aliased constant Windows.IID := (2678888257, 23748, 17206, (174, 56, 98, 18, 183, 90, 145, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMacAlgorithmProviderStatics : aliased constant Windows.IID := (3384656199, 52343, 19952, (158, 78, 185, 33, 224, 128, 100, 76 ));
+   
    type IMacAlgorithmProviderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenAlgorithm
@@ -764,10 +767,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.IMacAlgorithmProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMacAlgorithmProviderStatics : aliased constant Windows.IID := (3384656199, 52343, 19952, (158, 78, 185, 33, 224, 128, 100, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyDerivationAlgorithmProviderStatics : aliased constant Windows.IID := (170002810, 2588, 17467, (148, 24, 185, 73, 138, 235, 22, 3 ));
+   
    type IKeyDerivationAlgorithmProviderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenAlgorithm
@@ -777,10 +780,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyDerivationAlgorithmProviderStatics : aliased constant Windows.IID := (170002810, 2588, 17467, (148, 24, 185, 73, 138, 235, 22, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISymmetricKeyAlgorithmProviderStatics : aliased constant Windows.IID := (2369463078, 7991, 18719, (182, 14, 245, 67, 27, 38, 180, 131 ));
+   
    type ISymmetricKeyAlgorithmProviderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenAlgorithm
@@ -790,10 +793,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISymmetricKeyAlgorithmProviderStatics : aliased constant Windows.IID := (2369463078, 7991, 18719, (182, 14, 245, 67, 27, 38, 180, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsymmetricKeyAlgorithmProviderStatics : aliased constant Windows.IID := (1113316888, 42995, 18342, (168, 210, 196, 141, 96, 51, 166, 92 ));
+   
    type IAsymmetricKeyAlgorithmProviderStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenAlgorithm
@@ -803,10 +806,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsymmetricKeyAlgorithmProviderStatics : aliased constant Windows.IID := (1113316888, 42995, 18342, (168, 210, 196, 141, 96, 51, 166, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHashAlgorithmNamesStatics : aliased constant Windows.IID := (1801323798, 56982, 20234, (141, 87, 220, 201, 218, 227, 108, 118 ));
+   
    type IHashAlgorithmNamesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Md5
@@ -843,10 +846,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHashAlgorithmNamesStatics : aliased constant Windows.IID := (1801323798, 56982, 20234, (141, 87, 220, 201, 218, 227, 108, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMacAlgorithmNamesStatics : aliased constant Windows.IID := (1094788728, 64286, 17316, (137, 94, 169, 2, 110, 67, 144, 163 ));
+   
    type IMacAlgorithmNamesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HmacMd5
@@ -890,10 +893,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMacAlgorithmNamesStatics : aliased constant Windows.IID := (1094788728, 64286, 17316, (137, 94, 169, 2, 110, 67, 144, 163 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISymmetricAlgorithmNamesStatics : aliased constant Windows.IID := (1752199803, 51606, 20142, (132, 215, 121, 178, 174, 183, 59, 156 ));
+   
    type ISymmetricAlgorithmNamesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesCbc
@@ -1028,10 +1031,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISymmetricAlgorithmNamesStatics : aliased constant Windows.IID := (1752199803, 51606, 20142, (132, 215, 121, 178, 174, 183, 59, 156 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsymmetricAlgorithmNamesStatics : aliased constant Windows.IID := (3405184228, 26560, 18090, (132, 249, 117, 46, 119, 68, 159, 155 ));
+   
    type IAsymmetricAlgorithmNamesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RsaPkcs1
@@ -1159,10 +1162,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsymmetricAlgorithmNamesStatics : aliased constant Windows.IID := (3405184228, 26560, 18090, (132, 249, 117, 46, 119, 68, 159, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsymmetricAlgorithmNamesStatics2 : aliased constant Windows.IID := (4047618262, 19455, 20259, (186, 102, 96, 69, 177, 55, 213, 223 ));
+   
    type IAsymmetricAlgorithmNamesStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EcdsaSha256
@@ -1185,10 +1188,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsymmetricAlgorithmNamesStatics2 : aliased constant Windows.IID := (4047618262, 19455, 20259, (186, 102, 96, 69, 177, 55, 213, 223 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IEccCurveNamesStatics : aliased constant Windows.IID := (3019870988, 44779, 16542, (183, 212, 155, 149, 41, 90, 174, 207 ));
+   
    type IEccCurveNamesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BrainpoolP160r1
@@ -1512,10 +1515,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IEccCurveNamesStatics : aliased constant Windows.IID := (3019870988, 44779, 16542, (183, 212, 155, 149, 41, 90, 174, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyDerivationAlgorithmNamesStatics : aliased constant Windows.IID := (2070820414, 38098, 18233, (165, 123, 2, 46, 12, 58, 64, 42 ));
+   
    type IKeyDerivationAlgorithmNamesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Pbkdf2Md5
@@ -1622,10 +1625,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyDerivationAlgorithmNamesStatics : aliased constant Windows.IID := (2070820414, 38098, 18233, (165, 123, 2, 46, 12, 58, 64, 42 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyDerivationAlgorithmNamesStatics2 : aliased constant Windows.IID := (1469398955, 24644, 18031, (151, 244, 51, 123, 120, 8, 56, 77 ));
+   
    type IKeyDerivationAlgorithmNamesStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CapiKdfMd5
@@ -1662,10 +1665,10 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyDerivationAlgorithmNamesStatics2 : aliased constant Windows.IID := (1469398955, 24644, 18031, (151, 244, 51, 123, 120, 8, 56, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ICryptographicKey : aliased constant Windows.IID := (2177530011, 39135, 23658, (149, 49, 150, 98, 56, 227, 231, 174 ));
+   
    type IAsyncOperation_ICryptographicKey_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1688,17 +1691,15 @@ package Windows.Security.Cryptography.Core is
       ; RetVal : access Windows.Security.Cryptography.Core.ICryptographicKey
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ICryptographicKey : aliased constant Windows.IID := (2177530011, 39135, 23658, (149, 49, 150, 98, 56, 227, 231, 174 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ICryptographicKey_Interface(Callback : access procedure (asyncInfo : Windows.Security.Cryptography.Core.IAsyncOperation_ICryptographicKey ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ICryptographicKey_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ICryptographicKey : aliased constant Windows.IID := (80364408, 62868, 24038, (165, 85, 48, 79, 98, 203, 79, 175 ));
+   
+   type AsyncOperationCompletedHandler_ICryptographicKey_Interface(Callback : access procedure (asyncInfo : Windows.Security.Cryptography.Core.IAsyncOperation_ICryptographicKey ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICryptographicKey'access) with null record;
    
    function Invoke
    (
@@ -1707,8 +1708,6 @@ package Windows.Security.Cryptography.Core is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_ICryptographicKey : aliased constant Windows.IID := (80364408, 62868, 24038, (165, 85, 48, 79, 98, 203, 79, 175 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -118,6 +118,9 @@ package Windows.Storage.AccessCache is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IItemRemovedEventArgs : aliased constant Windows.IID := (1499954780, 21950, 19558, (186, 102, 94, 174, 167, 157, 38, 49 ));
+   
    type IItemRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RemovedEntry
@@ -126,10 +129,10 @@ package Windows.Storage.AccessCache is
       ; RetVal : access Windows.Storage.AccessCache.AccessListEntry
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IItemRemovedEventArgs : aliased constant Windows.IID := (1499954780, 21950, 19558, (186, 102, 94, 174, 167, 157, 38, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_AccessListEntry : aliased constant Windows.IID := (1119132554, 12308, 23847, (143, 44, 30, 245, 238, 137, 236, 0 ));
+   
    type IVectorView_AccessListEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -164,10 +167,10 @@ package Windows.Storage.AccessCache is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_AccessListEntry : aliased constant Windows.IID := (1119132554, 12308, 23847, (143, 44, 30, 245, 238, 137, 236, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_AccessListEntry : aliased constant Windows.IID := (1234551472, 29547, 22669, (174, 66, 111, 105, 176, 37, 179, 136 ));
+   
    type IIterable_AccessListEntry_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -176,10 +179,10 @@ package Windows.Storage.AccessCache is
       ; RetVal : access Windows.Storage.AccessCache.AccessListEntry
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_AccessListEntry : aliased constant Windows.IID := (1234551472, 29547, 22669, (174, 66, 111, 105, 176, 37, 179, 136 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStorageItemAccessList : aliased constant Windows.IID := (749729453, 56976, 18421, (178, 195, 221, 54, 201, 253, 212, 83 ));
+   
    type IStorageItemAccessList_Interface is interface and Windows.IInspectable_Interface;
    
    function AddOverloadDefaultMetadata
@@ -309,10 +312,10 @@ package Windows.Storage.AccessCache is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorageItemAccessList : aliased constant Windows.IID := (749729453, 56976, 18421, (178, 195, 221, 54, 201, 253, 212, 83 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStorageItemMostRecentlyUsedList : aliased constant Windows.IID := (23214549, 20749, 16670, (140, 241, 195, 209, 239, 250, 76, 51 ));
+   
    type IStorageItemMostRecentlyUsedList_Interface is interface and Windows.IInspectable_Interface;
    
    function add_ItemRemoved
@@ -329,10 +332,10 @@ package Windows.Storage.AccessCache is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorageItemMostRecentlyUsedList : aliased constant Windows.IID := (23214549, 20749, 16670, (140, 241, 195, 209, 239, 250, 76, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStorageItemMostRecentlyUsedList2 : aliased constant Windows.IID := (3662159520, 60813, 18225, (161, 219, 228, 78, 226, 32, 64, 147 ));
+   
    type IStorageItemMostRecentlyUsedList2_Interface is interface and Windows.IInspectable_Interface;
    
    function AddWithMetadataAndVisibility
@@ -354,10 +357,10 @@ package Windows.Storage.AccessCache is
       ; visibility : Windows.Storage.AccessCache.RecentStorageItemVisibility
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorageItemMostRecentlyUsedList2 : aliased constant Windows.IID := (3662159520, 60813, 18225, (161, 219, 228, 78, 226, 32, 64, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStorageApplicationPermissionsStatics : aliased constant Windows.IID := (1133633450, 53299, 18681, (128, 96, 62, 200, 71, 210, 227, 241 ));
+   
    type IStorageApplicationPermissionsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FutureAccessList
@@ -373,17 +376,15 @@ package Windows.Storage.AccessCache is
       ; RetVal : access Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorageApplicationPermissionsStatics : aliased constant Windows.IID := (1133633450, 53299, 18681, (128, 96, 62, 200, 71, 210, 227, 241 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved_Interface(Callback : access procedure (sender : Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList ; args : Windows.Storage.AccessCache.IItemRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved : aliased constant Windows.IID := (43887848, 39121, 23543, (183, 128, 151, 23, 233, 80, 39, 255 ));
+   
+   type TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved_Interface(Callback : access procedure (sender : Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList ; args : Windows.Storage.AccessCache.IItemRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved'access) with null record;
    
    function Invoke
    (
@@ -392,8 +393,6 @@ package Windows.Storage.AccessCache is
       ; args : Windows.Storage.AccessCache.IItemRemovedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved : aliased constant Windows.IID := (43887848, 39121, 23543, (183, 128, 151, 23, 233, 80, 39, 255 ));
    
    ------------------------------------------------------------------------
    -- Classes

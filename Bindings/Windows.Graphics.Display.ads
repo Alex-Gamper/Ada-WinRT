@@ -196,6 +196,9 @@ package Windows.Graphics.Display is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IDisplayInformationStatics : aliased constant Windows.IID := (3332385388, 54354, 17628, (186, 7, 150, 243, 198, 173, 249, 209 ));
+   
    type IDisplayInformationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -233,10 +236,10 @@ package Windows.Graphics.Display is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDisplayInformationStatics : aliased constant Windows.IID := (3332385388, 54354, 17628, (186, 7, 150, 243, 198, 173, 249, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDisplayInformation : aliased constant Windows.IID := (3201372846, 44483, 19913, (174, 101, 133, 31, 77, 125, 71, 153 ));
+   
    type IDisplayInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CurrentOrientation
@@ -354,10 +357,10 @@ package Windows.Graphics.Display is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDisplayInformation : aliased constant Windows.IID := (3201372846, 44483, 19913, (174, 101, 133, 31, 77, 125, 71, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDisplayInformation2 : aliased constant Windows.IID := (1305280545, 64209, 19342, (142, 223, 119, 88, 135, 184, 191, 25 ));
+   
    type IDisplayInformation2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RawPixelsPerViewPixel
@@ -366,10 +369,10 @@ package Windows.Graphics.Display is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDisplayInformation2 : aliased constant Windows.IID := (1305280545, 64209, 19342, (142, 223, 119, 88, 135, 184, 191, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDisplayInformation3 : aliased constant Windows.IID := (3675586845, 3849, 17510, (143, 243, 17, 222, 154, 60, 146, 154 ));
+   
    type IDisplayInformation3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DiagonalSizeInInches
@@ -378,10 +381,10 @@ package Windows.Graphics.Display is
       ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDisplayInformation3 : aliased constant Windows.IID := (3675586845, 3849, 17510, (143, 243, 17, 222, 154, 60, 146, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDisplayInformation4 : aliased constant Windows.IID := (3379744303, 4674, 18110, (181, 54, 225, 170, 254, 158, 122, 207 ));
+   
    type IDisplayInformation4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ScreenWidthInRawPixels
@@ -397,10 +400,10 @@ package Windows.Graphics.Display is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDisplayInformation4 : aliased constant Windows.IID := (3379744303, 4674, 18110, (181, 54, 225, 170, 254, 158, 122, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDisplayPropertiesStatics : aliased constant Windows.IID := (1765272973, 12522, 19949, (130, 113, 69, 83, 255, 2, 246, 138 ));
+   
    type IDisplayPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CurrentOrientation
@@ -533,10 +536,10 @@ package Windows.Graphics.Display is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDisplayPropertiesStatics : aliased constant Windows.IID := (1765272973, 12522, 19949, (130, 113, 69, 83, 255, 2, 246, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBrightnessOverrideStatics : aliased constant Windows.IID := (61323757, 57841, 19048, (161, 31, 148, 106, 216, 206, 83, 147 ));
+   
    type IBrightnessOverrideStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultForSystem
@@ -560,10 +563,10 @@ package Windows.Graphics.Display is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBrightnessOverrideStatics : aliased constant Windows.IID := (61323757, 57841, 19048, (161, 31, 148, 106, 216, 206, 83, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBrightnessOverride : aliased constant Windows.IID := (2529780250, 49475, 17298, (190, 221, 74, 126, 149, 116, 200, 253 ));
+   
    type IBrightnessOverride_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsSupported
@@ -667,17 +670,15 @@ package Windows.Graphics.Display is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBrightnessOverride : aliased constant Windows.IID := (2529780250, 49475, 17298, (190, 221, 74, 126, 149, 116, 200, 253 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type DisplayPropertiesEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DisplayPropertiesEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_DisplayPropertiesEventHandler : aliased constant Windows.IID := (3688729345, 61857, 18129, (158, 227, 84, 59, 204, 153, 89, 128 ));
+   
+   type DisplayPropertiesEventHandler_Interface(Callback : access procedure (sender : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_DisplayPropertiesEventHandler'access) with null record;
    
    function Invoke
    (
@@ -686,12 +687,11 @@ package Windows.Graphics.Display is
    )
    return Windows.HRESULT;
    
-   IID_DisplayPropertiesEventHandler : aliased constant Windows.IID := (3688729345, 61857, 18129, (158, 227, 84, 59, 204, 153, 89, 128 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
+   
+   type TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated'access) with null record;
    
    function Invoke
    (
@@ -701,12 +701,11 @@ package Windows.Graphics.Display is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IDisplayInformationStatics_add_DisplayContentsInvalidated : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IDisplayInformation_add_OrientationChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_OrientationChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IDisplayInformation_add_OrientationChanged : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
+   
+   type TypedEventHandler_IDisplayInformation_add_OrientationChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDisplayInformation_add_OrientationChanged'access) with null record;
    
    function Invoke
    (
@@ -716,12 +715,11 @@ package Windows.Graphics.Display is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IDisplayInformation_add_OrientationChanged : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IDisplayInformation_add_DpiChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_DpiChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IDisplayInformation_add_DpiChanged : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
+   
+   type TypedEventHandler_IDisplayInformation_add_DpiChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDisplayInformation_add_DpiChanged'access) with null record;
    
    function Invoke
    (
@@ -731,12 +729,11 @@ package Windows.Graphics.Display is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IDisplayInformation_add_DpiChanged : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
+   
+   type TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged'access) with null record;
    
    function Invoke
    (
@@ -746,12 +743,11 @@ package Windows.Graphics.Display is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IDisplayInformation_add_StereoEnabledChanged : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IDisplayInformation_add_ColorProfileChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDisplayInformation_add_ColorProfileChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IDisplayInformation_add_ColorProfileChanged : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
+   
+   type TypedEventHandler_IDisplayInformation_add_ColorProfileChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDisplayInformation_add_ColorProfileChanged'access) with null record;
    
    function Invoke
    (
@@ -761,12 +757,11 @@ package Windows.Graphics.Display is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IDisplayInformation_add_ColorProfileChanged : aliased constant Windows.IID := (2261055001, 26550, 20935, (179, 13, 216, 207, 19, 98, 83, 39 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IBrightnessOverride ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged : aliased constant Windows.IID := (2757763406, 26144, 21021, (156, 185, 160, 160, 247, 50, 206, 144 ));
+   
+   type TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IBrightnessOverride ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged'access) with null record;
    
    function Invoke
    (
@@ -776,12 +771,11 @@ package Windows.Graphics.Display is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IBrightnessOverride_add_IsSupportedChanged : aliased constant Windows.IID := (2757763406, 26144, 21021, (156, 185, 160, 160, 247, 50, 206, 144 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IBrightnessOverride_add_IsOverrideActiveChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IBrightnessOverride ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBrightnessOverride_add_IsOverrideActiveChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IBrightnessOverride_add_IsOverrideActiveChanged : aliased constant Windows.IID := (2757763406, 26144, 21021, (156, 185, 160, 160, 247, 50, 206, 144 ));
+   
+   type TypedEventHandler_IBrightnessOverride_add_IsOverrideActiveChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IBrightnessOverride ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBrightnessOverride_add_IsOverrideActiveChanged'access) with null record;
    
    function Invoke
    (
@@ -791,12 +785,11 @@ package Windows.Graphics.Display is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IBrightnessOverride_add_IsOverrideActiveChanged : aliased constant Windows.IID := (2757763406, 26144, 21021, (156, 185, 160, 160, 247, 50, 206, 144 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IBrightnessOverride ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged : aliased constant Windows.IID := (2757763406, 26144, 21021, (156, 185, 160, 160, 247, 50, 206, 144 ));
+   
+   type TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.IBrightnessOverride ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged'access) with null record;
    
    function Invoke
    (
@@ -805,8 +798,6 @@ package Windows.Graphics.Display is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IBrightnessOverride_add_BrightnessLevelChanged : aliased constant Windows.IID := (2757763406, 26144, 21021, (156, 185, 160, 160, 247, 50, 206, 144 ));
    
    ------------------------------------------------------------------------
    -- Classes

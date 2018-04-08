@@ -186,6 +186,9 @@ package Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISourceChangeRequestedEventArgs : aliased constant Windows.IID := (4215224982, 31398, 19083, (134, 231, 84, 246, 198, 211, 79, 100 ));
+   
    type ISourceChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Stream
@@ -257,10 +260,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISourceChangeRequestedEventArgs : aliased constant Windows.IID := (4215224982, 31398, 19083, (134, 231, 84, 246, 198, 211, 79, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlaybackRateChangeRequestedEventArgs : aliased constant Windows.IID := (257319342, 11400, 19658, (133, 64, 213, 134, 9, 93, 19, 165 ));
+   
    type IPlaybackRateChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Rate
@@ -269,10 +272,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlaybackRateChangeRequestedEventArgs : aliased constant Windows.IID := (257319342, 11400, 19658, (133, 64, 213, 134, 9, 93, 19, 165 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICurrentTimeChangeRequestedEventArgs : aliased constant Windows.IID := (2574324516, 60871, 19445, (145, 246, 60, 134, 39, 219, 89, 229 ));
+   
    type ICurrentTimeChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Time
@@ -281,10 +284,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICurrentTimeChangeRequestedEventArgs : aliased constant Windows.IID := (2574324516, 60871, 19445, (145, 246, 60, 134, 39, 219, 89, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMuteChangeRequestedEventArgs : aliased constant Windows.IID := (3837064694, 44831, 20254, (180, 55, 125, 163, 36, 0, 225, 212 ));
+   
    type IMuteChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Mute
@@ -293,10 +296,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMuteChangeRequestedEventArgs : aliased constant Windows.IID := (3837064694, 44831, 20254, (180, 55, 125, 163, 36, 0, 225, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVolumeChangeRequestedEventArgs : aliased constant Windows.IID := (1862430044, 53109, 19499, (145, 62, 109, 124, 108, 50, 145, 121 ));
+   
    type IVolumeChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Volume
@@ -305,10 +308,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVolumeChangeRequestedEventArgs : aliased constant Windows.IID := (1862430044, 53109, 19499, (145, 62, 109, 124, 108, 50, 145, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToReceiver : aliased constant Windows.IID := (2887110471, 41314, 19110, (175, 27, 58, 163, 95, 59, 144, 105 ));
+   
    type IPlayToReceiver_Interface is interface and Windows.IInspectable_Interface;
    
    function add_PlayRequested
@@ -599,10 +602,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToReceiver : aliased constant Windows.IID := (2887110471, 41314, 19110, (175, 27, 58, 163, 95, 59, 144, 105 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToSource : aliased constant Windows.IID := (2131986952, 64439, 19209, (131, 86, 170, 95, 78, 51, 92, 49 ));
+   
    type IPlayToSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Connection
@@ -631,10 +634,10 @@ package Windows.Media.PlayTo is
       This       : access IPlayToSource_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToSource : aliased constant Windows.IID := (2131986952, 64439, 19209, (131, 86, 170, 95, 78, 51, 92, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToSourceWithPreferredSourceUri : aliased constant Windows.IID := (2863813611, 13057, 19908, (175, 186, 178, 242, 237, 150, 53, 160 ));
+   
    type IPlayToSourceWithPreferredSourceUri_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PreferredSourceUri
@@ -650,10 +653,10 @@ package Windows.Media.PlayTo is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToSourceWithPreferredSourceUri : aliased constant Windows.IID := (2863813611, 13057, 19908, (175, 186, 178, 242, 237, 150, 53, 160 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToConnectionStateChangedEventArgs : aliased constant Windows.IID := (1757721871, 3104, 18816, (134, 2, 88, 198, 34, 56, 212, 35 ));
+   
    type IPlayToConnectionStateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PreviousState
@@ -669,10 +672,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Media.PlayTo.PlayToConnectionState
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToConnectionStateChangedEventArgs : aliased constant Windows.IID := (1757721871, 3104, 18816, (134, 2, 88, 198, 34, 56, 212, 35 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToConnectionTransferredEventArgs : aliased constant Windows.IID := (4209187130, 1667, 18393, (141, 240, 24, 203, 180, 137, 132, 216 ));
+   
    type IPlayToConnectionTransferredEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PreviousSource
@@ -688,10 +691,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Media.PlayTo.IPlayToSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToConnectionTransferredEventArgs : aliased constant Windows.IID := (4209187130, 1667, 18393, (141, 240, 24, 203, 180, 137, 132, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToConnectionErrorEventArgs : aliased constant Windows.IID := (3210653094, 35046, 17503, (157, 64, 217, 185, 248, 147, 152, 150 ));
+   
    type IPlayToConnectionErrorEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Code
@@ -707,10 +710,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToConnectionErrorEventArgs : aliased constant Windows.IID := (3210653094, 35046, 17503, (157, 64, 217, 185, 248, 147, 152, 150 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToConnection : aliased constant Windows.IID := (288341960, 62005, 20446, (141, 65, 155, 242, 124, 158, 154, 64 ));
+   
    type IPlayToConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_State
@@ -764,10 +767,10 @@ package Windows.Media.PlayTo is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToConnection : aliased constant Windows.IID := (288341960, 62005, 20446, (141, 65, 155, 242, 124, 158, 154, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToSourceSelectedEventArgs : aliased constant Windows.IID := (211649809, 20994, 19915, (140, 103, 171, 218, 18, 187, 60, 18 ));
+   
    type IPlayToSourceSelectedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FriendlyName
@@ -804,10 +807,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToSourceSelectedEventArgs : aliased constant Windows.IID := (211649809, 20994, 19915, (140, 103, 171, 218, 18, 187, 60, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToSourceDeferral : aliased constant Windows.IID := (1090554141, 10126, 20265, (133, 155, 169, 229, 1, 5, 62, 125 ));
+   
    type IPlayToSourceDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -815,10 +818,10 @@ package Windows.Media.PlayTo is
       This       : access IPlayToSourceDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToSourceDeferral : aliased constant Windows.IID := (1090554141, 10126, 20265, (133, 155, 169, 229, 1, 5, 62, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToSourceRequest : aliased constant Windows.IID := (4166534757, 25844, 17568, (172, 13, 70, 141, 43, 143, 218, 131 ));
+   
    type IPlayToSourceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Deadline
@@ -848,10 +851,10 @@ package Windows.Media.PlayTo is
       ; value : Windows.Media.PlayTo.IPlayToSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToSourceRequest : aliased constant Windows.IID := (4166534757, 25844, 17568, (172, 13, 70, 141, 43, 143, 218, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToSourceRequestedEventArgs : aliased constant Windows.IID := (3318596400, 10719, 20166, (157, 169, 159, 189, 252, 252, 27, 62 ));
+   
    type IPlayToSourceRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SourceRequest
@@ -860,10 +863,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Media.PlayTo.IPlayToSourceRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToSourceRequestedEventArgs : aliased constant Windows.IID := (3318596400, 10719, 20166, (157, 169, 159, 189, 252, 252, 27, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToManager : aliased constant Windows.IID := (4117373038, 7031, 17135, (143, 13, 185, 73, 248, 217, 178, 96 ));
+   
    type IPlayToManager_Interface is interface and Windows.IInspectable_Interface;
    
    function add_SourceRequested
@@ -909,10 +912,10 @@ package Windows.Media.PlayTo is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToManager : aliased constant Windows.IID := (4117373038, 7031, 17135, (143, 13, 185, 73, 248, 217, 178, 96 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlayToManagerStatics : aliased constant Windows.IID := (1692838023, 14722, 20283, (186, 32, 97, 85, 228, 53, 50, 91 ));
+   
    type IPlayToManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -927,17 +930,15 @@ package Windows.Media.PlayTo is
       This       : access IPlayToManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlayToManagerStatics : aliased constant Windows.IID := (1692838023, 14722, 20283, (186, 32, 97, 85, 228, 53, 50, 91 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToReceiver_add_PlayRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_PlayRequested'access) with null record;
    
    function Invoke
    (
@@ -947,12 +948,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToReceiver_add_PlayRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToReceiver_add_PauseRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_PauseRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_PauseRequested'access) with null record;
    
    function Invoke
    (
@@ -962,12 +962,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToReceiver_add_PauseRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ISourceChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested : aliased constant Windows.IID := (342282356, 47028, 22548, (178, 215, 132, 124, 90, 231, 216, 125 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ISourceChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested'access) with null record;
    
    function Invoke
    (
@@ -977,12 +976,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToReceiver_add_SourceChangeRequested : aliased constant Windows.IID := (342282356, 47028, 22548, (178, 215, 132, 124, 90, 231, 216, 125 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested : aliased constant Windows.IID := (3881386902, 22723, 21270, (188, 79, 29, 19, 234, 219, 239, 253 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested'access) with null record;
    
    function Invoke
    (
@@ -992,12 +990,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToReceiver_add_PlaybackRateChangeRequested : aliased constant Windows.IID := (3881386902, 22723, 21270, (188, 79, 29, 19, 234, 219, 239, 253 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested : aliased constant Windows.IID := (1118560159, 5286, 23583, (131, 155, 134, 2, 149, 5, 177, 208 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested'access) with null record;
    
    function Invoke
    (
@@ -1007,12 +1004,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToReceiver_add_CurrentTimeChangeRequested : aliased constant Windows.IID := (1118560159, 5286, 23583, (131, 155, 134, 2, 149, 5, 177, 208 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IMuteChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested : aliased constant Windows.IID := (108318597, 46845, 22822, (155, 114, 53, 254, 81, 122, 63, 68 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IMuteChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested'access) with null record;
    
    function Invoke
    (
@@ -1022,12 +1018,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToReceiver_add_MuteChangeRequested : aliased constant Windows.IID := (108318597, 46845, 22822, (155, 114, 53, 254, 81, 122, 63, 68 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested : aliased constant Windows.IID := (2621406340, 39757, 23772, (129, 68, 28, 47, 97, 123, 110, 222 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested'access) with null record;
    
    function Invoke
    (
@@ -1037,12 +1032,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToReceiver_add_VolumeChangeRequested : aliased constant Windows.IID := (2621406340, 39757, 23772, (129, 68, 28, 47, 97, 123, 110, 222 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested'access) with null record;
    
    function Invoke
    (
@@ -1052,12 +1046,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToReceiver_add_TimeUpdateRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToReceiver_add_StopRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
+   
+   type TypedEventHandler_IPlayToReceiver_add_StopRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToReceiver ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToReceiver_add_StopRequested'access) with null record;
    
    function Invoke
    (
@@ -1067,12 +1060,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToReceiver_add_StopRequested : aliased constant Windows.IID := (2055846338, 30932, 22630, (136, 241, 76, 220, 10, 14, 117, 184 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToConnection_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToConnection_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToConnection_add_StateChanged : aliased constant Windows.IID := (3740761116, 37731, 23367, (185, 248, 162, 54, 197, 13, 55, 46 ));
+   
+   type TypedEventHandler_IPlayToConnection_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToConnection_add_StateChanged'access) with null record;
    
    function Invoke
    (
@@ -1082,12 +1074,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToConnection_add_StateChanged : aliased constant Windows.IID := (3740761116, 37731, 23367, (185, 248, 162, 54, 197, 13, 55, 46 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToConnection_add_Transferred_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionTransferredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToConnection_add_Transferred_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToConnection_add_Transferred : aliased constant Windows.IID := (1920526322, 864, 21873, (140, 62, 234, 3, 39, 103, 196, 115 ));
+   
+   type TypedEventHandler_IPlayToConnection_add_Transferred_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionTransferredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToConnection_add_Transferred'access) with null record;
    
    function Invoke
    (
@@ -1097,12 +1088,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToConnection_add_Transferred : aliased constant Windows.IID := (1920526322, 864, 21873, (140, 62, 234, 3, 39, 103, 196, 115 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToConnection_add_Error_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToConnection_add_Error_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToConnection_add_Error : aliased constant Windows.IID := (2405015357, 13909, 22931, (161, 25, 116, 30, 196, 238, 110, 66 ));
+   
+   type TypedEventHandler_IPlayToConnection_add_Error_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToConnection ; args : Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToConnection_add_Error'access) with null record;
    
    function Invoke
    (
@@ -1112,12 +1102,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToConnection_add_Error : aliased constant Windows.IID := (2405015357, 13909, 22931, (161, 25, 116, 30, 196, 238, 110, 66 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToManager_add_SourceRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToManager ; args : Windows.Media.PlayTo.IPlayToSourceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToManager_add_SourceRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToManager_add_SourceRequested : aliased constant Windows.IID := (1791620004, 14774, 20952, (142, 8, 241, 55, 144, 142, 146, 47 ));
+   
+   type TypedEventHandler_IPlayToManager_add_SourceRequested_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToManager ; args : Windows.Media.PlayTo.IPlayToSourceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToManager_add_SourceRequested'access) with null record;
    
    function Invoke
    (
@@ -1127,12 +1116,11 @@ package Windows.Media.PlayTo is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IPlayToManager_add_SourceRequested : aliased constant Windows.IID := (1791620004, 14774, 20952, (142, 8, 241, 55, 144, 142, 146, 47 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IPlayToManager_add_SourceSelected_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToManager ; args : Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IPlayToManager_add_SourceSelected_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IPlayToManager_add_SourceSelected : aliased constant Windows.IID := (3213312794, 29777, 21157, (165, 226, 191, 175, 64, 142, 12, 136 ));
+   
+   type TypedEventHandler_IPlayToManager_add_SourceSelected_Interface(Callback : access procedure (sender : Windows.Media.PlayTo.IPlayToManager ; args : Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPlayToManager_add_SourceSelected'access) with null record;
    
    function Invoke
    (
@@ -1141,8 +1129,6 @@ package Windows.Media.PlayTo is
       ; args : Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IPlayToManager_add_SourceSelected : aliased constant Windows.IID := (3213312794, 29777, 21157, (165, 226, 191, 175, 64, 142, 12, 136 ));
    
    ------------------------------------------------------------------------
    -- Classes

@@ -727,6 +727,9 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMapStyleSheetEntriesStatics : aliased constant Windows.IID := (3378733893, 61210, 16804, (167, 87, 189, 79, 67, 225, 228, 209 ));
+   
    type IMapStyleSheetEntriesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Area
@@ -1176,10 +1179,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapStyleSheetEntriesStatics : aliased constant Windows.IID := (3378733893, 61210, 16804, (167, 87, 189, 79, 67, 225, 228, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapStyleSheetEntryStatesStatics : aliased constant Windows.IID := (598496562, 34413, 19450, (180, 129, 57, 190, 161, 222, 53, 6 ));
+   
    type IMapStyleSheetEntryStatesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Disabled
@@ -1202,10 +1205,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapStyleSheetEntryStatesStatics : aliased constant Windows.IID := (598496562, 34413, 19450, (180, 129, 57, 190, 161, 222, 53, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapActualCameraChangedEventArgs : aliased constant Windows.IID := (3667951834, 47092, 16940, (166, 24, 187, 170, 124, 29, 129, 76 ));
+   
    type IMapActualCameraChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Camera
@@ -1214,10 +1217,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapCamera
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapActualCameraChangedEventArgs : aliased constant Windows.IID := (3667951834, 47092, 16940, (166, 24, 187, 170, 124, 29, 129, 76 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapActualCameraChangedEventArgs2 : aliased constant Windows.IID := (2074396645, 4316, 17754, (157, 4, 29, 114, 251, 109, 155, 147 ));
+   
    type IMapActualCameraChangedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeReason
@@ -1226,10 +1229,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.MapCameraChangeReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapActualCameraChangedEventArgs2 : aliased constant Windows.IID := (2074396645, 4316, 17754, (157, 4, 29, 114, 251, 109, 155, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapActualCameraChangingEventArgs : aliased constant Windows.IID := (1796062934, 37879, 18050, (141, 229, 164, 122, 28, 199, 169, 69 ));
+   
    type IMapActualCameraChangingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Camera
@@ -1238,10 +1241,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapCamera
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapActualCameraChangingEventArgs : aliased constant Windows.IID := (1796062934, 37879, 18050, (141, 229, 164, 122, 28, 199, 169, 69 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapActualCameraChangingEventArgs2 : aliased constant Windows.IID := (4068898967, 16556, 20106, (169, 39, 81, 15, 56, 70, 164, 126 ));
+   
    type IMapActualCameraChangingEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeReason
@@ -1250,10 +1253,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.MapCameraChangeReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapActualCameraChangingEventArgs2 : aliased constant Windows.IID := (4068898967, 16556, 20106, (169, 39, 81, 15, 56, 70, 164, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapContextRequestedEventArgs : aliased constant Windows.IID := (4258378787, 51553, 19954, (187, 87, 130, 238, 15, 11, 181, 145 ));
+   
    type IMapContextRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1276,15 +1279,15 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IVectorView_IMapElement -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapContextRequestedEventArgs : aliased constant Windows.IID := (4258378787, 51553, 19954, (187, 87, 130, 238, 15, 11, 181, 145 ));
-   
    ------------------------------------------------------------------------
-   type IMapCustomExperienceChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMapCustomExperienceChangedEventArgs : aliased constant Windows.IID := (3118922651, 36801, 16450, (172, 52, 166, 27, 56, 187, 117, 20 ));
    
+   type IMapCustomExperienceChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMapElementClickEventArgs : aliased constant Windows.IID := (1075218961, 53376, 17689, (153, 161, 49, 73, 251, 137, 153, 208 ));
+   
    type IMapElementClickEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1307,10 +1310,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IVector_IMapElement -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementClickEventArgs : aliased constant Windows.IID := (1075218961, 53376, 17689, (153, 161, 49, 73, 251, 137, 153, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementPointerEnteredEventArgs : aliased constant Windows.IID := (2877676878, 37335, 19249, (143, 10, 211, 144, 199, 211, 162, 239 ));
+   
    type IMapElementPointerEnteredEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1333,10 +1336,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementPointerEnteredEventArgs : aliased constant Windows.IID := (2877676878, 37335, 19249, (143, 10, 211, 144, 199, 211, 162, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementPointerExitedEventArgs : aliased constant Windows.IID := (3248773881, 24777, 18041, (145, 25, 32, 171, 199, 93, 147, 31 ));
+   
    type IMapElementPointerExitedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1359,10 +1362,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementPointerExitedEventArgs : aliased constant Windows.IID := (3248773881, 24777, 18041, (145, 25, 32, 171, 199, 93, 147, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementsLayerClickEventArgs : aliased constant Windows.IID := (749195110, 44827, 19461, (140, 133, 247, 74, 227, 212, 103, 127 ));
+   
    type IMapElementsLayerClickEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1385,10 +1388,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IVector_IMapElement -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementsLayerClickEventArgs : aliased constant Windows.IID := (749195110, 44827, 19461, (140, 133, 247, 74, 227, 212, 103, 127 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementsLayerContextRequestedEventArgs : aliased constant Windows.IID := (3662008499, 31246, 18264, (128, 139, 58, 99, 118, 39, 235, 13 ));
+   
    type IMapElementsLayerContextRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1411,10 +1414,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IVectorView_IMapElement -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementsLayerContextRequestedEventArgs : aliased constant Windows.IID := (3662008499, 31246, 18264, (128, 139, 58, 99, 118, 39, 235, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementsLayerPointerEnteredEventArgs : aliased constant Windows.IID := (1971306546, 18068, 17412, (140, 137, 52, 139, 107, 118, 197, 230 ));
+   
    type IMapElementsLayerPointerEnteredEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1437,10 +1440,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementsLayerPointerEnteredEventArgs : aliased constant Windows.IID := (1971306546, 18068, 17412, (140, 137, 52, 139, 107, 118, 197, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementsLayerPointerExitedEventArgs : aliased constant Windows.IID := (2465449645, 1005, 19513, (175, 32, 42, 7, 238, 28, 206, 166 ));
+   
    type IMapElementsLayerPointerExitedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1463,10 +1466,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementsLayerPointerExitedEventArgs : aliased constant Windows.IID := (2465449645, 1005, 19513, (175, 32, 42, 7, 238, 28, 206, 166 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRightTappedEventArgs : aliased constant Windows.IID := (546582897, 28648, 16550, (173, 14, 41, 115, 121, 181, 117, 167 ));
+   
    type IMapRightTappedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1482,10 +1485,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Devices.Geolocation.IGeopoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRightTappedEventArgs : aliased constant Windows.IID := (546582897, 28648, 16550, (173, 14, 41, 115, 121, 181, 117, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTargetCameraChangedEventArgs : aliased constant Windows.IID := (3689940082, 59731, 20392, (151, 208, 234, 134, 53, 144, 87, 207 ));
+   
    type IMapTargetCameraChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Camera
@@ -1494,10 +1497,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapCamera
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTargetCameraChangedEventArgs : aliased constant Windows.IID := (3689940082, 59731, 20392, (151, 208, 234, 134, 53, 144, 87, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTargetCameraChangedEventArgs2 : aliased constant Windows.IID := (2545988402, 62134, 17931, (141, 145, 172, 2, 10, 35, 131, 221 ));
+   
    type IMapTargetCameraChangedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeReason
@@ -1506,10 +1509,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.MapCameraChangeReason
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTargetCameraChangedEventArgs2 : aliased constant Windows.IID := (2545988402, 62134, 17931, (141, 145, 172, 2, 10, 35, 131, 221 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTileBitmapRequest : aliased constant Windows.IID := (1181958076, 55453, 18219, (181, 246, 215, 6, 107, 5, 132, 244 ));
+   
    type IMapTileBitmapRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PixelData
@@ -1532,10 +1535,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileBitmapRequest : aliased constant Windows.IID := (1181958076, 55453, 18219, (181, 246, 215, 6, 107, 5, 132, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTileBitmapRequestDeferral : aliased constant Windows.IID := (4265018690, 42156, 20218, (150, 101, 4, 144, 176, 202, 253, 210 ));
+   
    type IMapTileBitmapRequestDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -1543,10 +1546,10 @@ package Windows.UI.Xaml.Controls.Maps is
       This       : access IMapTileBitmapRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileBitmapRequestDeferral : aliased constant Windows.IID := (4265018690, 42156, 20218, (150, 101, 4, 144, 176, 202, 253, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTileBitmapRequestedEventArgs : aliased constant Windows.IID := (863987997, 39682, 19106, (139, 30, 204, 77, 145, 113, 155, 243 ));
+   
    type IMapTileBitmapRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_X
@@ -1576,10 +1579,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileBitmapRequestedEventArgs : aliased constant Windows.IID := (863987997, 39682, 19106, (139, 30, 204, 77, 145, 113, 155, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTileUriRequest : aliased constant Windows.IID := (390079285, 12583, 17848, (135, 167, 153, 248, 125, 78, 39, 69 ));
+   
    type IMapTileUriRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Uri
@@ -1602,10 +1605,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileUriRequest : aliased constant Windows.IID := (390079285, 12583, 17848, (135, 167, 153, 248, 125, 78, 39, 69 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTileUriRequestDeferral : aliased constant Windows.IID := (3239554528, 48958, 19537, (143, 170, 75, 89, 60, 246, 142, 178 ));
+   
    type IMapTileUriRequestDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -1613,10 +1616,10 @@ package Windows.UI.Xaml.Controls.Maps is
       This       : access IMapTileUriRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileUriRequestDeferral : aliased constant Windows.IID := (3239554528, 48958, 19537, (143, 170, 75, 89, 60, 246, 142, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTileUriRequestedEventArgs : aliased constant Windows.IID := (3524557635, 7103, 19352, (141, 211, 183, 131, 78, 64, 126, 13 ));
+   
    type IMapTileUriRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_X
@@ -1646,10 +1649,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileUriRequestedEventArgs : aliased constant Windows.IID := (3524557635, 7103, 19352, (141, 211, 183, 131, 78, 64, 126, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapCamera : aliased constant Windows.IID := (1403434531, 49400, 19851, (173, 30, 165, 149, 152, 234, 132, 11 ));
+   
    type IMapCamera_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Location
@@ -1721,10 +1724,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapCamera : aliased constant Windows.IID := (1403434531, 49400, 19851, (173, 30, 165, 149, 152, 234, 132, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapCameraFactory : aliased constant Windows.IID := (3929739030, 33711, 19150, (142, 113, 16, 173, 159, 30, 158, 127 ));
+   
    type IMapCameraFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithLocation
@@ -1765,15 +1768,15 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapCamera
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapCameraFactory : aliased constant Windows.IID := (3929739030, 33711, 19150, (142, 113, 16, 173, 159, 30, 158, 127 ));
-   
    ------------------------------------------------------------------------
-   type IMapCustomExperience_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMapCustomExperience : aliased constant Windows.IID := (1683564646, 5283, 20063, (136, 131, 142, 156, 80, 14, 238, 222 ));
    
+   type IMapCustomExperience_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMapCustomExperienceFactory : aliased constant Windows.IID := (2051030965, 41393, 20095, (146, 30, 62, 107, 141, 142, 190, 214 ));
+   
    type IMapCustomExperienceFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1784,10 +1787,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapCustomExperience
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapCustomExperienceFactory : aliased constant Windows.IID := (2051030965, 41393, 20095, (146, 30, 62, 107, 141, 142, 190, 214 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElement : aliased constant Windows.IID := (3592406239, 45637, 18418, (154, 194, 67, 192, 88, 177, 201, 3 ));
+   
    type IMapElement_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ZIndex
@@ -1817,10 +1820,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElement : aliased constant Windows.IID := (3592406239, 45637, 18418, (154, 194, 67, 192, 88, 177, 201, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementStatics : aliased constant Windows.IID := (3905363186, 49135, 19273, (142, 153, 65, 181, 227, 120, 159, 210 ));
+   
    type IMapElementStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ZIndexProperty
@@ -1836,10 +1839,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementStatics : aliased constant Windows.IID := (3905363186, 49135, 19273, (142, 153, 65, 181, 227, 120, 159, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementFactory : aliased constant Windows.IID := (1244712967, 3030, 18341, (134, 11, 126, 124, 245, 240, 197, 115 ));
+   
    type IMapElementFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1850,10 +1853,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementFactory : aliased constant Windows.IID := (1244712967, 3030, 18341, (134, 11, 126, 124, 245, 240, 197, 115 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElement2 : aliased constant Windows.IID := (1712976481, 64422, 18788, (167, 255, 241, 175, 99, 171, 156, 176 ));
+   
    type IMapElement2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapTabIndex
@@ -1869,10 +1872,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElement2 : aliased constant Windows.IID := (1712976481, 64422, 18788, (167, 255, 241, 175, 99, 171, 156, 176 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementStatics2 : aliased constant Windows.IID := (2616667952, 33022, 20272, (188, 193, 250, 137, 64, 80, 246, 118 ));
+   
    type IMapElementStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapTabIndexProperty
@@ -1881,10 +1884,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementStatics2 : aliased constant Windows.IID := (2616667952, 33022, 20272, (188, 193, 250, 137, 64, 80, 246, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElement3 : aliased constant Windows.IID := (334478425, 17901, 18612, (147, 173, 227, 247, 143, 140, 242, 24 ));
+   
    type IMapElement3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapStyleSheetEntry
@@ -1928,10 +1931,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElement3 : aliased constant Windows.IID := (334478425, 17901, 18612, (147, 173, 227, 247, 143, 140, 242, 24 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementStatics3 : aliased constant Windows.IID := (3776899375, 38722, 18858, (170, 216, 46, 70, 107, 255, 55, 150 ));
+   
    type IMapElementStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapStyleSheetEntryProperty
@@ -1954,10 +1957,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementStatics3 : aliased constant Windows.IID := (3776899375, 38722, 18858, (170, 216, 46, 70, 107, 255, 55, 150 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapInputEventArgs : aliased constant Windows.IID := (2680488864, 43170, 17300, (146, 233, 34, 71, 118, 79, 47, 73 ));
+   
    type IMapInputEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -1973,10 +1976,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Devices.Geolocation.IGeopoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapInputEventArgs : aliased constant Windows.IID := (2680488864, 43170, 17300, (146, 233, 34, 71, 118, 79, 47, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapItemsControl : aliased constant Windows.IID := (2495792339, 45877, 17093, (182, 96, 230, 160, 126, 195, 189, 220 ));
+   
    type IMapItemsControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ItemsSource
@@ -2013,10 +2016,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.UI.Xaml.IDataTemplate
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapItemsControl : aliased constant Windows.IID := (2495792339, 45877, 17093, (182, 96, 230, 160, 126, 195, 189, 220 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapItemsControlStatics : aliased constant Windows.IID := (866671047, 30875, 16988, (138, 10, 50, 56, 88, 150, 203, 74 ));
+   
    type IMapItemsControlStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ItemsSourceProperty
@@ -2039,10 +2042,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapItemsControlStatics : aliased constant Windows.IID := (866671047, 30875, 16988, (138, 10, 50, 56, 88, 150, 203, 74 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapLayer : aliased constant Windows.IID := (1829763521, 41293, 20375, (143, 87, 70, 113, 91, 87, 104, 58 ));
+   
    type IMapLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapTabIndex
@@ -2086,10 +2089,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapLayer : aliased constant Windows.IID := (1829763521, 41293, 20375, (143, 87, 70, 113, 91, 87, 104, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapLayerStatics : aliased constant Windows.IID := (2628035179, 23993, 20236, (189, 213, 177, 191, 253, 204, 233, 70 ));
+   
    type IMapLayerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapTabIndexProperty
@@ -2112,10 +2115,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapLayerStatics : aliased constant Windows.IID := (2628035179, 23993, 20236, (189, 213, 177, 191, 253, 204, 233, 70 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapLayerFactory : aliased constant Windows.IID := (3760857607, 57059, 18376, (152, 37, 189, 2, 156, 87, 82, 247 ));
+   
    type IMapLayerFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2126,15 +2129,15 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapLayer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapLayerFactory : aliased constant Windows.IID := (3760857607, 57059, 18376, (152, 37, 189, 2, 156, 87, 82, 247 ));
-   
    ------------------------------------------------------------------------
-   type IMapModel3D_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMapModel3D : aliased constant Windows.IID := (4173676961, 51751, 18792, (162, 191, 156, 32, 240, 106, 4, 104 ));
    
+   type IMapModel3D_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMapModel3DStatics : aliased constant Windows.IID := (1211409536, 36438, 19215, (135, 45, 126, 173, 16, 49, 135, 205 ));
+   
    type IMapModel3DStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFrom3MFAsync
@@ -2153,10 +2156,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IMapModel3D -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapModel3DStatics : aliased constant Windows.IID := (1211409536, 36438, 19215, (135, 45, 126, 173, 16, 49, 135, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapModel3DFactory : aliased constant Windows.IID := (3749645260, 22538, 18827, (147, 155, 1, 25, 169, 218, 219, 158 ));
+   
    type IMapModel3DFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2167,10 +2170,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapModel3D
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapModel3DFactory : aliased constant Windows.IID := (3749645260, 22538, 18827, (147, 155, 1, 25, 169, 218, 219, 158 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteView : aliased constant Windows.IID := (1947119301, 47820, 16865, (166, 126, 221, 101, 19, 131, 32, 73 ));
+   
    type IMapRouteView_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RouteColor
@@ -2207,10 +2210,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Services.Maps.IMapRoute
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteView : aliased constant Windows.IID := (1947119301, 47820, 16865, (166, 126, 221, 101, 19, 131, 32, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapRouteViewFactory : aliased constant Windows.IID := (4035161567, 102, 17960, (130, 254, 234, 120, 194, 60, 236, 30 ));
+   
    type IMapRouteViewFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithMapRoute
@@ -2222,10 +2225,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapRouteView
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapRouteViewFactory : aliased constant Windows.IID := (4035161567, 102, 17960, (130, 254, 234, 120, 194, 60, 236, 30 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapScene : aliased constant Windows.IID := (2344226985, 20711, 18476, (151, 137, 198, 136, 177, 120, 172, 36 ));
+   
    type IMapScene_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TargetCamera
@@ -2249,10 +2252,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapScene : aliased constant Windows.IID := (2344226985, 20711, 18476, (151, 137, 198, 136, 177, 120, 172, 36 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapSceneStatics : aliased constant Windows.IID := (65318252, 34540, 17625, (149, 151, 251, 117, 183, 222, 186, 10 ));
+   
    type IMapSceneStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFromBoundingBox
@@ -2336,15 +2339,15 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapScene
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapSceneStatics : aliased constant Windows.IID := (65318252, 34540, 17625, (149, 151, 251, 117, 183, 222, 186, 10 ));
-   
    ------------------------------------------------------------------------
-   type IMapStyleSheet_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMapStyleSheet : aliased constant Windows.IID := (2924786367, 35217, 17133, (141, 88, 32, 71, 61, 238, 222, 29 ));
    
+   type IMapStyleSheet_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMapStyleSheetStatics : aliased constant Windows.IID := (2881290413, 2588, 17205, (130, 244, 97, 217, 54, 170, 25, 125 ));
+   
    type IMapStyleSheetStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Aerial
@@ -2413,15 +2416,15 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapStyleSheetStatics : aliased constant Windows.IID := (2881290413, 2588, 17205, (130, 244, 97, 217, 54, 170, 25, 125 ));
-   
    ------------------------------------------------------------------------
-   type IMapTileDataSource_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IMapTileDataSource : aliased constant Windows.IID := (3225263966, 48671, 19561, (153, 105, 121, 70, 122, 81, 60, 56 ));
    
+   type IMapTileDataSource_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IMapTileDataSourceFactory : aliased constant Windows.IID := (2744258493, 58438, 17992, (167, 77, 253, 44, 93, 85, 124, 6 ));
+   
    type IMapTileDataSourceFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2432,10 +2435,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileDataSourceFactory : aliased constant Windows.IID := (2744258493, 58438, 17992, (167, 77, 253, 44, 93, 85, 124, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTileSource : aliased constant Windows.IID := (2292674126, 12255, 17767, (146, 85, 17, 0, 81, 156, 141, 98 ));
+   
    type IMapTileSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DataSource
@@ -2591,10 +2594,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileSource : aliased constant Windows.IID := (2292674126, 12255, 17767, (146, 85, 17, 0, 81, 156, 141, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTileSourceStatics : aliased constant Windows.IID := (2482817340, 28725, 17923, (153, 177, 230, 89, 146, 27, 96, 147 ));
+   
    type IMapTileSourceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DataSourceProperty
@@ -2673,10 +2676,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileSourceStatics : aliased constant Windows.IID := (2482817340, 28725, 17923, (153, 177, 230, 89, 146, 27, 96, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapTileSourceFactory : aliased constant Windows.IID := (3447685407, 30714, 18475, (157, 52, 113, 211, 29, 70, 92, 72 ));
+   
    type IMapTileSourceFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2733,10 +2736,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapTileSourceFactory : aliased constant Windows.IID := (3447685407, 30714, 18475, (157, 52, 113, 211, 29, 70, 92, 72 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStreetsidePanorama : aliased constant Windows.IID := (1876955096, 44384, 18020, (181, 57, 177, 6, 159, 22, 197, 175 ));
+   
    type IStreetsidePanorama_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Location
@@ -2745,10 +2748,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Devices.Geolocation.IGeopoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStreetsidePanorama : aliased constant Windows.IID := (1876955096, 44384, 18020, (181, 57, 177, 6, 159, 22, 197, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStreetsidePanoramaStatics : aliased constant Windows.IID := (3551821673, 21683, 20165, (178, 160, 79, 130, 4, 87, 101, 7 ));
+   
    type IStreetsidePanoramaStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FindNearbyWithLocationAsync
@@ -2767,10 +2770,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStreetsidePanoramaStatics : aliased constant Windows.IID := (3551821673, 21683, 20165, (178, 160, 79, 130, 4, 87, 101, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICustomMapTileDataSource : aliased constant Windows.IID := (1708800074, 11697, 19425, (177, 85, 61, 12, 158, 207, 71, 153 ));
+   
    type ICustomMapTileDataSource_Interface is interface and Windows.IInspectable_Interface;
    
    function add_BitmapRequested
@@ -2787,10 +2790,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICustomMapTileDataSource : aliased constant Windows.IID := (1708800074, 11697, 19425, (177, 85, 61, 12, 158, 207, 71, 153 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICustomMapTileDataSourceFactory : aliased constant Windows.IID := (3360127303, 51541, 20258, (148, 68, 161, 216, 215, 68, 175, 17 ));
+   
    type ICustomMapTileDataSourceFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2801,10 +2804,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICustomMapTileDataSourceFactory : aliased constant Windows.IID := (3360127303, 51541, 20258, (148, 68, 161, 216, 215, 68, 175, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHttpMapTileDataSource : aliased constant Windows.IID := (2634271580, 64889, 18325, (135, 190, 126, 84, 202, 11, 55, 208 ));
+   
    type IHttpMapTileDataSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UriFormatString
@@ -2856,10 +2859,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHttpMapTileDataSource : aliased constant Windows.IID := (2634271580, 64889, 18325, (135, 190, 126, 84, 202, 11, 55, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHttpMapTileDataSourceFactory : aliased constant Windows.IID := (1404350727, 34012, 17041, (137, 248, 109, 11, 182, 18, 160, 85 ));
+   
    type IHttpMapTileDataSourceFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2880,10 +2883,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHttpMapTileDataSourceFactory : aliased constant Windows.IID := (1404350727, 34012, 17041, (137, 248, 109, 11, 182, 18, 160, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILocalMapTileDataSource : aliased constant Windows.IID := (1633834933, 37128, 20242, (139, 244, 187, 60, 143, 98, 116, 229 ));
+   
    type ILocalMapTileDataSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UriFormatString
@@ -2914,10 +2917,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILocalMapTileDataSource : aliased constant Windows.IID := (1633834933, 37128, 20242, (139, 244, 187, 60, 143, 98, 116, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILocalMapTileDataSourceFactory : aliased constant Windows.IID := (3318737404, 29356, 18489, (138, 13, 1, 31, 36, 105, 60, 121 ));
+   
    type ILocalMapTileDataSourceFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2938,10 +2941,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILocalMapTileDataSourceFactory : aliased constant Windows.IID := (3318737404, 29356, 18489, (138, 13, 1, 31, 36, 105, 60, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapBillboard : aliased constant Windows.IID := (378807709, 2786, 20290, (160, 46, 41, 44, 168, 53, 211, 157 ));
+   
    type IMapBillboard_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Location
@@ -3006,10 +3009,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapCamera
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapBillboard : aliased constant Windows.IID := (378807709, 2786, 20290, (160, 46, 41, 44, 168, 53, 211, 157 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapBillboardStatics : aliased constant Windows.IID := (4260903422, 57847, 20400, (136, 135, 125, 166, 140, 100, 115, 51 ));
+   
    type IMapBillboardStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LocationProperty
@@ -3032,10 +3035,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapBillboardStatics : aliased constant Windows.IID := (4260903422, 57847, 20400, (136, 135, 125, 166, 140, 100, 115, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapBillboardFactory : aliased constant Windows.IID := (3192235205, 36617, 19334, (174, 40, 120, 55, 64, 235, 139, 49 ));
+   
    type IMapBillboardFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceFromCamera
@@ -3045,10 +3048,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapBillboard
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapBillboardFactory : aliased constant Windows.IID := (3192235205, 36617, 19334, (174, 40, 120, 55, 64, 235, 139, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElement3D : aliased constant Windows.IID := (2189097173, 14403, 18658, (189, 0, 15, 6, 68, 251, 230, 165 ));
+   
    type IMapElement3D_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Location
@@ -3134,10 +3137,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElement3D : aliased constant Windows.IID := (2189097173, 14403, 18658, (189, 0, 15, 6, 68, 251, 230, 165 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElement3DStatics : aliased constant Windows.IID := (1630011674, 17679, 17450, (185, 217, 170, 129, 92, 113, 144, 122 ));
+   
    type IMapElement3DStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LocationProperty
@@ -3174,10 +3177,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElement3DStatics : aliased constant Windows.IID := (1630011674, 17679, 17450, (185, 217, 170, 129, 92, 113, 144, 122 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementsLayer : aliased constant Windows.IID := (3732498586, 495, 18164, (172, 96, 124, 32, 11, 85, 38, 16 ));
+   
    type IMapElementsLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapElements
@@ -3253,10 +3256,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementsLayer : aliased constant Windows.IID := (3732498586, 495, 18164, (172, 96, 124, 32, 11, 85, 38, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapElementsLayerStatics : aliased constant Windows.IID := (872437543, 62729, 19752, (145, 128, 145, 28, 3, 65, 29, 116 ));
+   
    type IMapElementsLayerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapElementsProperty
@@ -3265,10 +3268,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapElementsLayerStatics : aliased constant Windows.IID := (872437543, 62729, 19752, (145, 128, 145, 28, 3, 65, 29, 116 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapIcon : aliased constant Windows.IID := (3523831922, 9177, 18987, (139, 224, 105, 243, 168, 84, 130, 171 ));
+   
    type IMapIcon_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Location
@@ -3326,10 +3329,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapIcon : aliased constant Windows.IID := (3523831922, 9177, 18987, (139, 224, 105, 243, 168, 84, 130, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapIconStatics : aliased constant Windows.IID := (3703348822, 4496, 19293, (158, 86, 229, 182, 114, 74, 163, 40 ));
+   
    type IMapIconStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LocationProperty
@@ -3352,10 +3355,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapIconStatics : aliased constant Windows.IID := (3703348822, 4496, 19293, (158, 86, 229, 182, 114, 74, 163, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapIcon2 : aliased constant Windows.IID := (1628591289, 55466, 19389, (163, 22, 186, 223, 6, 145, 29, 99 ));
+   
    type IMapIcon2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CollisionBehaviorDesired
@@ -3371,10 +3374,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.UI.Xaml.Controls.Maps.MapElementCollisionBehavior
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapIcon2 : aliased constant Windows.IID := (1628591289, 55466, 19389, (163, 22, 186, 223, 6, 145, 29, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapIconStatics2 : aliased constant Windows.IID := (4283183210, 53110, 18091, (161, 47, 182, 3, 185, 134, 198, 150 ));
+   
    type IMapIconStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CollisionBehaviorDesiredProperty
@@ -3383,10 +3386,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapIconStatics2 : aliased constant Windows.IID := (4283183210, 53110, 18091, (161, 47, 182, 3, 185, 134, 198, 150 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapPolygon : aliased constant Windows.IID := (2883199621, 18726, 19514, (165, 249, 25, 223, 127, 105, 219, 61 ));
+   
    type IMapPolygon_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Path
@@ -3458,10 +3461,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapPolygon : aliased constant Windows.IID := (2883199621, 18726, 19514, (165, 249, 25, 223, 127, 105, 219, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapPolygonStatics : aliased constant Windows.IID := (938832830, 2427, 16972, (135, 204, 46, 224, 66, 253, 166, 210 ));
+   
    type IMapPolygonStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PathProperty
@@ -3484,10 +3487,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapPolygonStatics : aliased constant Windows.IID := (938832830, 2427, 16972, (135, 204, 46, 224, 66, 253, 166, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapPolygon2 : aliased constant Windows.IID := (2529730846, 25451, 16408, (156, 46, 172, 201, 18, 42, 1, 178 ));
+   
    type IMapPolygon2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Paths
@@ -3496,10 +3499,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Devices.Geolocation.IVector_IGeopath -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapPolygon2 : aliased constant Windows.IID := (2529730846, 25451, 16408, (156, 46, 172, 201, 18, 42, 1, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapPolyline : aliased constant Windows.IID := (4222428322, 9439, 19078, (143, 250, 15, 143, 77, 158, 193, 125 ));
+   
    type IMapPolyline_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Path
@@ -3557,10 +3560,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapPolyline : aliased constant Windows.IID := (4222428322, 9439, 19078, (143, 250, 15, 143, 77, 158, 193, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapPolylineStatics : aliased constant Windows.IID := (1644029003, 7647, 17155, (184, 9, 236, 135, 245, 138, 208, 101 ));
+   
    type IMapPolylineStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PathProperty
@@ -3576,10 +3579,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapPolylineStatics : aliased constant Windows.IID := (1644029003, 7647, 17155, (184, 9, 236, 135, 245, 138, 208, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStreetsideExperience : aliased constant Windows.IID := (2774052553, 58124, 18120, (129, 22, 72, 70, 145, 103, 85, 88 ));
+   
    type IStreetsideExperience_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AddressTextVisible
@@ -3665,10 +3668,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStreetsideExperience : aliased constant Windows.IID := (2774052553, 58124, 18120, (129, 22, 72, 70, 145, 103, 85, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IStreetsideExperienceFactory : aliased constant Windows.IID := (2052837180, 25758, 17218, (153, 149, 104, 166, 207, 89, 97, 167 ));
+   
    type IStreetsideExperienceFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithPanorama
@@ -3689,10 +3692,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IStreetsideExperience
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStreetsideExperienceFactory : aliased constant Windows.IID := (2052837180, 25758, 17218, (153, 149, 104, 166, 207, 89, 97, 167 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControl : aliased constant Windows.IID := (1120974929, 21078, 18247, (158, 108, 13, 17, 233, 102, 20, 30 ));
+   
    type IMapControl_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Center
@@ -4135,10 +4138,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControl : aliased constant Windows.IID := (1120974929, 21078, 18247, (158, 108, 13, 17, 233, 102, 20, 30 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlStatics : aliased constant Windows.IID := (3267762069, 8519, 20234, (148, 42, 84, 147, 168, 93, 232, 7 ));
+   
    type IMapControlStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CenterProperty
@@ -4312,10 +4315,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; value : Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlStatics : aliased constant Windows.IID := (3267762069, 8519, 20234, (148, 42, 84, 147, 168, 93, 232, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControl2 : aliased constant Windows.IID := (3791479885, 38636, 16485, (176, 240, 117, 40, 29, 163, 101, 77 ));
+   
    type IMapControl2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BusinessLandmarksVisible
@@ -4672,10 +4675,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControl2 : aliased constant Windows.IID := (3791479885, 38636, 16485, (176, 240, 117, 40, 29, 163, 101, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlStatics2 : aliased constant Windows.IID := (75836307, 46150, 19761, (151, 82, 30, 198, 154, 89, 150, 174 ));
+   
    type IMapControlStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BusinessLandmarksVisibleProperty
@@ -4740,10 +4743,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlStatics2 : aliased constant Windows.IID := (75836307, 46150, 19761, (151, 82, 30, 198, 154, 89, 150, 174 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControl3 : aliased constant Windows.IID := (1482893560, 36061, 16558, (147, 56, 175, 42, 123, 232, 69, 229 ));
+   
    type IMapControl3_Interface is interface and Windows.IInspectable_Interface;
    
    function add_MapRightTapped
@@ -4760,10 +4763,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControl3 : aliased constant Windows.IID := (1482893560, 36061, 16558, (147, 56, 175, 42, 123, 232, 69, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControl4 : aliased constant Windows.IID := (110039850, 6167, 18029, (183, 206, 65, 155, 63, 142, 36, 139 ));
+   
    type IMapControl4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BusinessLandmarksEnabled
@@ -4801,10 +4804,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Devices.Geolocation.IGeopath
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControl4 : aliased constant Windows.IID := (110039850, 6167, 18029, (183, 206, 65, 155, 63, 142, 36, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlStatics4 : aliased constant Windows.IID := (4269301143, 23827, 20385, (191, 29, 132, 6, 23, 104, 193, 131 ));
+   
    type IMapControlStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_BusinessLandmarksEnabledProperty
@@ -4820,10 +4823,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlStatics4 : aliased constant Windows.IID := (4269301143, 23827, 20385, (191, 29, 132, 6, 23, 104, 193, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControl5 : aliased constant Windows.IID := (3717926909, 30755, 18082, (130, 201, 101, 221, 172, 79, 54, 95 ));
+   
    type IMapControl5_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapProjection
@@ -4931,10 +4934,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControl5 : aliased constant Windows.IID := (3717926909, 30755, 18082, (130, 201, 101, 221, 172, 79, 54, 95 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlStatics5 : aliased constant Windows.IID := (157445888, 47069, 16777, (167, 247, 131, 12, 65, 45, 238, 163 ));
+   
    type IMapControlStatics5_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MapProjectionProperty
@@ -4957,10 +4960,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlStatics5 : aliased constant Windows.IID := (157445888, 47069, 16777, (167, 247, 131, 12, 65, 45, 238, 163 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControl6 : aliased constant Windows.IID := (2967112098, 4161, 19434, (184, 138, 18, 172, 154, 130, 224, 226 ));
+   
    type IMapControl6_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Layers
@@ -4995,10 +4998,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControl6 : aliased constant Windows.IID := (2967112098, 4161, 19434, (184, 138, 18, 172, 154, 130, 224, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlStatics6 : aliased constant Windows.IID := (1020255615, 9425, 16546, (131, 81, 179, 6, 58, 140, 149, 164 ));
+   
    type IMapControlStatics6_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LayersProperty
@@ -5007,10 +5010,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlStatics6 : aliased constant Windows.IID := (1020255615, 9425, 16546, (131, 81, 179, 6, 58, 140, 149, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlDataHelper : aliased constant Windows.IID := (2343628956, 5291, 18540, (157, 229, 90, 93, 239, 2, 5, 162 ));
+   
    type IMapControlDataHelper_Interface is interface and Windows.IInspectable_Interface;
    
    function add_BusinessLandmarkClick
@@ -5072,10 +5075,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlDataHelper : aliased constant Windows.IID := (2343628956, 5291, 18540, (157, 229, 90, 93, 239, 2, 5, 162 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlDataHelper2 : aliased constant Windows.IID := (1506689694, 22063, 19489, (166, 116, 15, 17, 222, 207, 15, 179 ));
+   
    type IMapControlDataHelper2_Interface is interface and Windows.IInspectable_Interface;
    
    function add_BusinessLandmarkPointerEntered
@@ -5137,10 +5140,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlDataHelper2 : aliased constant Windows.IID := (1506689694, 22063, 19489, (166, 116, 15, 17, 222, 207, 15, 179 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlDataHelperStatics : aliased constant Windows.IID := (2053518038, 59716, 16656, (131, 207, 49, 77, 7, 34, 226, 229 ));
+   
    type IMapControlDataHelperStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateMapControl
@@ -5150,10 +5153,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapControl
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlDataHelperStatics : aliased constant Windows.IID := (2053518038, 59716, 16656, (131, 207, 49, 77, 7, 34, 226, 229 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlDataHelperFactory : aliased constant Windows.IID := (997239438, 751, 18076, (187, 175, 220, 33, 88, 212, 40, 155 ));
+   
    type IMapControlDataHelperFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -5163,10 +5166,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapControlDataHelper
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlDataHelperFactory : aliased constant Windows.IID := (997239438, 751, 18076, (187, 175, 220, 33, 88, 212, 40, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlBusinessLandmarkClickEventArgs : aliased constant Windows.IID := (1581664546, 18970, 18327, (190, 183, 92, 247, 117, 76, 184, 103 ));
+   
    type IMapControlBusinessLandmarkClickEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LocalLocations
@@ -5175,10 +5178,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Services.Maps.LocalSearch.IVectorView_ILocalLocation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlBusinessLandmarkClickEventArgs : aliased constant Windows.IID := (1581664546, 18970, 18327, (190, 183, 92, 247, 117, 76, 184, 103 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlTransitFeatureClickEventArgs : aliased constant Windows.IID := (1981258089, 46949, 17954, (176, 138, 48, 114, 116, 90, 69, 65 ));
+   
    type IMapControlTransitFeatureClickEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -5201,10 +5204,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlTransitFeatureClickEventArgs : aliased constant Windows.IID := (1981258089, 46949, 17954, (176, 138, 48, 114, 116, 90, 69, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlBusinessLandmarkRightTappedEventArgs : aliased constant Windows.IID := (1504414439, 61828, 19121, (176, 176, 53, 200, 191, 6, 84, 178 ));
+   
    type IMapControlBusinessLandmarkRightTappedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LocalLocations
@@ -5213,10 +5216,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Services.Maps.LocalSearch.IVectorView_ILocalLocation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlBusinessLandmarkRightTappedEventArgs : aliased constant Windows.IID := (1504414439, 61828, 19121, (176, 176, 53, 200, 191, 6, 84, 178 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlTransitFeatureRightTappedEventArgs : aliased constant Windows.IID := (2929839177, 42793, 20142, (165, 154, 62, 201, 161, 37, 160, 40 ));
+   
    type IMapControlTransitFeatureRightTappedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -5239,10 +5242,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlTransitFeatureRightTappedEventArgs : aliased constant Windows.IID := (2929839177, 42793, 20142, (165, 154, 62, 201, 161, 37, 160, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlBusinessLandmarkPointerEnteredEventArgs : aliased constant Windows.IID := (1581285798, 60056, 20373, (140, 175, 91, 66, 105, 111, 245, 4 ));
+   
    type IMapControlBusinessLandmarkPointerEnteredEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LocalLocations
@@ -5251,10 +5254,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Services.Maps.LocalSearch.IVectorView_ILocalLocation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlBusinessLandmarkPointerEnteredEventArgs : aliased constant Windows.IID := (1581285798, 60056, 20373, (140, 175, 91, 66, 105, 111, 245, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlTransitFeaturePointerEnteredEventArgs : aliased constant Windows.IID := (1938889294, 60495, 18334, (148, 161, 54, 224, 129, 208, 216, 151 ));
+   
    type IMapControlTransitFeaturePointerEnteredEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -5277,10 +5280,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlTransitFeaturePointerEnteredEventArgs : aliased constant Windows.IID := (1938889294, 60495, 18334, (148, 161, 54, 224, 129, 208, 216, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlBusinessLandmarkPointerExitedEventArgs : aliased constant Windows.IID := (733293743, 62026, 18128, (180, 99, 101, 247, 25, 115, 16, 87 ));
+   
    type IMapControlBusinessLandmarkPointerExitedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LocalLocations
@@ -5289,10 +5292,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Services.Maps.LocalSearch.IVectorView_ILocalLocation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlBusinessLandmarkPointerExitedEventArgs : aliased constant Windows.IID := (733293743, 62026, 18128, (180, 99, 101, 247, 25, 115, 16, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMapControlTransitFeaturePointerExitedEventArgs : aliased constant Windows.IID := (1779508621, 17549, 17639, (188, 105, 209, 61, 73, 113, 84, 233 ));
+   
    type IMapControlTransitFeaturePointerExitedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -5315,10 +5318,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMapControlTransitFeaturePointerExitedEventArgs : aliased constant Windows.IID := (1779508621, 17549, 17639, (188, 105, 209, 61, 73, 113, 84, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapElement : aliased constant Windows.IID := (4179014696, 15220, 23252, (157, 151, 27, 10, 56, 122, 236, 181 ));
+   
    type IIterator_IMapElement_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5349,10 +5352,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMapElement : aliased constant Windows.IID := (4179014696, 15220, 23252, (157, 151, 27, 10, 56, 122, 236, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapElement : aliased constant Windows.IID := (2178047013, 42163, 23821, (146, 171, 38, 54, 12, 42, 127, 172 ));
+   
    type IIterable_IMapElement_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5361,10 +5364,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IIterator_IMapElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMapElement : aliased constant Windows.IID := (2178047013, 42163, 23821, (146, 171, 38, 54, 12, 42, 127, 172 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMapElement : aliased constant Windows.IID := (3468763352, 60019, 23203, (145, 74, 55, 221, 37, 84, 246, 134 ));
+   
    type IVectorView_IMapElement_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5399,10 +5402,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMapElement : aliased constant Windows.IID := (3468763352, 60019, 23203, (145, 74, 55, 221, 37, 84, 246, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IMapElement : aliased constant Windows.IID := (41369389, 47895, 22269, (150, 204, 137, 241, 196, 127, 158, 17 ));
+   
    type IVector_IMapElement_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5493,10 +5496,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; items : Windows.UI.Xaml.Controls.Maps.IMapElement_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IMapElement : aliased constant Windows.IID := (41369389, 47895, 22269, (150, 204, 137, 241, 196, 127, 158, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMapModel3D : aliased constant Windows.IID := (217064463, 32632, 21339, (133, 12, 254, 98, 49, 117, 144, 100 ));
+   
    type IAsyncOperation_IMapModel3D_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -5519,10 +5522,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapModel3D
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMapModel3D : aliased constant Windows.IID := (217064463, 32632, 21339, (133, 12, 254, 98, 49, 117, 144, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapStyleSheet : aliased constant Windows.IID := (3871811557, 27160, 21299, (170, 106, 38, 110, 140, 139, 221, 81 ));
+   
    type IIterator_IMapStyleSheet_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5553,10 +5556,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMapStyleSheet : aliased constant Windows.IID := (3871811557, 27160, 21299, (170, 106, 38, 110, 140, 139, 221, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapStyleSheet : aliased constant Windows.IID := (88620424, 33820, 23054, (185, 199, 93, 130, 141, 159, 42, 255 ));
+   
    type IIterable_IMapStyleSheet_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5565,10 +5568,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IIterator_IMapStyleSheet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMapStyleSheet : aliased constant Windows.IID := (88620424, 33820, 23054, (185, 199, 93, 130, 141, 159, 42, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IStreetsidePanorama : aliased constant Windows.IID := (1792600647, 26224, 20952, (161, 219, 51, 254, 117, 73, 31, 12 ));
+   
    type IAsyncOperation_IStreetsidePanorama_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -5591,10 +5594,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IStreetsidePanorama
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IStreetsidePanorama : aliased constant Windows.IID := (1792600647, 26224, 20952, (161, 219, 51, 254, 117, 73, 31, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapRouteView : aliased constant Windows.IID := (2938462357, 16708, 21927, (145, 57, 137, 132, 59, 87, 45, 183 ));
+   
    type IIterator_IMapRouteView_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5625,10 +5628,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMapRouteView : aliased constant Windows.IID := (2938462357, 16708, 21927, (145, 57, 137, 132, 59, 87, 45, 183 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapRouteView : aliased constant Windows.IID := (151704755, 36814, 20525, (134, 101, 24, 101, 12, 81, 190, 169 ));
+   
    type IIterable_IMapRouteView_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5637,10 +5640,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IIterator_IMapRouteView
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMapRouteView : aliased constant Windows.IID := (151704755, 36814, 20525, (134, 101, 24, 101, 12, 81, 190, 169 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMapRouteView : aliased constant Windows.IID := (3183166954, 3187, 22204, (163, 117, 63, 42, 123, 235, 111, 46 ));
+   
    type IVectorView_IMapRouteView_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5675,10 +5678,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMapRouteView : aliased constant Windows.IID := (3183166954, 3187, 22204, (163, 117, 63, 42, 123, 235, 111, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IMapRouteView : aliased constant Windows.IID := (2363823028, 2685, 21843, (183, 53, 121, 205, 90, 127, 238, 63 ));
+   
    type IVector_IMapRouteView_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5769,10 +5772,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; items : Windows.UI.Xaml.Controls.Maps.IMapRouteView_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IMapRouteView : aliased constant Windows.IID := (2363823028, 2685, 21843, (183, 53, 121, 205, 90, 127, 238, 63 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapTileSource : aliased constant Windows.IID := (3855084454, 31861, 20668, (139, 54, 45, 140, 161, 250, 83, 139 ));
+   
    type IIterator_IMapTileSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5803,10 +5806,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMapTileSource : aliased constant Windows.IID := (3855084454, 31861, 20668, (139, 54, 45, 140, 161, 250, 83, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapTileSource : aliased constant Windows.IID := (1837790199, 43991, 22212, (153, 167, 6, 193, 250, 119, 220, 210 ));
+   
    type IIterable_IMapTileSource_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5815,10 +5818,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IIterator_IMapTileSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMapTileSource : aliased constant Windows.IID := (1837790199, 43991, 22212, (153, 167, 6, 193, 250, 119, 220, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMapTileSource : aliased constant Windows.IID := (3732578690, 36375, 21861, (154, 157, 148, 164, 255, 37, 54, 74 ));
+   
    type IVectorView_IMapTileSource_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5853,10 +5856,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMapTileSource : aliased constant Windows.IID := (3732578690, 36375, 21861, (154, 157, 148, 164, 255, 37, 54, 74 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IMapTileSource : aliased constant Windows.IID := (435653190, 11365, 24468, (191, 91, 150, 51, 71, 160, 163, 24 ));
+   
    type IVector_IMapTileSource_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -5947,10 +5950,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; items : Windows.UI.Xaml.Controls.Maps.IMapTileSource_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IMapTileSource : aliased constant Windows.IID := (435653190, 11365, 24468, (191, 91, 150, 51, 71, 160, 163, 24 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMapLayer : aliased constant Windows.IID := (2938274815, 9486, 22225, (150, 212, 159, 120, 225, 100, 203, 198 ));
+   
    type IIterator_IMapLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -5981,10 +5984,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMapLayer : aliased constant Windows.IID := (2938274815, 9486, 22225, (150, 212, 159, 120, 225, 100, 203, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMapLayer : aliased constant Windows.IID := (1351494889, 6532, 24520, (164, 145, 98, 232, 136, 149, 57, 244 ));
+   
    type IIterable_IMapLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -5993,10 +5996,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IIterator_IMapLayer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMapLayer : aliased constant Windows.IID := (1351494889, 6532, 24520, (164, 145, 98, 232, 136, 149, 57, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMapLayer : aliased constant Windows.IID := (2519934649, 26480, 21233, (182, 198, 81, 148, 65, 248, 115, 195 ));
+   
    type IVectorView_IMapLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6031,10 +6034,10 @@ package Windows.UI.Xaml.Controls.Maps is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMapLayer : aliased constant Windows.IID := (2519934649, 26480, 21233, (182, 198, 81, 148, 65, 248, 115, 195 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IMapLayer : aliased constant Windows.IID := (1652040960, 43468, 22513, (184, 27, 110, 188, 201, 33, 34, 69 ));
+   
    type IVector_IMapLayer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -6125,17 +6128,15 @@ package Windows.UI.Xaml.Controls.Maps is
       ; items : Windows.UI.Xaml.Controls.Maps.IMapLayer_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IMapLayer : aliased constant Windows.IID := (1652040960, 43468, 22513, (184, 27, 110, 188, 201, 33, 34, 69 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMapModel3D_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IMapModel3D ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMapModel3D_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMapModel3D : aliased constant Windows.IID := (1626282315, 56288, 22801, (183, 37, 236, 197, 222, 41, 135, 130 ));
+   
+   type AsyncOperationCompletedHandler_IMapModel3D_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IMapModel3D ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMapModel3D'access) with null record;
    
    function Invoke
    (
@@ -6145,12 +6146,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMapModel3D : aliased constant Windows.IID := (1626282315, 56288, 22801, (183, 37, 236, 197, 222, 41, 135, 130 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapScene_add_TargetCameraChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapScene ; args : Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapScene_add_TargetCameraChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapScene_add_TargetCameraChanged : aliased constant Windows.IID := (1986974888, 59408, 24440, (188, 150, 154, 255, 159, 88, 207, 202 ));
+   
+   type TypedEventHandler_IMapScene_add_TargetCameraChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapScene ; args : Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapScene_add_TargetCameraChanged'access) with null record;
    
    function Invoke
    (
@@ -6160,12 +6160,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapScene_add_TargetCameraChanged : aliased constant Windows.IID := (1986974888, 59408, 24440, (188, 150, 154, 255, 159, 88, 207, 202 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IStreetsidePanorama_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IStreetsidePanorama_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IStreetsidePanorama : aliased constant Windows.IID := (4143165820, 17703, 21800, (134, 170, 28, 241, 251, 120, 165, 235 ));
+   
+   type AsyncOperationCompletedHandler_IStreetsidePanorama_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IStreetsidePanorama ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStreetsidePanorama'access) with null record;
    
    function Invoke
    (
@@ -6175,12 +6174,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IStreetsidePanorama : aliased constant Windows.IID := (4143165820, 17703, 21800, (134, 170, 28, 241, 251, 120, 165, 235 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSource ; args : Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested : aliased constant Windows.IID := (2368575061, 12162, 21105, (158, 149, 162, 219, 57, 216, 114, 240 ));
+   
+   type TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSource ; args : Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested'access) with null record;
    
    function Invoke
    (
@@ -6190,12 +6188,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested : aliased constant Windows.IID := (2368575061, 12162, 21105, (158, 149, 162, 219, 57, 216, 114, 240 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource ; args : Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IHttpMapTileDataSource_add_UriRequested : aliased constant Windows.IID := (1228120474, 204, 23585, (163, 223, 182, 143, 153, 57, 246, 239 ));
+   
+   type TypedEventHandler_IHttpMapTileDataSource_add_UriRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource ; args : Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHttpMapTileDataSource_add_UriRequested'access) with null record;
    
    function Invoke
    (
@@ -6205,12 +6202,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IHttpMapTileDataSource_add_UriRequested : aliased constant Windows.IID := (1228120474, 204, 23585, (163, 223, 182, 143, 153, 57, 246, 239 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILocalMapTileDataSource_add_UriRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource ; args : Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILocalMapTileDataSource_add_UriRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILocalMapTileDataSource_add_UriRequested : aliased constant Windows.IID := (1987391428, 45632, 20524, (144, 152, 98, 44, 108, 54, 230, 163 ));
+   
+   type TypedEventHandler_ILocalMapTileDataSource_add_UriRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource ; args : Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILocalMapTileDataSource_add_UriRequested'access) with null record;
    
    function Invoke
    (
@@ -6220,12 +6216,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ILocalMapTileDataSource_add_UriRequested : aliased constant Windows.IID := (1987391428, 45632, 20524, (144, 152, 98, 44, 108, 54, 230, 163 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapElementsLayer_add_MapElementClick : aliased constant Windows.IID := (3555606442, 27247, 22378, (153, 0, 82, 142, 142, 186, 146, 134 ));
+   
+   type TypedEventHandler_IMapElementsLayer_add_MapElementClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapElementsLayer_add_MapElementClick'access) with null record;
    
    function Invoke
    (
@@ -6235,12 +6230,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapElementsLayer_add_MapElementClick : aliased constant Windows.IID := (3555606442, 27247, 22378, (153, 0, 82, 142, 142, 186, 146, 134 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered : aliased constant Windows.IID := (908250963, 4476, 22021, (177, 66, 254, 71, 216, 116, 226, 107 ));
+   
+   type TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered'access) with null record;
    
    function Invoke
    (
@@ -6250,12 +6244,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered : aliased constant Windows.IID := (908250963, 4476, 22021, (177, 66, 254, 71, 216, 116, 226, 107 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited : aliased constant Windows.IID := (3578032594, 989, 22168, (169, 47, 95, 172, 138, 94, 118, 104 ));
+   
+   type TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited'access) with null record;
    
    function Invoke
    (
@@ -6265,12 +6258,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited : aliased constant Windows.IID := (3578032594, 989, 22168, (169, 47, 95, 172, 138, 94, 118, 104 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapElementsLayer_add_MapContextRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapElementsLayer_add_MapContextRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapElementsLayer_add_MapContextRequested : aliased constant Windows.IID := (3569872109, 20563, 23868, (140, 250, 251, 25, 219, 222, 74, 58 ));
+   
+   type TypedEventHandler_IMapElementsLayer_add_MapContextRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapElementsLayer ; args : Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapElementsLayer_add_MapContextRequested'access) with null record;
    
    function Invoke
    (
@@ -6280,12 +6272,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapElementsLayer_add_MapContextRequested : aliased constant Windows.IID := (3569872109, 20563, 23868, (140, 250, 251, 25, 219, 222, 74, 58 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl_add_CenterChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_CenterChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl_add_CenterChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
+   
+   type TypedEventHandler_IMapControl_add_CenterChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl_add_CenterChanged'access) with null record;
    
    function Invoke
    (
@@ -6295,12 +6286,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl_add_CenterChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl_add_HeadingChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_HeadingChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl_add_HeadingChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
+   
+   type TypedEventHandler_IMapControl_add_HeadingChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl_add_HeadingChanged'access) with null record;
    
    function Invoke
    (
@@ -6310,12 +6300,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl_add_HeadingChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl_add_LoadingStatusChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
+   
+   type TypedEventHandler_IMapControl_add_LoadingStatusChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl_add_LoadingStatusChanged'access) with null record;
    
    function Invoke
    (
@@ -6325,12 +6314,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl_add_LoadingStatusChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl_add_MapDoubleTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_MapDoubleTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl_add_MapDoubleTapped : aliased constant Windows.IID := (3106891798, 19722, 21186, (152, 104, 148, 181, 201, 66, 0, 126 ));
+   
+   type TypedEventHandler_IMapControl_add_MapDoubleTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl_add_MapDoubleTapped'access) with null record;
    
    function Invoke
    (
@@ -6340,12 +6328,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl_add_MapDoubleTapped : aliased constant Windows.IID := (3106891798, 19722, 21186, (152, 104, 148, 181, 201, 66, 0, 126 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl_add_MapHolding_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_MapHolding_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl_add_MapHolding : aliased constant Windows.IID := (3106891798, 19722, 21186, (152, 104, 148, 181, 201, 66, 0, 126 ));
+   
+   type TypedEventHandler_IMapControl_add_MapHolding_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl_add_MapHolding'access) with null record;
    
    function Invoke
    (
@@ -6355,12 +6342,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl_add_MapHolding : aliased constant Windows.IID := (3106891798, 19722, 21186, (152, 104, 148, 181, 201, 66, 0, 126 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl_add_MapTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_MapTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl_add_MapTapped : aliased constant Windows.IID := (3106891798, 19722, 21186, (152, 104, 148, 181, 201, 66, 0, 126 ));
+   
+   type TypedEventHandler_IMapControl_add_MapTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl_add_MapTapped'access) with null record;
    
    function Invoke
    (
@@ -6370,12 +6356,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl_add_MapTapped : aliased constant Windows.IID := (3106891798, 19722, 21186, (152, 104, 148, 181, 201, 66, 0, 126 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl_add_PitchChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_PitchChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl_add_PitchChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
+   
+   type TypedEventHandler_IMapControl_add_PitchChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl_add_PitchChanged'access) with null record;
    
    function Invoke
    (
@@ -6385,12 +6370,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl_add_PitchChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl_add_TransformOriginChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_TransformOriginChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl_add_TransformOriginChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
+   
+   type TypedEventHandler_IMapControl_add_TransformOriginChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl_add_TransformOriginChanged'access) with null record;
    
    function Invoke
    (
@@ -6400,12 +6384,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl_add_TransformOriginChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl_add_ZoomLevelChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
+   
+   type TypedEventHandler_IMapControl_add_ZoomLevelChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl_add_ZoomLevelChanged'access) with null record;
    
    function Invoke
    (
@@ -6415,12 +6398,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl_add_ZoomLevelChanged : aliased constant Windows.IID := (4065385875, 58934, 20975, (188, 147, 238, 120, 212, 49, 166, 189 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl2_add_MapElementClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_MapElementClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl2_add_MapElementClick : aliased constant Windows.IID := (1282941345, 54640, 22909, (172, 199, 6, 136, 83, 196, 171, 39 ));
+   
+   type TypedEventHandler_IMapControl2_add_MapElementClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl2_add_MapElementClick'access) with null record;
    
    function Invoke
    (
@@ -6430,12 +6412,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl2_add_MapElementClick : aliased constant Windows.IID := (1282941345, 54640, 22909, (172, 199, 6, 136, 83, 196, 171, 39 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl2_add_MapElementPointerEntered : aliased constant Windows.IID := (3391502565, 31795, 23440, (155, 102, 39, 55, 49, 252, 112, 145 ));
+   
+   type TypedEventHandler_IMapControl2_add_MapElementPointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl2_add_MapElementPointerEntered'access) with null record;
    
    function Invoke
    (
@@ -6445,12 +6426,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl2_add_MapElementPointerEntered : aliased constant Windows.IID := (3391502565, 31795, 23440, (155, 102, 39, 55, 49, 252, 112, 145 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl2_add_MapElementPointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_MapElementPointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl2_add_MapElementPointerExited : aliased constant Windows.IID := (4138188753, 11385, 20881, (179, 130, 117, 177, 65, 209, 136, 70 ));
+   
+   type TypedEventHandler_IMapControl2_add_MapElementPointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl2_add_MapElementPointerExited'access) with null record;
    
    function Invoke
    (
@@ -6460,12 +6440,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl2_add_MapElementPointerExited : aliased constant Windows.IID := (4138188753, 11385, 20881, (179, 130, 117, 177, 65, 209, 136, 70 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl2_add_ActualCameraChanged : aliased constant Windows.IID := (458451680, 2224, 23636, (187, 48, 103, 158, 106, 135, 93, 97 ));
+   
+   type TypedEventHandler_IMapControl2_add_ActualCameraChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl2_add_ActualCameraChanged'access) with null record;
    
    function Invoke
    (
@@ -6475,12 +6454,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl2_add_ActualCameraChanged : aliased constant Windows.IID := (458451680, 2224, 23636, (187, 48, 103, 158, 106, 135, 93, 97 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl2_add_ActualCameraChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_ActualCameraChanging_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl2_add_ActualCameraChanging : aliased constant Windows.IID := (2025830171, 11648, 20705, (162, 233, 229, 102, 127, 248, 158, 242 ));
+   
+   type TypedEventHandler_IMapControl2_add_ActualCameraChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl2_add_ActualCameraChanging'access) with null record;
    
    function Invoke
    (
@@ -6490,12 +6468,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl2_add_ActualCameraChanging : aliased constant Windows.IID := (2025830171, 11648, 20705, (162, 233, 229, 102, 127, 248, 158, 242 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl2_add_TargetCameraChanged : aliased constant Windows.IID := (644989661, 57874, 24131, (128, 226, 171, 111, 243, 243, 8, 108 ));
+   
+   type TypedEventHandler_IMapControl2_add_TargetCameraChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl2_add_TargetCameraChanged'access) with null record;
    
    function Invoke
    (
@@ -6505,12 +6482,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl2_add_TargetCameraChanged : aliased constant Windows.IID := (644989661, 57874, 24131, (128, 226, 171, 111, 243, 243, 8, 108 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl2_add_CustomExperienceChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl2_add_CustomExperienceChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl2_add_CustomExperienceChanged : aliased constant Windows.IID := (657257071, 6362, 22942, (137, 111, 59, 251, 246, 251, 19, 38 ));
+   
+   type TypedEventHandler_IMapControl2_add_CustomExperienceChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl2_add_CustomExperienceChanged'access) with null record;
    
    function Invoke
    (
@@ -6520,12 +6496,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl2_add_CustomExperienceChanged : aliased constant Windows.IID := (657257071, 6362, 22942, (137, 111, 59, 251, 246, 251, 19, 38 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl3_add_MapRightTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl3_add_MapRightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl3_add_MapRightTapped : aliased constant Windows.IID := (4022677293, 44395, 22959, (160, 240, 34, 83, 212, 52, 65, 79 ));
+   
+   type TypedEventHandler_IMapControl3_add_MapRightTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl3_add_MapRightTapped'access) with null record;
    
    function Invoke
    (
@@ -6535,12 +6510,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl3_add_MapRightTapped : aliased constant Windows.IID := (4022677293, 44395, 22959, (160, 240, 34, 83, 212, 52, 65, 79 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControl5_add_MapContextRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControl5_add_MapContextRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControl5_add_MapContextRequested : aliased constant Windows.IID := (3844314689, 47647, 23945, (170, 225, 199, 180, 153, 164, 123, 12 ));
+   
+   type TypedEventHandler_IMapControl5_add_MapContextRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControl5_add_MapContextRequested'access) with null record;
    
    function Invoke
    (
@@ -6550,12 +6524,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControl5_add_MapContextRequested : aliased constant Windows.IID := (3844314689, 47647, 23945, (170, 225, 199, 180, 153, 164, 123, 12 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick : aliased constant Windows.IID := (983397826, 42011, 22280, (140, 27, 142, 124, 38, 232, 87, 208 ));
+   
+   type TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick'access) with null record;
    
    function Invoke
    (
@@ -6565,12 +6538,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkClick : aliased constant Windows.IID := (983397826, 42011, 22280, (140, 27, 142, 124, 38, 232, 87, 208 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick : aliased constant Windows.IID := (1053252336, 5753, 21503, (187, 12, 55, 107, 140, 68, 25, 128 ));
+   
+   type TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick'access) with null record;
    
    function Invoke
    (
@@ -6580,12 +6552,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureClick : aliased constant Windows.IID := (1053252336, 5753, 21503, (187, 12, 55, 107, 140, 68, 25, 128 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped : aliased constant Windows.IID := (3814935124, 1517, 24121, (157, 138, 3, 133, 127, 11, 160, 231 ));
+   
+   type TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped'access) with null record;
    
    function Invoke
    (
@@ -6595,12 +6566,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControlDataHelper_add_BusinessLandmarkRightTapped : aliased constant Windows.IID := (3814935124, 1517, 24121, (157, 138, 3, 133, 127, 11, 160, 231 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped : aliased constant Windows.IID := (2710259671, 25382, 24513, (138, 64, 136, 175, 145, 187, 5, 137 ));
+   
+   type TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped'access) with null record;
    
    function Invoke
    (
@@ -6610,12 +6580,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControlDataHelper_add_TransitFeatureRightTapped : aliased constant Windows.IID := (2710259671, 25382, 24513, (138, 64, 136, 175, 145, 187, 5, 137 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered : aliased constant Windows.IID := (4252871658, 20, 23088, (154, 89, 189, 65, 38, 162, 255, 183 ));
+   
+   type TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered'access) with null record;
    
    function Invoke
    (
@@ -6625,12 +6594,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerEntered : aliased constant Windows.IID := (4252871658, 20, 23088, (154, 89, 189, 65, 38, 162, 255, 183 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered : aliased constant Windows.IID := (376350219, 43888, 22540, (187, 112, 47, 121, 238, 33, 76, 234 ));
+   
+   type TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered'access) with null record;
    
    function Invoke
    (
@@ -6640,12 +6608,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerEntered : aliased constant Windows.IID := (376350219, 43888, 22540, (187, 112, 47, 121, 238, 33, 76, 234 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited : aliased constant Windows.IID := (3294055297, 41362, 22544, (176, 217, 204, 153, 35, 15, 220, 220 ));
+   
+   type TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited'access) with null record;
    
    function Invoke
    (
@@ -6655,12 +6622,11 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMapControlDataHelper2_add_BusinessLandmarkPointerExited : aliased constant Windows.IID := (3294055297, 41362, 22544, (176, 217, 204, 153, 35, 15, 220, 220 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited : aliased constant Windows.IID := (1968438520, 42178, 23745, (154, 60, 240, 179, 107, 117, 96, 104 ));
+   
+   type TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Maps.IMapControl ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited'access) with null record;
    
    function Invoke
    (
@@ -6669,8 +6635,6 @@ package Windows.UI.Xaml.Controls.Maps is
       ; args : Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IMapControlDataHelper2_add_TransitFeaturePointerExited : aliased constant Windows.IID := (1968438520, 42178, 23745, (154, 60, 240, 179, 107, 117, 96, 104 ));
    
    ------------------------------------------------------------------------
    -- Classes
@@ -6789,9 +6753,9 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type IMapCustomExperience_Interface_Impl is new IMapCustomExperience_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IMapCustomExperience := null;
       m_IMapCustomExperience : IMapCustomExperience := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IMapCustomExperience_Impl is access all IMapCustomExperience_Interface_Impl'Class;
@@ -6801,7 +6765,7 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapCustomExperience_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -6844,9 +6808,9 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type IMapElement_Interface_Impl is new IMapElement_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IMapElement := null;
       m_IMapElement : IMapElement := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IMapElement_Impl is access all IMapElement_Interface_Impl'Class;
@@ -6856,7 +6820,7 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapElement_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -6935,9 +6899,9 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type IMapLayer_Interface_Impl is new IMapLayer_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IMapLayer := null;
       m_IMapLayer : IMapLayer := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IMapLayer_Impl is access all IMapLayer_Interface_Impl'Class;
@@ -6947,7 +6911,7 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapLayer_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -7032,9 +6996,9 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type IMapModel3D_Interface_Impl is new IMapModel3D_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IMapModel3D := null;
       m_IMapModel3D : IMapModel3D := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IMapModel3D_Impl is access all IMapModel3D_Interface_Impl'Class;
@@ -7044,7 +7008,7 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapModel3D_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -7091,9 +7055,9 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type IMapTileDataSource_Interface_Impl is new IMapTileDataSource_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IMapTileDataSource := null;
       m_IMapTileDataSource : IMapTileDataSource := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IMapTileDataSource_Impl is access all IMapTileDataSource_Interface_Impl'Class;
@@ -7103,7 +7067,7 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapTileDataSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -7146,9 +7110,9 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type IMapTileSource_Interface_Impl is new IMapTileSource_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IMapTileSource := null;
       m_IMapTileSource : IMapTileSource := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IMapTileSource_Impl is access all IMapTileSource_Interface_Impl'Class;
@@ -7158,7 +7122,7 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapTileSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -7356,9 +7320,9 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type ICustomMapTileDataSource_Interface_Impl is new ICustomMapTileDataSource_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased ICustomMapTileDataSource := null;
       m_ICustomMapTileDataSource : ICustomMapTileDataSource := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type ICustomMapTileDataSource_Impl is access all ICustomMapTileDataSource_Interface_Impl'Class;
@@ -7368,7 +7332,7 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access ICustomMapTileDataSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -7426,9 +7390,9 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type IHttpMapTileDataSource_Interface_Impl is new IHttpMapTileDataSource_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IHttpMapTileDataSource := null;
       m_IHttpMapTileDataSource : IHttpMapTileDataSource := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IHttpMapTileDataSource_Impl is access all IHttpMapTileDataSource_Interface_Impl'Class;
@@ -7438,7 +7402,7 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IHttpMapTileDataSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -7531,9 +7495,9 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type ILocalMapTileDataSource_Interface_Impl is new ILocalMapTileDataSource_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased ILocalMapTileDataSource := null;
       m_ILocalMapTileDataSource : ILocalMapTileDataSource := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type ILocalMapTileDataSource_Impl is access all ILocalMapTileDataSource_Interface_Impl'Class;
@@ -7543,7 +7507,7 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access ILocalMapTileDataSource_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    

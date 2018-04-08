@@ -526,6 +526,9 @@ package Windows.UI.Xaml.Input is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICommand : aliased constant Windows.IID := (3853464898, 51815, 16513, (153, 91, 112, 157, 209, 55, 146, 223 ));
+   
    type ICommand_Interface is interface and Windows.IInspectable_Interface;
    
    function add_CanExecuteChanged
@@ -557,15 +560,15 @@ package Windows.UI.Xaml.Input is
       ; parameter : Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICommand : aliased constant Windows.IID := (3853464898, 51815, 16513, (153, 91, 112, 157, 209, 55, 146, 223 ));
-   
    ------------------------------------------------------------------------
-   type IAccessKeyDisplayDismissedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IAccessKeyDisplayDismissedEventArgs : aliased constant Windows.IID := (2321616326, 55085, 19624, (159, 102, 85, 111, 53, 181, 19, 218 ));
    
+   type IAccessKeyDisplayDismissedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IAccessKeyDisplayRequestedEventArgs : aliased constant Windows.IID := (201825877, 5118, 19715, (166, 29, 225, 47, 6, 86, 114, 134 ));
+   
    type IAccessKeyDisplayRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PressedKeys
@@ -574,10 +577,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccessKeyDisplayRequestedEventArgs : aliased constant Windows.IID := (201825877, 5118, 19715, (166, 29, 225, 47, 6, 86, 114, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccessKeyInvokedEventArgs : aliased constant Windows.IID := (3488206231, 50968, 16529, (183, 221, 173, 241, 192, 114, 177, 225 ));
+   
    type IAccessKeyInvokedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Handled
@@ -593,15 +596,15 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccessKeyInvokedEventArgs : aliased constant Windows.IID := (3488206231, 50968, 16529, (183, 221, 173, 241, 192, 114, 177, 225 ));
-   
    ------------------------------------------------------------------------
-   type IAccessKeyManager_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IAccessKeyManager : aliased constant Windows.IID := (3972625328, 12009, 19228, (152, 215, 110, 14, 129, 109, 51, 75 ));
    
+   type IAccessKeyManager_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IAccessKeyManagerStatics : aliased constant Windows.IID := (1285615590, 55752, 20156, (180, 199, 48, 209, 131, 138, 129, 241 ));
+   
    type IAccessKeyManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsDisplayModeEnabled
@@ -631,10 +634,10 @@ package Windows.UI.Xaml.Input is
       This       : access IAccessKeyManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccessKeyManagerStatics : aliased constant Windows.IID := (1285615590, 55752, 20156, (180, 199, 48, 209, 131, 138, 129, 241 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAccessKeyManagerStatics2 : aliased constant Windows.IID := (2519446932, 10931, 18373, (149, 75, 112, 146, 243, 85, 247, 151 ));
+   
    type IAccessKeyManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AreKeyTipsEnabled
@@ -650,10 +653,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAccessKeyManagerStatics2 : aliased constant Windows.IID := (2519446932, 10931, 18373, (149, 75, 112, 146, 243, 85, 247, 151 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInertiaExpansionBehavior : aliased constant Windows.IID := (1964869605, 36162, 17605, (150, 94, 60, 211, 12, 201, 214, 247 ));
+   
    type IInertiaExpansionBehavior_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesiredDeceleration
@@ -683,10 +686,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInertiaExpansionBehavior : aliased constant Windows.IID := (1964869605, 36162, 17605, (150, 94, 60, 211, 12, 201, 214, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInertiaRotationBehavior : aliased constant Windows.IID := (1112341294, 48125, 17957, (174, 120, 32, 198, 91, 241, 239, 175 ));
+   
    type IInertiaRotationBehavior_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesiredDeceleration
@@ -716,10 +719,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInertiaRotationBehavior : aliased constant Windows.IID := (1112341294, 48125, 17957, (174, 120, 32, 198, 91, 241, 239, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInertiaTranslationBehavior : aliased constant Windows.IID := (1171498258, 15154, 18562, (164, 194, 236, 250, 45, 75, 109, 240 ));
+   
    type IInertiaTranslationBehavior_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DesiredDeceleration
@@ -749,10 +752,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInertiaTranslationBehavior : aliased constant Windows.IID := (1171498258, 15154, 18562, (164, 194, 236, 250, 45, 75, 109, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyboardAcceleratorInvokedEventArgs : aliased constant Windows.IID := (3221947378, 1255, 17429, (177, 125, 215, 107, 148, 144, 222, 43 ));
+   
    type IKeyboardAcceleratorInvokedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Handled
@@ -775,10 +778,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.IDependencyObject
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyboardAcceleratorInvokedEventArgs : aliased constant Windows.IID := (3221947378, 1255, 17429, (177, 125, 215, 107, 148, 144, 222, 43 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IManipulationPivot : aliased constant Windows.IID := (775436453, 59074, 18840, (130, 172, 24, 116, 139, 20, 22, 102 ));
+   
    type IManipulationPivot_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Center
@@ -808,10 +811,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IManipulationPivot : aliased constant Windows.IID := (775436453, 59074, 18840, (130, 172, 24, 116, 139, 20, 22, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IManipulationPivotFactory : aliased constant Windows.IID := (1829089337, 14082, 17302, (173, 155, 168, 37, 239, 166, 58, 59 ));
+   
    type IManipulationPivotFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithCenterAndRadius
@@ -822,10 +825,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.Input.IManipulationPivot
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IManipulationPivotFactory : aliased constant Windows.IID := (1829089337, 14082, 17302, (173, 155, 168, 37, 239, 166, 58, 59 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointer : aliased constant Windows.IID := (1592325023, 29821, 16753, (144, 230, 205, 55, 169, 223, 251, 17 ));
+   
    type IPointer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PointerId
@@ -855,10 +858,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointer : aliased constant Windows.IID := (1592325023, 29821, 16753, (144, 230, 205, 55, 169, 223, 251, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessKeyboardAcceleratorEventArgs : aliased constant Windows.IID := (4219060758, 38699, 17420, (155, 131, 43, 65, 152, 220, 240, 157 ));
+   
    type IProcessKeyboardAcceleratorEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Key
@@ -888,10 +891,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessKeyboardAcceleratorEventArgs : aliased constant Windows.IID := (4219060758, 38699, 17420, (155, 131, 43, 65, 152, 220, 240, 157 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICharacterReceivedRoutedEventArgs : aliased constant Windows.IID := (2018114946, 18660, 17485, (148, 25, 147, 171, 136, 146, 193, 7 ));
+   
    type ICharacterReceivedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Character
@@ -921,10 +924,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICharacterReceivedRoutedEventArgs : aliased constant Windows.IID := (2018114946, 18660, 17485, (148, 25, 147, 171, 136, 146, 193, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContextRequestedEventArgs : aliased constant Windows.IID := (1113689610, 7350, 18171, (131, 116, 10, 236, 104, 170, 94, 81 ));
+   
    type IContextRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Handled
@@ -949,10 +952,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContextRequestedEventArgs : aliased constant Windows.IID := (1113689610, 7350, 18171, (131, 116, 10, 236, 104, 170, 94, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDoubleTappedRoutedEventArgs : aliased constant Windows.IID := (2940224548, 9951, 17652, (135, 20, 147, 89, 36, 155, 98, 211 ));
+   
    type IDoubleTappedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PointerDeviceType
@@ -983,10 +986,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDoubleTappedRoutedEventArgs : aliased constant Windows.IID := (2940224548, 9951, 17652, (135, 20, 147, 89, 36, 155, 98, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGettingFocusEventArgs : aliased constant Windows.IID := (4194679246, 50812, 19432, (143, 212, 196, 77, 103, 135, 126, 13 ));
+   
    type IGettingFocusEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OldFocusedElement
@@ -1058,10 +1061,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGettingFocusEventArgs : aliased constant Windows.IID := (4194679246, 50812, 19432, (143, 212, 196, 77, 103, 135, 126, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHoldingRoutedEventArgs : aliased constant Windows.IID := (3259432739, 55309, 17630, (141, 185, 13, 129, 94, 38, 154, 192 ));
+   
    type IHoldingRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PointerDeviceType
@@ -1099,10 +1102,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHoldingRoutedEventArgs : aliased constant Windows.IID := (3259432739, 55309, 17630, (141, 185, 13, 129, 94, 38, 154, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputScope : aliased constant Windows.IID := (1544521203, 63960, 16928, (182, 102, 4, 93, 7, 77, 155, 250 ));
+   
    type IInputScope_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Names
@@ -1111,10 +1114,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.Input.IVector_IInputScopeName -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputScope : aliased constant Windows.IID := (1544521203, 63960, 16928, (182, 102, 4, 93, 7, 77, 155, 250 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputScopeName : aliased constant Windows.IID := (4248725911, 2299, 19642, (160, 33, 121, 45, 117, 137, 253, 90 ));
+   
    type IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NameValue
@@ -1130,10 +1133,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.UI.Xaml.Input.InputScopeNameValue
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputScopeName : aliased constant Windows.IID := (4248725911, 2299, 19642, (160, 33, 121, 45, 117, 137, 253, 90 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInputScopeNameFactory : aliased constant Windows.IID := (1245756242, 19415, 20052, (134, 23, 28, 218, 138, 30, 218, 127 ));
+   
    type IInputScopeNameFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1143,10 +1146,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.Input.IInputScopeName
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInputScopeNameFactory : aliased constant Windows.IID := (1245756242, 19415, 20052, (134, 23, 28, 218, 138, 30, 218, 127 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyboardAccelerator : aliased constant Windows.IID := (2464552990, 6574, 18010, (155, 60, 167, 30, 233, 234, 116, 32 ));
+   
    type IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Key
@@ -1219,10 +1222,10 @@ package Windows.UI.Xaml.Input is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyboardAccelerator : aliased constant Windows.IID := (2464552990, 6574, 18010, (155, 60, 167, 30, 233, 234, 116, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyboardAcceleratorStatics : aliased constant Windows.IID := (1003765073, 39859, 17773, (191, 21, 128, 74, 223, 184, 98, 97 ));
+   
    type IKeyboardAcceleratorStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KeyProperty
@@ -1252,10 +1255,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyboardAcceleratorStatics : aliased constant Windows.IID := (1003765073, 39859, 17773, (191, 21, 128, 74, 223, 184, 98, 97 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyboardAcceleratorFactory : aliased constant Windows.IID := (1155041945, 19453, 19015, (168, 147, 81, 95, 56, 134, 35, 246 ));
+   
    type IKeyboardAcceleratorFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1266,10 +1269,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyboardAcceleratorFactory : aliased constant Windows.IID := (1155041945, 19453, 19015, (168, 147, 81, 95, 56, 134, 35, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyRoutedEventArgs : aliased constant Windows.IID := (3570220542, 16505, 17129, (163, 154, 48, 149, 211, 240, 73, 198 ));
+   
    type IKeyRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Key
@@ -1299,10 +1302,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyRoutedEventArgs : aliased constant Windows.IID := (3570220542, 16505, 17129, (163, 154, 48, 149, 211, 240, 73, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyRoutedEventArgs2 : aliased constant Windows.IID := (453170554, 38452, 20244, (145, 178, 19, 62, 66, 253, 179, 205 ));
+   
    type IKeyRoutedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OriginalKey
@@ -1311,10 +1314,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.System.VirtualKey
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyRoutedEventArgs2 : aliased constant Windows.IID := (453170554, 38452, 20244, (145, 178, 19, 62, 66, 253, 179, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IKeyRoutedEventArgs3 : aliased constant Windows.IID := (662304180, 51777, 16667, (168, 239, 244, 252, 120, 231, 128, 87 ));
+   
    type IKeyRoutedEventArgs3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -1323,10 +1326,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IKeyRoutedEventArgs3 : aliased constant Windows.IID := (662304180, 51777, 16667, (168, 239, 244, 252, 120, 231, 128, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILosingFocusEventArgs : aliased constant Windows.IID := (4193682375, 55177, 18219, (170, 147, 109, 65, 5, 230, 218, 190 ));
+   
    type ILosingFocusEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_OldFocusedElement
@@ -1398,10 +1401,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILosingFocusEventArgs : aliased constant Windows.IID := (4193682375, 55177, 18219, (170, 147, 109, 65, 5, 230, 218, 190 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IManipulationCompletedRoutedEventArgs : aliased constant Windows.IID := (3048053539, 12097, 18830, (131, 25, 1, 94, 232, 167, 83, 70 ));
+   
    type IManipulationCompletedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Container
@@ -1459,10 +1462,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Devices.Input.PointerDeviceType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IManipulationCompletedRoutedEventArgs : aliased constant Windows.IID := (3048053539, 12097, 18830, (131, 25, 1, 94, 232, 167, 83, 70 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IManipulationDeltaRoutedEventArgs : aliased constant Windows.IID := (1074616212, 19567, 18717, (130, 214, 53, 23, 16, 147, 153, 198 ));
+   
    type IManipulationDeltaRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Container
@@ -1533,10 +1536,10 @@ package Windows.UI.Xaml.Input is
       This       : access IManipulationDeltaRoutedEventArgs_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IManipulationDeltaRoutedEventArgs : aliased constant Windows.IID := (1074616212, 19567, 18717, (130, 214, 53, 23, 16, 147, 153, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IManipulationInertiaStartingRoutedEventArgs : aliased constant Windows.IID := (610963881, 51779, 19467, (172, 239, 129, 232, 184, 20, 117, 32 ));
+   
    type IManipulationInertiaStartingRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Container
@@ -1629,10 +1632,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Input.ManipulationVelocities
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IManipulationInertiaStartingRoutedEventArgs : aliased constant Windows.IID := (610963881, 51779, 19467, (172, 239, 129, 232, 184, 20, 117, 32 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IManipulationStartedRoutedEventArgs : aliased constant Windows.IID := (1571924485, 40832, 18614, (174, 108, 79, 17, 157, 232, 255, 19 ));
+   
    type IManipulationStartedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Container
@@ -1682,10 +1685,10 @@ package Windows.UI.Xaml.Input is
       This       : access IManipulationStartedRoutedEventArgs_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IManipulationStartedRoutedEventArgs : aliased constant Windows.IID := (1571924485, 40832, 18614, (174, 108, 79, 17, 157, 232, 255, 19 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IManipulationStartedRoutedEventArgsFactory : aliased constant Windows.IID := (2227296935, 29298, 17507, (182, 195, 164, 11, 155, 161, 81, 252 ));
+   
    type IManipulationStartedRoutedEventArgsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -1696,10 +1699,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IManipulationStartedRoutedEventArgsFactory : aliased constant Windows.IID := (2227296935, 29298, 17507, (182, 195, 164, 11, 155, 161, 81, 252 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IManipulationStartingRoutedEventArgs : aliased constant Windows.IID := (416691895, 21412, 19477, (164, 152, 243, 169, 202, 33, 42, 66 ));
+   
    type IManipulationStartingRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Mode
@@ -1757,10 +1760,10 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IManipulationStartingRoutedEventArgs : aliased constant Windows.IID := (416691895, 21412, 19477, (164, 152, 243, 169, 202, 33, 42, 66 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INoFocusCandidateFoundEventArgs : aliased constant Windows.IID := (3962962343, 4103, 18681, (182, 179, 237, 11, 234, 83, 147, 125 ));
+   
    type INoFocusCandidateFoundEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Direction
@@ -1790,10 +1793,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.Input.FocusInputDeviceKind
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INoFocusCandidateFoundEventArgs : aliased constant Windows.IID := (3962962343, 4103, 18681, (182, 179, 237, 11, 234, 83, 147, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointerRoutedEventArgs : aliased constant Windows.IID := (3663892234, 38738, 18914, (189, 226, 73, 236, 202, 185, 25, 77 ));
+   
    type IPointerRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Pointer
@@ -1839,10 +1842,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Input.IVector_IPointerPoint -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointerRoutedEventArgs : aliased constant Windows.IID := (3663892234, 38738, 18914, (189, 226, 73, 236, 202, 185, 25, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPointerRoutedEventArgs2 : aliased constant Windows.IID := (136442516, 7654, 18193, (186, 124, 141, 75, 139, 9, 17, 208 ));
+   
    type IPointerRoutedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsGenerated
@@ -1851,10 +1854,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPointerRoutedEventArgs2 : aliased constant Windows.IID := (136442516, 7654, 18193, (186, 124, 141, 75, 139, 9, 17, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRightTappedRoutedEventArgs : aliased constant Windows.IID := (1748272797, 31701, 16435, (178, 55, 23, 47, 121, 171, 227, 147 ));
+   
    type IRightTappedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PointerDeviceType
@@ -1885,10 +1888,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRightTappedRoutedEventArgs : aliased constant Windows.IID := (1748272797, 31701, 16435, (178, 55, 23, 47, 121, 171, 227, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITappedRoutedEventArgs : aliased constant Windows.IID := (2694440638, 58916, 17818, (187, 29, 224, 92, 115, 226, 204, 102 ));
+   
    type ITappedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PointerDeviceType
@@ -1919,10 +1922,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITappedRoutedEventArgs : aliased constant Windows.IID := (2694440638, 58916, 17818, (187, 29, 224, 92, 115, 226, 204, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFindNextElementOptions : aliased constant Windows.IID := (3632980523, 18114, 16892, (137, 126, 181, 150, 25, 119, 184, 157 ));
+   
    type IFindNextElementOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SearchRoot
@@ -1980,15 +1983,15 @@ package Windows.UI.Xaml.Input is
       ; value : Windows.UI.Xaml.Input.XYFocusNavigationStrategyOverride
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFindNextElementOptions : aliased constant Windows.IID := (3632980523, 18114, 16892, (137, 126, 181, 150, 25, 119, 184, 157 ));
-   
    ------------------------------------------------------------------------
-   type IFocusManager_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IFocusManager : aliased constant Windows.IID := (3359896843, 15235, 19873, (157, 111, 85, 124, 17, 105, 243, 65 ));
    
+   type IFocusManager_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics : aliased constant Windows.IID := (516739878, 33154, 17538, (130, 106, 9, 24, 233, 237, 154, 247 ));
+   
    type IFocusManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetFocusedElement
@@ -1997,10 +2000,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFocusManagerStatics : aliased constant Windows.IID := (516739878, 33154, 17538, (130, 106, 9, 24, 233, 237, 154, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics2 : aliased constant Windows.IID := (2837501793, 56711, 20273, (190, 218, 239, 65, 127, 231, 192, 74 ));
+   
    type IFocusManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function TryMoveFocus
@@ -2010,10 +2013,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFocusManagerStatics2 : aliased constant Windows.IID := (2837501793, 56711, 20273, (190, 218, 239, 65, 127, 231, 192, 74 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics3 : aliased constant Windows.IID := (1619025599, 45385, 16765, (131, 241, 186, 235, 86, 14, 42, 71 ));
+   
    type IFocusManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function FindNextFocusableElement
@@ -2032,10 +2035,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFocusManagerStatics3 : aliased constant Windows.IID := (1619025599, 45385, 16765, (131, 241, 186, 235, 86, 14, 42, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics4 : aliased constant Windows.IID := (690450076, 7276, 16714, (186, 28, 150, 239, 213, 150, 43, 205 ));
+   
    type IFocusManagerStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function TryMoveFocusWithOptions
@@ -2079,10 +2082,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.IDependencyObject
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFocusManagerStatics4 : aliased constant Windows.IID := (690450076, 7276, 16714, (186, 28, 150, 239, 213, 150, 43, 205 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPointer : aliased constant Windows.IID := (2360423549, 34952, 24499, (191, 253, 230, 202, 246, 27, 79, 3 ));
+   
    type IIterator_IPointer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2113,10 +2116,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IPointer : aliased constant Windows.IID := (2360423549, 34952, 24499, (191, 253, 230, 202, 246, 27, 79, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IPointer : aliased constant Windows.IID := (1828321369, 8756, 20749, (134, 10, 219, 50, 128, 48, 203, 204 ));
+   
    type IIterable_IPointer_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2125,10 +2128,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.Input.IIterator_IPointer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IPointer : aliased constant Windows.IID := (1828321369, 8756, 20749, (134, 10, 219, 50, 128, 48, 203, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPointer : aliased constant Windows.IID := (1649473439, 30312, 20969, (134, 163, 56, 33, 33, 122, 102, 49 ));
+   
    type IVectorView_IPointer_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2163,10 +2166,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IPointer : aliased constant Windows.IID := (1649473439, 30312, 20969, (134, 163, 56, 33, 33, 122, 102, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IKeyboardAccelerator : aliased constant Windows.IID := (2339029400, 60064, 20710, (154, 53, 50, 223, 223, 31, 89, 225 ));
+   
    type IIterator_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2197,10 +2200,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IKeyboardAccelerator : aliased constant Windows.IID := (2339029400, 60064, 20710, (154, 53, 50, 223, 223, 31, 89, 225 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IKeyboardAccelerator : aliased constant Windows.IID := (2938003441, 54552, 21793, (180, 14, 111, 82, 77, 4, 193, 41 ));
+   
    type IIterable_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2209,10 +2212,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.Input.IIterator_IKeyboardAccelerator
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IKeyboardAccelerator : aliased constant Windows.IID := (2938003441, 54552, 21793, (180, 14, 111, 82, 77, 4, 193, 41 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IKeyboardAccelerator : aliased constant Windows.IID := (1298021640, 57980, 23813, (161, 220, 152, 133, 165, 28, 55, 33 ));
+   
    type IVectorView_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2247,10 +2250,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IKeyboardAccelerator : aliased constant Windows.IID := (1298021640, 57980, 23813, (161, 220, 152, 133, 165, 28, 55, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IKeyboardAccelerator : aliased constant Windows.IID := (3834806251, 7754, 23523, (189, 163, 98, 207, 78, 82, 2, 88 ));
+   
    type IVector_IKeyboardAccelerator_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2341,10 +2344,10 @@ package Windows.UI.Xaml.Input is
       ; items : Windows.UI.Xaml.Input.IKeyboardAccelerator_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IKeyboardAccelerator : aliased constant Windows.IID := (3834806251, 7754, 23523, (189, 163, 98, 207, 78, 82, 2, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IInputScopeName : aliased constant Windows.IID := (2059497460, 22615, 20481, (184, 127, 50, 112, 147, 246, 131, 146 ));
+   
    type IIterator_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2375,10 +2378,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IInputScopeName : aliased constant Windows.IID := (2059497460, 22615, 20481, (184, 127, 50, 112, 147, 246, 131, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IInputScopeName : aliased constant Windows.IID := (2168545942, 38352, 20736, (181, 155, 190, 161, 194, 125, 32, 2 ));
+   
    type IIterable_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2387,10 +2390,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UI.Xaml.Input.IIterator_IInputScopeName
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IInputScopeName : aliased constant Windows.IID := (2168545942, 38352, 20736, (181, 155, 190, 161, 194, 125, 32, 2 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IInputScopeName : aliased constant Windows.IID := (4241906306, 21288, 21436, (168, 132, 194, 9, 170, 250, 191, 120 ));
+   
    type IVectorView_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2425,10 +2428,10 @@ package Windows.UI.Xaml.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IInputScopeName : aliased constant Windows.IID := (4241906306, 21288, 21436, (168, 132, 194, 9, 170, 250, 191, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IInputScopeName : aliased constant Windows.IID := (1883234595, 55142, 22063, (178, 16, 25, 128, 187, 42, 13, 51 ));
+   
    type IVector_IInputScopeName_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2519,17 +2522,15 @@ package Windows.UI.Xaml.Input is
       ; items : Windows.UI.Xaml.Input.IInputScopeName_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IInputScopeName : aliased constant Windows.IID := (1883234595, 55142, 22063, (178, 16, 25, 128, 187, 42, 13, 51 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type DoubleTappedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access DoubleTappedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_DoubleTappedEventHandler : aliased constant Windows.IID := (824496165, 1191, 19781, (130, 94, 130, 4, 166, 36, 219, 244 ));
+   
+   type DoubleTappedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_DoubleTappedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2539,12 +2540,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_DoubleTappedEventHandler : aliased constant Windows.IID := (824496165, 1191, 19781, (130, 94, 130, 4, 166, 36, 219, 244 ));
-   
    ------------------------------------------------------------------------
-   type HoldingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IHoldingRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access HoldingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_HoldingEventHandler : aliased constant Windows.IID := (3970862285, 36446, 20414, (152, 70, 48, 166, 55, 10, 252, 223 ));
+   
+   type HoldingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IHoldingRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_HoldingEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2554,12 +2554,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_HoldingEventHandler : aliased constant Windows.IID := (3970862285, 36446, 20414, (152, 70, 48, 166, 55, 10, 252, 223 ));
-   
    ------------------------------------------------------------------------
-   type KeyEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IKeyRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access KeyEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_KeyEventHandler : aliased constant Windows.IID := (2086916837, 31246, 19986, (185, 106, 119, 21, 170, 111, 241, 200 ));
+   
+   type KeyEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IKeyRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_KeyEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2569,12 +2568,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_KeyEventHandler : aliased constant Windows.IID := (2086916837, 31246, 19986, (185, 106, 119, 21, 170, 111, 241, 200 ));
-   
    ------------------------------------------------------------------------
-   type ManipulationCompletedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ManipulationCompletedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_ManipulationCompletedEventHandler : aliased constant Windows.IID := (955206415, 5368, 17119, (154, 30, 164, 188, 196, 175, 119, 244 ));
+   
+   type ManipulationCompletedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_ManipulationCompletedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2584,12 +2582,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_ManipulationCompletedEventHandler : aliased constant Windows.IID := (955206415, 5368, 17119, (154, 30, 164, 188, 196, 175, 119, 244 ));
-   
    ------------------------------------------------------------------------
-   type ManipulationDeltaEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationDeltaRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ManipulationDeltaEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_ManipulationDeltaEventHandler : aliased constant Windows.IID := (2853265611, 57273, 19542, (171, 220, 113, 27, 99, 200, 235, 148 ));
+   
+   type ManipulationDeltaEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationDeltaRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_ManipulationDeltaEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2599,12 +2596,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_ManipulationDeltaEventHandler : aliased constant Windows.IID := (2853265611, 57273, 19542, (171, 220, 113, 27, 99, 200, 235, 148 ));
-   
    ------------------------------------------------------------------------
-   type ManipulationInertiaStartingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ManipulationInertiaStartingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_ManipulationInertiaStartingEventHandler : aliased constant Windows.IID := (3550307106, 31900, 18459, (130, 123, 200, 178, 217, 187, 111, 199 ));
+   
+   type ManipulationInertiaStartingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_ManipulationInertiaStartingEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2614,12 +2610,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_ManipulationInertiaStartingEventHandler : aliased constant Windows.IID := (3550307106, 31900, 18459, (130, 123, 200, 178, 217, 187, 111, 199 ));
-   
    ------------------------------------------------------------------------
-   type ManipulationStartedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ManipulationStartedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_ManipulationStartedEventHandler : aliased constant Windows.IID := (4169352696, 57507, 19426, (185, 12, 220, 32, 230, 216, 190, 176 ));
+   
+   type ManipulationStartedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_ManipulationStartedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2629,12 +2624,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_ManipulationStartedEventHandler : aliased constant Windows.IID := (4169352696, 57507, 19426, (185, 12, 220, 32, 230, 216, 190, 176 ));
-   
    ------------------------------------------------------------------------
-   type ManipulationStartingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access ManipulationStartingEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_ManipulationStartingEventHandler : aliased constant Windows.IID := (282112078, 49124, 17099, (130, 60, 63, 236, 216, 119, 14, 248 ));
+   
+   type ManipulationStartingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_ManipulationStartingEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2644,12 +2638,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_ManipulationStartingEventHandler : aliased constant Windows.IID := (282112078, 49124, 17099, (130, 60, 63, 236, 216, 119, 14, 248 ));
-   
    ------------------------------------------------------------------------
-   type PointerEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IPointerRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access PointerEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_PointerEventHandler : aliased constant Windows.IID := (3828898089, 49156, 19407, (137, 112, 53, 148, 134, 227, 159, 136 ));
+   
+   type PointerEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IPointerRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_PointerEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2659,12 +2652,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_PointerEventHandler : aliased constant Windows.IID := (3828898089, 49156, 19407, (137, 112, 53, 148, 134, 227, 159, 136 ));
-   
    ------------------------------------------------------------------------
-   type RightTappedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access RightTappedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_RightTappedEventHandler : aliased constant Windows.IID := (624074850, 62535, 18768, (156, 70, 241, 227, 74, 44, 34, 56 ));
+   
+   type RightTappedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_RightTappedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2674,12 +2666,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_RightTappedEventHandler : aliased constant Windows.IID := (624074850, 62535, 18768, (156, 70, 241, 227, 74, 44, 34, 56 ));
-   
    ------------------------------------------------------------------------
-   type TappedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.ITappedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TappedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TappedEventHandler : aliased constant Windows.IID := (1759068364, 40944, 18894, (177, 65, 63, 7, 236, 71, 123, 151 ));
+   
+   type TappedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Input.ITappedRoutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TappedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2689,12 +2680,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_TappedEventHandler : aliased constant Windows.IID := (1759068364, 40944, 18894, (177, 65, 63, 7, 236, 71, 123, 151 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged : aliased constant Windows.IID := (3353763042, 64213, 24123, (156, 88, 24, 108, 168, 193, 221, 87 ));
+   
+   type TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged'access) with null record;
    
    function Invoke
    (
@@ -2704,12 +2694,11 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged : aliased constant Windows.IID := (3353763042, 64213, 24123, (156, 88, 24, 108, 168, 193, 221, 87 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Input.IKeyboardAccelerator ; args : Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IKeyboardAccelerator_add_Invoked : aliased constant Windows.IID := (4150522798, 45547, 21906, (160, 145, 213, 8, 243, 43, 11, 44 ));
+   
+   type TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Input.IKeyboardAccelerator ; args : Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IKeyboardAccelerator_add_Invoked'access) with null record;
    
    function Invoke
    (
@@ -2718,8 +2707,6 @@ package Windows.UI.Xaml.Input is
       ; args : Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IKeyboardAccelerator_add_Invoked : aliased constant Windows.IID := (4150522798, 45547, 21906, (160, 145, 213, 8, 243, 43, 11, 44 ));
    
    ------------------------------------------------------------------------
    -- Classes
@@ -2778,9 +2765,9 @@ package Windows.UI.Xaml.Input is
    
    type IKeyboardAccelerator_Interface_Impl is new IKeyboardAccelerator_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IKeyboardAccelerator := null;
       m_IKeyboardAccelerator : IKeyboardAccelerator := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IKeyboardAccelerator_Impl is access all IKeyboardAccelerator_Interface_Impl'Class;
@@ -2790,7 +2777,7 @@ package Windows.UI.Xaml.Input is
    (
       This       : access IKeyboardAccelerator_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -2918,9 +2905,9 @@ package Windows.UI.Xaml.Input is
    
    type IManipulationStartedRoutedEventArgs_Interface_Impl is new IManipulationStartedRoutedEventArgs_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IManipulationStartedRoutedEventArgs := null;
       m_IManipulationStartedRoutedEventArgs : IManipulationStartedRoutedEventArgs := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IManipulationStartedRoutedEventArgs_Impl is access all IManipulationStartedRoutedEventArgs_Interface_Impl'Class;
@@ -2930,7 +2917,7 @@ package Windows.UI.Xaml.Input is
    (
       This       : access IManipulationStartedRoutedEventArgs_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    

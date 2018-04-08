@@ -487,6 +487,9 @@ package Windows.Devices.Sms is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ISmsMessage : aliased constant Windows.IID := (3980156456, 27012, 19207, (129, 29, 141, 89, 6, 237, 60, 234 ));
+   
    type ISmsMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -502,10 +505,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.SmsMessageClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsMessage : aliased constant Windows.IID := (3980156456, 27012, 19207, (129, 29, 141, 89, 6, 237, 60, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsBinaryMessage : aliased constant Windows.IID := (1542776851, 15187, 19566, (182, 26, 216, 106, 99, 117, 86, 80 ));
+   
    type ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Format
@@ -535,10 +538,10 @@ package Windows.Devices.Sms is
       ; value : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsBinaryMessage : aliased constant Windows.IID := (1542776851, 15187, 19566, (182, 26, 216, 106, 99, 117, 86, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsTextMessage : aliased constant Windows.IID := (3592196172, 42133, 18559, (154, 111, 151, 21, 72, 197, 188, 159 ));
+   
    type ISmsTextMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -632,10 +635,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.IVectorView_ISmsBinaryMessage -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsTextMessage : aliased constant Windows.IID := (3592196172, 42133, 18559, (154, 111, 151, 21, 72, 197, 188, 159 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsTextMessageStatics : aliased constant Windows.IID := (2137572845, 15564, 18339, (140, 85, 56, 13, 59, 1, 8, 146 ));
+   
    type ISmsTextMessageStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromBinaryMessage
@@ -654,10 +657,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsTextMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsTextMessageStatics : aliased constant Windows.IID := (2137572845, 15564, 18339, (140, 85, 56, 13, 59, 1, 8, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmsMessage : aliased constant Windows.IID := (2885268569, 18627, 24236, (151, 73, 76, 109, 180, 213, 7, 230 ));
+   
    type IAsyncOperation_ISmsMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -680,10 +683,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmsMessage : aliased constant Windows.IID := (2885268569, 18627, 24236, (151, 73, 76, 109, 180, 213, 7, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperationWithProgress_ISmsMessage_Int32 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IAsyncOperationWithProgress_ISmsMessage_Int32_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Progress
@@ -720,10 +723,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.IVectorView_ISmsMessage -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperationWithProgress_ISmsMessage_Int32 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsDeviceMessageStore : aliased constant Windows.IID := (2559177299, 61832, 17447, (141, 84, 206, 12, 36, 35, 197, 193 ));
+   
    type ISmsDeviceMessageStore_Interface is interface and Windows.IInspectable_Interface;
    
    function DeleteMessageAsync
@@ -764,10 +767,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsDeviceMessageStore : aliased constant Windows.IID := (2559177299, 61832, 17447, (141, 84, 206, 12, 36, 35, 197, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsMessageReceivedEventArgs : aliased constant Windows.IID := (149424792, 47333, 16833, (163, 216, 211, 171, 250, 226, 38, 117 ));
+   
    type ISmsMessageReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextMessage
@@ -783,10 +786,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsBinaryMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsMessageReceivedEventArgs : aliased constant Windows.IID := (149424792, 47333, 16833, (163, 216, 211, 171, 250, 226, 38, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_SmsDevice : aliased constant Windows.IID := (2876313057, 64699, 23510, (159, 47, 40, 95, 169, 251, 68, 232 ));
+   
    type IAsyncOperation_SmsDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -809,10 +812,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_SmsDevice : aliased constant Windows.IID := (2876313057, 64699, 23510, (159, 47, 40, 95, 169, 251, 68, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsDeviceStatics : aliased constant Windows.IID := (4169992170, 55317, 19921, (162, 52, 69, 32, 206, 70, 4, 164 ));
+   
    type ISmsDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -836,10 +839,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsDeviceStatics : aliased constant Windows.IID := (4169992170, 55317, 19921, (162, 52, 69, 32, 206, 70, 4, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsDeviceStatics2 : aliased constant Windows.IID := (748756103, 2163, 19631, (138, 125, 189, 71, 30, 133, 134, 209 ));
+   
    type ISmsDeviceStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function FromNetworkAccountIdAsync
@@ -849,10 +852,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.IAsyncOperation_ISmsDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsDeviceStatics2 : aliased constant Windows.IID := (748756103, 2163, 19631, (138, 125, 189, 71, 30, 133, 134, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsDevice : aliased constant Windows.IID := (152539629, 34603, 20204, (156, 114, 171, 17, 98, 123, 52, 236 ));
+   
    type ISmsDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function SendMessageAsync
@@ -928,10 +931,10 @@ package Windows.Devices.Sms is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsDevice : aliased constant Windows.IID := (152539629, 34603, 20204, (156, 114, 171, 17, 98, 123, 52, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsReceivedEventDetails : aliased constant Windows.IID := (1538592533, 58477, 19586, (132, 125, 90, 3, 4, 193, 213, 61 ));
+   
    type ISmsReceivedEventDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -947,10 +950,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsReceivedEventDetails : aliased constant Windows.IID := (1538592533, 58477, 19586, (132, 125, 90, 3, 4, 193, 213, 61 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsReceivedEventDetails2 : aliased constant Windows.IID := (1088445574, 42932, 18289, (154, 231, 11, 95, 251, 18, 192, 58 ));
+   
    type ISmsReceivedEventDetails2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MessageClass
@@ -966,10 +969,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsBinaryMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsReceivedEventDetails2 : aliased constant Windows.IID := (1088445574, 42932, 18289, (154, 231, 11, 95, 251, 18, 192, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsMessageBase : aliased constant Windows.IID := (753991216, 65104, 20422, (170, 136, 76, 207, 226, 122, 41, 234 ));
+   
    type ISmsMessageBase_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MessageType
@@ -1006,10 +1009,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsMessageBase : aliased constant Windows.IID := (753991216, 65104, 20422, (170, 136, 76, 207, 226, 122, 41, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsTextMessage2 : aliased constant Windows.IID := (580966547, 17749, 18261, (181, 161, 231, 253, 132, 149, 95, 141 ));
+   
    type ISmsTextMessage2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -1123,10 +1126,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsTextMessage2 : aliased constant Windows.IID := (580966547, 17749, 18261, (181, 161, 231, 253, 132, 149, 95, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsWapMessage : aliased constant Windows.IID := (3448993603, 31317, 19771, (144, 33, 242, 46, 2, 45, 9, 197 ));
+   
    type ISmsWapMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -1177,10 +1180,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsWapMessage : aliased constant Windows.IID := (3448993603, 31317, 19771, (144, 33, 242, 46, 2, 45, 9, 197 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsAppMessage : aliased constant Windows.IID := (3904603284, 54176, 18954, (134, 215, 41, 16, 51, 168, 207, 84 ));
+   
    type ISmsAppMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -1336,10 +1339,10 @@ package Windows.Devices.Sms is
       ; value : Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsAppMessage : aliased constant Windows.IID := (3904603284, 54176, 18954, (134, 215, 41, 16, 51, 168, 207, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsBroadcastMessage : aliased constant Windows.IID := (1974385649, 58551, 18548, (160, 156, 41, 86, 229, 146, 249, 87 ));
+   
    type ISmsBroadcastMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -1411,10 +1414,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsBroadcastMessage : aliased constant Windows.IID := (1974385649, 58551, 18548, (160, 156, 41, 86, 229, 146, 249, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsVoicemailMessage : aliased constant Windows.IID := (656056486, 38321, 17663, (188, 184, 184, 253, 215, 224, 139, 195 ));
+   
    type ISmsVoicemailMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Timestamp
@@ -1444,10 +1447,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsVoicemailMessage : aliased constant Windows.IID := (656056486, 38321, 17663, (188, 184, 184, 253, 215, 224, 139, 195 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsStatusMessage : aliased constant Windows.IID := (3872555842, 46859, 18039, (147, 121, 201, 120, 63, 223, 248, 244 ));
+   
    type ISmsStatusMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_To
@@ -1498,10 +1501,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsStatusMessage : aliased constant Windows.IID := (3872555842, 46859, 18039, (147, 121, 201, 120, 63, 223, 248, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsSendMessageResult : aliased constant Windows.IID := (3675495154, 30921, 20459, (150, 34, 69, 35, 40, 8, 141, 98 ));
+   
    type ISmsSendMessageResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsSuccessful
@@ -1552,10 +1555,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsSendMessageResult : aliased constant Windows.IID := (3675495154, 30921, 20459, (150, 34, 69, 35, 40, 8, 141, 98 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsDevice2Statics : aliased constant Windows.IID := (1707574053, 4145, 18718, (143, 182, 239, 153, 145, 175, 227, 99 ));
+   
    type ISmsDevice2Statics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -1587,10 +1590,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsDevice2
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsDevice2Statics : aliased constant Windows.IID := (1707574053, 4145, 18718, (143, 182, 239, 153, 145, 175, 227, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsDevice2 : aliased constant Windows.IID := (3179961363, 58658, 18123, (184, 213, 158, 173, 48, 251, 108, 71 ));
+   
    type ISmsDevice2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SmscAddress
@@ -1672,10 +1675,10 @@ package Windows.Devices.Sms is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsDevice2 : aliased constant Windows.IID := (3179961363, 58658, 18123, (184, 213, 158, 173, 48, 251, 108, 71 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsMessageReceivedTriggerDetails : aliased constant Windows.IID := (735038420, 9815, 16680, (173, 95, 227, 135, 113, 50, 189, 177 ));
+   
    type ISmsMessageReceivedTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MessageType
@@ -1738,10 +1741,10 @@ package Windows.Devices.Sms is
       This       : access ISmsMessageReceivedTriggerDetails_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsMessageReceivedTriggerDetails : aliased constant Windows.IID := (735038420, 9815, 16680, (173, 95, 227, 135, 113, 50, 189, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsFilterRule : aliased constant Windows.IID := (1088630702, 45129, 20412, (175, 233, 226, 166, 16, 239, 245, 92 ));
+   
    type ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MessageType
@@ -1841,10 +1844,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Foundation.Collections.IVector_Int32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsFilterRule : aliased constant Windows.IID := (1088630702, 45129, 20412, (175, 233, 226, 166, 16, 239, 245, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsFilterRuleFactory : aliased constant Windows.IID := (12805384, 25238, 20265, (154, 173, 137, 32, 206, 186, 60, 232 ));
+   
    type ISmsFilterRuleFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFilterRule
@@ -1854,10 +1857,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsFilterRule
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsFilterRuleFactory : aliased constant Windows.IID := (12805384, 25238, 20265, (154, 173, 137, 32, 206, 186, 60, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsFilterRules : aliased constant Windows.IID := (1313336059, 31181, 18561, (152, 148, 85, 164, 19, 91, 35, 250 ));
+   
    type ISmsFilterRules_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ActionType
@@ -1873,10 +1876,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.IVector_ISmsFilterRule -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsFilterRules : aliased constant Windows.IID := (1313336059, 31181, 18561, (152, 148, 85, 164, 19, 91, 35, 250 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsFilterRulesFactory : aliased constant Windows.IID := (2694391021, 28206, 17712, (159, 222, 70, 93, 2, 238, 208, 14 ));
+   
    type ISmsFilterRulesFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFilterRules
@@ -1886,10 +1889,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsFilterRules
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsFilterRulesFactory : aliased constant Windows.IID := (2694391021, 28206, 17712, (159, 222, 70, 93, 2, 238, 208, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsMessageRegistrationStatics : aliased constant Windows.IID := (1671451748, 10392, 18296, (160, 60, 111, 153, 73, 7, 214, 58 ));
+   
    type ISmsMessageRegistrationStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllRegistrations
@@ -1907,10 +1910,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsMessageRegistration
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsMessageRegistrationStatics : aliased constant Windows.IID := (1671451748, 10392, 18296, (160, 60, 111, 153, 73, 7, 214, 58 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISmsMessageRegistration : aliased constant Windows.IID := (387993662, 62287, 17515, (131, 179, 15, 241, 153, 35, 180, 9 ));
+   
    type ISmsMessageRegistration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1940,10 +1943,10 @@ package Windows.Devices.Sms is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISmsMessageRegistration : aliased constant Windows.IID := (387993662, 62287, 17515, (131, 179, 15, 241, 153, 35, 180, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmsBinaryMessage : aliased constant Windows.IID := (333843849, 59914, 23297, (156, 47, 14, 91, 67, 80, 88, 224 ));
+   
    type IIterator_ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1974,10 +1977,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ISmsBinaryMessage : aliased constant Windows.IID := (333843849, 59914, 23297, (156, 47, 14, 91, 67, 80, 88, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ISmsBinaryMessage : aliased constant Windows.IID := (1450747557, 19802, 20930, (161, 51, 75, 131, 191, 37, 217, 135 ));
+   
    type IIterable_ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1986,10 +1989,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.IIterator_ISmsBinaryMessage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ISmsBinaryMessage : aliased constant Windows.IID := (1450747557, 19802, 20930, (161, 51, 75, 131, 191, 37, 217, 135 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ISmsBinaryMessage : aliased constant Windows.IID := (1856075498, 39402, 23673, (135, 106, 244, 196, 55, 184, 61, 246 ));
+   
    type IVectorView_ISmsBinaryMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2024,10 +2027,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ISmsBinaryMessage : aliased constant Windows.IID := (1856075498, 39402, 23673, (135, 106, 244, 196, 55, 184, 61, 246 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmsDevice : aliased constant Windows.IID := (2876313057, 64699, 23510, (159, 47, 40, 95, 169, 251, 68, 232 ));
+   
    type IAsyncOperation_ISmsDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2050,10 +2053,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmsDevice : aliased constant Windows.IID := (2876313057, 64699, 23510, (159, 47, 40, 95, 169, 251, 68, 232 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISmsSendMessageResult : aliased constant Windows.IID := (4228516623, 19916, 21079, (188, 97, 52, 53, 227, 2, 206, 31 ));
+   
    type IAsyncOperation_ISmsSendMessageResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2076,10 +2079,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.ISmsSendMessageResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_ISmsSendMessageResult : aliased constant Windows.IID := (4228516623, 19916, 21079, (188, 97, 52, 53, 227, 2, 206, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_SmsBroadcastType : aliased constant Windows.IID := (1682497002, 49613, 20803, (164, 34, 95, 228, 240, 8, 204, 146 ));
+   
    type IIterator_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2110,10 +2113,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_SmsBroadcastType : aliased constant Windows.IID := (1682497002, 49613, 20803, (164, 34, 95, 228, 240, 8, 204, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_SmsBroadcastType : aliased constant Windows.IID := (304573301, 5950, 20811, (152, 240, 138, 121, 39, 169, 32, 108 ));
+   
    type IIterable_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2122,10 +2125,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.IIterator_SmsBroadcastType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_SmsBroadcastType : aliased constant Windows.IID := (304573301, 5950, 20811, (152, 240, 138, 121, 39, 169, 32, 108 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_SmsBroadcastType : aliased constant Windows.IID := (1080289169, 55853, 24140, (145, 19, 91, 107, 160, 167, 197, 149 ));
+   
    type IVectorView_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2160,10 +2163,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_SmsBroadcastType : aliased constant Windows.IID := (1080289169, 55853, 24140, (145, 19, 91, 107, 160, 167, 197, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_SmsBroadcastType : aliased constant Windows.IID := (3614174987, 4952, 22677, (189, 66, 241, 127, 111, 51, 238, 209 ));
+   
    type IVector_SmsBroadcastType_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2254,10 +2257,10 @@ package Windows.Devices.Sms is
       ; items : Windows.Devices.Sms.SmsBroadcastType_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_SmsBroadcastType : aliased constant Windows.IID := (3614174987, 4952, 22677, (189, 66, 241, 127, 111, 51, 238, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmsFilterRule : aliased constant Windows.IID := (4274506470, 38901, 23065, (179, 42, 216, 240, 186, 39, 111, 52 ));
+   
    type IIterator_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2288,10 +2291,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ISmsFilterRule : aliased constant Windows.IID := (4274506470, 38901, 23065, (179, 42, 216, 240, 186, 39, 111, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ISmsFilterRule : aliased constant Windows.IID := (65897063, 40080, 21088, (139, 192, 108, 62, 51, 6, 201, 100 ));
+   
    type IIterable_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2300,10 +2303,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.IIterator_ISmsFilterRule
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ISmsFilterRule : aliased constant Windows.IID := (65897063, 40080, 21088, (139, 192, 108, 62, 51, 6, 201, 100 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ISmsFilterRule : aliased constant Windows.IID := (4092412569, 56886, 23938, (153, 63, 53, 252, 103, 125, 139, 114 ));
+   
    type IVectorView_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2338,10 +2341,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ISmsFilterRule : aliased constant Windows.IID := (4092412569, 56886, 23938, (153, 63, 53, 252, 103, 125, 139, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_ISmsFilterRule : aliased constant Windows.IID := (2389899858, 18535, 22166, (180, 217, 76, 162, 63, 25, 225, 119 ));
+   
    type IVector_ISmsFilterRule_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2432,10 +2435,10 @@ package Windows.Devices.Sms is
       ; items : Windows.Devices.Sms.ISmsFilterRule_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_ISmsFilterRule : aliased constant Windows.IID := (2389899858, 18535, 22166, (180, 217, 76, 162, 63, 25, 225, 119 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ISmsMessageRegistration : aliased constant Windows.IID := (3994682997, 62409, 23570, (147, 224, 242, 176, 27, 220, 230, 17 ));
+   
    type IIterator_ISmsMessageRegistration_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2466,10 +2469,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ISmsMessageRegistration : aliased constant Windows.IID := (3994682997, 62409, 23570, (147, 224, 242, 176, 27, 220, 230, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ISmsMessageRegistration : aliased constant Windows.IID := (4164352522, 30477, 24207, (134, 100, 1, 196, 63, 149, 158, 234 ));
+   
    type IIterable_ISmsMessageRegistration_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2478,10 +2481,10 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.Devices.Sms.IIterator_ISmsMessageRegistration
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ISmsMessageRegistration : aliased constant Windows.IID := (4164352522, 30477, 24207, (134, 100, 1, 196, 63, 149, 158, 234 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ISmsMessageRegistration : aliased constant Windows.IID := (598386709, 9455, 22468, (177, 188, 148, 214, 44, 10, 89, 163 ));
+   
    type IVectorView_ISmsMessageRegistration_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2516,10 +2519,8 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ISmsMessageRegistration : aliased constant Windows.IID := (598386709, 9455, 22468, (177, 188, 148, 214, 44, 10, 89, 163 ));
-   
    ------------------------------------------------------------------------
+   
    type IVectorView_ISmsMessage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2554,15 +2555,15 @@ package Windows.Devices.Sms is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type SmsMessageReceivedEventHandler_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice ; e : Windows.Devices.Sms.ISmsMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SmsMessageReceivedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_SmsMessageReceivedEventHandler : aliased constant Windows.IID := (192599049, 60461, 18382, (162, 83, 115, 43, 238, 235, 202, 205 ));
+   
+   type SmsMessageReceivedEventHandler_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice ; e : Windows.Devices.Sms.ISmsMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_SmsMessageReceivedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2572,12 +2573,11 @@ package Windows.Devices.Sms is
    )
    return Windows.HRESULT;
    
-   IID_SmsMessageReceivedEventHandler : aliased constant Windows.IID := (192599049, 60461, 18382, (162, 83, 115, 43, 238, 235, 202, 205 ));
-   
    ------------------------------------------------------------------------
-   type SmsDeviceStatusChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access SmsDeviceStatusChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_SmsDeviceStatusChangedEventHandler : aliased constant Windows.IID := (2552959330, 15831, 17944, (175, 137, 12, 39, 45, 93, 6, 216 ));
+   
+   type SmsDeviceStatusChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice)) is new Windows.IMulticastDelegate_Interface(IID_SmsDeviceStatusChangedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -2586,12 +2586,11 @@ package Windows.Devices.Sms is
    )
    return Windows.HRESULT;
    
-   IID_SmsDeviceStatusChangedEventHandler : aliased constant Windows.IID := (2552959330, 15831, 17944, (175, 137, 12, 39, 45, 93, 6, 216 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmsMessage_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsMessage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmsMessage_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmsMessage : aliased constant Windows.IID := (1315720326, 60390, 21977, (173, 192, 254, 204, 56, 200, 42, 162 ));
+   
+   type AsyncOperationCompletedHandler_ISmsMessage_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsMessage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmsMessage'access) with null record;
    
    function Invoke
    (
@@ -2601,12 +2600,11 @@ package Windows.Devices.Sms is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmsMessage : aliased constant Windows.IID := (1315720326, 60390, 21977, (173, 192, 254, 204, 56, 200, 42, 162 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmsDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmsDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmsDevice : aliased constant Windows.IID := (1152013444, 17360, 22675, (164, 238, 125, 176, 1, 19, 174, 96 ));
+   
+   type AsyncOperationCompletedHandler_ISmsDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmsDevice'access) with null record;
    
    function Invoke
    (
@@ -2616,12 +2614,11 @@ package Windows.Devices.Sms is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmsDevice : aliased constant Windows.IID := (1152013444, 17360, 22675, (164, 238, 125, 176, 1, 19, 174, 96 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_ISmsSendMessageResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsSendMessageResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_ISmsSendMessageResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_ISmsSendMessageResult : aliased constant Windows.IID := (3352676094, 37382, 24241, (171, 193, 193, 188, 33, 128, 78, 235 ));
+   
+   type AsyncOperationCompletedHandler_ISmsSendMessageResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sms.IAsyncOperation_ISmsSendMessageResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISmsSendMessageResult'access) with null record;
    
    function Invoke
    (
@@ -2631,12 +2628,11 @@ package Windows.Devices.Sms is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_ISmsSendMessageResult : aliased constant Windows.IID := (3352676094, 37382, 24241, (171, 193, 193, 188, 33, 128, 78, 235 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice2 ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged : aliased constant Windows.IID := (1060636902, 15854, 22438, (168, 141, 186, 207, 176, 102, 199, 251 ));
+   
+   type TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsDevice2 ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged'access) with null record;
    
    function Invoke
    (
@@ -2646,12 +2642,11 @@ package Windows.Devices.Sms is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISmsDevice2_add_DeviceStatusChanged : aliased constant Windows.IID := (1060636902, 15854, 22438, (168, 141, 186, 207, 176, 102, 199, 251 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISmsMessageRegistration_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsMessageRegistration ; args : Windows.Devices.Sms.ISmsMessageReceivedTriggerDetails)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISmsMessageRegistration_add_MessageReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISmsMessageRegistration_add_MessageReceived : aliased constant Windows.IID := (871990727, 56570, 21279, (156, 206, 238, 94, 108, 38, 177, 230 ));
+   
+   type TypedEventHandler_ISmsMessageRegistration_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Devices.Sms.ISmsMessageRegistration ; args : Windows.Devices.Sms.ISmsMessageReceivedTriggerDetails)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISmsMessageRegistration_add_MessageReceived'access) with null record;
    
    function Invoke
    (
@@ -2660,8 +2655,6 @@ package Windows.Devices.Sms is
       ; args : Windows.Devices.Sms.ISmsMessageReceivedTriggerDetails
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ISmsMessageRegistration_add_MessageReceived : aliased constant Windows.IID := (871990727, 56570, 21279, (156, 206, 238, 94, 108, 38, 177, 230 ));
    
    ------------------------------------------------------------------------
    -- Classes

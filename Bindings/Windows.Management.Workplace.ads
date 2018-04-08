@@ -78,6 +78,9 @@ package Windows.Management.Workplace is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMdmAllowPolicyStatics : aliased constant Windows.IID := (3281455591, 29724, 16882, (164, 182, 49, 76, 49, 80, 37, 134 ));
+   
    type IMdmAllowPolicyStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function IsBrowserAllowed
@@ -107,10 +110,10 @@ package Windows.Management.Workplace is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMdmAllowPolicyStatics : aliased constant Windows.IID := (3281455591, 29724, 16882, (164, 182, 49, 76, 49, 80, 37, 134 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMdmPolicyStatics2 : aliased constant Windows.IID := (3382474022, 980, 18937, (169, 147, 67, 239, 204, 210, 101, 196 ));
+   
    type IMdmPolicyStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetMessagingSyncPolicy
@@ -119,10 +122,10 @@ package Windows.Management.Workplace is
       ; RetVal : access Windows.Management.Workplace.MessagingSyncPolicy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMdmPolicyStatics2 : aliased constant Windows.IID := (3382474022, 980, 18937, (169, 147, 67, 239, 204, 210, 101, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IWorkplaceSettingsStatics : aliased constant Windows.IID := (3831984125, 11666, 19464, (186, 212, 246, 89, 11, 84, 166, 211 ));
+   
    type IWorkplaceSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsMicrosoftAccountOptional
@@ -131,9 +134,6 @@ package Windows.Management.Workplace is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IWorkplaceSettingsStatics : aliased constant Windows.IID := (3831984125, 11666, 19464, (186, 212, 246, 89, 11, 84, 166, 211 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

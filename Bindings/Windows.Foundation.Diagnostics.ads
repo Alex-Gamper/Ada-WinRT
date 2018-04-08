@@ -305,6 +305,9 @@ package Windows.Foundation.Diagnostics is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ITracingStatusChangedEventArgs : aliased constant Windows.IID := (1091270417, 65339, 18303, (156, 154, 210, 239, 218, 48, 45, 195 ));
+   
    type ITracingStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Enabled
@@ -320,10 +323,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.CausalityTraceLevel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITracingStatusChangedEventArgs : aliased constant Windows.IID := (1091270417, 65339, 18303, (156, 154, 210, 239, 218, 48, 45, 195 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncCausalityTracerStatics : aliased constant Windows.IID := (1350896422, 9854, 17691, (168, 144, 171, 106, 55, 2, 69, 238 ));
+   
    type IAsyncCausalityTracerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function TraceOperationCreation
@@ -394,10 +397,10 @@ package Windows.Foundation.Diagnostics is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncCausalityTracerStatics : aliased constant Windows.IID := (1350896422, 9854, 17691, (168, 144, 171, 106, 55, 2, 69, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IErrorReportingSettings : aliased constant Windows.IID := (372676498, 45118, 19361, (139, 184, 210, 143, 74, 180, 210, 192 ));
+   
    type IErrorReportingSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function SetErrorOptions
@@ -413,10 +416,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.ErrorOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IErrorReportingSettings : aliased constant Windows.IID := (372676498, 45118, 19361, (139, 184, 210, 143, 74, 180, 210, 192 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IErrorDetailsStatics : aliased constant Windows.IID := (3077584720, 2845, 18120, (170, 14, 75, 129, 120, 228, 252, 233 ));
+   
    type IErrorDetailsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateFromHResultAsync
@@ -426,10 +429,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.IAsyncOperation_IErrorDetails -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IErrorDetailsStatics : aliased constant Windows.IID := (3077584720, 2845, 18120, (170, 14, 75, 129, 120, 228, 252, 233 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IErrorDetails : aliased constant Windows.IID := (931969793, 11465, 17039, (140, 85, 44, 153, 13, 70, 62, 143 ));
+   
    type IErrorDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Description
@@ -452,10 +455,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IErrorDetails : aliased constant Windows.IID := (931969793, 11465, 17039, (140, 85, 44, 153, 13, 70, 62, 143 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingOptions : aliased constant Windows.IID := (2428270672, 402, 20317, (172, 38, 0, 106, 218, 202, 18, 216 ));
+   
    type ILoggingOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Keywords
@@ -541,10 +544,10 @@ package Windows.Foundation.Diagnostics is
       ; value : Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingOptions : aliased constant Windows.IID := (2428270672, 402, 20317, (172, 38, 0, 106, 218, 202, 18, 216 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingOptionsFactory : aliased constant Windows.IID := (3608397515, 39083, 17995, (159, 34, 163, 38, 132, 120, 54, 138 ));
+   
    type ILoggingOptionsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithKeywords
@@ -554,10 +557,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.ILoggingOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingOptionsFactory : aliased constant Windows.IID := (3608397515, 39083, 17995, (159, 34, 163, 38, 132, 120, 54, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingChannelOptions : aliased constant Windows.IID := (3286779903, 3771, 19027, (140, 84, 222, 194, 73, 38, 203, 44 ));
+   
    type ILoggingChannelOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Group
@@ -573,10 +576,10 @@ package Windows.Foundation.Diagnostics is
       ; value : Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingChannelOptions : aliased constant Windows.IID := (3286779903, 3771, 19027, (140, 84, 222, 194, 73, 38, 203, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingChannelOptionsFactory : aliased constant Windows.IID := (2838581722, 32687, 16785, (135, 85, 94, 134, 220, 101, 216, 150 ));
+   
    type ILoggingChannelOptionsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -586,10 +589,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannelOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingChannelOptionsFactory : aliased constant Windows.IID := (2838581722, 32687, 16785, (135, 85, 94, 134, 220, 101, 216, 150 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingFields : aliased constant Windows.IID := (3623270319, 30253, 17785, (131, 189, 82, 194, 59, 195, 51, 188 ));
+   
    type ILoggingFields_Interface is interface and Windows.IInspectable_Interface;
    
    function Clear
@@ -1614,10 +1617,10 @@ package Windows.Foundation.Diagnostics is
       ; tags : Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingFields : aliased constant Windows.IID := (3623270319, 30253, 17785, (131, 189, 82, 194, 59, 195, 51, 188 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingTarget : aliased constant Windows.IID := (1710320693, 58248, 20006, (177, 122, 245, 28, 211, 168, 57, 22 ));
+   
    type ILoggingTarget_Interface is interface and Windows.IInspectable_Interface;
    
    function IsEnabled
@@ -1715,10 +1718,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.ILoggingActivity
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingTarget : aliased constant Windows.IID := (1710320693, 58248, 20006, (177, 122, 245, 28, 211, 168, 57, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingChannel : aliased constant Windows.IID := (3919905603, 4567, 20225, (181, 202, 207, 73, 82, 120, 192, 168 ));
+   
    type ILoggingChannel_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -1788,10 +1791,10 @@ package Windows.Foundation.Diagnostics is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingChannel : aliased constant Windows.IID := (3919905603, 4567, 20225, (181, 202, 207, 73, 82, 120, 192, 168 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingChannel2 : aliased constant Windows.IID := (2672573683, 2988, 17829, (158, 51, 186, 243, 243, 162, 70, 165 ));
+   
    type ILoggingChannel2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Id
@@ -1800,10 +1803,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingChannel2 : aliased constant Windows.IID := (2672573683, 2988, 17829, (158, 51, 186, 243, 243, 162, 70, 165 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingChannelFactory : aliased constant Windows.IID := (1323064220, 44928, 19099, (176, 220, 57, 143, 154, 229, 32, 123 ));
+   
    type ILoggingChannelFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1813,10 +1816,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingChannelFactory : aliased constant Windows.IID := (1323064220, 44928, 19099, (176, 220, 57, 143, 154, 229, 32, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingChannelFactory2 : aliased constant Windows.IID := (1282340317, 15143, 19913, (153, 240, 41, 156, 110, 70, 3, 161 ));
+   
    type ILoggingChannelFactory2_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithOptions
@@ -1837,10 +1840,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.ILoggingChannel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingChannelFactory2 : aliased constant Windows.IID := (1282340317, 15143, 19913, (153, 240, 41, 156, 110, 70, 3, 161 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingActivity : aliased constant Windows.IID := (3154323777, 46950, 19637, (152, 72, 151, 172, 107, 166, 214, 12 ));
+   
    type ILoggingActivity_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -1856,10 +1859,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingActivity : aliased constant Windows.IID := (3154323777, 46950, 19637, (152, 72, 151, 172, 107, 166, 214, 12 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingActivity2 : aliased constant Windows.IID := (650287112, 25378, 17770, (175, 130, 128, 200, 100, 47, 23, 139 ));
+   
    type ILoggingActivity2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Channel
@@ -1892,10 +1895,10 @@ package Windows.Foundation.Diagnostics is
       ; options : Windows.Foundation.Diagnostics.ILoggingOptions
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingActivity2 : aliased constant Windows.IID := (650287112, 25378, 17770, (175, 130, 128, 200, 100, 47, 23, 139 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingActivityFactory : aliased constant Windows.IID := (1798550659, 57610, 19544, (151, 213, 16, 251, 69, 16, 116, 251 ));
+   
    type ILoggingActivityFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateLoggingActivity
@@ -1916,10 +1919,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.ILoggingActivity
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingActivityFactory : aliased constant Windows.IID := (1798550659, 57610, 19544, (151, 213, 16, 251, 69, 16, 116, 251 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingSession : aliased constant Windows.IID := (1646392070, 37760, 19159, (186, 245, 65, 234, 147, 16, 215, 104 ));
+   
    type ILoggingSession_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -1959,10 +1962,10 @@ package Windows.Foundation.Diagnostics is
       ; loggingChannel : Windows.Foundation.Diagnostics.ILoggingChannel
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingSession : aliased constant Windows.IID := (1646392070, 37760, 19159, (186, 245, 65, 234, 147, 16, 215, 104 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILoggingSessionFactory : aliased constant Windows.IID := (1318289125, 22781, 17888, (140, 47, 161, 50, 239, 249, 92, 30 ));
+   
    type ILoggingSessionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1972,10 +1975,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.ILoggingSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILoggingSessionFactory : aliased constant Windows.IID := (1318289125, 22781, 17888, (140, 47, 161, 50, 239, 249, 92, 30 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILogFileGeneratedEventArgs : aliased constant Windows.IID := (647927663, 3384, 19482, (181, 63, 179, 149, 216, 129, 223, 132 ));
+   
    type ILogFileGeneratedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_File
@@ -1984,10 +1987,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILogFileGeneratedEventArgs : aliased constant Windows.IID := (647927663, 3384, 19482, (181, 63, 179, 149, 216, 129, 223, 132 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileLoggingSession : aliased constant Windows.IID := (617038358, 65234, 16460, (137, 95, 31, 150, 153, 203, 2, 247 ));
+   
    type IFileLoggingSession_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -2040,10 +2043,10 @@ package Windows.Foundation.Diagnostics is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileLoggingSession : aliased constant Windows.IID := (617038358, 65234, 16460, (137, 95, 31, 150, 153, 203, 2, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileLoggingSessionFactory : aliased constant Windows.IID := (4003499470, 33863, 19882, (145, 51, 18, 235, 70, 246, 151, 212 ));
+   
    type IFileLoggingSessionFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -2053,10 +2056,10 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.IFileLoggingSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileLoggingSessionFactory : aliased constant Windows.IID := (4003499470, 33863, 19882, (145, 51, 18, 235, 70, 246, 151, 212 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IErrorDetails : aliased constant Windows.IID := (2600800365, 30688, 23588, (130, 176, 155, 45, 200, 247, 150, 113 ));
+   
    type IAsyncOperation_IErrorDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2079,17 +2082,15 @@ package Windows.Foundation.Diagnostics is
       ; RetVal : access Windows.Foundation.Diagnostics.IErrorDetails
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IErrorDetails : aliased constant Windows.IID := (2600800365, 30688, 23588, (130, 176, 155, 45, 200, 247, 150, 113 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type EventHandler_ITracingStatusChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access EventHandler_ITracingStatusChangedEventArgs_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_EventHandler_ITracingStatusChangedEventArgs : aliased constant Windows.IID := (737308680, 11956, 22133, (177, 205, 233, 144, 108, 197, 206, 100 ));
+   
+   type EventHandler_ITracingStatusChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_ITracingStatusChangedEventArgs'access) with null record;
    
    function Invoke
    (
@@ -2099,12 +2100,11 @@ package Windows.Foundation.Diagnostics is
    )
    return Windows.HRESULT;
    
-   IID_EventHandler_ITracingStatusChangedEventArgs : aliased constant Windows.IID := (737308680, 11956, 22133, (177, 205, 233, 144, 108, 197, 206, 100 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IErrorDetails_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.Diagnostics.IAsyncOperation_IErrorDetails ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IErrorDetails_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IErrorDetails : aliased constant Windows.IID := (2795077533, 29077, 22898, (142, 205, 28, 115, 170, 92, 179, 18 ));
+   
+   type AsyncOperationCompletedHandler_IErrorDetails_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.Diagnostics.IAsyncOperation_IErrorDetails ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IErrorDetails'access) with null record;
    
    function Invoke
    (
@@ -2114,12 +2114,11 @@ package Windows.Foundation.Diagnostics is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IErrorDetails : aliased constant Windows.IID := (2795077533, 29077, 22898, (142, 205, 28, 115, 170, 92, 179, 18 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface(Callback : access procedure (sender : Windows.Foundation.Diagnostics.ILoggingChannel ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILoggingChannel_add_LoggingEnabled : aliased constant Windows.IID := (1388954273, 21667, 24313, (154, 255, 1, 78, 124, 69, 70, 85 ));
+   
+   type TypedEventHandler_ILoggingChannel_add_LoggingEnabled_Interface(Callback : access procedure (sender : Windows.Foundation.Diagnostics.ILoggingChannel ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILoggingChannel_add_LoggingEnabled'access) with null record;
    
    function Invoke
    (
@@ -2129,12 +2128,11 @@ package Windows.Foundation.Diagnostics is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ILoggingChannel_add_LoggingEnabled : aliased constant Windows.IID := (1388954273, 21667, 24313, (154, 255, 1, 78, 124, 69, 70, 85 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IFileLoggingSession_add_LogFileGenerated_Interface(Callback : access procedure (sender : Windows.Foundation.Diagnostics.IFileLoggingSession ; args : Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IFileLoggingSession_add_LogFileGenerated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IFileLoggingSession_add_LogFileGenerated : aliased constant Windows.IID := (207971248, 40331, 23392, (153, 75, 222, 225, 23, 77, 30, 251 ));
+   
+   type TypedEventHandler_IFileLoggingSession_add_LogFileGenerated_Interface(Callback : access procedure (sender : Windows.Foundation.Diagnostics.IFileLoggingSession ; args : Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFileLoggingSession_add_LogFileGenerated'access) with null record;
    
    function Invoke
    (
@@ -2143,8 +2141,6 @@ package Windows.Foundation.Diagnostics is
       ; args : Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IFileLoggingSession_add_LogFileGenerated : aliased constant Windows.IID := (207971248, 40331, 23392, (153, 75, 222, 225, 23, 77, 30, 251 ));
    
    ------------------------------------------------------------------------
    -- Classes

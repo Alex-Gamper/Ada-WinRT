@@ -176,6 +176,9 @@ package Windows.ApplicationModel.AppService is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceDeferral : aliased constant Windows.IID := (2115719970, 60080, 16968, (174, 4, 253, 249, 56, 56, 228, 114 ));
+   
    type IAppServiceDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -183,10 +186,10 @@ package Windows.ApplicationModel.AppService is
       This       : access IAppServiceDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceDeferral : aliased constant Windows.IID := (2115719970, 60080, 16968, (174, 4, 253, 249, 56, 56, 228, 114 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceClosedEventArgs : aliased constant Windows.IID := (3730839286, 51971, 19765, (172, 141, 204, 99, 3, 35, 151, 49 ));
+   
    type IAppServiceClosedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -195,10 +198,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.ApplicationModel.AppService.AppServiceClosedStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceClosedEventArgs : aliased constant Windows.IID := (3730839286, 51971, 19765, (172, 141, 204, 99, 3, 35, 151, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceRequestReceivedEventArgs : aliased constant Windows.IID := (1846682464, 65381, 17582, (158, 69, 133, 127, 228, 24, 6, 129 ));
+   
    type IAppServiceRequestReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Request
@@ -214,10 +217,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.ApplicationModel.AppService.IAppServiceDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceRequestReceivedEventArgs : aliased constant Windows.IID := (1846682464, 65381, 17582, (158, 69, 133, 127, 228, 24, 6, 129 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceConnection : aliased constant Windows.IID := (2647946402, 34591, 19794, (137, 169, 158, 9, 5, 49, 189, 39 ));
+   
    type IAppServiceConnection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppServiceName
@@ -292,10 +295,10 @@ package Windows.ApplicationModel.AppService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceConnection : aliased constant Windows.IID := (2647946402, 34591, 19794, (137, 169, 158, 9, 5, 49, 189, 39 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceConnection2 : aliased constant Windows.IID := (2346700127, 8962, 20413, (128, 97, 82, 81, 28, 47, 139, 249 ));
+   
    type IAppServiceConnection2_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenRemoteAsync
@@ -319,10 +322,10 @@ package Windows.ApplicationModel.AppService is
       ; value : Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceConnection2 : aliased constant Windows.IID := (2346700127, 8962, 20413, (128, 97, 82, 81, 28, 47, 139, 249 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceTriggerDetails : aliased constant Windows.IID := (2292374700, 44328, 16824, (128, 187, 189, 241, 178, 22, 158, 25 ));
+   
    type IAppServiceTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -345,10 +348,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.ApplicationModel.AppService.IAppServiceConnection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceTriggerDetails : aliased constant Windows.IID := (2292374700, 44328, 16824, (128, 187, 189, 241, 178, 22, 158, 25 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceTriggerDetails2 : aliased constant Windows.IID := (3896333490, 10444, 17394, (180, 101, 192, 72, 46, 89, 226, 220 ));
+   
    type IAppServiceTriggerDetails2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsRemoteSystemConnection
@@ -357,10 +360,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceTriggerDetails2 : aliased constant Windows.IID := (3896333490, 10444, 17394, (180, 101, 192, 72, 46, 89, 226, 220 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceTriggerDetails3 : aliased constant Windows.IID := (4225179169, 31033, 20072, (158, 60, 119, 128, 20, 122, 171, 182 ));
+   
    type IAppServiceTriggerDetails3_Interface is interface and Windows.IInspectable_Interface;
    
    function CheckCallerForCapabilityAsync
@@ -370,10 +373,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceTriggerDetails3 : aliased constant Windows.IID := (4225179169, 31033, 20072, (158, 60, 119, 128, 20, 122, 171, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceRequest : aliased constant Windows.IID := (551914909, 6366, 19201, (128, 186, 144, 167, 98, 4, 227, 200 ));
+   
    type IAppServiceRequest_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Message
@@ -390,10 +393,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.ApplicationModel.AppService.IAsyncOperation_AppServiceResponseStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceRequest : aliased constant Windows.IID := (551914909, 6366, 19201, (128, 186, 144, 167, 98, 4, 227, 200 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceResponse : aliased constant Windows.IID := (2370845932, 39587, 20072, (149, 89, 157, 230, 62, 55, 44, 228 ));
+   
    type IAppServiceResponse_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Message
@@ -409,10 +412,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.ApplicationModel.AppService.AppServiceResponseStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceResponse : aliased constant Windows.IID := (2370845932, 39587, 20072, (149, 89, 157, 230, 62, 55, 44, 228 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppServiceCatalogStatics : aliased constant Windows.IID := (4010616071, 53554, 19589, (131, 149, 60, 49, 213, 161, 233, 65 ));
+   
    type IAppServiceCatalogStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FindAppServiceProvidersAsync
@@ -422,10 +425,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppServiceCatalogStatics : aliased constant Windows.IID := (4010616071, 53554, 19589, (131, 149, 60, 49, 213, 161, 233, 65 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_AppServiceConnectionStatus : aliased constant Windows.IID := (219047523, 9785, 23194, (156, 188, 48, 215, 212, 206, 83, 59 ));
+   
    type IAsyncOperation_AppServiceConnectionStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -448,10 +451,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.ApplicationModel.AppService.AppServiceConnectionStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_AppServiceConnectionStatus : aliased constant Windows.IID := (219047523, 9785, 23194, (156, 188, 48, 215, 212, 206, 83, 59 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppServiceResponse : aliased constant Windows.IID := (1215650428, 51343, 24304, (155, 76, 135, 111, 204, 38, 16, 180 ));
+   
    type IAsyncOperation_IAppServiceResponse_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -474,10 +477,10 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.ApplicationModel.AppService.IAppServiceResponse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IAppServiceResponse : aliased constant Windows.IID := (1215650428, 51343, 24304, (155, 76, 135, 111, 204, 38, 16, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_AppServiceResponseStatus : aliased constant Windows.IID := (2566764610, 23051, 21402, (163, 92, 85, 172, 95, 34, 134, 18 ));
+   
    type IAsyncOperation_AppServiceResponseStatus_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -500,17 +503,15 @@ package Windows.ApplicationModel.AppService is
       ; RetVal : access Windows.ApplicationModel.AppService.AppServiceResponseStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_AppServiceResponseStatus : aliased constant Windows.IID := (2566764610, 23051, 21402, (163, 92, 85, 172, 95, 34, 134, 18 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_AppServiceConnectionStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_AppServiceConnectionStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_AppServiceConnectionStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_AppServiceConnectionStatus : aliased constant Windows.IID := (3066477554, 29386, 22425, (166, 81, 209, 153, 6, 112, 9, 123 ));
+   
+   type AsyncOperationCompletedHandler_AppServiceConnectionStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_AppServiceConnectionStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_AppServiceConnectionStatus'access) with null record;
    
    function Invoke
    (
@@ -520,12 +521,11 @@ package Windows.ApplicationModel.AppService is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_AppServiceConnectionStatus : aliased constant Windows.IID := (3066477554, 29386, 22425, (166, 81, 209, 153, 6, 112, 9, 123 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IAppServiceResponse_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_IAppServiceResponse ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppServiceResponse_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IAppServiceResponse : aliased constant Windows.IID := (2124929004, 57700, 21187, (142, 50, 187, 167, 18, 109, 144, 40 ));
+   
+   type AsyncOperationCompletedHandler_IAppServiceResponse_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_IAppServiceResponse ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppServiceResponse'access) with null record;
    
    function Invoke
    (
@@ -535,12 +535,11 @@ package Windows.ApplicationModel.AppService is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IAppServiceResponse : aliased constant Windows.IID := (2124929004, 57700, 21187, (142, 50, 187, 167, 18, 109, 144, 40 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppService.IAppServiceConnection ; args : Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppServiceConnection_add_RequestReceived : aliased constant Windows.IID := (415661409, 16758, 21843, (177, 141, 216, 245, 127, 231, 149, 82 ));
+   
+   type TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppService.IAppServiceConnection ; args : Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppServiceConnection_add_RequestReceived'access) with null record;
    
    function Invoke
    (
@@ -550,12 +549,11 @@ package Windows.ApplicationModel.AppService is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAppServiceConnection_add_RequestReceived : aliased constant Windows.IID := (415661409, 16758, 21843, (177, 141, 216, 245, 127, 231, 149, 82 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppServiceConnection_add_ServiceClosed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppService.IAppServiceConnection ; args : Windows.ApplicationModel.AppService.IAppServiceClosedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppServiceConnection_add_ServiceClosed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppServiceConnection_add_ServiceClosed : aliased constant Windows.IID := (3840911757, 19452, 24161, (162, 51, 104, 143, 95, 6, 82, 31 ));
+   
+   type TypedEventHandler_IAppServiceConnection_add_ServiceClosed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppService.IAppServiceConnection ; args : Windows.ApplicationModel.AppService.IAppServiceClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppServiceConnection_add_ServiceClosed'access) with null record;
    
    function Invoke
    (
@@ -565,12 +563,11 @@ package Windows.ApplicationModel.AppService is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAppServiceConnection_add_ServiceClosed : aliased constant Windows.IID := (3840911757, 19452, 24161, (162, 51, 104, 143, 95, 6, 82, 31 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_AppServiceResponseStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_AppServiceResponseStatus : aliased constant Windows.IID := (3089381437, 13024, 21881, (134, 112, 160, 106, 97, 69, 127, 32 ));
+   
+   type AsyncOperationCompletedHandler_AppServiceResponseStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_AppServiceResponseStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_AppServiceResponseStatus'access) with null record;
    
    function Invoke
    (
@@ -579,8 +576,6 @@ package Windows.ApplicationModel.AppService is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_AppServiceResponseStatus : aliased constant Windows.IID := (3089381437, 13024, 21881, (134, 112, 160, 106, 97, 69, 127, 32 ));
    
    ------------------------------------------------------------------------
    -- Classes

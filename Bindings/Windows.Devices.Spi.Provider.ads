@@ -95,6 +95,9 @@ package Windows.Devices.Spi.Provider is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IProviderSpiConnectionSettingsFactory : aliased constant Windows.IID := (1715825498, 3193, 17379, (159, 60, 229, 151, 128, 172, 24, 250 ));
+   
    type IProviderSpiConnectionSettingsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -104,10 +107,10 @@ package Windows.Devices.Spi.Provider is
       ; RetVal : access Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProviderSpiConnectionSettingsFactory : aliased constant Windows.IID := (1715825498, 3193, 17379, (159, 60, 229, 151, 128, 172, 24, 250 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProviderSpiConnectionSettings : aliased constant Windows.IID := (4127409488, 42306, 20160, (150, 1, 164, 221, 104, 248, 105, 123 ));
+   
    type IProviderSpiConnectionSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChipSelectLine
@@ -179,10 +182,10 @@ package Windows.Devices.Spi.Provider is
       ; value : Windows.Devices.Spi.Provider.ProviderSpiSharingMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProviderSpiConnectionSettings : aliased constant Windows.IID := (4127409488, 42306, 20160, (150, 1, 164, 221, 104, 248, 105, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpiControllerProvider : aliased constant Windows.IID := (3244844292, 718, 16934, (163, 133, 79, 17, 251, 4, 180, 27 ));
+   
    type ISpiControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceProvider
@@ -192,10 +195,10 @@ package Windows.Devices.Spi.Provider is
       ; RetVal : access Windows.Devices.Spi.Provider.ISpiDeviceProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiControllerProvider : aliased constant Windows.IID := (3244844292, 718, 16934, (163, 133, 79, 17, 251, 4, 180, 27 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpiProvider : aliased constant Windows.IID := (2528403938, 30676, 18638, (170, 160, 117, 113, 90, 131, 98, 207 ));
+   
    type ISpiProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function GetControllersAsync
@@ -204,10 +207,10 @@ package Windows.Devices.Spi.Provider is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiProvider : aliased constant Windows.IID := (2528403938, 30676, 18638, (170, 160, 117, 113, 90, 131, 98, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpiDeviceProvider : aliased constant Windows.IID := (219952195, 12363, 16476, (180, 247, 245, 171, 16, 116, 70, 30 ));
+   
    type ISpiDeviceProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -253,9 +256,6 @@ package Windows.Devices.Spi.Provider is
       ; readBuffer : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpiDeviceProvider : aliased constant Windows.IID := (219952195, 12363, 16476, (180, 247, 245, 171, 16, 116, 70, 30 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

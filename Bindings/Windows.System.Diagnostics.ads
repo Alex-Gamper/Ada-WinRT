@@ -142,6 +142,9 @@ package Windows.System.Diagnostics is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IProcessDiagnosticInfo : aliased constant Windows.IID := (3895504971, 12302, 20198, (160, 171, 91, 95, 82, 49, 180, 52 ));
+   
    type IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ProcessId
@@ -192,10 +195,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.IProcessCpuUsage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessDiagnosticInfo : aliased constant Windows.IID := (3895504971, 12302, 20198, (160, 171, 91, 95, 82, 49, 180, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessDiagnosticInfo2 : aliased constant Windows.IID := (2505624346, 15627, 18924, (171, 112, 79, 122, 17, 40, 5, 222 ));
+   
    type IProcessDiagnosticInfo2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAppDiagnosticInfos
@@ -211,10 +214,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessDiagnosticInfo2 : aliased constant Windows.IID := (2505624346, 15627, 18924, (171, 112, 79, 122, 17, 40, 5, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessDiagnosticInfoStatics : aliased constant Windows.IID := (792834656, 46239, 17036, (170, 14, 132, 116, 79, 73, 202, 149 ));
+   
    type IProcessDiagnosticInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForProcesses
@@ -230,10 +233,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.IProcessDiagnosticInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessDiagnosticInfoStatics : aliased constant Windows.IID := (792834656, 46239, 17036, (170, 14, 132, 116, 79, 73, 202, 149 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessDiagnosticInfoStatics2 : aliased constant Windows.IID := (1250334871, 39065, 19012, (162, 155, 9, 22, 99, 190, 9, 182 ));
+   
    type IProcessDiagnosticInfoStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function TryGetForProcessId
@@ -243,10 +246,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.IProcessDiagnosticInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessDiagnosticInfoStatics2 : aliased constant Windows.IID := (1250334871, 39065, 19012, (162, 155, 9, 22, 99, 190, 9, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessMemoryUsage : aliased constant Windows.IID := (4111147675, 33404, 17079, (176, 124, 14, 50, 98, 126, 107, 62 ));
+   
    type IProcessMemoryUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetReport
@@ -255,10 +258,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.IProcessMemoryUsageReport
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessMemoryUsage : aliased constant Windows.IID := (4111147675, 33404, 17079, (176, 124, 14, 50, 98, 126, 107, 62 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessMemoryUsageReport : aliased constant Windows.IID := (3267853498, 6481, 18053, (133, 50, 126, 116, 158, 207, 142, 235 ));
+   
    type IProcessMemoryUsageReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NonPagedPoolSizeInBytes
@@ -344,10 +347,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessMemoryUsageReport : aliased constant Windows.IID := (3267853498, 6481, 18053, (133, 50, 126, 116, 158, 207, 142, 235 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessDiskUsage : aliased constant Windows.IID := (1524075517, 32337, 20051, (191, 170, 90, 110, 225, 170, 187, 248 ));
+   
    type IProcessDiskUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetReport
@@ -356,10 +359,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.IProcessDiskUsageReport
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessDiskUsage : aliased constant Windows.IID := (1524075517, 32337, 20051, (191, 170, 90, 110, 225, 170, 187, 248 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessDiskUsageReport : aliased constant Windows.IID := (1075193853, 21341, 19487, (129, 184, 218, 84, 225, 190, 99, 94 ));
+   
    type IProcessDiskUsageReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ReadOperationCount
@@ -403,10 +406,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.Int64
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessDiskUsageReport : aliased constant Windows.IID := (1075193853, 21341, 19487, (129, 184, 218, 84, 225, 190, 99, 94 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessCpuUsage : aliased constant Windows.IID := (196813938, 51391, 16954, (168, 16, 181, 89, 174, 67, 84, 226 ));
+   
    type IProcessCpuUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetReport
@@ -415,10 +418,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.IProcessCpuUsageReport
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessCpuUsage : aliased constant Windows.IID := (196813938, 51391, 16954, (168, 16, 181, 89, 174, 67, 84, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IProcessCpuUsageReport : aliased constant Windows.IID := (2322439340, 14727, 20015, (161, 25, 107, 95, 162, 20, 241, 180 ));
+   
    type IProcessCpuUsageReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KernelTime
@@ -434,10 +437,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProcessCpuUsageReport : aliased constant Windows.IID := (2322439340, 14727, 20015, (161, 25, 107, 95, 162, 20, 241, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemDiagnosticInfo : aliased constant Windows.IID := (2727411205, 57331, 16511, (154, 27, 11, 43, 49, 124, 168, 0 ));
+   
    type ISystemDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MemoryUsage
@@ -453,10 +456,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.ISystemCpuUsage
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemDiagnosticInfo : aliased constant Windows.IID := (2727411205, 57331, 16511, (154, 27, 11, 43, 49, 124, 168, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemDiagnosticInfoStatics : aliased constant Windows.IID := (3557076001, 64637, 17904, (154, 63, 57, 32, 58, 237, 159, 126 ));
+   
    type ISystemDiagnosticInfoStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentSystem
@@ -465,10 +468,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.ISystemDiagnosticInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemDiagnosticInfoStatics : aliased constant Windows.IID := (3557076001, 64637, 17904, (154, 63, 57, 32, 58, 237, 159, 126 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemMemoryUsage : aliased constant Windows.IID := (402638229, 5890, 18895, (170, 39, 47, 10, 50, 89, 20, 4 ));
+   
    type ISystemMemoryUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetReport
@@ -477,10 +480,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.ISystemMemoryUsageReport
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemMemoryUsage : aliased constant Windows.IID := (402638229, 5890, 18895, (170, 39, 47, 10, 50, 89, 20, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemMemoryUsageReport : aliased constant Windows.IID := (946224263, 10911, 16442, (189, 25, 44, 243, 232, 22, 149, 0 ));
+   
    type ISystemMemoryUsageReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TotalPhysicalSizeInBytes
@@ -503,10 +506,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemMemoryUsageReport : aliased constant Windows.IID := (946224263, 10911, 16442, (189, 25, 44, 243, 232, 22, 149, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemCpuUsage : aliased constant Windows.IID := (1614263212, 726, 16948, (131, 98, 127, 227, 173, 200, 31, 95 ));
+   
    type ISystemCpuUsage_Interface is interface and Windows.IInspectable_Interface;
    
    function GetReport
@@ -515,10 +518,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.ISystemCpuUsageReport
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemCpuUsage : aliased constant Windows.IID := (1614263212, 726, 16948, (131, 98, 127, 227, 173, 200, 31, 95 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemCpuUsageReport : aliased constant Windows.IID := (740741298, 38019, 20322, (171, 87, 130, 178, 157, 151, 25, 184 ));
+   
    type ISystemCpuUsageReport_Interface is interface and Windows.IInspectable_Interface;
    
    function get_KernelTime
@@ -541,10 +544,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemCpuUsageReport : aliased constant Windows.IID := (740741298, 38019, 20322, (171, 87, 130, 178, 157, 151, 25, 184 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDiagnosticActionResult : aliased constant Windows.IID := (3261440662, 59195, 16535, (178, 143, 52, 66, 240, 61, 216, 49 ));
+   
    type IDiagnosticActionResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ExtendedError
@@ -560,10 +563,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDiagnosticActionResult : aliased constant Windows.IID := (3261440662, 59195, 16535, (178, 143, 52, 66, 240, 61, 216, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDiagnosticInvokerStatics : aliased constant Windows.IID := (1559943390, 61788, 17748, (168, 19, 193, 19, 195, 136, 27, 9 ));
+   
    type IDiagnosticInvokerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefault
@@ -587,10 +590,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDiagnosticInvokerStatics : aliased constant Windows.IID := (1559943390, 61788, 17748, (168, 19, 193, 19, 195, 136, 27, 9 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDiagnosticInvoker : aliased constant Windows.IID := (410724106, 739, 20358, (132, 252, 253, 216, 146, 181, 148, 15 ));
+   
    type IDiagnosticInvoker_Interface is interface and Windows.IInspectable_Interface;
    
    function RunDiagnosticActionAsync
@@ -600,10 +603,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDiagnosticInvoker : aliased constant Windows.IID := (410724106, 739, 20358, (132, 252, 253, 216, 146, 181, 148, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IProcessDiagnosticInfo : aliased constant Windows.IID := (2828747800, 19515, 24393, (185, 87, 120, 86, 151, 201, 154, 191 ));
+   
    type IIterator_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -634,10 +637,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IProcessDiagnosticInfo : aliased constant Windows.IID := (2828747800, 19515, 24393, (185, 87, 120, 86, 151, 201, 154, 191 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IProcessDiagnosticInfo : aliased constant Windows.IID := (2545366567, 45718, 20598, (184, 205, 107, 216, 162, 64, 233, 102 ));
+   
    type IIterable_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -646,10 +649,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.System.Diagnostics.IIterator_IProcessDiagnosticInfo
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IProcessDiagnosticInfo : aliased constant Windows.IID := (2545366567, 45718, 20598, (184, 205, 107, 216, 162, 64, 233, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IProcessDiagnosticInfo : aliased constant Windows.IID := (1957373043, 38436, 23046, (144, 37, 109, 145, 230, 34, 191, 142 ));
+   
    type IVectorView_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -684,10 +687,10 @@ package Windows.System.Diagnostics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IProcessDiagnosticInfo : aliased constant Windows.IID := (1957373043, 38436, 23046, (144, 37, 109, 145, 230, 34, 191, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IProcessDiagnosticInfo : aliased constant Windows.IID := (4130221313, 49629, 23392, (181, 218, 22, 81, 140, 186, 11, 176 ));
+   
    type IVector_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -778,9 +781,6 @@ package Windows.System.Diagnostics is
       ; items : Windows.System.Diagnostics.IProcessDiagnosticInfo_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IProcessDiagnosticInfo : aliased constant Windows.IID := (4130221313, 49629, 23392, (181, 218, 22, 81, 140, 186, 11, 176 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

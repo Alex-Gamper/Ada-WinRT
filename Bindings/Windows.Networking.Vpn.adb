@@ -32,28 +32,6 @@ package body Windows.Networking.Vpn is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access TypedEventHandler_IVpnChannel_add_ActivityChange_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IVpnChannel_add_ActivityChange or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IVpnChannel_add_ActivityChange_Interface
@@ -64,28 +42,6 @@ package body Windows.Networking.Vpn is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Networking.Vpn.IVpnChannel(sender), Windows.Networking.Vpn.IVpnChannelActivityEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IVpnChannel2_add_ActivityStateChange_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IVpnChannel2_add_ActivityStateChange or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -102,28 +58,6 @@ package body Windows.Networking.Vpn is
       return Hr;
    end;
    
-   function QueryInterface(This : access AsyncOperationCompletedHandler_IVpnCredential_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_IVpnCredential or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVpnCredential_Interface
@@ -134,28 +68,6 @@ package body Windows.Networking.Vpn is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access AsyncOperationCompletedHandler_VpnManagementErrorStatus_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_AsyncOperationCompletedHandler_VpnManagementErrorStatus or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -245,15 +157,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnRouteAssignment");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnRouteAssignment := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnRouteAssignment) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnRouteAssignment'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnRouteAssignment'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnNamespaceAssignment return Windows.Networking.Vpn.IVpnNamespaceAssignment is
@@ -261,15 +174,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnNamespaceAssignment");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnNamespaceAssignment := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnNamespaceAssignment) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnNamespaceAssignment'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnNamespaceAssignment'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnPacketBuffer
@@ -299,15 +213,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnDomainNameAssignment");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnDomainNameAssignment := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnDomainNameAssignment) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnDomainNameAssignment'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnDomainNameAssignment'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnTrafficFilterAssignment return Windows.Networking.Vpn.IVpnTrafficFilterAssignment is
@@ -315,15 +230,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnTrafficFilterAssignment");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnTrafficFilterAssignment := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnTrafficFilterAssignment) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnTrafficFilterAssignment'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnTrafficFilterAssignment'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function Create
@@ -395,15 +311,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomEditBox");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnCustomEditBox := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnCustomEditBox) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomEditBox'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomEditBox'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnCustomPromptTextInput return Windows.Networking.Vpn.IVpnCustomPromptTextInput is
@@ -411,15 +328,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomPromptTextInput");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnCustomPromptTextInput := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnCustomPromptTextInput) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomPromptTextInput'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomPromptTextInput'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnCustomComboBox return Windows.Networking.Vpn.IVpnCustomComboBox is
@@ -427,15 +345,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomComboBox");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnCustomComboBox := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnCustomComboBox) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomComboBox'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomComboBox'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnCustomPromptOptionSelector return Windows.Networking.Vpn.IVpnCustomPromptOptionSelector is
@@ -443,15 +362,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomPromptOptionSelector");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnCustomPromptOptionSelector := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnCustomPromptOptionSelector) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomPromptOptionSelector'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomPromptOptionSelector'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnCustomTextBox return Windows.Networking.Vpn.IVpnCustomTextBox is
@@ -459,15 +379,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomTextBox");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnCustomTextBox := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnCustomTextBox) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomTextBox'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomTextBox'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnCustomPromptText return Windows.Networking.Vpn.IVpnCustomPromptText is
@@ -475,15 +396,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomPromptText");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnCustomPromptText := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnCustomPromptText) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomPromptText'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomPromptText'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnCustomCheckBox return Windows.Networking.Vpn.IVpnCustomCheckBox is
@@ -491,15 +413,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomCheckBox");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnCustomCheckBox := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnCustomCheckBox) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomCheckBox'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomCheckBox'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnCustomPromptBooleanInput return Windows.Networking.Vpn.IVpnCustomPromptBooleanInput is
@@ -507,15 +430,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomPromptBooleanInput");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnCustomPromptBooleanInput := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnCustomPromptBooleanInput) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomPromptBooleanInput'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomPromptBooleanInput'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnCustomErrorBox return Windows.Networking.Vpn.IVpnCustomErrorBox is
@@ -523,15 +447,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnCustomErrorBox");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnCustomErrorBox := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnCustomErrorBox) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomErrorBox'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnCustomErrorBox'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnPlugInProfile return Windows.Networking.Vpn.IVpnPlugInProfile is
@@ -539,15 +464,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnPlugInProfile");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnPlugInProfile := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnPlugInProfile) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnPlugInProfile'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnPlugInProfile'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnNativeProfile return Windows.Networking.Vpn.IVpnNativeProfile is
@@ -555,15 +481,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnNativeProfile");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnNativeProfile := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnNativeProfile) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnNativeProfile'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnNativeProfile'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateVpnManagementAgent return Windows.Networking.Vpn.IVpnManagementAgent is
@@ -571,15 +498,16 @@ package body Windows.Networking.Vpn is
       m_hString     : Windows.String := To_String("Windows.Networking.Vpn.VpnManagementAgent");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Vpn.IVpnManagementAgent := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.Vpn.IVpnManagementAgent) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnManagementAgent'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.Networking.Vpn.IID_IVpnManagementAgent'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

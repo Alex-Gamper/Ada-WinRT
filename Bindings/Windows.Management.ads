@@ -126,6 +126,9 @@ package Windows.Management is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMdmAlert : aliased constant Windows.IID := (2969289511, 10433, 19282, (165, 72, 197, 128, 124, 175, 112, 182 ));
+   
    type IMdmAlert_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Data
@@ -218,10 +221,10 @@ package Windows.Management is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMdmAlert : aliased constant Windows.IID := (2969289511, 10433, 19282, (165, 72, 197, 128, 124, 175, 112, 182 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMdmSession : aliased constant Windows.IID := (4270403916, 36708, 18327, (169, 215, 157, 136, 248, 106, 225, 102 ));
+   
    type IMdmSession_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Alerts
@@ -279,10 +282,10 @@ package Windows.Management is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMdmSession : aliased constant Windows.IID := (4270403916, 36708, 18327, (169, 215, 157, 136, 248, 106, 225, 102 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMdmSessionManagerStatics : aliased constant Windows.IID := (3477789017, 63301, 19321, (155, 92, 222, 11, 248, 239, 228, 75 ));
+   
    type IMdmSessionManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SessionIds
@@ -313,10 +316,10 @@ package Windows.Management is
       ; RetVal : access Windows.Management.IMdmSession
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMdmSessionManagerStatics : aliased constant Windows.IID := (3477789017, 63301, 19321, (155, 92, 222, 11, 248, 239, 228, 75 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMdmAlert : aliased constant Windows.IID := (3030838250, 45471, 23973, (179, 209, 232, 89, 241, 244, 223, 23 ));
+   
    type IIterator_IMdmAlert_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -347,10 +350,10 @@ package Windows.Management is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMdmAlert : aliased constant Windows.IID := (3030838250, 45471, 23973, (179, 209, 232, 89, 241, 244, 223, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMdmAlert : aliased constant Windows.IID := (2695239644, 8460, 21151, (181, 233, 41, 174, 206, 235, 181, 168 ));
+   
    type IIterable_IMdmAlert_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -359,10 +362,10 @@ package Windows.Management is
       ; RetVal : access Windows.Management.IIterator_IMdmAlert
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMdmAlert : aliased constant Windows.IID := (2695239644, 8460, 21151, (181, 233, 41, 174, 206, 235, 181, 168 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMdmAlert : aliased constant Windows.IID := (731120524, 9386, 21089, (128, 216, 201, 15, 121, 112, 100, 74 ));
+   
    type IVectorView_IMdmAlert_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -397,9 +400,6 @@ package Windows.Management is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMdmAlert : aliased constant Windows.IID := (731120524, 9386, 21089, (128, 216, 201, 15, 121, 112, 100, 74 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

@@ -208,6 +208,9 @@ package Windows.UI.Composition.Interactions is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICompositionConditionalValue : aliased constant Windows.IID := (1126499640, 60275, 17761, (167, 29, 26, 67, 234, 235, 122, 155 ));
+   
    type ICompositionConditionalValue_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Condition
@@ -237,10 +240,10 @@ package Windows.UI.Composition.Interactions is
       ; value : Windows.UI.Composition.IExpressionAnimation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompositionConditionalValue : aliased constant Windows.IID := (1126499640, 60275, 17761, (167, 29, 26, 67, 234, 235, 122, 155 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ICompositionConditionalValueStatics : aliased constant Windows.IID := (151800690, 33895, 19722, (144, 101, 172, 70, 184, 10, 85, 34 ));
+   
    type ICompositionConditionalValueStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -250,15 +253,15 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.ICompositionConditionalValue
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompositionConditionalValueStatics : aliased constant Windows.IID := (151800690, 33895, 19722, (144, 101, 172, 70, 184, 10, 85, 34 ));
-   
    ------------------------------------------------------------------------
-   type ICompositionInteractionSource_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ICompositionInteractionSource : aliased constant Windows.IID := (70984753, 1763, 18778, (186, 84, 64, 159, 0, 23, 250, 192 ));
    
+   type ICompositionInteractionSource_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ICompositionInteractionSourceCollection : aliased constant Windows.IID := (457608779, 42431, 18392, (165, 71, 56, 148, 21, 90, 21, 140 ));
+   
    type ICompositionInteractionSourceCollection_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Count
@@ -287,10 +290,10 @@ package Windows.UI.Composition.Interactions is
       This       : access ICompositionInteractionSourceCollection_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICompositionInteractionSourceCollection : aliased constant Windows.IID := (457608779, 42431, 18392, (165, 71, 56, 148, 21, 90, 21, 140 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTracker : aliased constant Windows.IID := (713985201, 4096, 17430, (131, 99, 204, 39, 251, 135, 115, 8 ));
+   
    type IInteractionTracker_Interface is interface and Windows.IInspectable_Interface;
    
    function get_InteractionSources
@@ -535,10 +538,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTracker : aliased constant Windows.IID := (713985201, 4096, 17430, (131, 99, 204, 39, 251, 135, 115, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerOwner : aliased constant Windows.IID := (3677260531, 19947, 20051, (178, 156, 176, 108, 159, 150, 214, 81 ));
+   
    type IInteractionTrackerOwner_Interface is interface and Windows.IInspectable_Interface;
    
    function CustomAnimationStateEntered
@@ -588,10 +591,10 @@ package Windows.UI.Composition.Interactions is
       ; args : Windows.UI.Composition.Interactions.IInteractionTrackerValuesChangedArgs
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerOwner : aliased constant Windows.IID := (3677260531, 19947, 20051, (178, 156, 176, 108, 159, 150, 214, 81 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerStatics : aliased constant Windows.IID := (3148208055, 26000, 17560, (141, 108, 235, 98, 181, 20, 201, 42 ));
+   
    type IInteractionTrackerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -610,10 +613,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTracker
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerStatics : aliased constant Windows.IID := (3148208055, 26000, 17560, (141, 108, 235, 98, 181, 20, 201, 42 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTracker2 : aliased constant Windows.IID := (628529726, 52845, 17548, (131, 134, 146, 98, 13, 36, 7, 86 ));
+   
    type IInteractionTracker2_Interface is interface and Windows.IInspectable_Interface;
    
    function ConfigureCenterPointXInertiaModifiers
@@ -629,10 +632,10 @@ package Windows.UI.Composition.Interactions is
       ; conditionalValues : Windows.UI.Composition.Interactions.IIterable_ICompositionConditionalValue
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTracker2 : aliased constant Windows.IID := (628529726, 52845, 17548, (131, 134, 146, 98, 13, 36, 7, 86 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTracker3 : aliased constant Windows.IID := (3871725474, 23627, 17094, (132, 183, 246, 148, 65, 177, 128, 145 ));
+   
    type IInteractionTracker3_Interface is interface and Windows.IInspectable_Interface;
    
    function ConfigureVector2PositionInertiaModifiers
@@ -641,10 +644,10 @@ package Windows.UI.Composition.Interactions is
       ; modifiers : Windows.UI.Composition.Interactions.IIterable_IInteractionTrackerVector2InertiaModifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTracker3 : aliased constant Windows.IID := (3871725474, 23627, 17094, (132, 183, 246, 148, 65, 177, 128, 145 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerCustomAnimationStateEnteredArgs : aliased constant Windows.IID := (2367458545, 55216, 17228, (165, 210, 45, 118, 17, 134, 72, 52 ));
+   
    type IInteractionTrackerCustomAnimationStateEnteredArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestId
@@ -653,10 +656,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerCustomAnimationStateEnteredArgs : aliased constant Windows.IID := (2367458545, 55216, 17228, (165, 210, 45, 118, 17, 134, 72, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerIdleStateEnteredArgs : aliased constant Windows.IID := (1342255018, 5392, 16706, (161, 165, 1, 155, 9, 248, 133, 123 ));
+   
    type IInteractionTrackerIdleStateEnteredArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestId
@@ -665,10 +668,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerIdleStateEnteredArgs : aliased constant Windows.IID := (1342255018, 5392, 16706, (161, 165, 1, 155, 9, 248, 133, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInteractingStateEnteredArgs : aliased constant Windows.IID := (2804300089, 41339, 16401, (153, 253, 181, 194, 79, 20, 55, 72 ));
+   
    type IInteractionTrackerInteractingStateEnteredArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestId
@@ -677,15 +680,15 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerInteractingStateEnteredArgs : aliased constant Windows.IID := (2804300089, 41339, 16401, (153, 253, 181, 194, 79, 20, 55, 72 ));
-   
    ------------------------------------------------------------------------
-   type IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (2699217184, 9908, 19874, (139, 97, 94, 104, 57, 121, 187, 226 ));
    
+   type IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaNaturalMotion : aliased constant Windows.IID := (1890376366, 10204, 18669, (163, 195, 109, 97, 201, 160, 41, 210 ));
+   
    type IInteractionTrackerInertiaNaturalMotion_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Condition
@@ -715,10 +718,10 @@ package Windows.UI.Composition.Interactions is
       ; value : Windows.UI.Composition.IScalarNaturalMotionAnimation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerInertiaNaturalMotion : aliased constant Windows.IID := (1890376366, 10204, 18669, (163, 195, 109, 97, 201, 160, 41, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaNaturalMotionStatics : aliased constant Windows.IID := (3487192496, 24126, 17033, (147, 45, 238, 95, 80, 231, 66, 131 ));
+   
    type IInteractionTrackerInertiaNaturalMotionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -728,10 +731,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotion
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerInertiaNaturalMotionStatics : aliased constant Windows.IID := (3487192496, 24126, 17033, (147, 45, 238, 95, 80, 231, 66, 131 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaRestingValue : aliased constant Windows.IID := (2264394761, 20630, 16752, (156, 200, 223, 47, 225, 1, 187, 147 ));
+   
    type IInteractionTrackerInertiaRestingValue_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Condition
@@ -761,10 +764,10 @@ package Windows.UI.Composition.Interactions is
       ; value : Windows.UI.Composition.IExpressionAnimation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerInertiaRestingValue : aliased constant Windows.IID := (2264394761, 20630, 16752, (156, 200, 223, 47, 225, 1, 187, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaRestingValueStatics : aliased constant Windows.IID := (418203289, 1861, 16534, (188, 171, 58, 78, 153, 86, 155, 207 ));
+   
    type IInteractionTrackerInertiaRestingValueStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -774,10 +777,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerInertiaRestingValue
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerInertiaRestingValueStatics : aliased constant Windows.IID := (418203289, 1861, 16534, (188, 171, 58, 78, 153, 86, 155, 207 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaMotion : aliased constant Windows.IID := (76689372, 61780, 19640, (191, 51, 204, 27, 166, 17, 230, 219 ));
+   
    type IInteractionTrackerInertiaMotion_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Condition
@@ -807,10 +810,10 @@ package Windows.UI.Composition.Interactions is
       ; value : Windows.UI.Composition.IExpressionAnimation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerInertiaMotion : aliased constant Windows.IID := (76689372, 61780, 19640, (191, 51, 204, 27, 166, 17, 230, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaMotionStatics : aliased constant Windows.IID := (2361933270, 47739, 17178, (132, 75, 110, 172, 145, 48, 249, 154 ));
+   
    type IInteractionTrackerInertiaMotionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -820,10 +823,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerInertiaMotionStatics : aliased constant Windows.IID := (2361933270, 47739, 17178, (132, 75, 110, 172, 145, 48, 249, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaStateEnteredArgs : aliased constant Windows.IID := (2266008818, 59391, 20349, (159, 253, 215, 47, 30, 64, 155, 99 ));
+   
    type IInteractionTrackerInertiaStateEnteredArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ModifiedRestingPosition
@@ -874,10 +877,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerInertiaStateEnteredArgs : aliased constant Windows.IID := (2266008818, 59391, 20349, (159, 253, 215, 47, 30, 64, 155, 99 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerRequestIgnoredArgs : aliased constant Windows.IID := (2162000625, 52773, 18575, (145, 221, 203, 100, 85, 204, 255, 46 ));
+   
    type IInteractionTrackerRequestIgnoredArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestId
@@ -886,10 +889,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerRequestIgnoredArgs : aliased constant Windows.IID := (2162000625, 52773, 18575, (145, 221, 203, 100, 85, 204, 255, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerValuesChangedArgs : aliased constant Windows.IID := (3474290927, 54239, 17665, (185, 230, 240, 47, 178, 47, 115, 208 ));
+   
    type IInteractionTrackerValuesChangedArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Position
@@ -912,15 +915,15 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerValuesChangedArgs : aliased constant Windows.IID := (3474290927, 54239, 17665, (185, 230, 240, 47, 178, 47, 115, 208 ));
-   
    ------------------------------------------------------------------------
-   type IInteractionTrackerVector2InertiaModifier_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (2279639728, 12422, 18515, (164, 183, 119, 136, 42, 213, 215, 227 ));
    
+   type IInteractionTrackerVector2InertiaModifier_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IVisualInteractionSource : aliased constant Windows.IID := (3389950598, 55510, 16657, (176, 136, 112, 52, 123, 210, 176, 237 ));
+   
    type IVisualInteractionSource_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsPositionXRailsEnabled
@@ -1062,10 +1065,10 @@ package Windows.UI.Composition.Interactions is
       ; pointerPoint : Windows.UI.Input.IPointerPoint
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVisualInteractionSource : aliased constant Windows.IID := (3389950598, 55510, 16657, (176, 136, 112, 52, 123, 210, 176, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVisualInteractionSourceStatics : aliased constant Windows.IID := (916022753, 34373, 20341, (186, 0, 100, 121, 205, 16, 200, 230 ));
+   
    type IVisualInteractionSourceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1075,10 +1078,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.IVisualInteractionSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVisualInteractionSourceStatics : aliased constant Windows.IID := (916022753, 34373, 20341, (186, 0, 100, 121, 205, 16, 200, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVisualInteractionSource2 : aliased constant Windows.IID := (2861648019, 42812, 16717, (128, 208, 36, 155, 173, 47, 189, 147 ));
+   
    type IVisualInteractionSource2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeltaPosition
@@ -1157,20 +1160,20 @@ package Windows.UI.Composition.Interactions is
       ; conditionalValues : Windows.UI.Composition.Interactions.IIterable_ICompositionConditionalValue
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVisualInteractionSource2 : aliased constant Windows.IID := (2861648019, 42812, 16717, (128, 208, 36, 155, 173, 47, 189, 147 ));
-   
    ------------------------------------------------------------------------
-   type IInteractionTrackerInertiaModifierFactory_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IInteractionTrackerInertiaModifierFactory : aliased constant Windows.IID := (2570590462, 51534, 19334, (135, 243, 146, 38, 101, 186, 70, 185 ));
    
+   type IInteractionTrackerInertiaModifierFactory_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IInteractionTrackerVector2InertiaModifierFactory_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IInteractionTrackerVector2InertiaModifierFactory : aliased constant Windows.IID := (1946277572, 27757, 18655, (188, 62, 23, 30, 34, 126, 125, 127 ));
    
+   type IInteractionTrackerVector2InertiaModifierFactory_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerVector2InertiaNaturalMotion : aliased constant Windows.IID := (1595369820, 5677, 19463, (148, 0, 194, 130, 178, 130, 118, 202 ));
+   
    type IInteractionTrackerVector2InertiaNaturalMotion_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Condition
@@ -1200,10 +1203,10 @@ package Windows.UI.Composition.Interactions is
       ; value : Windows.UI.Composition.IVector2NaturalMotionAnimation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerVector2InertiaNaturalMotion : aliased constant Windows.IID := (1595369820, 5677, 19463, (148, 0, 194, 130, 178, 130, 118, 202 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerVector2InertiaNaturalMotionStatics : aliased constant Windows.IID := (2181044808, 2496, 17231, (129, 137, 20, 28, 102, 223, 54, 47 ));
+   
    type IInteractionTrackerVector2InertiaNaturalMotionStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -1213,15 +1216,15 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInteractionTrackerVector2InertiaNaturalMotionStatics : aliased constant Windows.IID := (2181044808, 2496, 17231, (129, 137, 20, 28, 102, 223, 54, 47 ));
-   
    ------------------------------------------------------------------------
-   type IVisualInteractionSourceObjectFactory_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IVisualInteractionSourceObjectFactory : aliased constant Windows.IID := (2999619964, 59786, 16882, (179, 201, 137, 28, 146, 102, 200, 246 ));
    
+   type IVisualInteractionSourceObjectFactory_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ICompositionInteractionSource : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
    type IIterable_ICompositionInteractionSource_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1230,10 +1233,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.ICompositionInteractionSource
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ICompositionInteractionSource : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (1180794247, 11474, 24113, (154, 48, 234, 134, 248, 170, 124, 161 ));
+   
    type IIterator_IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1264,10 +1267,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (1180794247, 11474, 24113, (154, 48, 234, 134, 248, 170, 124, 161 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (2586074176, 43750, 23035, (135, 245, 75, 176, 85, 153, 240, 177 ));
+   
    type IIterable_IInteractionTrackerInertiaModifier_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1276,10 +1279,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.IIterator_IInteractionTrackerInertiaModifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IInteractionTrackerInertiaModifier : aliased constant Windows.IID := (2586074176, 43750, 23035, (135, 245, 75, 176, 85, 153, 240, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ICompositionConditionalValue : aliased constant Windows.IID := (2322968621, 14737, 21926, (191, 226, 130, 203, 125, 214, 91, 152 ));
+   
    type IIterator_ICompositionConditionalValue_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1310,10 +1313,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ICompositionConditionalValue : aliased constant Windows.IID := (2322968621, 14737, 21926, (191, 226, 130, 203, 125, 214, 91, 152 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ICompositionConditionalValue : aliased constant Windows.IID := (2993177723, 62745, 23781, (137, 205, 183, 225, 188, 86, 82, 238 ));
+   
    type IIterable_ICompositionConditionalValue_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1322,10 +1325,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.IIterator_ICompositionConditionalValue
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ICompositionConditionalValue : aliased constant Windows.IID := (2993177723, 62745, 23781, (137, 205, 183, 225, 188, 86, 82, 238 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (2002963115, 23362, 22872, (159, 73, 6, 174, 253, 67, 173, 117 ));
+   
    type IIterator_IInteractionTrackerVector2InertiaModifier_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1356,10 +1359,10 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (2002963115, 23362, 22872, (159, 73, 6, 174, 253, 67, 173, 117 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (988467160, 51185, 22540, (162, 59, 153, 102, 110, 66, 230, 43 ));
+   
    type IIterable_IInteractionTrackerVector2InertiaModifier_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1368,9 +1371,6 @@ package Windows.UI.Composition.Interactions is
       ; RetVal : access Windows.UI.Composition.Interactions.IIterator_IInteractionTrackerVector2InertiaModifier
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IInteractionTrackerVector2InertiaModifier : aliased constant Windows.IID := (988467160, 51185, 22540, (162, 59, 153, 102, 110, 66, 230, 43 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

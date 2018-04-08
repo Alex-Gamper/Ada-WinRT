@@ -110,6 +110,9 @@ package Windows.Devices.I2c.Provider is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IProviderI2cConnectionSettings : aliased constant Windows.IID := (3923463732, 58640, 17591, (128, 157, 242, 248, 91, 85, 83, 57 ));
+   
    type IProviderI2cConnectionSettings_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SlaveAddress
@@ -153,10 +156,10 @@ package Windows.Devices.I2c.Provider is
       ; value : Windows.Devices.I2c.Provider.ProviderI2cSharingMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IProviderI2cConnectionSettings : aliased constant Windows.IID := (3923463732, 58640, 17591, (128, 157, 242, 248, 91, 85, 83, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_II2cControllerProvider : aliased constant Windows.IID := (1640151938, 17680, 16739, (168, 124, 78, 21, 169, 85, 137, 128 ));
+   
    type II2cControllerProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceProvider
@@ -166,10 +169,10 @@ package Windows.Devices.I2c.Provider is
       ; RetVal : access Windows.Devices.I2c.Provider.II2cDeviceProvider
    )
    return Windows.HRESULT is abstract;
-   
-   IID_II2cControllerProvider : aliased constant Windows.IID := (1640151938, 17680, 16739, (168, 124, 78, 21, 169, 85, 137, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_II2cProvider : aliased constant Windows.IID := (1863518270, 48994, 20450, (169, 90, 240, 137, 153, 102, 152, 24 ));
+   
    type II2cProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function GetControllersAsync
@@ -178,10 +181,10 @@ package Windows.Devices.I2c.Provider is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_II2cProvider : aliased constant Windows.IID := (1863518270, 48994, 20450, (169, 90, 240, 137, 153, 102, 152, 24 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_II2cDeviceProvider : aliased constant Windows.IID := (2905876052, 22504, 17726, (131, 41, 209, 228, 71, 209, 3, 169 ));
+   
    type II2cDeviceProvider_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DeviceId
@@ -237,9 +240,6 @@ package Windows.Devices.I2c.Provider is
       ; RetVal : access Windows.Devices.I2c.Provider.ProviderI2cTransferResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_II2cDeviceProvider : aliased constant Windows.IID := (2905876052, 22504, 17726, (131, 41, 209, 228, 71, 209, 3, 169 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

@@ -29,28 +29,6 @@ package body Windows.UI.WebUI.Core is
    ------------------------------------------------------------------------
    
    
-   function QueryInterface(This : access MenuOpenedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_MenuOpenedEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access MenuOpenedEventHandler_Interface
@@ -59,28 +37,6 @@ package body Windows.UI.WebUI.Core is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback.all;
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access MenuClosedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_MenuClosedEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -95,28 +51,6 @@ package body Windows.UI.WebUI.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access SizeChangedEventHandler_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_SizeChangedEventHandler or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access SizeChangedEventHandler_Interface
@@ -126,28 +60,6 @@ package body Windows.UI.WebUI.Core is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.WebUI.Core.IWebUICommandBarSizeChangedEventArgs(eventArgs));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access TypedEventHandler_IWebUICommandBarIconButton_add_ItemInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IWebUICommandBarIconButton_add_ItemInvoked or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -164,28 +76,6 @@ package body Windows.UI.WebUI.Core is
       return Hr;
    end;
    
-   function QueryInterface(This : access TypedEventHandler_IWebUICommandBarConfirmationButton_add_ItemInvoked_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_TypedEventHandler_IWebUICommandBarConfirmationButton_add_ItemInvoked or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
-      return Hr;
-   end;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWebUICommandBarConfirmationButton_add_ItemInvoked_Interface
@@ -196,28 +86,6 @@ package body Windows.UI.WebUI.Core is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton(sender), Windows.UI.WebUI.Core.IWebUICommandBarItemInvokedEventArgs(args));
-      return Hr;
-   end;
-   
-   function QueryInterface(This : access VectorChangedEventHandler_IWebUICommandBarElement_Interface; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT is
-      Hr : Windows.HResult := E_NOTIMPL;
-      m_IUnknown : aliased Windows.IUnknown_Base;
-      RefCount   : Windows.UInt32;
-      pragma suppress(Accessibility_Check);
-   begin
-      if riid.all = IID_VectorChangedEventHandler_IWebUICommandBarElement or riid.all = IID_IUnknown then
-         RefCount := This.AddRef;
-         pvObject.all := This;
-         Hr := S_OK;
-      else
-         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
-            if This.m_FTM = null then
-               Hr := This.QueryInterface(IID_IUnknown'Access, m_IUnknown'Access);
-               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'Address);
-            end if;
-            Hr := This.m_FTM.QueryInterface(riid, pvObject'Address);
-         end if;
-      end if;
       return Hr;
    end;
    
@@ -244,15 +112,16 @@ package body Windows.UI.WebUI.Core is
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarIconButton");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.WebUI.Core.IWebUICommandBarIconButton := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.WebUI.Core.IWebUICommandBarIconButton) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarIconButton'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarIconButton'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateWebUICommandBarConfirmationButton return Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton is
@@ -260,15 +129,16 @@ package body Windows.UI.WebUI.Core is
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarConfirmationButton'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarConfirmationButton'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateWebUICommandBarBitmapIcon return Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon is
@@ -276,15 +146,16 @@ package body Windows.UI.WebUI.Core is
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarBitmapIcon'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarBitmapIcon'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateWebUICommandBarSymbolIcon return Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon is
@@ -292,15 +163,16 @@ package body Windows.UI.WebUI.Core is
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarSymbolIcon'Access, RetVal'Address);
+         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarSymbolIcon'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

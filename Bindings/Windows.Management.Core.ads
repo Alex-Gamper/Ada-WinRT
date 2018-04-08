@@ -57,6 +57,9 @@ package Windows.Management.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IApplicationDataManagerStatics : aliased constant Windows.IID := (504914659, 27022, 18849, (151, 82, 222, 233, 73, 37, 185, 179 ));
+   
    type IApplicationDataManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateForPackageFamily
@@ -66,14 +69,11 @@ package Windows.Management.Core is
       ; RetVal : access Windows.Storage.IApplicationData
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IApplicationDataManagerStatics : aliased constant Windows.IID := (504914659, 27022, 18849, (151, 82, 222, 233, 73, 37, 185, 179 ));
-   
    ------------------------------------------------------------------------
-   type IApplicationDataManager_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IApplicationDataManager : aliased constant Windows.IID := (1959855154, 11929, 16384, (154, 58, 100, 48, 126, 133, 129, 41 ));
    
+   type IApplicationDataManager_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

@@ -126,6 +126,9 @@ package Windows.UI.Xaml.Interop is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IBindableIterable : aliased constant Windows.IID := (57486344, 57129, 16815, (138, 162, 215, 116, 190, 98, 186, 111 ));
+   
    type IBindableIterable_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -134,10 +137,10 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.UI.Xaml.Interop.IBindableIterator
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBindableIterable : aliased constant Windows.IID := (57486344, 57129, 16815, (138, 162, 215, 116, 190, 98, 186, 111 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBindableVector : aliased constant Windows.IID := (960358366, 28624, 19469, (187, 113, 71, 36, 74, 17, 62, 147 ));
+   
    type IBindableVector_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -212,10 +215,10 @@ package Windows.UI.Xaml.Interop is
       This       : access IBindableVector_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBindableVector : aliased constant Windows.IID := (960358366, 28624, 19469, (187, 113, 71, 36, 74, 17, 62, 147 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBindableObservableVector : aliased constant Windows.IID := (4263425334, 32383, 20368, (172, 154, 71, 73, 132, 170, 229, 18 ));
+   
    type IBindableObservableVector_Interface is interface and Windows.IInspectable_Interface;
    
    function add_VectorChanged
@@ -232,10 +235,10 @@ package Windows.UI.Xaml.Interop is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBindableObservableVector : aliased constant Windows.IID := (4263425334, 32383, 20368, (172, 154, 71, 73, 132, 170, 229, 18 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBindableVectorView : aliased constant Windows.IID := (879613671, 38766, 19395, (129, 93, 236, 226, 67, 188, 15, 51 ));
+   
    type IBindableVectorView_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -261,10 +264,10 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBindableVectorView : aliased constant Windows.IID := (879613671, 38766, 19395, (129, 93, 236, 226, 67, 188, 15, 51 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBindableIterator : aliased constant Windows.IID := (1780313095, 1901, 18930, (131, 20, 245, 44, 156, 154, 131, 49 ));
+   
    type IBindableIterator_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -287,10 +290,10 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBindableIterator : aliased constant Windows.IID := (1780313095, 1901, 18930, (131, 20, 245, 44, 156, 154, 131, 49 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INotifyCollectionChanged : aliased constant Windows.IID := (682715093, 6705, 18011, (155, 37, 213, 195, 174, 104, 108, 64 ));
+   
    type INotifyCollectionChanged_Interface is interface and Windows.IInspectable_Interface;
    
    function add_CollectionChanged
@@ -307,10 +310,10 @@ package Windows.UI.Xaml.Interop is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INotifyCollectionChanged : aliased constant Windows.IID := (682715093, 6705, 18011, (155, 37, 213, 195, 174, 104, 108, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INotifyCollectionChangedEventArgs : aliased constant Windows.IID := (1291226419, 58354, 18788, (184, 94, 148, 91, 79, 126, 47, 33 ));
+   
    type INotifyCollectionChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Action
@@ -347,10 +350,10 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INotifyCollectionChangedEventArgs : aliased constant Windows.IID := (1291226419, 58354, 18788, (184, 94, 148, 91, 79, 126, 47, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_INotifyCollectionChangedEventArgsFactory : aliased constant Windows.IID := (3003924026, 57229, 17573, (154, 56, 122, 192, 208, 140, 230, 61 ));
+   
    type INotifyCollectionChangedEventArgsFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstanceWithAllParameters
@@ -366,17 +369,15 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs
    )
    return Windows.HRESULT is abstract;
-   
-   IID_INotifyCollectionChangedEventArgsFactory : aliased constant Windows.IID := (3003924026, 57229, 17573, (154, 56, 122, 192, 208, 140, 230, 61 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type BindableVectorChangedEventHandler_Interface(Callback : access procedure (vector : Windows.UI.Xaml.Interop.IBindableObservableVector ; e : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access BindableVectorChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_BindableVectorChangedEventHandler : aliased constant Windows.IID := (1649202401, 53255, 17329, (156, 3, 175, 77, 62, 98, 88, 196 ));
+   
+   type BindableVectorChangedEventHandler_Interface(Callback : access procedure (vector : Windows.UI.Xaml.Interop.IBindableObservableVector ; e : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_BindableVectorChangedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -386,12 +387,11 @@ package Windows.UI.Xaml.Interop is
    )
    return Windows.HRESULT;
    
-   IID_BindableVectorChangedEventHandler : aliased constant Windows.IID := (1649202401, 53255, 17329, (156, 3, 175, 77, 62, 98, 88, 196 ));
-   
    ------------------------------------------------------------------------
-   type NotifyCollectionChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access NotifyCollectionChangedEventHandler_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_NotifyCollectionChangedEventHandler : aliased constant Windows.IID := (3390092156, 62338, 17809, (133, 87, 94, 36, 150, 82, 121, 176 ));
+   
+   type NotifyCollectionChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_NotifyCollectionChangedEventHandler'access) with null record;
    
    function Invoke
    (
@@ -400,8 +400,6 @@ package Windows.UI.Xaml.Interop is
       ; e : Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_NotifyCollectionChangedEventHandler : aliased constant Windows.IID := (3390092156, 62338, 17809, (133, 87, 94, 36, 150, 82, 121, 176 ));
    
    ------------------------------------------------------------------------
    -- Classes

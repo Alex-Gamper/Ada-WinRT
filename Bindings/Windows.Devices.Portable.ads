@@ -85,6 +85,9 @@ package Windows.Devices.Portable is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IStorageDeviceStatics : aliased constant Windows.IID := (1590576366, 6947, 19922, (134, 82, 188, 22, 79, 0, 49, 40 ));
+   
    type IStorageDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromId
@@ -101,10 +104,10 @@ package Windows.Devices.Portable is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorageDeviceStatics : aliased constant Windows.IID := (1590576366, 6947, 19922, (134, 82, 188, 22, 79, 0, 49, 40 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IServiceDeviceStatics : aliased constant Windows.IID := (2827097313, 22983, 18976, (171, 166, 159, 103, 7, 147, 114, 48 ));
+   
    type IServiceDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeviceSelector
@@ -122,9 +125,6 @@ package Windows.Devices.Portable is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IServiceDeviceStatics : aliased constant Windows.IID := (2827097313, 22983, 18976, (171, 166, 159, 103, 7, 147, 114, 48 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

@@ -293,6 +293,9 @@ package Windows.UI.Xaml.Documents is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IVector_Block : aliased constant Windows.IID := (1055361588, 5646, 20735, (181, 170, 9, 242, 99, 166, 105, 248 ));
+   
    type IVector_Block_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -383,10 +386,10 @@ package Windows.UI.Xaml.Documents is
       ; items : Windows.UI.Xaml.Documents.IBlock_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_Block : aliased constant Windows.IID := (1055361588, 5646, 20735, (181, 170, 9, 242, 99, 166, 105, 248 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_Block : aliased constant Windows.IID := (4144118682, 59089, 24109, (143, 65, 178, 140, 51, 50, 62, 4 ));
+   
    type IIterable_Block_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -395,10 +398,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.Documents.IBlock
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_Block : aliased constant Windows.IID := (4144118682, 59089, 24109, (143, 65, 178, 140, 51, 50, 62, 4 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_Inline : aliased constant Windows.IID := (2464977490, 36579, 21974, (132, 180, 48, 182, 53, 7, 119, 120 ));
+   
    type IVector_Inline_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -489,10 +492,10 @@ package Windows.UI.Xaml.Documents is
       ; items : Windows.UI.Xaml.Documents.IInline_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_Inline : aliased constant Windows.IID := (2464977490, 36579, 21974, (132, 180, 48, 182, 53, 7, 119, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_Inline : aliased constant Windows.IID := (3788683536, 6338, 22790, (143, 138, 214, 42, 99, 249, 63, 24 ));
+   
    type IIterable_Inline_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -501,10 +504,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.Documents.IInline
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_Inline : aliased constant Windows.IID := (3788683536, 6338, 22790, (143, 138, 214, 42, 99, 249, 63, 24 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextHighlighter : aliased constant Windows.IID := (3127686475, 32117, 17717, (179, 13, 168, 26, 0, 182, 55, 164 ));
+   
    type ITextHighlighter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Ranges
@@ -541,10 +544,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextHighlighter : aliased constant Windows.IID := (3127686475, 32117, 17717, (179, 13, 168, 26, 0, 182, 55, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextHighlighterStatics : aliased constant Windows.IID := (3014658500, 14974, 18892, (171, 132, 41, 196, 5, 72, 135, 101 ));
+   
    type ITextHighlighterStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ForegroundProperty
@@ -560,10 +563,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextHighlighterStatics : aliased constant Windows.IID := (3014658500, 14974, 18892, (171, 132, 41, 196, 5, 72, 135, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextHighlighterFactory : aliased constant Windows.IID := (1880249441, 39567, 20384, (178, 53, 143, 250, 165, 7, 190, 242 ));
+   
    type ITextHighlighterFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -574,10 +577,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.Documents.ITextHighlighter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextHighlighterFactory : aliased constant Windows.IID := (1880249441, 39567, 20384, (178, 53, 143, 250, 165, 7, 190, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextPointer : aliased constant Windows.IID := (2892528289, 27201, 17407, (133, 30, 69, 52, 138, 162, 207, 123 ));
+   
    type ITextPointer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Parent
@@ -624,15 +627,15 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.Documents.ITextPointer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextPointer : aliased constant Windows.IID := (2892528289, 27201, 17407, (133, 30, 69, 52, 138, 162, 207, 123 ));
-   
    ------------------------------------------------------------------------
-   type ITypography_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITypography : aliased constant Windows.IID := (2255447509, 60055, 17067, (146, 136, 156, 1, 174, 188, 122, 151 ));
    
+   type ITypography_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ITypographyStatics : aliased constant Windows.IID := (1740237960, 27735, 19680, (149, 241, 212, 185, 237, 99, 47, 180 ));
+   
    type ITypographyStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AnnotationAlternatesProperty
@@ -1623,10 +1626,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.FontVariants
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITypographyStatics : aliased constant Windows.IID := (1740237960, 27735, 19680, (149, 241, 212, 185, 237, 99, 47, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextElement : aliased constant Windows.IID := (3896180834, 55158, 20370, (186, 234, 64, 231, 125, 71, 145, 213 ));
+   
    type ITextElement_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -1783,10 +1786,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextElement : aliased constant Windows.IID := (3896180834, 55158, 20370, (186, 234, 64, 231, 125, 71, 145, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextElementOverrides : aliased constant Windows.IID := (216145639, 20342, 19929, (191, 145, 22, 59, 236, 207, 132, 188 ));
+   
    type ITextElementOverrides_Interface is interface and Windows.IInspectable_Interface;
    
    function OnDisconnectVisualChildren
@@ -1794,10 +1797,10 @@ package Windows.UI.Xaml.Documents is
       This       : access ITextElementOverrides_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextElementOverrides : aliased constant Windows.IID := (216145639, 20342, 19929, (191, 145, 22, 59, 236, 207, 132, 188 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextElementStatics : aliased constant Windows.IID := (170892184, 27651, 17520, (167, 155, 50, 152, 161, 4, 130, 206 ));
+   
    type ITextElementStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FontSizeProperty
@@ -1855,15 +1858,15 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextElementStatics : aliased constant Windows.IID := (170892184, 27651, 17520, (167, 155, 50, 152, 161, 4, 130, 206 ));
-   
    ------------------------------------------------------------------------
-   type ITextElementFactory_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITextElementFactory : aliased constant Windows.IID := (889221765, 53063, 19454, (177, 188, 57, 201, 58, 244, 174, 128 ));
    
+   type ITextElementFactory_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_ITextElement2 : aliased constant Windows.IID := (2819058344, 63634, 18934, (140, 210, 137, 173, 218, 240, 109, 45 ));
+   
    type ITextElement2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsTextScaleFactorEnabled
@@ -1879,10 +1882,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextElement2 : aliased constant Windows.IID := (2819058344, 63634, 18934, (140, 210, 137, 173, 218, 240, 109, 45 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextElementStatics2 : aliased constant Windows.IID := (373462962, 38955, 18913, (140, 3, 202, 67, 188, 77, 91, 109 ));
+   
    type ITextElementStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsTextScaleFactorEnabledProperty
@@ -1891,10 +1894,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextElementStatics2 : aliased constant Windows.IID := (373462962, 38955, 18913, (140, 3, 202, 67, 188, 77, 91, 109 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextElement3 : aliased constant Windows.IID := (3520803855, 7108, 19624, (188, 247, 119, 11, 255, 155, 39, 171 ));
+   
    type ITextElement3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllowFocusOnInteraction
@@ -1938,10 +1941,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextElement3 : aliased constant Windows.IID := (3520803855, 7108, 19624, (188, 247, 119, 11, 255, 155, 39, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextElementStatics3 : aliased constant Windows.IID := (3488599983, 4001, 17900, (154, 78, 155, 51, 102, 77, 200, 177 ));
+   
    type ITextElementStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AllowFocusOnInteractionProperty
@@ -1964,10 +1967,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextElementStatics3 : aliased constant Windows.IID := (3488599983, 4001, 17900, (154, 78, 155, 51, 102, 77, 200, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextElement4 : aliased constant Windows.IID := (2979455522, 51726, 18601, (131, 188, 54, 206, 80, 86, 106, 199 ));
+   
    type ITextElement4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextDecorations
@@ -2098,10 +2101,10 @@ package Windows.UI.Xaml.Documents is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextElement4 : aliased constant Windows.IID := (2979455522, 51726, 18601, (131, 188, 54, 206, 80, 86, 106, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ITextElementStatics4 : aliased constant Windows.IID := (4254032926, 27410, 16597, (182, 239, 209, 189, 18, 172, 144, 102 ));
+   
    type ITextElementStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextDecorationsProperty
@@ -2145,20 +2148,20 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ITextElementStatics4 : aliased constant Windows.IID := (4254032926, 27410, 16597, (182, 239, 209, 189, 18, 172, 144, 102 ));
-   
    ------------------------------------------------------------------------
-   type ITextHighlighterBase_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITextHighlighterBase : aliased constant Windows.IID := (3646382106, 24333, 19679, (151, 88, 151, 224, 235, 149, 200, 250 ));
    
+   type ITextHighlighterBase_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type ITextHighlighterBaseFactory_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ITextHighlighterBaseFactory : aliased constant Windows.IID := (2509419216, 60124, 19572, (146, 200, 110, 137, 110, 34, 80, 109 ));
    
+   type ITextHighlighterBaseFactory_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IBlock : aliased constant Windows.IID := (1271791638, 56647, 17232, (140, 176, 225, 113, 96, 10, 200, 150 ));
+   
    type IBlock_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextAlignment
@@ -2216,10 +2219,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.Thickness
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBlock : aliased constant Windows.IID := (1271791638, 56647, 17232, (140, 176, 225, 113, 96, 10, 200, 150 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBlockStatics : aliased constant Windows.IID := (4167732276, 36120, 19539, (174, 189, 145, 230, 16, 165, 224, 16 ));
+   
    type IBlockStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextAlignmentProperty
@@ -2249,10 +2252,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBlockStatics : aliased constant Windows.IID := (4167732276, 36120, 19539, (174, 189, 145, 230, 16, 165, 224, 16 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBlockFactory : aliased constant Windows.IID := (118555954, 20313, 20283, (156, 229, 37, 120, 76, 67, 5, 7 ));
+   
    type IBlockFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2263,10 +2266,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.Documents.IBlock
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBlockFactory : aliased constant Windows.IID := (118555954, 20313, 20283, (156, 229, 37, 120, 76, 67, 5, 7 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBlock2 : aliased constant Windows.IID := (1590148595, 4915, 19090, (131, 24, 108, 174, 220, 18, 239, 137 ));
+   
    type IBlock2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HorizontalTextAlignment
@@ -2282,10 +2285,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.TextAlignment
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBlock2 : aliased constant Windows.IID := (1590148595, 4915, 19090, (131, 24, 108, 174, 220, 18, 239, 137 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBlockStatics2 : aliased constant Windows.IID := (2936120534, 995, 19694, (155, 2, 43, 252, 48, 139, 39, 169 ));
+   
    type IBlockStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_HorizontalTextAlignmentProperty
@@ -2294,15 +2297,15 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBlockStatics2 : aliased constant Windows.IID := (2936120534, 995, 19694, (155, 2, 43, 252, 48, 139, 39, 169 ));
-   
    ------------------------------------------------------------------------
-   type IInline_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IInline : aliased constant Windows.IID := (210923821, 7113, 18737, (140, 177, 26, 234, 223, 28, 198, 133 ));
    
+   type IInline_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IInlineFactory : aliased constant Windows.IID := (1079553233, 12176, 19343, (153, 221, 66, 24, 239, 95, 3, 222 ));
+   
    type IInlineFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2313,10 +2316,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.Documents.IInline
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInlineFactory : aliased constant Windows.IID := (1079553233, 12176, 19343, (153, 221, 66, 24, 239, 95, 3, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IInlineUIContainer : aliased constant Windows.IID := (337038977, 10478, 17710, (177, 33, 95, 196, 246, 11, 134, 166 ));
+   
    type IInlineUIContainer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Child
@@ -2332,15 +2335,15 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IInlineUIContainer : aliased constant Windows.IID := (337038977, 10478, 17710, (177, 33, 95, 196, 246, 11, 134, 166 ));
-   
    ------------------------------------------------------------------------
-   type ILineBreak_Interface is interface and Windows.IInspectable_Interface;
    
    IID_ILineBreak : aliased constant Windows.IID := (1683327428, 63337, 16877, (137, 91, 138, 27, 47, 179, 21, 98 ));
    
+   type ILineBreak_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IParagraph : aliased constant Windows.IID := (4164875674, 64097, 19439, (174, 51, 11, 10, 215, 86, 168, 77 ));
+   
    type IParagraph_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Inlines
@@ -2363,10 +2366,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IParagraph : aliased constant Windows.IID := (4164875674, 64097, 19439, (174, 51, 11, 10, 215, 86, 168, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IParagraphStatics : aliased constant Windows.IID := (4010313882, 21339, 20044, (141, 132, 40, 59, 51, 233, 138, 55 ));
+   
    type IParagraphStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TextIndentProperty
@@ -2375,10 +2378,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IParagraphStatics : aliased constant Windows.IID := (4010313882, 21339, 20044, (141, 132, 40, 59, 51, 233, 138, 55 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRun : aliased constant Windows.IID := (1498758275, 3604, 18877, (184, 75, 197, 38, 243, 3, 67, 73 ));
+   
    type IRun_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Text
@@ -2408,10 +2411,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.FlowDirection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRun : aliased constant Windows.IID := (1498758275, 3604, 18877, (184, 75, 197, 38, 243, 3, 67, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IRunStatics : aliased constant Windows.IID := (3912252655, 26016, 19341, (167, 247, 143, 219, 40, 123, 70, 243 ));
+   
    type IRunStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FlowDirectionProperty
@@ -2420,10 +2423,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IRunStatics : aliased constant Windows.IID := (3912252655, 26016, 19341, (167, 247, 143, 219, 40, 123, 70, 243 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpan : aliased constant Windows.IID := (2553926825, 687, 18449, (170, 21, 107, 239, 58, 202, 201, 122 ));
+   
    type ISpan_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Inlines
@@ -2439,10 +2442,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.Documents.IVector_Inline
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpan : aliased constant Windows.IID := (2553926825, 687, 18449, (170, 21, 107, 239, 58, 202, 201, 122 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISpanFactory : aliased constant Windows.IID := (1536257884, 52525, 16576, (149, 106, 56, 100, 72, 50, 47, 121 ));
+   
    type ISpanFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateInstance
@@ -2453,30 +2456,30 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.Documents.ISpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISpanFactory : aliased constant Windows.IID := (1536257884, 52525, 16576, (149, 106, 56, 100, 72, 50, 47, 121 ));
-   
    ------------------------------------------------------------------------
-   type IBold_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IBold : aliased constant Windows.IID := (2917611396, 7001, 19876, (187, 35, 15, 32, 232, 133, 180, 191 ));
    
+   type IBold_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IItalic_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IItalic : aliased constant Windows.IID := (2448712092, 64699, 16727, (128, 44, 118, 246, 59, 95, 182, 87 ));
    
+   type IItalic_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IUnderline_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IUnderline : aliased constant Windows.IID := (2784657922, 25024, 18391, (147, 239, 188, 11, 87, 124, 95, 38 ));
    
+   type IUnderline_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
-   type IHyperlinkClickEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IHyperlinkClickEventArgs : aliased constant Windows.IID := (3344273771, 31708, 19431, (179, 115, 146, 64, 165, 3, 216, 112 ));
    
+   type IHyperlinkClickEventArgs_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IGlyphs : aliased constant Windows.IID := (3497609611, 62129, 17025, (153, 162, 228, 208, 89, 50, 178, 181 ));
+   
    type IGlyphs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UnicodeString
@@ -2590,10 +2593,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGlyphs : aliased constant Windows.IID := (3497609611, 62129, 17025, (153, 162, 228, 208, 89, 50, 178, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGlyphsStatics : aliased constant Windows.IID := (576517317, 65009, 17389, (149, 143, 65, 78, 134, 241, 3, 242 ));
+   
    type IGlyphsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UnicodeStringProperty
@@ -2651,10 +2654,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGlyphsStatics : aliased constant Windows.IID := (576517317, 65009, 17389, (149, 143, 65, 78, 134, 241, 3, 242 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGlyphs2 : aliased constant Windows.IID := (2861301340, 14164, 19438, (187, 225, 68, 3, 238, 155, 134, 240 ));
+   
    type IGlyphs2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsColorFontEnabled
@@ -2684,10 +2687,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGlyphs2 : aliased constant Windows.IID := (2861301340, 14164, 19438, (187, 225, 68, 3, 238, 155, 134, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IGlyphsStatics2 : aliased constant Windows.IID := (273193639, 5653, 18995, (170, 2, 215, 239, 42, 239, 199, 57 ));
+   
    type IGlyphsStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsColorFontEnabledProperty
@@ -2703,10 +2706,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IGlyphsStatics2 : aliased constant Windows.IID := (273193639, 5653, 18995, (170, 2, 215, 239, 42, 239, 199, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlink : aliased constant Windows.IID := (266483259, 5353, 16722, (158, 88, 90, 234, 91, 33, 240, 141 ));
+   
    type IHyperlink_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NavigateUri
@@ -2737,10 +2740,10 @@ package Windows.UI.Xaml.Documents is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlink : aliased constant Windows.IID := (266483259, 5353, 16722, (158, 88, 90, 234, 91, 33, 240, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlinkStatics : aliased constant Windows.IID := (977589204, 64833, 16859, (140, 114, 59, 121, 10, 205, 159, 211 ));
+   
    type IHyperlinkStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_NavigateUriProperty
@@ -2749,10 +2752,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlinkStatics : aliased constant Windows.IID := (977589204, 64833, 16859, (140, 114, 59, 121, 10, 205, 159, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlink2 : aliased constant Windows.IID := (1290394207, 31999, 17041, (183, 143, 223, 236, 114, 73, 5, 118 ));
+   
    type IHyperlink2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UnderlineStyle
@@ -2768,10 +2771,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.Documents.UnderlineStyle
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlink2 : aliased constant Windows.IID := (1290394207, 31999, 17041, (183, 143, 223, 236, 114, 73, 5, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlinkStatics2 : aliased constant Windows.IID := (1344854199, 31455, 17390, (164, 174, 156, 146, 95, 117, 87, 22 ));
+   
    type IHyperlinkStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_UnderlineStyleProperty
@@ -2780,10 +2783,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlinkStatics2 : aliased constant Windows.IID := (1344854199, 31455, 17390, (164, 174, 156, 146, 95, 117, 87, 22 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlink3 : aliased constant Windows.IID := (3287373785, 58835, 20407, (135, 2, 79, 109, 133, 221, 158, 10 ));
+   
    type IHyperlink3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_XYFocusLeft
@@ -2855,10 +2858,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.UI.Xaml.ElementSoundMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlink3 : aliased constant Windows.IID := (3287373785, 58835, 20407, (135, 2, 79, 109, 133, 221, 158, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlinkStatics3 : aliased constant Windows.IID := (1041620640, 8286, 18759, (153, 165, 116, 231, 87, 232, 225, 180 ));
+   
    type IHyperlinkStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_XYFocusLeftProperty
@@ -2895,10 +2898,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlinkStatics3 : aliased constant Windows.IID := (1041620640, 8286, 18759, (153, 165, 116, 231, 87, 232, 225, 180 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlink4 : aliased constant Windows.IID := (4157614425, 33531, 16394, (164, 7, 90, 78, 230, 119, 152, 138 ));
+   
    type IHyperlink4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FocusState
@@ -3001,10 +3004,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlink4 : aliased constant Windows.IID := (4157614425, 33531, 16394, (164, 7, 90, 78, 230, 119, 152, 138 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlinkStatics4 : aliased constant Windows.IID := (74888056, 36778, 20004, (179, 182, 233, 222, 77, 60, 112, 140 ));
+   
    type IHyperlinkStatics4_Interface is interface and Windows.IInspectable_Interface;
    
    function get_FocusStateProperty
@@ -3041,10 +3044,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlinkStatics4 : aliased constant Windows.IID := (74888056, 36778, 20004, (179, 182, 233, 222, 77, 60, 112, 140 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlink5 : aliased constant Windows.IID := (1618859986, 2373, 17192, (145, 238, 148, 204, 236, 46, 166, 195 ));
+   
    type IHyperlink5_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsTabStop
@@ -3074,10 +3077,10 @@ package Windows.UI.Xaml.Documents is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlink5 : aliased constant Windows.IID := (1618859986, 2373, 17192, (145, 238, 148, 204, 236, 46, 166, 195 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IHyperlinkStatics5 : aliased constant Windows.IID := (1496354026, 7753, 18721, (189, 136, 162, 135, 141, 7, 227, 14 ));
+   
    type IHyperlinkStatics5_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsTabStopProperty
@@ -3093,10 +3096,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IHyperlinkStatics5 : aliased constant Windows.IID := (1496354026, 7753, 18721, (189, 136, 162, 135, 141, 7, 227, 14 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_TextRange : aliased constant Windows.IID := (1911961122, 49406, 21539, (145, 78, 211, 25, 210, 91, 204, 132 ));
+   
    type IIterator_TextRange_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3127,10 +3130,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_TextRange : aliased constant Windows.IID := (1911961122, 49406, 21539, (145, 78, 211, 25, 210, 91, 204, 132 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_TextRange : aliased constant Windows.IID := (718548955, 22235, 20491, (142, 168, 61, 87, 237, 250, 223, 198 ));
+   
    type IIterable_TextRange_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3139,10 +3142,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.Documents.IIterator_TextRange
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_TextRange : aliased constant Windows.IID := (718548955, 22235, 20491, (142, 168, 61, 87, 237, 250, 223, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_TextRange : aliased constant Windows.IID := (3357856208, 30490, 20771, (144, 204, 82, 40, 31, 15, 40, 122 ));
+   
    type IVectorView_TextRange_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3177,10 +3180,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_TextRange : aliased constant Windows.IID := (3357856208, 30490, 20771, (144, 204, 82, 40, 31, 15, 40, 122 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_TextRange : aliased constant Windows.IID := (4003286234, 1872, 23583, (147, 170, 89, 173, 216, 193, 66, 27 ));
+   
    type IVector_TextRange_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3271,10 +3274,10 @@ package Windows.UI.Xaml.Documents is
       ; items : Windows.UI.Xaml.Documents.TextRange_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_TextRange : aliased constant Windows.IID := (4003286234, 1872, 23583, (147, 170, 89, 173, 216, 193, 66, 27 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ITextHighlighter : aliased constant Windows.IID := (4268695277, 58991, 21046, (164, 31, 129, 117, 68, 225, 231, 189 ));
+   
    type IIterator_ITextHighlighter_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -3305,10 +3308,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ITextHighlighter : aliased constant Windows.IID := (4268695277, 58991, 21046, (164, 31, 129, 117, 68, 225, 231, 189 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ITextHighlighter : aliased constant Windows.IID := (1300104255, 26263, 22938, (161, 59, 141, 222, 113, 213, 83, 125 ));
+   
    type IIterable_ITextHighlighter_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -3317,10 +3320,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UI.Xaml.Documents.IIterator_ITextHighlighter
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ITextHighlighter : aliased constant Windows.IID := (1300104255, 26263, 22938, (161, 59, 141, 222, 113, 213, 83, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ITextHighlighter : aliased constant Windows.IID := (2806215383, 17889, 22000, (162, 156, 21, 202, 9, 146, 235, 120 ));
+   
    type IVectorView_ITextHighlighter_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3355,10 +3358,10 @@ package Windows.UI.Xaml.Documents is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ITextHighlighter : aliased constant Windows.IID := (2806215383, 17889, 22000, (162, 156, 21, 202, 9, 146, 235, 120 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_ITextHighlighter : aliased constant Windows.IID := (1687180632, 53346, 24369, (132, 175, 74, 95, 168, 150, 174, 80 ));
+   
    type IVector_ITextHighlighter_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -3449,17 +3452,15 @@ package Windows.UI.Xaml.Documents is
       ; items : Windows.UI.Xaml.Documents.ITextHighlighter_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_ITextHighlighter : aliased constant Windows.IID := (1687180632, 53346, 24369, (132, 175, 74, 95, 168, 150, 174, 80 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.ITextElement ; args : Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested : aliased constant Windows.IID := (967669512, 9550, 22026, (158, 46, 115, 177, 219, 49, 249, 53 ));
+   
+   type TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.ITextElement ; args : Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested'access) with null record;
    
    function Invoke
    (
@@ -3469,12 +3470,11 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested : aliased constant Windows.IID := (967669512, 9550, 22026, (158, 46, 115, 177, 219, 49, 249, 53 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.ITextElement ; args : Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed : aliased constant Windows.IID := (2831766603, 28792, 21270, (190, 182, 217, 236, 145, 106, 184, 138 ));
+   
+   type TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.ITextElement ; args : Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed'access) with null record;
    
    function Invoke
    (
@@ -3484,12 +3484,11 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed : aliased constant Windows.IID := (2831766603, 28792, 21270, (190, 182, 217, 236, 145, 106, 184, 138 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.ITextElement ; args : Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ITextElement4_add_AccessKeyInvoked : aliased constant Windows.IID := (2804706049, 11836, 22453, (158, 196, 148, 143, 108, 109, 147, 10 ));
+   
+   type TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.ITextElement ; args : Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ITextElement4_add_AccessKeyInvoked'access) with null record;
    
    function Invoke
    (
@@ -3499,12 +3498,11 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ITextElement4_add_AccessKeyInvoked : aliased constant Windows.IID := (2804706049, 11836, 22453, (158, 196, 148, 143, 108, 109, 147, 10 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IHyperlink_add_Click_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.IHyperlink ; args : Windows.UI.Xaml.Documents.IHyperlinkClickEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IHyperlink_add_Click_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IHyperlink_add_Click : aliased constant Windows.IID := (1609224402, 58967, 23279, (169, 27, 127, 82, 234, 209, 127, 227 ));
+   
+   type TypedEventHandler_IHyperlink_add_Click_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.IHyperlink ; args : Windows.UI.Xaml.Documents.IHyperlinkClickEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHyperlink_add_Click'access) with null record;
    
    function Invoke
    (
@@ -3513,8 +3511,6 @@ package Windows.UI.Xaml.Documents is
       ; args : Windows.UI.Xaml.Documents.IHyperlinkClickEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IHyperlink_add_Click : aliased constant Windows.IID := (1609224402, 58967, 23279, (169, 27, 127, 82, 234, 209, 127, 227 ));
    
    ------------------------------------------------------------------------
    -- Classes
@@ -3526,9 +3522,9 @@ package Windows.UI.Xaml.Documents is
    
    type ITextHighlighter_Interface_Impl is new ITextHighlighter_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased ITextHighlighter := null;
       m_ITextHighlighter : ITextHighlighter := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type ITextHighlighter_Impl is access all ITextHighlighter_Interface_Impl'Class;
@@ -3538,7 +3534,7 @@ package Windows.UI.Xaml.Documents is
    (
       This       : access ITextHighlighter_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -3622,9 +3618,9 @@ package Windows.UI.Xaml.Documents is
    
    type IBlock_Interface_Impl is new IBlock_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IBlock := null;
       m_IBlock : IBlock := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IBlock_Impl is access all IBlock_Interface_Impl'Class;
@@ -3634,7 +3630,7 @@ package Windows.UI.Xaml.Documents is
    (
       This       : access IBlock_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -3733,9 +3729,9 @@ package Windows.UI.Xaml.Documents is
    
    type IInline_Interface_Impl is new IInline_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased IInline := null;
       m_IInline : IInline := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type IInline_Impl is access all IInline_Interface_Impl'Class;
@@ -3745,7 +3741,7 @@ package Windows.UI.Xaml.Documents is
    (
       This       : access IInline_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    
@@ -3804,9 +3800,9 @@ package Windows.UI.Xaml.Documents is
    
    type ISpan_Interface_Impl is new ISpan_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
       m_Inner    : aliased ISpan := null;
       m_ISpan : ISpan := null;
-      m_FTM      : aliased IUnknown := null;
    end record;
    
    type ISpan_Impl is access all ISpan_Interface_Impl'Class;
@@ -3816,7 +3812,7 @@ package Windows.UI.Xaml.Documents is
    (
       This       : access ISpan_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
-      pvObject   : Windows.Address
+      pvObject   : not null access IUnknown
    )
    return Windows.HRESULT;
    

@@ -54,6 +54,9 @@ package Windows.ApplicationModel.UserActivities.Core is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ICoreUserActivityManagerStatics : aliased constant Windows.IID := (3392854786, 42174, 19789, (191, 168, 103, 149, 244, 38, 78, 251 ));
+   
    type ICoreUserActivityManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateUserActivitySessionInBackground
@@ -73,9 +76,6 @@ package Windows.ApplicationModel.UserActivities.Core is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ICoreUserActivityManagerStatics : aliased constant Windows.IID := (3392854786, 42174, 19789, (191, 168, 103, 149, 244, 38, 78, 251 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

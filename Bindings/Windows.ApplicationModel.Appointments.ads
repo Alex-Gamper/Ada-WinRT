@@ -477,6 +477,9 @@ package Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentManagerStatics : aliased constant Windows.IID := (976288257, 23616, 18845, (179, 63, 164, 48, 80, 247, 79, 196 ));
+   
    type IAppointmentManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowAddAppointmentAsync
@@ -569,10 +572,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentManagerStatics : aliased constant Windows.IID := (976288257, 23616, 18845, (179, 63, 164, 48, 80, 247, 79, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentManagerStatics2 : aliased constant Windows.IID := (176289293, 53327, 16436, (175, 114, 163, 101, 115, 180, 95, 240 ));
+   
    type IAppointmentManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowAppointmentDetailsAsync
@@ -607,10 +610,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentManagerStatics2 : aliased constant Windows.IID := (176289293, 53327, 16436, (175, 114, 163, 101, 115, 180, 95, 240 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentManagerStatics3 : aliased constant Windows.IID := (798679196, 45900, 19911, (163, 93, 202, 253, 136, 174, 62, 198 ));
+   
    type IAppointmentManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForUser
@@ -620,10 +623,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentManagerForUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentManagerStatics3 : aliased constant Windows.IID := (798679196, 45900, 19911, (163, 93, 202, 253, 136, 174, 62, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentManagerForUser : aliased constant Windows.IID := (1881543715, 29644, 18016, (179, 24, 176, 19, 101, 48, 42, 3 ));
+   
    type IAppointmentManagerForUser_Interface is interface and Windows.IInspectable_Interface;
    
    function ShowAddAppointmentAsync
@@ -756,10 +759,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentManagerForUser : aliased constant Windows.IID := (1881543715, 29644, 18016, (179, 24, 176, 19, 101, 48, 42, 3 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentParticipant : aliased constant Windows.IID := (1633560834, 38680, 18043, (131, 251, 178, 147, 161, 145, 33, 222 ));
+   
    type IAppointmentParticipant_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayName
@@ -789,10 +792,10 @@ package Windows.ApplicationModel.Appointments is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentParticipant : aliased constant Windows.IID := (1633560834, 38680, 18043, (131, 251, 178, 147, 161, 145, 33, 222 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentInvitee : aliased constant Windows.IID := (331286422, 38978, 18779, (176, 231, 239, 143, 121, 192, 112, 29 ));
+   
    type IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Role
@@ -822,10 +825,10 @@ package Windows.ApplicationModel.Appointments is
       ; value : Windows.ApplicationModel.Appointments.AppointmentParticipantResponse
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentInvitee : aliased constant Windows.IID := (331286422, 38978, 18779, (176, 231, 239, 143, 121, 192, 112, 29 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentRecurrence : aliased constant Windows.IID := (3631955587, 5542, 18555, (185, 89, 12, 54, 30, 96, 233, 84 ));
+   
    type IAppointmentRecurrence_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Unit
@@ -939,10 +942,10 @@ package Windows.ApplicationModel.Appointments is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentRecurrence : aliased constant Windows.IID := (3631955587, 5542, 18555, (185, 89, 12, 54, 30, 96, 233, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentRecurrence2 : aliased constant Windows.IID := (1039377120, 1447, 20304, (159, 134, 176, 63, 148, 54, 37, 77 ));
+   
    type IAppointmentRecurrence2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RecurrenceType
@@ -965,10 +968,10 @@ package Windows.ApplicationModel.Appointments is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentRecurrence2 : aliased constant Windows.IID := (1039377120, 1447, 20304, (159, 134, 176, 63, 148, 54, 37, 77 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentRecurrence3 : aliased constant Windows.IID := (2315228889, 55885, 18967, (141, 210, 28, 235, 194, 181, 255, 157 ));
+   
    type IAppointmentRecurrence3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CalendarIdentifier
@@ -977,10 +980,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentRecurrence3 : aliased constant Windows.IID := (2315228889, 55885, 18967, (141, 210, 28, 235, 194, 181, 255, 157 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointment : aliased constant Windows.IID := (3707776815, 11229, 16502, (144, 163, 34, 194, 117, 49, 41, 101 ));
+   
    type IAppointment_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StartTime
@@ -1157,10 +1160,10 @@ package Windows.ApplicationModel.Appointments is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointment : aliased constant Windows.IID := (3707776815, 11229, 16502, (144, 163, 34, 194, 117, 49, 41, 101 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointment2 : aliased constant Windows.IID := (1585813564, 21519, 13394, (155, 92, 13, 215, 173, 76, 101, 162 ));
+   
    type IAppointment2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LocalId
@@ -1302,10 +1305,10 @@ package Windows.ApplicationModel.Appointments is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointment2 : aliased constant Windows.IID := (1585813564, 21519, 13394, (155, 92, 13, 215, 173, 76, 101, 162 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointment3 : aliased constant Windows.IID := (3217835433, 35169, 18833, (147, 75, 196, 135, 104, 229, 169, 108 ));
+   
    type IAppointment3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeNumber
@@ -1342,10 +1345,10 @@ package Windows.ApplicationModel.Appointments is
       ; value : Windows.ApplicationModel.Appointments.AppointmentDetailsKind
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointment3 : aliased constant Windows.IID := (3217835433, 35169, 18833, (147, 75, 196, 135, 104, 229, 169, 108 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFindAppointmentsOptions : aliased constant Windows.IID := (1442307157, 39234, 12422, (130, 181, 44, 178, 159, 100, 213, 245 ));
+   
    type IFindAppointmentsOptions_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CalendarIds
@@ -1389,10 +1392,10 @@ package Windows.ApplicationModel.Appointments is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFindAppointmentsOptions : aliased constant Windows.IID := (1442307157, 39234, 12422, (130, 181, 44, 178, 159, 100, 213, 245 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentCalendar : aliased constant Windows.IID := (1383301533, 33593, 15695, (160, 47, 100, 8, 68, 82, 187, 93 ));
+   
    type IAppointmentCalendar_Interface is interface and Windows.IInspectable_Interface;
    
    function get_DisplayColor
@@ -1597,10 +1600,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentCalendar : aliased constant Windows.IID := (1383301533, 33593, 15695, (160, 47, 100, 8, 68, 82, 187, 93 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentCalendar2 : aliased constant Windows.IID := (417850402, 9319, 19996, (164, 89, 216, 162, 147, 3, 208, 146 ));
+   
    type IAppointmentCalendar2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SyncManager
@@ -1798,10 +1801,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentCalendar2 : aliased constant Windows.IID := (417850402, 9319, 19996, (164, 89, 216, 162, 147, 3, 208, 146 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentCalendar3 : aliased constant Windows.IID := (3944993323, 42629, 17070, (132, 149, 179, 17, 154, 219, 65, 103 ));
+   
    type IAppointmentCalendar3_Interface is interface and Windows.IInspectable_Interface;
    
    function RegisterSyncManagerAsync
@@ -1810,10 +1813,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentCalendar3 : aliased constant Windows.IID := (3944993323, 42629, 17070, (132, 149, 179, 17, 154, 219, 65, 103 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentCalendarSyncManager : aliased constant Windows.IID := (723628960, 19199, 17298, (188, 95, 86, 69, 255, 207, 251, 23 ));
+   
    type IAppointmentCalendarSyncManager_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Status
@@ -1858,10 +1861,10 @@ package Windows.ApplicationModel.Appointments is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentCalendarSyncManager : aliased constant Windows.IID := (723628960, 19199, 17298, (188, 95, 86, 69, 255, 207, 251, 23 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentCalendarSyncManager2 : aliased constant Windows.IID := (1685399725, 3369, 19580, (170, 167, 191, 153, 104, 5, 83, 124 ));
+   
    type IAppointmentCalendarSyncManager2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Status
@@ -1884,10 +1887,10 @@ package Windows.ApplicationModel.Appointments is
       ; value : Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentCalendarSyncManager2 : aliased constant Windows.IID := (1685399725, 3369, 19580, (170, 167, 191, 153, 104, 5, 83, 124 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentPropertiesStatics : aliased constant Windows.IID := (622075881, 26798, 15022, (133, 95, 188, 68, 65, 202, 162, 52 ));
+   
    type IAppointmentPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Subject
@@ -2050,10 +2053,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentPropertiesStatics : aliased constant Windows.IID := (622075881, 26798, 15022, (133, 95, 188, 68, 65, 202, 162, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentPropertiesStatics2 : aliased constant Windows.IID := (3757851467, 45079, 17885, (138, 245, 209, 99, 209, 8, 1, 187 ));
+   
    type IAppointmentPropertiesStatics2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeNumber
@@ -2076,10 +2079,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentPropertiesStatics2 : aliased constant Windows.IID := (3757851467, 45079, 17885, (138, 245, 209, 99, 209, 8, 1, 187 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentConflictResult : aliased constant Windows.IID := (3587043518, 12079, 15229, (175, 10, 167, 226, 15, 58, 70, 227 ));
+   
    type IAppointmentConflictResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Type
@@ -2095,10 +2098,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentConflictResult : aliased constant Windows.IID := (3587043518, 12079, 15229, (175, 10, 167, 226, 15, 58, 70, 227 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChange : aliased constant Windows.IID := (2779177013, 2611, 13908, (132, 99, 181, 67, 233, 12, 59, 121 ));
+   
    type IAppointmentStoreChange_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Appointment
@@ -2114,10 +2117,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentStoreChangeType
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStoreChange : aliased constant Windows.IID := (2779177013, 2611, 13908, (132, 99, 181, 67, 233, 12, 59, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChange2 : aliased constant Windows.IID := (3011317198, 21009, 17410, (166, 8, 169, 111, 231, 11, 142, 226 ));
+   
    type IAppointmentStoreChange2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AppointmentCalendar
@@ -2126,10 +2129,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentCalendar
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStoreChange2 : aliased constant Windows.IID := (3011317198, 21009, 17410, (166, 8, 169, 111, 231, 11, 142, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangeReader : aliased constant Windows.IID := (2334394865, 26099, 17056, (150, 29, 76, 32, 155, 243, 3, 112 ));
+   
    type IAppointmentStoreChangeReader_Interface is interface and Windows.IInspectable_Interface;
    
    function ReadBatchAsync
@@ -2151,10 +2154,10 @@ package Windows.ApplicationModel.Appointments is
       ; lastChangeToAccept : Windows.ApplicationModel.Appointments.IAppointmentStoreChange
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStoreChangeReader : aliased constant Windows.IID := (2334394865, 26099, 17056, (150, 29, 76, 32, 155, 243, 3, 112 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangeTracker : aliased constant Windows.IID := (455472305, 36558, 20247, (147, 200, 230, 65, 36, 88, 253, 92 ));
+   
    type IAppointmentStoreChangeTracker_Interface is interface and Windows.IInspectable_Interface;
    
    function GetChangeReader
@@ -2175,10 +2178,10 @@ package Windows.ApplicationModel.Appointments is
       This       : access IAppointmentStoreChangeTracker_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStoreChangeTracker : aliased constant Windows.IID := (455472305, 36558, 20247, (147, 200, 230, 65, 36, 88, 253, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangeTracker2 : aliased constant Windows.IID := (3060444997, 38210, 19703, (133, 80, 235, 55, 14, 12, 8, 211 ));
+   
    type IAppointmentStoreChangeTracker2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsTracking
@@ -2187,10 +2190,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStoreChangeTracker2 : aliased constant Windows.IID := (3060444997, 38210, 19703, (133, 80, 235, 55, 14, 12, 8, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangedEventArgs : aliased constant Windows.IID := (579205305, 1937, 16766, (191, 234, 204, 109, 65, 99, 108, 140 ));
+   
    type IAppointmentStoreChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -2199,10 +2202,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentStoreChangedDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStoreChangedEventArgs : aliased constant Windows.IID := (579205305, 1937, 16766, (191, 234, 204, 109, 65, 99, 108, 140 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStoreChangedDeferral : aliased constant Windows.IID := (1287135270, 65243, 19395, (150, 98, 149, 169, 190, 253, 244, 223 ));
+   
    type IAppointmentStoreChangedDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -2210,15 +2213,15 @@ package Windows.ApplicationModel.Appointments is
       This       : access IAppointmentStoreChangedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStoreChangedDeferral : aliased constant Windows.IID := (1287135270, 65243, 19395, (150, 98, 149, 169, 190, 253, 244, 223 ));
-   
    ------------------------------------------------------------------------
-   type IAppointmentStoreNotificationTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    IID_IAppointmentStoreNotificationTriggerDetails : aliased constant Windows.IID := (2603862801, 49921, 16926, (175, 239, 4, 126, 207, 167, 106, 219 ));
    
+   type IAppointmentStoreNotificationTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStore : aliased constant Windows.IID := (2757857676, 31303, 19862, (150, 201, 21, 205, 138, 5, 167, 53 ));
+   
    type IAppointmentStore_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ChangeTracker
@@ -2404,10 +2407,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStore : aliased constant Windows.IID := (2757857676, 31303, 19862, (150, 201, 21, 205, 138, 5, 167, 53 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStore2 : aliased constant Windows.IID := (633637920, 7233, 16975, (128, 132, 103, 193, 207, 224, 168, 84 ));
+   
    type IAppointmentStore2_Interface is interface and Windows.IInspectable_Interface;
    
    function add_StoreChanged
@@ -2433,10 +2436,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentCalendar -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStore2 : aliased constant Windows.IID := (633637920, 7233, 16975, (128, 132, 103, 193, 207, 224, 168, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentStore3 : aliased constant Windows.IID := (1112642571, 45176, 18186, (154, 64, 194, 224, 23, 97, 247, 47 ));
+   
    type IAppointmentStore3_Interface is interface and Windows.IInspectable_Interface;
    
    function GetChangeTracker
@@ -2446,10 +2449,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentStoreChangeTracker
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentStore3 : aliased constant Windows.IID := (1112642571, 45176, 18186, (154, 64, 194, 224, 23, 97, 247, 47 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAppointmentException : aliased constant Windows.IID := (2718394215, 5878, 19406, (159, 90, 134, 0, 184, 1, 159, 203 ));
+   
    type IAppointmentException_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Appointment
@@ -2472,10 +2475,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAppointmentException : aliased constant Windows.IID := (2718394215, 5878, 19406, (159, 90, 134, 0, 184, 1, 159, 203 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppointmentStore : aliased constant Windows.IID := (1668908053, 19743, 24519, (135, 41, 121, 162, 130, 188, 236, 164 ));
+   
    type IAsyncOperation_IAppointmentStore_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2498,10 +2501,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentStore
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IAppointmentStore : aliased constant Windows.IID := (1668908053, 19743, 24519, (135, 41, 121, 162, 130, 188, 236, 164 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IAppointmentInvitee : aliased constant Windows.IID := (1474515352, 6977, 21722, (173, 175, 80, 239, 30, 147, 253, 237 ));
+   
    type IIterator_IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2532,10 +2535,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IAppointmentInvitee : aliased constant Windows.IID := (1474515352, 6977, 21722, (173, 175, 80, 239, 30, 147, 253, 237 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IAppointmentInvitee : aliased constant Windows.IID := (4220983465, 61529, 21168, (169, 4, 26, 101, 228, 40, 30, 64 ));
+   
    type IIterable_IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2544,10 +2547,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IIterator_IAppointmentInvitee
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IAppointmentInvitee : aliased constant Windows.IID := (4220983465, 61529, 21168, (169, 4, 26, 101, 228, 40, 30, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAppointmentInvitee : aliased constant Windows.IID := (3123667770, 20866, 24282, (142, 46, 166, 110, 85, 179, 32, 206 ));
+   
    type IVectorView_IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2582,10 +2585,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IAppointmentInvitee : aliased constant Windows.IID := (3123667770, 20866, 24282, (142, 46, 166, 110, 85, 179, 32, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_IAppointmentInvitee : aliased constant Windows.IID := (1895084846, 63774, 21947, (154, 146, 2, 70, 218, 115, 75, 176 ));
+   
    type IVector_IAppointmentInvitee_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2676,10 +2679,10 @@ package Windows.ApplicationModel.Appointments is
       ; items : Windows.ApplicationModel.Appointments.IAppointmentInvitee_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_IAppointmentInvitee : aliased constant Windows.IID := (1895084846, 63774, 21947, (154, 146, 2, 70, 218, 115, 75, 176 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppointment : aliased constant Windows.IID := (207041272, 23481, 23475, (147, 229, 184, 126, 67, 224, 205, 106 ));
+   
    type IAsyncOperation_IAppointment_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2702,10 +2705,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointment
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IAppointment : aliased constant Windows.IID := (207041272, 23481, 23475, (147, 229, 184, 126, 67, 224, 205, 106 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppointmentCalendar : aliased constant Windows.IID := (1806793365, 37262, 23248, (187, 194, 188, 197, 250, 31, 249, 54 ));
+   
    type IAsyncOperation_IAppointmentCalendar_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2728,10 +2731,10 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentCalendar
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IAppointmentCalendar : aliased constant Windows.IID := (1806793365, 37262, 23248, (187, 194, 188, 197, 250, 31, 249, 54 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAppointmentConflictResult : aliased constant Windows.IID := (3010856975, 58802, 23266, (153, 1, 134, 207, 119, 186, 93, 0 ));
+   
    type IAsyncOperation_IAppointmentConflictResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2754,17 +2757,15 @@ package Windows.ApplicationModel.Appointments is
       ; RetVal : access Windows.ApplicationModel.Appointments.IAppointmentConflictResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IAppointmentConflictResult : aliased constant Windows.IID := (3010856975, 58802, 23266, (153, 1, 134, 207, 119, 186, 93, 0 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IAppointmentStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointmentStore_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IAppointmentStore : aliased constant Windows.IID := (3167710506, 43890, 24355, (183, 213, 76, 44, 155, 212, 91, 121 ));
+   
+   type AsyncOperationCompletedHandler_IAppointmentStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppointmentStore'access) with null record;
    
    function Invoke
    (
@@ -2774,12 +2775,11 @@ package Windows.ApplicationModel.Appointments is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IAppointmentStore : aliased constant Windows.IID := (3167710506, 43890, 24355, (183, 213, 76, 44, 155, 212, 91, 121 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IAppointment_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointment ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointment_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IAppointment : aliased constant Windows.IID := (3057708292, 37681, 23336, (146, 71, 1, 70, 188, 245, 183, 42 ));
+   
+   type AsyncOperationCompletedHandler_IAppointment_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointment ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppointment'access) with null record;
    
    function Invoke
    (
@@ -2789,12 +2789,11 @@ package Windows.ApplicationModel.Appointments is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IAppointment : aliased constant Windows.IID := (3057708292, 37681, 23336, (146, 71, 1, 70, 188, 245, 183, 42 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged : aliased constant Windows.IID := (3172141278, 27950, 21825, (178, 84, 189, 182, 24, 57, 186, 193 ));
+   
+   type TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged'access) with null record;
    
    function Invoke
    (
@@ -2804,12 +2803,11 @@ package Windows.ApplicationModel.Appointments is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IAppointmentCalendarSyncManager_add_SyncStatusChanged : aliased constant Windows.IID := (3172141278, 27950, 21825, (178, 84, 189, 182, 24, 57, 186, 193 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IAppointmentCalendar_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentCalendar ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointmentCalendar_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IAppointmentCalendar : aliased constant Windows.IID := (1838986833, 23286, 20912, (156, 211, 69, 221, 81, 241, 121, 73 ));
+   
+   type AsyncOperationCompletedHandler_IAppointmentCalendar_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentCalendar ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppointmentCalendar'access) with null record;
    
    function Invoke
    (
@@ -2819,12 +2817,11 @@ package Windows.ApplicationModel.Appointments is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IAppointmentCalendar : aliased constant Windows.IID := (1838986833, 23286, 20912, (156, 211, 69, 221, 81, 241, 121, 73 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IAppointmentConflictResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentConflictResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IAppointmentConflictResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IAppointmentConflictResult : aliased constant Windows.IID := (2197504254, 1457, 21052, (155, 83, 179, 221, 117, 156, 159, 117 ));
+   
+   type AsyncOperationCompletedHandler_IAppointmentConflictResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentConflictResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppointmentConflictResult'access) with null record;
    
    function Invoke
    (
@@ -2834,12 +2831,11 @@ package Windows.ApplicationModel.Appointments is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IAppointmentConflictResult : aliased constant Windows.IID := (2197504254, 1457, 21052, (155, 83, 179, 221, 117, 156, 159, 117 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IAppointmentStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.IAppointmentStore ; args : Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IAppointmentStore2_add_StoreChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IAppointmentStore2_add_StoreChanged : aliased constant Windows.IID := (2657256273, 50745, 23791, (171, 29, 139, 234, 233, 215, 93, 82 ));
+   
+   type TypedEventHandler_IAppointmentStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.IAppointmentStore ; args : Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentStore2_add_StoreChanged'access) with null record;
    
    function Invoke
    (
@@ -2848,8 +2844,6 @@ package Windows.ApplicationModel.Appointments is
       ; args : Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IAppointmentStore2_add_StoreChanged : aliased constant Windows.IID := (2657256273, 50745, 23791, (171, 29, 139, 234, 233, 215, 93, 82 ));
    
    ------------------------------------------------------------------------
    -- Classes

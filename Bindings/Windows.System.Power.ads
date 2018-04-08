@@ -104,6 +104,9 @@ package Windows.System.Power is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPowerManagerStatics : aliased constant Windows.IID := (328499805, 25294, 17252, (152, 213, 170, 40, 199, 251, 209, 91 ));
+   
    type IPowerManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_EnergySaverStatus
@@ -215,10 +218,10 @@ package Windows.System.Power is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPowerManagerStatics : aliased constant Windows.IID := (328499805, 25294, 17252, (152, 213, 170, 40, 199, 251, 209, 91 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundEnergyManagerStatics : aliased constant Windows.IID := (3004571029, 4480, 17270, (150, 225, 64, 149, 86, 129, 71, 206 ));
+   
    type IBackgroundEnergyManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LowUsageLevel
@@ -306,10 +309,10 @@ package Windows.System.Power is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundEnergyManagerStatics : aliased constant Windows.IID := (3004571029, 4480, 17270, (150, 225, 64, 149, 86, 129, 71, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IForegroundEnergyManagerStatics : aliased constant Windows.IID := (2683857010, 58999, 18452, (154, 32, 83, 55, 202, 115, 43, 152 ));
+   
    type IForegroundEnergyManagerStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LowUsageLevel
@@ -383,9 +386,6 @@ package Windows.System.Power is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IForegroundEnergyManagerStatics : aliased constant Windows.IID := (2683857010, 58999, 18452, (154, 32, 83, 55, 202, 115, 43, 152 ));
-   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

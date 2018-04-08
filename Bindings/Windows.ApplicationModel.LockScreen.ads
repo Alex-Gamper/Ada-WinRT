@@ -100,6 +100,9 @@ package Windows.ApplicationModel.LockScreen is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_ILockScreenBadge : aliased constant Windows.IID := (3914401241, 11263, 19888, (155, 79, 56, 36, 119, 139, 156, 154 ));
+   
    type ILockScreenBadge_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Logo
@@ -135,10 +138,10 @@ package Windows.ApplicationModel.LockScreen is
       This       : access ILockScreenBadge_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockScreenBadge : aliased constant Windows.IID := (3914401241, 11263, 19888, (155, 79, 56, 36, 119, 139, 156, 154 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockScreenInfo : aliased constant Windows.IID := (4120553052, 38673, 19913, (166, 48, 149, 182, 203, 140, 218, 208 ));
+   
    type ILockScreenInfo_Interface is interface and Windows.IInspectable_Interface;
    
    function add_LockScreenImageChanged
@@ -228,10 +231,10 @@ package Windows.ApplicationModel.LockScreen is
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockScreenInfo : aliased constant Windows.IID := (4120553052, 38673, 19913, (166, 48, 149, 182, 203, 140, 218, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockScreenUnlockingDeferral : aliased constant Windows.IID := (2122128086, 20995, 17383, (155, 214, 124, 57, 71, 209, 227, 254 ));
+   
    type ILockScreenUnlockingDeferral_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -239,10 +242,10 @@ package Windows.ApplicationModel.LockScreen is
       This       : access ILockScreenUnlockingDeferral_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockScreenUnlockingDeferral : aliased constant Windows.IID := (2122128086, 20995, 17383, (155, 214, 124, 57, 71, 209, 227, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockScreenUnlockingEventArgs : aliased constant Windows.IID := (1155973127, 30203, 19131, (159, 139, 130, 71, 72, 144, 12, 113 ));
+   
    type ILockScreenUnlockingEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDeferral
@@ -258,10 +261,10 @@ package Windows.ApplicationModel.LockScreen is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockScreenUnlockingEventArgs : aliased constant Windows.IID := (1155973127, 30203, 19131, (159, 139, 130, 71, 72, 144, 12, 113 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockApplicationHost : aliased constant Windows.IID := (955134381, 55631, 20092, (129, 250, 79, 68, 54, 80, 98, 129 ));
+   
    type ILockApplicationHost_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestUnlock
@@ -284,10 +287,10 @@ package Windows.ApplicationModel.LockScreen is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockApplicationHost : aliased constant Windows.IID := (955134381, 55631, 20092, (129, 250, 79, 68, 54, 80, 98, 129 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ILockApplicationHostStatics : aliased constant Windows.IID := (4103056270, 9175, 20067, (150, 161, 102, 111, 245, 45, 59, 44 ));
+   
    type ILockApplicationHostStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -296,10 +299,10 @@ package Windows.ApplicationModel.LockScreen is
       ; RetVal : access Windows.ApplicationModel.LockScreen.ILockApplicationHost
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ILockApplicationHostStatics : aliased constant Windows.IID := (4103056270, 9175, 20067, (150, 161, 102, 111, 245, 45, 59, 44 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_ILockScreenBadge : aliased constant Windows.IID := (2369321252, 5453, 22277, (143, 11, 237, 97, 53, 63, 108, 226 ));
+   
    type IIterator_ILockScreenBadge_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -330,10 +333,10 @@ package Windows.ApplicationModel.LockScreen is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_ILockScreenBadge : aliased constant Windows.IID := (2369321252, 5453, 22277, (143, 11, 237, 97, 53, 63, 108, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_ILockScreenBadge : aliased constant Windows.IID := (1854070492, 46926, 20538, (176, 11, 156, 111, 71, 241, 42, 15 ));
+   
    type IIterable_ILockScreenBadge_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -342,10 +345,10 @@ package Windows.ApplicationModel.LockScreen is
       ; RetVal : access Windows.ApplicationModel.LockScreen.IIterator_ILockScreenBadge
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_ILockScreenBadge : aliased constant Windows.IID := (1854070492, 46926, 20538, (176, 11, 156, 111, 71, 241, 42, 15 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_ILockScreenBadge : aliased constant Windows.IID := (2691910037, 38082, 20674, (136, 162, 208, 112, 252, 209, 211, 56 ));
+   
    type IVectorView_ILockScreenBadge_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -380,17 +383,15 @@ package Windows.ApplicationModel.LockScreen is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_ILockScreenBadge : aliased constant Windows.IID := (2691910037, 38082, 20674, (136, 162, 208, 112, 252, 209, 211, 56 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged : aliased constant Windows.IID := (2347361955, 63626, 21545, (141, 163, 103, 107, 125, 79, 26, 91 ));
+   
+   type TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged'access) with null record;
    
    function Invoke
    (
@@ -400,12 +401,11 @@ package Windows.ApplicationModel.LockScreen is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged : aliased constant Windows.IID := (2347361955, 63626, 21545, (141, 163, 103, 107, 125, 79, 26, 91 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILockScreenInfo_add_BadgesChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_BadgesChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILockScreenInfo_add_BadgesChanged : aliased constant Windows.IID := (2347361955, 63626, 21545, (141, 163, 103, 107, 125, 79, 26, 91 ));
+   
+   type TypedEventHandler_ILockScreenInfo_add_BadgesChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILockScreenInfo_add_BadgesChanged'access) with null record;
    
    function Invoke
    (
@@ -415,12 +415,11 @@ package Windows.ApplicationModel.LockScreen is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ILockScreenInfo_add_BadgesChanged : aliased constant Windows.IID := (2347361955, 63626, 21545, (141, 163, 103, 107, 125, 79, 26, 91 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILockScreenInfo_add_DetailTextChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_DetailTextChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILockScreenInfo_add_DetailTextChanged : aliased constant Windows.IID := (2347361955, 63626, 21545, (141, 163, 103, 107, 125, 79, 26, 91 ));
+   
+   type TypedEventHandler_ILockScreenInfo_add_DetailTextChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILockScreenInfo_add_DetailTextChanged'access) with null record;
    
    function Invoke
    (
@@ -430,12 +429,11 @@ package Windows.ApplicationModel.LockScreen is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ILockScreenInfo_add_DetailTextChanged : aliased constant Windows.IID := (2347361955, 63626, 21545, (141, 163, 103, 107, 125, 79, 26, 91 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged : aliased constant Windows.IID := (2347361955, 63626, 21545, (141, 163, 103, 107, 125, 79, 26, 91 ));
+   
+   type TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockScreenInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged'access) with null record;
    
    function Invoke
    (
@@ -445,12 +443,11 @@ package Windows.ApplicationModel.LockScreen is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ILockScreenInfo_add_AlarmIconChanged : aliased constant Windows.IID := (2347361955, 63626, 21545, (141, 163, 103, 107, 125, 79, 26, 91 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ILockApplicationHost_add_Unlocking_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockApplicationHost ; args : Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ILockApplicationHost_add_Unlocking_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ILockApplicationHost_add_Unlocking : aliased constant Windows.IID := (3037046, 35419, 23443, (140, 108, 156, 76, 135, 136, 245, 180 ));
+   
+   type TypedEventHandler_ILockApplicationHost_add_Unlocking_Interface(Callback : access procedure (sender : Windows.ApplicationModel.LockScreen.ILockApplicationHost ; args : Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILockApplicationHost_add_Unlocking'access) with null record;
    
    function Invoke
    (
@@ -459,8 +456,6 @@ package Windows.ApplicationModel.LockScreen is
       ; args : Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_ILockApplicationHost_add_Unlocking : aliased constant Windows.IID := (3037046, 35419, 23443, (140, 108, 156, 76, 135, 136, 245, 180 ));
    
    ------------------------------------------------------------------------
    -- Classes

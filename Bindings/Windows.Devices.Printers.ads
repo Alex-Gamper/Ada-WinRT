@@ -77,6 +77,9 @@ package Windows.Devices.Printers is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IPrint3DDeviceStatics : aliased constant Windows.IID := (4259537418, 26573, 16823, (163, 68, 81, 80, 161, 253, 117, 181 ));
+   
    type IPrint3DDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function FromIdAsync
@@ -93,10 +96,10 @@ package Windows.Devices.Printers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrint3DDeviceStatics : aliased constant Windows.IID := (4259537418, 26573, 16823, (163, 68, 81, 80, 161, 253, 117, 181 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrint3DDevice : aliased constant Windows.IID := (68959513, 38675, 17058, (152, 19, 125, 195, 51, 116, 40, 211 ));
+   
    type IPrint3DDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrintSchema
@@ -105,10 +108,10 @@ package Windows.Devices.Printers is
       ; RetVal : access Windows.Devices.Printers.IPrintSchema
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrint3DDevice : aliased constant Windows.IID := (68959513, 38675, 17058, (152, 19, 125, 195, 51, 116, 40, 211 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPrintSchema : aliased constant Windows.IID := (3266937622, 9912, 19451, (129, 56, 159, 150, 44, 34, 163, 91 ));
+   
    type IPrintSchema_Interface is interface and Windows.IInspectable_Interface;
    
    function GetDefaultPrintTicketAsync
@@ -133,10 +136,10 @@ package Windows.Devices.Printers is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPrintSchema : aliased constant Windows.IID := (3266937622, 9912, 19451, (129, 56, 159, 150, 44, 34, 163, 91 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPrint3DDevice : aliased constant Windows.IID := (2096908943, 24247, 23287, (188, 159, 120, 167, 228, 7, 205, 46 ));
+   
    type IAsyncOperation_IPrint3DDevice_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -159,17 +162,15 @@ package Windows.Devices.Printers is
       ; RetVal : access Windows.Devices.Printers.IPrint3DDevice
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IPrint3DDevice : aliased constant Windows.IID := (2096908943, 24247, 23287, (188, 159, 120, 167, 228, 7, 205, 46 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IPrint3DDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Printers.IAsyncOperation_IPrint3DDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IPrint3DDevice_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IPrint3DDevice : aliased constant Windows.IID := (2370507327, 17219, 20885, (187, 201, 185, 158, 149, 110, 5, 127 ));
+   
+   type AsyncOperationCompletedHandler_IPrint3DDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Printers.IAsyncOperation_IPrint3DDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPrint3DDevice'access) with null record;
    
    function Invoke
    (
@@ -178,8 +179,6 @@ package Windows.Devices.Printers is
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
-   
-   IID_AsyncOperationCompletedHandler_IPrint3DDevice : aliased constant Windows.IID := (2370507327, 17219, 20885, (187, 201, 185, 158, 149, 110, 5, 127 ));
    
    ------------------------------------------------------------------------
    -- Classes

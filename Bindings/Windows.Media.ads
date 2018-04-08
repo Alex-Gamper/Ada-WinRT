@@ -383,6 +383,9 @@ package Windows.Media is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IMediaProcessingTriggerDetails : aliased constant Windows.IID := (3951387820, 41809, 20302, (180, 240, 155, 242, 64, 137, 147, 219 ));
+   
    type IMediaProcessingTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Arguments
@@ -391,10 +394,10 @@ package Windows.Media is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaProcessingTriggerDetails : aliased constant Windows.IID := (3951387820, 41809, 20302, (180, 240, 155, 242, 64, 137, 147, 219 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaFrame : aliased constant Windows.IID := (3216322444, 22851, 18392, (142, 16, 5, 48, 138, 165, 251, 208 ));
+   
    type IMediaFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Type
@@ -473,10 +476,10 @@ package Windows.Media is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaFrame : aliased constant Windows.IID := (3216322444, 22851, 18392, (142, 16, 5, 48, 138, 165, 251, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoFrame : aliased constant Windows.IID := (213935653, 37116, 19602, (189, 149, 125, 237, 33, 129, 157, 28 ));
+   
    type IVideoFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SoftwareBitmap
@@ -500,10 +503,10 @@ package Windows.Media is
       ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoFrame : aliased constant Windows.IID := (213935653, 37116, 19602, (189, 149, 125, 237, 33, 129, 157, 28 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoFrameFactory : aliased constant Windows.IID := (21720425, 8744, 19602, (146, 255, 80, 195, 128, 211, 231, 118 ));
+   
    type IVideoFrameFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -526,10 +529,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.IVideoFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoFrameFactory : aliased constant Windows.IID := (21720425, 8744, 19602, (146, 255, 80, 195, 128, 211, 231, 118 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioFrame : aliased constant Windows.IID := (3815424772, 43698, 17015, (158, 208, 67, 206, 223, 142, 41, 198 ));
+   
    type IAudioFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function LockBuffer
@@ -539,10 +542,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.IAudioBuffer
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioFrame : aliased constant Windows.IID := (3815424772, 43698, 17015, (158, 208, 67, 206, 223, 142, 41, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioFrameFactory : aliased constant Windows.IID := (2443774686, 9250, 16550, (185, 173, 48, 208, 36, 4, 49, 125 ));
+   
    type IAudioFrameFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function Create
@@ -552,10 +555,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.IAudioFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioFrameFactory : aliased constant Windows.IID := (2443774686, 9250, 16550, (185, 173, 48, 208, 36, 4, 49, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAudioBuffer : aliased constant Windows.IID := (890722343, 29259, 19562, (177, 48, 246, 83, 127, 154, 224, 208 ));
+   
    type IAudioBuffer_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Capacity
@@ -578,10 +581,10 @@ package Windows.Media is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAudioBuffer : aliased constant Windows.IID := (890722343, 29259, 19562, (177, 48, 246, 83, 127, 154, 224, 208 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaMarker : aliased constant Windows.IID := (402906872, 56485, 19311, (156, 32, 227, 211, 192, 100, 54, 37 ));
+   
    type IMediaMarker_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Time
@@ -604,10 +607,10 @@ package Windows.Media is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaMarker : aliased constant Windows.IID := (402906872, 56485, 19311, (156, 32, 227, 211, 192, 100, 54, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaMarkers : aliased constant Windows.IID := (2951393673, 63709, 18030, (170, 16, 146, 11, 82, 53, 63, 223 ));
+   
    type IMediaMarkers_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Markers
@@ -616,10 +619,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.IVectorView_IMediaMarker -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaMarkers : aliased constant Windows.IID := (2951393673, 63709, 18030, (170, 16, 146, 11, 82, 53, 63, 223 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaMarkerTypesStatics : aliased constant Windows.IID := (3139010624, 18479, 18243, (136, 50, 69, 133, 56, 33, 236, 224 ));
+   
    type IMediaMarkerTypesStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Bookmark
@@ -628,10 +631,10 @@ package Windows.Media is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaMarkerTypesStatics : aliased constant Windows.IID := (3139010624, 18479, 18243, (136, 50, 69, 133, 56, 33, 236, 224 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemMediaTransportControlsTimelineProperties : aliased constant Windows.IID := (1361391978, 50082, 18267, (133, 7, 147, 83, 77, 200, 143, 21 ));
+   
    type ISystemMediaTransportControlsTimelineProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_StartTime
@@ -703,10 +706,10 @@ package Windows.Media is
       ; value : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemMediaTransportControlsTimelineProperties : aliased constant Windows.IID := (1361391978, 50082, 18267, (133, 7, 147, 83, 77, 200, 143, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMusicDisplayProperties : aliased constant Windows.IID := (1807682649, 53408, 19750, (146, 160, 249, 120, 225, 209, 142, 123 ));
+   
    type IMusicDisplayProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Title
@@ -750,10 +753,10 @@ package Windows.Media is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMusicDisplayProperties : aliased constant Windows.IID := (1807682649, 53408, 19750, (146, 160, 249, 120, 225, 209, 142, 123 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMusicDisplayProperties2 : aliased constant Windows.IID := (3572834, 38867, 17593, (176, 15, 0, 138, 252, 239, 175, 24 ));
+   
    type IMusicDisplayProperties2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlbumTitle
@@ -790,10 +793,10 @@ package Windows.Media is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMusicDisplayProperties2 : aliased constant Windows.IID := (3572834, 38867, 17593, (176, 15, 0, 138, 252, 239, 175, 24 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMusicDisplayProperties3 : aliased constant Windows.IID := (1303714497, 1665, 20108, (148, 1, 184, 21, 157, 158, 239, 199 ));
+   
    type IMusicDisplayProperties3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AlbumTrackCount
@@ -809,10 +812,10 @@ package Windows.Media is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMusicDisplayProperties3 : aliased constant Windows.IID := (1303714497, 1665, 20108, (148, 1, 184, 21, 157, 158, 239, 199 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoDisplayProperties : aliased constant Windows.IID := (1443495345, 23853, 18546, (129, 112, 69, 222, 229, 188, 47, 92 ));
+   
    type IVideoDisplayProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Title
@@ -842,10 +845,10 @@ package Windows.Media is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoDisplayProperties : aliased constant Windows.IID := (1443495345, 23853, 18546, (129, 112, 69, 222, 229, 188, 47, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoDisplayProperties2 : aliased constant Windows.IID := (3021005262, 43858, 16811, (164, 134, 204, 16, 250, 177, 82, 249 ));
+   
    type IVideoDisplayProperties2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Genres
@@ -854,10 +857,10 @@ package Windows.Media is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoDisplayProperties2 : aliased constant Windows.IID := (3021005262, 43858, 16811, (164, 134, 204, 16, 250, 177, 82, 249 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IImageDisplayProperties : aliased constant Windows.IID := (3440101359, 21735, 16671, (153, 51, 240, 233, 139, 10, 150, 210 ));
+   
    type IImageDisplayProperties_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Title
@@ -887,10 +890,10 @@ package Windows.Media is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IImageDisplayProperties : aliased constant Windows.IID := (3440101359, 21735, 16671, (153, 51, 240, 233, 139, 10, 150, 210 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemMediaTransportControlsDisplayUpdater : aliased constant Windows.IID := (2327561534, 64085, 20175, (173, 142, 201, 132, 229, 221, 21, 80 ));
+   
    type ISystemMediaTransportControlsDisplayUpdater_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Type
@@ -976,10 +979,10 @@ package Windows.Media is
       This       : access ISystemMediaTransportControlsDisplayUpdater_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemMediaTransportControlsDisplayUpdater : aliased constant Windows.IID := (2327561534, 64085, 20175, (173, 142, 201, 132, 229, 221, 21, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemMediaTransportControlsButtonPressedEventArgs : aliased constant Windows.IID := (3086250262, 42351, 19912, (158, 17, 146, 3, 31, 74, 135, 194 ));
+   
    type ISystemMediaTransportControlsButtonPressedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Button
@@ -988,10 +991,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.SystemMediaTransportControlsButton
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemMediaTransportControlsButtonPressedEventArgs : aliased constant Windows.IID := (3086250262, 42351, 19912, (158, 17, 146, 3, 31, 74, 135, 194 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemMediaTransportControlsPropertyChangedEventArgs : aliased constant Windows.IID := (3502901558, 13211, 19635, (142, 235, 115, 118, 7, 245, 110, 8 ));
+   
    type ISystemMediaTransportControlsPropertyChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Property
@@ -1000,10 +1003,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.SystemMediaTransportControlsProperty
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemMediaTransportControlsPropertyChangedEventArgs : aliased constant Windows.IID := (3502901558, 13211, 19635, (142, 235, 115, 118, 7, 245, 110, 8 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlaybackPositionChangeRequestedEventArgs : aliased constant Windows.IID := (3024699272, 60200, 18785, (156, 20, 51, 94, 68, 243, 225, 37 ));
+   
    type IPlaybackPositionChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestedPlaybackPosition
@@ -1012,10 +1015,10 @@ package Windows.Media is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlaybackPositionChangeRequestedEventArgs : aliased constant Windows.IID := (3024699272, 60200, 18785, (156, 20, 51, 94, 68, 243, 225, 37 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IPlaybackRateChangeRequestedEventArgs : aliased constant Windows.IID := (753058847, 15574, 20343, (155, 167, 235, 39, 194, 106, 33, 64 ));
+   
    type IPlaybackRateChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestedPlaybackRate
@@ -1024,10 +1027,10 @@ package Windows.Media is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IPlaybackRateChangeRequestedEventArgs : aliased constant Windows.IID := (753058847, 15574, 20343, (155, 167, 235, 39, 194, 106, 33, 64 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IShuffleEnabledChangeRequestedEventArgs : aliased constant Windows.IID := (1236636670, 20432, 18022, (163, 20, 192, 224, 25, 64, 211, 2 ));
+   
    type IShuffleEnabledChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestedShuffleEnabled
@@ -1036,10 +1039,10 @@ package Windows.Media is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IShuffleEnabledChangeRequestedEventArgs : aliased constant Windows.IID := (1236636670, 20432, 18022, (163, 20, 192, 224, 25, 64, 211, 2 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAutoRepeatModeChangeRequestedEventArgs : aliased constant Windows.IID := (3927146234, 55378, 17294, (136, 43, 201, 144, 16, 154, 120, 244 ));
+   
    type IAutoRepeatModeChangeRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_RequestedAutoRepeatMode
@@ -1048,10 +1051,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.MediaPlaybackAutoRepeatMode
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAutoRepeatModeChangeRequestedEventArgs : aliased constant Windows.IID := (3927146234, 55378, 17294, (136, 43, 201, 144, 16, 154, 120, 244 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemMediaTransportControls : aliased constant Windows.IID := (2583314420, 5954, 17062, (144, 46, 8, 125, 65, 249, 101, 236 ));
+   
    type ISystemMediaTransportControls_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PlaybackStatus
@@ -1265,10 +1268,10 @@ package Windows.Media is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemMediaTransportControls : aliased constant Windows.IID := (2583314420, 5954, 17062, (144, 46, 8, 125, 65, 249, 101, 236 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemMediaTransportControls2 : aliased constant Windows.IID := (3935884022, 32572, 19186, (165, 134, 114, 136, 152, 8, 239, 177 ));
+   
    type ISystemMediaTransportControls2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AutoRepeatMode
@@ -1379,10 +1382,10 @@ package Windows.Media is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemMediaTransportControls2 : aliased constant Windows.IID := (3935884022, 32572, 19186, (165, 134, 114, 136, 152, 8, 239, 177 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_ISystemMediaTransportControlsStatics : aliased constant Windows.IID := (1136277514, 60580, 18482, (145, 171, 212, 21, 250, 228, 132, 198 ));
+   
    type ISystemMediaTransportControlsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function GetForCurrentView
@@ -1391,10 +1394,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.ISystemMediaTransportControls
    )
    return Windows.HRESULT is abstract;
-   
-   IID_ISystemMediaTransportControlsStatics : aliased constant Windows.IID := (1136277514, 60580, 18482, (145, 171, 212, 21, 250, 228, 132, 198 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaTimelineController : aliased constant Windows.IID := (2396217843, 2936, 17248, (191, 113, 12, 132, 25, 153, 234, 27 ));
+   
    type IMediaTimelineController_Interface is interface and Windows.IInspectable_Interface;
    
    function Start
@@ -1479,10 +1482,10 @@ package Windows.Media is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaTimelineController : aliased constant Windows.IID := (2396217843, 2936, 17248, (191, 113, 12, 132, 25, 153, 234, 27 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaTimelineController2 : aliased constant Windows.IID := (4017416760, 40562, 19961, (131, 85, 110, 144, 200, 27, 186, 221 ));
+   
    type IMediaTimelineController2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Duration
@@ -1542,10 +1545,10 @@ package Windows.Media is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaTimelineController2 : aliased constant Windows.IID := (4017416760, 40562, 19961, (131, 85, 110, 144, 200, 27, 186, 221 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaTimelineControllerFailedEventArgs : aliased constant Windows.IID := (2283927581, 15991, 17403, (190, 38, 79, 200, 122, 4, 72, 52 ));
+   
    type IMediaTimelineControllerFailedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ExtendedError
@@ -1554,10 +1557,10 @@ package Windows.Media is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaTimelineControllerFailedEventArgs : aliased constant Windows.IID := (2283927581, 15991, 17403, (190, 38, 79, 200, 122, 4, 72, 52 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaExtension : aliased constant Windows.IID := (126963992, 17887, 17451, (138, 63, 247, 130, 106, 99, 112, 171 ));
+   
    type IMediaExtension_Interface is interface and Windows.IInspectable_Interface;
    
    function SetProperties
@@ -1566,10 +1569,10 @@ package Windows.Media is
       ; configuration : Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaExtension : aliased constant Windows.IID := (126963992, 17887, 17451, (138, 63, 247, 130, 106, 99, 112, 171 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaExtensionManager : aliased constant Windows.IID := (1243998965, 9261, 19963, (151, 244, 105, 183, 196, 37, 118, 255 ));
+   
    type IMediaExtensionManager_Interface is interface and Windows.IInspectable_Interface;
    
    function RegisterSchemeHandler
@@ -1683,10 +1686,10 @@ package Windows.Media is
       ; configuration : Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaExtensionManager : aliased constant Windows.IID := (1243998965, 9261, 19963, (151, 244, 105, 183, 196, 37, 118, 255 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaExtensionManager2 : aliased constant Windows.IID := (1540276039, 16451, 20461, (172, 175, 84, 236, 41, 223, 177, 247 ));
+   
    type IMediaExtensionManager2_Interface is interface and Windows.IInspectable_Interface;
    
    function RegisterMediaExtensionForAppService
@@ -1696,10 +1699,10 @@ package Windows.Media is
       ; connection : Windows.ApplicationModel.AppService.IAppServiceConnection
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaExtensionManager2 : aliased constant Windows.IID := (1540276039, 16451, 20461, (172, 175, 84, 236, 41, 223, 177, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVideoEffectsStatics : aliased constant Windows.IID := (533571048, 47857, 17697, (152, 12, 59, 206, 187, 68, 207, 56 ));
+   
    type IVideoEffectsStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function get_VideoStabilization
@@ -1708,10 +1711,10 @@ package Windows.Media is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVideoEffectsStatics : aliased constant Windows.IID := (533571048, 47857, 17697, (152, 12, 59, 206, 187, 68, 207, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IMediaControl : aliased constant Windows.IID := (2565995489, 31373, 17099, (182, 254, 143, 230, 152, 38, 79, 19 ));
+   
    type IMediaControl_Interface is interface and Windows.IInspectable_Interface;
    
    function add_SoundLevelChanged
@@ -1956,10 +1959,10 @@ package Windows.Media is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IMediaControl : aliased constant Windows.IID := (2565995489, 31373, 17099, (182, 254, 143, 230, 152, 38, 79, 19 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMediaExtension : aliased constant Windows.IID := (4123734787, 7199, 23856, (180, 2, 239, 161, 146, 232, 12, 73 ));
+   
    type IAsyncOperation_IMediaExtension_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1982,10 +1985,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.IMediaExtension
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IMediaExtension : aliased constant Windows.IID := (4123734787, 7199, 23856, (180, 2, 239, 161, 146, 232, 12, 73 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IVideoFrame : aliased constant Windows.IID := (4046344541, 44101, 20819, (150, 178, 206, 83, 171, 89, 74, 87 ));
+   
    type IAsyncOperation_IVideoFrame_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -2008,10 +2011,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.IVideoFrame
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IVideoFrame : aliased constant Windows.IID := (4046344541, 44101, 20819, (150, 178, 206, 83, 171, 89, 74, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_MediaTimeRange : aliased constant Windows.IID := (699978128, 24134, 22643, (175, 192, 143, 47, 64, 251, 232, 253 ));
+   
    type IIterator_MediaTimeRange_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2042,10 +2045,10 @@ package Windows.Media is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_MediaTimeRange : aliased constant Windows.IID := (699978128, 24134, 22643, (175, 192, 143, 47, 64, 251, 232, 253 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_MediaTimeRange : aliased constant Windows.IID := (646055138, 40274, 24187, (165, 75, 134, 156, 99, 222, 252, 142 ));
+   
    type IIterable_MediaTimeRange_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2054,10 +2057,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.IIterator_MediaTimeRange
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_MediaTimeRange : aliased constant Windows.IID := (646055138, 40274, 24187, (165, 75, 134, 156, 99, 222, 252, 142 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_MediaTimeRange : aliased constant Windows.IID := (640163931, 42362, 20857, (146, 230, 155, 110, 19, 203, 141, 13 ));
+   
    type IVectorView_MediaTimeRange_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2092,10 +2095,10 @@ package Windows.Media is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_MediaTimeRange : aliased constant Windows.IID := (640163931, 42362, 20857, (146, 230, 155, 110, 19, 203, 141, 13 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IMediaMarker : aliased constant Windows.IID := (4100220446, 35004, 23786, (147, 205, 12, 18, 63, 23, 210, 88 ));
+   
    type IIterator_IMediaMarker_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -2126,10 +2129,10 @@ package Windows.Media is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IMediaMarker : aliased constant Windows.IID := (4100220446, 35004, 23786, (147, 205, 12, 18, 63, 23, 210, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaMarker : aliased constant Windows.IID := (2713756567, 868, 24140, (157, 202, 124, 215, 1, 27, 209, 20 ));
+   
    type IIterable_IMediaMarker_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -2138,10 +2141,10 @@ package Windows.Media is
       ; RetVal : access Windows.Media.IIterator_IMediaMarker
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IMediaMarker : aliased constant Windows.IID := (2713756567, 868, 24140, (157, 202, 124, 215, 1, 27, 209, 20 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMediaMarker : aliased constant Windows.IID := (3041089068, 689, 22564, (128, 168, 152, 84, 19, 12, 218, 221 ));
+   
    type IVectorView_IMediaMarker_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -2176,17 +2179,15 @@ package Windows.Media is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IMediaMarker : aliased constant Windows.IID := (3041089068, 689, 22564, (128, 168, 152, 84, 19, 12, 218, 221 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IMediaExtension_Interface(Callback : access procedure (asyncInfo : Windows.Media.IAsyncOperation_IMediaExtension ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IMediaExtension_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IMediaExtension : aliased constant Windows.IID := (2619037582, 64381, 23467, (186, 57, 134, 56, 127, 229, 51, 182 ));
+   
+   type AsyncOperationCompletedHandler_IMediaExtension_Interface(Callback : access procedure (asyncInfo : Windows.Media.IAsyncOperation_IMediaExtension ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMediaExtension'access) with null record;
    
    function Invoke
    (
@@ -2196,12 +2197,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IMediaExtension : aliased constant Windows.IID := (2619037582, 64381, 23467, (186, 57, 134, 56, 127, 229, 51, 182 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IVideoFrame_Interface(Callback : access procedure (asyncInfo : Windows.Media.IAsyncOperation_IVideoFrame ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IVideoFrame_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IVideoFrame : aliased constant Windows.IID := (1619456763, 18985, 21706, (182, 163, 242, 57, 26, 3, 188, 59 ));
+   
+   type AsyncOperationCompletedHandler_IVideoFrame_Interface(Callback : access procedure (asyncInfo : Windows.Media.IAsyncOperation_IVideoFrame ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVideoFrame'access) with null record;
    
    function Invoke
    (
@@ -2211,12 +2211,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IVideoFrame : aliased constant Windows.IID := (1619456763, 18985, 21706, (182, 163, 242, 57, 26, 3, 188, 59 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISystemMediaTransportControls_add_ButtonPressed_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.ISystemMediaTransportControlsButtonPressedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISystemMediaTransportControls_add_ButtonPressed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISystemMediaTransportControls_add_ButtonPressed : aliased constant Windows.IID := (89647510, 31523, 23470, (170, 129, 234, 13, 103, 17, 67, 164 ));
+   
+   type TypedEventHandler_ISystemMediaTransportControls_add_ButtonPressed_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.ISystemMediaTransportControlsButtonPressedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemMediaTransportControls_add_ButtonPressed'access) with null record;
    
    function Invoke
    (
@@ -2226,12 +2225,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISystemMediaTransportControls_add_ButtonPressed : aliased constant Windows.IID := (89647510, 31523, 23470, (170, 129, 234, 13, 103, 17, 67, 164 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISystemMediaTransportControls_add_PropertyChanged_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.ISystemMediaTransportControlsPropertyChangedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISystemMediaTransportControls_add_PropertyChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISystemMediaTransportControls_add_PropertyChanged : aliased constant Windows.IID := (2681609645, 5958, 24481, (169, 8, 239, 124, 180, 96, 60, 133 ));
+   
+   type TypedEventHandler_ISystemMediaTransportControls_add_PropertyChanged_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.ISystemMediaTransportControlsPropertyChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemMediaTransportControls_add_PropertyChanged'access) with null record;
    
    function Invoke
    (
@@ -2241,12 +2239,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISystemMediaTransportControls_add_PropertyChanged : aliased constant Windows.IID := (2681609645, 5958, 24481, (169, 8, 239, 124, 180, 96, 60, 133 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackPositionChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.IPlaybackPositionChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackPositionChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackPositionChangeRequested : aliased constant Windows.IID := (1155747605, 48576, 20647, (172, 228, 57, 233, 31, 183, 83, 241 ));
+   
+   type TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackPositionChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.IPlaybackPositionChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackPositionChangeRequested'access) with null record;
    
    function Invoke
    (
@@ -2256,12 +2253,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackPositionChangeRequested : aliased constant Windows.IID := (1155747605, 48576, 20647, (172, 228, 57, 233, 31, 183, 83, 241 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackRateChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.IPlaybackRateChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackRateChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackRateChangeRequested : aliased constant Windows.IID := (367722882, 25446, 23455, (189, 140, 138, 180, 250, 157, 124, 217 ));
+   
+   type TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackRateChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.IPlaybackRateChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackRateChangeRequested'access) with null record;
    
    function Invoke
    (
@@ -2271,12 +2267,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISystemMediaTransportControls2_add_PlaybackRateChangeRequested : aliased constant Windows.IID := (367722882, 25446, 23455, (189, 140, 138, 180, 250, 157, 124, 217 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.IShuffleEnabledChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested : aliased constant Windows.IID := (401402496, 10212, 23982, (171, 180, 200, 88, 173, 28, 83, 7 ));
+   
+   type TypedEventHandler_ISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.IShuffleEnabledChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested'access) with null record;
    
    function Invoke
    (
@@ -2286,12 +2281,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISystemMediaTransportControls2_add_ShuffleEnabledChangeRequested : aliased constant Windows.IID := (401402496, 10212, 23982, (171, 180, 200, 88, 173, 28, 83, 7 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_ISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.IAutoRepeatModeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_ISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_ISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested : aliased constant Windows.IID := (2787199966, 725, 21939, (171, 13, 198, 3, 27, 231, 13, 161 ));
+   
+   type TypedEventHandler_ISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested_Interface(Callback : access procedure (sender : Windows.Media.ISystemMediaTransportControls ; args : Windows.Media.IAutoRepeatModeChangeRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested'access) with null record;
    
    function Invoke
    (
@@ -2301,12 +2295,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_ISystemMediaTransportControls2_add_AutoRepeatModeChangeRequested : aliased constant Windows.IID := (2787199966, 725, 21939, (171, 13, 198, 3, 27, 231, 13, 161 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMediaTimelineController_add_PositionChanged_Interface(Callback : access procedure (sender : Windows.Media.IMediaTimelineController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaTimelineController_add_PositionChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMediaTimelineController_add_PositionChanged : aliased constant Windows.IID := (1547952533, 32057, 23821, (163, 9, 25, 145, 230, 138, 205, 183 ));
+   
+   type TypedEventHandler_IMediaTimelineController_add_PositionChanged_Interface(Callback : access procedure (sender : Windows.Media.IMediaTimelineController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaTimelineController_add_PositionChanged'access) with null record;
    
    function Invoke
    (
@@ -2316,12 +2309,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMediaTimelineController_add_PositionChanged : aliased constant Windows.IID := (1547952533, 32057, 23821, (163, 9, 25, 145, 230, 138, 205, 183 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMediaTimelineController_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.IMediaTimelineController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaTimelineController_add_StateChanged_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMediaTimelineController_add_StateChanged : aliased constant Windows.IID := (1547952533, 32057, 23821, (163, 9, 25, 145, 230, 138, 205, 183 ));
+   
+   type TypedEventHandler_IMediaTimelineController_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.IMediaTimelineController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaTimelineController_add_StateChanged'access) with null record;
    
    function Invoke
    (
@@ -2331,12 +2323,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMediaTimelineController_add_StateChanged : aliased constant Windows.IID := (1547952533, 32057, 23821, (163, 9, 25, 145, 230, 138, 205, 183 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMediaTimelineController2_add_Failed_Interface(Callback : access procedure (sender : Windows.Media.IMediaTimelineController ; args : Windows.Media.IMediaTimelineControllerFailedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaTimelineController2_add_Failed_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMediaTimelineController2_add_Failed : aliased constant Windows.IID := (130900731, 22413, 22182, (168, 239, 230, 83, 235, 0, 93, 27 ));
+   
+   type TypedEventHandler_IMediaTimelineController2_add_Failed_Interface(Callback : access procedure (sender : Windows.Media.IMediaTimelineController ; args : Windows.Media.IMediaTimelineControllerFailedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaTimelineController2_add_Failed'access) with null record;
    
    function Invoke
    (
@@ -2346,12 +2337,11 @@ package Windows.Media is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IMediaTimelineController2_add_Failed : aliased constant Windows.IID := (130900731, 22413, 22182, (168, 239, 230, 83, 235, 0, 93, 27 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IMediaTimelineController2_add_Ended_Interface(Callback : access procedure (sender : Windows.Media.IMediaTimelineController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IMediaTimelineController2_add_Ended_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IMediaTimelineController2_add_Ended : aliased constant Windows.IID := (1547952533, 32057, 23821, (163, 9, 25, 145, 230, 138, 205, 183 ));
+   
+   type TypedEventHandler_IMediaTimelineController2_add_Ended_Interface(Callback : access procedure (sender : Windows.Media.IMediaTimelineController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaTimelineController2_add_Ended'access) with null record;
    
    function Invoke
    (
@@ -2360,8 +2350,6 @@ package Windows.Media is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IMediaTimelineController2_add_Ended : aliased constant Windows.IID := (1547952533, 32057, 23821, (163, 9, 25, 145, 230, 138, 205, 183 ));
    
    ------------------------------------------------------------------------
    -- Classes

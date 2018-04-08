@@ -321,6 +321,9 @@ package Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferBase : aliased constant Windows.IID := (714973776, 51049, 17804, (175, 232, 254, 184, 212, 211, 178, 239 ));
+   
    type IBackgroundTransferBase_Interface is interface and Windows.IInspectable_Interface;
    
    function SetRequestHeader
@@ -400,10 +403,10 @@ package Windows.Networking.BackgroundTransfer is
       ; value : Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferBase : aliased constant Windows.IID := (714973776, 51049, 17804, (175, 232, 254, 184, 212, 211, 178, 239 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUnconstrainedTransferRequestResult : aliased constant Windows.IID := (1277474847, 55620, 16658, (169, 142, 106, 105, 82, 43, 126, 187 ));
+   
    type IUnconstrainedTransferRequestResult_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsUnconstrained
@@ -412,10 +415,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUnconstrainedTransferRequestResult : aliased constant Windows.IID := (1277474847, 55620, 16658, (169, 142, 106, 105, 82, 43, 126, 187 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundDownloaderUserConsent : aliased constant Windows.IID := (1561651462, 37478, 18440, (189, 113, 89, 37, 242, 163, 19, 10 ));
+   
    type IBackgroundDownloaderUserConsent_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestUnconstrainedDownloadsAsync
@@ -425,10 +428,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundDownloaderUserConsent : aliased constant Windows.IID := (1561651462, 37478, 18440, (189, 113, 89, 37, 242, 163, 19, 10 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundUploaderUserConsent : aliased constant Windows.IID := (1001620683, 1888, 17949, (144, 127, 81, 56, 248, 77, 68, 193 ));
+   
    type IBackgroundUploaderUserConsent_Interface is interface and Windows.IInspectable_Interface;
    
    function RequestUnconstrainedUploadsAsync
@@ -438,10 +441,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundUploaderUserConsent : aliased constant Windows.IID := (1001620683, 1888, 17949, (144, 127, 81, 56, 248, 77, 68, 193 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundDownloader : aliased constant Windows.IID := (3251082035, 26185, 19229, (168, 38, 164, 179, 221, 35, 77, 11 ));
+   
    type IBackgroundDownloader_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateDownload
@@ -472,10 +475,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IAsyncOperation_IDownloadOperation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundDownloader : aliased constant Windows.IID := (3251082035, 26185, 19229, (168, 38, 164, 179, 221, 35, 77, 11 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundDownloader2 : aliased constant Windows.IID := (2840221767, 13453, 18997, (137, 14, 138, 30, 243, 121, 132, 121 ));
+   
    type IBackgroundDownloader2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TransferGroup
@@ -547,10 +550,10 @@ package Windows.Networking.BackgroundTransfer is
       ; value : Windows.UI.Notifications.ITileNotification
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundDownloader2 : aliased constant Windows.IID := (2840221767, 13453, 18997, (137, 14, 138, 30, 243, 121, 132, 121 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundDownloader3 : aliased constant Windows.IID := (3508177992, 34536, 18658, (182, 21, 105, 118, 170, 191, 134, 29 ));
+   
    type IBackgroundDownloader3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CompletionGroup
@@ -559,10 +562,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundDownloader3 : aliased constant Windows.IID := (3508177992, 34536, 18658, (182, 21, 105, 118, 170, 191, 134, 29 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundUploader : aliased constant Windows.IID := (3314928046, 52909, 18011, (136, 1, 197, 90, 201, 10, 1, 206 ));
+   
    type IBackgroundUploader_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateUpload
@@ -612,10 +615,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IAsyncOperation_IUploadOperation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundUploader : aliased constant Windows.IID := (3314928046, 52909, 18011, (136, 1, 197, 90, 201, 10, 1, 206 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundUploader2 : aliased constant Windows.IID := (2382762702, 3124, 17507, (128, 127, 25, 138, 27, 139, 212, 173 ));
+   
    type IBackgroundUploader2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TransferGroup
@@ -687,10 +690,10 @@ package Windows.Networking.BackgroundTransfer is
       ; value : Windows.UI.Notifications.ITileNotification
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundUploader2 : aliased constant Windows.IID := (2382762702, 3124, 17507, (128, 127, 25, 138, 27, 139, 212, 173 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundUploader3 : aliased constant Windows.IID := (3109983289, 23536, 19258, (140, 71, 44, 97, 153, 168, 84, 185 ));
+   
    type IBackgroundUploader3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_CompletionGroup
@@ -699,10 +702,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundUploader3 : aliased constant Windows.IID := (3109983289, 23536, 19258, (140, 71, 44, 97, 153, 168, 84, 185 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferOperation : aliased constant Windows.IID := (3738200134, 37066, 17659, (143, 177, 18, 65, 84, 192, 213, 57 ));
+   
    type IBackgroundTransferOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Guid
@@ -761,10 +764,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IResponseInformation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferOperation : aliased constant Windows.IID := (3738200134, 37066, 17659, (143, 177, 18, 65, 84, 192, 213, 57 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferOperationPriority : aliased constant Windows.IID := (75842343, 21076, 19258, (145, 94, 10, 164, 146, 117, 192, 249 ));
+   
    type IBackgroundTransferOperationPriority_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Priority
@@ -780,10 +783,10 @@ package Windows.Networking.BackgroundTransfer is
       ; value : Windows.Networking.BackgroundTransfer.BackgroundTransferPriority
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferOperationPriority : aliased constant Windows.IID := (75842343, 21076, 19258, (145, 94, 10, 164, 146, 117, 192, 249 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDownloadOperation : aliased constant Windows.IID := (3179801520, 22292, 19977, (186, 104, 190, 247, 57, 3, 176, 215 ));
+   
    type IDownloadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ResultFile
@@ -825,10 +828,10 @@ package Windows.Networking.BackgroundTransfer is
       This       : access IDownloadOperation_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDownloadOperation : aliased constant Windows.IID := (3179801520, 22292, 19977, (186, 104, 190, 247, 57, 3, 176, 215 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDownloadOperation2 : aliased constant Windows.IID := (2748116288, 36764, 17235, (156, 212, 41, 13, 238, 56, 124, 56 ));
+   
    type IDownloadOperation2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TransferGroup
@@ -837,10 +840,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDownloadOperation2 : aliased constant Windows.IID := (2748116288, 36764, 17235, (156, 212, 41, 13, 238, 56, 124, 56 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferRangesDownloadedEventArgs : aliased constant Windows.IID := (1052537939, 48968, 19080, (146, 72, 176, 193, 101, 24, 79, 92 ));
+   
    type IBackgroundTransferRangesDownloadedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    function get_WasDownloadRestarted
@@ -863,10 +866,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferRangesDownloadedEventArgs : aliased constant Windows.IID := (1052537939, 48968, 19080, (146, 72, 176, 193, 101, 24, 79, 92 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IDownloadOperation3 : aliased constant Windows.IID := (1344746780, 32094, 19164, (184, 211, 223, 92, 96, 49, 185, 204 ));
+   
    type IDownloadOperation3_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsRandomAccessRequired
@@ -932,10 +935,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Web.IReference_WebErrorStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IDownloadOperation3 : aliased constant Windows.IID := (1344746780, 32094, 19164, (184, 211, 223, 92, 96, 49, 185, 204 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUploadOperation : aliased constant Windows.IID := (1045832928, 29577, 17228, (139, 53, 66, 127, 211, 107, 189, 174 ));
+   
    type IUploadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_SourceFile
@@ -965,10 +968,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUploadOperation : aliased constant Windows.IID := (1045832928, 29577, 17228, (139, 53, 66, 127, 211, 107, 189, 174 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IUploadOperation2 : aliased constant Windows.IID := (1432455666, 10100, 19958, (159, 165, 32, 159, 43, 251, 18, 247 ));
+   
    type IUploadOperation2_Interface is interface and Windows.IInspectable_Interface;
    
    function get_TransferGroup
@@ -977,10 +980,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IUploadOperation2 : aliased constant Windows.IID := (1432455666, 10100, 19958, (159, 165, 32, 159, 43, 251, 18, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundDownloaderFactory : aliased constant Windows.IID := (646147108, 55454, 18164, (162, 154, 79, 77, 79, 20, 65, 85 ));
+   
    type IBackgroundDownloaderFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithCompletionGroup
@@ -990,10 +993,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IBackgroundDownloader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundDownloaderFactory : aliased constant Windows.IID := (646147108, 55454, 18164, (162, 154, 79, 77, 79, 20, 65, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundDownloaderStaticMethods : aliased constant Windows.IID := (1386633781, 50766, 17004, (153, 25, 84, 13, 13, 33, 166, 80 ));
+   
    type IBackgroundDownloaderStaticMethods_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentDownloadsAsync
@@ -1010,10 +1013,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundDownloaderStaticMethods : aliased constant Windows.IID := (1386633781, 50766, 17004, (153, 25, 84, 13, 13, 33, 166, 80 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundDownloaderStaticMethods2 : aliased constant Windows.IID := (799675175, 6868, 19621, (178, 205, 8, 219, 240, 116, 106, 254 ));
+   
    type IBackgroundDownloaderStaticMethods2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentDownloadsForTransferGroupAsync
@@ -1023,10 +1026,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundDownloaderStaticMethods2 : aliased constant Windows.IID := (799675175, 6868, 19621, (178, 205, 8, 219, 240, 116, 106, 254 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundUploaderFactory : aliased constant Windows.IID := (1935803335, 4327, 18592, (172, 60, 26, 199, 16, 149, 236, 87 ));
+   
    type IBackgroundUploaderFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithCompletionGroup
@@ -1036,10 +1039,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IBackgroundUploader
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundUploaderFactory : aliased constant Windows.IID := (1935803335, 4327, 18592, (172, 60, 26, 199, 16, 149, 236, 87 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundUploaderStaticMethods : aliased constant Windows.IID := (4068957435, 39685, 18241, (145, 33, 116, 10, 131, 226, 71, 223 ));
+   
    type IBackgroundUploaderStaticMethods_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentUploadsAsync
@@ -1056,10 +1059,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundUploaderStaticMethods : aliased constant Windows.IID := (4068957435, 39685, 18241, (145, 33, 116, 10, 131, 226, 71, 223 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundUploaderStaticMethods2 : aliased constant Windows.IID := (3910773858, 59912, 17136, (162, 172, 7, 228, 103, 84, 144, 128 ));
+   
    type IBackgroundUploaderStaticMethods2_Interface is interface and Windows.IInspectable_Interface;
    
    function GetCurrentUploadsForTransferGroupAsync
@@ -1069,10 +1072,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundUploaderStaticMethods2 : aliased constant Windows.IID := (3910773858, 59912, 17136, (162, 172, 7, 228, 103, 84, 144, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IResponseInformation : aliased constant Windows.IID := (4173044242, 63251, 18322, (139, 104, 217, 210, 151, 249, 29, 46 ));
+   
    type IResponseInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsResumable
@@ -1102,10 +1105,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IResponseInformation : aliased constant Windows.IID := (4173044242, 63251, 18322, (139, 104, 217, 210, 151, 249, 29, 46 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferErrorStaticMethods : aliased constant Windows.IID := (2865969924, 4498, 19444, (139, 104, 57, 197, 173, 210, 68, 226 ));
+   
    type IBackgroundTransferErrorStaticMethods_Interface is interface and Windows.IInspectable_Interface;
    
    function GetStatus
@@ -1115,10 +1118,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Web.WebErrorStatus
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferErrorStaticMethods : aliased constant Windows.IID := (2865969924, 4498, 19444, (139, 104, 57, 197, 173, 210, 68, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferContentPart : aliased constant Windows.IID := (3907081815, 55249, 20184, (131, 142, 103, 74, 194, 23, 172, 230 ));
+   
    type IBackgroundTransferContentPart_Interface is interface and Windows.IInspectable_Interface;
    
    function SetHeader
@@ -1142,10 +1145,10 @@ package Windows.Networking.BackgroundTransfer is
       ; value : Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferContentPart : aliased constant Windows.IID := (3907081815, 55249, 20184, (131, 142, 103, 74, 194, 23, 172, 230 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferContentPartFactory : aliased constant Windows.IID := (2431621289, 31233, 18955, (159, 128, 160, 176, 187, 55, 15, 141 ));
+   
    type IBackgroundTransferContentPartFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithName
@@ -1164,10 +1167,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferContentPartFactory : aliased constant Windows.IID := (2431621289, 31233, 18955, (159, 128, 160, 176, 187, 55, 15, 141 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferGroup : aliased constant Windows.IID := (3636716516, 25689, 17728, (133, 235, 170, 161, 200, 144, 54, 119 ));
+   
    type IBackgroundTransferGroup_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Name
@@ -1190,10 +1193,10 @@ package Windows.Networking.BackgroundTransfer is
       ; value : Windows.Networking.BackgroundTransfer.BackgroundTransferBehavior
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferGroup : aliased constant Windows.IID := (3636716516, 25689, 17728, (133, 235, 170, 161, 200, 144, 54, 119 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferGroupStatics : aliased constant Windows.IID := (49041586, 32024, 18779, (170, 34, 50, 169, 125, 69, 211, 226 ));
+   
    type IBackgroundTransferGroupStatics_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateGroup
@@ -1203,10 +1206,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferGroupStatics : aliased constant Windows.IID := (49041586, 32024, 18779, (170, 34, 50, 169, 125, 69, 211, 226 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContentPrefetcherTime : aliased constant Windows.IID := (3814849800, 4906, 20446, (167, 204, 252, 176, 230, 101, 35, 175 ));
+   
    type IContentPrefetcherTime_Interface is interface and Windows.IInspectable_Interface;
    
    function get_LastSuccessfulPrefetchTime
@@ -1215,10 +1218,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContentPrefetcherTime : aliased constant Windows.IID := (3814849800, 4906, 20446, (167, 204, 252, 176, 230, 101, 35, 175 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IContentPrefetcher : aliased constant Windows.IID := (2832660308, 32193, 19673, (136, 16, 42, 106, 169, 65, 126, 17 ));
+   
    type IContentPrefetcher_Interface is interface and Windows.IInspectable_Interface;
    
    function get_ContentUris
@@ -1241,10 +1244,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IContentPrefetcher : aliased constant Windows.IID := (2832660308, 32193, 19673, (136, 16, 42, 106, 169, 65, 126, 17 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferCompletionGroup : aliased constant Windows.IID := (764609061, 39019, 22349, (121, 80, 10, 221, 71, 245, 215, 6 ));
+   
    type IBackgroundTransferCompletionGroup_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Trigger
@@ -1266,10 +1269,10 @@ package Windows.Networking.BackgroundTransfer is
       This       : access IBackgroundTransferCompletionGroup_Interface
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferCompletionGroup : aliased constant Windows.IID := (764609061, 39019, 22349, (121, 80, 10, 221, 71, 245, 215, 6 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IBackgroundTransferCompletionGroupTriggerDetails : aliased constant Windows.IID := (2070667910, 28231, 20790, (127, 203, 250, 67, 137, 244, 111, 91 ));
+   
    type IBackgroundTransferCompletionGroupTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Downloads
@@ -1285,10 +1288,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IVectorView_IUploadOperation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IBackgroundTransferCompletionGroupTriggerDetails : aliased constant Windows.IID := (2070667910, 28231, 20790, (127, 203, 250, 67, 137, 244, 111, 91 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUnconstrainedTransferRequestResult : aliased constant Windows.IID := (2833000964, 16196, 20550, (129, 130, 205, 14, 193, 71, 225, 125 ));
+   
    type IAsyncOperation_IUnconstrainedTransferRequestResult_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1311,10 +1314,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IUnconstrainedTransferRequestResult
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IUnconstrainedTransferRequestResult : aliased constant Windows.IID := (2833000964, 16196, 20550, (129, 130, 205, 14, 193, 71, 225, 125 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IDownloadOperation : aliased constant Windows.IID := (716574805, 11530, 22987, (140, 189, 5, 111, 45, 127, 180, 84 ));
+   
    type IIterator_IDownloadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1345,10 +1348,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IDownloadOperation : aliased constant Windows.IID := (716574805, 11530, 22987, (140, 189, 5, 111, 45, 127, 180, 84 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IDownloadOperation : aliased constant Windows.IID := (4143802827, 59111, 22229, (155, 230, 224, 220, 70, 131, 250, 128 ));
+   
    type IIterable_IDownloadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1357,10 +1360,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IIterator_IDownloadOperation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IDownloadOperation : aliased constant Windows.IID := (4143802827, 59111, 22229, (155, 230, 224, 220, 70, 131, 250, 128 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IUploadOperation : aliased constant Windows.IID := (3400028467, 29655, 24470, (171, 45, 251, 180, 250, 0, 247, 21 ));
+   
    type IIterator_IUploadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1391,10 +1394,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IUploadOperation : aliased constant Windows.IID := (3400028467, 29655, 24470, (171, 45, 251, 180, 250, 0, 247, 21 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IUploadOperation : aliased constant Windows.IID := (2037876633, 14540, 23399, (156, 208, 4, 63, 196, 122, 158, 247 ));
+   
    type IIterable_IUploadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1403,10 +1406,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IIterator_IUploadOperation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IUploadOperation : aliased constant Windows.IID := (2037876633, 14540, 23399, (156, 208, 4, 63, 196, 122, 158, 247 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IDownloadOperation : aliased constant Windows.IID := (1139751519, 52349, 22125, (169, 42, 76, 170, 118, 185, 42, 31 ));
+   
    type IAsyncOperation_IDownloadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1429,10 +1432,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IDownloadOperation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IDownloadOperation : aliased constant Windows.IID := (1139751519, 52349, 22125, (169, 42, 76, 170, 118, 185, 42, 31 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUploadOperation : aliased constant Windows.IID := (1143025313, 46372, 23278, (163, 32, 113, 153, 34, 83, 129, 209 ));
+   
    type IAsyncOperation_IUploadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
@@ -1455,10 +1458,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IUploadOperation
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IAsyncOperation_IUploadOperation : aliased constant Windows.IID := (1143025313, 46372, 23278, (163, 32, 113, 153, 34, 83, 129, 209 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IBackgroundTransferContentPart : aliased constant Windows.IID := (133940049, 30749, 21191, (149, 88, 164, 83, 229, 112, 63, 41 ));
+   
    type IIterator_IBackgroundTransferContentPart_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1489,10 +1492,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_IBackgroundTransferContentPart : aliased constant Windows.IID := (133940049, 30749, 21191, (149, 88, 164, 83, 229, 112, 63, 41 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_IBackgroundTransferContentPart : aliased constant Windows.IID := (3476042137, 56891, 23980, (167, 3, 108, 87, 216, 8, 33, 196 ));
+   
    type IIterable_IBackgroundTransferContentPart_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1501,10 +1504,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IIterator_IBackgroundTransferContentPart
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_IBackgroundTransferContentPart : aliased constant Windows.IID := (3476042137, 56891, 23980, (167, 3, 108, 87, 216, 8, 33, 196 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterator_BackgroundTransferFileRange : aliased constant Windows.IID := (2807289720, 36027, 21066, (184, 196, 112, 197, 21, 164, 39, 130 ));
+   
    type IIterator_BackgroundTransferFileRange_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Current
@@ -1535,10 +1538,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterator_BackgroundTransferFileRange : aliased constant Windows.IID := (2807289720, 36027, 21066, (184, 196, 112, 197, 21, 164, 39, 130 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IIterable_BackgroundTransferFileRange : aliased constant Windows.IID := (750965913, 38732, 20600, (137, 174, 45, 78, 225, 19, 151, 33 ));
+   
    type IIterable_BackgroundTransferFileRange_Interface is interface and Windows.IInspectable_Interface;
    
    function First
@@ -1547,10 +1550,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.Networking.BackgroundTransfer.IIterator_BackgroundTransferFileRange
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IIterable_BackgroundTransferFileRange : aliased constant Windows.IID := (750965913, 38732, 20600, (137, 174, 45, 78, 225, 19, 151, 33 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_BackgroundTransferFileRange : aliased constant Windows.IID := (1541903179, 55804, 21514, (143, 254, 95, 185, 200, 140, 101, 88 ));
+   
    type IVectorView_BackgroundTransferFileRange_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1585,10 +1588,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_BackgroundTransferFileRange : aliased constant Windows.IID := (1541903179, 55804, 21514, (143, 254, 95, 185, 200, 140, 101, 88 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVector_BackgroundTransferFileRange : aliased constant Windows.IID := (3342659312, 34122, 22855, (158, 124, 82, 126, 57, 21, 211, 53 ));
+   
    type IVector_BackgroundTransferFileRange_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1679,10 +1682,10 @@ package Windows.Networking.BackgroundTransfer is
       ; items : Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange_Ptr
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVector_BackgroundTransferFileRange : aliased constant Windows.IID := (3342659312, 34122, 22855, (158, 124, 82, 126, 57, 21, 211, 53 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IDownloadOperation : aliased constant Windows.IID := (4168980309, 10877, 23036, (188, 146, 180, 134, 54, 244, 217, 85 ));
+   
    type IVectorView_IDownloadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1717,10 +1720,10 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IDownloadOperation : aliased constant Windows.IID := (4168980309, 10877, 23036, (188, 146, 180, 134, 54, 244, 217, 85 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUploadOperation : aliased constant Windows.IID := (2392249520, 61614, 20939, (183, 196, 2, 66, 81, 189, 22, 216 ));
+   
    type IVectorView_IUploadOperation_Interface is interface and Windows.IInspectable_Interface;
    
    function GetAt
@@ -1755,17 +1758,15 @@ package Windows.Networking.BackgroundTransfer is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IVectorView_IUploadOperation : aliased constant Windows.IID := (2392249520, 61614, 20939, (183, 196, 2, 66, 81, 189, 22, 216 ));
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult : aliased constant Windows.IID := (1330823144, 39694, 23330, (145, 107, 131, 68, 37, 180, 171, 151 ));
+   
+   type AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult'access) with null record;
    
    function Invoke
    (
@@ -1775,12 +1776,11 @@ package Windows.Networking.BackgroundTransfer is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult : aliased constant Windows.IID := (1330823144, 39694, 23330, (145, 107, 131, 68, 37, 180, 171, 151 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IDownloadOperation_Interface(Callback : access procedure (asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IDownloadOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IDownloadOperation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IDownloadOperation : aliased constant Windows.IID := (715536471, 65455, 23798, (155, 44, 13, 197, 151, 182, 10, 96 ));
+   
+   type AsyncOperationCompletedHandler_IDownloadOperation_Interface(Callback : access procedure (asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IDownloadOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDownloadOperation'access) with null record;
    
    function Invoke
    (
@@ -1790,12 +1790,11 @@ package Windows.Networking.BackgroundTransfer is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IDownloadOperation : aliased constant Windows.IID := (715536471, 65455, 23798, (155, 44, 13, 197, 151, 182, 10, 96 ));
-   
    ------------------------------------------------------------------------
-   type AsyncOperationCompletedHandler_IUploadOperation_Interface(Callback : access procedure (asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IUploadOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access AsyncOperationCompletedHandler_IUploadOperation_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_AsyncOperationCompletedHandler_IUploadOperation : aliased constant Windows.IID := (3939928088, 3128, 23774, (174, 193, 198, 167, 97, 135, 17, 247 ));
+   
+   type AsyncOperationCompletedHandler_IUploadOperation_Interface(Callback : access procedure (asyncInfo : Windows.Networking.BackgroundTransfer.IAsyncOperation_IUploadOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUploadOperation'access) with null record;
    
    function Invoke
    (
@@ -1805,12 +1804,11 @@ package Windows.Networking.BackgroundTransfer is
    )
    return Windows.HRESULT;
    
-   IID_AsyncOperationCompletedHandler_IUploadOperation : aliased constant Windows.IID := (3939928088, 3128, 23774, (174, 193, 198, 167, 97, 135, 17, 247 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IDownloadOperation3_add_RangesDownloaded_Interface(Callback : access procedure (sender : Windows.Networking.BackgroundTransfer.IDownloadOperation ; args : Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IDownloadOperation3_add_RangesDownloaded_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IDownloadOperation3_add_RangesDownloaded : aliased constant Windows.IID := (2476871045, 48636, 20885, (144, 217, 140, 181, 108, 188, 179, 216 ));
+   
+   type TypedEventHandler_IDownloadOperation3_add_RangesDownloaded_Interface(Callback : access procedure (sender : Windows.Networking.BackgroundTransfer.IDownloadOperation ; args : Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDownloadOperation3_add_RangesDownloaded'access) with null record;
    
    function Invoke
    (
@@ -1819,8 +1817,6 @@ package Windows.Networking.BackgroundTransfer is
       ; args : Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IDownloadOperation3_add_RangesDownloaded : aliased constant Windows.IID := (2476871045, 48636, 20885, (144, 217, 140, 181, 108, 188, 179, 216 ));
    
    ------------------------------------------------------------------------
    -- Classes

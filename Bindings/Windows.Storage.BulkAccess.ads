@@ -84,6 +84,9 @@ package Windows.Storage.BulkAccess is
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
+   
+   IID_IStorageItemInformation : aliased constant Windows.IID := (2275789707, 35186, 20288, (141, 224, 216, 111, 177, 121, 216, 250 ));
+   
    type IStorageItemInformation_Interface is interface and Windows.IInspectable_Interface;
    
    function get_MusicProperties
@@ -157,10 +160,10 @@ package Windows.Storage.BulkAccess is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IStorageItemInformation : aliased constant Windows.IID := (2275789707, 35186, 20288, (141, 224, 216, 111, 177, 121, 216, 250 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileInformationFactoryFactory : aliased constant Windows.IID := (2229931645, 58530, 20224, (138, 250, 175, 94, 15, 130, 107, 213 ));
+   
    type IFileInformationFactoryFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function CreateWithMode
@@ -204,10 +207,10 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileInformationFactoryFactory : aliased constant Windows.IID := (2229931645, 58530, 20224, (138, 250, 175, 94, 15, 130, 107, 213 ));
-   
    ------------------------------------------------------------------------
+   
+   IID_IFileInformationFactory : aliased constant Windows.IID := (1075677374, 38415, 19821, (167, 208, 26, 56, 97, 231, 108, 131 ));
+   
    type IFileInformationFactory_Interface is interface and Windows.IInspectable_Interface;
    
    function GetItemsAsync
@@ -278,10 +281,8 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
-   
-   IID_IFileInformationFactory : aliased constant Windows.IID := (1075677374, 38415, 19821, (167, 208, 26, 56, 97, 231, 108, 131 ));
-   
    ------------------------------------------------------------------------
+   
    type IInputStreamReference_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenSequentialReadAsync
@@ -290,8 +291,8 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IInputStream -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IRandomAccessStreamReference_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function OpenReadAsync
@@ -300,8 +301,8 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
+   
    type IStorageFolderQueryOperations_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function GetIndexedStateAsync
@@ -440,15 +441,15 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
-   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
-   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface(Callback : access procedure (sender : Windows.Storage.BulkAccess.IStorageItemInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated : aliased constant Windows.IID := (1536734034, 57551, 22750, (178, 236, 79, 215, 134, 187, 181, 167 ));
+   
+   type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface(Callback : access procedure (sender : Windows.Storage.BulkAccess.IStorageItemInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated'access) with null record;
    
    function Invoke
    (
@@ -458,12 +459,11 @@ package Windows.Storage.BulkAccess is
    )
    return Windows.HRESULT;
    
-   IID_TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated : aliased constant Windows.IID := (1536734034, 57551, 22750, (178, 236, 79, 215, 134, 187, 181, 167 ));
-   
    ------------------------------------------------------------------------
-   type TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Interface(Callback : access procedure (sender : Windows.Storage.BulkAccess.IStorageItemInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface with null record;
    
-   function QueryInterface(This :  access TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Interface ; riid : in Windows.GUID_Ptr ; pvObject : not null access IUnknown_Base) return Windows.HRESULT;
+   IID_TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated : aliased constant Windows.IID := (1536734034, 57551, 22750, (178, 236, 79, 215, 134, 187, 181, 167 ));
+   
+   type TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Interface(Callback : access procedure (sender : Windows.Storage.BulkAccess.IStorageItemInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated'access) with null record;
    
    function Invoke
    (
@@ -472,8 +472,6 @@ package Windows.Storage.BulkAccess is
       ; args : Windows.Object
    )
    return Windows.HRESULT;
-   
-   IID_TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated : aliased constant Windows.IID := (1536734034, 57551, 22750, (178, 236, 79, 215, 134, 187, 181, 167 ));
    
    ------------------------------------------------------------------------
    -- Classes
