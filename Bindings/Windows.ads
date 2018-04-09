@@ -200,8 +200,13 @@ package Windows is
    )
    return Windows.HResult is abstract;
    
+   --------------------------------------------------------------------------------
+   
+   subtype Object_Interface is IInspectable_Interface;
    subtype Object is IInspectable;
-   type Object_Ptr is access Object;
+   subtype Object_Ptr is IInspectable_Ptr;
+   
+   --------------------------------------------------------------------------------
    
    IID_IUnknown        : aliased constant Windows.GUID := (0, 0, 0, (192, 0, 0, 0, 0, 0, 0, 70 ));
    IID_IInspectable    : aliased constant Windows.GUID := (2944852704, 45357, 19562, (156, 90, 215, 170, 101, 16, 30, 144 ));
