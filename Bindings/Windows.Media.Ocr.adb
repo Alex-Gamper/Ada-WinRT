@@ -29,7 +29,6 @@ package body Windows.Media.Ocr is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IOcrResult_Interface
@@ -47,7 +46,6 @@ package body Windows.Media.Ocr is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -55,7 +53,6 @@ package body Windows.Media.Ocr is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_MaxImageDimension
    return Windows.UInt32 is
@@ -147,5 +144,6 @@ package body Windows.Media.Ocr is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

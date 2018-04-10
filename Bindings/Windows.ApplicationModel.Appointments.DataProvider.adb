@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested_Interface
@@ -110,7 +109,6 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

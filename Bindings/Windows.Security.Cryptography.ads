@@ -162,6 +162,7 @@ package Windows.Security.Cryptography is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -170,7 +171,6 @@ package Windows.Security.Cryptography is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Compare
    (
@@ -238,5 +238,6 @@ package Windows.Security.Cryptography is
       ; buffer : Windows.Storage.Streams.IBuffer
    )
    return Windows.String;
+   
 
 end;

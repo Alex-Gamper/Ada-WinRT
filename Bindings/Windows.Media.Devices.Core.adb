@@ -29,7 +29,6 @@ package body Windows.Media.Devices.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateFrameController return Windows.Media.Devices.Core.IFrameController is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Devices.Core.FrameController");

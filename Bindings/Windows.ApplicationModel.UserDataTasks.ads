@@ -367,6 +367,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.IUserDataTaskManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskManager : aliased constant Windows.IID := (2219952404, 58891, 18601, (146, 17, 127, 184, 165, 108, 184, 76 ));
@@ -387,6 +388,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskStore : aliased constant Windows.IID := (4033518768, 61915, 17850, (138, 98, 8, 96, 4, 192, 33, 61 ));
@@ -424,6 +426,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTaskList -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskQueryOptions : aliased constant Windows.IID := (2510235629, 37018, 19760, (140, 27, 51, 29, 143, 230, 103, 226 ));
@@ -457,6 +460,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; value : Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskList : aliased constant Windows.IID := (1229008441, 31773, 19953, (190, 211, 49, 75, 124, 191, 94, 78 ));
@@ -599,6 +603,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskListLimitedWriteOperations : aliased constant Windows.IID := (2057463794, 24696, 16771, (145, 158, 79, 41, 241, 156, 250, 233 ));
@@ -636,6 +641,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskBatch : aliased constant Windows.IID := (942515710, 8373, 17180, (143, 66, 165, 210, 146, 236, 147, 12 ));
@@ -648,6 +654,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.IVectorView_IUserDataTask -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskReader : aliased constant Windows.IID := (65439921, 19663, 17664, (136, 59, 231, 98, 144, 207, 237, 99 ));
@@ -660,6 +667,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTaskBatch -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTask : aliased constant Windows.IID := (2087028177, 57556, 20377, (174, 226, 188, 45, 93, 218, 223, 76 ));
@@ -854,6 +862,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; value : Windows.Foundation.IReference_DateTime
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskRecurrenceProperties : aliased constant Windows.IID := (1944027312, 10182, 16590, (177, 73, 156, 212, 20, 133, 166, 158 ));
@@ -971,6 +980,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; value : Windows.Foundation.IReference_Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskRegenerationProperties : aliased constant Windows.IID := (2460680199, 2318, 18180, (187, 92, 132, 252, 11, 13, 156, 49 ));
@@ -1032,6 +1042,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataTaskListSyncManager : aliased constant Windows.IID := (2388204181, 7631, 18079, (147, 236, 186, 72, 187, 85, 60, 107 ));
@@ -1101,6 +1112,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IUserDataTaskStore : aliased constant Windows.IID := (3761000032, 30890, 24248, (186, 219, 234, 210, 45, 202, 150, 121 ));
@@ -1127,6 +1139,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.IUserDataTaskStore
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IUserDataTaskList : aliased constant Windows.IID := (3643231986, 25568, 21580, (141, 178, 254, 45, 91, 130, 93, 158 ));
@@ -1153,6 +1166,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.IUserDataTaskList
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IUserDataTask : aliased constant Windows.IID := (3099019697, 43079, 23604, (134, 108, 234, 86, 12, 222, 31, 73 ));
@@ -1179,6 +1193,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.IUserDataTask
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IUserDataTask : aliased constant Windows.IID := (2557689799, 6408, 21295, (191, 227, 56, 104, 68, 93, 41, 214 ));
@@ -1213,6 +1228,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IUserDataTask : aliased constant Windows.IID := (2330509005, 14175, 22834, (145, 237, 248, 42, 116, 34, 67, 101 ));
@@ -1225,6 +1241,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.IIterator_IUserDataTask
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IUserDataTask : aliased constant Windows.IID := (218017691, 34648, 23206, (152, 6, 50, 176, 234, 64, 212, 184 ));
@@ -1263,6 +1280,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IUserDataTaskBatch : aliased constant Windows.IID := (3547009247, 7339, 21580, (140, 46, 60, 123, 196, 210, 75, 36 ));
@@ -1289,6 +1307,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.IUserDataTaskBatch
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_UserDataTaskDaysOfWeek : aliased constant Windows.IID := (2419614149, 53917, 20611, (160, 61, 107, 42, 2, 51, 220, 202 ));
@@ -1301,6 +1320,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_UserDataTaskWeekOfMonth : aliased constant Windows.IID := (1380383359, 63977, 21876, (128, 247, 74, 163, 89, 176, 2, 61 ));
@@ -1313,6 +1333,7 @@ package Windows.ApplicationModel.UserDataTasks is
       ; RetVal : access Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1322,7 +1343,6 @@ package Windows.ApplicationModel.UserDataTasks is
    IID_AsyncOperationCompletedHandler_IUserDataTaskStore : aliased constant Windows.IID := (868861461, 12160, 22653, (159, 81, 2, 126, 196, 87, 183, 163 ));
    
    type AsyncOperationCompletedHandler_IUserDataTaskStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTaskStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUserDataTaskStore'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUserDataTaskStore_Interface
@@ -1336,7 +1356,6 @@ package Windows.ApplicationModel.UserDataTasks is
    IID_AsyncOperationCompletedHandler_IUserDataTaskList : aliased constant Windows.IID := (4009460042, 27383, 23897, (191, 63, 182, 199, 59, 140, 116, 162 ));
    
    type AsyncOperationCompletedHandler_IUserDataTaskList_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTaskList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUserDataTaskList'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUserDataTaskList_Interface
@@ -1350,7 +1369,6 @@ package Windows.ApplicationModel.UserDataTasks is
    IID_AsyncOperationCompletedHandler_IUserDataTask : aliased constant Windows.IID := (2805055693, 8301, 23288, (173, 100, 133, 183, 32, 15, 76, 226 ));
    
    type AsyncOperationCompletedHandler_IUserDataTask_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTask ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUserDataTask'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUserDataTask_Interface
@@ -1364,7 +1382,6 @@ package Windows.ApplicationModel.UserDataTasks is
    IID_AsyncOperationCompletedHandler_IUserDataTaskBatch : aliased constant Windows.IID := (3862689976, 37360, 24339, (161, 201, 222, 225, 135, 157, 10, 82 ));
    
    type AsyncOperationCompletedHandler_IUserDataTaskBatch_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataTasks.IAsyncOperation_IUserDataTaskBatch ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUserDataTaskBatch'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUserDataTaskBatch_Interface
@@ -1378,7 +1395,6 @@ package Windows.ApplicationModel.UserDataTasks is
    IID_TypedEventHandler_IUserDataTaskListSyncManager_add_SyncStatusChanged : aliased constant Windows.IID := (65507570, 60111, 21483, (144, 96, 107, 254, 236, 91, 195, 117 ));
    
    type TypedEventHandler_IUserDataTaskListSyncManager_add_SyncStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.UserDataTasks.IUserDataTaskListSyncManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserDataTaskListSyncManager_add_SyncStatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserDataTaskListSyncManager_add_SyncStatusChanged_Interface
@@ -1419,7 +1435,6 @@ package Windows.ApplicationModel.UserDataTasks is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetDefault
    return Windows.ApplicationModel.UserDataTasks.IUserDataTaskManager;
    
@@ -1428,5 +1443,6 @@ package Windows.ApplicationModel.UserDataTasks is
       user : Windows.System.IUser
    )
    return Windows.ApplicationModel.UserDataTasks.IUserDataTaskManager;
+   
 
 end;

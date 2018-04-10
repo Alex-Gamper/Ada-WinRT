@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.Resources.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateResourceContext return Windows.ApplicationModel.Resources.Core.IResourceContext is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Core.ResourceContext");
@@ -54,7 +53,6 @@ package body Windows.ApplicationModel.Resources.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    procedure SetGlobalQualifierValueWithPersistence
    (
@@ -218,5 +216,6 @@ package body Windows.ApplicationModel.Resources.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

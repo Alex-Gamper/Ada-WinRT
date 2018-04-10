@@ -101,6 +101,7 @@ package Windows.Devices.Lights is
       ; RetVal : access Windows.Devices.Lights.IAsyncOperation_ILamp -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILamp : aliased constant Windows.IID := (75324314, 59973, 19243, (177, 162, 20, 223, 240, 11, 222, 123 ));
@@ -177,6 +178,7 @@ package Windows.Devices.Lights is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILampAvailabilityChangedEventArgs : aliased constant Windows.IID := (1332624877, 1954, 18845, (146, 96, 103, 227, 4, 83, 43, 164 ));
@@ -189,6 +191,7 @@ package Windows.Devices.Lights is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILamp : aliased constant Windows.IID := (1386651133, 61654, 22833, (184, 225, 243, 128, 102, 215, 27, 242 ));
@@ -215,6 +218,7 @@ package Windows.Devices.Lights is
       ; RetVal : access Windows.Devices.Lights.ILamp
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -224,7 +228,6 @@ package Windows.Devices.Lights is
    IID_AsyncOperationCompletedHandler_ILamp : aliased constant Windows.IID := (421170286, 24797, 23073, (165, 60, 191, 63, 148, 10, 29, 222 ));
    
    type AsyncOperationCompletedHandler_ILamp_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Lights.IAsyncOperation_ILamp ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILamp'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILamp_Interface
@@ -238,7 +241,6 @@ package Windows.Devices.Lights is
    IID_TypedEventHandler_ILamp_add_AvailabilityChanged : aliased constant Windows.IID := (1433010905, 30341, 22383, (137, 202, 182, 45, 196, 129, 210, 157 ));
    
    type TypedEventHandler_ILamp_add_AvailabilityChanged_Interface(Callback : access procedure (sender : Windows.Devices.Lights.ILamp ; args : Windows.Devices.Lights.ILampAvailabilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILamp_add_AvailabilityChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ILamp_add_AvailabilityChanged_Interface
@@ -258,7 +260,6 @@ package Windows.Devices.Lights is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetDeviceSelector
    return Windows.String;
    
@@ -270,5 +271,6 @@ package Windows.Devices.Lights is
    
    function GetDefaultAsync
    return Windows.Devices.Lights.IAsyncOperation_ILamp;
+   
 
 end;

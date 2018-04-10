@@ -29,7 +29,6 @@ package body Windows.Gaming.XboxLive.Storage is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGameSaveOperationResult_Interface
@@ -99,7 +98,6 @@ package body Windows.Gaming.XboxLive.Storage is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -107,7 +105,6 @@ package body Windows.Gaming.XboxLive.Storage is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForUserAsync
    (
@@ -150,5 +147,6 @@ package body Windows.Gaming.XboxLive.Storage is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

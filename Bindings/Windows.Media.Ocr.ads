@@ -116,6 +116,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOcrLine : aliased constant Windows.IID := (4432239, 58143, 14884, (137, 156, 212, 68, 189, 8, 129, 36 ));
@@ -135,6 +136,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOcrResult : aliased constant Windows.IID := (2614244786, 5979, 15722, (146, 226, 56, 140, 32, 110, 47, 99 ));
@@ -161,6 +163,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOcrEngine : aliased constant Windows.IID := (1511308353, 23414, 12608, (182, 128, 136, 37, 86, 38, 131, 172 ));
@@ -181,6 +184,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.Globalization.ILanguage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOcrEngineStatics : aliased constant Windows.IID := (1543481434, 13188, 13632, (153, 64, 105, 145, 32, 212, 40, 168 ));
@@ -223,6 +227,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.Media.Ocr.IOcrEngine
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IOcrWord : aliased constant Windows.IID := (248787322, 39268, 20934, (172, 190, 2, 81, 42, 6, 144, 130 ));
@@ -257,6 +262,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IOcrWord : aliased constant Windows.IID := (2697881146, 18128, 21989, (146, 142, 37, 30, 182, 122, 30, 153 ));
@@ -269,6 +275,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.Media.Ocr.IIterator_IOcrWord
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IOcrWord : aliased constant Windows.IID := (2153406663, 57167, 21116, (134, 178, 226, 158, 67, 154, 131, 210 ));
@@ -307,6 +314,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IOcrLine : aliased constant Windows.IID := (1388973962, 22408, 22165, (185, 5, 70, 184, 216, 23, 29, 136 ));
@@ -341,6 +349,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IOcrLine : aliased constant Windows.IID := (1794806946, 24791, 23998, (148, 45, 129, 170, 57, 41, 200, 94 ));
@@ -353,6 +362,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.Media.Ocr.IIterator_IOcrLine
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IOcrLine : aliased constant Windows.IID := (1623682732, 34933, 24027, (161, 155, 101, 163, 147, 98, 121, 234 ));
@@ -391,6 +401,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IOcrResult : aliased constant Windows.IID := (3352760718, 44598, 22976, (172, 118, 123, 173, 238, 113, 28, 139 ));
@@ -417,6 +428,7 @@ package Windows.Media.Ocr is
       ; RetVal : access Windows.Media.Ocr.IOcrResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -426,7 +438,6 @@ package Windows.Media.Ocr is
    IID_AsyncOperationCompletedHandler_IOcrResult : aliased constant Windows.IID := (2560365425, 17482, 24190, (177, 151, 158, 170, 249, 210, 130, 154 ));
    
    type AsyncOperationCompletedHandler_IOcrResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Ocr.IAsyncOperation_IOcrResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IOcrResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IOcrResult_Interface
@@ -448,7 +459,6 @@ package Windows.Media.Ocr is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_MaxImageDimension
    return Windows.UInt32;
    
@@ -469,5 +479,6 @@ package Windows.Media.Ocr is
    
    function TryCreateFromUserProfileLanguages
    return Windows.Media.Ocr.IOcrEngine;
+   
 
 end;

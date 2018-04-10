@@ -154,6 +154,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.System.Profile.SystemIdentificationSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemIdentificationStatics : aliased constant Windows.IID := (1434580010, 54239, 19859, (163, 125, 196, 26, 97, 108, 109, 1 ));
@@ -174,6 +175,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.System.Profile.ISystemIdentificationInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAnalyticsInfoStatics : aliased constant Windows.IID := (492757094, 6285, 23465, (67, 135, 172, 174, 176, 231, 227, 5 ));
@@ -193,6 +195,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAnalyticsVersionInfo : aliased constant Windows.IID := (2455843000, 39253, 19572, (189, 193, 124, 208, 222, 207, 155, 3 ));
@@ -212,6 +215,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEducationSettingsStatics : aliased constant Windows.IID := (4233359599, 19774, 19987, (155, 35, 80, 95, 77, 9, 30, 146 ));
@@ -224,6 +228,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPlatformDiagnosticsAndUsageDataSettingsStatics : aliased constant Windows.IID := (3068283931, 31516, 19250, (140, 98, 166, 101, 151, 206, 114, 58 ));
@@ -259,6 +264,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHardwareToken : aliased constant Windows.IID := (687264960, 64274, 16548, (129, 103, 127, 78, 3, 210, 114, 76 ));
@@ -285,6 +291,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHardwareIdentificationStatics : aliased constant Windows.IID := (2534564064, 61808, 19010, (189, 85, 169, 0, 178, 18, 218, 226 ));
@@ -298,6 +305,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.System.Profile.IHardwareToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRetailInfoStatics : aliased constant Windows.IID := (118671032, 35730, 20266, (132, 153, 3, 31, 23, 152, 214, 239 ));
@@ -317,6 +325,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownRetailInfoPropertiesStatics : aliased constant Windows.IID := (2572620152, 20495, 18558, (142, 117, 41, 229, 81, 114, 135, 18 ));
@@ -476,6 +485,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISharedModeSettingsStatics : aliased constant Windows.IID := (2302538766, 51926, 19792, (140, 73, 111, 207, 192, 62, 219, 41 ));
@@ -488,6 +498,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISharedModeSettingsStatics2 : aliased constant Windows.IID := (1619626148, 52465, 20200, (165, 226, 253, 106, 29, 12, 250, 200 ));
@@ -500,6 +511,7 @@ package Windows.System.Profile is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -511,7 +523,6 @@ package Windows.System.Profile is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetSystemIdForPublisher
    return Windows.System.Profile.ISystemIdentificationInfo;
@@ -635,5 +646,6 @@ package Windows.System.Profile is
    
    function get_ShouldAvoidLocalStorage
    return Windows.Boolean;
+   
 
 end;

@@ -225,6 +225,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProximityDevice : aliased constant Windows.IID := (4020806994, 63201, 17193, (160, 252, 171, 107, 15, 210, 130, 98 ));
@@ -359,6 +360,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProximityDeviceStatics : aliased constant Windows.IID := (2437652509, 63201, 18372, (161, 76, 20, 138, 25, 3, 208, 198 ));
@@ -386,6 +388,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.Networking.Proximity.IProximityDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITriggeredConnectionStateChangedEventArgs : aliased constant Windows.IID := (3332866221, 63201, 19796, (150, 226, 51, 246, 32, 188, 168, 138 ));
@@ -412,6 +415,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.Networking.Sockets.IStreamSocket
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPeerInformation : aliased constant Windows.IID := (537022216, 40959, 17908, (182, 233, 64, 139, 46, 190, 243, 115 ));
@@ -424,6 +428,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPeerInformationWithHostAndService : aliased constant Windows.IID := (3972517037, 7024, 20107, (146, 219, 187, 231, 129, 65, 147, 8 ));
@@ -443,6 +448,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPeerInformation3 : aliased constant Windows.IID := (2987352362, 56272, 16632, (149, 189, 45, 66, 9, 199, 131, 111 ));
@@ -462,6 +468,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IConnectionRequestedEventArgs : aliased constant Windows.IID := (3949498798, 20254, 19558, (189, 13, 70, 146, 74, 148, 46, 8 ));
@@ -474,6 +481,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.Networking.Proximity.IPeerInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPeerWatcher : aliased constant Windows.IID := (1022239224, 12198, 18041, (150, 145, 3, 201, 74, 66, 15, 52 ));
@@ -573,6 +581,7 @@ package Windows.Networking.Proximity is
       This       : access IPeerWatcher_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPeerFinderStatics : aliased constant Windows.IID := (2437626721, 63201, 18372, (161, 76, 20, 138, 25, 3, 208, 198 ));
@@ -712,6 +721,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.Networking.Sockets.IAsyncOperation_IStreamSocket -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPeerFinderStatics2 : aliased constant Windows.IID := (3605478501, 64976, 19211, (147, 18, 134, 100, 8, 147, 93, 130 ));
@@ -752,6 +762,7 @@ package Windows.Networking.Proximity is
       ; RetVal : access Windows.Networking.Proximity.IPeerWatcher
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -761,7 +772,6 @@ package Windows.Networking.Proximity is
    IID_MessageReceivedHandler : aliased constant Windows.IID := (4020963202, 63202, 18037, (160, 69, 216, 227, 32, 194, 72, 8 ));
    
    type MessageReceivedHandler_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IProximityDevice ; message : Windows.Networking.Proximity.IProximityMessage)) is new Windows.IMulticastDelegate_Interface(IID_MessageReceivedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access MessageReceivedHandler_Interface
@@ -775,7 +785,6 @@ package Windows.Networking.Proximity is
    IID_MessageTransmittedHandler : aliased constant Windows.IID := (4020898634, 63202, 19837, (133, 108, 120, 252, 142, 252, 2, 30 ));
    
    type MessageTransmittedHandler_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IProximityDevice ; messageId : Windows.Int64)) is new Windows.IMulticastDelegate_Interface(IID_MessageTransmittedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access MessageTransmittedHandler_Interface
@@ -789,7 +798,6 @@ package Windows.Networking.Proximity is
    IID_DeviceArrivedEventHandler : aliased constant Windows.IID := (4020886121, 63201, 18889, (164, 158, 142, 15, 197, 143, 185, 17 ));
    
    type DeviceArrivedEventHandler_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IProximityDevice)) is new Windows.IMulticastDelegate_Interface(IID_DeviceArrivedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DeviceArrivedEventHandler_Interface
@@ -802,7 +810,6 @@ package Windows.Networking.Proximity is
    IID_DeviceDepartedEventHandler : aliased constant Windows.IID := (4020886121, 63202, 18889, (164, 158, 142, 15, 197, 143, 185, 17 ));
    
    type DeviceDepartedEventHandler_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IProximityDevice)) is new Windows.IMulticastDelegate_Interface(IID_DeviceDepartedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DeviceDepartedEventHandler_Interface
@@ -815,7 +822,6 @@ package Windows.Networking.Proximity is
    IID_TypedEventHandler_IPeerWatcher_add_Added : aliased constant Windows.IID := (2909227967, 25217, 22851, (151, 114, 224, 253, 118, 100, 212, 225 ));
    
    type TypedEventHandler_IPeerWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Networking.Proximity.IPeerInformation)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPeerWatcher_add_Added'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPeerWatcher_add_Added_Interface
@@ -829,7 +835,6 @@ package Windows.Networking.Proximity is
    IID_TypedEventHandler_IPeerWatcher_add_Removed : aliased constant Windows.IID := (2909227967, 25217, 22851, (151, 114, 224, 253, 118, 100, 212, 225 ));
    
    type TypedEventHandler_IPeerWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Networking.Proximity.IPeerInformation)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPeerWatcher_add_Removed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPeerWatcher_add_Removed_Interface
@@ -843,7 +848,6 @@ package Windows.Networking.Proximity is
    IID_TypedEventHandler_IPeerWatcher_add_Updated : aliased constant Windows.IID := (2909227967, 25217, 22851, (151, 114, 224, 253, 118, 100, 212, 225 ));
    
    type TypedEventHandler_IPeerWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Networking.Proximity.IPeerInformation)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPeerWatcher_add_Updated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPeerWatcher_add_Updated_Interface
@@ -857,7 +861,6 @@ package Windows.Networking.Proximity is
    IID_TypedEventHandler_IPeerWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (4103577249, 32262, 20648, (136, 220, 63, 41, 82, 78, 79, 219 ));
    
    type TypedEventHandler_IPeerWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPeerWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPeerWatcher_add_EnumerationCompleted_Interface
@@ -871,7 +874,6 @@ package Windows.Networking.Proximity is
    IID_TypedEventHandler_IPeerWatcher_add_Stopped : aliased constant Windows.IID := (4103577249, 32262, 20648, (136, 220, 63, 41, 82, 78, 79, 219 ));
    
    type TypedEventHandler_IPeerWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Networking.Proximity.IPeerWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPeerWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPeerWatcher_add_Stopped_Interface
@@ -885,7 +887,6 @@ package Windows.Networking.Proximity is
    IID_TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged : aliased constant Windows.IID := (777705210, 15526, 21784, (189, 77, 254, 252, 69, 53, 88, 14 ));
    
    type TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPeerFinderStatics_add_TriggeredConnectionStateChanged_Interface
@@ -899,7 +900,6 @@ package Windows.Networking.Proximity is
    IID_TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested : aliased constant Windows.IID := (1361852476, 35625, 20601, (149, 62, 141, 238, 143, 138, 130, 36 ));
    
    type TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Networking.Proximity.IConnectionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPeerFinderStatics_add_ConnectionRequested_Interface
@@ -922,7 +922,6 @@ package Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String;
@@ -1043,5 +1042,6 @@ package Windows.Networking.Proximity is
       peerInformation : Windows.Networking.Proximity.IPeerInformation
    )
    return Windows.Networking.Sockets.IAsyncOperation_IStreamSocket;
+   
 
 end;

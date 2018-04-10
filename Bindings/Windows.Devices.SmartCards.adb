@@ -29,7 +29,6 @@ package body Windows.Devices.SmartCards is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access SmartCardPinResetHandler_Interface
@@ -307,7 +306,6 @@ package body Windows.Devices.SmartCards is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateSmartCardAppletIdGroup return Windows.Devices.SmartCards.ISmartCardAppletIdGroup is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardAppletIdGroup");
@@ -489,7 +487,6 @@ package body Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetAppletIdGroupRegistrationsAsync
    return Windows.Address is
@@ -836,5 +833,6 @@ package body Windows.Devices.SmartCards is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

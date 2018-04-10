@@ -29,7 +29,6 @@ package body Windows.Graphics.Imaging is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Interface
@@ -111,7 +110,6 @@ package body Windows.Graphics.Imaging is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateBitmapTransform return Windows.Graphics.Imaging.IBitmapTransform is
       Hr            : Windows.HResult := S_OK;
@@ -220,7 +218,6 @@ package body Windows.Graphics.Imaging is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_BmpDecoderId
    return Windows.Guid is
@@ -752,5 +749,6 @@ package body Windows.Graphics.Imaging is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

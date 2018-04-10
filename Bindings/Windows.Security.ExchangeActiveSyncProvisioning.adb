@@ -27,7 +27,6 @@ package body Windows.Security.ExchangeActiveSyncProvisioning is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IEasComplianceResults_Interface
@@ -44,7 +43,6 @@ package body Windows.Security.ExchangeActiveSyncProvisioning is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateEasClientDeviceInformation return Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation is
       Hr            : Windows.HResult := S_OK;

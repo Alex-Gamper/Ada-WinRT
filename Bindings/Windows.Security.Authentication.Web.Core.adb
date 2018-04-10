@@ -29,7 +29,6 @@ package body Windows.Security.Authentication.Web.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface
@@ -85,7 +84,6 @@ package body Windows.Security.Authentication.Web.Core is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -218,7 +216,6 @@ package body Windows.Security.Authentication.Web.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetTokenSilentlyAsync
    (
@@ -405,5 +402,6 @@ package body Windows.Security.Authentication.Web.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

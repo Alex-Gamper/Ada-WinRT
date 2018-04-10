@@ -28,7 +28,6 @@ package body Windows.UI.Composition.Effects is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateSceneLightingEffect return Windows.UI.Composition.Effects.ISceneLightingEffect is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Composition.Effects.SceneLightingEffect");

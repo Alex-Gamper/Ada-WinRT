@@ -348,6 +348,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognizerTimeouts : aliased constant Windows.IID := (787967946, 27196, 19914, (161, 83, 223, 27, 200, 138, 121, 175 ));
@@ -395,6 +396,7 @@ package Windows.Media.SpeechRecognition is
       ; value : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognizerUIOptions : aliased constant Windows.IID := (2022233665, 47403, 17594, (162, 95, 209, 134, 70, 48, 100, 31 ));
@@ -456,6 +458,7 @@ package Windows.Media.SpeechRecognition is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionResult : aliased constant Windows.IID := (1311781207, 846, 18002, (133, 126, 208, 69, 76, 196, 190, 236 ));
@@ -518,6 +521,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionConstraint : aliased constant Windows.IID := (2041321000, 19816, 17348, (137, 17, 64, 220, 65, 1, 181, 91 ));
@@ -572,6 +576,7 @@ package Windows.Media.SpeechRecognition is
       ; value : Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionResult2 : aliased constant Windows.IID := (2944324026, 17691, 16742, (160, 193, 31, 254, 132, 3, 45, 3 ));
@@ -591,6 +596,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionSemanticInterpretation : aliased constant Windows.IID := (2866928283, 32306, 19487, (137, 254, 12, 101, 244, 134, 245, 46 ));
@@ -603,6 +609,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionTopicConstraint : aliased constant Windows.IID := (3211779865, 33373, 20073, (166, 129, 54, 228, 140, 241, 201, 62 ));
@@ -622,6 +629,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionTopicConstraintFactory : aliased constant Windows.IID := (1852335071, 60421, 18391, (165, 223, 86, 163, 67, 30, 88, 210 ));
@@ -646,6 +654,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionListConstraint : aliased constant Windows.IID := (163874793, 58541, 17702, (129, 242, 73, 70, 251, 72, 29, 152 ));
@@ -658,6 +667,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionListConstraintFactory : aliased constant Windows.IID := (1089719751, 22058, 17002, (159, 59, 59, 78, 40, 43, 225, 213 ));
@@ -680,6 +690,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionListConstraint
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionGrammarFileConstraint : aliased constant Windows.IID := (3036879503, 34250, 20388, (177, 26, 71, 79, 196, 27, 56, 53 ));
@@ -692,6 +703,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionGrammarFileConstraintFactory : aliased constant Windows.IID := (1034383595, 50297, 19495, (159, 25, 137, 151, 78, 243, 146, 209 ));
@@ -714,11 +726,13 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionVoiceCommandDefinitionConstraint : aliased constant Windows.IID := (4068023339, 7924, 19175, (157, 119, 182, 255, 16, 184, 163, 194 ));
    
    type ISpeechRecognitionVoiceCommandDefinitionConstraint_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionQualityDegradingEventArgs : aliased constant Windows.IID := (1340227845, 35898, 19582, (141, 10, 91, 212, 245, 177, 74, 216 ));
@@ -731,6 +745,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognizerStateChangedEventArgs : aliased constant Windows.IID := (1446858505, 47619, 19373, (173, 129, 221, 198, 196, 218, 176, 195 ));
@@ -743,6 +758,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.SpeechRecognizerState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognizer : aliased constant Windows.IID := (197380555, 49770, 16626, (174, 181, 128, 150, 178, 228, 128, 115 ));
@@ -827,6 +843,7 @@ package Windows.Media.SpeechRecognition is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognizerFactory : aliased constant Windows.IID := (1623492829, 32696, 16435, (172, 112, 208, 70, 246, 72, 24, 225 ));
@@ -840,6 +857,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognizer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognizerStatics : aliased constant Windows.IID := (2275630764, 42972, 19211, (188, 201, 36, 244, 124, 11, 126, 191 ));
@@ -866,6 +884,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Globalization.IVectorView_ILanguage -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognizerStatics2 : aliased constant Windows.IID := (488312213, 30053, 20217, (162, 243, 186, 21, 22, 42, 150, 207 ));
@@ -879,6 +898,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognizer2 : aliased constant Windows.IID := (1674164977, 37347, 20132, (134, 161, 124, 56, 103, 208, 132, 166 ));
@@ -920,6 +940,7 @@ package Windows.Media.SpeechRecognition is
       ; value : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionHypothesis : aliased constant Windows.IID := (2054890928, 39365, 20349, (191, 132, 16, 170, 19, 2, 182, 52 ));
@@ -932,6 +953,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechRecognitionHypothesisGeneratedEventArgs : aliased constant Windows.IID := (1427511930, 32803, 22630, (65, 29, 18, 19, 187, 39, 20, 118 ));
@@ -944,6 +966,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionHypothesis
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechContinuousRecognitionSession : aliased constant Windows.IID := (1780562948, 26132, 18936, (153, 162, 181, 233, 179, 160, 133, 200 ));
@@ -1035,6 +1058,7 @@ package Windows.Media.SpeechRecognition is
       ; value : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechContinuousRecognitionCompletedEventArgs : aliased constant Windows.IID := (3822086587, 58124, 24088, (66, 75, 127, 190, 129, 248, 251, 208 ));
@@ -1047,6 +1071,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpeechContinuousRecognitionResultGeneratedEventArgs : aliased constant Windows.IID := (420027934, 28286, 23110, (64, 251, 118, 89, 79, 120, 101, 4 ));
@@ -1059,6 +1084,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandManager : aliased constant Windows.IID := (2855964117, 46823, 20194, (186, 169, 221, 107, 172, 237, 10, 43 ));
@@ -1079,6 +1105,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandSet : aliased constant Windows.IID := (200137333, 18150, 19217, (160, 136, 92, 104, 99, 40, 153, 181 ));
@@ -1107,6 +1134,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISpeechRecognitionResult : aliased constant Windows.IID := (544566738, 27967, 21513, (132, 106, 15, 15, 1, 215, 191, 154 ));
@@ -1141,6 +1169,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISpeechRecognitionResult : aliased constant Windows.IID := (228293448, 39073, 23330, (154, 102, 111, 129, 47, 89, 71, 170 ));
@@ -1153,6 +1182,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.IIterator_ISpeechRecognitionResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISpeechRecognitionResult : aliased constant Windows.IID := (238518543, 7654, 20889, (131, 63, 90, 107, 11, 217, 30, 35 ));
@@ -1191,6 +1221,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISpeechRecognitionConstraint : aliased constant Windows.IID := (1938751665, 57740, 20800, (165, 58, 241, 120, 141, 16, 201, 61 ));
@@ -1225,6 +1256,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISpeechRecognitionConstraint : aliased constant Windows.IID := (2296791916, 12883, 21003, (158, 216, 166, 59, 23, 140, 68, 162 ));
@@ -1237,6 +1269,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.IIterator_ISpeechRecognitionConstraint
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISpeechRecognitionConstraint : aliased constant Windows.IID := (874376733, 27330, 23814, (144, 38, 179, 10, 218, 32, 86, 101 ));
@@ -1275,6 +1308,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISpeechRecognitionConstraint : aliased constant Windows.IID := (647092067, 22046, 20576, (187, 201, 123, 7, 54, 26, 204, 149 ));
@@ -1369,6 +1403,7 @@ package Windows.Media.SpeechRecognition is
       ; items : Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ISpeechRecognitionCompilationResult : aliased constant Windows.IID := (2744263834, 57994, 22090, (158, 115, 29, 218, 99, 202, 100, 60 ));
@@ -1395,6 +1430,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionCompilationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ISpeechRecognitionResult : aliased constant Windows.IID := (3124685800, 36220, 20978, (158, 212, 235, 175, 227, 103, 77, 180 ));
@@ -1421,6 +1457,7 @@ package Windows.Media.SpeechRecognition is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1430,7 +1467,6 @@ package Windows.Media.SpeechRecognition is
    IID_AsyncOperationCompletedHandler_ISpeechRecognitionCompilationResult : aliased constant Windows.IID := (2026396093, 5332, 23616, (171, 255, 73, 6, 22, 213, 233, 45 ));
    
    type AsyncOperationCompletedHandler_ISpeechRecognitionCompilationResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.SpeechRecognition.IAsyncOperation_ISpeechRecognitionCompilationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpeechRecognitionCompilationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISpeechRecognitionCompilationResult_Interface
@@ -1444,7 +1480,6 @@ package Windows.Media.SpeechRecognition is
    IID_AsyncOperationCompletedHandler_ISpeechRecognitionResult : aliased constant Windows.IID := (3256441981, 56514, 23661, (145, 98, 200, 223, 102, 82, 135, 98 ));
    
    type AsyncOperationCompletedHandler_ISpeechRecognitionResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.SpeechRecognition.IAsyncOperation_ISpeechRecognitionResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpeechRecognitionResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISpeechRecognitionResult_Interface
@@ -1458,7 +1493,6 @@ package Windows.Media.SpeechRecognition is
    IID_TypedEventHandler_ISpeechRecognizer_add_RecognitionQualityDegrading : aliased constant Windows.IID := (365590808, 25042, 22450, (185, 51, 68, 6, 62, 139, 182, 98 ));
    
    type TypedEventHandler_ISpeechRecognizer_add_RecognitionQualityDegrading_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechRecognizer ; args : Windows.Media.SpeechRecognition.ISpeechRecognitionQualityDegradingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpeechRecognizer_add_RecognitionQualityDegrading'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpeechRecognizer_add_RecognitionQualityDegrading_Interface
@@ -1472,7 +1506,6 @@ package Windows.Media.SpeechRecognition is
    IID_TypedEventHandler_ISpeechRecognizer_add_StateChanged : aliased constant Windows.IID := (3508035218, 23600, 21857, (179, 226, 232, 45, 219, 216, 114, 195 ));
    
    type TypedEventHandler_ISpeechRecognizer_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechRecognizer ; args : Windows.Media.SpeechRecognition.ISpeechRecognizerStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpeechRecognizer_add_StateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpeechRecognizer_add_StateChanged_Interface
@@ -1486,7 +1519,6 @@ package Windows.Media.SpeechRecognition is
    IID_TypedEventHandler_ISpeechRecognizer2_add_HypothesisGenerated : aliased constant Windows.IID := (1286888122, 30067, 21594, (178, 154, 233, 190, 53, 189, 70, 130 ));
    
    type TypedEventHandler_ISpeechRecognizer2_add_HypothesisGenerated_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechRecognizer ; args : Windows.Media.SpeechRecognition.ISpeechRecognitionHypothesisGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpeechRecognizer2_add_HypothesisGenerated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpeechRecognizer2_add_HypothesisGenerated_Interface
@@ -1500,7 +1532,6 @@ package Windows.Media.SpeechRecognition is
    IID_TypedEventHandler_ISpeechContinuousRecognitionSession_add_Completed : aliased constant Windows.IID := (2164506648, 31058, 23033, (159, 65, 35, 177, 125, 110, 69, 45 ));
    
    type TypedEventHandler_ISpeechContinuousRecognitionSession_add_Completed_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession ; args : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpeechContinuousRecognitionSession_add_Completed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpeechContinuousRecognitionSession_add_Completed_Interface
@@ -1514,7 +1545,6 @@ package Windows.Media.SpeechRecognition is
    IID_TypedEventHandler_ISpeechContinuousRecognitionSession_add_ResultGenerated : aliased constant Windows.IID := (639180915, 41673, 21117, (155, 211, 145, 28, 5, 224, 1, 30 ));
    
    type TypedEventHandler_ISpeechContinuousRecognitionSession_add_ResultGenerated_Interface(Callback : access procedure (sender : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionSession ; args : Windows.Media.SpeechRecognition.ISpeechContinuousRecognitionResultGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpeechContinuousRecognitionSession_add_ResultGenerated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpeechContinuousRecognitionSession_add_ResultGenerated_Interface
@@ -1530,7 +1560,6 @@ package Windows.Media.SpeechRecognition is
    subtype SpeechRecognitionSemanticInterpretation is Windows.Media.SpeechRecognition.ISpeechRecognitionSemanticInterpretation;
    subtype SpeechRecognitionResult is Windows.Media.SpeechRecognition.ISpeechRecognitionResult;
    subtype SpeechRecognitionTopicConstraint is Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint;
-   
    function Create
    (
       scenario : Windows.Media.SpeechRecognition.SpeechRecognitionScenario
@@ -1545,9 +1574,9 @@ package Windows.Media.SpeechRecognition is
       ; tag : Windows.String
    )
    return Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint;
+   
    
    subtype SpeechRecognitionListConstraint is Windows.Media.SpeechRecognition.ISpeechRecognitionListConstraint;
-   
    function Create
    (
       commands : Windows.Foundation.Collections.IIterable_String
@@ -1560,9 +1589,9 @@ package Windows.Media.SpeechRecognition is
       ; tag : Windows.String
    )
    return Windows.Media.SpeechRecognition.ISpeechRecognitionListConstraint;
+   
    
    subtype SpeechRecognitionGrammarFileConstraint is Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint;
-   
    function Create
    (
       file : Windows.Storage.IStorageFile
@@ -1575,17 +1604,18 @@ package Windows.Media.SpeechRecognition is
       ; tag : Windows.String
    )
    return Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint;
+   
    
    subtype SpeechRecognizerTimeouts is Windows.Media.SpeechRecognition.ISpeechRecognizerTimeouts;
    subtype SpeechRecognizerUIOptions is Windows.Media.SpeechRecognition.ISpeechRecognizerUIOptions;
    subtype SpeechRecognitionCompilationResult is Windows.Media.SpeechRecognition.ISpeechRecognitionCompilationResult;
    subtype SpeechRecognizer is Windows.Media.SpeechRecognition.ISpeechRecognizer;
-   
    function Create
    (
       language : Windows.Globalization.ILanguage
    )
    return Windows.Media.SpeechRecognition.ISpeechRecognizer;
+   
    
    subtype SpeechRecognitionQualityDegradingEventArgs is Windows.Media.SpeechRecognition.ISpeechRecognitionQualityDegradingEventArgs;
    subtype SpeechRecognizerStateChangedEventArgs is Windows.Media.SpeechRecognition.ISpeechRecognizerStateChangedEventArgs;
@@ -1600,7 +1630,6 @@ package Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_SystemSpeechLanguage
    return Windows.Globalization.ILanguage;
@@ -1625,5 +1654,6 @@ package Windows.Media.SpeechRecognition is
    
    function get_InstalledCommandSets
    return Windows.Address;
+   
 
 end;

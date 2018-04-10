@@ -27,7 +27,6 @@ package body Windows.Globalization.DateTimeFormatting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateDateTimeFormatter
    (
       formatTemplate : Windows.String
@@ -203,7 +202,6 @@ package body Windows.Globalization.DateTimeFormatting is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_LongDate
    return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter is
       Hr            : Windows.HRESULT := S_OK;
@@ -271,5 +269,6 @@ package body Windows.Globalization.DateTimeFormatting is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

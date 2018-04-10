@@ -30,7 +30,6 @@ package body Windows.Media.DialProtocol is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_DialAppLaunchResult_Interface
@@ -126,7 +125,6 @@ package body Windows.Media.DialProtocol is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateDialDevicePicker return Windows.Media.DialProtocol.IDialDevicePicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.DialProtocol.DialDevicePicker");
@@ -151,7 +149,6 @@ package body Windows.Media.DialProtocol is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    (
@@ -229,5 +226,6 @@ package body Windows.Media.DialProtocol is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

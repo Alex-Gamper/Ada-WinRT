@@ -75,6 +75,7 @@ package Windows.Devices.Background is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceServicingDetails : aliased constant Windows.IID := (1252781609, 9028, 19140, (133, 39, 74, 142, 246, 144, 86, 69 ));
@@ -101,6 +102,7 @@ package Windows.Devices.Background is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

@@ -30,7 +30,6 @@ package body Windows.ApplicationModel.Appointments is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAppointmentStore_Interface
@@ -112,7 +111,6 @@ package body Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateAppointment return Windows.ApplicationModel.Appointments.IAppointment is
       Hr            : Windows.HResult := S_OK;
@@ -206,7 +204,6 @@ package body Windows.ApplicationModel.Appointments is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForUser
    (
@@ -949,5 +946,6 @@ package body Windows.ApplicationModel.Appointments is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

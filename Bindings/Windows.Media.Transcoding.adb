@@ -31,7 +31,6 @@ package body Windows.Media.Transcoding is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_TranscodeFailureReason_Interface
@@ -61,7 +60,6 @@ package body Windows.Media.Transcoding is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateMediaTranscoder return Windows.Media.Transcoding.IMediaTranscoder is
       Hr            : Windows.HResult := S_OK;

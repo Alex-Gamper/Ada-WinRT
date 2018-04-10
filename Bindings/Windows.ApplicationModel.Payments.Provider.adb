@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Payments.Provider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPaymentTransactionAcceptResult_Interface
@@ -59,7 +58,6 @@ package body Windows.ApplicationModel.Payments.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -67,7 +65,6 @@ package body Windows.ApplicationModel.Payments.Provider is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Current
    return Windows.ApplicationModel.Payments.Provider.IPaymentAppManager is
@@ -105,5 +102,6 @@ package body Windows.ApplicationModel.Payments.Provider is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

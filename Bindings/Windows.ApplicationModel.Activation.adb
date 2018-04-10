@@ -48,7 +48,6 @@ package body Windows.ApplicationModel.Activation is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISplashScreen_add_Dismissed_Interface
@@ -78,7 +77,6 @@ package body Windows.ApplicationModel.Activation is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

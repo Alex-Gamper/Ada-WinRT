@@ -280,6 +280,7 @@ package Windows.Foundation.Metadata is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -288,7 +289,6 @@ package Windows.Foundation.Metadata is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsTypePresent
    (
@@ -360,5 +360,6 @@ package Windows.Foundation.Metadata is
       ; minorVersion : Windows.UInt16
    )
    return Windows.Boolean;
+   
 
 end;

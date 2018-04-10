@@ -141,6 +141,7 @@ package Windows.Networking is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHostName : aliased constant Windows.IID := (3213806253, 60822, 18855, (144, 132, 212, 22, 202, 232, 141, 203 ));
@@ -189,6 +190,7 @@ package Windows.Networking is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHostNameFactory : aliased constant Windows.IID := (1166812141, 28975, 17782, (173, 241, 194, 11, 44, 100, 53, 88 ));
@@ -202,6 +204,7 @@ package Windows.Networking is
       ; RetVal : access Windows.Networking.IHostName
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEndpointPair : aliased constant Windows.IID := (866167350, 63738, 19248, (184, 86, 118, 81, 124, 59, 208, 109 ));
@@ -263,6 +266,7 @@ package Windows.Networking is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEndpointPairFactory : aliased constant Windows.IID := (3054098801, 25824, 17451, (170, 111, 204, 140, 143, 24, 31, 120 ));
@@ -279,6 +283,7 @@ package Windows.Networking is
       ; RetVal : access Windows.Networking.IEndpointPair
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IHostName : aliased constant Windows.IID := (1434187836, 42024, 23997, (160, 254, 5, 246, 238, 84, 61, 69 ));
@@ -313,6 +318,7 @@ package Windows.Networking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IHostName : aliased constant Windows.IID := (2657042128, 53020, 23864, (131, 44, 172, 234, 97, 100, 191, 92 ));
@@ -325,6 +331,7 @@ package Windows.Networking is
       ; RetVal : access Windows.Networking.IIterator_IHostName
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IHostName : aliased constant Windows.IID := (4101008049, 21923, 21104, (175, 178, 115, 41, 136, 254, 130, 39 ));
@@ -363,6 +370,7 @@ package Windows.Networking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IEndpointPair : aliased constant Windows.IID := (3365535647, 59125, 22131, (129, 12, 4, 226, 255, 152, 112, 79 ));
@@ -397,6 +405,7 @@ package Windows.Networking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IEndpointPair : aliased constant Windows.IID := (3622601668, 41339, 20927, (137, 151, 170, 51, 185, 16, 45, 201 ));
@@ -409,6 +418,7 @@ package Windows.Networking is
       ; RetVal : access Windows.Networking.IIterator_IEndpointPair
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IEndpointPair : aliased constant Windows.IID := (2273355857, 27976, 20486, (146, 136, 129, 243, 215, 4, 90, 150 ));
@@ -447,6 +457,7 @@ package Windows.Networking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IHostName : aliased constant Windows.IID := (2428967977, 43445, 21095, (165, 173, 139, 117, 103, 54, 49, 124 ));
@@ -541,20 +552,20 @@ package Windows.Networking is
       ; items : Windows.Networking.IHostName_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype HostName is Windows.Networking.IHostName;
-   
    function CreateHostName
    (
       hostName : Windows.String
    )
    return Windows.Networking.IHostName;
    
-   subtype EndpointPair is Windows.Networking.IEndpointPair;
    
+   subtype EndpointPair is Windows.Networking.IEndpointPair;
    function CreateEndpointPair
    (
       localHostName : Windows.Networking.IHostName
@@ -565,10 +576,10 @@ package Windows.Networking is
    return Windows.Networking.IEndpointPair;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Compare
    (
@@ -576,5 +587,6 @@ package Windows.Networking is
       ; value2 : Windows.String
    )
    return Windows.Int32;
+   
 
 end;

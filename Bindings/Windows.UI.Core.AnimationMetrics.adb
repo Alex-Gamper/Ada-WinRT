@@ -27,7 +27,6 @@ package body Windows.UI.Core.AnimationMetrics is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       effect : Windows.UI.Core.AnimationMetrics.AnimationEffect

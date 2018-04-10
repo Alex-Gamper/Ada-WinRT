@@ -28,7 +28,6 @@ package body Windows.Security.Cryptography is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.Security.Cryptography is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Compare
    (
@@ -256,5 +254,6 @@ package body Windows.Security.Cryptography is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

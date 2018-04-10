@@ -201,6 +201,7 @@ package Windows.Devices.SerialCommunication is
       ; RetVal : access Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISerialDevice : aliased constant Windows.IID := (3783773382, 8720, 16719, (182, 90, 245, 85, 58, 3, 55, 42 ));
@@ -439,6 +440,7 @@ package Windows.Devices.SerialCommunication is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IErrorReceivedEventArgs : aliased constant Windows.IID := (4240883545, 4739, 19850, (191, 223, 86, 107, 51, 221, 178, 143 ));
@@ -451,6 +453,7 @@ package Windows.Devices.SerialCommunication is
       ; RetVal : access Windows.Devices.SerialCommunication.SerialError
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPinChangedEventArgs : aliased constant Windows.IID := (2730433968, 64668, 17927, (147, 208, 250, 94, 131, 67, 238, 34 ));
@@ -463,6 +466,7 @@ package Windows.Devices.SerialCommunication is
       ; RetVal : access Windows.Devices.SerialCommunication.SerialPinChange
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ISerialDevice : aliased constant Windows.IID := (1156523757, 49663, 21610, (164, 107, 106, 55, 222, 145, 135, 251 ));
@@ -489,6 +493,7 @@ package Windows.Devices.SerialCommunication is
       ; RetVal : access Windows.Devices.SerialCommunication.ISerialDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -498,7 +503,6 @@ package Windows.Devices.SerialCommunication is
    IID_AsyncOperationCompletedHandler_ISerialDevice : aliased constant Windows.IID := (2225294131, 1788, 24163, (142, 226, 234, 180, 255, 105, 172, 183 ));
    
    type AsyncOperationCompletedHandler_ISerialDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISerialDevice'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISerialDevice_Interface
@@ -512,7 +516,6 @@ package Windows.Devices.SerialCommunication is
    IID_TypedEventHandler_ISerialDevice_add_ErrorReceived : aliased constant Windows.IID := (3643712291, 47039, 24066, (185, 251, 198, 31, 151, 208, 128, 233 ));
    
    type TypedEventHandler_ISerialDevice_add_ErrorReceived_Interface(Callback : access procedure (sender : Windows.Devices.SerialCommunication.ISerialDevice ; args : Windows.Devices.SerialCommunication.IErrorReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISerialDevice_add_ErrorReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISerialDevice_add_ErrorReceived_Interface
@@ -526,7 +529,6 @@ package Windows.Devices.SerialCommunication is
    IID_TypedEventHandler_ISerialDevice_add_PinChanged : aliased constant Windows.IID := (3835085807, 22530, 23236, (172, 46, 150, 188, 35, 250, 148, 71 ));
    
    type TypedEventHandler_ISerialDevice_add_PinChanged_Interface(Callback : access procedure (sender : Windows.Devices.SerialCommunication.ISerialDevice ; args : Windows.Devices.SerialCommunication.IPinChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISerialDevice_add_PinChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISerialDevice_add_PinChanged_Interface
@@ -546,7 +548,6 @@ package Windows.Devices.SerialCommunication is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String;
@@ -569,5 +570,6 @@ package Windows.Devices.SerialCommunication is
       deviceId : Windows.String
    )
    return Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice;
+   
 
 end;

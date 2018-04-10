@@ -31,7 +31,6 @@ package body Windows.Media.Devices is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access CallControlEventHandler_Interface
@@ -139,7 +138,6 @@ package body Windows.Media.Devices is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       deviceId : Windows.String
@@ -235,7 +233,6 @@ package body Windows.Media.Devices is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetAudioCaptureSelector
    return Windows.String is
@@ -440,5 +437,6 @@ package body Windows.Media.Devices is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

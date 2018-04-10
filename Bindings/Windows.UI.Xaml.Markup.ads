@@ -134,6 +134,7 @@ package Windows.UI.Xaml.Markup is
       ; target : Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IComponentConnector2 : aliased constant Windows.IID := (3700373131, 60620, 18830, (177, 57, 145, 20, 34, 84, 215, 174 ));
@@ -148,6 +149,7 @@ package Windows.UI.Xaml.Markup is
       ; RetVal : access Windows.UI.Xaml.Markup.IComponentConnector
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataTemplateComponent : aliased constant Windows.IID := (138583496, 35504, 18247, (170, 154, 254, 173, 252, 141, 168, 225 ));
@@ -169,6 +171,7 @@ package Windows.UI.Xaml.Markup is
       ; nextPhase : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlMember : aliased constant Windows.IID := (3309434252, 17321, 16918, (183, 24, 224, 177, 27, 20, 233, 62 ));
@@ -232,6 +235,7 @@ package Windows.UI.Xaml.Markup is
       ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlType : aliased constant Windows.IID := (2032200369, 41701, 18330, (189, 80, 108, 239, 60, 11, 73, 112 ));
@@ -367,6 +371,7 @@ package Windows.UI.Xaml.Markup is
       This       : access IXamlType_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlMetadataProvider : aliased constant Windows.IID := (3010878825, 26789, 19250, (136, 97, 253, 185, 12, 31, 88, 54 ));
@@ -395,11 +400,13 @@ package Windows.UI.Xaml.Markup is
       ; RetVal : access Windows.UI.Xaml.Markup.XmlnsDefinition_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMarkupExtension : aliased constant Windows.IID := (518209901, 22059, 18542, (158, 229, 15, 12, 188, 200, 4, 140 ));
    
    type IMarkupExtension_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IMarkupExtensionOverrides : aliased constant Windows.IID := (959936959, 47552, 20475, (165, 127, 88, 231, 53, 110, 66, 95 ));
@@ -412,6 +419,7 @@ package Windows.UI.Xaml.Markup is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMarkupExtensionFactory : aliased constant Windows.IID := (1697815557, 64346, 17767, (157, 85, 92, 223, 186, 218, 39, 57 ));
@@ -426,11 +434,13 @@ package Windows.UI.Xaml.Markup is
       ; RetVal : access Windows.UI.Xaml.Markup.IMarkupExtension
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlBinaryWriter : aliased constant Windows.IID := (2191338195, 25098, 18166, (132, 93, 67, 106, 5, 146, 113, 0 ));
    
    type IXamlBinaryWriter_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlBinaryWriterStatics : aliased constant Windows.IID := (227463290, 39810, 19112, (182, 139, 2, 111, 45, 225, 204, 134 ));
@@ -446,11 +456,13 @@ package Windows.UI.Xaml.Markup is
       ; RetVal : access Windows.UI.Xaml.Markup.XamlBinaryWriterErrorInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlBindingHelper : aliased constant Windows.IID := (4205247238, 35513, 20215, (138, 231, 251, 211, 11, 191, 208, 109 ));
    
    type IXamlBindingHelper_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlBindingHelperStatics : aliased constant Windows.IID := (4133288817, 51212, 20474, (134, 238, 85, 135, 84, 238, 51, 109 ));
@@ -655,11 +667,13 @@ package Windows.UI.Xaml.Markup is
       ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlMarkupHelper : aliased constant Windows.IID := (3504760636, 21314, 17647, (133, 167, 237, 50, 122, 115, 157, 154 ));
    
    type IXamlMarkupHelper_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlMarkupHelperStatics : aliased constant Windows.IID := (3384555301, 62287, 17500, (129, 162, 107, 114, 165, 232, 240, 114 ));
@@ -672,11 +686,13 @@ package Windows.UI.Xaml.Markup is
       ; element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlReader : aliased constant Windows.IID := (607603953, 52459, 18623, (165, 20, 65, 176, 24, 111, 132, 194 ));
    
    type IXamlReader_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlReaderStatics : aliased constant Windows.IID := (2559690429, 21327, 18773, (184, 90, 138, 141, 192, 220, 166, 2 ));
@@ -698,6 +714,7 @@ package Windows.UI.Xaml.Markup is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -756,13 +773,13 @@ package Windows.UI.Xaml.Markup is
    )
    return Windows.HRESULT;
    
-   
    function ProvideValue
    (
       This       : access IMarkupExtensionOverrides_Interface_Impl
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT;
+   
    
    type IMarkupExtension_Interface_Impl is new IMarkupExtension_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
@@ -825,7 +842,6 @@ package Windows.UI.Xaml.Markup is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateInstance
    (
@@ -1030,5 +1046,6 @@ package Windows.UI.Xaml.Markup is
       xaml : Windows.String
    )
    return Windows.Object;
+   
 
 end;

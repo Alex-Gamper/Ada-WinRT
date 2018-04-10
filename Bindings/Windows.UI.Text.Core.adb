@@ -30,7 +30,6 @@ package body Windows.UI.Text.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreTextEditContext2_add_NotifyFocusLeaveCompleted_Interface
@@ -178,7 +177,6 @@ package body Windows.UI.Text.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -186,7 +184,6 @@ package body Windows.UI.Text.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.UI.Text.Core.ICoreTextServicesManager is
@@ -221,5 +218,6 @@ package body Windows.UI.Text.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -28,7 +28,6 @@ package body Windows.Devices.Usb is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUsbDevice_Interface
@@ -58,7 +57,6 @@ package body Windows.Devices.Usb is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateUsbControlRequestType return Windows.Devices.Usb.IUsbControlRequestType is
       Hr            : Windows.HResult := S_OK;
@@ -121,7 +119,6 @@ package body Windows.Devices.Usb is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_CdcControl
    return Windows.Devices.Usb.IUsbDeviceClass is
@@ -501,5 +498,6 @@ package body Windows.Devices.Usb is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

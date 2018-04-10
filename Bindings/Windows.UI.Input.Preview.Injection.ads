@@ -401,6 +401,7 @@ package Windows.UI.Input.Preview.Injection is
       ; value : Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInjectedInputPenInfo : aliased constant Windows.IID := (1799400707, 51742, 21799, (126, 2, 40, 40, 84, 11, 177, 212 ));
@@ -504,6 +505,7 @@ package Windows.UI.Input.Preview.Injection is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInjectedInputMouseInfo : aliased constant Windows.IID := (2532666987, 58490, 23796, (65, 141, 138, 95, 185, 103, 12, 125 ));
@@ -579,6 +581,7 @@ package Windows.UI.Input.Preview.Injection is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInjectedInputKeyboardInfo : aliased constant Windows.IID := (1262932288, 11114, 24570, (126, 174, 189, 7, 123, 5, 42, 205 ));
@@ -626,6 +629,7 @@ package Windows.UI.Input.Preview.Injection is
       ; value : Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInjectedInputGamepadInfo : aliased constant Windows.IID := (548313663, 57105, 17778, (169, 171, 215, 91, 138, 94, 72, 173 ));
@@ -729,6 +733,7 @@ package Windows.UI.Input.Preview.Injection is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInjectedInputGamepadInfoFactory : aliased constant Windows.IID := (1499031670, 27705, 20164, (139, 42, 41, 239, 125, 225, 138, 202 ));
@@ -742,6 +747,7 @@ package Windows.UI.Input.Preview.Injection is
       ; RetVal : access Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInputInjector : aliased constant Windows.IID := (2395107204, 2818, 19410, (173, 122, 61, 70, 88, 190, 62, 24 ));
@@ -808,6 +814,7 @@ package Windows.UI.Input.Preview.Injection is
       ; shortcut : Windows.UI.Input.Preview.Injection.InjectedInputShortcut
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInputInjector2 : aliased constant Windows.IID := (2390397021, 5203, 17319, (155, 203, 6, 214, 215, 179, 5, 247 ));
@@ -832,6 +839,7 @@ package Windows.UI.Input.Preview.Injection is
       This       : access IInputInjector2_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInputInjectorStatics : aliased constant Windows.IID := (3735972163, 29698, 16705, (165, 198, 12, 1, 170, 87, 177, 106 ));
@@ -844,6 +852,7 @@ package Windows.UI.Input.Preview.Injection is
       ; RetVal : access Windows.UI.Input.Preview.Injection.IInputInjector
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInputInjectorStatics2 : aliased constant Windows.IID := (2765830395, 56716, 16719, (149, 234, 248, 126, 244, 192, 174, 108 ));
@@ -856,6 +865,7 @@ package Windows.UI.Input.Preview.Injection is
       ; RetVal : access Windows.UI.Input.Preview.Injection.IInputInjector
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IInjectedInputKeyboardInfo : aliased constant Windows.IID := (1343119102, 15297, 23963, (188, 252, 193, 244, 57, 80, 95, 18 ));
@@ -890,6 +900,7 @@ package Windows.UI.Input.Preview.Injection is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IInjectedInputKeyboardInfo : aliased constant Windows.IID := (366359311, 40087, 22277, (182, 119, 135, 37, 133, 102, 79, 181 ));
@@ -902,6 +913,7 @@ package Windows.UI.Input.Preview.Injection is
       ; RetVal : access Windows.UI.Input.Preview.Injection.IIterator_IInjectedInputKeyboardInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IInjectedInputMouseInfo : aliased constant Windows.IID := (2516898265, 5956, 23507, (181, 185, 212, 123, 148, 52, 250, 203 ));
@@ -936,6 +948,7 @@ package Windows.UI.Input.Preview.Injection is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IInjectedInputMouseInfo : aliased constant Windows.IID := (1815406013, 4004, 21060, (137, 251, 4, 191, 212, 128, 236, 216 ));
@@ -948,6 +961,7 @@ package Windows.UI.Input.Preview.Injection is
       ; RetVal : access Windows.UI.Input.Preview.Injection.IIterator_IInjectedInputMouseInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IInjectedInputTouchInfo : aliased constant Windows.IID := (1271475858, 54062, 22906, (174, 36, 179, 136, 97, 197, 251, 8 ));
@@ -982,6 +996,7 @@ package Windows.UI.Input.Preview.Injection is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IInjectedInputTouchInfo : aliased constant Windows.IID := (2891951115, 33440, 21558, (146, 132, 231, 219, 11, 244, 230, 21 ));
@@ -994,6 +1009,7 @@ package Windows.UI.Input.Preview.Injection is
       ; RetVal : access Windows.UI.Input.Preview.Injection.IIterator_IInjectedInputTouchInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -1024,11 +1040,11 @@ package Windows.UI.Input.Preview.Injection is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function TryCreateForAppBroadcastOnly
    return Windows.UI.Input.Preview.Injection.IInputInjector;
    
    function TryCreate
    return Windows.UI.Input.Preview.Injection.IInputInjector;
+   
 
 end;

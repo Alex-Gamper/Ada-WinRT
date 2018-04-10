@@ -75,6 +75,7 @@ package Windows.Perception is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionTimestampHelperStatics : aliased constant Windows.IID := (1202065876, 43487, 20188, (133, 93, 244, 211, 57, 217, 103, 172 ));
@@ -88,6 +89,7 @@ package Windows.Perception is
       ; RetVal : access Windows.Perception.IPerceptionTimestamp
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -98,11 +100,11 @@ package Windows.Perception is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FromHistoricalTargetTime
    (
       targetTime : Windows.Foundation.DateTime
    )
    return Windows.Perception.IPerceptionTimestamp;
+   
 
 end;

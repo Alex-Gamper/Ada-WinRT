@@ -29,7 +29,6 @@ package body Windows.System.Diagnostics.DevicePortal is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDevicePortalConnection_add_Closed_Interface
@@ -60,7 +59,6 @@ package body Windows.System.Diagnostics.DevicePortal is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -68,7 +66,6 @@ package body Windows.System.Diagnostics.DevicePortal is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForAppServiceConnection
    (
@@ -89,5 +86,6 @@ package body Windows.System.Diagnostics.DevicePortal is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

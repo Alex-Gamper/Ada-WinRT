@@ -104,6 +104,7 @@ package Windows.Devices.Portable is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IServiceDeviceStatics : aliased constant Windows.IID := (2827097313, 22983, 18976, (171, 166, 159, 103, 7, 147, 114, 48 ));
@@ -125,6 +126,7 @@ package Windows.Devices.Portable is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -133,7 +135,6 @@ package Windows.Devices.Portable is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromId
    (
@@ -155,5 +156,6 @@ package Windows.Devices.Portable is
       serviceId : Windows.Guid
    )
    return Windows.String;
+   
 
 end;

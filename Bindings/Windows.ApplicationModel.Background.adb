@@ -43,7 +43,6 @@ package body Windows.ApplicationModel.Background is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access BackgroundTaskCanceledEventHandler_Interface
@@ -190,7 +189,6 @@ package body Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -1043,7 +1041,6 @@ package body Windows.ApplicationModel.Background is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function RequestAccessAsync
    return Windows.ApplicationModel.Background.IAsyncOperation_AlarmAccessStatus is
       Hr            : Windows.HRESULT := S_OK;
@@ -1336,5 +1333,6 @@ package body Windows.ApplicationModel.Background is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

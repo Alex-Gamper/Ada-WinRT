@@ -50,7 +50,6 @@ package body Windows.UI.WebUI is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access ActivatedEventHandler_Interface
@@ -132,7 +131,6 @@ package body Windows.UI.WebUI is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -140,7 +138,6 @@ package body Windows.UI.WebUI is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Current
    return Windows.UI.WebUI.IWebUIBackgroundTaskInstance is
@@ -445,5 +442,6 @@ package body Windows.UI.WebUI is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

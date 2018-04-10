@@ -27,7 +27,6 @@ package body Windows.Data.Html is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.Data.Html is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function ConvertToText
    (
@@ -56,5 +54,6 @@ package body Windows.Data.Html is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

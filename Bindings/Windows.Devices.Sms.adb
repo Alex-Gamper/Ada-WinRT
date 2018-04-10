@@ -28,7 +28,6 @@ package body Windows.Devices.Sms is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access SmsMessageReceivedEventHandler_Interface
@@ -122,7 +121,6 @@ package body Windows.Devices.Sms is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateSmsBinaryMessage return Windows.Devices.Sms.ISmsBinaryMessage is
       Hr            : Windows.HResult := S_OK;
@@ -240,7 +238,6 @@ package body Windows.Devices.Sms is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetDeviceSelector
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -352,5 +349,6 @@ package body Windows.Devices.Sms is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

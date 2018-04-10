@@ -29,7 +29,6 @@ package body Windows.Media.FaceAnalysis is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IFaceDetector_Interface
@@ -60,7 +59,6 @@ package body Windows.Media.FaceAnalysis is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -68,7 +66,6 @@ package body Windows.Media.FaceAnalysis is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateAsync
    return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker is
@@ -211,5 +208,6 @@ package body Windows.Media.FaceAnalysis is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

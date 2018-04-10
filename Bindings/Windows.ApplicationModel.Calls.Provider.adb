@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Calls.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreatePhoneCallOrigin return Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin");
@@ -53,7 +52,6 @@ package body Windows.ApplicationModel.Calls.Provider is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_IsCurrentAppActiveCallOriginApp
    return Windows.Boolean is
@@ -122,5 +120,6 @@ package body Windows.ApplicationModel.Calls.Provider is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

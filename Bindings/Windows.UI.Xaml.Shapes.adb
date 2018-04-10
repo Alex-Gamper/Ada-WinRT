@@ -30,7 +30,6 @@ package body Windows.UI.Xaml.Shapes is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateEllipse return Windows.UI.Xaml.Shapes.IEllipse is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Shapes.Ellipse");
@@ -581,7 +580,6 @@ package body Windows.UI.Xaml.Shapes is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -997,5 +995,6 @@ package body Windows.UI.Xaml.Shapes is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

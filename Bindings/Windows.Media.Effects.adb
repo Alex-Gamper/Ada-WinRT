@@ -36,7 +36,6 @@ package body Windows.Media.Effects is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface
@@ -66,7 +65,6 @@ package body Windows.Media.Effects is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -233,7 +231,6 @@ package body Windows.Media.Effects is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateAudioRenderEffectsManager
    (
       deviceId : Windows.String
@@ -319,5 +316,6 @@ package body Windows.Media.Effects is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

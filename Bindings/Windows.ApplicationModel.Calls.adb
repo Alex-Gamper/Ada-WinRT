@@ -30,7 +30,6 @@ package body Windows.ApplicationModel.Calls is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPhoneLine_add_LineChanged_Interface
@@ -295,7 +294,6 @@ package body Windows.ApplicationModel.Calls is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreatePhoneDialOptions return Windows.ApplicationModel.Calls.IPhoneDialOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneDialOptions");
@@ -371,7 +369,6 @@ package body Windows.ApplicationModel.Calls is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromIdAsync
    (
@@ -682,5 +679,6 @@ package body Windows.ApplicationModel.Calls is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

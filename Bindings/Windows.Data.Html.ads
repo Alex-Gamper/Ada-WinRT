@@ -65,6 +65,7 @@ package Windows.Data.Html is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -74,11 +75,11 @@ package Windows.Data.Html is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function ConvertToText
    (
       html : Windows.String
    )
    return Windows.String;
+   
 
 end;

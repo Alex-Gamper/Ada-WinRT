@@ -27,7 +27,6 @@ package body Windows.System.Power is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.System.Power is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_EnergySaverStatus
    return Windows.System.Power.EnergySaverStatus is
@@ -701,5 +699,6 @@ package body Windows.System.Power is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

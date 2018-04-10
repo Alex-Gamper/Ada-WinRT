@@ -30,7 +30,6 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGattDeviceServicesResult_Interface
@@ -399,7 +398,6 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateGattReliableWriteTransaction return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction");
@@ -475,7 +473,6 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromIdAsync
    (
@@ -3383,5 +3380,6 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

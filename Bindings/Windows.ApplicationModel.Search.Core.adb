@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.Search.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access VectorChangedEventHandler_ISearchSuggestion_Interface
@@ -72,7 +71,6 @@ package body Windows.ApplicationModel.Search.Core is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateSearchSuggestionManager return Windows.ApplicationModel.Search.Core.ISearchSuggestionManager is
       Hr            : Windows.HResult := S_OK;

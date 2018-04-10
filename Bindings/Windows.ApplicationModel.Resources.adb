@@ -27,7 +27,6 @@ package body Windows.ApplicationModel.Resources is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateResourceLoaderByName
    (
       name : Windows.String
@@ -55,7 +54,6 @@ package body Windows.ApplicationModel.Resources is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetStringForReference
    (
@@ -150,5 +148,6 @@ package body Windows.ApplicationModel.Resources is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

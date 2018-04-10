@@ -580,6 +580,7 @@ package Windows.Networking.Vpn is
       ; controlPacketsToSend : Windows.Networking.Vpn.IVpnPacketBufferList
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomPrompt : aliased constant Windows.IID := (2603531899, 34773, 17212, (180, 246, 238, 230, 170, 104, 162, 68 ));
@@ -627,6 +628,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomEditBox : aliased constant Windows.IID := (805493152, 53183, 19467, (143, 60, 102, 245, 3, 194, 11, 57 ));
@@ -667,6 +669,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomComboBox : aliased constant Windows.IID := (2586056078, 56225, 19567, (130, 112, 220, 243, 201, 118, 28, 76 ));
@@ -693,6 +696,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomTextBox : aliased constant Windows.IID := (3668231114, 36643, 19766, (145, 241, 118, 217, 55, 130, 121, 66 ));
@@ -712,6 +716,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomCheckBox : aliased constant Windows.IID := (1132955475, 965, 20065, (147, 215, 169, 87, 113, 76, 66, 130 ));
@@ -738,11 +743,13 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomErrorBox : aliased constant Windows.IID := (2663706546, 51522, 17071, (178, 35, 88, 139, 72, 50, 135, 33 ));
    
    type IVpnCustomErrorBox_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnRouteFactory : aliased constant Windows.IID := (3186275839, 17871, 19353, (131, 251, 219, 59, 194, 103, 43, 2 ));
@@ -757,6 +764,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnRoute
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnRoute : aliased constant Windows.IID := (3044219779, 2409, 18073, (147, 142, 119, 118, 219, 41, 207, 179 ));
@@ -790,6 +798,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnRouteAssignment : aliased constant Windows.IID := (3680820770, 52793, 19062, (149, 80, 246, 16, 57, 248, 14, 72 ));
@@ -865,6 +874,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnNamespaceInfoFactory : aliased constant Windows.IID := (3409876250, 45262, 17451, (172, 187, 95, 153, 178, 2, 195, 28 ));
@@ -880,6 +890,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnNamespaceInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnNamespaceInfo : aliased constant Windows.IID := (820902723, 17487, 17605, (129, 103, 163, 90, 145, 241, 175, 148 ));
@@ -927,6 +938,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.IVector_IHostName -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnNamespaceAssignment : aliased constant Windows.IID := (3623344920, 12413, 19470, (189, 98, 143, 162, 112, 187, 173, 214 ));
@@ -960,6 +972,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnInterfaceIdFactory : aliased constant Windows.IID := (2653805730, 5906, 19684, (177, 121, 140, 101, 44, 109, 16, 0 ));
@@ -973,6 +986,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnInterfaceId
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnInterfaceId : aliased constant Windows.IID := (2653805730, 5906, 19684, (177, 121, 140, 101, 44, 109, 16, 17 ));
@@ -985,6 +999,7 @@ package Windows.Networking.Vpn is
       ; id : access Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnPickedCredential : aliased constant Windows.IID := (2591636167, 34900, 20050, (173, 151, 36, 221, 154, 132, 43, 206 ));
@@ -1011,6 +1026,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Security.Credentials.IPasswordCredential
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCredential : aliased constant Windows.IID := (3085404915, 42093, 16459, (135, 41, 24, 50, 82, 40, 83, 172 ));
@@ -1044,6 +1060,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Security.Credentials.IPasswordCredential
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnSystemHealth : aliased constant Windows.IID := (2577987759, 49390, 20085, (129, 122, 242, 49, 174, 229, 18, 61 ));
@@ -1056,6 +1073,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnChannelConfiguration : aliased constant Windows.IID := (237886626, 8210, 20452, (177, 121, 140, 101, 44, 109, 16, 126 ));
@@ -1082,6 +1100,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnChannelConfiguration2 : aliased constant Windows.IID := (4077606732, 30756, 18204, (161, 24, 99, 219, 201, 58, 228, 199 ));
@@ -1094,6 +1113,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Foundation.IVectorView_IUriRuntimeClass -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnChannelActivityEventArgs : aliased constant Windows.IID := (2741799154, 45020, 18293, (133, 93, 212, 172, 10, 53, 252, 85 ));
@@ -1106,6 +1126,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.VpnChannelActivityEventType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnChannel : aliased constant Windows.IID := (1254591751, 53672, 17155, (160, 145, 200, 210, 224, 145, 91, 195 ));
@@ -1239,6 +1260,7 @@ package Windows.Networking.Vpn is
       ; useTls12 : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnChannel2 : aliased constant Windows.IID := (576049509, 39227, 17961, (173, 96, 241, 195, 243, 83, 127, 80 ));
@@ -1361,6 +1383,7 @@ package Windows.Networking.Vpn is
       ; assignedTrafficFilters : Windows.Networking.Vpn.IVpnTrafficFilterAssignment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomPromptElement : aliased constant Windows.IID := (1941788216, 28420, 16461, (147, 221, 80, 164, 73, 36, 163, 139 ));
@@ -1408,6 +1431,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnChannelStatics : aliased constant Windows.IID := (2297103917, 59416, 20477, (152, 166, 54, 62, 55, 54, 201, 93 ));
@@ -1421,6 +1445,7 @@ package Windows.Networking.Vpn is
       ; event : Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnPacketBufferFactory : aliased constant Windows.IID := (2653805730, 5906, 19684, (177, 121, 140, 101, 44, 109, 153, 153 ));
@@ -1436,6 +1461,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnPacketBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnPacketBuffer : aliased constant Windows.IID := (3271070204, 19804, 19043, (183, 13, 78, 48, 126, 172, 206, 85 ));
@@ -1476,6 +1502,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnPacketBuffer2 : aliased constant Windows.IID := (1717473776, 34821, 19445, (166, 25, 46, 132, 136, 46, 107, 79 ));
@@ -1488,6 +1515,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnAppId
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnPacketBufferList : aliased constant Windows.IID := (3271070204, 19804, 19043, (183, 13, 78, 48, 126, 172, 206, 119 ));
@@ -1548,6 +1576,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnPacketBufferList2 : aliased constant Windows.IID := (1048236005, 59934, 18474, (141, 152, 192, 101, 245, 125, 137, 234 ));
@@ -1581,6 +1610,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnPacketBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomPromptTextInput : aliased constant Windows.IID := (3386547317, 37180, 18389, (136, 186, 72, 252, 72, 147, 2, 53 ));
@@ -1621,6 +1651,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomPromptOptionSelector : aliased constant Windows.IID := (999240921, 36545, 20117, (154, 78, 123, 166, 77, 56, 243, 48 ));
@@ -1640,6 +1671,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomPromptBooleanInput : aliased constant Windows.IID := (3301549726, 65351, 17703, (159, 39, 164, 146, 146, 1, 153, 121 ));
@@ -1666,6 +1698,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnCustomPromptText : aliased constant Windows.IID := (1003011566, 14914, 18851, (171, 221, 7, 178, 237, 234, 117, 45 ));
@@ -1685,6 +1718,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnChannelActivityStateChangedArgs : aliased constant Windows.IID := (1031079269, 64960, 19390, (162, 59, 69, 255, 252, 109, 151, 161 ));
@@ -1697,6 +1731,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.VpnChannelActivityEventType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnDomainNameInfoFactory : aliased constant Windows.IID := (621263733, 655, 18056, (141, 58, 196, 83, 29, 243, 125, 168 ));
@@ -1713,6 +1748,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnDomainNameInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnDomainNameInfo : aliased constant Windows.IID := (2905520175, 60046, 20346, (132, 62, 26, 135, 227, 46, 27, 154 ));
@@ -1760,6 +1796,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.IVector_IHostName -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnDomainNameInfo2 : aliased constant Windows.IID := (2877755729, 27731, 18472, (152, 131, 216, 134, 222, 16, 68, 7 ));
@@ -1772,6 +1809,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Foundation.IVector_IUriRuntimeClass -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnDomainNameAssignment : aliased constant Windows.IID := (1094037825, 52443, 18869, (148, 1, 3, 154, 138, 231, 103, 233 ));
@@ -1798,6 +1836,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnAppIdFactory : aliased constant Windows.IID := (1185807658, 2731, 20443, (130, 29, 211, 221, 201, 25, 120, 139 ));
@@ -1812,6 +1851,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnAppId
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnAppId : aliased constant Windows.IID := (2064033333, 23640, 16857, (148, 167, 191, 188, 241, 216, 202, 84 ));
@@ -1845,6 +1885,7 @@ package Windows.Networking.Vpn is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnTrafficFilterFactory : aliased constant Windows.IID := (1208828373, 32665, 18252, (134, 238, 150, 223, 22, 131, 24, 241 ));
@@ -1858,6 +1899,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnTrafficFilter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnTrafficFilter : aliased constant Windows.IID := (795417440, 27807, 18421, (172, 54, 187, 27, 4, 46, 44, 80 ));
@@ -1940,6 +1982,7 @@ package Windows.Networking.Vpn is
       ; value : Windows.Networking.Vpn.VpnRoutingPolicyType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnTrafficFilterAssignment : aliased constant Windows.IID := (1456264284, 58980, 18206, (137, 205, 96, 22, 3, 185, 224, 243 ));
@@ -1980,6 +2023,7 @@ package Windows.Networking.Vpn is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnProfile : aliased constant Windows.IID := (2020980561, 45271, 17371, (138, 147, 211, 254, 36, 121, 229, 106 ));
@@ -2055,6 +2099,7 @@ package Windows.Networking.Vpn is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnPlugInProfile : aliased constant Windows.IID := (249499044, 20224, 17801, (141, 123, 75, 249, 136, 246, 84, 44 ));
@@ -2095,6 +2140,7 @@ package Windows.Networking.Vpn is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnPlugInProfile2 : aliased constant Windows.IID := (1629243538, 53140, 19158, (186, 153, 0, 244, 255, 52, 86, 94 ));
@@ -2121,6 +2167,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.VpnManagementConnectionStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnNativeProfile : aliased constant Windows.IID := (2762924702, 25623, 17203, (152, 66, 240, 166, 109, 182, 152, 2 ));
@@ -2203,6 +2250,7 @@ package Windows.Networking.Vpn is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnNativeProfile2 : aliased constant Windows.IID := (267134055, 52661, 19143, (181, 163, 10, 251, 94, 196, 118, 130 ));
@@ -2229,6 +2277,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.VpnManagementConnectionStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVpnManagementAgent : aliased constant Windows.IID := (423007949, 42436, 19134, (133, 43, 120, 91, 228, 203, 62, 52 ));
@@ -2306,6 +2355,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IAsyncOperation_VpnManagementErrorStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_VpnPacketBuffer : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2318,6 +2368,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnPacketBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IVpnRoute : aliased constant Windows.IID := (1157108652, 1327, 20811, (167, 118, 170, 211, 122, 100, 253, 198 ));
@@ -2352,6 +2403,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IVpnRoute : aliased constant Windows.IID := (3153369301, 47599, 22001, (151, 177, 119, 160, 102, 57, 228, 226 ));
@@ -2364,6 +2416,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IIterator_IVpnRoute
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IVpnRoute : aliased constant Windows.IID := (1131420276, 58519, 21849, (167, 27, 17, 208, 21, 111, 168, 57 ));
@@ -2402,6 +2455,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IVpnRoute : aliased constant Windows.IID := (1526885336, 11461, 21872, (189, 229, 13, 183, 196, 51, 18, 121 ));
@@ -2496,6 +2550,7 @@ package Windows.Networking.Vpn is
       ; items : Windows.Networking.Vpn.IVpnRoute_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IVpnNamespaceInfo : aliased constant Windows.IID := (2447540804, 30037, 22861, (181, 77, 156, 135, 9, 94, 121, 162 ));
@@ -2530,6 +2585,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IVpnNamespaceInfo : aliased constant Windows.IID := (393747715, 56783, 21823, (171, 168, 210, 232, 21, 92, 182, 184 ));
@@ -2542,6 +2598,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IIterator_IVpnNamespaceInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IVpnNamespaceInfo : aliased constant Windows.IID := (3337422249, 19911, 20605, (156, 146, 124, 120, 194, 239, 71, 134 ));
@@ -2580,6 +2637,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IVpnNamespaceInfo : aliased constant Windows.IID := (90955250, 4957, 21550, (163, 34, 54, 170, 76, 160, 230, 13 ));
@@ -2674,6 +2732,7 @@ package Windows.Networking.Vpn is
       ; items : Windows.Networking.Vpn.IVpnNamespaceInfo_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IVpnCustomPrompt : aliased constant Windows.IID := (1875365864, 6274, 23457, (142, 94, 76, 94, 58, 79, 168, 109 ));
@@ -2708,6 +2767,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IVpnCustomPrompt : aliased constant Windows.IID := (2343332188, 28875, 21718, (134, 6, 175, 110, 58, 37, 227, 161 ));
@@ -2720,6 +2780,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IIterator_IVpnCustomPrompt
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IVpnCustomPrompt : aliased constant Windows.IID := (2151958978, 15297, 23806, (132, 104, 59, 190, 206, 74, 92, 215 ));
@@ -2758,6 +2819,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IVpnCustomPromptElement : aliased constant Windows.IID := (3995336481, 20922, 23748, (152, 86, 98, 92, 121, 194, 128, 128 ));
@@ -2792,6 +2854,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IVpnCustomPromptElement : aliased constant Windows.IID := (1132279443, 196, 20660, (152, 154, 147, 143, 16, 22, 162, 48 ));
@@ -2804,6 +2867,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IIterator_IVpnCustomPromptElement
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IVpnCustomPromptElement : aliased constant Windows.IID := (636155371, 12089, 23373, (187, 110, 230, 82, 199, 208, 15, 106 ));
@@ -2842,6 +2906,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IVpnCredential : aliased constant Windows.IID := (560623511, 56225, 24433, (161, 75, 40, 24, 173, 60, 76, 105 ));
@@ -2868,6 +2933,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IVpnCredential
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IVpnDomainNameInfo : aliased constant Windows.IID := (704184462, 16001, 23640, (138, 120, 107, 233, 26, 188, 193, 125 ));
@@ -2902,6 +2968,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IVpnDomainNameInfo : aliased constant Windows.IID := (866903176, 48666, 21898, (169, 207, 181, 51, 10, 180, 159, 80 ));
@@ -2914,6 +2981,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IIterator_IVpnDomainNameInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IVpnDomainNameInfo : aliased constant Windows.IID := (3564580695, 9000, 23589, (154, 17, 36, 109, 161, 126, 57, 213 ));
@@ -2952,6 +3020,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IVpnDomainNameInfo : aliased constant Windows.IID := (2172237554, 29299, 23715, (168, 27, 83, 233, 2, 202, 32, 155 ));
@@ -3046,6 +3115,7 @@ package Windows.Networking.Vpn is
       ; items : Windows.Networking.Vpn.IVpnDomainNameInfo_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IVpnTrafficFilter : aliased constant Windows.IID := (2402801056, 22789, 21951, (156, 24, 185, 179, 181, 68, 100, 139 ));
@@ -3080,6 +3150,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IVpnTrafficFilter : aliased constant Windows.IID := (3067398227, 30665, 21194, (156, 233, 133, 58, 221, 69, 84, 207 ));
@@ -3092,6 +3163,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IIterator_IVpnTrafficFilter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IVpnTrafficFilter : aliased constant Windows.IID := (1977489254, 60962, 22249, (190, 153, 39, 20, 6, 83, 73, 229 ));
@@ -3130,6 +3202,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IVpnTrafficFilter : aliased constant Windows.IID := (710646488, 61445, 24425, (173, 129, 48, 6, 66, 231, 198, 103 ));
@@ -3224,6 +3297,7 @@ package Windows.Networking.Vpn is
       ; items : Windows.Networking.Vpn.IVpnTrafficFilter_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IVpnAppId : aliased constant Windows.IID := (3969030320, 36002, 21660, (187, 226, 37, 40, 35, 231, 14, 239 ));
@@ -3258,6 +3332,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IVpnAppId : aliased constant Windows.IID := (236847274, 63805, 24007, (153, 18, 224, 125, 31, 166, 189, 103 ));
@@ -3270,6 +3345,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.IIterator_IVpnAppId
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IVpnAppId : aliased constant Windows.IID := (4209818704, 55962, 20738, (130, 41, 29, 210, 78, 135, 61, 31 ));
@@ -3308,6 +3384,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IVpnAppId : aliased constant Windows.IID := (2299100504, 60856, 23252, (171, 197, 96, 63, 33, 221, 75, 21 ));
@@ -3402,6 +3479,7 @@ package Windows.Networking.Vpn is
       ; items : Windows.Networking.Vpn.IVpnAppId_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_VpnManagementErrorStatus : aliased constant Windows.IID := (3919283932, 27493, 24355, (148, 25, 144, 181, 88, 82, 242, 131 ));
@@ -3428,6 +3506,7 @@ package Windows.Networking.Vpn is
       ; RetVal : access Windows.Networking.Vpn.VpnManagementErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -3437,7 +3516,6 @@ package Windows.Networking.Vpn is
    IID_TypedEventHandler_IVpnChannel_add_ActivityChange : aliased constant Windows.IID := (965769545, 43212, 23781, (158, 10, 6, 227, 178, 211, 21, 112 ));
    
    type TypedEventHandler_IVpnChannel_add_ActivityChange_Interface(Callback : access procedure (sender : Windows.Networking.Vpn.IVpnChannel ; args : Windows.Networking.Vpn.IVpnChannelActivityEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVpnChannel_add_ActivityChange'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IVpnChannel_add_ActivityChange_Interface
@@ -3451,7 +3529,6 @@ package Windows.Networking.Vpn is
    IID_TypedEventHandler_IVpnChannel2_add_ActivityStateChange : aliased constant Windows.IID := (754774458, 49148, 22342, (184, 104, 46, 69, 164, 109, 41, 88 ));
    
    type TypedEventHandler_IVpnChannel2_add_ActivityStateChange_Interface(Callback : access procedure (sender : Windows.Networking.Vpn.IVpnChannel ; args : Windows.Networking.Vpn.IVpnChannelActivityStateChangedArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVpnChannel2_add_ActivityStateChange'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IVpnChannel2_add_ActivityStateChange_Interface
@@ -3465,7 +3542,6 @@ package Windows.Networking.Vpn is
    IID_AsyncOperationCompletedHandler_IVpnCredential : aliased constant Windows.IID := (480003332, 19317, 22506, (131, 125, 83, 56, 53, 139, 183, 98 ));
    
    type AsyncOperationCompletedHandler_IVpnCredential_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Vpn.IAsyncOperation_IVpnCredential ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVpnCredential'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVpnCredential_Interface
@@ -3479,7 +3555,6 @@ package Windows.Networking.Vpn is
    IID_AsyncOperationCompletedHandler_VpnManagementErrorStatus : aliased constant Windows.IID := (824352652, 28829, 20503, (134, 41, 87, 239, 18, 137, 230, 22 ));
    
    type AsyncOperationCompletedHandler_VpnManagementErrorStatus_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Vpn.IAsyncOperation_VpnManagementErrorStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_VpnManagementErrorStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_VpnManagementErrorStatus_Interface
@@ -3493,7 +3568,6 @@ package Windows.Networking.Vpn is
    ------------------------------------------------------------------------
    
    subtype VpnRoute is Windows.Networking.Vpn.IVpnRoute;
-   
    function CreateVpnRoute
    (
       address : Windows.Networking.IHostName
@@ -3501,8 +3575,8 @@ package Windows.Networking.Vpn is
    )
    return Windows.Networking.Vpn.IVpnRoute;
    
-   subtype VpnNamespaceInfo is Windows.Networking.Vpn.IVpnNamespaceInfo;
    
+   subtype VpnNamespaceInfo is Windows.Networking.Vpn.IVpnNamespaceInfo;
    function CreateVpnNamespaceInfo
    (
       name : Windows.String
@@ -3511,13 +3585,14 @@ package Windows.Networking.Vpn is
    )
    return Windows.Networking.Vpn.IVpnNamespaceInfo;
    
-   subtype VpnInterfaceId is Windows.Networking.Vpn.IVpnInterfaceId;
    
+   subtype VpnInterfaceId is Windows.Networking.Vpn.IVpnInterfaceId;
    function CreateVpnInterfaceId
    (
       address : Windows.UInt8_Ptr
    )
    return Windows.Networking.Vpn.IVpnInterfaceId;
+   
    
    subtype VpnRouteAssignment is Windows.Networking.Vpn.IVpnRouteAssignment;
    
@@ -3529,7 +3604,6 @@ package Windows.Networking.Vpn is
    
    subtype VpnPickedCredential is Windows.Networking.Vpn.IVpnPickedCredential;
    subtype VpnPacketBuffer is Windows.Networking.Vpn.IVpnPacketBuffer;
-   
    function CreateVpnPacketBuffer
    (
       parentBuffer : Windows.Networking.Vpn.IVpnPacketBuffer
@@ -3537,6 +3611,7 @@ package Windows.Networking.Vpn is
       ; length : Windows.UInt32
    )
    return Windows.Networking.Vpn.IVpnPacketBuffer;
+   
    
    subtype VpnChannelConfiguration is Windows.Networking.Vpn.IVpnChannelConfiguration;
    subtype VpnChannel is Windows.Networking.Vpn.IVpnChannel;
@@ -3553,7 +3628,6 @@ package Windows.Networking.Vpn is
    function CreateVpnTrafficFilterAssignment return Windows.Networking.Vpn.IVpnTrafficFilterAssignment;
    
    subtype VpnAppId is Windows.Networking.Vpn.IVpnAppId;
-   
    function Create
    (
       type_x : Windows.Networking.Vpn.VpnAppIdType
@@ -3561,8 +3635,8 @@ package Windows.Networking.Vpn is
    )
    return Windows.Networking.Vpn.IVpnAppId;
    
-   subtype VpnDomainNameInfo is Windows.Networking.Vpn.IVpnDomainNameInfo;
    
+   subtype VpnDomainNameInfo is Windows.Networking.Vpn.IVpnDomainNameInfo;
    function CreateVpnDomainNameInfo
    (
       name : Windows.String
@@ -3572,13 +3646,14 @@ package Windows.Networking.Vpn is
    )
    return Windows.Networking.Vpn.IVpnDomainNameInfo;
    
-   subtype VpnTrafficFilter is Windows.Networking.Vpn.IVpnTrafficFilter;
    
+   subtype VpnTrafficFilter is Windows.Networking.Vpn.IVpnTrafficFilter;
    function Create
    (
       appId : Windows.Networking.Vpn.IVpnAppId
    )
    return Windows.Networking.Vpn.IVpnTrafficFilter;
+   
    
    subtype VpnPacketBufferList is Windows.Networking.Vpn.IVpnPacketBufferList;
    subtype VpnCustomEditBox is Windows.Networking.Vpn.IVpnCustomEditBox;
@@ -3634,12 +3709,12 @@ package Windows.Networking.Vpn is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    procedure ProcessEventAsync
    (
       thirdPartyPlugIn : Windows.Object
       ; event : Windows.Object
    )
    ;
+   
 
 end;

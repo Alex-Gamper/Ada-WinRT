@@ -28,7 +28,6 @@ package body Windows.UI.Notifications.Management is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus_Interface
@@ -59,7 +58,6 @@ package body Windows.UI.Notifications.Management is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -67,7 +65,6 @@ package body Windows.UI.Notifications.Management is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Current
    return Windows.UI.Notifications.Management.IUserNotificationListener is
@@ -85,5 +82,6 @@ package body Windows.UI.Notifications.Management is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

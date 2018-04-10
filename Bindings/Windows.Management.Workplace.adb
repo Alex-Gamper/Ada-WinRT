@@ -27,7 +27,6 @@ package body Windows.Management.Workplace is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.Management.Workplace is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsBrowserAllowed
    return Windows.Boolean is
@@ -138,5 +136,6 @@ package body Windows.Management.Workplace is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

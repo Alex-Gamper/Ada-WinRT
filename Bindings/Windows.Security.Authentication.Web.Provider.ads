@@ -253,6 +253,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebProviderTokenRequest : aliased constant Windows.IID := (504919947, 34821, 17739, (159, 17, 70, 141, 42, 241, 9, 90 ));
@@ -295,6 +296,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Cryptography.Core.IAsyncOperation_ICryptographicKey -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebProviderTokenRequest2 : aliased constant Windows.IID := (3050778188, 4273, 19110, (136, 177, 11, 108, 158, 12, 30, 70 ));
@@ -309,6 +311,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebProviderTokenResponse : aliased constant Windows.IID := (4011931539, 61269, 16774, (183, 206, 140, 178, 231, 249, 132, 158 ));
@@ -321,6 +324,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Authentication.Web.Core.IWebTokenResponse
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebProviderTokenResponseFactory : aliased constant Windows.IID := (4199143834, 9658, 16503, (156, 250, 157, 180, 222, 167, 183, 26 ));
@@ -334,6 +338,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountClientView : aliased constant Windows.IID := (3887949498, 3015, 19558, (191, 212, 101, 211, 8, 44, 188, 168 ));
@@ -360,6 +365,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountClientViewFactory : aliased constant Windows.IID := (1634539172, 56866, 18517, (163, 38, 6, 206, 191, 42, 63, 35 ));
@@ -384,6 +390,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebAccountClientView
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountManagerStatics : aliased constant Windows.IID := (3001606566, 54426, 16434, (132, 191, 26, 40, 71, 116, 123, 241 ));
@@ -476,6 +483,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountManagerStatics2 : aliased constant Windows.IID := (1755818025, 11615, 18003, (139, 176, 189, 47, 166, 189, 45, 135 ));
@@ -490,6 +498,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountScopeManagerStatics : aliased constant Windows.IID := (1550639996, 4786, 16954, (191, 61, 133, 184, 215, 229, 54, 86 ));
@@ -523,6 +532,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Authentication.Web.Provider.WebAccountScope
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountMapManagerStatics : aliased constant Windows.IID := (3908715631, 14875, 18596, (142, 144, 30, 89, 202, 111, 84, 219 ));
@@ -565,6 +575,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountManagerStatics3 : aliased constant Windows.IID := (3712295846, 35407, 19106, (177, 94, 3, 245, 80, 175, 19, 89 ));
@@ -614,6 +625,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccount -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountManagerStatics4 : aliased constant Windows.IID := (1508623058, 63451, 16687, (188, 63, 242, 254, 160, 68, 48, 180 ));
@@ -634,6 +646,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderBaseReportOperation : aliased constant Windows.IID := (3148131515, 39227, 19799, (187, 228, 20, 33, 227, 102, 139, 76 ));
@@ -652,6 +665,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; value : Windows.Security.Authentication.Web.Core.IWebProviderError
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderUIReportOperation : aliased constant Windows.IID := (687837907, 36736, 17147, (148, 79, 178, 16, 123, 189, 66, 230 ));
@@ -663,6 +677,7 @@ package Windows.Security.Authentication.Web.Provider is
       This       : access IWebAccountProviderUIReportOperation_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderSilentReportOperation : aliased constant Windows.IID := (3769976312, 15119, 17626, (146, 76, 123, 24, 186, 170, 98, 169 ));
@@ -681,6 +696,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; value : Windows.Security.Authentication.Web.Core.IWebProviderError
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderTokenOperation : aliased constant Windows.IID := (2512786366, 8244, 19512, (148, 52, 210, 108, 20, 178, 180, 178 ));
@@ -714,6 +730,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderAddAccountOperation : aliased constant Windows.IID := (1944837327, 17272, 19577, (147, 53, 165, 215, 171, 129, 89, 78 ));
@@ -725,6 +742,7 @@ package Windows.Security.Authentication.Web.Provider is
       This       : access IWebAccountProviderAddAccountOperation_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderManageAccountOperation : aliased constant Windows.IID := (3978353756, 53787, 17982, (169, 183, 193, 253, 14, 218, 233, 120 ));
@@ -743,6 +761,7 @@ package Windows.Security.Authentication.Web.Provider is
       This       : access IWebAccountProviderManageAccountOperation_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderDeleteAccountOperation : aliased constant Windows.IID := (180046008, 40449, 18889, (163, 85, 125, 72, 202, 247, 214, 202 ));
@@ -755,6 +774,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Credentials.IWebAccount
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderSignOutAccountOperation : aliased constant Windows.IID := (3096502813, 3157, 18364, (140, 114, 4, 166, 252, 124, 172, 7 ));
@@ -781,6 +801,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderRetrieveCookiesOperation : aliased constant Windows.IID := (1510212673, 4003, 19121, (160, 28, 32, 177, 16, 53, 133, 148 ));
@@ -821,6 +842,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderTokenObjects : aliased constant Windows.IID := (1083123787, 4904, 17115, (137, 164, 11, 206, 122, 113, 125, 142 ));
@@ -833,6 +855,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderTokenObjects2 : aliased constant Windows.IID := (270579859, 23717, 20479, (149, 251, 184, 32, 39, 63, 195, 149 ));
@@ -845,6 +868,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -857,6 +881,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_IWebAccountManagerStatics_UpdateWebAccountPropertiesAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
@@ -893,6 +918,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWebAccountManagerStatics_AddWebAccountAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -905,6 +931,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_IWebAccountManagerStatics_AddWebAccountAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
@@ -941,6 +968,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -953,6 +981,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
@@ -989,6 +1018,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1001,6 +1031,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
@@ -1037,6 +1068,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWebAccountManagerStatics3_AddWebAccountForUserAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1049,6 +1081,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_IWebAccountManagerStatics3_AddWebAccountForUserAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
@@ -1085,6 +1118,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1097,6 +1131,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeForUserAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
@@ -1133,6 +1168,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1145,6 +1181,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_IWebAccountManagerStatics3_AddWebAccountWithScopeAndMapForUserAsync : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
@@ -1181,6 +1218,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IWebProviderTokenResponse : aliased constant Windows.IID := (3948380765, 23254, 24288, (141, 198, 165, 60, 30, 130, 227, 171 ));
@@ -1215,6 +1253,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWebProviderTokenResponse : aliased constant Windows.IID := (3921330742, 49271, 21818, (180, 174, 181, 143, 176, 184, 153, 24 ));
@@ -1227,6 +1266,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.Security.Authentication.Web.Provider.IIterator_IWebProviderTokenResponse
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IWebProviderTokenResponse : aliased constant Windows.IID := (451298487, 38969, 22619, (135, 146, 236, 213, 5, 11, 136, 187 ));
@@ -1265,6 +1305,7 @@ package Windows.Security.Authentication.Web.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IWebProviderTokenResponse : aliased constant Windows.IID := (1316672975, 14607, 24269, (183, 20, 60, 101, 75, 132, 203, 186 ));
@@ -1359,21 +1400,21 @@ package Windows.Security.Authentication.Web.Provider is
       ; items : Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype WebProviderTokenRequest is Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest;
    subtype WebProviderTokenResponse is Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse;
-   
    function Create
    (
       webTokenResponse : Windows.Security.Authentication.Web.Core.IWebTokenResponse
    )
    return Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse;
    
-   subtype WebAccountClientView is Windows.Security.Authentication.Web.Provider.IWebAccountClientView;
    
+   subtype WebAccountClientView is Windows.Security.Authentication.Web.Provider.IWebAccountClientView;
    function Create
    (
       viewType : Windows.Security.Authentication.Web.Provider.WebAccountClientViewType
@@ -1389,6 +1430,7 @@ package Windows.Security.Authentication.Web.Provider is
    )
    return Windows.Security.Authentication.Web.Provider.IWebAccountClientView;
    
+   
    subtype WebAccountProviderRequestTokenOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation;
    subtype WebAccountProviderGetTokenSilentOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation;
    subtype WebAccountProviderAddAccountOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderAddAccountOperation;
@@ -1401,7 +1443,6 @@ package Windows.Security.Authentication.Web.Provider is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function AddWebAccountWithScopeAndMapAsync
    (
@@ -1570,5 +1611,6 @@ package Windows.Security.Authentication.Web.Provider is
       ; callerPFN : Windows.String
    )
    return Windows.Foundation.IAsyncAction;
+   
 
 end;

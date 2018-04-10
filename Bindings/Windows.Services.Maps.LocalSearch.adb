@@ -30,7 +30,6 @@ package body Windows.Services.Maps.LocalSearch is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILocalLocationFinderResult_Interface
@@ -48,7 +47,6 @@ package body Windows.Services.Maps.LocalSearch is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -56,7 +54,6 @@ package body Windows.Services.Maps.LocalSearch is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FindLocalLocationsAsync
    (
@@ -236,5 +233,6 @@ package body Windows.Services.Maps.LocalSearch is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -253,6 +253,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVideoCompositorDefinitionFactory : aliased constant Windows.IID := (1130822928, 26808, 19794, (137, 182, 2, 169, 104, 204, 168, 153 ));
@@ -275,6 +276,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.IVideoCompositorDefinition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositeVideoFrameContext : aliased constant Windows.IID := (1815085643, 62740, 17016, (165, 247, 185, 24, 128, 73, 209, 16 ));
@@ -309,6 +311,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Editing.IMediaOverlay
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAudioEffect : aliased constant Windows.IID := (883620433, 37383, 16469, (190, 147, 110, 87, 52, 168, 106, 228 ));
@@ -321,6 +324,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.AudioEffectType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAudioEffectsManagerStatics : aliased constant Windows.IID := (1715497988, 34554, 18380, (163, 21, 244, 137, 216, 195, 254, 16 ));
@@ -364,6 +368,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.IAudioCaptureEffectsManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAudioRenderEffectsManager : aliased constant Windows.IID := (1305053542, 34641, 17074, (191, 203, 57, 202, 120, 100, 189, 71 ));
@@ -391,6 +396,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.IVectorView_IAudioEffect -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAudioRenderEffectsManager2 : aliased constant Windows.IID := (2823081225, 24268, 17587, (187, 78, 29, 176, 114, 135, 19, 156 ));
@@ -416,6 +422,7 @@ package Windows.Media.Effects is
       This       : access IAudioRenderEffectsManager2_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAudioCaptureEffectsManager : aliased constant Windows.IID := (2407907953, 909, 17299, (130, 152, 84, 1, 16, 96, 142, 239 ));
@@ -443,6 +450,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.IVectorView_IAudioEffect -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVideoCompositor : aliased constant Windows.IID := (2232464446, 16908, 16911, (150, 199, 124, 152, 187, 161, 252, 85 ));
@@ -483,6 +491,7 @@ package Windows.Media.Effects is
       This       : access IVideoCompositor_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVideoEffectDefinition : aliased constant Windows.IID := (972262640, 36111, 20286, (132, 252, 45, 70, 165, 41, 121, 67 ));
@@ -502,6 +511,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVideoEffectDefinitionFactory : aliased constant Windows.IID := (2168691534, 28211, 17039, (157, 33, 181, 170, 254, 247, 97, 124 ));
@@ -524,6 +534,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.IVideoEffectDefinition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAudioEffectDefinition : aliased constant Windows.IID := (3839359348, 32128, 20339, (144, 137, 227, 28, 157, 185, 194, 148 ));
@@ -543,6 +554,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAudioEffectDefinitionFactory : aliased constant Windows.IID := (2384307782, 59141, 17901, (138, 43, 252, 78, 79, 64, 90, 151 ));
@@ -565,6 +577,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.IAudioEffectDefinition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProcessVideoFrameContext : aliased constant Windows.IID := (661589547, 25697, 16414, (186, 120, 15, 218, 214, 17, 78, 236 ));
@@ -584,6 +597,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.IVideoFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBasicVideoEffect : aliased constant Windows.IID := (2187511791, 45920, 16574, (148, 155, 47, 244, 47, 243, 86, 147 ));
@@ -645,6 +659,7 @@ package Windows.Media.Effects is
       This       : access IBasicVideoEffect_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProcessAudioFrameContext : aliased constant Windows.IID := (1289300294, 4642, 18983, (165, 134, 251, 62, 32, 39, 50, 85 ));
@@ -664,6 +679,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.IAudioFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBasicAudioEffect : aliased constant Windows.IID := (2349214803, 27584, 18616, (169, 154, 75, 65, 85, 15, 19, 89 ));
@@ -710,6 +726,7 @@ package Windows.Media.Effects is
       This       : access IBasicAudioEffect_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVideoTransformEffectDefinition : aliased constant Windows.IID := (2523183978, 7846, 19110, (128, 116, 171, 232, 133, 30, 202, 226 ));
@@ -799,6 +816,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISlowMotionEffectDefinition : aliased constant Windows.IID := (889535696, 5996, 18275, (130, 196, 27, 2, 219, 227, 23, 55 ));
@@ -818,6 +836,7 @@ package Windows.Media.Effects is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAudioEffectDefinition : aliased constant Windows.IID := (3960420860, 26969, 21539, (158, 26, 247, 203, 142, 132, 92, 161 ));
@@ -852,6 +871,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAudioEffectDefinition : aliased constant Windows.IID := (1618616511, 12980, 23438, (167, 147, 48, 36, 248, 211, 88, 42 ));
@@ -864,6 +884,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.IIterator_IAudioEffectDefinition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAudioEffectDefinition : aliased constant Windows.IID := (3734923903, 53902, 24305, (145, 106, 239, 168, 128, 180, 137, 209 ));
@@ -902,6 +923,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IAudioEffectDefinition : aliased constant Windows.IID := (673753474, 55369, 24521, (132, 206, 249, 164, 179, 180, 211, 65 ));
@@ -996,6 +1018,7 @@ package Windows.Media.Effects is
       ; items : Windows.Media.Effects.IAudioEffectDefinition_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IVideoEffectDefinition : aliased constant Windows.IID := (2642556829, 18776, 21902, (161, 85, 58, 128, 155, 177, 108, 4 ));
@@ -1030,6 +1053,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IVideoEffectDefinition : aliased constant Windows.IID := (3948314479, 45076, 20797, (153, 205, 241, 108, 34, 108, 60, 65 ));
@@ -1042,6 +1066,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.IIterator_IVideoEffectDefinition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IVideoEffectDefinition : aliased constant Windows.IID := (2756398990, 31907, 21425, (182, 139, 9, 139, 175, 69, 199, 62 ));
@@ -1080,6 +1105,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IVideoEffectDefinition : aliased constant Windows.IID := (2090951149, 57857, 22037, (170, 204, 37, 52, 133, 100, 240, 179 ));
@@ -1174,6 +1200,7 @@ package Windows.Media.Effects is
       ; items : Windows.Media.Effects.IVideoEffectDefinition_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAudioEffect : aliased constant Windows.IID := (1732044567, 41935, 23912, (168, 11, 94, 211, 231, 185, 63, 237 ));
@@ -1208,6 +1235,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAudioEffect : aliased constant Windows.IID := (128948989, 9656, 22429, (190, 126, 138, 204, 3, 65, 141, 11 ));
@@ -1220,6 +1248,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.Media.Effects.IIterator_IAudioEffect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAudioEffect : aliased constant Windows.IID := (3452684775, 21464, 24166, (158, 69, 49, 213, 162, 63, 208, 29 ));
@@ -1258,6 +1287,7 @@ package Windows.Media.Effects is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1267,7 +1297,6 @@ package Windows.Media.Effects is
    IID_TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged : aliased constant Windows.IID := (1273142398, 17564, 22382, (167, 184, 58, 64, 242, 240, 29, 200 ));
    
    type TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface(Callback : access procedure (sender : Windows.Media.Effects.IAudioRenderEffectsManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAudioRenderEffectsManager_add_AudioRenderEffectsChanged_Interface
@@ -1281,7 +1310,6 @@ package Windows.Media.Effects is
    IID_TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged : aliased constant Windows.IID := (2714101763, 41589, 23473, (157, 68, 42, 200, 174, 159, 251, 137 ));
    
    type TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged_Interface(Callback : access procedure (sender : Windows.Media.Effects.IAudioCaptureEffectsManager ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAudioCaptureEffectsManager_add_AudioCaptureEffectsChanged_Interface
@@ -1295,7 +1323,6 @@ package Windows.Media.Effects is
    ------------------------------------------------------------------------
    
    subtype VideoCompositorDefinition is Windows.Media.Effects.IVideoCompositorDefinition;
-   
    function Create
    (
       activatableClassId : Windows.String
@@ -1308,13 +1335,13 @@ package Windows.Media.Effects is
       ; props : Windows.Foundation.Collections.IPropertySet
    )
    return Windows.Media.Effects.IVideoCompositorDefinition;
+   
    
    subtype CompositeVideoFrameContext is Windows.Media.Effects.ICompositeVideoFrameContext;
    subtype AudioEffect is Windows.Media.Effects.IAudioEffect;
    subtype AudioRenderEffectsManager is Windows.Media.Effects.IAudioRenderEffectsManager;
    subtype AudioCaptureEffectsManager is Windows.Media.Effects.IAudioCaptureEffectsManager;
    subtype VideoEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
-   
    function Create
    (
       activatableClassId : Windows.String
@@ -1327,9 +1354,9 @@ package Windows.Media.Effects is
       ; props : Windows.Foundation.Collections.IPropertySet
    )
    return Windows.Media.Effects.IVideoEffectDefinition;
+   
    
    subtype AudioEffectDefinition is Windows.Media.Effects.IAudioEffectDefinition;
-   
    function Create
    (
       activatableClassId : Windows.String
@@ -1342,6 +1369,7 @@ package Windows.Media.Effects is
       ; props : Windows.Foundation.Collections.IPropertySet
    )
    return Windows.Media.Effects.IAudioEffectDefinition;
+   
    
    subtype ProcessVideoFrameContext is Windows.Media.Effects.IProcessVideoFrameContext;
    subtype ProcessAudioFrameContext is Windows.Media.Effects.IProcessAudioFrameContext;
@@ -1357,7 +1385,6 @@ package Windows.Media.Effects is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateAudioRenderEffectsManager
    (
@@ -1388,5 +1415,6 @@ package Windows.Media.Effects is
       ; mode : Windows.Media.AudioProcessing
    )
    return Windows.Media.Effects.IAudioCaptureEffectsManager;
+   
 
 end;

@@ -159,6 +159,7 @@ package Windows.ApplicationModel.Search.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISearchSuggestionsRequestedEventArgs : aliased constant Windows.IID := (1876236773, 40574, 19124, (139, 227, 199, 107, 27, 212, 52, 74 ));
@@ -192,11 +193,13 @@ package Windows.ApplicationModel.Search.Core is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchSuggestionsRequest
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRequestingFocusOnKeyboardInputEventArgs : aliased constant Windows.IID := (2702794535, 45479, 16802, (135, 157, 106, 104, 104, 126, 89, 133 ));
    
    type IRequestingFocusOnKeyboardInputEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISearchSuggestionManager : aliased constant Windows.IID := (1057771681, 52125, 18811, (181, 0, 60, 4, 172, 149, 154, 210 ));
@@ -319,6 +322,7 @@ package Windows.ApplicationModel.Search.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISearchSuggestion : aliased constant Windows.IID := (3272963458, 63279, 20794, (176, 137, 98, 8, 24, 142, 194, 182 ));
@@ -353,6 +357,7 @@ package Windows.ApplicationModel.Search.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISearchSuggestion : aliased constant Windows.IID := (3751108960, 61781, 22550, (179, 139, 162, 255, 6, 41, 186, 14 ));
@@ -365,6 +370,7 @@ package Windows.ApplicationModel.Search.Core is
       ; RetVal : access Windows.ApplicationModel.Search.Core.IIterator_ISearchSuggestion
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISearchSuggestion : aliased constant Windows.IID := (95170240, 61640, 23725, (180, 249, 249, 133, 224, 247, 159, 233 ));
@@ -403,6 +409,7 @@ package Windows.ApplicationModel.Search.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISearchSuggestion : aliased constant Windows.IID := (482569286, 6590, 23915, (165, 109, 4, 116, 19, 37, 44, 105 ));
@@ -497,6 +504,7 @@ package Windows.ApplicationModel.Search.Core is
       ; items : Windows.ApplicationModel.Search.Core.ISearchSuggestion_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IObservableVector_ISearchSuggestion : aliased constant Windows.IID := (3901068652, 29377, 20815, (173, 154, 41, 67, 184, 128, 174, 19 ));
@@ -517,6 +525,7 @@ package Windows.ApplicationModel.Search.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -526,7 +535,6 @@ package Windows.ApplicationModel.Search.Core is
    IID_VectorChangedEventHandler_ISearchSuggestion : aliased constant Windows.IID := (3413874827, 18058, 24238, (175, 228, 223, 139, 0, 95, 128, 175 ));
    
    type VectorChangedEventHandler_ISearchSuggestion_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.Core.IObservableVector_ISearchSuggestion ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_VectorChangedEventHandler_ISearchSuggestion'access) with null record;
-   
    function Invoke
    (
       This       : access VectorChangedEventHandler_ISearchSuggestion_Interface
@@ -540,7 +548,6 @@ package Windows.ApplicationModel.Search.Core is
    IID_TypedEventHandler_ISearchSuggestionManager_add_SuggestionsRequested : aliased constant Windows.IID := (2122267871, 32985, 22086, (135, 67, 236, 30, 56, 100, 93, 104 ));
    
    type TypedEventHandler_ISearchSuggestionManager_add_SuggestionsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.Core.ISearchSuggestionManager ; args : Windows.ApplicationModel.Search.Core.ISearchSuggestionsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISearchSuggestionManager_add_SuggestionsRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISearchSuggestionManager_add_SuggestionsRequested_Interface
@@ -554,7 +561,6 @@ package Windows.ApplicationModel.Search.Core is
    IID_TypedEventHandler_ISearchSuggestionManager_add_RequestingFocusOnKeyboardInput : aliased constant Windows.IID := (3139012448, 18233, 21849, (128, 230, 240, 225, 175, 83, 85, 253 ));
    
    type TypedEventHandler_ISearchSuggestionManager_add_RequestingFocusOnKeyboardInput_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Search.Core.ISearchSuggestionManager ; args : Windows.ApplicationModel.Search.Core.IRequestingFocusOnKeyboardInputEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISearchSuggestionManager_add_RequestingFocusOnKeyboardInput'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISearchSuggestionManager_add_RequestingFocusOnKeyboardInput_Interface

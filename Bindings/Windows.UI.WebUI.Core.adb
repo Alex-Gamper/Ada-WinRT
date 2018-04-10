@@ -28,7 +28,6 @@ package body Windows.UI.WebUI.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access MenuOpenedEventHandler_Interface
@@ -106,7 +105,6 @@ package body Windows.UI.WebUI.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateWebUICommandBarIconButton return Windows.UI.WebUI.Core.IWebUICommandBarIconButton is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarIconButton");
@@ -183,7 +181,6 @@ package body Windows.UI.WebUI.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.UI.WebUI.Core.IWebUICommandBar is
       Hr            : Windows.HRESULT := S_OK;
@@ -200,5 +197,6 @@ package body Windows.UI.WebUI.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

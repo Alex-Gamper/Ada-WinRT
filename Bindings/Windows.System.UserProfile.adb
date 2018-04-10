@@ -31,7 +31,6 @@ package body Windows.System.UserProfile is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_SetAccountPictureResult_Interface
@@ -62,7 +61,6 @@ package body Windows.System.UserProfile is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -70,7 +68,6 @@ package body Windows.System.UserProfile is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForUser
    (
@@ -727,5 +724,6 @@ package body Windows.System.UserProfile is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

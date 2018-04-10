@@ -293,6 +293,7 @@ package Windows.Globalization.DateTimeFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDateTimeFormatterFactory : aliased constant Windows.IID := (3968698963, 6702, 16685, (136, 21, 59, 116, 95, 177, 162, 160 ));
@@ -381,6 +382,7 @@ package Windows.Globalization.DateTimeFormatting is
       ; RetVal : access Windows.Globalization.DateTimeFormatting.IDateTimeFormatter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDateTimeFormatterStatics : aliased constant Windows.IID := (3217942464, 57164, 18990, (144, 18, 244, 125, 175, 63, 18, 18 ));
@@ -414,6 +416,7 @@ package Windows.Globalization.DateTimeFormatting is
       ; RetVal : access Windows.Globalization.DateTimeFormatting.IDateTimeFormatter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDateTimeFormatter2 : aliased constant Windows.IID := (667490950, 48554, 20432, (158, 54, 103, 29, 90, 165, 238, 3 ));
@@ -428,12 +431,12 @@ package Windows.Globalization.DateTimeFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype DateTimeFormatter is Windows.Globalization.DateTimeFormatting.IDateTimeFormatter;
-   
    function CreateDateTimeFormatter
    (
       formatTemplate : Windows.String
@@ -504,10 +507,10 @@ package Windows.Globalization.DateTimeFormatting is
    return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_LongDate
    return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter;
@@ -520,5 +523,6 @@ package Windows.Globalization.DateTimeFormatting is
    
    function get_ShortTime
    return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter;
+   
 
 end;

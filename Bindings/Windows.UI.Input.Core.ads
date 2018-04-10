@@ -70,6 +70,7 @@ package Windows.UI.Input.Core is
       ; RetVal : access Windows.UI.Input.Core.IRadialControllerIndependentInputSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerIndependentInputSource : aliased constant Windows.IID := (1029144310, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -89,6 +90,7 @@ package Windows.UI.Input.Core is
       ; RetVal : access Windows.UI.Core.ICoreDispatcher
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -99,11 +101,11 @@ package Windows.UI.Input.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateForView
    (
       view : Windows.ApplicationModel.Core.ICoreApplicationView
    )
    return Windows.UI.Input.Core.IRadialControllerIndependentInputSource;
+   
 
 end;

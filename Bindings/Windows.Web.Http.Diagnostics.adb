@@ -29,7 +29,6 @@ package body Windows.Web.Http.Diagnostics is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IHttpDiagnosticProvider_add_RequestSent_Interface
@@ -73,7 +72,6 @@ package body Windows.Web.Http.Diagnostics is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -81,7 +79,6 @@ package body Windows.Web.Http.Diagnostics is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateFromProcessDiagnosticInfo
    (
@@ -102,5 +99,6 @@ package body Windows.Web.Http.Diagnostics is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

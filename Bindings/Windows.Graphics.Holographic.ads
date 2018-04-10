@@ -278,6 +278,7 @@ package Windows.Graphics.Holographic is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicSpaceCameraAddedEventArgs : aliased constant Windows.IID := (1492245045, 48051, 15503, (153, 61, 108, 128, 231, 254, 185, 159 ));
@@ -297,6 +298,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicSpaceCameraRemovedEventArgs : aliased constant Windows.IID := (2153006248, 62126, 12846, (141, 169, 131, 106, 10, 149, 164, 193 ));
@@ -309,6 +311,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IHolographicCamera
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicSpace : aliased constant Windows.IID := (1132518310, 24184, 17231, (128, 124, 52, 51, 209, 239, 232, 183 ));
@@ -365,6 +368,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IHolographicFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicSpaceStatics : aliased constant Windows.IID := (911106148, 51442, 15265, (131, 145, 102, 184, 72, 158, 103, 253 ));
@@ -378,6 +382,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IHolographicSpace
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicSpaceStatics2 : aliased constant Windows.IID := (242708616, 30204, 18607, (135, 88, 6, 82, 246, 240, 124, 89 ));
@@ -412,6 +417,7 @@ package Windows.Graphics.Holographic is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicSpaceStatics3 : aliased constant Windows.IID := (989912637, 45475, 19966, (142, 121, 254, 197, 144, 158, 109, 248 ));
@@ -424,6 +430,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicCameraPose : aliased constant Windows.IID := (226328112, 4830, 17853, (145, 43, 199, 246, 86, 21, 153, 209 ));
@@ -488,6 +495,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicFramePrediction : aliased constant Windows.IID := (1376734689, 23562, 20089, (168, 30, 106, 190, 2, 187, 39, 57 ));
@@ -507,6 +515,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Perception.IPerceptionTimestamp
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicCameraRenderingParameters : aliased constant Windows.IID := (2393648849, 23540, 19990, (130, 54, 174, 8, 0, 193, 29, 13 ));
@@ -553,6 +562,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicFrame : aliased constant Windows.IID := (3331886774, 43193, 12372, (166, 235, 214, 36, 182, 83, 99, 117 ));
@@ -621,6 +631,7 @@ package Windows.Graphics.Holographic is
       This       : access IHolographicFrame_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicFrame2 : aliased constant Windows.IID := (675231679, 15346, 24209, (102, 51, 135, 5, 116, 230, 242, 23 ));
@@ -634,6 +645,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicCameraRenderingParameters2 : aliased constant Windows.IID := (638742755, 46742, 17972, (148, 214, 190, 6, 129, 100, 53, 153 ));
@@ -660,6 +672,7 @@ package Windows.Graphics.Holographic is
       ; value : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicCameraRenderingParameters3 : aliased constant Windows.IID := (2980729151, 4973, 19206, (185, 212, 228, 185, 20, 205, 6, 131 ));
@@ -679,6 +692,7 @@ package Windows.Graphics.Holographic is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicCameraViewportParameters : aliased constant Windows.IID := (2160980983, 33834, 16865, (147, 237, 86, 146, 171, 31, 187, 16 ));
@@ -698,6 +712,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Foundation.Numerics.Vector2_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicCamera2 : aliased constant Windows.IID := (3042680602, 47756, 20356, (173, 121, 46, 126, 30, 36, 80, 243 ));
@@ -724,6 +739,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IHolographicDisplay
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicCamera3 : aliased constant Windows.IID := (1168789427, 31577, 21070, (74, 63, 74, 106, 214, 101, 4, 119 ));
@@ -757,6 +773,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IVector_IHolographicQuadLayer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicDisplay : aliased constant Windows.IID := (2597233684, 7583, 16528, (163, 136, 144, 192, 111, 110, 174, 156 ));
@@ -804,6 +821,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Perception.Spatial.ISpatialLocator
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicDisplay2 : aliased constant Windows.IID := (1974222722, 59221, 17260, (141, 150, 77, 50, 209, 49, 71, 62 ));
@@ -816,6 +834,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicDisplayStatics : aliased constant Windows.IID := (3409398147, 59312, 18497, (131, 85, 58, 229, 181, 54, 233, 164 ));
@@ -828,6 +847,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IHolographicDisplay
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicQuadLayer : aliased constant Windows.IID := (2419351753, 51673, 23900, (65, 172, 162, 213, 171, 15, 211, 49 ));
@@ -847,6 +867,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicQuadLayerFactory : aliased constant Windows.IID := (2792700147, 23060, 23056, (72, 154, 69, 80, 101, 179, 123, 118 ));
@@ -869,6 +890,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IHolographicQuadLayer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHolographicQuadLayerUpdateParameters : aliased constant Windows.IID := (722379696, 31117, 23498, (85, 194, 44, 12, 118, 46, 187, 8 ));
@@ -919,6 +941,7 @@ package Windows.Graphics.Holographic is
       ; orientation : Windows.Foundation.Numerics.Quaternion
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_HolographicStereoTransform : aliased constant Windows.IID := (1852296824, 52327, 21184, (182, 53, 153, 29, 176, 191, 245, 202 ));
@@ -931,6 +954,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.HolographicStereoTransform
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IHolographicCameraPose : aliased constant Windows.IID := (2481094580, 13099, 22814, (174, 107, 97, 146, 250, 10, 16, 9 ));
@@ -965,6 +989,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IHolographicCameraPose : aliased constant Windows.IID := (2450594559, 36300, 21390, (174, 61, 49, 253, 37, 42, 10, 213 ));
@@ -977,6 +1002,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IIterator_IHolographicCameraPose
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IHolographicCameraPose : aliased constant Windows.IID := (398843825, 28295, 23063, (167, 145, 172, 7, 248, 238, 146, 146 ));
@@ -1015,6 +1041,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IHolographicCamera : aliased constant Windows.IID := (1791788406, 12266, 22045, (132, 221, 74, 26, 176, 95, 199, 237 ));
@@ -1049,6 +1076,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IHolographicCamera : aliased constant Windows.IID := (2997866836, 36272, 23474, (173, 122, 104, 74, 253, 71, 146, 100 ));
@@ -1061,6 +1089,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IIterator_IHolographicCamera
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IHolographicCamera : aliased constant Windows.IID := (30851246, 44453, 20656, (133, 98, 65, 251, 18, 5, 187, 74 ));
@@ -1099,6 +1128,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IHolographicQuadLayer : aliased constant Windows.IID := (2239123824, 18779, 21532, (174, 240, 116, 146, 133, 109, 227, 223 ));
@@ -1133,6 +1163,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IHolographicQuadLayer : aliased constant Windows.IID := (2222212705, 38110, 22630, (161, 93, 158, 251, 25, 169, 154, 84 ));
@@ -1145,6 +1176,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.Graphics.Holographic.IIterator_IHolographicQuadLayer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IHolographicQuadLayer : aliased constant Windows.IID := (525462751, 53037, 23422, (170, 233, 214, 98, 138, 81, 141, 190 ));
@@ -1183,6 +1215,7 @@ package Windows.Graphics.Holographic is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IHolographicQuadLayer : aliased constant Windows.IID := (3659849676, 19540, 20883, (146, 29, 198, 133, 181, 125, 229, 89 ));
@@ -1277,6 +1310,7 @@ package Windows.Graphics.Holographic is
       ; items : Windows.Graphics.Holographic.IHolographicQuadLayer_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1286,7 +1320,6 @@ package Windows.Graphics.Holographic is
    IID_TypedEventHandler_IHolographicSpace_add_CameraAdded : aliased constant Windows.IID := (1909984124, 7463, 20738, (131, 209, 79, 14, 252, 124, 157, 111 ));
    
    type TypedEventHandler_IHolographicSpace_add_CameraAdded_Interface(Callback : access procedure (sender : Windows.Graphics.Holographic.IHolographicSpace ; args : Windows.Graphics.Holographic.IHolographicSpaceCameraAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHolographicSpace_add_CameraAdded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IHolographicSpace_add_CameraAdded_Interface
@@ -1300,7 +1333,6 @@ package Windows.Graphics.Holographic is
    IID_TypedEventHandler_IHolographicSpace_add_CameraRemoved : aliased constant Windows.IID := (3681079235, 2164, 20522, (163, 185, 43, 31, 232, 108, 103, 190 ));
    
    type TypedEventHandler_IHolographicSpace_add_CameraRemoved_Interface(Callback : access procedure (sender : Windows.Graphics.Holographic.IHolographicSpace ; args : Windows.Graphics.Holographic.IHolographicSpaceCameraRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHolographicSpace_add_CameraRemoved'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IHolographicSpace_add_CameraRemoved_Interface
@@ -1322,7 +1354,6 @@ package Windows.Graphics.Holographic is
    subtype HolographicCameraRenderingParameters is Windows.Graphics.Holographic.IHolographicCameraRenderingParameters;
    subtype HolographicFramePrediction is Windows.Graphics.Holographic.IHolographicFramePrediction;
    subtype HolographicQuadLayer is Windows.Graphics.Holographic.IHolographicQuadLayer;
-   
    function Create
    (
       size : Windows.Foundation.Size
@@ -1336,6 +1367,7 @@ package Windows.Graphics.Holographic is
    )
    return Windows.Graphics.Holographic.IHolographicQuadLayer;
    
+   
    subtype HolographicQuadLayerUpdateParameters is Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters;
    subtype HolographicCameraViewportParameters is Windows.Graphics.Holographic.IHolographicCameraViewportParameters;
    subtype HolographicDisplay is Windows.Graphics.Holographic.IHolographicDisplay;
@@ -1343,7 +1375,6 @@ package Windows.Graphics.Holographic is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateForCoreWindow
    (
@@ -1374,5 +1405,6 @@ package Windows.Graphics.Holographic is
    
    function GetDefault
    return Windows.Graphics.Holographic.IHolographicDisplay;
+   
 
 end;

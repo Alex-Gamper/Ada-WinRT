@@ -141,6 +141,7 @@ package Windows.Networking.PushNotifications is
       ; RetVal : access Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPushNotificationChannelManagerStatics2 : aliased constant Windows.IID := (3024397917, 42985, 19240, (149, 14, 243, 117, 169, 7, 249, 223 ));
@@ -154,6 +155,7 @@ package Windows.Networking.PushNotifications is
       ; RetVal : access Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPushNotificationChannelManagerStatics3 : aliased constant Windows.IID := (1191313150, 3806, 19007, (174, 120, 191, 164, 113, 73, 105, 37 ));
@@ -166,6 +168,7 @@ package Windows.Networking.PushNotifications is
       ; RetVal : access Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPushNotificationChannelManagerForUser : aliased constant Windows.IID := (2764330756, 4482, 17095, (136, 144, 245, 99, 196, 137, 13, 196 ));
@@ -201,6 +204,7 @@ package Windows.Networking.PushNotifications is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPushNotificationChannelManagerForUser2 : aliased constant Windows.IID := (3280668266, 31937, 19884, (135, 253, 190, 110, 146, 4, 20, 164 ));
@@ -225,6 +229,7 @@ package Windows.Networking.PushNotifications is
       ; RetVal : access Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPushNotificationChannel : aliased constant Windows.IID := (724045870, 61195, 20281, (155, 138, 163, 193, 148, 222, 112, 129 ));
@@ -265,6 +270,7 @@ package Windows.Networking.PushNotifications is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPushNotificationReceivedEventArgs : aliased constant Windows.IID := (3506855436, 14029, 18508, (185, 53, 10, 153, 183, 83, 207, 0 ));
@@ -319,6 +325,7 @@ package Windows.Networking.PushNotifications is
       ; RetVal : access Windows.Networking.PushNotifications.IRawNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRawNotification : aliased constant Windows.IID := (438465153, 15225, 17068, (153, 99, 34, 171, 0, 212, 240, 183 ));
@@ -331,6 +338,7 @@ package Windows.Networking.PushNotifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRawNotification2 : aliased constant Windows.IID := (3872444185, 3183, 19677, (148, 36, 238, 197, 190, 1, 77, 38 ));
@@ -350,6 +358,7 @@ package Windows.Networking.PushNotifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPushNotificationChannel : aliased constant Windows.IID := (1888770569, 13082, 24128, (184, 84, 102, 183, 163, 35, 59, 171 ));
@@ -376,6 +385,7 @@ package Windows.Networking.PushNotifications is
       ; RetVal : access Windows.Networking.PushNotifications.IPushNotificationChannel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -385,7 +395,6 @@ package Windows.Networking.PushNotifications is
    IID_AsyncOperationCompletedHandler_IPushNotificationChannel : aliased constant Windows.IID := (3481047087, 3853, 23330, (144, 177, 133, 20, 27, 88, 22, 205 ));
    
    type AsyncOperationCompletedHandler_IPushNotificationChannel_Interface(Callback : access procedure (asyncInfo : Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPushNotificationChannel'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPushNotificationChannel_Interface
@@ -399,7 +408,6 @@ package Windows.Networking.PushNotifications is
    IID_TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived : aliased constant Windows.IID := (1442455933, 8131, 22627, (185, 128, 112, 148, 212, 55, 150, 148 ));
    
    type TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived_Interface(Callback : access procedure (sender : Windows.Networking.PushNotifications.IPushNotificationChannel ; args : Windows.Networking.PushNotifications.IPushNotificationReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived_Interface
@@ -420,7 +428,6 @@ package Windows.Networking.PushNotifications is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreatePushNotificationChannelForApplicationAsync
    return Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel;
@@ -445,5 +452,6 @@ package Windows.Networking.PushNotifications is
    
    function GetDefault
    return Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser;
+   
 
 end;

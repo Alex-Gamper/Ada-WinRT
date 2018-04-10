@@ -30,7 +30,6 @@ package body Windows.Networking.ServiceDiscovery.Dnssd is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDnssdServiceWatcher_add_Added_Interface
@@ -86,7 +85,6 @@ package body Windows.Networking.ServiceDiscovery.Dnssd is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (

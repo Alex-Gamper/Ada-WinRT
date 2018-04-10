@@ -574,6 +574,7 @@ package Windows.UI.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemNavigationManager2 : aliased constant Windows.IID := (2354119681, 26558, 18862, (149, 9, 103, 28, 30, 84, 163, 137 ));
@@ -593,6 +594,7 @@ package Windows.UI.Core is
       ; value : Windows.UI.Core.AppViewBackButtonVisibility
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemNavigationManagerStatics : aliased constant Windows.IID := (3696408014, 48864, 17157, (140, 84, 104, 34, 142, 214, 131, 181 ));
@@ -605,6 +607,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.ISystemNavigationManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackRequestedEventArgs : aliased constant Windows.IID := (3590574730, 58385, 19022, (186, 65, 106, 50, 122, 134, 117, 188 ));
@@ -624,6 +627,7 @@ package Windows.UI.Core is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowEventArgs : aliased constant Windows.IID := (657137395, 50739, 19877, (162, 108, 198, 208, 245, 107, 41, 218 ));
@@ -643,6 +647,7 @@ package Windows.UI.Core is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationProviderRequestedEventArgs : aliased constant Windows.IID := (2518676056, 8639, 19266, (162, 152, 250, 71, 157, 76, 82, 226 ));
@@ -662,6 +667,7 @@ package Windows.UI.Core is
       ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICharacterReceivedEventArgs : aliased constant Windows.IID := (3313788319, 39346, 19404, (189, 51, 4, 230, 63, 66, 144, 46 ));
@@ -681,6 +687,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.CorePhysicalKeyStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInputEnabledEventArgs : aliased constant Windows.IID := (2151095631, 12248, 19492, (170, 134, 49, 99, 168, 123, 78, 90 ));
@@ -693,6 +700,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyEventArgs : aliased constant Windows.IID := (1609951536, 9540, 18967, (189, 120, 31, 47, 222, 187, 16, 107 ));
@@ -712,6 +720,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.CorePhysicalKeyStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyEventArgs2 : aliased constant Windows.IID := (1480252824, 1936, 17777, (155, 18, 100, 94, 249, 215, 158, 66 ));
@@ -724,6 +733,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointerEventArgs : aliased constant Windows.IID := (2450365617, 42492, 18977, (140, 9, 73, 223, 230, 255, 226, 95 ));
@@ -750,6 +760,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Input.IVector_IPointerPoint -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITouchHitTestingEventArgs : aliased constant Windows.IID := (586397731, 2940, 16974, (157, 247, 51, 212, 249, 98, 147, 27 ));
@@ -799,6 +810,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.CoreProximityEvaluation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClosestInteractiveBoundsRequestedEventArgs : aliased constant Windows.IID := (880546263, 63224, 16611, (178, 159, 174, 80, 211, 232, 100, 134 ));
@@ -832,6 +844,7 @@ package Windows.UI.Core is
       ; value : Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWindowActivatedEventArgs : aliased constant Windows.IID := (396191207, 18008, 19638, (170, 19, 65, 208, 148, 234, 37, 94 ));
@@ -844,6 +857,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.CoreWindowActivationState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWindowSizeChangedEventArgs : aliased constant Windows.IID := (1512050375, 1062, 18396, (184, 108, 111, 71, 89, 21, 228, 81 ));
@@ -856,6 +870,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVisibilityChangedEventArgs : aliased constant Windows.IID := (3214481642, 55297, 17764, (164, 149, 177, 232, 79, 138, 208, 133 ));
@@ -868,6 +883,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindow : aliased constant Windows.IID := (2042222066, 34718, 19337, (183, 152, 121, 228, 117, 152, 3, 12 ));
@@ -1252,6 +1268,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindow2 : aliased constant Windows.IID := (2083199877, 26903, 17249, (156, 2, 13, 158, 58, 66, 11, 149 ));
@@ -1264,6 +1281,7 @@ package Windows.UI.Core is
       ; value : Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindow3 : aliased constant Windows.IID := (851578328, 64239, 17269, (162, 171, 50, 100, 14, 72, 21, 199 ));
@@ -1291,6 +1309,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindow4 : aliased constant Windows.IID := (902492368, 18416, 17260, (175, 151, 13, 216, 143, 111, 95, 2 ));
@@ -1326,6 +1345,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindow5 : aliased constant Windows.IID := (1263198689, 11885, 20138, (189, 161, 28, 92, 193, 190, 225, 65 ));
@@ -1345,6 +1365,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.CoreWindowActivationMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowStatic : aliased constant Windows.IID := (1294176261, 15402, 16817, (144, 34, 83, 107, 185, 207, 147, 177 ));
@@ -1357,6 +1378,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.ICoreWindow
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAcceleratorKeyEventArgs : aliased constant Windows.IID := (4280044618, 37511, 18187, (131, 110, 144, 134, 227, 18, 106, 222 ));
@@ -1383,6 +1405,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.CorePhysicalKeyStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAcceleratorKeyEventArgs2 : aliased constant Windows.IID := (3540036086, 12158, 18547, (165, 85, 22, 110, 89, 110, 225, 197 ));
@@ -1395,6 +1418,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreAcceleratorKeys : aliased constant Windows.IID := (2684221429, 47305, 20208, (183, 210, 29, 230, 38, 86, 31, 200 ));
@@ -1415,6 +1439,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreDispatcher : aliased constant Windows.IID := (1624977320, 46853, 20446, (167, 214, 235, 187, 24, 145, 211, 158 ));
@@ -1451,6 +1476,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreDispatcher2 : aliased constant Windows.IID := (1868456903, 58282, 20142, (176, 224, 220, 243, 33, 202, 75, 47 ));
@@ -1473,6 +1499,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreDispatcherWithTaskPriority : aliased constant Windows.IID := (3137006765, 18509, 16830, (186, 128, 29, 88, 198, 82, 99, 234 ));
@@ -1513,6 +1540,7 @@ package Windows.UI.Core is
       This       : access ICoreDispatcherWithTaskPriority_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIdleDispatchedHandlerArgs : aliased constant Windows.IID := (2562419236, 56348, 17355, (180, 237, 209, 192, 235, 35, 145, 243 ));
@@ -1525,6 +1553,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreCursor : aliased constant Windows.IID := (2525575887, 4381, 17452, (138, 119, 184, 121, 146, 248, 226, 214 ));
@@ -1544,6 +1573,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.CoreCursorType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreCursorFactory : aliased constant Windows.IID := (4130706977, 42909, 20179, (140, 50, 169, 239, 157, 107, 118, 164 ));
@@ -1558,6 +1588,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.ICoreCursor
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInitializeWithCoreWindow : aliased constant Windows.IID := (412033238, 39027, 17994, (172, 229, 87, 224, 16, 244, 101, 230 ));
@@ -1570,6 +1601,7 @@ package Windows.UI.Core is
       ; window : Windows.UI.Core.ICoreWindow
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowResizeManager : aliased constant Windows.IID := (3102783781, 45904, 18611, (161, 152, 92, 26, 132, 112, 2, 67 ));
@@ -1581,6 +1613,7 @@ package Windows.UI.Core is
       This       : access ICoreWindowResizeManager_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowResizeManagerLayoutCapability : aliased constant Windows.IID := (3145003643, 42308, 17153, (128, 230, 10, 224, 51, 239, 69, 54 ));
@@ -1600,6 +1633,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowResizeManagerStatics : aliased constant Windows.IID := (2924122181, 28016, 18907, (142, 104, 70, 255, 189, 23, 211, 141 ));
@@ -1612,6 +1646,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.ICoreWindowResizeManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreInputSourceBase : aliased constant Windows.IID := (2672330759, 17792, 19432, (190, 104, 146, 169, 49, 23, 19, 187 ));
@@ -1653,6 +1688,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICorePointerInputSource : aliased constant Windows.IID := (3153181464, 58490, 18667, (136, 7, 248, 248, 211, 234, 69, 81 ));
@@ -1803,6 +1839,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreKeyboardInputSource : aliased constant Windows.IID := (589074568, 58473, 19953, (178, 8, 110, 73, 13, 113, 203, 144 ));
@@ -1861,6 +1898,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreKeyboardInputSource2 : aliased constant Windows.IID := (4196715412, 63843, 18341, (135, 120, 32, 124, 72, 43, 10, 253 ));
@@ -1873,6 +1911,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreComponentFocusable : aliased constant Windows.IID := (1392078755, 34626, 17425, (174, 105, 121, 168, 95, 41, 172, 139 ));
@@ -1915,6 +1954,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreTouchHitTesting : aliased constant Windows.IID := (2983764617, 15055, 16676, (159, 163, 234, 138, 186, 53, 60, 33 ));
@@ -1935,6 +1975,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreClosestInteractiveBoundsRequested : aliased constant Windows.IID := (4077061178, 59583, 20110, (174, 105, 201, 218, 221, 87, 161, 20 ));
@@ -1955,6 +1996,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICorePointerRedirector : aliased constant Windows.IID := (2409434260, 22152, 19212, (169, 241, 249, 49, 247, 250, 61, 195 ));
@@ -2005,6 +2047,7 @@ package Windows.UI.Core is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowPopupShowingEventArgs : aliased constant Windows.IID := (638934946, 23461, 20132, (163, 180, 45, 199, 214, 60, 142, 38 ));
@@ -2017,6 +2060,7 @@ package Windows.UI.Core is
       ; value : Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowDialog : aliased constant Windows.IID := (3879283936, 51085, 17022, (139, 44, 1, 255, 66, 12, 105, 213 ));
@@ -2135,6 +2179,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Popups.IAsyncOperation_IUICommand -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowDialogFactory : aliased constant Windows.IID := (3484592213, 7257, 19219, (177, 229, 22, 226, 152, 5, 247, 196 ));
@@ -2148,6 +2193,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.ICoreWindowDialog
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowFlyout : aliased constant Windows.IID := (3902637389, 8272, 16571, (179, 68, 246, 243, 85, 238, 179, 20 ));
@@ -2252,6 +2298,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Popups.IAsyncOperation_IUICommand -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreWindowFlyoutFactory : aliased constant Windows.IID := (3737437892, 37864, 20348, (190, 39, 206, 250, 161, 175, 104, 167 ));
@@ -2274,6 +2321,7 @@ package Windows.UI.Core is
       ; RetVal : access Windows.UI.Core.ICoreWindowFlyout
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2283,7 +2331,6 @@ package Windows.UI.Core is
    IID_DispatchedHandler : aliased constant Windows.IID := (3522328260, 39128, 17974, (191, 73, 235, 121, 80, 117, 72, 233 ));
    
    type DispatchedHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface(IID_DispatchedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DispatchedHandler_Interface
@@ -2295,7 +2342,6 @@ package Windows.UI.Core is
    IID_IdleDispatchedHandler : aliased constant Windows.IID := (2754284580, 32545, 19132, (153, 193, 143, 1, 0, 127, 8, 128 ));
    
    type IdleDispatchedHandler_Interface(Callback : access procedure (e : Windows.UI.Core.IIdleDispatchedHandlerArgs)) is new Windows.IMulticastDelegate_Interface(IID_IdleDispatchedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access IdleDispatchedHandler_Interface
@@ -2308,7 +2354,6 @@ package Windows.UI.Core is
    IID_EventHandler_IBackRequestedEventArgs : aliased constant Windows.IID := (3397521504, 43, 21101, (129, 34, 152, 38, 48, 215, 205, 190 ));
    
    type EventHandler_IBackRequestedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IBackRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IBackRequestedEventArgs'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IBackRequestedEventArgs_Interface
@@ -2322,7 +2367,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_Activated : aliased constant Windows.IID := (648493877, 43001, 21211, (136, 214, 21, 114, 109, 235, 37, 35 ));
    
    type TypedEventHandler_ICoreWindow_add_Activated_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IWindowActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_Activated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_Activated_Interface
@@ -2336,7 +2380,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_AutomationProviderRequested : aliased constant Windows.IID := (1423662084, 33271, 24390, (159, 184, 228, 155, 238, 199, 10, 36 ));
    
    type TypedEventHandler_ICoreWindow_add_AutomationProviderRequested_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IAutomationProviderRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_AutomationProviderRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_AutomationProviderRequested_Interface
@@ -2350,7 +2393,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_CharacterReceived : aliased constant Windows.IID := (1945650856, 2806, 22642, (143, 184, 174, 47, 86, 216, 85, 62 ));
    
    type TypedEventHandler_ICoreWindow_add_CharacterReceived_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ICharacterReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_CharacterReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_CharacterReceived_Interface
@@ -2364,7 +2406,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_Closed : aliased constant Windows.IID := (3498987366, 13399, 22514, (186, 12, 203, 52, 113, 51, 189, 21 ));
    
    type TypedEventHandler_ICoreWindow_add_Closed_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ICoreWindowEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_Closed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_Closed_Interface
@@ -2378,7 +2419,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_InputEnabled : aliased constant Windows.IID := (3794839114, 20586, 22979, (187, 97, 85, 89, 255, 153, 86, 99 ));
    
    type TypedEventHandler_ICoreWindow_add_InputEnabled_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IInputEnabledEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_InputEnabled'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_InputEnabled_Interface
@@ -2392,7 +2432,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_KeyDown : aliased constant Windows.IID := (2750154612, 21932, 23905, (130, 50, 179, 92, 93, 53, 201, 60 ));
    
    type TypedEventHandler_ICoreWindow_add_KeyDown_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_KeyDown'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_KeyDown_Interface
@@ -2406,7 +2445,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_KeyUp : aliased constant Windows.IID := (2750154612, 21932, 23905, (130, 50, 179, 92, 93, 53, 201, 60 ));
    
    type TypedEventHandler_ICoreWindow_add_KeyUp_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_KeyUp'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_KeyUp_Interface
@@ -2420,7 +2458,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_PointerCaptureLost : aliased constant Windows.IID := (1108220854, 59805, 24164, (142, 37, 7, 70, 126, 60, 174, 158 ));
    
    type TypedEventHandler_ICoreWindow_add_PointerCaptureLost_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_PointerCaptureLost'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_PointerCaptureLost_Interface
@@ -2434,7 +2471,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_PointerEntered : aliased constant Windows.IID := (1108220854, 59805, 24164, (142, 37, 7, 70, 126, 60, 174, 158 ));
    
    type TypedEventHandler_ICoreWindow_add_PointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_PointerEntered'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_PointerEntered_Interface
@@ -2448,7 +2484,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_PointerExited : aliased constant Windows.IID := (1108220854, 59805, 24164, (142, 37, 7, 70, 126, 60, 174, 158 ));
    
    type TypedEventHandler_ICoreWindow_add_PointerExited_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_PointerExited'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_PointerExited_Interface
@@ -2462,7 +2497,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_PointerMoved : aliased constant Windows.IID := (1108220854, 59805, 24164, (142, 37, 7, 70, 126, 60, 174, 158 ));
    
    type TypedEventHandler_ICoreWindow_add_PointerMoved_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_PointerMoved'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_PointerMoved_Interface
@@ -2476,7 +2510,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_PointerPressed : aliased constant Windows.IID := (1108220854, 59805, 24164, (142, 37, 7, 70, 126, 60, 174, 158 ));
    
    type TypedEventHandler_ICoreWindow_add_PointerPressed_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_PointerPressed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_PointerPressed_Interface
@@ -2490,7 +2523,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_PointerReleased : aliased constant Windows.IID := (1108220854, 59805, 24164, (142, 37, 7, 70, 126, 60, 174, 158 ));
    
    type TypedEventHandler_ICoreWindow_add_PointerReleased_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_PointerReleased'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_PointerReleased_Interface
@@ -2504,7 +2536,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_TouchHitTesting : aliased constant Windows.IID := (427185353, 3143, 20523, (154, 161, 13, 235, 3, 237, 151, 2 ));
    
    type TypedEventHandler_ICoreWindow_add_TouchHitTesting_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ITouchHitTestingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_TouchHitTesting'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_TouchHitTesting_Interface
@@ -2518,7 +2549,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_PointerWheelChanged : aliased constant Windows.IID := (1108220854, 59805, 24164, (142, 37, 7, 70, 126, 60, 174, 158 ));
    
    type TypedEventHandler_ICoreWindow_add_PointerWheelChanged_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_PointerWheelChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_PointerWheelChanged_Interface
@@ -2532,7 +2562,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_SizeChanged : aliased constant Windows.IID := (831372135, 16521, 22160, (144, 64, 29, 69, 79, 178, 246, 134 ));
    
    type TypedEventHandler_ICoreWindow_add_SizeChanged_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IWindowSizeChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_SizeChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_SizeChanged_Interface
@@ -2546,7 +2575,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow_add_VisibilityChanged : aliased constant Windows.IID := (347600530, 21891, 21153, (170, 66, 252, 24, 67, 192, 247, 72 ));
    
    type TypedEventHandler_ICoreWindow_add_VisibilityChanged_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IVisibilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow_add_VisibilityChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow_add_VisibilityChanged_Interface
@@ -2560,7 +2588,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow3_add_ClosestInteractiveBoundsRequested : aliased constant Windows.IID := (564548306, 49122, 23342, (162, 171, 202, 69, 37, 59, 232, 176 ));
    
    type TypedEventHandler_ICoreWindow3_add_ClosestInteractiveBoundsRequested_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.IClosestInteractiveBoundsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow3_add_ClosestInteractiveBoundsRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow3_add_ClosestInteractiveBoundsRequested_Interface
@@ -2574,7 +2601,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow4_add_ResizeStarted : aliased constant Windows.IID := (1667804733, 21204, 21136, (185, 54, 113, 122, 154, 207, 91, 234 ));
    
    type TypedEventHandler_ICoreWindow4_add_ResizeStarted_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow4_add_ResizeStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow4_add_ResizeStarted_Interface
@@ -2588,7 +2614,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindow4_add_ResizeCompleted : aliased constant Windows.IID := (1667804733, 21204, 21136, (185, 54, 113, 122, 154, 207, 91, 234 ));
    
    type TypedEventHandler_ICoreWindow4_add_ResizeCompleted_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindow4_add_ResizeCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindow4_add_ResizeCompleted_Interface
@@ -2602,7 +2627,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreAcceleratorKeys_add_AcceleratorKeyActivated : aliased constant Windows.IID := (325975821, 63464, 20819, (179, 28, 134, 57, 12, 112, 24, 128 ));
    
    type TypedEventHandler_ICoreAcceleratorKeys_add_AcceleratorKeyActivated_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreDispatcher ; args : Windows.UI.Core.IAcceleratorKeyEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreAcceleratorKeys_add_AcceleratorKeyActivated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreAcceleratorKeys_add_AcceleratorKeyActivated_Interface
@@ -2616,7 +2640,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreInputSourceBase_add_InputEnabled : aliased constant Windows.IID := (3382075164, 13889, 20918, (184, 35, 4, 142, 195, 98, 143, 176 ));
    
    type TypedEventHandler_ICoreInputSourceBase_add_InputEnabled_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IInputEnabledEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInputSourceBase_add_InputEnabled'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreInputSourceBase_add_InputEnabled_Interface
@@ -2630,7 +2653,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerInputSource_add_PointerCaptureLost : aliased constant Windows.IID := (648724289, 41213, 24166, (177, 136, 108, 116, 24, 45, 0, 205 ));
    
    type TypedEventHandler_ICorePointerInputSource_add_PointerCaptureLost_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerInputSource_add_PointerCaptureLost'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerInputSource_add_PointerCaptureLost_Interface
@@ -2644,7 +2666,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerInputSource_add_PointerEntered : aliased constant Windows.IID := (648724289, 41213, 24166, (177, 136, 108, 116, 24, 45, 0, 205 ));
    
    type TypedEventHandler_ICorePointerInputSource_add_PointerEntered_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerInputSource_add_PointerEntered'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerInputSource_add_PointerEntered_Interface
@@ -2658,7 +2679,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerInputSource_add_PointerExited : aliased constant Windows.IID := (648724289, 41213, 24166, (177, 136, 108, 116, 24, 45, 0, 205 ));
    
    type TypedEventHandler_ICorePointerInputSource_add_PointerExited_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerInputSource_add_PointerExited'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerInputSource_add_PointerExited_Interface
@@ -2672,7 +2692,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerInputSource_add_PointerMoved : aliased constant Windows.IID := (648724289, 41213, 24166, (177, 136, 108, 116, 24, 45, 0, 205 ));
    
    type TypedEventHandler_ICorePointerInputSource_add_PointerMoved_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerInputSource_add_PointerMoved'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerInputSource_add_PointerMoved_Interface
@@ -2686,7 +2705,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerInputSource_add_PointerPressed : aliased constant Windows.IID := (648724289, 41213, 24166, (177, 136, 108, 116, 24, 45, 0, 205 ));
    
    type TypedEventHandler_ICorePointerInputSource_add_PointerPressed_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerInputSource_add_PointerPressed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerInputSource_add_PointerPressed_Interface
@@ -2700,7 +2718,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerInputSource_add_PointerReleased : aliased constant Windows.IID := (648724289, 41213, 24166, (177, 136, 108, 116, 24, 45, 0, 205 ));
    
    type TypedEventHandler_ICorePointerInputSource_add_PointerReleased_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerInputSource_add_PointerReleased'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerInputSource_add_PointerReleased_Interface
@@ -2714,7 +2731,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerInputSource_add_PointerWheelChanged : aliased constant Windows.IID := (648724289, 41213, 24166, (177, 136, 108, 116, 24, 45, 0, 205 ));
    
    type TypedEventHandler_ICorePointerInputSource_add_PointerWheelChanged_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerInputSource_add_PointerWheelChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerInputSource_add_PointerWheelChanged_Interface
@@ -2728,7 +2744,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreKeyboardInputSource_add_CharacterReceived : aliased constant Windows.IID := (1520740424, 34482, 20587, (137, 171, 94, 181, 120, 100, 32, 198 ));
    
    type TypedEventHandler_ICoreKeyboardInputSource_add_CharacterReceived_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.ICharacterReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreKeyboardInputSource_add_CharacterReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreKeyboardInputSource_add_CharacterReceived_Interface
@@ -2742,7 +2757,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreKeyboardInputSource_add_KeyDown : aliased constant Windows.IID := (3940548087, 55054, 22152, (144, 108, 194, 177, 34, 158, 161, 109 ));
    
    type TypedEventHandler_ICoreKeyboardInputSource_add_KeyDown_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreKeyboardInputSource_add_KeyDown'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreKeyboardInputSource_add_KeyDown_Interface
@@ -2756,7 +2770,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreKeyboardInputSource_add_KeyUp : aliased constant Windows.IID := (3940548087, 55054, 22152, (144, 108, 194, 177, 34, 158, 161, 109 ));
    
    type TypedEventHandler_ICoreKeyboardInputSource_add_KeyUp_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreKeyboardInputSource_add_KeyUp'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreKeyboardInputSource_add_KeyUp_Interface
@@ -2770,7 +2783,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreComponentFocusable_add_GotFocus : aliased constant Windows.IID := (445301360, 42871, 20727, (136, 161, 227, 78, 86, 192, 148, 73 ));
    
    type TypedEventHandler_ICoreComponentFocusable_add_GotFocus_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.ICoreWindowEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreComponentFocusable_add_GotFocus'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreComponentFocusable_add_GotFocus_Interface
@@ -2784,7 +2796,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreComponentFocusable_add_LostFocus : aliased constant Windows.IID := (445301360, 42871, 20727, (136, 161, 227, 78, 86, 192, 148, 73 ));
    
    type TypedEventHandler_ICoreComponentFocusable_add_LostFocus_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.ICoreWindowEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreComponentFocusable_add_LostFocus'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreComponentFocusable_add_LostFocus_Interface
@@ -2798,7 +2809,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreTouchHitTesting_add_TouchHitTesting : aliased constant Windows.IID := (3345915173, 27286, 22781, (135, 79, 174, 82, 189, 96, 58, 248 ));
    
    type TypedEventHandler_ICoreTouchHitTesting_add_TouchHitTesting_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.ITouchHitTestingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreTouchHitTesting_add_TouchHitTesting'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreTouchHitTesting_add_TouchHitTesting_Interface
@@ -2812,7 +2822,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreClosestInteractiveBoundsRequested_add_ClosestInteractiveBoundsRequested : aliased constant Windows.IID := (3804638530, 1399, 20754, (158, 89, 234, 225, 89, 191, 57, 233 ));
    
    type TypedEventHandler_ICoreClosestInteractiveBoundsRequested_add_ClosestInteractiveBoundsRequested_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreInputSourceBase ; args : Windows.UI.Core.IClosestInteractiveBoundsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreClosestInteractiveBoundsRequested_add_ClosestInteractiveBoundsRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreClosestInteractiveBoundsRequested_add_ClosestInteractiveBoundsRequested_Interface
@@ -2826,7 +2835,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerRedirector_add_PointerRoutedAway : aliased constant Windows.IID := (695479591, 6013, 21699, (185, 116, 97, 111, 196, 90, 43, 12 ));
    
    type TypedEventHandler_ICorePointerRedirector_add_PointerRoutedAway_Interface(Callback : access procedure (sender : Windows.UI.Core.ICorePointerRedirector ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerRedirector_add_PointerRoutedAway'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedAway_Interface
@@ -2840,7 +2848,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerRedirector_add_PointerRoutedTo : aliased constant Windows.IID := (695479591, 6013, 21699, (185, 116, 97, 111, 196, 90, 43, 12 ));
    
    type TypedEventHandler_ICorePointerRedirector_add_PointerRoutedTo_Interface(Callback : access procedure (sender : Windows.UI.Core.ICorePointerRedirector ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerRedirector_add_PointerRoutedTo'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedTo_Interface
@@ -2854,7 +2861,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICorePointerRedirector_add_PointerRoutedReleased : aliased constant Windows.IID := (695479591, 6013, 21699, (185, 116, 97, 111, 196, 90, 43, 12 ));
    
    type TypedEventHandler_ICorePointerRedirector_add_PointerRoutedReleased_Interface(Callback : access procedure (sender : Windows.UI.Core.ICorePointerRedirector ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICorePointerRedirector_add_PointerRoutedReleased'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICorePointerRedirector_add_PointerRoutedReleased_Interface
@@ -2868,7 +2874,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindowDialog_add_Showing : aliased constant Windows.IID := (3006096418, 30898, 24064, (132, 168, 110, 49, 103, 170, 171, 222 ));
    
    type TypedEventHandler_ICoreWindowDialog_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ICoreWindowPopupShowingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindowDialog_add_Showing'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindowDialog_add_Showing_Interface
@@ -2882,7 +2887,6 @@ package Windows.UI.Core is
    IID_TypedEventHandler_ICoreWindowFlyout_add_Showing : aliased constant Windows.IID := (3006096418, 30898, 24064, (132, 168, 110, 49, 103, 170, 171, 222 ));
    
    type TypedEventHandler_ICoreWindowFlyout_add_Showing_Interface(Callback : access procedure (sender : Windows.UI.Core.ICoreWindow ; args : Windows.UI.Core.ICoreWindowPopupShowingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreWindowFlyout_add_Showing'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreWindowFlyout_add_Showing_Interface
@@ -2899,13 +2903,13 @@ package Windows.UI.Core is
    subtype SystemNavigationManager is Windows.UI.Core.ISystemNavigationManager;
    subtype CoreDispatcher is Windows.UI.Core.ICoreDispatcher;
    subtype CoreCursor is Windows.UI.Core.ICoreCursor;
-   
    function CreateCursor
    (
       type_x : Windows.UI.Core.CoreCursorType
       ; id : Windows.UInt32
    )
    return Windows.UI.Core.ICoreCursor;
+   
    
    subtype CoreWindow is Windows.UI.Core.ICoreWindow;
    subtype WindowActivatedEventArgs is Windows.UI.Core.IWindowActivatedEventArgs;
@@ -2931,7 +2935,6 @@ package Windows.UI.Core is
    function CreateCoreWindowDialog return Windows.UI.Core.ICoreWindowDialog;
    
    subtype CoreWindowFlyout is Windows.UI.Core.ICoreWindowFlyout;
-   
    function Create
    (
       position : Windows.Foundation.Point
@@ -2946,10 +2949,10 @@ package Windows.UI.Core is
    return Windows.UI.Core.ICoreWindowFlyout;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.UI.Core.ISystemNavigationManager;
@@ -2959,5 +2962,6 @@ package Windows.UI.Core is
    
    function GetForCurrentView
    return Windows.UI.Core.ICoreWindowResizeManager;
+   
 
 end;

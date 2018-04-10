@@ -79,6 +79,7 @@ package Windows.Perception.People is
       ; RetVal : access Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

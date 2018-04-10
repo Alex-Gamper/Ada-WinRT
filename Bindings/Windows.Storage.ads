@@ -593,6 +593,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageLibrary -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibraryStatics2 : aliased constant Windows.IID := (4289760732, 64117, 18069, (185, 209, 127, 129, 249, 120, 50, 227 ));
@@ -607,6 +608,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageLibrary -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibrary : aliased constant Windows.IID := (517828867, 3678, 19820, (181, 232, 147, 24, 152, 61, 106, 3 ));
@@ -656,6 +658,7 @@ package Windows.Storage is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibrary2 : aliased constant Windows.IID := (1527571272, 64691, 16433, (175, 176, 166, 141, 123, 212, 69, 52 ));
@@ -668,6 +671,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageLibraryChangeTracker
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibrary3 : aliased constant Windows.IID := (2317882001, 8532, 16897, (129, 19, 210, 192, 92, 225, 173, 35 ));
@@ -680,6 +684,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownFoldersStatics : aliased constant Windows.IID := (1512731936, 18434, 17709, (154, 217, 67, 81, 173, 167, 236, 53 ));
@@ -734,6 +739,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownFoldersStatics2 : aliased constant Windows.IID := (424399053, 53102, 19719, (157, 83, 233, 22, 58, 37, 54, 233 ));
@@ -760,6 +766,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownFoldersStatics3 : aliased constant Windows.IID := (3306767169, 38722, 20181, (130, 61, 252, 20, 1, 20, 135, 100 ));
@@ -774,6 +781,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownFoldersPlaylistsStatics : aliased constant Windows.IID := (3671452886, 12399, 19818, (180, 150, 70, 186, 142, 177, 6, 206 ));
@@ -786,6 +794,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownFoldersCameraRollStatics : aliased constant Windows.IID := (1561419366, 10216, 18735, (184, 229, 47, 144, 137, 108, 212, 205 ));
@@ -798,6 +807,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownFoldersSavedPicturesStatics : aliased constant Windows.IID := (89953258, 9533, 18044, (182, 202, 169, 125, 161, 233, 161, 141 ));
@@ -810,6 +820,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataPathsStatics : aliased constant Windows.IID := (28483055, 57442, 18593, (139, 12, 242, 199, 169, 202, 86, 192 ));
@@ -830,6 +841,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IUserDataPaths
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataPaths : aliased constant Windows.IID := (4190451986, 43972, 18175, (138, 43, 220, 157, 127, 166, 229, 47 ));
@@ -968,6 +980,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppDataPathsStatics : aliased constant Windows.IID := (3639290622, 43481, 19220, (185, 153, 227, 146, 19, 121, 217, 3 ));
@@ -988,6 +1001,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAppDataPaths
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppDataPaths : aliased constant Windows.IID := (1929500170, 31138, 18633, (158, 192, 63, 218, 9, 47, 121, 225 ));
@@ -1056,6 +1070,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemDataPathsStatics : aliased constant Windows.IID := (3774443472, 39200, 19402, (179, 121, 249, 111, 223, 124, 170, 216 ));
@@ -1068,6 +1083,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.ISystemDataPaths
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemDataPaths : aliased constant Windows.IID := (3811229552, 55546, 17900, (169, 66, 210, 226, 111, 182, 11, 165 ));
@@ -1185,6 +1201,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDownloadsFolderStatics : aliased constant Windows.IID := (663105232, 16462, 18399, (161, 226, 227, 115, 8, 190, 123, 55 ));
@@ -1224,6 +1241,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDownloadsFolderStatics2 : aliased constant Windows.IID := (3912254909, 36600, 20366, (141, 21, 172, 14, 38, 95, 57, 13 ));
@@ -1267,6 +1285,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibraryChange : aliased constant Windows.IID := (9964323, 11234, 18697, (170, 72, 21, 159, 82, 3, 165, 30 ));
@@ -1308,6 +1327,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageItem -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageItem : aliased constant Windows.IID := (1107798422, 51759, 17143, (189, 232, 139, 16, 69, 122, 127, 48 ));
@@ -1388,6 +1408,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibraryChangeReader : aliased constant Windows.IID := (4060462211, 64674, 16889, (137, 84, 238, 46, 153, 30, 185, 111 ));
@@ -1407,6 +1428,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibraryChangeTracker : aliased constant Windows.IID := (2652205846, 24691, 17654, (150, 129, 116, 146, 209, 40, 108, 144 ));
@@ -1431,6 +1453,7 @@ package Windows.Storage is
       This       : access IStorageLibraryChangeTracker_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamedFileDataRequest : aliased constant Windows.IID := (376700110, 55997, 19792, (190, 238, 24, 11, 138, 129, 145, 182 ));
@@ -1443,6 +1466,7 @@ package Windows.Storage is
       ; failureMode : Windows.Storage.StreamedFileFailureMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFileStatics : aliased constant Windows.IID := (1501873936, 56050, 17352, (139, 180, 164, 211, 234, 207, 208, 63 ));
@@ -1504,6 +1528,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFolder : aliased constant Windows.IID := (1926351736, 46063, 20341, (168, 11, 111, 217, 218, 226, 148, 75 ));
@@ -1588,6 +1613,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFile : aliased constant Windows.IID := (4198457734, 16916, 17036, (166, 76, 20, 201, 172, 115, 21, 234 ));
@@ -1692,6 +1718,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFolderStatics : aliased constant Windows.IID := (150153215, 34261, 18617, (174, 233, 40, 81, 30, 51, 159, 159 ));
@@ -1705,6 +1732,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageItem2 : aliased constant Windows.IID := (1408837330, 2108, 17027, (180, 91, 129, 192, 7, 35, 126, 68 ));
@@ -1725,6 +1753,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageItemProperties : aliased constant Windows.IID := (2254849144, 32809, 18174, (167, 137, 28, 47, 62, 47, 251, 92 ));
@@ -1785,6 +1814,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.FileProperties.IStorageItemContentProperties
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageItemProperties2 : aliased constant Windows.IID := (2391189841, 1209, 19410, (146, 157, 254, 243, 247, 22, 33, 208 ));
@@ -1817,6 +1847,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageItemPropertiesWithProvider : aliased constant Windows.IID := (2249978779, 25448, 19950, (180, 14, 116, 104, 74, 92, 231, 20 ));
@@ -1829,6 +1860,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFilePropertiesWithAvailability : aliased constant Windows.IID := (2949365403, 22571, 16691, (150, 72, 228, 76, 164, 110, 228, 145 ));
@@ -1841,6 +1873,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageProvider : aliased constant Windows.IID := (3875925716, 54392, 18390, (186, 70, 26, 142, 190, 17, 74, 32 ));
@@ -1860,6 +1893,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageProvider2 : aliased constant Windows.IID := (17635607, 13316, 16715, (159, 215, 205, 68, 71, 46, 170, 57 ));
@@ -1873,6 +1907,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFolder2 : aliased constant Windows.IID := (3894929593, 2265, 19086, (160, 172, 254, 94, 211, 203, 187, 211 ));
@@ -1886,6 +1921,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageItem -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageStreamTransaction : aliased constant Windows.IID := (4135383907, 42301, 19860, (174, 44, 103, 35, 45, 147, 172, 221 ));
@@ -1905,6 +1941,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFile2 : aliased constant Windows.IID := (2504936399, 2679, 17147, (183, 119, 194, 237, 88, 165, 46, 68 ));
@@ -1927,6 +1964,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageStreamTransaction -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileIOStatics : aliased constant Windows.IID := (2289308139, 32596, 18226, (165, 240, 94, 67, 227, 184, 194, 245 ));
@@ -2068,6 +2106,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPathIOStatics : aliased constant Windows.IID := (254752600, 36551, 17281, (146, 43, 143, 108, 7, 210, 136, 243 ));
@@ -2209,6 +2248,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICachedFileManagerStatics : aliased constant Windows.IID := (2415665738, 59266, 18781, (182, 20, 101, 76, 79, 11, 35, 112 ));
@@ -2229,6 +2269,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.Provider.IAsyncOperation_FileUpdateStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemAudioProperties : aliased constant Windows.IID := (1066350775, 12428, 18401, (146, 77, 134, 69, 52, 142, 93, 183 ));
@@ -2241,6 +2282,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemGPSProperties : aliased constant Windows.IID := (3237244596, 49524, 18458, (188, 37, 146, 25, 134, 246, 166, 243 ));
@@ -2260,6 +2302,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemImageProperties : aliased constant Windows.IID := (18558512, 35641, 17160, (190, 161, 232, 170, 97, 228, 120, 38 ));
@@ -2279,6 +2322,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemMediaProperties : aliased constant Windows.IID := (2754294550, 33813, 16604, (140, 68, 152, 54, 29, 35, 84, 48 ));
@@ -2326,6 +2370,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemMusicProperties : aliased constant Windows.IID := (3027863765, 26543, 19395, (141, 57, 91, 137, 2, 32, 38, 161 ));
@@ -2387,6 +2432,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemPhotoProperties : aliased constant Windows.IID := (1194654781, 43809, 17444, (183, 53, 244, 53, 58, 86, 200, 252 ));
@@ -2427,6 +2473,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemVideoProperties : aliased constant Windows.IID := (541128469, 26616, 17186, (155, 128, 79, 169, 254, 251, 131, 232 ));
@@ -2467,6 +2514,7 @@ package Windows.Storage is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemProperties : aliased constant Windows.IID := (2440720833, 34291, 19921, (176, 1, 165, 11, 253, 33, 200, 210 ));
@@ -2563,6 +2611,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.ISystemImageProperties
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationDataStatics : aliased constant Windows.IID := (1444025467, 59459, 17891, (148, 216, 6, 22, 158, 60, 142, 23 ));
@@ -2575,6 +2624,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IApplicationData
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationDataStatics2 : aliased constant Windows.IID := (3445645841, 53065, 16548, (164, 124, 199, 240, 219, 186, 129, 7 ));
@@ -2588,6 +2638,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IAsyncOperation_IApplicationData -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationData : aliased constant Windows.IID := (3285872567, 46916, 19269, (176, 184, 34, 58, 9, 56, 208, 220 ));
@@ -2687,6 +2738,7 @@ package Windows.Storage is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationData2 : aliased constant Windows.IID := (2657471849, 2979, 20018, (190, 41, 176, 45, 230, 96, 118, 56 ));
@@ -2699,6 +2751,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationData3 : aliased constant Windows.IID := (3693227252, 10098, 19485, (170, 44, 201, 247, 67, 173, 232, 209 ));
@@ -2727,6 +2780,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISetVersionRequest : aliased constant Windows.IID := (3116854171, 4182, 20073, (131, 48, 22, 38, 25, 149, 111, 155 ));
@@ -2753,6 +2807,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.ISetVersionDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISetVersionDeferral : aliased constant Windows.IID := (53807266, 30746, 17274, (176, 120, 63, 50, 186, 220, 254, 71 ));
@@ -2764,6 +2819,7 @@ package Windows.Storage is
       This       : access ISetVersionDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationDataContainer : aliased constant Windows.IID := (3316579614, 62567, 16570, (133, 102, 171, 100, 10, 68, 30, 29 ));
@@ -2813,6 +2869,7 @@ package Windows.Storage is
       ; name : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IObservableMap_String_Object : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2833,6 +2890,7 @@ package Windows.Storage is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_Object : aliased constant Windows.IID := (453850480, 2167, 24258, (138, 44, 59, 149, 57, 80, 106, 202 ));
@@ -2890,6 +2948,7 @@ package Windows.Storage is
       This       : access IMap_String_Object_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2902,6 +2961,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IStorageFolderQueryOperations_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -3042,6 +3102,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IInputStreamReference_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -3052,6 +3113,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IInputStream -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IRandomAccessStreamReference_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -3062,6 +3124,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -3080,9 +3143,11 @@ package Windows.Storage is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IPropertySet_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStorageFile : aliased constant Windows.IID := (827138840, 29934, 21340, (179, 97, 33, 68, 219, 197, 115, 160 ));
@@ -3117,6 +3182,7 @@ package Windows.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStorageFile : aliased constant Windows.IID := (1993620606, 64777, 22792, (162, 185, 164, 155, 72, 72, 41, 75 ));
@@ -3129,6 +3195,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IIterator_IStorageFile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IStorageFile : aliased constant Windows.IID := (2154063129, 24106, 22877, (168, 205, 42, 36, 180, 6, 127, 27 ));
@@ -3167,6 +3234,7 @@ package Windows.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStorageItem : aliased constant Windows.IID := (95717314, 14384, 23868, (152, 218, 37, 250, 17, 84, 45, 189 ));
@@ -3201,6 +3269,7 @@ package Windows.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStorageItem : aliased constant Windows.IID := (3146482712, 26065, 21579, (176, 131, 109, 23, 47, 86, 140, 115 ));
@@ -3213,6 +3282,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IIterator_IStorageItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStorageFolder : aliased constant Windows.IID := (1521260283, 46009, 23167, (169, 32, 75, 90, 141, 248, 17, 104 ));
@@ -3247,6 +3317,7 @@ package Windows.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStorageFolder : aliased constant Windows.IID := (1181335292, 44636, 21169, (138, 151, 84, 102, 206, 97, 233, 78 ));
@@ -3259,6 +3330,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IIterator_IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IStorageFolder : aliased constant Windows.IID := (3792563142, 56398, 21550, (162, 231, 162, 77, 25, 200, 221, 98 ));
@@ -3297,6 +3369,7 @@ package Windows.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IStorageFolder : aliased constant Windows.IID := (1814476734, 24321, 23136, (157, 215, 253, 23, 190, 58, 157, 214 ));
@@ -3391,6 +3464,7 @@ package Windows.Storage is
       ; items : Windows.Storage.IStorageFolder_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStorageLibrary : aliased constant Windows.IID := (789973529, 39361, 21177, (141, 202, 20, 228, 171, 121, 242, 135 ));
@@ -3417,6 +3491,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageLibrary
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStorageFolder : aliased constant Windows.IID := (1810491351, 59450, 23740, (128, 44, 23, 104, 150, 11, 82, 195 ));
@@ -3443,6 +3518,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IObservableVector_IStorageFolder : aliased constant Windows.IID := (898581727, 10821, 23736, (147, 133, 31, 246, 104, 8, 205, 224 ));
@@ -3463,6 +3539,7 @@ package Windows.Storage is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStorageFile : aliased constant Windows.IID := (1582495950, 44269, 23106, (149, 180, 246, 116, 221, 132, 136, 94 ));
@@ -3489,6 +3566,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStorageItem : aliased constant Windows.IID := (1607057719, 60343, 24172, (156, 186, 104, 111, 46, 194, 176, 187 ));
@@ -3515,6 +3593,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStorageStreamTransaction : aliased constant Windows.IID := (226574426, 39891, 24199, (130, 244, 155, 65, 40, 168, 135, 235 ));
@@ -3541,6 +3620,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IStorageStreamTransaction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStorageLibrary : aliased constant Windows.IID := (169632777, 64467, 22728, (154, 243, 98, 98, 204, 86, 229, 179 ));
@@ -3575,6 +3655,7 @@ package Windows.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStorageLibrary : aliased constant Windows.IID := (2233351421, 12395, 23694, (174, 60, 168, 216, 60, 98, 54, 4 ));
@@ -3587,6 +3668,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IIterator_IStorageLibrary
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IStorageItem : aliased constant Windows.IID := (2237094465, 1739, 22736, (185, 138, 124, 143, 6, 230, 233, 215 ));
@@ -3625,6 +3707,7 @@ package Windows.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IApplicationData : aliased constant Windows.IID := (826633048, 42443, 23643, (189, 110, 204, 206, 58, 123, 244, 180 ));
@@ -3651,6 +3734,7 @@ package Windows.Storage is
       ; RetVal : access Windows.Storage.IApplicationData
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IStorageItem : aliased constant Windows.IID := (2149910754, 39980, 23441, (137, 168, 57, 188, 247, 34, 51, 68 ));
@@ -3745,6 +3829,7 @@ package Windows.Storage is
       ; items : Windows.Storage.IStorageItem_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IStorageFile : aliased constant Windows.IID := (4240214923, 24835, 23374, (186, 0, 75, 194, 206, 219, 106, 53 ));
@@ -3839,6 +3924,7 @@ package Windows.Storage is
       ; items : Windows.Storage.IStorageFile_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -3848,7 +3934,6 @@ package Windows.Storage is
    IID_StreamedFileDataRequestedHandler : aliased constant Windows.IID := (4277577764, 12257, 19719, (163, 91, 183, 124, 80, 181, 244, 204 ));
    
    type StreamedFileDataRequestedHandler_Interface(Callback : access procedure (stream : Windows.Storage.Streams.IOutputStream)) is new Windows.IMulticastDelegate_Interface(IID_StreamedFileDataRequestedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access StreamedFileDataRequestedHandler_Interface
@@ -3861,7 +3946,6 @@ package Windows.Storage is
    IID_ApplicationDataSetVersionHandler : aliased constant Windows.IID := (2690093542, 52383, 18055, (172, 171, 163, 100, 253, 120, 84, 99 ));
    
    type ApplicationDataSetVersionHandler_Interface(Callback : access procedure (setVersionRequest : Windows.Storage.ISetVersionRequest)) is new Windows.IMulticastDelegate_Interface(IID_ApplicationDataSetVersionHandler'access) with null record;
-   
    function Invoke
    (
       This       : access ApplicationDataSetVersionHandler_Interface
@@ -3874,7 +3958,6 @@ package Windows.Storage is
    IID_AsyncOperationCompletedHandler_IStorageLibrary : aliased constant Windows.IID := (919953603, 29471, 23664, (185, 7, 48, 188, 153, 188, 48, 15 ));
    
    type AsyncOperationCompletedHandler_IStorageLibrary_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageLibrary ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStorageLibrary'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStorageLibrary_Interface
@@ -3888,7 +3971,6 @@ package Windows.Storage is
    IID_AsyncOperationCompletedHandler_IStorageFolder : aliased constant Windows.IID := (3255894638, 40547, 21586, (186, 84, 58, 7, 214, 169, 104, 116 ));
    
    type AsyncOperationCompletedHandler_IStorageFolder_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageFolder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStorageFolder'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStorageFolder_Interface
@@ -3902,7 +3984,6 @@ package Windows.Storage is
    IID_VectorChangedEventHandler_IStorageFolder : aliased constant Windows.IID := (542619201, 19355, 21304, (161, 154, 233, 169, 81, 145, 103, 117 ));
    
    type VectorChangedEventHandler_IStorageFolder_Interface(Callback : access procedure (sender : Windows.Storage.IObservableVector_IStorageFolder ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_VectorChangedEventHandler_IStorageFolder'access) with null record;
-   
    function Invoke
    (
       This       : access VectorChangedEventHandler_IStorageFolder_Interface
@@ -3916,7 +3997,6 @@ package Windows.Storage is
    IID_TypedEventHandler_IStorageLibrary_add_DefinitionChanged : aliased constant Windows.IID := (3988821304, 48046, 23339, (158, 129, 180, 73, 234, 126, 72, 254 ));
    
    type TypedEventHandler_IStorageLibrary_add_DefinitionChanged_Interface(Callback : access procedure (sender : Windows.Storage.IStorageLibrary ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageLibrary_add_DefinitionChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStorageLibrary_add_DefinitionChanged_Interface
@@ -3930,7 +4010,6 @@ package Windows.Storage is
    IID_AsyncOperationCompletedHandler_IStorageFile : aliased constant Windows.IID := (3844196500, 11302, 22854, (158, 97, 43, 94, 24, 141, 1, 237 ));
    
    type AsyncOperationCompletedHandler_IStorageFile_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageFile ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStorageFile'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStorageFile_Interface
@@ -3944,7 +4023,6 @@ package Windows.Storage is
    IID_AsyncOperationCompletedHandler_IStorageItem : aliased constant Windows.IID := (2462257199, 41767, 21272, (166, 193, 118, 246, 178, 160, 171, 251 ));
    
    type AsyncOperationCompletedHandler_IStorageItem_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageItem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStorageItem'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStorageItem_Interface
@@ -3958,7 +4036,6 @@ package Windows.Storage is
    IID_AsyncOperationCompletedHandler_IStorageStreamTransaction : aliased constant Windows.IID := (3507960294, 10645, 23859, (191, 255, 81, 182, 4, 31, 104, 193 ));
    
    type AsyncOperationCompletedHandler_IStorageStreamTransaction_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IStorageStreamTransaction ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStorageStreamTransaction'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStorageStreamTransaction_Interface
@@ -3972,7 +4049,6 @@ package Windows.Storage is
    IID_AsyncOperationCompletedHandler_IApplicationData : aliased constant Windows.IID := (2880431504, 26110, 21002, (157, 124, 106, 181, 241, 136, 34, 55 ));
    
    type AsyncOperationCompletedHandler_IApplicationData_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_IApplicationData ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IApplicationData'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IApplicationData_Interface
@@ -3986,7 +4062,6 @@ package Windows.Storage is
    IID_TypedEventHandler_IApplicationData_add_DataChanged : aliased constant Windows.IID := (3040119611, 20609, 23273, (143, 163, 77, 34, 214, 143, 176, 234 ));
    
    type TypedEventHandler_IApplicationData_add_DataChanged_Interface(Callback : access procedure (sender : Windows.Storage.IApplicationData ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IApplicationData_add_DataChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IApplicationData_add_DataChanged_Interface
@@ -4031,7 +4106,6 @@ package Windows.Storage is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetLibraryAsync
    (
@@ -4490,5 +4564,6 @@ package Windows.Storage is
       user : Windows.System.IUser
    )
    return Windows.Storage.IAsyncOperation_IApplicationData;
+   
 
 end;

@@ -655,6 +655,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAmbientLight2 : aliased constant Windows.IID := (996452031, 24471, 19604, (134, 229, 4, 45, 211, 134, 178, 125 ));
@@ -674,6 +675,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IColorKeyFrameAnimation : aliased constant Windows.IID := (2477635049, 36357, 17811, (132, 163, 220, 161, 82, 120, 30, 86 ));
@@ -710,6 +712,7 @@ package Windows.UI.Composition is
       ; easingFunction : Windows.UI.Composition.ICompositionEasingFunction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionAnimation : aliased constant Windows.IID := (1179405356, 7338, 16481, (155, 64, 225, 63, 222, 21, 3, 202 ));
@@ -800,6 +803,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Vector4
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionAnimation2 : aliased constant Windows.IID := (916152382, 43023, 18760, (147, 227, 237, 35, 251, 56, 198, 203 ));
@@ -827,6 +831,7 @@ package Windows.UI.Composition is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionAnimation3 : aliased constant Windows.IID := (3575513869, 32164, 19415, (188, 45, 244, 81, 117, 41, 244, 58 ));
@@ -839,6 +844,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.IMap_String_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_String : aliased constant Windows.IID := (4140955392, 18882, 21166, (129, 84, 130, 111, 153, 8, 119, 60 ));
@@ -896,6 +902,7 @@ package Windows.UI.Composition is
       This       : access IMap_String_String_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -908,11 +915,13 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionAnimationBase : aliased constant Windows.IID := (472656281, 59416, 18643, (166, 221, 215, 140, 130, 248, 172, 233 ));
    
    type ICompositionAnimationBase_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionAnimationGroup : aliased constant Windows.IID := (1585236236, 52500, 19975, (138, 85, 199, 37, 39, 170, 189, 172 ));
@@ -945,21 +954,25 @@ package Windows.UI.Composition is
       This       : access ICompositionAnimationGroup_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionBackdropBrush : aliased constant Windows.IID := (3316428376, 14488, 18846, (141, 127, 34, 78, 145, 40, 106, 93 ));
    
    type ICompositionBackdropBrush_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionBatchCompletedEventArgs : aliased constant Windows.IID := (218159824, 37988, 17674, (165, 98, 46, 38, 152, 176, 168, 18 ));
    
    type ICompositionBatchCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionBrush : aliased constant Windows.IID := (2869786120, 12480, 16617, (181, 104, 182, 10, 107, 209, 251, 70 ));
    
    type ICompositionBrush_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionCapabilities : aliased constant Windows.IID := (2186491198, 46359, 18620, (177, 232, 75, 53, 97, 162, 225, 129 ));
@@ -994,6 +1007,7 @@ package Windows.UI.Composition is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionCapabilitiesStatics : aliased constant Windows.IID := (4156008558, 25622, 18917, (141, 223, 175, 233, 73, 226, 5, 98 ));
@@ -1006,11 +1020,13 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.ICompositionCapabilities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionClip : aliased constant Windows.IID := (483207762, 53191, 19150, (153, 131, 20, 107, 184, 235, 106, 60 ));
    
    type ICompositionClip_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionClip2 : aliased constant Windows.IID := (1486086249, 13590, 16609, (137, 224, 91, 169, 36, 146, 114, 53 ));
@@ -1114,6 +1130,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Matrix3x2
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionColorBrush : aliased constant Windows.IID := (723930206, 48949, 18481, (134, 66, 207, 112, 194, 15, 255, 47 ));
@@ -1133,6 +1150,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionColorGradientStop : aliased constant Windows.IID := (1862322834, 51201, 20033, (154, 143, 165, 62, 32, 245, 119, 120 ));
@@ -1166,11 +1184,13 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionColorGradientStopCollection : aliased constant Windows.IID := (2669486316, 31492, 19229, (144, 188, 159, 163, 44, 12, 253, 38 ));
    
    type ICompositionColorGradientStopCollection_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionCommitBatch : aliased constant Windows.IID := (218159824, 51719, 17408, (140, 142, 203, 93, 176, 133, 89, 204 ));
@@ -1205,6 +1225,7 @@ package Windows.UI.Composition is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionDrawingSurface : aliased constant Windows.IID := (2707866368, 64208, 19729, (158, 103, 228, 51, 22, 47, 244, 158 ));
@@ -1231,6 +1252,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionDrawingSurface2 : aliased constant Windows.IID := (4207995019, 58196, 17640, (142, 61, 196, 136, 13, 90, 33, 63 ));
@@ -1282,11 +1304,13 @@ package Windows.UI.Composition is
       ; scrollRect : Windows.Graphics.RectInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionEasingFunction : aliased constant Windows.IID := (1363534678, 49017, 20136, (140, 194, 107, 91, 71, 46, 108, 154 ));
    
    type ICompositionEasingFunction_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionEffectBrush : aliased constant Windows.IID := (3212802398, 33740, 17599, (164, 71, 62, 60, 7, 23, 137, 236 ));
@@ -1308,6 +1332,7 @@ package Windows.UI.Composition is
       ; source : Windows.UI.Composition.ICompositionBrush
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionEffectFactory : aliased constant Windows.IID := (3193316527, 47742, 17680, (152, 80, 65, 192, 180, 255, 116, 223 ));
@@ -1334,6 +1359,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.CompositionEffectFactoryLoadStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionEffectSourceParameter : aliased constant Windows.IID := (2240459066, 12946, 20046, (179, 187, 43, 108, 101, 68, 166, 238 ));
@@ -1346,6 +1372,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionEffectSourceParameterFactory : aliased constant Windows.IID := (3017405046, 43939, 18212, (172, 243, 208, 57, 116, 100, 219, 28 ));
@@ -1359,6 +1386,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.ICompositionEffectSourceParameter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionGradientBrush : aliased constant Windows.IID := (496437728, 65478, 19470, (169, 171, 52, 20, 77, 76, 144, 152 ));
@@ -1497,6 +1525,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Matrix3x2
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_CompositionColorGradientStop : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1509,6 +1538,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.ICompositionColorGradientStop
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_CompositionColorGradientStop : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1603,6 +1633,7 @@ package Windows.UI.Composition is
       ; items : Windows.UI.Composition.ICompositionColorGradientStop_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionGraphicsDevice : aliased constant Windows.IID := (4213360353, 32930, 18023, (153, 54, 219, 234, 246, 238, 254, 149 ));
@@ -1633,6 +1664,7 @@ package Windows.UI.Composition is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionGraphicsDevice2 : aliased constant Windows.IID := (263765494, 49392, 19404, (159, 184, 8, 73, 130, 73, 13, 125 ));
@@ -1658,6 +1690,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.ICompositionVirtualDrawingSurface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionLight : aliased constant Windows.IID := (1101453250, 11869, 19393, (176, 158, 143, 10, 3, 227, 216, 211 ));
@@ -1670,6 +1703,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.IVisualUnorderedCollection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionLight2 : aliased constant Windows.IID := (2814171762, 62301, 16989, (155, 152, 35, 244, 32, 95, 102, 105 ));
@@ -1682,6 +1716,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.IVisualUnorderedCollection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionLinearGradientBrush : aliased constant Windows.IID := (2554053913, 43483, 16700, (162, 216, 42, 144, 86, 252, 82, 94 ));
@@ -1715,6 +1750,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Vector2
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionMaskBrush : aliased constant Windows.IID := (1378676894, 48747, 20289, (190, 73, 249, 34, 109, 71, 27, 74 ));
@@ -1748,6 +1784,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.ICompositionBrush
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionNineGridBrush : aliased constant Windows.IID := (4065416420, 48268, 19431, (184, 15, 134, 133, 184, 60, 1, 134 ));
@@ -1927,6 +1964,7 @@ package Windows.UI.Composition is
       ; bottom : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionObject : aliased constant Windows.IID := (3165957445, 30217, 17744, (147, 79, 22, 0, 42, 104, 253, 237 ));
@@ -1968,6 +2006,7 @@ package Windows.UI.Composition is
       ; propertyName : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionObject2 : aliased constant Windows.IID := (4018622113, 23807, 19304, (158, 48, 161, 81, 157, 8, 186, 3 ));
@@ -2015,6 +2054,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.ICompositionAnimationBase
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionObject3 : aliased constant Windows.IID := (1271036197, 56013, 19698, (152, 177, 152, 107, 118, 231, 235, 230 ));
@@ -2027,6 +2067,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.System.IDispatcherQueue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionPropertySet : aliased constant Windows.IID := (3386298882, 24423, 17491, (145, 23, 158, 173, 212, 48, 211, 194 ));
@@ -2168,6 +2209,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.CompositionGetValueStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionPropertySet2 : aliased constant Windows.IID := (3732960030, 41489, 17493, (136, 128, 125, 15, 63, 106, 68, 253 ));
@@ -2190,6 +2232,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.CompositionGetValueStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionScopedBatch : aliased constant Windows.IID := (218159824, 64263, 18173, (140, 114, 98, 128, 209, 163, 209, 221 ));
@@ -2242,16 +2285,19 @@ package Windows.UI.Composition is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionShadow : aliased constant Windows.IID := (849236706, 17205, 18892, (177, 74, 55, 120, 45, 16, 240, 196 ));
    
    type ICompositionShadow_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionSurface : aliased constant Windows.IID := (354898957, 17095, 18342, (164, 8, 102, 143, 121, 169, 13, 251 ));
    
    type ICompositionSurface_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionSurfaceBrush : aliased constant Windows.IID := (2902551929, 7756, 19469, (156, 41, 131, 51, 140, 135, 193, 98 ));
@@ -2327,6 +2373,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionSurfaceBrush2 : aliased constant Windows.IID := (3530650837, 25845, 18066, (157, 199, 113, 182, 29, 126, 88, 128 ));
@@ -2430,6 +2477,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Matrix3x2
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionTarget : aliased constant Windows.IID := (2713626810, 55078, 18019, (129, 41, 107, 94, 121, 39, 255, 166 ));
@@ -2449,6 +2497,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.IVisual
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionVirtualDrawingSurface : aliased constant Windows.IID := (2848163035, 34624, 20372, (139, 157, 182, 133, 33, 231, 134, 61 ));
@@ -2461,6 +2510,7 @@ package Windows.UI.Composition is
       ; rects : Windows.Graphics.RectInt32_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositor : aliased constant Windows.IID := (3020147280, 32652, 20099, (152, 95, 204, 69, 6, 0, 54, 216 ));
@@ -2648,6 +2698,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.ICompositionCommitBatch
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositor2 : aliased constant Windows.IID := (1934655964, 24100, 17882, (163, 143, 227, 44, 195, 73, 169, 160 ));
@@ -2745,6 +2796,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.IStepEasingFunction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_CompositionAnimation : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2757,6 +2809,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.ICompositionAnimation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositor3 : aliased constant Windows.IID := (3386740464, 28337, 20028, (166, 88, 103, 93, 156, 100, 212, 171 ));
@@ -2769,6 +2822,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.ICompositionBackdropBrush
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositor4 : aliased constant Windows.IID := (2923947914, 30992, 17445, (164, 130, 160, 91, 117, 138, 220, 233 ));
@@ -2818,6 +2872,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.ISpringVector3NaturalMotionAnimation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContainerVisual : aliased constant Windows.IID := (49724532, 60704, 18291, (175, 230, 212, 155, 74, 147, 219, 50 ));
@@ -2830,6 +2885,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.IVisualCollection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICubicBezierEasingFunction : aliased constant Windows.IID := (842335846, 49640, 17657, (150, 184, 201, 138, 207, 10, 230, 152 ));
@@ -2849,6 +2905,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.Foundation.Numerics.Vector2
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDistantLight : aliased constant Windows.IID := (831322876, 23779, 19285, (171, 93, 7, 160, 3, 83, 172, 153 ));
@@ -2896,6 +2953,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDistantLight2 : aliased constant Windows.IID := (3687688732, 10571, 18647, (182, 14, 118, 223, 100, 170, 57, 43 ));
@@ -2915,6 +2973,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDropShadow : aliased constant Windows.IID := (3415702535, 41300, 18513, (133, 231, 168, 146, 76, 132, 250, 216 ));
@@ -2990,6 +3049,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDropShadow2 : aliased constant Windows.IID := (1816271036, 5561, 19501, (141, 74, 7, 103, 223, 17, 151, 122 ));
@@ -3009,6 +3069,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.CompositionDropShadowSourcePolicy
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IExpressionAnimation : aliased constant Windows.IID := (1791775793, 32061, 19443, (171, 182, 244, 75, 220, 72, 136, 193 ));
@@ -3028,11 +3089,13 @@ package Windows.UI.Composition is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IImplicitAnimationCollection : aliased constant Windows.IID := (93889535, 2706, 19613, (164, 39, 178, 85, 25, 37, 13, 191 ));
    
    type IImplicitAnimationCollection_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ICompositionAnimationBase : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -3045,6 +3108,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_ICompositionAnimationBase : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -3102,6 +3166,7 @@ package Windows.UI.Composition is
       This       : access IMap_String_ICompositionAnimationBase_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInsetClip : aliased constant Windows.IID := (510912071, 33991, 18298, (180, 116, 88, 128, 224, 68, 46, 21 ));
@@ -3163,6 +3228,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyFrameAnimation : aliased constant Windows.IID := (309231394, 15081, 17728, (154, 138, 222, 174, 138, 74, 74, 132 ));
@@ -3262,6 +3328,7 @@ package Windows.UI.Composition is
       ; easingFunction : Windows.UI.Composition.ICompositionEasingFunction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyFrameAnimation2 : aliased constant Windows.IID := (4105472187, 10560, 20160, (164, 26, 235, 109, 128, 26, 47, 24 ));
@@ -3281,6 +3348,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.AnimationDirection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyFrameAnimation3 : aliased constant Windows.IID := (2220617908, 55518, 17967, (135, 83, 200, 13, 67, 198, 255, 90 ));
@@ -3300,6 +3368,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.AnimationDelayBehavior
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILayerVisual : aliased constant Windows.IID := (2944678277, 1092, 18567, (142, 131, 180, 11, 37, 63, 130, 44 ));
@@ -3319,6 +3388,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.ICompositionEffectBrush
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILayerVisual2 : aliased constant Windows.IID := (2566500075, 28451, 18929, (144, 177, 31, 89, 161, 79, 188, 227 ));
@@ -3338,11 +3408,13 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.ICompositionShadow
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILinearEasingFunction : aliased constant Windows.IID := (2483066714, 51110, 18099, (172, 247, 26, 38, 138, 10, 17, 125 ));
    
    type ILinearEasingFunction_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_INaturalMotionAnimation : aliased constant Windows.IID := (1133371693, 30363, 18465, (169, 73, 40, 74, 101, 71, 232, 115 ));
@@ -3390,6 +3462,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.AnimationStopBehavior
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointLight : aliased constant Windows.IID := (2978301363, 3162, 19120, (190, 220, 79, 53, 70, 148, 130, 114 ));
@@ -3479,6 +3552,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointLight2 : aliased constant Windows.IID := (4025061164, 1656, 20329, (177, 100, 168, 16, 217, 149, 188, 183 ));
@@ -3498,6 +3572,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IQuaternionKeyFrameAnimation : aliased constant Windows.IID := (1078876213, 60662, 16960, (133, 32, 103, 18, 121, 207, 54, 188 ));
@@ -3520,6 +3595,7 @@ package Windows.UI.Composition is
       ; easingFunction : Windows.UI.Composition.ICompositionEasingFunction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRenderingDeviceReplacedEventArgs : aliased constant Windows.IID := (976333949, 10431, 20090, (133, 36, 113, 103, 157, 72, 15, 56 ));
@@ -3532,6 +3608,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.ICompositionGraphicsDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScalarKeyFrameAnimation : aliased constant Windows.IID := (2921893801, 9516, 19349, (167, 37, 191, 133, 227, 128, 0, 161 ));
@@ -3554,6 +3631,7 @@ package Windows.UI.Composition is
       ; easingFunction : Windows.UI.Composition.ICompositionEasingFunction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScalarNaturalMotionAnimation : aliased constant Windows.IID := (2494121345, 49042, 18779, (181, 189, 210, 198, 89, 67, 7, 55 ));
@@ -3601,6 +3679,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpotLight : aliased constant Windows.IID := (1520427635, 17569, 20373, (164, 34, 143, 165, 17, 107, 219, 68 ));
@@ -3774,6 +3853,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpotLight2 : aliased constant Windows.IID := (1693344094, 1670, 19946, (169, 232, 188, 58, 140, 112, 20, 89 ));
@@ -3807,6 +3887,7 @@ package Windows.UI.Composition is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpringScalarNaturalMotionAnimation : aliased constant Windows.IID := (91400543, 14329, 20414, (184, 123, 92, 208, 58, 137, 80, 28 ));
@@ -3840,6 +3921,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpringVector2NaturalMotionAnimation : aliased constant Windows.IID := (603231413, 61043, 20239, (164, 35, 64, 43, 148, 109, 244, 179 ));
@@ -3873,6 +3955,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpringVector3NaturalMotionAnimation : aliased constant Windows.IID := (1820805599, 54651, 18324, (142, 45, 206, 203, 17, 225, 148, 229 ));
@@ -3906,6 +3989,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpriteVisual : aliased constant Windows.IID := (148919681, 6865, 20375, (151, 87, 64, 45, 118, 228, 35, 59 ));
@@ -3925,6 +4009,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.ICompositionBrush
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpriteVisual2 : aliased constant Windows.IID := (1485608548, 39290, 18512, (145, 254, 83, 203, 88, 248, 28, 233 ));
@@ -3944,6 +4029,7 @@ package Windows.UI.Composition is
       ; value : Windows.UI.Composition.ICompositionShadow
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStepEasingFunction : aliased constant Windows.IID := (3502942027, 22028, 18955, (165, 246, 32, 108, 168, 195, 236, 214 ));
@@ -4019,6 +4105,7 @@ package Windows.UI.Composition is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector2KeyFrameAnimation : aliased constant Windows.IID := (3745596693, 20009, 20241, (181, 94, 191, 42, 110, 179, 98, 148 ));
@@ -4041,6 +4128,7 @@ package Windows.UI.Composition is
       ; easingFunction : Windows.UI.Composition.ICompositionEasingFunction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector2NaturalMotionAnimation : aliased constant Windows.IID := (255724413, 58642, 18333, (160, 12, 119, 201, 58, 48, 163, 149 ));
@@ -4088,6 +4176,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Vector2
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector3NaturalMotionAnimation : aliased constant Windows.IID := (2618754092, 58058, 17837, (150, 158, 78, 120, 183, 185, 173, 65 ));
@@ -4135,6 +4224,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector3KeyFrameAnimation : aliased constant Windows.IID := (3355680170, 41601, 17346, (167, 61, 182, 142, 60, 83, 60, 64 ));
@@ -4157,6 +4247,7 @@ package Windows.UI.Composition is
       ; easingFunction : Windows.UI.Composition.ICompositionEasingFunction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector4KeyFrameAnimation : aliased constant Windows.IID := (609719387, 44509, 17285, (150, 6, 182, 163, 213, 228, 225, 185 ));
@@ -4179,6 +4270,7 @@ package Windows.UI.Composition is
       ; easingFunction : Windows.UI.Composition.ICompositionEasingFunction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVisual : aliased constant Windows.IID := (293478445, 43097, 19593, (135, 59, 194, 170, 86, 103, 136, 227 ));
@@ -4415,6 +4507,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Matrix4x4
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVisual2 : aliased constant Windows.IID := (810726929, 22211, 19518, (139, 243, 246, 225, 173, 71, 63, 6 ));
@@ -4462,6 +4555,7 @@ package Windows.UI.Composition is
       ; value : Windows.Foundation.Numerics.Vector2
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVisualCollection : aliased constant Windows.IID := (2339656965, 64830, 19096, (132, 168, 233, 73, 70, 140, 107, 203 ));
@@ -4517,6 +4611,7 @@ package Windows.UI.Composition is
       This       : access IVisualCollection_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Visual : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -4529,6 +4624,7 @@ package Windows.UI.Composition is
       ; RetVal : access Windows.UI.Composition.IVisual
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVisualUnorderedCollection : aliased constant Windows.IID := (865053296, 21704, 16551, (128, 41, 201, 206, 235, 10, 162, 80 ));
@@ -4561,99 +4657,119 @@ package Windows.UI.Composition is
       This       : access IVisualUnorderedCollection_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionAnimationFactory : aliased constant Windows.IID := (284607739, 28241, 19493, (187, 211, 88, 106, 155, 236, 62, 244 ));
    
    type ICompositionAnimationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionBrushFactory : aliased constant Windows.IID := (3662936908, 18000, 18372, (173, 118, 118, 83, 121, 96, 126, 214 ));
    
    type ICompositionBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionClipFactory : aliased constant Windows.IID := (3108523183, 8391, 19181, (172, 74, 156, 120, 186, 19, 2, 207 ));
    
    type ICompositionClipFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionGradientBrushFactory : aliased constant Windows.IID := (1456956887, 61833, 18633, (156, 141, 148, 218, 241, 190, 192, 16 ));
    
    type ICompositionGradientBrushFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionDrawingSurfaceFactory : aliased constant Windows.IID := (2492968970, 12589, 18105, (157, 179, 65, 47, 215, 148, 100, 200 ));
    
    type ICompositionDrawingSurfaceFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionEasingFunctionFactory : aliased constant Windows.IID := (1619265396, 15776, 18761, (130, 0, 114, 6, 192, 1, 144, 160 ));
    
    type ICompositionEasingFunctionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionLightFactory : aliased constant Windows.IID := (110949126, 55868, 19268, (131, 138, 94, 3, 213, 26, 206, 85 ));
    
    type ICompositionLightFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionObjectFactory : aliased constant Windows.IID := (1361075294, 21898, 20266, (141, 57, 55, 191, 225, 226, 13, 221 ));
    
    type ICompositionObjectFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionShadowFactory : aliased constant Windows.IID := (572475695, 56506, 19345, (153, 158, 29, 194, 23, 160, 21, 48 ));
    
    type ICompositionShadowFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionTargetFactory : aliased constant Windows.IID := (2479725867, 34070, 19220, (168, 206, 244, 158, 33, 25, 236, 66 ));
    
    type ICompositionTargetFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositionVirtualDrawingSurfaceFactory : aliased constant Windows.IID := (1734742124, 54635, 19017, (177, 223, 80, 118, 160, 98, 7, 104 ));
    
    type ICompositionVirtualDrawingSurfaceFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IContainerVisualFactory : aliased constant Windows.IID := (56862299, 51162, 19866, (149, 244, 105, 181, 200, 223, 103, 11 ));
    
    type IContainerVisualFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyFrameAnimationFactory : aliased constant Windows.IID := (3204973560, 28970, 20417, (140, 135, 151, 8, 89, 237, 141, 46 ));
    
    type IKeyFrameAnimationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_INaturalMotionAnimationFactory : aliased constant Windows.IID := (4114270982, 53098, 17287, (163, 254, 82, 33, 243, 231, 224, 224 ));
    
    type INaturalMotionAnimationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IScalarNaturalMotionAnimationFactory : aliased constant Windows.IID := (2203755772, 26396, 16861, (175, 72, 174, 141, 239, 139, 21, 41 ));
    
    type IScalarNaturalMotionAnimationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IVector2NaturalMotionAnimationFactory : aliased constant Windows.IID := (2356477793, 1889, 18594, (189, 219, 106, 252, 197, 43, 137, 216 ));
    
    type IVector2NaturalMotionAnimationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IVector3NaturalMotionAnimationFactory : aliased constant Windows.IID := (564665647, 2176, 17787, (172, 135, 182, 9, 1, 140, 135, 109 ));
    
    type IVector3NaturalMotionAnimationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IVisualFactory : aliased constant Windows.IID := (2903505214, 46338, 20149, (135, 180, 154, 56, 167, 29, 1, 55 ));
    
    type IVisualFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    type IGraphicsEffectSource_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -4663,7 +4779,6 @@ package Windows.UI.Composition is
    IID_TypedEventHandler_ICompositionCapabilities_add_Changed : aliased constant Windows.IID := (1854719732, 27893, 22932, (148, 71, 114, 97, 113, 35, 110, 168 ));
    
    type TypedEventHandler_ICompositionCapabilities_add_Changed_Interface(Callback : access procedure (sender : Windows.UI.Composition.ICompositionCapabilities ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICompositionCapabilities_add_Changed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICompositionCapabilities_add_Changed_Interface
@@ -4677,7 +4792,6 @@ package Windows.UI.Composition is
    IID_TypedEventHandler_ICompositionCommitBatch_add_Completed : aliased constant Windows.IID := (2649764950, 13187, 20619, (156, 117, 238, 132, 10, 126, 26, 57 ));
    
    type TypedEventHandler_ICompositionCommitBatch_add_Completed_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Composition.ICompositionBatchCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICompositionCommitBatch_add_Completed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICompositionCommitBatch_add_Completed_Interface
@@ -4691,7 +4805,6 @@ package Windows.UI.Composition is
    IID_TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced : aliased constant Windows.IID := (630928062, 48390, 21442, (189, 81, 137, 232, 224, 249, 226, 57 ));
    
    type TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced_Interface(Callback : access procedure (sender : Windows.UI.Composition.ICompositionGraphicsDevice ; args : Windows.UI.Composition.IRenderingDeviceReplacedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICompositionGraphicsDevice_add_RenderingDeviceReplaced_Interface
@@ -4705,7 +4818,6 @@ package Windows.UI.Composition is
    IID_TypedEventHandler_ICompositionScopedBatch_add_Completed : aliased constant Windows.IID := (2649764950, 13187, 20619, (156, 117, 238, 132, 10, 126, 26, 57 ));
    
    type TypedEventHandler_ICompositionScopedBatch_add_Completed_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Composition.ICompositionBatchCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICompositionScopedBatch_add_Completed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICompositionScopedBatch_add_Completed_Interface
@@ -4730,12 +4842,12 @@ package Windows.UI.Composition is
    
    subtype CompositionEffectBrush is Windows.UI.Composition.ICompositionEffectBrush;
    subtype CompositionEffectSourceParameter is Windows.UI.Composition.ICompositionEffectSourceParameter;
-   
    function Create
    (
       name : Windows.String
    )
    return Windows.UI.Composition.ICompositionEffectSourceParameter;
+   
    
    subtype CompositionColorGradientStopCollection is Windows.UI.Composition.ICompositionColorGradientStopCollection;
    subtype CompositionGraphicsDevice is Windows.UI.Composition.ICompositionGraphicsDevice;
@@ -4814,8 +4926,8 @@ package Windows.UI.Composition is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.UI.Composition.ICompositionCapabilities;
+   
 
 end;

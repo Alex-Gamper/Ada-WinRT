@@ -100,6 +100,7 @@ package Windows.UI.Xaml.Media.Media3D is
    IID_IMatrix3DHelper : aliased constant Windows.IID := (3834384623, 39207, 19611, (130, 19, 7, 119, 85, 18, 186, 4 ));
    
    type IMatrix3DHelper_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IMatrix3DHelperStatics : aliased constant Windows.IID := (2456048734, 57688, 20084, (136, 153, 104, 145, 96, 189, 47, 140 ));
@@ -168,11 +169,13 @@ package Windows.UI.Xaml.Media.Media3D is
       ; RetVal : access Windows.UI.Xaml.Media.Media3D.Matrix3D
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITransform3D : aliased constant Windows.IID := (2923353146, 43516, 19505, (134, 205, 86, 217, 202, 37, 26, 105 ));
    
    type ITransform3D_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ITransform3DFactory : aliased constant Windows.IID := (86777722, 36211, 18637, (187, 184, 208, 4, 52, 202, 174, 93 ));
@@ -187,6 +190,7 @@ package Windows.UI.Xaml.Media.Media3D is
       ; RetVal : access Windows.UI.Xaml.Media.Media3D.ITransform3D
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositeTransform3D : aliased constant Windows.IID := (2306329345, 44941, 19189, (176, 132, 192, 142, 185, 112, 74, 190 ));
@@ -360,6 +364,7 @@ package Windows.UI.Xaml.Media.Media3D is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompositeTransform3DStatics : aliased constant Windows.IID := (3720301927, 10789, 18675, (152, 8, 197, 30, 195, 213, 91, 236 ));
@@ -449,6 +454,7 @@ package Windows.UI.Xaml.Media.Media3D is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerspectiveTransform3D : aliased constant Windows.IID := (2591773482, 12537, 16545, (150, 201, 197, 157, 135, 249, 90, 195 ));
@@ -496,6 +502,7 @@ package Windows.UI.Xaml.Media.Media3D is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerspectiveTransform3DStatics : aliased constant Windows.IID := (2389664768, 25100, 18631, (132, 77, 63, 9, 132, 218, 91, 23 ));
@@ -522,6 +529,7 @@ package Windows.UI.Xaml.Media.Media3D is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -594,7 +602,6 @@ package Windows.UI.Xaml.Media.Media3D is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Identity
    return Windows.UI.Xaml.Media.Media3D.Matrix3D;
@@ -696,5 +703,6 @@ package Windows.UI.Xaml.Media.Media3D is
    
    function get_OffsetYProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
 
 end;

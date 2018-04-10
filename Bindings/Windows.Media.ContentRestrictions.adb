@@ -28,7 +28,6 @@ package body Windows.Media.ContentRestrictions is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IContentRestrictionsBrowsePolicy_Interface
@@ -58,7 +57,6 @@ package body Windows.Media.ContentRestrictions is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (

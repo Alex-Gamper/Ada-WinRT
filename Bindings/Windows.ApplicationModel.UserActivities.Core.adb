@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.UserActivities.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.ApplicationModel.UserActivities.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateUserActivitySessionInBackground
    (
@@ -79,5 +77,6 @@ package body Windows.ApplicationModel.UserActivities.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

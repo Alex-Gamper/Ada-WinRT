@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.SocialInfo is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateSocialItemThumbnail return Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.SocialInfo.SocialItemThumbnail");

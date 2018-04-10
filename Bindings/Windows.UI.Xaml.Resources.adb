@@ -27,7 +27,6 @@ package body Windows.UI.Xaml.Resources is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -240,7 +239,6 @@ package body Windows.UI.Xaml.Resources is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -296,5 +294,6 @@ package body Windows.UI.Xaml.Resources is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

@@ -28,7 +28,6 @@ package body Windows.Foundation is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncActionCompletedHandler_Interface
@@ -369,7 +368,6 @@ package body Windows.Foundation is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       handler : Windows.Foundation.DeferralCompletedHandler
@@ -478,7 +476,6 @@ package body Windows.Foundation is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateEmpty
    return Windows.Object is
@@ -1296,5 +1293,6 @@ package body Windows.Foundation is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

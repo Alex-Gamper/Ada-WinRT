@@ -94,6 +94,7 @@ package Windows.ApplicationModel.Contacts.Provider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactPickerUI : aliased constant Windows.IID := (3805025126, 53094, 17348, (169, 106, 165, 161, 18, 219, 71, 70 ));
@@ -152,6 +153,7 @@ package Windows.ApplicationModel.Contacts.Provider is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactPickerUI2 : aliased constant Windows.IID := (1849990696, 31525, 18841, (155, 11, 135, 84, 0, 161, 232, 200 ));
@@ -172,6 +174,7 @@ package Windows.ApplicationModel.Contacts.Provider is
       ; RetVal : access Windows.ApplicationModel.Contacts.IVector_ContactFieldType -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -181,7 +184,6 @@ package Windows.ApplicationModel.Contacts.Provider is
    IID_TypedEventHandler_IContactPickerUI_add_ContactRemoved : aliased constant Windows.IID := (2744839038, 30300, 24195, (178, 49, 132, 190, 173, 152, 233, 160 ));
    
    type TypedEventHandler_IContactPickerUI_add_ContactRemoved_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.Provider.IContactPickerUI ; args : Windows.ApplicationModel.Contacts.Provider.IContactRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactPickerUI_add_ContactRemoved'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IContactPickerUI_add_ContactRemoved_Interface

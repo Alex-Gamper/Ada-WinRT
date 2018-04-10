@@ -156,6 +156,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOnlineIdServiceTicketRequestFactory : aliased constant Windows.IID := (3199928840, 40563, 16503, (150, 20, 8, 97, 76, 11, 194, 69 ));
@@ -178,6 +179,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOnlineIdServiceTicket : aliased constant Windows.IID := (3378271359, 55169, 19092, (172, 184, 197, 152, 116, 35, 140, 38 ));
@@ -204,6 +206,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserIdentity : aliased constant Windows.IID := (558291405, 1858, 19427, (138, 28, 124, 122, 230, 121, 170, 136 ));
@@ -265,6 +268,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOnlineIdAuthenticator : aliased constant Windows.IID := (2684614026, 10667, 18455, (184, 132, 215, 81, 109, 173, 24, 185 ));
@@ -322,6 +326,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_UserIdentity : aliased constant Windows.IID := (3100386785, 16543, 22516, (187, 228, 59, 149, 183, 75, 134, 200 ));
@@ -348,6 +353,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.Security.Authentication.OnlineId.IUserIdentity
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOnlineIdSystemIdentity : aliased constant Windows.IID := (1950142989, 46794, 17229, (129, 36, 83, 234, 18, 104, 83, 7 ));
@@ -367,6 +373,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOnlineIdSystemTicketResult : aliased constant Windows.IID := (3674890232, 45208, 19149, (157, 19, 158, 100, 6, 82, 181, 182 ));
@@ -393,6 +400,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOnlineIdSystemAuthenticatorForUser : aliased constant Windows.IID := (1469628155, 7652, 16774, (162, 230, 181, 99, 248, 106, 175, 68 ));
@@ -427,6 +435,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOnlineIdSystemAuthenticatorStatics : aliased constant Windows.IID := (2231662482, 63028, 16867, (150, 164, 81, 100, 233, 2, 199, 64 ));
@@ -447,6 +456,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IOnlineIdServiceTicket : aliased constant Windows.IID := (60813031, 2178, 20706, (188, 63, 79, 172, 126, 140, 39, 105 ));
@@ -481,6 +491,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IOnlineIdServiceTicket : aliased constant Windows.IID := (2157777684, 38827, 21828, (152, 145, 221, 205, 250, 221, 29, 187 ));
@@ -493,6 +504,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.Security.Authentication.OnlineId.IIterator_IOnlineIdServiceTicket
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IOnlineIdServiceTicket : aliased constant Windows.IID := (1173369395, 59304, 23262, (159, 243, 11, 138, 28, 107, 167, 107 ));
@@ -531,6 +543,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IOnlineIdServiceTicketRequest : aliased constant Windows.IID := (3064318180, 28220, 23607, (146, 207, 207, 159, 28, 56, 51, 53 ));
@@ -565,6 +578,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IOnlineIdServiceTicketRequest : aliased constant Windows.IID := (3413300870, 38166, 21005, (162, 116, 250, 76, 209, 118, 44, 178 ));
@@ -577,6 +591,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.Security.Authentication.OnlineId.IIterator_IOnlineIdServiceTicketRequest
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IOnlineIdSystemTicketResult : aliased constant Windows.IID := (372201584, 23114, 20540, (152, 127, 160, 90, 19, 18, 216, 228 ));
@@ -603,6 +618,7 @@ package Windows.Security.Authentication.OnlineId is
       ; RetVal : access Windows.Security.Authentication.OnlineId.IOnlineIdSystemTicketResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -612,7 +628,6 @@ package Windows.Security.Authentication.OnlineId is
    IID_AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult : aliased constant Windows.IID := (100266732, 22864, 22264, (183, 248, 34, 226, 11, 152, 70, 121 ));
    
    type AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.OnlineId.IAsyncOperation_IOnlineIdSystemTicketResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult_Interface
@@ -626,7 +641,6 @@ package Windows.Security.Authentication.OnlineId is
    ------------------------------------------------------------------------
    
    subtype OnlineIdServiceTicketRequest is Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest;
-   
    function CreateOnlineIdServiceTicketRequest
    (
       service : Windows.String
@@ -639,6 +653,7 @@ package Windows.Security.Authentication.OnlineId is
       service : Windows.String
    )
    return Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest;
+   
    
    subtype OnlineIdServiceTicket is Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket;
    subtype UserAuthenticationOperation is Windows.Security.Authentication.OnlineId.IAsyncOperation_UserIdentity;
@@ -656,7 +671,6 @@ package Windows.Security.Authentication.OnlineId is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_Default
    return Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser;
    
@@ -665,5 +679,6 @@ package Windows.Security.Authentication.OnlineId is
       user : Windows.System.IUser
    )
    return Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser;
+   
 
 end;

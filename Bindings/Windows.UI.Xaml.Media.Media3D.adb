@@ -28,7 +28,6 @@ package body Windows.UI.Xaml.Media.Media3D is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateCompositeTransform3D return Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Media3D.CompositeTransform3D");
@@ -161,7 +160,6 @@ package body Windows.UI.Xaml.Media.Media3D is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Identity
    return Windows.UI.Xaml.Media.Media3D.Matrix3D is
@@ -571,5 +569,6 @@ package body Windows.UI.Xaml.Media.Media3D is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

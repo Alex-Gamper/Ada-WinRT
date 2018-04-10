@@ -32,7 +32,6 @@ package body Windows.Devices.AllJoyn is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface
@@ -205,7 +204,6 @@ package body Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateAllJoynBusAttachment return Windows.Devices.AllJoyn.IAllJoynBusAttachment is
       Hr            : Windows.HResult := S_OK;
@@ -498,7 +496,6 @@ package body Windows.Devices.AllJoyn is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Ok
    return Windows.Int32 is
@@ -948,5 +945,6 @@ package body Windows.Devices.AllJoyn is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

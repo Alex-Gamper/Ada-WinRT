@@ -28,7 +28,6 @@ package body Windows.Media.AppRecording is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAppRecordingResult_Interface
@@ -59,7 +58,6 @@ package body Windows.Media.AppRecording is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -67,7 +65,6 @@ package body Windows.Media.AppRecording is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDefault
    return Windows.Media.AppRecording.IAppRecordingManager is
@@ -85,5 +82,6 @@ package body Windows.Media.AppRecording is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

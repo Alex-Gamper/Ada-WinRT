@@ -687,6 +687,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserNotificationChangedEventArgs : aliased constant Windows.IID := (3065866297, 31183, 19237, (130, 192, 12, 225, 238, 248, 31, 140 ));
@@ -706,6 +707,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserNotification : aliased constant Windows.IID := (2918704431, 20051, 17109, (156, 51, 235, 94, 165, 21, 178, 62 ));
@@ -739,6 +741,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotificationVisual : aliased constant Windows.IID := (1753439118, 43606, 19985, (134, 211, 95, 154, 105, 87, 188, 91 ));
@@ -773,6 +776,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.INotificationBinding
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveNotificationContent : aliased constant Windows.IID := (3943546470, 29768, 17549, (157, 184, 215, 138, 205, 42, 187, 169 ));
@@ -792,6 +796,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotificationBinding : aliased constant Windows.IID := (4070460293, 880, 19155, (180, 234, 218, 158, 53, 231, 234, 191 ));
@@ -839,6 +844,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IVectorView_IAdaptiveNotificationText -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownNotificationBindingsStatics : aliased constant Windows.IID := (2034400174, 43191, 19800, (137, 234, 118, 167, 183, 188, 205, 237 ));
@@ -851,6 +857,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownAdaptiveNotificationHintsStatics : aliased constant Windows.IID := (102786456, 54422, 18813, (134, 146, 79, 125, 124, 39, 112, 223 ));
@@ -898,6 +905,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownAdaptiveNotificationTextStylesStatics : aliased constant Windows.IID := (539071191, 35222, 17834, (139, 161, 212, 97, 215, 44, 42, 27 ));
@@ -1036,6 +1044,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveNotificationText : aliased constant Windows.IID := (1188340670, 24730, 17190, (164, 11, 191, 222, 135, 32, 52, 163 ));
@@ -1069,6 +1078,7 @@ package Windows.UI.Notifications is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastDismissedEventArgs : aliased constant Windows.IID := (1065998645, 55755, 17720, (160, 240, 255, 231, 101, 153, 56, 248 ));
@@ -1081,6 +1091,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.ToastDismissalReason
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastFailedEventArgs : aliased constant Windows.IID := (890726498, 53204, 17656, (173, 100, 245, 0, 253, 137, 108, 59 ));
@@ -1093,6 +1104,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastActivatedEventArgs : aliased constant Windows.IID := (3820983027, 49559, 17263, (130, 101, 6, 37, 130, 79, 141, 172 ));
@@ -1105,6 +1117,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileUpdateManagerStatics : aliased constant Windows.IID := (3658849885, 16041, 18822, (141, 132, 176, 157, 94, 18, 39, 109 ));
@@ -1141,6 +1154,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileUpdateManagerStatics2 : aliased constant Windows.IID := (1931222492, 36372, 19324, (163, 75, 157, 34, 222, 118, 200, 77 ));
@@ -1154,6 +1168,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.ITileUpdateManagerForUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileUpdateManagerForUser : aliased constant Windows.IID := (1427379016, 12002, 20013, (156, 193, 33, 106, 32, 222, 204, 159 ));
@@ -1189,6 +1204,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileUpdater : aliased constant Windows.IID := (155362443, 7569, 17644, (146, 67, 193, 232, 33, 194, 154, 32 ));
@@ -1282,6 +1298,7 @@ package Windows.UI.Notifications is
       ; requestedInterval : Windows.UI.Notifications.PeriodicUpdateRecurrence
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileUpdater2 : aliased constant Windows.IID := (2720427538, 5614, 17389, (131, 245, 101, 179, 82, 187, 26, 132 ));
@@ -1308,6 +1325,7 @@ package Windows.UI.Notifications is
       ; enable : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileFlyoutUpdateManagerStatics : aliased constant Windows.IID := (70662923, 6848, 19353, (136, 231, 173, 168, 62, 149, 61, 72 ));
@@ -1344,6 +1362,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileFlyoutUpdater : aliased constant Windows.IID := (2369832810, 50277, 16466, (167, 64, 92, 38, 84, 193, 160, 137 ));
@@ -1392,6 +1411,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.NotificationSetting
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBadgeUpdateManagerStatics : aliased constant Windows.IID := (859836330, 28117, 16645, (174, 188, 155, 80, 252, 164, 146, 218 ));
@@ -1428,6 +1448,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBadgeUpdateManagerStatics2 : aliased constant Windows.IID := (2543465934, 63808, 18623, (148, 232, 202, 36, 77, 64, 11, 65 ));
@@ -1441,6 +1462,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IBadgeUpdateManagerForUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBadgeUpdateManagerForUser : aliased constant Windows.IID := (2573935036, 902, 17637, (186, 141, 12, 16, 119, 166, 46, 146 ));
@@ -1476,6 +1498,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBadgeUpdater : aliased constant Windows.IID := (3053068244, 30050, 20332, (191, 163, 27, 110, 210, 229, 127, 47 ));
@@ -1517,6 +1540,7 @@ package Windows.UI.Notifications is
       This       : access IBadgeUpdater_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationManagerStatics : aliased constant Windows.IID := (1353453631, 53813, 17816, (187, 239, 152, 254, 77, 26, 58, 212 ));
@@ -1545,6 +1569,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotifier : aliased constant Windows.IID := (1972534163, 1011, 16876, (145, 211, 110, 91, 172, 27, 56, 231 ));
@@ -1592,6 +1617,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IVectorView_IScheduledToastNotification -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotifier2 : aliased constant Windows.IID := (893618630, 31745, 19413, (156, 32, 96, 67, 64, 205, 43, 116 ));
@@ -1616,6 +1642,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.NotificationUpdateResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastCollectionManager : aliased constant Windows.IID := (706224638, 6045, 18876, (183, 157, 165, 39, 146, 13, 54, 101 ));
@@ -1673,6 +1700,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileNotificationFactory : aliased constant Windows.IID := (3333152110, 18728, 18120, (189, 191, 129, 160, 71, 222, 160, 212 ));
@@ -1686,6 +1714,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.ITileNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileNotification : aliased constant Windows.IID := (3954100474, 20716, 19480, (180, 208, 58, 240, 46, 85, 64, 171 ));
@@ -1726,6 +1755,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileFlyoutNotificationFactory : aliased constant Windows.IID := (4015353845, 21030, 20267, (178, 120, 136, 163, 93, 254, 86, 159 ));
@@ -1739,6 +1769,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.ITileFlyoutNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileFlyoutNotification : aliased constant Windows.IID := (2589176417, 50956, 17086, (178, 243, 244, 42, 169, 125, 52, 229 ));
@@ -1765,6 +1796,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBadgeNotificationFactory : aliased constant Windows.IID := (3992081870, 1560, 19801, (148, 138, 90, 97, 4, 12, 82, 249 ));
@@ -1778,6 +1810,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IBadgeNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBadgeNotification : aliased constant Windows.IID := (123516106, 53386, 20015, (146, 51, 126, 40, 156, 31, 119, 34 ));
@@ -1804,6 +1837,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationFactory : aliased constant Windows.IID := (68307744, 33478, 16937, (177, 9, 253, 158, 212, 102, 43, 83 ));
@@ -1817,6 +1851,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IToastNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotification : aliased constant Windows.IID := (2575181429, 1438, 20064, (139, 6, 23, 96, 145, 124, 139, 128 ));
@@ -1888,6 +1923,7 @@ package Windows.UI.Notifications is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotification2 : aliased constant Windows.IID := (2650513361, 5178, 18702, (144, 191, 185, 251, 167, 19, 45, 231 ));
@@ -1935,6 +1971,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotification : aliased constant Windows.IID := (276838398, 60278, 20354, (151, 188, 218, 7, 83, 10, 46, 32 ));
@@ -1968,6 +2005,7 @@ package Windows.UI.Notifications is
       ; value : Windows.UI.Notifications.INotificationVisual
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotification3 : aliased constant Windows.IID := (837332696, 33089, 20377, (188, 10, 196, 237, 33, 41, 125, 119 ));
@@ -2001,6 +2039,7 @@ package Windows.UI.Notifications is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotification4 : aliased constant Windows.IID := (353716533, 10474, 18215, (136, 233, 197, 134, 128, 226, 209, 24 ));
@@ -2034,6 +2073,7 @@ package Windows.UI.Notifications is
       ; value : Windows.UI.Notifications.ToastNotificationPriority
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastCollectionFactory : aliased constant Windows.IID := (374199255, 29636, 17655, (180, 255, 251, 109, 75, 241, 244, 198 ));
@@ -2050,6 +2090,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IToastCollection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotificationDataFactory : aliased constant Windows.IID := (599909178, 7184, 18171, (128, 64, 222, 195, 132, 98, 28, 248 ));
@@ -2072,6 +2113,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.INotificationData
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotificationData : aliased constant Windows.IID := (2684166930, 40298, 19119, (182, 172, 255, 23, 240, 193, 242, 128 ));
@@ -2098,6 +2140,7 @@ package Windows.UI.Notifications is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastCollection : aliased constant Windows.IID := (176931760, 57534, 18520, (188, 42, 137, 223, 224, 179, 40, 99 ));
@@ -2152,6 +2195,7 @@ package Windows.UI.Notifications is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScheduledToastNotificationFactory : aliased constant Windows.IID := (3888042385, 3001, 16777, (131, 148, 49, 118, 27, 71, 111, 215 ));
@@ -2177,6 +2221,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IScheduledToastNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScheduledToastNotification : aliased constant Windows.IID := (2046130168, 3559, 18637, (151, 64, 155, 55, 4, 144, 200, 56 ));
@@ -2224,6 +2269,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScheduledToastNotification2 : aliased constant Windows.IID := (2792267932, 12724, 17328, (181, 221, 122, 64, 232, 83, 99, 177 ));
@@ -2271,6 +2317,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScheduledToastNotification3 : aliased constant Windows.IID := (2554502795, 48434, 19003, (157, 21, 34, 174, 164, 148, 98, 161 ));
@@ -2304,6 +2351,7 @@ package Windows.UI.Notifications is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScheduledTileNotificationFactory : aliased constant Windows.IID := (864228234, 39104, 19515, (187, 214, 74, 99, 60, 124, 252, 41 ));
@@ -2318,6 +2366,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IScheduledTileNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScheduledTileNotification : aliased constant Windows.IID := (180135637, 39388, 19576, (161, 28, 201, 231, 248, 109, 126, 247 ));
@@ -2379,6 +2428,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationManagerStatics2 : aliased constant Windows.IID := (2058959954, 3656, 18256, (186, 157, 26, 65, 19, 152, 24, 71 ));
@@ -2391,6 +2441,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IToastNotificationHistory
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationManagerStatics4 : aliased constant Windows.IID := (2409185235, 58646, 17915, (129, 48, 57, 142, 147, 250, 82, 195 ));
@@ -2411,6 +2462,7 @@ package Windows.UI.Notifications is
       ; value : Windows.UI.Notifications.NotificationMirroring
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationManagerStatics5 : aliased constant Windows.IID := (3606443369, 54285, 16508, (137, 137, 136, 202, 180, 44, 253, 20 ));
@@ -2423,6 +2475,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IToastNotificationManagerForUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationManagerForUser : aliased constant Windows.IID := (2041272310, 17406, 18555, (138, 127, 153, 86, 114, 0, 174, 148 ));
@@ -2457,6 +2510,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationManagerForUser2 : aliased constant Windows.IID := (1738302647, 33195, 17090, (136, 25, 201, 88, 118, 119, 83, 244 ));
@@ -2493,6 +2547,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IToastCollectionManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationHistory : aliased constant Windows.IID := (1554898019, 467, 19607, (152, 111, 5, 51, 72, 63, 238, 20 ));
@@ -2550,6 +2605,7 @@ package Windows.UI.Notifications is
       ; applicationId : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationHistory2 : aliased constant Windows.IID := (1002689107, 12081, 16530, (145, 41, 138, 213, 171, 240, 103, 218 ));
@@ -2570,6 +2626,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IVectorView_IToastNotification -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationHistoryChangedTriggerDetail : aliased constant Windows.IID := (3674439674, 104, 16684, (156, 131, 38, 124, 55, 246, 86, 112 ));
@@ -2582,6 +2639,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.ToastHistoryChangedType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationHistoryChangedTriggerDetail2 : aliased constant Windows.IID := (188148098, 51313, 18939, (186, 187, 37, 189, 188, 76, 196, 91 ));
@@ -2594,6 +2652,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationActionTriggerDetail : aliased constant Windows.IID := (2487554906, 14579, 17142, (150, 170, 121, 85, 176, 240, 61, 162 ));
@@ -2613,6 +2672,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IShownTileNotification : aliased constant Windows.IID := (81319691, 31765, 24416, (152, 148, 178, 19, 102, 180, 39, 194 ));
@@ -2647,6 +2707,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IShownTileNotification : aliased constant Windows.IID := (409189102, 17649, 24145, (188, 223, 163, 205, 171, 130, 106, 21 ));
@@ -2659,6 +2720,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IIterator_IShownTileNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IShownTileNotification : aliased constant Windows.IID := (723761833, 7508, 21568, (189, 50, 134, 237, 112, 241, 92, 158 ));
@@ -2697,6 +2759,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_INotificationBinding : aliased constant Windows.IID := (1712881494, 40673, 23624, (130, 218, 108, 185, 221, 248, 121, 231 ));
@@ -2731,6 +2794,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_INotificationBinding : aliased constant Windows.IID := (3906554012, 25438, 20819, (138, 183, 56, 159, 46, 233, 250, 202 ));
@@ -2743,6 +2807,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IIterator_INotificationBinding
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_INotificationBinding : aliased constant Windows.IID := (2655846976, 27996, 22570, (162, 157, 115, 78, 132, 117, 7, 56 ));
@@ -2781,6 +2846,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_INotificationBinding : aliased constant Windows.IID := (2138933975, 46290, 23043, (190, 111, 43, 137, 135, 95, 179, 45 ));
@@ -2875,6 +2941,7 @@ package Windows.UI.Notifications is
       ; items : Windows.UI.Notifications.INotificationBinding_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAdaptiveNotificationText : aliased constant Windows.IID := (402742698, 52163, 23121, (159, 75, 60, 6, 145, 53, 176, 224 ));
@@ -2909,6 +2976,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAdaptiveNotificationText : aliased constant Windows.IID := (54782194, 51788, 24384, (184, 209, 63, 244, 112, 71, 206, 67 ));
@@ -2921,6 +2989,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IIterator_IAdaptiveNotificationText
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAdaptiveNotificationText : aliased constant Windows.IID := (3054364971, 19986, 21935, (180, 47, 175, 226, 215, 11, 162, 120 ));
@@ -2959,6 +3028,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IScheduledTileNotification : aliased constant Windows.IID := (1449518225, 25923, 20534, (147, 95, 181, 21, 121, 80, 179, 89 ));
@@ -2993,6 +3063,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IScheduledTileNotification : aliased constant Windows.IID := (1264636389, 21166, 22374, (151, 32, 190, 74, 208, 134, 249, 82 ));
@@ -3005,6 +3076,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IIterator_IScheduledTileNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IScheduledTileNotification : aliased constant Windows.IID := (1332911204, 41491, 21225, (175, 139, 88, 173, 202, 62, 89, 127 ));
@@ -3043,6 +3115,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IScheduledToastNotification : aliased constant Windows.IID := (809646262, 34954, 24018, (150, 205, 191, 202, 137, 39, 72, 59 ));
@@ -3077,6 +3150,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IScheduledToastNotification : aliased constant Windows.IID := (2054892113, 49538, 22598, (168, 97, 79, 156, 3, 111, 36, 173 ));
@@ -3089,6 +3163,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IIterator_IScheduledToastNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IScheduledToastNotification : aliased constant Windows.IID := (3121282847, 27274, 23166, (169, 247, 80, 91, 98, 102, 164, 54 ));
@@ -3127,6 +3202,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IToastCollection : aliased constant Windows.IID := (2467359815, 40714, 22937, (128, 194, 75, 49, 233, 247, 126, 142 ));
@@ -3153,6 +3229,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IToastCollection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IToastNotifier : aliased constant Windows.IID := (769507598, 14566, 22101, (173, 243, 130, 14, 143, 177, 77, 204 ));
@@ -3179,6 +3256,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IToastNotifier
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IToastNotificationHistory : aliased constant Windows.IID := (706936523, 19350, 21791, (183, 185, 167, 181, 190, 236, 173, 5 ));
@@ -3205,6 +3283,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IToastNotificationHistory
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IToastNotification : aliased constant Windows.IID := (4263408234, 15017, 23960, (177, 155, 151, 227, 225, 126, 236, 123 ));
@@ -3239,6 +3318,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IToastNotification : aliased constant Windows.IID := (1388921483, 54138, 21837, (191, 85, 184, 104, 93, 95, 85, 45 ));
@@ -3251,6 +3331,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UI.Notifications.IIterator_IToastNotification
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IToastNotification : aliased constant Windows.IID := (2820273118, 24746, 20825, (132, 7, 240, 167, 251, 31, 104, 50 ));
@@ -3289,6 +3370,7 @@ package Windows.UI.Notifications is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -3298,7 +3380,6 @@ package Windows.UI.Notifications is
    IID_AsyncOperationCompletedHandler_IToastCollection : aliased constant Windows.IID := (2370095646, 5591, 23499, (176, 2, 56, 76, 135, 23, 28, 116 ));
    
    type AsyncOperationCompletedHandler_IToastCollection_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastCollection ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IToastCollection'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IToastCollection_Interface
@@ -3312,7 +3393,6 @@ package Windows.UI.Notifications is
    IID_TypedEventHandler_IToastNotification_add_Dismissed : aliased constant Windows.IID := (1640120367, 3792, 23064, (171, 105, 89, 244, 170, 153, 163, 104 ));
    
    type TypedEventHandler_IToastNotification_add_Dismissed_Interface(Callback : access procedure (sender : Windows.UI.Notifications.IToastNotification ; args : Windows.UI.Notifications.IToastDismissedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IToastNotification_add_Dismissed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IToastNotification_add_Dismissed_Interface
@@ -3326,7 +3406,6 @@ package Windows.UI.Notifications is
    IID_TypedEventHandler_IToastNotification_add_Activated : aliased constant Windows.IID := (2874465837, 38873, 21800, (182, 173, 16, 90, 254, 21, 101, 48 ));
    
    type TypedEventHandler_IToastNotification_add_Activated_Interface(Callback : access procedure (sender : Windows.UI.Notifications.IToastNotification ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IToastNotification_add_Activated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IToastNotification_add_Activated_Interface
@@ -3340,7 +3419,6 @@ package Windows.UI.Notifications is
    IID_TypedEventHandler_IToastNotification_add_Failed : aliased constant Windows.IID := (2514741251, 51561, 24122, (151, 83, 234, 42, 210, 42, 154, 51 ));
    
    type TypedEventHandler_IToastNotification_add_Failed_Interface(Callback : access procedure (sender : Windows.UI.Notifications.IToastNotification ; args : Windows.UI.Notifications.IToastFailedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IToastNotification_add_Failed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IToastNotification_add_Failed_Interface
@@ -3354,7 +3432,6 @@ package Windows.UI.Notifications is
    IID_AsyncOperationCompletedHandler_IToastNotifier : aliased constant Windows.IID := (4259475159, 48183, 23164, (179, 218, 62, 65, 172, 151, 187, 164 ));
    
    type AsyncOperationCompletedHandler_IToastNotifier_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotifier ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IToastNotifier'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IToastNotifier_Interface
@@ -3368,7 +3445,6 @@ package Windows.UI.Notifications is
    IID_AsyncOperationCompletedHandler_IToastNotificationHistory : aliased constant Windows.IID := (3328300506, 26466, 23955, (145, 56, 231, 218, 205, 87, 16, 86 ));
    
    type AsyncOperationCompletedHandler_IToastNotificationHistory_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IToastNotificationHistory'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IToastNotificationHistory_Interface
@@ -3394,15 +3470,14 @@ package Windows.UI.Notifications is
    subtype TileUpdater is Windows.UI.Notifications.ITileUpdater;
    subtype TileUpdateManagerForUser is Windows.UI.Notifications.ITileUpdateManagerForUser;
    subtype TileNotification is Windows.UI.Notifications.ITileNotification;
-   
    function CreateTileNotification
    (
       content : Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.UI.Notifications.ITileNotification;
    
-   subtype ScheduledTileNotification is Windows.UI.Notifications.IScheduledTileNotification;
    
+   subtype ScheduledTileNotification is Windows.UI.Notifications.IScheduledTileNotification;
    function CreateScheduledTileNotification
    (
       content : Windows.Data.Xml.Dom.IXmlDocument
@@ -3410,36 +3485,36 @@ package Windows.UI.Notifications is
    )
    return Windows.UI.Notifications.IScheduledTileNotification;
    
+   
    subtype TileFlyoutUpdater is Windows.UI.Notifications.ITileFlyoutUpdater;
    subtype TileFlyoutNotification is Windows.UI.Notifications.ITileFlyoutNotification;
-   
    function CreateTileFlyoutNotification
    (
       content : Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.UI.Notifications.ITileFlyoutNotification;
    
+   
    subtype BadgeUpdater is Windows.UI.Notifications.IBadgeUpdater;
    subtype BadgeUpdateManagerForUser is Windows.UI.Notifications.IBadgeUpdateManagerForUser;
    subtype BadgeNotification is Windows.UI.Notifications.IBadgeNotification;
-   
    function CreateBadgeNotification
    (
       content : Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.UI.Notifications.IBadgeNotification;
    
+   
    subtype ToastNotifier is Windows.UI.Notifications.IToastNotifier;
    subtype ToastNotification is Windows.UI.Notifications.IToastNotification;
-   
    function CreateToastNotification
    (
       content : Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.UI.Notifications.IToastNotification;
    
-   subtype ScheduledToastNotification is Windows.UI.Notifications.IScheduledToastNotification;
    
+   subtype ScheduledToastNotification is Windows.UI.Notifications.IScheduledToastNotification;
    function CreateScheduledToastNotification
    (
       content : Windows.Data.Xml.Dom.IXmlDocument
@@ -3456,8 +3531,8 @@ package Windows.UI.Notifications is
    )
    return Windows.UI.Notifications.IScheduledToastNotification;
    
-   subtype NotificationData is Windows.UI.Notifications.INotificationData;
    
+   subtype NotificationData is Windows.UI.Notifications.INotificationData;
    function CreateNotificationDataWithValuesAndSequenceNumber
    (
       initialValues : Windows.Address
@@ -3471,8 +3546,8 @@ package Windows.UI.Notifications is
    )
    return Windows.UI.Notifications.INotificationData;
    
-   subtype ToastCollection is Windows.UI.Notifications.IToastCollection;
    
+   subtype ToastCollection is Windows.UI.Notifications.IToastCollection;
    function CreateInstance
    (
       collectionId : Windows.String
@@ -3481,6 +3556,7 @@ package Windows.UI.Notifications is
       ; iconUri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.UI.Notifications.IToastCollection;
+   
    
    subtype ToastDismissedEventArgs is Windows.UI.Notifications.IToastDismissedEventArgs;
    subtype ToastFailedEventArgs is Windows.UI.Notifications.IToastFailedEventArgs;
@@ -3497,7 +3573,6 @@ package Windows.UI.Notifications is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Style
    return Windows.String;
@@ -3684,5 +3759,6 @@ package Windows.UI.Notifications is
    
    function GetDefault
    return Windows.UI.Notifications.IToastNotificationManagerForUser;
+   
 
 end;

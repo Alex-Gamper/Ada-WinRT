@@ -284,6 +284,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.ISemanticTextQuery
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISemanticTextQuery : aliased constant Windows.IID := (1780263761, 8114, 18697, (128, 184, 53, 115, 26, 43, 62, 127 ));
@@ -306,6 +307,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.IVectorView_TextSegment -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUnicodeCharactersStatics : aliased constant Windows.IID := (2542837383, 37521, 20369, (182, 200, 182, 227, 89, 215, 167, 251 ));
@@ -449,6 +451,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.UnicodeGeneralCategory
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAlternateWordForm : aliased constant Windows.IID := (1194945566, 20921, 16903, (145, 70, 36, 142, 99, 106, 29, 29 ));
@@ -475,6 +478,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.AlternateNormalizationFormat
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectableWordSegment : aliased constant Windows.IID := (2439662775, 35495, 19576, (179, 116, 93, 237, 183, 82, 230, 11 ));
@@ -494,6 +498,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.TextSegment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWordSegment : aliased constant Windows.IID := (3537156717, 39036, 19648, (182, 189, 212, 154, 17, 179, 143, 154 ));
@@ -520,6 +525,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.IVectorView_IAlternateWordForm -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWordsSegmenter : aliased constant Windows.IID := (2259997905, 45822, 20020, (168, 29, 102, 100, 3, 0, 69, 79 ));
@@ -558,6 +564,7 @@ package Windows.Data.Text is
       ; handler : Windows.Data.Text.WordSegmentsTokenizingHandler
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWordsSegmenterFactory : aliased constant Windows.IID := (3868684916, 64565, 17756, (139, 251, 109, 127, 70, 83, 202, 151 ));
@@ -571,6 +578,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.IWordsSegmenter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectableWordsSegmenter : aliased constant Windows.IID := (4141625831, 19219, 17861, (136, 151, 125, 113, 38, 158, 8, 93 ));
@@ -609,6 +617,7 @@ package Windows.Data.Text is
       ; handler : Windows.Data.Text.SelectableWordSegmentsTokenizingHandler
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectableWordsSegmenterFactory : aliased constant Windows.IID := (2356835912, 24663, 17209, (188, 112, 242, 16, 1, 10, 65, 80 ));
@@ -622,6 +631,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.ISelectableWordsSegmenter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextPredictionGenerator : aliased constant Windows.IID := (1588374279, 44017, 19638, (157, 158, 50, 111, 43, 70, 135, 86 ));
@@ -658,6 +668,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextPredictionGeneratorFactory : aliased constant Windows.IID := (1918350358, 35746, 18257, (157, 48, 157, 133, 67, 86, 83, 162 ));
@@ -671,6 +682,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.ITextPredictionGenerator
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextConversionGenerator : aliased constant Windows.IID := (56650334, 10921, 19126, (175, 139, 165, 98, 182, 58, 137, 146 ));
@@ -707,6 +719,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextConversionGeneratorFactory : aliased constant Windows.IID := (4239013761, 12419, 18859, (190, 21, 86, 223, 187, 183, 77, 111 ));
@@ -720,6 +733,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.ITextConversionGenerator
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextReverseConversionGenerator : aliased constant Windows.IID := (1374156052, 40017, 19846, (174, 27, 180, 152, 251, 173, 131, 19 ));
@@ -747,6 +761,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextReverseConversionGeneratorFactory : aliased constant Windows.IID := (1673450278, 8154, 16886, (137, 213, 35, 221, 234, 60, 114, 154 ));
@@ -760,6 +775,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.ITextReverseConversionGenerator
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextPhoneme : aliased constant Windows.IID := (2472715274, 39802, 17769, (148, 207, 216, 79, 47, 56, 207, 155 ));
@@ -779,6 +795,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextReverseConversionGenerator2 : aliased constant Windows.IID := (447730412, 34262, 18173, (130, 138, 58, 72, 48, 250, 110, 24 ));
@@ -792,6 +809,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_TextSegment : aliased constant Windows.IID := (1683634612, 61441, 21106, (144, 21, 251, 74, 50, 113, 121, 174 ));
@@ -826,6 +844,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_TextSegment : aliased constant Windows.IID := (1419310323, 52964, 23410, (151, 41, 129, 92, 74, 215, 185, 220 ));
@@ -838,6 +857,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.IIterator_TextSegment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_TextSegment : aliased constant Windows.IID := (790912925, 60255, 22081, (157, 204, 106, 177, 148, 108, 199, 230 ));
@@ -876,6 +896,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAlternateWordForm : aliased constant Windows.IID := (2135310218, 57487, 20846, (180, 184, 129, 181, 65, 123, 251, 88 ));
@@ -910,6 +931,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAlternateWordForm : aliased constant Windows.IID := (2927856681, 24769, 20627, (174, 97, 14, 210, 40, 87, 219, 5 ));
@@ -922,6 +944,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.IIterator_IAlternateWordForm
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAlternateWordForm : aliased constant Windows.IID := (1802776562, 29802, 21829, (166, 237, 59, 186, 69, 60, 245, 217 ));
@@ -960,6 +983,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IWordSegment : aliased constant Windows.IID := (2931312307, 26187, 21598, (171, 147, 245, 252, 102, 210, 78, 50 ));
@@ -994,6 +1018,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWordSegment : aliased constant Windows.IID := (3511535946, 41745, 24028, (191, 139, 213, 135, 149, 216, 125, 109 ));
@@ -1006,6 +1031,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.IIterator_IWordSegment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IWordSegment : aliased constant Windows.IID := (3339089050, 57629, 24071, (133, 52, 43, 210, 62, 194, 16, 249 ));
@@ -1044,6 +1070,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISelectableWordSegment : aliased constant Windows.IID := (2776900697, 5245, 23176, (143, 35, 163, 57, 138, 253, 138, 133 ));
@@ -1078,6 +1105,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISelectableWordSegment : aliased constant Windows.IID := (2018184428, 4936, 21300, (145, 229, 46, 1, 50, 148, 226, 17 ));
@@ -1090,6 +1118,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.Data.Text.IIterator_ISelectableWordSegment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISelectableWordSegment : aliased constant Windows.IID := (871959154, 34548, 20519, (181, 10, 105, 57, 161, 249, 213, 96 ));
@@ -1128,6 +1157,7 @@ package Windows.Data.Text is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1137,7 +1167,6 @@ package Windows.Data.Text is
    IID_WordSegmentsTokenizingHandler : aliased constant Windows.IID := (2782749527, 48938, 19535, (163, 31, 41, 231, 28, 111, 139, 53 ));
    
    type WordSegmentsTokenizingHandler_Interface(Callback : access procedure (precedingWords : Windows.Data.Text.IIterable_IWordSegment ; words : Windows.Data.Text.IIterable_IWordSegment)) is new Windows.IMulticastDelegate_Interface(IID_WordSegmentsTokenizingHandler'access) with null record;
-   
    function Invoke
    (
       This       : access WordSegmentsTokenizingHandler_Interface
@@ -1151,7 +1180,6 @@ package Windows.Data.Text is
    IID_SelectableWordSegmentsTokenizingHandler : aliased constant Windows.IID := (977140892, 44766, 19911, (158, 108, 65, 192, 68, 189, 53, 146 ));
    
    type SelectableWordSegmentsTokenizingHandler_Interface(Callback : access procedure (precedingWords : Windows.Data.Text.IIterable_ISelectableWordSegment ; words : Windows.Data.Text.IIterable_ISelectableWordSegment)) is new Windows.IMulticastDelegate_Interface(IID_SelectableWordSegmentsTokenizingHandler'access) with null record;
-   
    function Invoke
    (
       This       : access SelectableWordSegmentsTokenizingHandler_Interface
@@ -1165,7 +1193,6 @@ package Windows.Data.Text is
    ------------------------------------------------------------------------
    
    subtype SemanticTextQuery is Windows.Data.Text.ISemanticTextQuery;
-   
    function Create
    (
       aqsFilter : Windows.String
@@ -1179,55 +1206,55 @@ package Windows.Data.Text is
    )
    return Windows.Data.Text.ISemanticTextQuery;
    
+   
    subtype AlternateWordForm is Windows.Data.Text.IAlternateWordForm;
    subtype WordSegment is Windows.Data.Text.IWordSegment;
    subtype WordsSegmenter is Windows.Data.Text.IWordsSegmenter;
-   
    function CreateWithLanguage
    (
       language : Windows.String
    )
    return Windows.Data.Text.IWordsSegmenter;
    
+   
    subtype SelectableWordSegment is Windows.Data.Text.ISelectableWordSegment;
    subtype SelectableWordsSegmenter is Windows.Data.Text.ISelectableWordsSegmenter;
-   
    function CreateWithLanguage
    (
       language : Windows.String
    )
    return Windows.Data.Text.ISelectableWordsSegmenter;
    
-   subtype TextPredictionGenerator is Windows.Data.Text.ITextPredictionGenerator;
    
+   subtype TextPredictionGenerator is Windows.Data.Text.ITextPredictionGenerator;
    function Create
    (
       languageTag : Windows.String
    )
    return Windows.Data.Text.ITextPredictionGenerator;
    
-   subtype TextConversionGenerator is Windows.Data.Text.ITextConversionGenerator;
    
+   subtype TextConversionGenerator is Windows.Data.Text.ITextConversionGenerator;
    function Create
    (
       languageTag : Windows.String
    )
    return Windows.Data.Text.ITextConversionGenerator;
    
-   subtype TextReverseConversionGenerator is Windows.Data.Text.ITextReverseConversionGenerator;
    
+   subtype TextReverseConversionGenerator is Windows.Data.Text.ITextReverseConversionGenerator;
    function Create
    (
       languageTag : Windows.String
    )
    return Windows.Data.Text.ITextReverseConversionGenerator;
    
+   
    subtype TextPhoneme is Windows.Data.Text.ITextPhoneme;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetCodepointFromSurrogatePair
    (
@@ -1333,5 +1360,6 @@ package Windows.Data.Text is
       codepoint : Windows.UInt32
    )
    return Windows.Data.Text.UnicodeGeneralCategory;
+   
 
 end;

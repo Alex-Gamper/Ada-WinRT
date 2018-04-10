@@ -275,6 +275,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Web.Http.IHttpResponseMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceCreationResult2 : aliased constant Windows.IID := (473056191, 7236, 16459, (162, 1, 223, 69, 172, 120, 152, 232 ));
@@ -287,6 +288,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceStatics : aliased constant Windows.IID := (1353104733, 26351, 19667, (149, 121, 158, 102, 5, 7, 220, 63 ));
@@ -338,6 +340,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSource : aliased constant Windows.IID := (1282618095, 54175, 17302, (180, 217, 4, 57, 87, 167, 201, 100 ));
@@ -530,6 +533,7 @@ package Windows.Media.Streaming.Adaptive is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSource2 : aliased constant Windows.IID := (394855234, 26464, 19385, (165, 138, 247, 170, 152, 176, 140, 14 ));
@@ -542,6 +546,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceAdvancedSettings
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSource3 : aliased constant Windows.IID := (3127911421, 49972, 17947, (163, 110, 201, 159, 84, 247, 23, 74 ));
@@ -589,6 +594,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCorrelatedTimes
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceAdvancedSettings : aliased constant Windows.IID := (1440421504, 6891, 18396, (170, 8, 154, 17, 97, 11, 164, 90 ));
@@ -636,6 +642,7 @@ package Windows.Media.Streaming.Adaptive is
       ; value : Windows.Foundation.IReference_Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceCorrelatedTimes : aliased constant Windows.IID := (84969351, 57394, 18657, (171, 141, 0, 43, 11, 48, 81, 223 ));
@@ -662,6 +669,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadBitrateChangedEventArgs : aliased constant Windows.IID := (1728842308, 57422, 20223, (129, 106, 23, 57, 159, 120, 244, 186 ));
@@ -681,6 +689,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 : aliased constant Windows.IID := (4092720196, 38574, 19936, (181, 64, 43, 50, 70, 230, 150, 140 ));
@@ -693,6 +702,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs : aliased constant Windows.IID := (597860205, 32218, 19025, (135, 169, 111, 168, 197, 178, 146, 190 ));
@@ -719,6 +729,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadRequestedEventArgs : aliased constant Windows.IID := (3359629309, 17577, 18338, (191, 150, 3, 57, 139, 75, 250, 175 ));
@@ -766,6 +777,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadRequestedEventArgs2 : aliased constant Windows.IID := (3011349502, 43588, 19842, (130, 91, 97, 29, 227, 188, 254, 203 ));
@@ -785,6 +797,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadResult : aliased constant Windows.IID := (4105165939, 48366, 19050, (159, 10, 254, 196, 30, 35, 57, 176 ));
@@ -860,6 +873,7 @@ package Windows.Media.Streaming.Adaptive is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadResult2 : aliased constant Windows.IID := (357903543, 31616, 19140, (134, 96, 164, 185, 127, 124, 112, 240 ));
@@ -893,6 +907,7 @@ package Windows.Media.Streaming.Adaptive is
       ; value : Windows.Foundation.IReference_UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadRequestedDeferral : aliased constant Windows.IID := (96898916, 64032, 19901, (152, 33, 75, 244, 201, 191, 119, 171 ));
@@ -904,6 +919,7 @@ package Windows.Media.Streaming.Adaptive is
       This       : access IAdaptiveMediaSourceDownloadRequestedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadCompletedEventArgs : aliased constant Windows.IID := (421793219, 23351, 18970, (137, 112, 214, 33, 203, 108, 168, 59 ));
@@ -944,6 +960,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Web.Http.IHttpResponseMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadStatistics : aliased constant Windows.IID := (2735132411, 59754, 19967, (169, 184, 26, 224, 140, 1, 174, 152 ));
@@ -977,6 +994,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadCompletedEventArgs2 : aliased constant Windows.IID := (1883718852, 38474, 16612, (175, 149, 145, 119, 221, 109, 250, 0 ));
@@ -1003,6 +1021,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadFailedEventArgs : aliased constant Windows.IID := (930320456, 62635, 16548, (177, 53, 198, 223, 216, 189, 127, 241 ));
@@ -1043,6 +1062,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Web.Http.IHttpResponseMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDownloadFailedEventArgs2 : aliased constant Windows.IID := (1888589160, 38524, 18822, (144, 197, 198, 252, 75, 49, 226, 216 ));
@@ -1076,6 +1096,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDiagnosticAvailableEventArgs : aliased constant Windows.IID := (989220614, 28060, 18762, (183, 169, 179, 165, 222, 230, 173, 104 ));
@@ -1144,6 +1165,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 : aliased constant Windows.IID := (2356009047, 5797, 19871, (129, 14, 0, 189, 144, 27, 62, 249 ));
@@ -1156,6 +1178,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveMediaSourceDiagnostics : aliased constant Windows.IID := (2602888808, 38446, 17548, (174, 191, 178, 155, 86, 9, 142, 35 ));
@@ -1176,9 +1199,11 @@ package Windows.Media.Streaming.Adaptive is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IMediaSource_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IAdaptiveMediaSourceCreationResult : aliased constant Windows.IID := (3188444189, 54790, 22994, (178, 249, 255, 32, 69, 67, 218, 18 ));
@@ -1205,6 +1230,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_AdaptiveMediaSourceResourceType : aliased constant Windows.IID := (1959314346, 56835, 23536, (170, 232, 170, 139, 105, 32, 102, 179 ));
@@ -1217,6 +1243,7 @@ package Windows.Media.Streaming.Adaptive is
       ; RetVal : access Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1226,7 +1253,6 @@ package Windows.Media.Streaming.Adaptive is
    IID_AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult : aliased constant Windows.IID := (3177761792, 29260, 23158, (164, 55, 20, 100, 235, 221, 164, 172 ));
    
    type AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult_Interface
@@ -1240,7 +1266,6 @@ package Windows.Media.Streaming.Adaptive is
    IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged : aliased constant Windows.IID := (2904984751, 32160, 23252, (133, 133, 206, 235, 144, 61, 189, 80 ));
    
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadBitrateChanged_Interface
@@ -1254,7 +1279,6 @@ package Windows.Media.Streaming.Adaptive is
    IID_TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged : aliased constant Windows.IID := (3746516617, 24947, 21403, (148, 216, 105, 183, 203, 117, 120, 167 ));
    
    type TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdaptiveMediaSource_add_PlaybackBitrateChanged_Interface
@@ -1268,7 +1292,6 @@ package Windows.Media.Streaming.Adaptive is
    IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested : aliased constant Windows.IID := (3552041969, 64910, 22686, (156, 127, 186, 103, 57, 126, 80, 205 ));
    
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadRequested_Interface
@@ -1282,7 +1305,6 @@ package Windows.Media.Streaming.Adaptive is
    IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted : aliased constant Windows.IID := (3472324061, 9650, 21896, (141, 81, 218, 205, 234, 102, 10, 125 ));
    
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadCompleted_Interface
@@ -1296,7 +1318,6 @@ package Windows.Media.Streaming.Adaptive is
    IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed : aliased constant Windows.IID := (1860553796, 18861, 20792, (171, 71, 245, 192, 117, 162, 188, 52 ));
    
    type TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdaptiveMediaSource_add_DownloadFailed_Interface
@@ -1310,7 +1331,6 @@ package Windows.Media.Streaming.Adaptive is
    IID_TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable : aliased constant Windows.IID := (4249675445, 31803, 22772, (158, 252, 29, 158, 230, 160, 157, 33 ));
    
    type TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Interface(Callback : access procedure (sender : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnostics ; args : Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdaptiveMediaSourceDiagnostics_add_DiagnosticAvailable_Interface
@@ -1341,7 +1361,6 @@ package Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsContentTypeSupported
    (
@@ -1378,5 +1397,6 @@ package Windows.Media.Streaming.Adaptive is
       ; httpClient : Windows.Web.Http.IHttpClient
    )
    return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
+   
 
 end;

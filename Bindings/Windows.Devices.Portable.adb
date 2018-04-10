@@ -28,7 +28,6 @@ package body Windows.Devices.Portable is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.Devices.Portable is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromId
    (
@@ -114,5 +112,6 @@ package body Windows.Devices.Portable is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

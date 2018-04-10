@@ -30,7 +30,6 @@ package body Windows.Services.Store is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStoreProductPagedQueryResult_Interface
@@ -165,7 +164,6 @@ package body Windows.Services.Store is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateStorePurchaseProperties return Windows.Services.Store.IStorePurchaseProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Services.Store.StorePurchaseProperties");
@@ -190,7 +188,6 @@ package body Windows.Services.Store is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDefault
    return Windows.Services.Store.IStoreContext is
@@ -250,5 +247,6 @@ package body Windows.Services.Store is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

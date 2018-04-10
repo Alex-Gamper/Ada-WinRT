@@ -495,6 +495,7 @@ package Windows.Graphics.Imaging is
       ; value : Windows.Graphics.Imaging.BitmapBounds
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapTypedValue : aliased constant Windows.IID := (3447735465, 9283, 16384, (176, 205, 121, 49, 108, 86, 245, 137 ));
@@ -514,6 +515,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Foundation.PropertyType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapTypedValueFactory : aliased constant Windows.IID := (2463872409, 52755, 18107, (149, 69, 203, 58, 63, 99, 235, 139 ));
@@ -528,6 +530,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IBitmapTypedValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_BitmapTypedValue : aliased constant Windows.IID := (745598861, 23884, 20869, (141, 183, 254, 216, 119, 40, 22, 93 ));
@@ -585,6 +588,7 @@ package Windows.Graphics.Imaging is
       This       : access IMap_String_BitmapTypedValue_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_BitmapTypedValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -597,6 +601,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapPropertiesView : aliased constant Windows.IID := (2114971770, 14960, 18680, (156, 85, 25, 108, 245, 165, 69, 245 ));
@@ -610,6 +615,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IMap_String_BitmapTypedValue -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapProperties : aliased constant Windows.IID := (3936309019, 46341, 17488, (164, 209, 232, 202, 148, 82, 157, 141 ));
@@ -623,6 +629,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPixelDataProvider : aliased constant Windows.IID := (3716357925, 6236, 17813, (159, 185, 204, 190, 110, 193, 138, 111 ));
@@ -635,6 +642,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access UInt8_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapFrame : aliased constant Windows.IID := (1923389980, 32897, 17293, (145, 188, 148, 236, 252, 129, 133, 198 ));
@@ -729,6 +737,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IPixelDataProvider -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapFrameWithSoftwareBitmap : aliased constant Windows.IID := (4264066202, 16908, 18787, (135, 173, 105, 20, 54, 224, 131, 131 ));
@@ -762,6 +771,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_ISoftwareBitmap -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapCodecInformation : aliased constant Windows.IID := (1074572018, 50352, 17298, (163, 176, 111, 111, 155, 169, 92, 180 ));
@@ -795,6 +805,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapDecoderStatics : aliased constant Windows.IID := (1133300518, 48367, 20117, (186, 214, 35, 168, 34, 229, 141, 1 ));
@@ -873,6 +884,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapDecoder : aliased constant Windows.IID := (2901353146, 7540, 19601, (157, 252, 150, 32, 116, 82, 51, 230 ));
@@ -914,6 +926,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapEncoderStatics : aliased constant Windows.IID := (2806208167, 42212, 20153, (142, 64, 86, 77, 231, 225, 204, 178 ));
@@ -1004,6 +1017,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapEncoder : aliased constant Windows.IID := (734292195, 57848, 19284, (149, 232, 50, 145, 149, 81, 206, 98 ));
@@ -1114,6 +1128,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapEncoderWithSoftwareBitmap : aliased constant Windows.IID := (1751962177, 17200, 19575, (172, 228, 3, 52, 150, 139, 23, 104 ));
@@ -1126,6 +1141,7 @@ package Windows.Graphics.Imaging is
       ; bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISoftwareBitmap : aliased constant Windows.IID := (1755186952, 32495, 18495, (150, 63, 218, 147, 136, 24, 224, 115 ));
@@ -1230,6 +1246,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.ISoftwareBitmap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISoftwareBitmapFactory : aliased constant Windows.IID := (3382700905, 11618, 19783, (166, 179, 79, 219, 106, 7, 253, 248 ));
@@ -1256,6 +1273,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.ISoftwareBitmap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISoftwareBitmapStatics : aliased constant Windows.IID := (3741550043, 26415, 19101, (128, 110, 194, 68, 47, 52, 62, 134 ));
@@ -1328,6 +1346,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_ISoftwareBitmap -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapBuffer : aliased constant Windows.IID := (2772305092, 14748, 17292, (178, 143, 166, 58, 107, 131, 209, 161 ));
@@ -1348,9 +1367,11 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.BitmapPlaneDescription
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -1361,6 +1382,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -1429,6 +1451,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -1447,6 +1470,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -1460,6 +1484,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IMap_String_BitmapTypedValue : aliased constant Windows.IID := (1179303936, 45553, 21062, (130, 104, 145, 42, 37, 147, 216, 137 ));
@@ -1486,6 +1511,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IMap_String_BitmapTypedValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPixelDataProvider : aliased constant Windows.IID := (2351824560, 27682, 22627, (136, 216, 133, 193, 251, 199, 86, 151 ));
@@ -1512,6 +1538,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IPixelDataProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ISoftwareBitmap : aliased constant Windows.IID := (3298888064, 29003, 21761, (141, 162, 219, 218, 204, 231, 15, 115 ));
@@ -1538,6 +1565,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.ISoftwareBitmap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IBitmapCodecInformation : aliased constant Windows.IID := (1341305563, 37670, 21375, (184, 220, 76, 147, 215, 127, 187, 132 ));
@@ -1572,6 +1600,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IBitmapCodecInformation : aliased constant Windows.IID := (728488848, 42219, 20802, (181, 130, 60, 203, 30, 220, 87, 137 ));
@@ -1584,6 +1613,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IIterator_IBitmapCodecInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IBitmapCodecInformation : aliased constant Windows.IID := (2548031126, 65309, 23201, (134, 58, 144, 17, 106, 49, 184, 107 ));
@@ -1622,6 +1652,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IBitmapDecoder : aliased constant Windows.IID := (2861881577, 51951, 21494, (130, 61, 145, 182, 232, 52, 5, 16 ));
@@ -1648,6 +1679,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IBitmapDecoder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IBitmapFrame : aliased constant Windows.IID := (3407119313, 5220, 23545, (147, 70, 213, 55, 115, 93, 251, 214 ));
@@ -1674,6 +1706,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IBitmapFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IBitmapEncoder : aliased constant Windows.IID := (354144709, 18037, 23285, (162, 137, 0, 30, 220, 102, 184, 106 ));
@@ -1700,6 +1733,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IBitmapEncoder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_BitmapPixelFormat : aliased constant Windows.IID := (2143478419, 4228, 23877, (184, 184, 147, 225, 6, 146, 188, 200 ));
@@ -1734,6 +1768,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_BitmapPixelFormat : aliased constant Windows.IID := (3911506413, 41278, 23515, (158, 216, 101, 161, 71, 77, 194, 116 ));
@@ -1746,6 +1781,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IIterator_BitmapPixelFormat
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_BitmapPixelFormat : aliased constant Windows.IID := (1991003074, 49564, 21916, (178, 135, 22, 148, 192, 220, 58, 13 ));
@@ -1784,6 +1820,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISoftwareBitmap : aliased constant Windows.IID := (3440567491, 36008, 23526, (182, 75, 32, 74, 1, 79, 198, 32 ));
@@ -1818,6 +1855,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISoftwareBitmap : aliased constant Windows.IID := (584295183, 2200, 24212, (153, 163, 175, 165, 149, 29, 252, 212 ));
@@ -1830,6 +1868,7 @@ package Windows.Graphics.Imaging is
       ; RetVal : access Windows.Graphics.Imaging.IIterator_ISoftwareBitmap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1839,7 +1878,6 @@ package Windows.Graphics.Imaging is
    IID_AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IMap_String_BitmapTypedValue ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMap_String_BitmapTypedValue_Interface
@@ -1853,7 +1891,6 @@ package Windows.Graphics.Imaging is
    IID_AsyncOperationCompletedHandler_IPixelDataProvider : aliased constant Windows.IID := (935195838, 12089, 22828, (164, 247, 209, 106, 9, 210, 178, 219 ));
    
    type AsyncOperationCompletedHandler_IPixelDataProvider_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IPixelDataProvider ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPixelDataProvider'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPixelDataProvider_Interface
@@ -1867,7 +1904,6 @@ package Windows.Graphics.Imaging is
    IID_AsyncOperationCompletedHandler_ISoftwareBitmap : aliased constant Windows.IID := (3063526995, 13293, 24109, (167, 95, 2, 191, 144, 227, 38, 25 ));
    
    type AsyncOperationCompletedHandler_ISoftwareBitmap_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_ISoftwareBitmap ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISoftwareBitmap'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISoftwareBitmap_Interface
@@ -1881,7 +1917,6 @@ package Windows.Graphics.Imaging is
    IID_AsyncOperationCompletedHandler_IBitmapDecoder : aliased constant Windows.IID := (3143963890, 15611, 22127, (130, 188, 96, 170, 189, 48, 45, 83 ));
    
    type AsyncOperationCompletedHandler_IBitmapDecoder_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapDecoder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBitmapDecoder'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBitmapDecoder_Interface
@@ -1895,7 +1930,6 @@ package Windows.Graphics.Imaging is
    IID_AsyncOperationCompletedHandler_IBitmapFrame : aliased constant Windows.IID := (672613722, 38975, 23046, (159, 228, 251, 150, 55, 104, 67, 32 ));
    
    type AsyncOperationCompletedHandler_IBitmapFrame_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapFrame ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBitmapFrame'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBitmapFrame_Interface
@@ -1909,7 +1943,6 @@ package Windows.Graphics.Imaging is
    IID_AsyncOperationCompletedHandler_IBitmapEncoder : aliased constant Windows.IID := (1576120261, 18317, 21981, (179, 23, 2, 66, 116, 6, 42, 13 ));
    
    type AsyncOperationCompletedHandler_IBitmapEncoder_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBitmapEncoder'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBitmapEncoder_Interface
@@ -1927,13 +1960,13 @@ package Windows.Graphics.Imaging is
    function CreateBitmapTransform return Windows.Graphics.Imaging.IBitmapTransform;
    
    subtype BitmapTypedValue is Windows.Graphics.Imaging.IBitmapTypedValue;
-   
    function Create
    (
       value : Windows.Object
       ; type_x : Windows.Foundation.PropertyType
    )
    return Windows.Graphics.Imaging.IBitmapTypedValue;
+   
    
    subtype BitmapPropertySet is Windows.Graphics.Imaging.IMap_String_BitmapTypedValue;
    
@@ -1949,7 +1982,6 @@ package Windows.Graphics.Imaging is
    subtype BitmapEncoder is Windows.Graphics.Imaging.IBitmapEncoder;
    subtype BitmapBuffer is Windows.Graphics.Imaging.IBitmapBuffer;
    subtype SoftwareBitmap is Windows.Graphics.Imaging.ISoftwareBitmap;
-   
    function Create
    (
       format : Windows.Graphics.Imaging.BitmapPixelFormat
@@ -1968,10 +2000,10 @@ package Windows.Graphics.Imaging is
    return Windows.Graphics.Imaging.ISoftwareBitmap;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_BmpDecoderId
    return Windows.Guid;
@@ -2111,5 +2143,6 @@ package Windows.Graphics.Imaging is
       ; alpha : Windows.Graphics.Imaging.BitmapAlphaMode
    )
    return Windows.Graphics.Imaging.IAsyncOperation_ISoftwareBitmap;
+   
 
 end;

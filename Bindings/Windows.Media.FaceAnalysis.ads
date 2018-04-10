@@ -105,6 +105,7 @@ package Windows.Media.FaceAnalysis is
       ; RetVal : access Windows.Graphics.Imaging.BitmapBounds
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFaceDetector : aliased constant Windows.IID := (381055708, 65135, 12567, (141, 149, 195, 240, 77, 81, 99, 12 ));
@@ -155,6 +156,7 @@ package Windows.Media.FaceAnalysis is
       ; value : Windows.Graphics.Imaging.BitmapSize
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFaceDetectorStatics : aliased constant Windows.IID := (3154390375, 36935, 13302, (136, 27, 103, 70, 193, 178, 24, 184 ));
@@ -189,6 +191,7 @@ package Windows.Media.FaceAnalysis is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFaceTracker : aliased constant Windows.IID := (1806073228, 43073, 17440, (147, 230, 36, 32, 161, 136, 79, 207 ));
@@ -230,6 +233,7 @@ package Windows.Media.FaceAnalysis is
       ; value : Windows.Graphics.Imaging.BitmapSize
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFaceTrackerStatics : aliased constant Windows.IID := (3915551128, 6145, 16293, (147, 46, 49, 215, 103, 175, 108, 77 ));
@@ -264,6 +268,7 @@ package Windows.Media.FaceAnalysis is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IFaceDetector : aliased constant Windows.IID := (3222543570, 31333, 20812, (191, 196, 180, 158, 153, 31, 3, 235 ));
@@ -290,6 +295,7 @@ package Windows.Media.FaceAnalysis is
       ; RetVal : access Windows.Media.FaceAnalysis.IFaceDetector
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IFaceTracker : aliased constant Windows.IID := (2134034048, 58238, 21402, (137, 147, 42, 187, 234, 113, 175, 218 ));
@@ -316,6 +322,7 @@ package Windows.Media.FaceAnalysis is
       ; RetVal : access Windows.Media.FaceAnalysis.IFaceTracker
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IDetectedFace : aliased constant Windows.IID := (2697922830, 832, 21279, (137, 139, 194, 30, 175, 185, 244, 174 ));
@@ -350,6 +357,7 @@ package Windows.Media.FaceAnalysis is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IDetectedFace : aliased constant Windows.IID := (624194339, 13654, 23739, (152, 85, 43, 88, 86, 67, 127, 77 ));
@@ -362,6 +370,7 @@ package Windows.Media.FaceAnalysis is
       ; RetVal : access Windows.Media.FaceAnalysis.IIterator_IDetectedFace
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IDetectedFace : aliased constant Windows.IID := (971981841, 1560, 23437, (142, 162, 129, 198, 55, 248, 35, 248 ));
@@ -400,6 +409,7 @@ package Windows.Media.FaceAnalysis is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -409,7 +419,6 @@ package Windows.Media.FaceAnalysis is
    IID_AsyncOperationCompletedHandler_IFaceDetector : aliased constant Windows.IID := (841264838, 59269, 20582, (151, 111, 121, 221, 8, 27, 117, 169 ));
    
    type AsyncOperationCompletedHandler_IFaceDetector_Interface(Callback : access procedure (asyncInfo : Windows.Media.FaceAnalysis.IAsyncOperation_IFaceDetector ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IFaceDetector'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IFaceDetector_Interface
@@ -423,7 +432,6 @@ package Windows.Media.FaceAnalysis is
    IID_AsyncOperationCompletedHandler_IFaceTracker : aliased constant Windows.IID := (1473582653, 40576, 22994, (147, 102, 210, 181, 36, 139, 39, 36 ));
    
    type AsyncOperationCompletedHandler_IFaceTracker_Interface(Callback : access procedure (asyncInfo : Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IFaceTracker'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IFaceTracker_Interface
@@ -443,7 +451,6 @@ package Windows.Media.FaceAnalysis is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateAsync
    return Windows.Media.FaceAnalysis.IAsyncOperation_IFaceTracker;
@@ -474,5 +481,6 @@ package Windows.Media.FaceAnalysis is
    
    function get_IsSupported_IFaceDetector
    return Windows.Boolean;
+   
 
 end;

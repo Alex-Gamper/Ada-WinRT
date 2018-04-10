@@ -98,6 +98,7 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentsProviderLaunchActionVerbsStatics2 : aliased constant Windows.IID := (4019210660, 44833, 18236, (136, 220, 118, 205, 137, 246, 12, 165 ));
@@ -110,6 +111,7 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAddAppointmentOperation : aliased constant Windows.IID := (3964312307, 25101, 19561, (173, 215, 151, 148, 233, 24, 8, 31 ));
@@ -155,6 +157,7 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
       This       : access IAddAppointmentOperation_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReplaceAppointmentOperation : aliased constant Windows.IID := (4103093659, 40545, 19938, (167, 50, 38, 135, 192, 125, 29, 232 ));
@@ -214,6 +217,7 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
       This       : access IReplaceAppointmentOperation_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRemoveAppointmentOperation : aliased constant Windows.IID := (146172602, 65075, 18125, (165, 12, 168, 255, 179, 38, 5, 55 ));
@@ -265,6 +269,7 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
       This       : access IRemoveAppointmentOperation_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -276,7 +281,6 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AddAppointment
    return Windows.String;
@@ -292,5 +296,6 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
    
    function get_ShowAppointmentDetails
    return Windows.String;
+   
 
 end;

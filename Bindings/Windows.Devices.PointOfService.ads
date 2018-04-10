@@ -1112,6 +1112,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScannerStatusUpdatedEventArgs : aliased constant Windows.IID := (895321478, 40003, 17963, (169, 26, 129, 109, 201, 127, 69, 44 ));
@@ -1131,6 +1132,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeSymbologiesStatics : aliased constant Windows.IID := (3397732795, 1746, 17396, (164, 75, 198, 32, 103, 159, 216, 208 ));
@@ -1795,6 +1797,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeSymbologiesStatics2 : aliased constant Windows.IID := (2339707124, 39376, 16575, (148, 36, 185, 29, 109, 212, 198, 224 ));
@@ -1807,6 +1810,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeSymbologyAttributes : aliased constant Windows.IID := (1715550840, 43898, 19162, (142, 206, 147, 96, 20, 178, 234, 215 ));
@@ -1903,6 +1907,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScannerDataReceivedEventArgs : aliased constant Windows.IID := (1110747106, 60823, 18045, (173, 43, 1, 228, 67, 19, 169, 41 ));
@@ -1915,6 +1920,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IBarcodeScannerReport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScannerReport : aliased constant Windows.IID := (1558501552, 42121, 19350, (134, 196, 240, 191, 138, 55, 117, 61 ));
@@ -1941,6 +1947,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScannerErrorOccurredEventArgs : aliased constant Windows.IID := (751984687, 53050, 16386, (167, 90, 197, 236, 70, 143, 10, 32 ));
@@ -1967,6 +1974,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IUnifiedPosErrorData
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScannerImagePreviewReceivedEventArgs : aliased constant Windows.IID := (4088913541, 28299, 17230, (159, 88, 6, 239, 38, 188, 75, 175 ));
@@ -1979,6 +1987,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamWithContentType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScannerCapabilities : aliased constant Windows.IID := (3322319332, 62152, 17440, (163, 7, 177, 46, 246, 98, 40, 87 ));
@@ -2012,6 +2021,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScannerCapabilities1 : aliased constant Windows.IID := (2388308969, 3628, 18223, (161, 204, 238, 128, 84, 182, 166, 132 ));
@@ -2024,6 +2034,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScannerStatics : aliased constant Windows.IID := (1561419631, 55881, 16872, (140, 140, 240, 203, 98, 169, 196, 252 ));
@@ -2051,6 +2062,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScannerStatics2 : aliased constant Windows.IID := (3093636211, 41839, 16391, (177, 208, 39, 158, 190, 146, 166, 86 ));
@@ -2064,6 +2076,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScanner : aliased constant Windows.IID := (3198369286, 45668, 20227, (169, 193, 69, 178, 15, 1, 19, 79 ));
@@ -2151,6 +2164,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBarcodeScanner2 : aliased constant Windows.IID := (2300662119, 36078, 17261, (137, 171, 141, 251, 67, 187, 66, 134 ));
@@ -2163,6 +2177,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedBarcodeScanner : aliased constant Windows.IID := (1248048284, 36772, 17202, (187, 38, 148, 93, 17, 216, 30, 15 ));
@@ -2352,6 +2367,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedBarcodeScanner1 : aliased constant Windows.IID := (4128943372, 34129, 17076, (153, 140, 151, 12, 32, 33, 10, 34 ));
@@ -2371,6 +2387,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedBarcodeScanner2 : aliased constant Windows.IID := (3820330636, 11659, 20336, (138, 243, 52, 72, 190, 221, 95, 226 ));
@@ -2393,6 +2410,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderEncryptionAlgorithmsStatics : aliased constant Windows.IID := (1404400464, 50139, 18260, (156, 0, 65, 57, 35, 116, 161, 9 ));
@@ -2419,6 +2437,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderCardTypesStatics : aliased constant Windows.IID := (1385114717, 10630, 18255, (132, 84, 124, 205, 5, 146, 141, 95 ));
@@ -2452,6 +2471,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderTrackData : aliased constant Windows.IID := (273479281, 19101, 17518, (171, 197, 32, 64, 35, 7, 186, 54 ));
@@ -2478,6 +2498,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderReport : aliased constant Windows.IID := (1784373319, 39344, 16776, (190, 241, 237, 223, 121, 247, 143, 230 ));
@@ -2546,6 +2567,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderBankCardDataReceivedEventArgs : aliased constant Windows.IID := (781551651, 41754, 18275, (136, 44, 35, 114, 94, 57, 176, 142 ));
@@ -2614,6 +2636,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderAamvaCardDataReceivedEventArgs : aliased constant Windows.IID := (172735825, 49942, 18704, (135, 243, 122, 98, 186, 134, 45, 49 ));
@@ -2752,6 +2775,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs : aliased constant Windows.IID := (2936689940, 22988, 19040, (153, 232, 153, 165, 61, 172, 229, 170 ));
@@ -2764,6 +2788,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IMagneticStripeReaderReport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderErrorOccurredEventArgs : aliased constant Windows.IID := (535689565, 11396, 16813, (183, 120, 242, 53, 106, 120, 154, 177 ));
@@ -2811,6 +2836,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IMagneticStripeReaderReport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderStatusUpdatedEventArgs : aliased constant Windows.IID := (164391856, 12898, 16413, (158, 138, 232, 13, 99, 88, 144, 107 ));
@@ -2830,6 +2856,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderCapabilities : aliased constant Windows.IID := (1898479772, 50240, 17570, (164, 103, 70, 145, 117, 208, 40, 150 ));
@@ -2912,6 +2939,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedMagneticStripeReader : aliased constant Windows.IID := (1197254899, 37911, 18620, (185, 215, 65, 99, 167, 132, 76, 2 ));
@@ -3158,6 +3186,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderStatics : aliased constant Windows.IID := (3294604106, 61399, 18272, (165, 206, 21, 176, 228, 126, 148, 235 ));
@@ -3185,6 +3214,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReaderStatics2 : aliased constant Windows.IID := (2360197986, 54887, 18682, (134, 188, 245, 174, 17, 137, 38, 43 ));
@@ -3198,6 +3228,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMagneticStripeReader : aliased constant Windows.IID := (445820949, 18371, 18058, (147, 51, 12, 101, 23, 87, 72, 131 ));
@@ -3276,6 +3307,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPosPrinterCharacterSetIdsStatics : aliased constant Windows.IID := (1550884607, 28826, 20455, (178, 21, 6, 167, 72, 163, 139, 57 ));
@@ -3302,6 +3334,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommonPosPrintStationCapabilities : aliased constant Windows.IID := (3730526922, 57390, 16617, (158, 94, 27, 72, 142, 106, 172, 252 ));
@@ -3398,6 +3431,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommonReceiptSlipCapabilities : aliased constant Windows.IID := (153643915, 39027, 19717, (191, 190, 71, 39, 166, 3, 143, 105 ));
@@ -3466,6 +3500,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IVectorView_PosPrinterRotation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReceiptPrinterCapabilities : aliased constant Windows.IID := (3102782863, 20904, 17404, (155, 213, 141, 226, 114, 166, 65, 91 ));
@@ -3492,6 +3527,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISlipPrinterCapabilities : aliased constant Windows.IID := (2578539417, 18572, 16727, (138, 194, 159, 87, 247, 8, 211, 219 ));
@@ -3511,11 +3547,13 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJournalPrinterCapabilities : aliased constant Windows.IID := (995937347, 57415, 17507, (187, 88, 23, 181, 186, 29, 128, 86 ));
    
    type IJournalPrinterCapabilities_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IPosPrinterCapabilities : aliased constant Windows.IID := (3454621473, 17280, 18821, (173, 197, 57, 219, 48, 205, 147, 188 ));
@@ -3591,6 +3629,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IJournalPrinterCapabilities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPosPrinterStatus : aliased constant Windows.IID := (3522217776, 55872, 17192, (191, 118, 81, 86, 250, 51, 183, 71 ));
@@ -3610,6 +3649,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPosPrinterStatusUpdatedEventArgs : aliased constant Windows.IID := (786139103, 5030, 17037, (186, 129, 176, 231, 195, 229, 163, 205 ));
@@ -3622,11 +3662,13 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IPosPrinterStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPosPrinterReleaseDeviceRequestedEventArgs : aliased constant Windows.IID := (734765913, 7407, 16562, (158, 203, 249, 39, 248, 86, 174, 60 ));
    
    type IPosPrinterReleaseDeviceRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IPosPrinterStatics : aliased constant Windows.IID := (2363544810, 4911, 19679, (166, 74, 45, 13, 124, 150, 168, 91 ));
@@ -3654,6 +3696,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPosPrinterStatics2 : aliased constant Windows.IID := (4006423580, 45264, 17127, (177, 55, 184, 155, 22, 36, 77, 65 ));
@@ -3667,6 +3710,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPosPrinter : aliased constant Windows.IID := (704889102, 39449, 18945, (153, 79, 18, 223, 173, 106, 220, 191 ));
@@ -3745,6 +3789,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPosPrinterJob : aliased constant Windows.IID := (2593390684, 1557, 17809, (165, 143, 48, 248, 126, 223, 226, 228 ));
@@ -3777,6 +3822,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReceiptOrSlipJob : aliased constant Windows.IID := (1394710974, 51395, 19906, (137, 233, 92, 74, 55, 179, 77, 220 ));
@@ -3918,6 +3964,7 @@ package Windows.Devices.PointOfService is
       ; width : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReceiptPrintJob : aliased constant Windows.IID := (2861958766, 44205, 19321, (157, 15, 192, 207, 192, 141, 199, 123 ));
@@ -3943,6 +3990,7 @@ package Windows.Devices.PointOfService is
       This       : access IReceiptPrintJob_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommonClaimedPosPrinterStation : aliased constant Windows.IID := (3085657768, 65162, 19707, (139, 66, 227, 91, 40, 12, 178, 124 ));
@@ -4082,6 +4130,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedReceiptPrinter : aliased constant Windows.IID := (2597485172, 56673, 20194, (152, 55, 91, 93, 114, 213, 56, 185 ));
@@ -4129,6 +4178,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IReceiptPrintJob
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedSlipPrinter : aliased constant Windows.IID := (3177050098, 44944, 20106, (183, 123, 227, 174, 156, 166, 58, 127 ));
@@ -4225,6 +4275,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IReceiptOrSlipJob
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedJournalPrinter : aliased constant Windows.IID := (1743390256, 20861, 18559, (159, 223, 210, 224, 160, 162, 100, 165 ));
@@ -4237,6 +4288,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IPosPrinterJob
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedPosPrinter : aliased constant Windows.IID := (1835322892, 57406, 19220, (163, 142, 194, 140, 52, 184, 99, 83 ));
@@ -4378,6 +4430,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICashDrawerStatusUpdatedEventArgs : aliased constant Windows.IID := (816507274, 3440, 17820, (149, 83, 135, 225, 36, 197, 36, 136 ));
@@ -4390,6 +4443,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.ICashDrawerStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICashDrawerStatus : aliased constant Windows.IID := (1807579327, 56481, 19974, (153, 235, 90, 246, 165, 174, 193, 8 ));
@@ -4409,6 +4463,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICashDrawerCapabilities : aliased constant Windows.IID := (197582347, 59623, 19231, (177, 209, 62, 80, 26, 208, 130, 71 ));
@@ -4456,6 +4511,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICashDrawerEventSourceEventArgs : aliased constant Windows.IID := (1774926785, 5247, 16924, (156, 35, 9, 1, 35, 187, 120, 108 ));
@@ -4468,6 +4524,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.ICashDrawer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICashDrawerEventSource : aliased constant Windows.IID := (3758548076, 62201, 17455, (141, 214, 6, 193, 10, 66, 39, 186 ));
@@ -4503,6 +4560,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICashDrawerStatics : aliased constant Windows.IID := (3751843162, 54327, 20479, (181, 71, 221, 169, 105, 164, 248, 131 ));
@@ -4530,6 +4588,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICashDrawerStatics2 : aliased constant Windows.IID := (1048674593, 35906, 16616, (156, 14, 64, 41, 112, 72, 16, 76 ));
@@ -4543,6 +4602,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICashDrawer : aliased constant Windows.IID := (2676553160, 56916, 19182, (168, 144, 146, 11, 203, 254, 48, 252 ));
@@ -4621,6 +4681,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICashDrawerCloseAlarm : aliased constant Windows.IID := (1811451079, 28515, 17166, (171, 59, 149, 215, 95, 251, 232, 127 ));
@@ -4704,6 +4765,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedCashDrawer : aliased constant Windows.IID := (3393165743, 43960, 17089, (138, 132, 92, 102, 81, 47, 90, 117 ));
@@ -4796,6 +4858,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayStatics : aliased constant Windows.IID := (36552886, 4528, 18064, (149, 71, 11, 57, 197, 175, 33, 20 ));
@@ -4831,6 +4894,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayStatics2 : aliased constant Windows.IID := (1611415324, 30635, 18792, (167, 222, 192, 47, 241, 105, 242, 204 ));
@@ -4843,6 +4907,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedLineDisplayStatics : aliased constant Windows.IID := (2026543355, 35691, 18803, (134, 240, 62, 87, 12, 53, 24, 37 ));
@@ -4871,6 +4936,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayStatisticsCategorySelector : aliased constant Windows.IID := (3038889067, 37492, 19748, (148, 243, 182, 1, 123, 131, 36, 68 ));
@@ -4897,6 +4963,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayCursorAttributes : aliased constant Windows.IID := (1311593726, 20477, 16784, (170, 225, 206, 40, 95, 32, 200, 150 ));
@@ -4958,6 +5025,7 @@ package Windows.Devices.PointOfService is
       ; value : Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayCursor : aliased constant Windows.IID := (3974102085, 30026, 20027, (171, 43, 21, 17, 129, 8, 86, 5 ));
@@ -5027,6 +5095,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayMarquee : aliased constant Windows.IID := (2748530238, 62570, 19322, (188, 33, 83, 235, 59, 87, 248, 180 ));
@@ -5089,6 +5158,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayStoredBitmap : aliased constant Windows.IID := (4129378651, 55326, 17338, (191, 27, 188, 250, 60, 120, 91, 160 ));
@@ -5108,6 +5178,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayWindow : aliased constant Windows.IID := (3525308148, 9060, 19429, (190, 225, 133, 22, 128, 175, 73, 100 ));
@@ -5184,6 +5255,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayWindow2 : aliased constant Windows.IID := (2841436902, 48600, 17253, (142, 17, 222, 148, 222, 141, 255, 2 ));
@@ -5266,6 +5338,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayCustomGlyphs : aliased constant Windows.IID := (576190012, 62051, 17649, (161, 160, 231, 80, 166, 160, 236, 84 ));
@@ -5294,6 +5367,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayStatusUpdatedEventArgs : aliased constant Windows.IID := (3721755674, 34555, 20154, (147, 209, 111, 94, 218, 82, 183, 82 ));
@@ -5306,6 +5380,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.LineDisplayPowerStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayCapabilities : aliased constant Windows.IID := (1511372241, 36293, 19356, (145, 114, 48, 62, 71, 183, 12, 85 ));
@@ -5437,6 +5512,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplay : aliased constant Windows.IID := (620093262, 15513, 17634, (183, 63, 229, 27, 227, 99, 122, 140 ));
@@ -5498,6 +5574,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IAsyncOperation_IClaimedLineDisplay -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplay2 : aliased constant Windows.IID := (3264652840, 61252, 16627, (189, 28, 176, 76, 106, 92, 220, 125 ));
@@ -5510,6 +5587,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IAsyncOperation_LineDisplayPowerStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedLineDisplay : aliased constant Windows.IID := (302696816, 39541, 19151, (170, 231, 9, 151, 43, 207, 135, 148 ));
@@ -5592,6 +5670,7 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILineDisplayAttributes : aliased constant Windows.IID := (3246254492, 8858, 19476, (166, 241, 180, 228, 177, 254, 173, 146 ));
@@ -5695,6 +5774,7 @@ package Windows.Devices.PointOfService is
       ; value : Windows.Devices.PointOfService.ILineDisplayWindow
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClaimedLineDisplay2 : aliased constant Windows.IID := (2736551405, 16885, 20086, (160, 116, 121, 94, 71, 164, 110, 151 ));
@@ -5835,6 +5915,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayStoredBitmap -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IBarcodeScanner : aliased constant Windows.IID := (1633981661, 12450, 21055, (177, 162, 154, 17, 116, 222, 59, 23 ));
@@ -5861,6 +5942,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IBarcodeScanner
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IClaimedBarcodeScanner : aliased constant Windows.IID := (3379578889, 41186, 24093, (135, 207, 117, 161, 212, 157, 123, 219 ));
@@ -5887,6 +5969,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IClaimedBarcodeScanner
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IBarcodeSymbologyAttributes : aliased constant Windows.IID := (1175802058, 31667, 23262, (166, 66, 97, 184, 254, 242, 227, 92 ));
@@ -5913,6 +5996,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IBarcodeSymbologyAttributes
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IMagneticStripeReader : aliased constant Windows.IID := (2473750025, 33148, 24371, (190, 228, 9, 13, 231, 7, 79, 25 ));
@@ -5939,6 +6023,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IMagneticStripeReader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IClaimedMagneticStripeReader : aliased constant Windows.IID := (1097010132, 62554, 22797, (138, 78, 247, 12, 158, 73, 173, 1 ));
@@ -5965,6 +6050,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IClaimedMagneticStripeReader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_PosPrinterRotation : aliased constant Windows.IID := (4136103804, 45342, 22211, (145, 88, 230, 186, 21, 189, 82, 27 ));
@@ -5999,6 +6085,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_PosPrinterRotation : aliased constant Windows.IID := (454970765, 5621, 22530, (155, 35, 139, 117, 206, 42, 88, 197 ));
@@ -6011,6 +6098,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IIterator_PosPrinterRotation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_PosPrinterRotation : aliased constant Windows.IID := (1869169417, 4226, 23940, (165, 234, 47, 174, 214, 182, 89, 14 ));
@@ -6049,6 +6137,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPosPrinter : aliased constant Windows.IID := (38762446, 20931, 23292, (159, 48, 36, 179, 192, 243, 178, 90 ));
@@ -6075,6 +6164,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IPosPrinter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IClaimedPosPrinter : aliased constant Windows.IID := (3024580501, 13658, 20541, (184, 68, 23, 86, 200, 207, 218, 152 ));
@@ -6101,6 +6191,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IClaimedPosPrinter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ICashDrawer : aliased constant Windows.IID := (1157657703, 37618, 23551, (177, 145, 170, 80, 0, 254, 221, 158 ));
@@ -6127,6 +6218,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.ICashDrawer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IClaimedCashDrawer : aliased constant Windows.IID := (2452678570, 8352, 22354, (156, 32, 75, 244, 73, 52, 168, 126 ));
@@ -6153,6 +6245,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IClaimedCashDrawer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILineDisplay : aliased constant Windows.IID := (1090509545, 59329, 23620, (145, 180, 189, 132, 235, 248, 83, 155 ));
@@ -6179,6 +6272,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.ILineDisplay
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IClaimedLineDisplay : aliased constant Windows.IID := (1271965956, 6826, 21594, (140, 188, 29, 69, 195, 232, 14, 94 ));
@@ -6205,6 +6299,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IClaimedLineDisplay
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_LineDisplayPowerStatus : aliased constant Windows.IID := (910093773, 31010, 21763, (144, 9, 28, 99, 28, 158, 54, 83 ));
@@ -6231,6 +6326,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.LineDisplayPowerStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILineDisplayWindow : aliased constant Windows.IID := (2538991707, 25804, 20561, (131, 80, 74, 207, 31, 252, 190, 88 ));
@@ -6257,6 +6353,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.ILineDisplayWindow
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILineDisplayStoredBitmap : aliased constant Windows.IID := (3718633341, 47009, 21533, (164, 128, 61, 70, 190, 217, 142, 157 ));
@@ -6283,6 +6380,7 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.ILineDisplayStoredBitmap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -6292,7 +6390,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_IBarcodeScanner : aliased constant Windows.IID := (2374680377, 39389, 20644, (170, 124, 47, 115, 1, 181, 202, 156 ));
    
    type AsyncOperationCompletedHandler_IBarcodeScanner_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBarcodeScanner'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBarcodeScanner_Interface
@@ -6306,7 +6403,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_IClaimedBarcodeScanner : aliased constant Windows.IID := (4285708845, 62404, 23230, (187, 206, 83, 21, 4, 73, 182, 55 ));
    
    type AsyncOperationCompletedHandler_IClaimedBarcodeScanner_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedBarcodeScanner ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IClaimedBarcodeScanner'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IClaimedBarcodeScanner_Interface
@@ -6320,7 +6416,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IBarcodeScanner_add_StatusUpdated : aliased constant Windows.IID := (3486031955, 62993, 21018, (138, 176, 164, 96, 225, 247, 22, 77 ));
    
    type TypedEventHandler_IBarcodeScanner_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IBarcodeScanner ; args : Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBarcodeScanner_add_StatusUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBarcodeScanner_add_StatusUpdated_Interface
@@ -6334,7 +6429,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived : aliased constant Windows.IID := (1332012186, 48524, 21661, (151, 12, 165, 162, 80, 189, 39, 202 ));
    
    type TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner ; args : Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedBarcodeScanner_add_DataReceived_Interface
@@ -6348,7 +6442,6 @@ package Windows.Devices.PointOfService is
    IID_EventHandler_IClaimedBarcodeScanner : aliased constant Windows.IID := (3232551598, 23381, 22669, (129, 27, 190, 51, 164, 253, 218, 87 ));
    
    type EventHandler_IClaimedBarcodeScanner_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Devices.PointOfService.IClaimedBarcodeScanner)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IClaimedBarcodeScanner'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IClaimedBarcodeScanner_Interface
@@ -6362,7 +6455,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived : aliased constant Windows.IID := (4221638319, 10809, 20847, (165, 121, 204, 62, 175, 54, 163, 75 ));
    
    type TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner ; args : Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface
@@ -6376,7 +6468,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred : aliased constant Windows.IID := (3124952905, 56850, 21510, (151, 158, 6, 196, 92, 162, 213, 164 ));
    
    type TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner ; args : Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedBarcodeScanner_add_ErrorOccurred_Interface
@@ -6390,7 +6481,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes : aliased constant Windows.IID := (4177287762, 12101, 24134, (168, 46, 61, 160, 9, 87, 59, 92 ));
    
    type AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IBarcodeSymbologyAttributes ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBarcodeSymbologyAttributes_Interface
@@ -6404,7 +6494,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived : aliased constant Windows.IID := (1782698005, 9310, 20922, (189, 108, 68, 119, 93, 112, 191, 162 ));
    
    type TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_BankCardDataReceived_Interface
@@ -6418,7 +6507,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived : aliased constant Windows.IID := (702582674, 50091, 22506, (170, 186, 120, 159, 121, 45, 122, 70 ));
    
    type TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface
@@ -6432,7 +6520,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived : aliased constant Windows.IID := (2509317306, 60996, 22028, (129, 131, 97, 198, 162, 48, 141, 143 ));
    
    type TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface
@@ -6446,7 +6533,6 @@ package Windows.Devices.PointOfService is
    IID_EventHandler_IClaimedMagneticStripeReader : aliased constant Windows.IID := (2147925853, 2197, 23436, (128, 138, 107, 184, 242, 103, 148, 250 ));
    
    type EventHandler_IClaimedMagneticStripeReader_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Devices.PointOfService.IClaimedMagneticStripeReader)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IClaimedMagneticStripeReader'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IClaimedMagneticStripeReader_Interface
@@ -6460,7 +6546,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred : aliased constant Windows.IID := (342139366, 40338, 21630, (180, 172, 242, 85, 172, 133, 249, 80 ));
    
    type TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedMagneticStripeReader_add_ErrorOccurred_Interface
@@ -6474,7 +6559,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_IMagneticStripeReader : aliased constant Windows.IID := (851795835, 36579, 21853, (153, 139, 120, 201, 138, 169, 98, 123 ));
    
    type AsyncOperationCompletedHandler_IMagneticStripeReader_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMagneticStripeReader'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMagneticStripeReader_Interface
@@ -6488,7 +6572,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_IClaimedMagneticStripeReader : aliased constant Windows.IID := (2490117476, 8916, 21805, (171, 251, 158, 179, 65, 189, 103, 243 ));
    
    type AsyncOperationCompletedHandler_IClaimedMagneticStripeReader_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedMagneticStripeReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IClaimedMagneticStripeReader'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IClaimedMagneticStripeReader_Interface
@@ -6502,7 +6585,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IMagneticStripeReader_add_StatusUpdated : aliased constant Windows.IID := (1915587578, 57614, 21645, (175, 41, 40, 221, 144, 111, 111, 201 ));
    
    type TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IMagneticStripeReader ; args : Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMagneticStripeReader_add_StatusUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface
@@ -6516,7 +6598,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_IPosPrinter : aliased constant Windows.IID := (1586346952, 35680, 22657, (139, 110, 246, 153, 180, 148, 157, 186 ));
    
    type AsyncOperationCompletedHandler_IPosPrinter_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IPosPrinter ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPosPrinter'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPosPrinter_Interface
@@ -6530,7 +6611,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_IClaimedPosPrinter : aliased constant Windows.IID := (32181699, 15408, 24298, (159, 206, 239, 179, 152, 224, 190, 52 ));
    
    type AsyncOperationCompletedHandler_IClaimedPosPrinter_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedPosPrinter ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IClaimedPosPrinter'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IClaimedPosPrinter_Interface
@@ -6544,7 +6624,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IPosPrinter_add_StatusUpdated : aliased constant Windows.IID := (548456042, 24385, 23090, (180, 90, 52, 79, 18, 231, 10, 52 ));
    
    type TypedEventHandler_IPosPrinter_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IPosPrinter ; args : Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPosPrinter_add_StatusUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPosPrinter_add_StatusUpdated_Interface
@@ -6558,7 +6637,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested : aliased constant Windows.IID := (826429295, 53227, 20529, (138, 149, 190, 165, 155, 9, 229, 132 ));
    
    type TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedPosPrinter ; args : Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface
@@ -6572,7 +6650,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed : aliased constant Windows.IID := (2169068196, 17526, 22399, (191, 136, 127, 232, 161, 40, 100, 68 ));
    
    type TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.ICashDrawerEventSource ; args : Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICashDrawerEventSource_add_DrawerClosed_Interface
@@ -6586,7 +6663,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened : aliased constant Windows.IID := (660899737, 59349, 23779, (151, 206, 47, 65, 16, 221, 50, 152 ));
    
    type TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.ICashDrawerEventSource ; args : Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICashDrawerEventSource_add_DrawerOpened_Interface
@@ -6600,7 +6676,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_ICashDrawer : aliased constant Windows.IID := (1468229392, 61830, 22070, (137, 29, 248, 197, 57, 142, 166, 223 ));
    
    type AsyncOperationCompletedHandler_ICashDrawer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ICashDrawer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICashDrawer'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICashDrawer_Interface
@@ -6614,7 +6689,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_IClaimedCashDrawer : aliased constant Windows.IID := (3867948854, 64999, 23803, (178, 47, 146, 17, 151, 35, 231, 41 ));
    
    type AsyncOperationCompletedHandler_IClaimedCashDrawer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedCashDrawer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IClaimedCashDrawer'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IClaimedCashDrawer_Interface
@@ -6628,7 +6702,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_ICashDrawer_add_StatusUpdated : aliased constant Windows.IID := (1684418292, 51982, 23663, (168, 32, 125, 10, 118, 149, 84, 201 ));
    
    type TypedEventHandler_ICashDrawer_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.ICashDrawer ; args : Windows.Devices.PointOfService.ICashDrawerStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICashDrawer_add_StatusUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICashDrawer_add_StatusUpdated_Interface
@@ -6642,7 +6715,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired : aliased constant Windows.IID := (3310337444, 24075, 21699, (148, 242, 131, 53, 30, 65, 196, 111 ));
    
    type TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.ICashDrawerCloseAlarm ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICashDrawerCloseAlarm_add_AlarmTimeoutExpired_Interface
@@ -6656,7 +6728,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested : aliased constant Windows.IID := (3683149185, 9314, 23681, (136, 12, 6, 17, 44, 167, 0, 18 ));
    
    type TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedCashDrawer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface
@@ -6670,7 +6741,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_ILineDisplay : aliased constant Windows.IID := (3049575542, 20294, 21444, (138, 69, 137, 219, 230, 214, 242, 134 ));
    
    type AsyncOperationCompletedHandler_ILineDisplay_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplay ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILineDisplay'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILineDisplay_Interface
@@ -6684,7 +6754,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_IClaimedLineDisplay : aliased constant Windows.IID := (1310358001, 57330, 23320, (190, 190, 42, 202, 1, 11, 191, 204 ));
    
    type AsyncOperationCompletedHandler_IClaimedLineDisplay_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_IClaimedLineDisplay ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IClaimedLineDisplay'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IClaimedLineDisplay_Interface
@@ -6698,7 +6767,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_LineDisplayPowerStatus : aliased constant Windows.IID := (2881121561, 55327, 23941, (169, 0, 102, 185, 107, 109, 43, 50 ));
    
    type AsyncOperationCompletedHandler_LineDisplayPowerStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_LineDisplayPowerStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_LineDisplayPowerStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_LineDisplayPowerStatus_Interface
@@ -6712,7 +6780,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested : aliased constant Windows.IID := (3382147115, 18153, 23954, (172, 132, 238, 157, 125, 7, 58, 181 ));
    
    type TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedLineDisplay ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Interface
@@ -6726,7 +6793,6 @@ package Windows.Devices.PointOfService is
    IID_TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated : aliased constant Windows.IID := (634484991, 12393, 21356, (160, 194, 136, 224, 37, 14, 138, 41 ));
    
    type TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedLineDisplay ; args : Windows.Devices.PointOfService.ILineDisplayStatusUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface
@@ -6740,7 +6806,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_ILineDisplayWindow : aliased constant Windows.IID := (3839064834, 46682, 23276, (162, 25, 209, 224, 183, 243, 249, 18 ));
    
    type AsyncOperationCompletedHandler_ILineDisplayWindow_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayWindow ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILineDisplayWindow'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILineDisplayWindow_Interface
@@ -6754,7 +6819,6 @@ package Windows.Devices.PointOfService is
    IID_AsyncOperationCompletedHandler_ILineDisplayStoredBitmap : aliased constant Windows.IID := (2776037993, 39304, 23075, (132, 76, 248, 166, 159, 72, 164, 41 ));
    
    type AsyncOperationCompletedHandler_ILineDisplayStoredBitmap_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayStoredBitmap ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILineDisplayStoredBitmap'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILineDisplayStoredBitmap_Interface
@@ -6827,7 +6891,6 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Gs1DWCode
    return Windows.UInt32;
@@ -7254,5 +7317,6 @@ package Windows.Devices.PointOfService is
       connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
    )
    return Windows.String;
+   
 
 end;

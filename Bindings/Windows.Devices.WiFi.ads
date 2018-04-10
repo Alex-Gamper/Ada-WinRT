@@ -298,6 +298,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.IAsyncOperation_WiFiAccessStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiAdapter : aliased constant Windows.IID := (2797921315, 15733, 17316, (185, 222, 17, 226, 107, 114, 217, 176 ));
@@ -375,6 +376,7 @@ package Windows.Devices.WiFi is
       This       : access IWiFiAdapter_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiAdapter2 : aliased constant Windows.IID := (1539592221, 33252, 17725, (148, 48, 31, 202, 251, 173, 214, 182 ));
@@ -400,6 +402,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.IAsyncOperation_IWiFiConnectionResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiNetworkReport : aliased constant Windows.IID := (2502221522, 22801, 17502, (129, 148, 190, 79, 26, 112, 72, 149 ));
@@ -419,6 +422,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.IVectorView_IWiFiAvailableNetwork -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiAvailableNetwork : aliased constant Windows.IID := (652829254, 6206, 18180, (152, 38, 113, 180, 162, 240, 246, 104 ));
@@ -501,6 +505,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiWpsConfigurationResult : aliased constant Windows.IID := (1739888753, 6126, 17105, (177, 79, 90, 17, 241, 34, 111, 181 ));
@@ -520,6 +525,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.IVectorView_WiFiWpsKind -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiConnectionResult : aliased constant Windows.IID := (339468249, 50045, 16574, (165, 200, 133, 123, 206, 133, 169, 49 ));
@@ -532,6 +538,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.WiFiConnectionStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWiFiAdapter : aliased constant Windows.IID := (500134813, 4279, 23017, (171, 71, 139, 2, 119, 226, 1, 147 ));
@@ -558,6 +565,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.IWiFiAdapter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_WiFiAccessStatus : aliased constant Windows.IID := (4173814330, 29594, 22442, (152, 109, 31, 118, 4, 215, 227, 134 ));
@@ -584,6 +592,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.WiFiAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWiFiConnectionResult : aliased constant Windows.IID := (4288945993, 19504, 20691, (149, 73, 228, 240, 85, 180, 23, 180 ));
@@ -610,6 +619,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.IWiFiConnectionResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWiFiWpsConfigurationResult : aliased constant Windows.IID := (1265769844, 649, 22588, (168, 29, 243, 190, 3, 234, 89, 109 ));
@@ -636,6 +646,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.IWiFiWpsConfigurationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IWiFiAvailableNetwork : aliased constant Windows.IID := (1183217604, 60345, 20886, (131, 109, 114, 250, 169, 254, 103, 62 ));
@@ -670,6 +681,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWiFiAvailableNetwork : aliased constant Windows.IID := (4050945258, 50974, 23870, (183, 76, 58, 14, 97, 221, 156, 32 ));
@@ -682,6 +694,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.IIterator_IWiFiAvailableNetwork
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IWiFiAvailableNetwork : aliased constant Windows.IID := (2087047814, 29317, 23907, (189, 234, 94, 249, 81, 189, 246, 24 ));
@@ -720,6 +733,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_WiFiWpsKind : aliased constant Windows.IID := (2602129724, 24621, 22489, (168, 82, 164, 138, 130, 4, 255, 66 ));
@@ -754,6 +768,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_WiFiWpsKind : aliased constant Windows.IID := (1105290515, 43250, 21997, (155, 228, 86, 101, 22, 125, 73, 215 ));
@@ -766,6 +781,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.Devices.WiFi.IIterator_WiFiWpsKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_WiFiWpsKind : aliased constant Windows.IID := (2867324389, 10224, 23336, (140, 88, 144, 57, 53, 109, 61, 199 ));
@@ -804,6 +820,7 @@ package Windows.Devices.WiFi is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -813,7 +830,6 @@ package Windows.Devices.WiFi is
    IID_AsyncOperationCompletedHandler_IWiFiAdapter : aliased constant Windows.IID := (892743541, 27310, 22029, (179, 208, 63, 174, 156, 114, 96, 168 ));
    
    type AsyncOperationCompletedHandler_IWiFiAdapter_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFi.IAsyncOperation_IWiFiAdapter ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWiFiAdapter'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWiFiAdapter_Interface
@@ -827,7 +843,6 @@ package Windows.Devices.WiFi is
    IID_AsyncOperationCompletedHandler_WiFiAccessStatus : aliased constant Windows.IID := (1709738442, 63177, 23669, (190, 249, 5, 171, 136, 164, 154, 84 ));
    
    type AsyncOperationCompletedHandler_WiFiAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFi.IAsyncOperation_WiFiAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_WiFiAccessStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_WiFiAccessStatus_Interface
@@ -841,7 +856,6 @@ package Windows.Devices.WiFi is
    IID_TypedEventHandler_IWiFiAdapter_add_AvailableNetworksChanged : aliased constant Windows.IID := (4139789595, 17384, 24520, (142, 142, 238, 123, 128, 148, 182, 131 ));
    
    type TypedEventHandler_IWiFiAdapter_add_AvailableNetworksChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFi.IWiFiAdapter ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiAdapter_add_AvailableNetworksChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWiFiAdapter_add_AvailableNetworksChanged_Interface
@@ -855,7 +869,6 @@ package Windows.Devices.WiFi is
    IID_AsyncOperationCompletedHandler_IWiFiConnectionResult : aliased constant Windows.IID := (4085312397, 7762, 21328, (162, 136, 134, 28, 150, 58, 132, 240 ));
    
    type AsyncOperationCompletedHandler_IWiFiConnectionResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFi.IAsyncOperation_IWiFiConnectionResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWiFiConnectionResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWiFiConnectionResult_Interface
@@ -869,7 +882,6 @@ package Windows.Devices.WiFi is
    IID_AsyncOperationCompletedHandler_IWiFiWpsConfigurationResult : aliased constant Windows.IID := (872035419, 10445, 22696, (188, 252, 190, 76, 253, 16, 142, 145 ));
    
    type AsyncOperationCompletedHandler_IWiFiWpsConfigurationResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFi.IAsyncOperation_IWiFiWpsConfigurationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWiFiWpsConfigurationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWiFiWpsConfigurationResult_Interface
@@ -892,7 +904,6 @@ package Windows.Devices.WiFi is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FindAllAdaptersAsync
    return Windows.Address;
    
@@ -907,5 +918,6 @@ package Windows.Devices.WiFi is
    
    function RequestAccessAsync
    return Windows.Devices.WiFi.IAsyncOperation_WiFiAccessStatus;
+   
 
 end;

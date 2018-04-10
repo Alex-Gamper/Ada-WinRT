@@ -33,7 +33,6 @@ package body Windows.ApplicationModel.Contacts is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IContactStore_Interface
@@ -219,7 +218,6 @@ package body Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateContactCardOptions return Windows.ApplicationModel.Contacts.IContactCardOptions is
       Hr            : Windows.HResult := S_OK;
@@ -681,7 +679,6 @@ package body Windows.ApplicationModel.Contacts is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    procedure ShowContactCard
    (
@@ -1276,5 +1273,6 @@ package body Windows.ApplicationModel.Contacts is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

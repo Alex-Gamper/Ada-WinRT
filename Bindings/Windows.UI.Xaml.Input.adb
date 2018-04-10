@@ -32,7 +32,6 @@ package body Windows.UI.Xaml.Input is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access DoubleTappedEventHandler_Interface
@@ -205,7 +204,6 @@ package body Windows.UI.Xaml.Input is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateAccessKeyDisplayRequestedEventArgs return Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs is
       Hr            : Windows.HResult := S_OK;
@@ -859,7 +857,6 @@ package body Windows.UI.Xaml.Input is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_IsDisplayModeEnabled
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -1254,5 +1251,6 @@ package body Windows.UI.Xaml.Input is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

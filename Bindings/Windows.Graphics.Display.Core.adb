@@ -27,7 +27,6 @@ package body Windows.Graphics.Display.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IHdmiDisplayInformation_add_DisplayModesChanged_Interface
@@ -45,7 +44,6 @@ package body Windows.Graphics.Display.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -53,7 +51,6 @@ package body Windows.Graphics.Display.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.Graphics.Display.Core.IHdmiDisplayInformation is
@@ -71,5 +68,6 @@ package body Windows.Graphics.Display.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

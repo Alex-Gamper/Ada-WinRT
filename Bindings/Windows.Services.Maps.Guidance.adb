@@ -30,7 +30,6 @@ package body Windows.Services.Maps.Guidance is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface
@@ -139,7 +138,6 @@ package body Windows.Services.Maps.Guidance is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -147,7 +145,6 @@ package body Windows.Services.Maps.Guidance is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CanCreateFromMapRoute
    (
@@ -239,5 +236,6 @@ package body Windows.Services.Maps.Guidance is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

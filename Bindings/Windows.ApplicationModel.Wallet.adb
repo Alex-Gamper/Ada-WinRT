@@ -30,7 +30,6 @@ package body Windows.ApplicationModel.Wallet is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWalletItem_Interface
@@ -73,7 +72,6 @@ package body Windows.ApplicationModel.Wallet is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateWalletBarcode
    (
@@ -220,7 +218,6 @@ package body Windows.ApplicationModel.Wallet is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function RequestStoreAsync
    return Windows.ApplicationModel.Wallet.IAsyncOperation_IWalletItemStore is
       Hr            : Windows.HRESULT := S_OK;
@@ -237,5 +234,6 @@ package body Windows.ApplicationModel.Wallet is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

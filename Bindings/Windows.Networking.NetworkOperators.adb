@@ -32,7 +32,6 @@ package body Windows.Networking.NetworkOperators is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMobileBroadbandCellsInfo_Interface
@@ -284,7 +283,6 @@ package body Windows.Networking.NetworkOperators is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateNetworkOperatorTetheringAccessPointConfiguration return Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration");
@@ -363,7 +361,6 @@ package body Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AvailableNetworkAccountIds
    return Windows.Foundation.Collections.IVectorView_String is
@@ -912,5 +909,6 @@ package body Windows.Networking.NetworkOperators is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

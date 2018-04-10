@@ -29,7 +29,6 @@ package body Windows.Services.Maps is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMapLocationFinderResult_Interface
@@ -59,7 +58,6 @@ package body Windows.Services.Maps is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -123,7 +121,6 @@ package body Windows.Services.Maps is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -742,5 +739,6 @@ package body Windows.Services.Maps is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

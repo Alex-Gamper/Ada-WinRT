@@ -362,6 +362,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpClient
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpClient : aliased constant Windows.IID := (2144997713, 13684, 18560, (168, 186, 230, 177, 224, 6, 31, 61 ));
@@ -458,6 +459,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.Headers.IHttpRequestHeaderCollection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContent : aliased constant Windows.IID := (1796514881, 64423, 19410, (175, 10, 131, 157, 231, 194, 149, 218 ));
@@ -514,6 +516,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCookieManager : aliased constant Windows.IID := (2051217280, 52559, 20055, (168, 74, 91, 10, 83, 214, 187, 150 ));
@@ -551,6 +554,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IVectorView_HttpCookie
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_HttpCookie : aliased constant Windows.IID := (6604022, 16330, 22563, (157, 146, 134, 196, 11, 40, 173, 188 ));
@@ -589,6 +593,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpCookie : aliased constant Windows.IID := (247069238, 35038, 22797, (142, 160, 182, 19, 208, 171, 1, 95 ));
@@ -601,6 +606,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpCookie
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCookieFactory : aliased constant Windows.IID := (1778746793, 37660, 19665, (169, 109, 194, 23, 1, 120, 92, 95 ));
@@ -616,6 +622,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpCookie
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCookie : aliased constant Windows.IID := (525633762, 52269, 18297, (134, 167, 136, 241, 6, 135, 210, 73 ));
@@ -698,6 +705,7 @@ package Windows.Web.Http is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMethodStatics : aliased constant Windows.IID := (1691447792, 55706, 16723, (141, 198, 214, 140, 196, 204, 227, 23 ));
@@ -752,6 +760,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpMethod
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMethodFactory : aliased constant Windows.IID := (1011994893, 14039, 16632, (168, 109, 231, 89, 202, 242, 248, 63 ));
@@ -765,6 +774,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpMethod
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMethod : aliased constant Windows.IID := (1921859618, 28685, 20448, (175, 165, 64, 41, 156, 88, 219, 253 ));
@@ -777,6 +787,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpTransportInformation : aliased constant Windows.IID := (1880256920, 50855, 20176, (131, 58, 131, 253, 139, 143, 23, 141 ));
@@ -810,6 +821,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpRequestMessageFactory : aliased constant Windows.IID := (1538038094, 14470, 16686, (174, 195, 82, 236, 127, 37, 97, 111 ));
@@ -824,6 +836,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpRequestMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpRequestMessage : aliased constant Windows.IID := (4118162236, 29908, 18449, (181, 220, 159, 139, 78, 47, 154, 191 ));
@@ -892,6 +905,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpTransportInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpResponseMessageFactory : aliased constant Windows.IID := (1386786713, 61589, 17370, (182, 15, 124, 252, 43, 199, 234, 47 ));
@@ -905,6 +919,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpResponseMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpResponseMessage : aliased constant Windows.IID := (4276224251, 34404, 17632, (149, 217, 66, 105, 97, 153, 191, 252 ));
@@ -1015,6 +1030,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpResponseMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpStringContentFactory : aliased constant Windows.IID := (1180999003, 11923, 18667, (142, 97, 25, 103, 120, 120, 229, 127 ));
@@ -1047,6 +1063,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpBufferContentFactory : aliased constant Windows.IID := (3156263315, 50207, 20471, (145, 35, 100, 53, 115, 110, 173, 194 ));
@@ -1070,6 +1087,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpStreamContentFactory : aliased constant Windows.IID := (4091956637, 63269, 16510, (148, 47, 14, 218, 24, 152, 9, 244 ));
@@ -1083,6 +1101,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpFormUrlEncodedContentFactory : aliased constant Windows.IID := (1139807116, 12147, 17154, (181, 243, 234, 233, 35, 138, 94, 1 ));
@@ -1096,6 +1115,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMultipartContentFactory : aliased constant Windows.IID := (2125737570, 546, 20256, (179, 114, 71, 213, 219, 93, 51, 180 ));
@@ -1118,6 +1138,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IHttpContent : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1130,6 +1151,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMultipartContent : aliased constant Windows.IID := (3750849279, 39206, 19145, (170, 241, 224, 208, 78, 240, 155, 185 ));
@@ -1142,6 +1164,7 @@ package Windows.Web.Http is
       ; content : Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMultipartFormDataContentFactory : aliased constant Windows.IID := (2689430289, 20503, 17954, (147, 168, 73, 178, 74, 79, 203, 252 ));
@@ -1155,6 +1178,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IHttpContent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMultipartFormDataContent : aliased constant Windows.IID := (1691564002, 59751, 17956, (182, 209, 207, 116, 96, 74, 74, 66 ));
@@ -1184,6 +1208,7 @@ package Windows.Web.Http is
       ; fileName : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IHttpCookie : aliased constant Windows.IID := (1651229047, 33795, 20528, (168, 140, 116, 133, 204, 137, 215, 48 ));
@@ -1218,6 +1243,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IHttpCookie : aliased constant Windows.IID := (247069238, 35038, 22797, (142, 160, 182, 19, 208, 171, 1, 95 ));
@@ -1230,6 +1256,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.Web.Http.IIterator_IHttpCookie
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IHttpCookie : aliased constant Windows.IID := (6604022, 16330, 22563, (157, 146, 134, 196, 11, 40, 173, 188 ));
@@ -1268,6 +1295,7 @@ package Windows.Web.Http is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IHttpCookie : aliased constant Windows.IID := (2561065726, 18075, 23517, (161, 109, 112, 2, 195, 160, 133, 61 ));
@@ -1362,18 +1390,19 @@ package Windows.Web.Http is
       ; items : Windows.Web.Http.IHttpCookie_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype HttpRequestMessage is Windows.Web.Http.IHttpRequestMessage;
-   
    function Create
    (
       method : Windows.Web.Http.IHttpMethod
       ; uri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.Web.Http.IHttpRequestMessage;
+   
    
    subtype HttpResponseMessage is Windows.Web.Http.IHttpResponseMessage;
    
@@ -1384,7 +1413,6 @@ package Windows.Web.Http is
    function CreateHttpClient return Windows.Web.Http.IHttpClient;
    
    subtype HttpCookie is Windows.Web.Http.IHttpCookie;
-   
    function Create
    (
       name : Windows.String
@@ -1393,18 +1421,18 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpCookie;
    
+   
    subtype HttpCookieCollection is Windows.Web.Http.IVectorView_HttpCookie;
    subtype HttpMethod is Windows.Web.Http.IHttpMethod;
-   
    function Create
    (
       method : Windows.String
    )
    return Windows.Web.Http.IHttpMethod;
    
+   
    subtype HttpTransportInformation is Windows.Web.Http.IHttpTransportInformation;
    subtype HttpStringContent is Windows.Web.Http.IHttpContent;
-   
    function CreateFromString
    (
       content : Windows.String
@@ -1426,8 +1454,8 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpContent;
    
-   subtype HttpBufferContent is Windows.Web.Http.IHttpContent;
    
+   subtype HttpBufferContent is Windows.Web.Http.IHttpContent;
    function CreateFromBuffer
    (
       content : Windows.Storage.Streams.IBuffer
@@ -1442,24 +1470,24 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpContent;
    
-   subtype HttpStreamContent is Windows.Web.Http.IHttpContent;
    
+   subtype HttpStreamContent is Windows.Web.Http.IHttpContent;
    function CreateFromInputStream
    (
       content : Windows.Storage.Streams.IInputStream
    )
    return Windows.Web.Http.IHttpContent;
    
-   subtype HttpFormUrlEncodedContent is Windows.Web.Http.IHttpContent;
    
+   subtype HttpFormUrlEncodedContent is Windows.Web.Http.IHttpContent;
    function Create
    (
       content : Windows.Address
    )
    return Windows.Web.Http.IHttpContent;
    
-   subtype HttpMultipartContent is Windows.Web.Http.IHttpContent;
    
+   subtype HttpMultipartContent is Windows.Web.Http.IHttpContent;
    function CreateWithSubtype
    (
       subtype_x : Windows.String
@@ -1473,20 +1501,20 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpContent;
    
-   subtype HttpMultipartFormDataContent is Windows.Web.Http.IHttpContent;
    
+   subtype HttpMultipartFormDataContent is Windows.Web.Http.IHttpContent;
    function CreateWithBoundary
    (
       boundary : Windows.String
    )
    return Windows.Web.Http.IHttpContent;
    
+   
    subtype HttpCookieManager is Windows.Web.Http.IHttpCookieManager;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Delete
    return Windows.Web.Http.IHttpMethod;
@@ -1508,5 +1536,6 @@ package Windows.Web.Http is
    
    function get_Put
    return Windows.Web.Http.IHttpMethod;
+   
 
 end;

@@ -405,6 +405,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskInstance
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactPanelActivatedEventArgs : aliased constant Windows.IID := (1388012516, 54228, 19299, (128, 81, 74, 242, 8, 44, 171, 128 ));
@@ -424,6 +425,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISplashScreen : aliased constant Windows.IID := (3394082652, 54486, 17392, (151, 192, 8, 51, 198, 57, 28, 36 ));
@@ -451,6 +453,7 @@ package Windows.ApplicationModel.Activation is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IActivatedEventArgs : aliased constant Windows.IID := (3479508755, 52488, 20440, (182, 151, 162, 129, 182, 84, 78, 46 ));
@@ -477,6 +480,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Activation.ISplashScreen
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskSettingsActivatedEventArgs : aliased constant Windows.IID := (3996164297, 52822, 18533, (186, 142, 137, 84, 172, 39, 17, 7 ));
@@ -489,6 +493,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Devices.Printers.Extensions.IPrintTaskConfiguration
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrint3DWorkflowActivatedEventArgs : aliased constant Windows.IID := (1062725515, 62124, 17945, (131, 2, 239, 133, 94, 28, 155, 144 ));
@@ -501,6 +506,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Devices.Printers.Extensions.IPrint3DWorkflow
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICameraSettingsActivatedEventArgs : aliased constant Windows.IID := (4217873672, 11693, 18698, (145, 112, 220, 160, 54, 235, 17, 75 ));
@@ -520,6 +526,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactPickerActivatedEventArgs : aliased constant Windows.IID := (3461851879, 25673, 17831, (151, 31, 209, 19, 190, 122, 137, 54 ));
@@ -532,6 +539,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Contacts.Provider.IContactPickerUI
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactActivatedEventArgs : aliased constant Windows.IID := (3592921540, 49189, 19521, (157, 239, 241, 234, 250, 208, 117, 231 ));
@@ -544,6 +552,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactCallActivatedEventArgs : aliased constant Windows.IID := (3269399751, 12523, 16838, (179, 188, 91, 22, 148, 249, 218, 179 ));
@@ -570,6 +579,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactMessageActivatedEventArgs : aliased constant Windows.IID := (3730410930, 3587, 17328, (191, 86, 188, 196, 11, 49, 98, 223 ));
@@ -596,6 +606,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactMapActivatedEventArgs : aliased constant Windows.IID := (3006003312, 61159, 19154, (170, 241, 168, 126, 255, 207, 0, 164 ));
@@ -615,6 +626,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactPostActivatedEventArgs : aliased constant Windows.IID := (3009035367, 61927, 18005, (173, 110, 72, 87, 88, 143, 85, 47 ));
@@ -641,6 +653,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactVideoCallActivatedEventArgs : aliased constant Windows.IID := (1627889080, 58343, 19279, (133, 141, 92, 99, 169, 110, 246, 132 ));
@@ -667,6 +680,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Contacts.IContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactsProviderActivatedEventArgs : aliased constant Windows.IID := (1166073000, 22352, 18710, (170, 82, 192, 130, 149, 33, 235, 148 ));
@@ -679,6 +693,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletActionActivatedEventArgs : aliased constant Windows.IID := (4244374139, 6682, 19746, (146, 63, 174, 111, 69, 250, 82, 217 ));
@@ -705,6 +720,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentsProviderActivatedEventArgs : aliased constant Windows.IID := (862241797, 37692, 20093, (160, 52, 80, 15, 184, 220, 217, 243 ));
@@ -717,6 +733,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentsProviderAddAppointmentActivatedEventArgs : aliased constant Windows.IID := (2726695783, 52965, 20045, (158, 215, 65, 195, 78, 193, 139, 2 ));
@@ -729,6 +746,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentsProvider.IAddAppointmentOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentsProviderReplaceAppointmentActivatedEventArgs : aliased constant Windows.IID := (357677012, 43393, 16487, (138, 98, 5, 36, 228, 173, 225, 33 ));
@@ -741,6 +759,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentsProvider.IReplaceAppointmentOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentsProviderRemoveAppointmentActivatedEventArgs : aliased constant Windows.IID := (1964980920, 2958, 17692, (159, 21, 150, 110, 105, 155, 172, 37 ));
@@ -753,6 +772,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Appointments.AppointmentsProvider.IRemoveAppointmentOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs : aliased constant Windows.IID := (962130021, 38977, 19621, (153, 155, 136, 81, 152, 185, 239, 42 ));
@@ -779,6 +799,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentsProviderShowTimeFrameActivatedEventArgs : aliased constant Windows.IID := (2611915686, 3595, 18858, (186, 188, 18, 177, 220, 119, 73, 134 ));
@@ -798,6 +819,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataAccountProviderActivatedEventArgs : aliased constant Windows.IID := (466220835, 36593, 19025, (166, 58, 254, 113, 30, 234, 182, 7 ));
@@ -810,6 +832,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IActivatedEventArgsWithUser : aliased constant Windows.IID := (485530526, 39266, 18742, (128, 255, 175, 200, 232, 174, 92, 140 ));
@@ -822,6 +845,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationViewActivatedEventArgs : aliased constant Windows.IID := (2467098443, 47145, 16636, (136, 244, 133, 19, 232, 166, 71, 56 ));
@@ -834,6 +858,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IViewSwitcherProvider : aliased constant Windows.IID := (871532710, 23596, 19751, (186, 199, 117, 54, 8, 143, 18, 25 ));
@@ -846,6 +871,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.UI.ViewManagement.IActivationViewSwitcher
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrelaunchActivatedEventArgs : aliased constant Windows.IID := (205812091, 6647, 18646, (176, 70, 207, 34, 130, 110, 170, 116 ));
@@ -858,6 +884,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILaunchActivatedEventArgs : aliased constant Windows.IID := (4224269862, 41290, 19279, (130, 176, 51, 190, 217, 32, 175, 82 ));
@@ -877,6 +904,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILockScreenCallActivatedEventArgs : aliased constant Windows.IID := (116621246, 46578, 17547, (177, 62, 227, 40, 172, 28, 81, 106 ));
@@ -889,6 +917,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Calls.ILockScreenCallUI
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILaunchActivatedEventArgs2 : aliased constant Windows.IID := (265518780, 40393, 18101, (154, 206, 189, 149, 212, 86, 83, 69 ));
@@ -901,6 +930,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Activation.ITileActivatedInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISearchActivatedEventArgs : aliased constant Windows.IID := (2360568145, 22728, 17379, (148, 188, 65, 211, 63, 139, 99, 14 ));
@@ -920,6 +950,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISearchActivatedEventArgsWithLinguisticDetails : aliased constant Windows.IID := (3231658970, 2219, 18737, (155, 124, 69, 16, 37, 242, 31, 129 ));
@@ -932,6 +963,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareTargetActivatedEventArgs : aliased constant Windows.IID := (1272641992, 52658, 19147, (191, 195, 102, 72, 86, 51, 120, 236 ));
@@ -944,6 +976,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileActivatedEventArgs : aliased constant Windows.IID := (3140156467, 37809, 17133, (139, 38, 35, 109, 217, 199, 132, 150 ));
@@ -963,6 +996,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileActivatedEventArgsWithNeighboringFiles : aliased constant Windows.IID := (1127981476, 57826, 18685, (183, 252, 181, 214, 238, 230, 80, 51 ));
@@ -975,6 +1009,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Storage.Search.IStorageFileQueryResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileActivatedEventArgsWithCallerPackageFamilyName : aliased constant Windows.IID := (761327723, 53855, 19749, (134, 83, 225, 197, 225, 16, 131, 9 ));
@@ -987,6 +1022,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProtocolActivatedEventArgs : aliased constant Windows.IID := (1620440285, 47040, 18091, (129, 254, 217, 15, 54, 208, 13, 36 ));
@@ -999,6 +1035,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData : aliased constant Windows.IID := (3628731410, 23695, 17292, (131, 203, 194, 143, 204, 11, 47, 219 ));
@@ -1018,6 +1055,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProtocolForResultsActivatedEventArgs : aliased constant Windows.IID := (3880858306, 31463, 17687, (128, 172, 219, 232, 215, 204, 91, 156 ));
@@ -1030,6 +1068,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.System.IProtocolForResultsOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileOpenPickerActivatedEventArgs : aliased constant Windows.IID := (1921151106, 21797, 19442, (188, 9, 31, 80, 149, 212, 150, 77 ));
@@ -1042,6 +1081,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Storage.Pickers.Provider.IFileOpenPickerUI
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileOpenPickerActivatedEventArgs2 : aliased constant Windows.IID := (1584602982, 36127, 17915, (175, 29, 115, 32, 92, 143, 199, 161 ));
@@ -1054,6 +1094,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileSavePickerActivatedEventArgs : aliased constant Windows.IID := (2176949489, 29926, 17287, (130, 235, 187, 143, 214, 75, 67, 70 ));
@@ -1066,6 +1107,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Storage.Pickers.Provider.IFileSavePickerUI
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileSavePickerActivatedEventArgs2 : aliased constant Windows.IID := (1802763795, 11506, 19784, (140, 188, 175, 103, 210, 63, 28, 231 ));
@@ -1085,6 +1127,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICachedFileUpdaterActivatedEventArgs : aliased constant Windows.IID := (3496915399, 14341, 20171, (183, 87, 108, 241, 94, 38, 254, 243 ));
@@ -1097,6 +1140,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Storage.Provider.ICachedFileUpdaterUI
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceActivatedEventArgs : aliased constant Windows.IID := (3444619689, 52752, 17618, (130, 52, 195, 85, 160, 115, 239, 51 ));
@@ -1116,6 +1160,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPickerReturnedActivatedEventArgs : aliased constant Windows.IID := (906883001, 43475, 18820, (164, 237, 158, 199, 52, 96, 73, 33 ));
@@ -1128,6 +1173,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRestrictedLaunchActivatedEventArgs : aliased constant Windows.IID := (3770133633, 49091, 17220, (165, 218, 25, 253, 90, 39, 186, 174 ));
@@ -1140,6 +1186,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILockScreenActivatedEventArgs : aliased constant Windows.IID := (1017608550, 24840, 19009, (130, 32, 238, 125, 19, 60, 133, 50 ));
@@ -1152,6 +1199,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContinuationActivatedEventArgs : aliased constant Windows.IID := (3850438325, 5471, 19092, (167, 66, 199, 224, 143, 78, 24, 140 ));
@@ -1164,6 +1212,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileOpenPickerContinuationEventArgs : aliased constant Windows.IID := (4042932026, 54504, 19155, (156, 52, 35, 8, 243, 47, 206, 201 ));
@@ -1176,6 +1225,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Storage.IVectorView_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileSavePickerContinuationEventArgs : aliased constant Windows.IID := (746876897, 15277, 20275, (140, 139, 228, 111, 174, 130, 75, 75 ));
@@ -1188,6 +1238,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFolderPickerContinuationEventArgs : aliased constant Windows.IID := (1367876454, 40779, 18831, (190, 176, 66, 104, 79, 110, 28, 41 ));
@@ -1200,6 +1251,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAuthenticationBrokerContinuationEventArgs : aliased constant Windows.IID := (1977459668, 30484, 17725, (183, 255, 185, 94, 58, 23, 9, 218 ));
@@ -1212,6 +1264,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Security.Authentication.Web.IWebAuthenticationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderActivatedEventArgs : aliased constant Windows.IID := (1924601716, 39146, 19663, (151, 82, 70, 217, 5, 16, 4, 241 ));
@@ -1224,6 +1277,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationActivatedEventArgs : aliased constant Windows.IID := (2460512130, 21136, 17181, (190, 133, 196, 170, 238, 184, 104, 95 ));
@@ -1243,6 +1297,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDialReceiverActivatedEventArgs : aliased constant Windows.IID := (4218912471, 34286, 17774, (164, 77, 133, 215, 48, 231, 10, 237 ));
@@ -1255,6 +1310,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileActivatedInfo : aliased constant Windows.IID := (2162467761, 14720, 20247, (183, 56, 137, 25, 78, 11, 143, 101 ));
@@ -1267,6 +1323,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.UI.Notifications.IVectorView_IShownTileNotification -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommandLineActivationOperation : aliased constant Windows.IID := (2571839553, 50590, 20329, (188, 253, 182, 30, 212, 230, 34, 235 ));
@@ -1307,6 +1364,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommandLineActivatedEventArgs : aliased constant Windows.IID := (1158039340, 106, 18667, (138, 251, 208, 122, 178, 94, 51, 102 ));
@@ -1319,6 +1377,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.ApplicationModel.Activation.ICommandLineActivationOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStartupTaskActivatedEventArgs : aliased constant Windows.IID := (61938264, 21110, 19857, (134, 33, 84, 97, 24, 100, 213, 250 ));
@@ -1331,6 +1390,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePairingActivatedEventArgs : aliased constant Windows.IID := (3953185252, 60614, 16712, (148, 237, 244, 179, 126, 192, 91, 62 ));
@@ -1343,6 +1403,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandActivatedEventArgs : aliased constant Windows.IID := (2878528765, 36163, 19942, (151, 117, 32, 112, 75, 88, 27, 0 ));
@@ -1355,6 +1416,7 @@ package Windows.ApplicationModel.Activation is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1364,7 +1426,6 @@ package Windows.ApplicationModel.Activation is
    IID_TypedEventHandler_ISplashScreen_add_Dismissed : aliased constant Windows.IID := (1998959269, 10365, 24274, (167, 137, 42, 106, 38, 115, 199, 254 ));
    
    type TypedEventHandler_ISplashScreen_add_Dismissed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Activation.ISplashScreen ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISplashScreen_add_Dismissed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISplashScreen_add_Dismissed_Interface
@@ -1378,7 +1439,6 @@ package Windows.ApplicationModel.Activation is
    IID_EventHandler_IBackgroundActivatedEventArgs : aliased constant Windows.IID := (1235253042, 59320, 23643, (157, 231, 34, 227, 60, 185, 112, 4 ));
    
    type EventHandler_IBackgroundActivatedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IBackgroundActivatedEventArgs'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IBackgroundActivatedEventArgs_Interface

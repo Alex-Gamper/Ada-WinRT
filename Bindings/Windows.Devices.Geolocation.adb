@@ -27,7 +27,6 @@ package body Windows.Devices.Geolocation is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGeopoint_Interface
@@ -122,7 +121,6 @@ package body Windows.Devices.Geolocation is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -424,7 +422,6 @@ package body Windows.Devices.Geolocation is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function TryCompute
    (
       positions : Windows.Devices.Geolocation.IIterable_BasicGeoposition
@@ -614,5 +611,6 @@ package body Windows.Devices.Geolocation is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

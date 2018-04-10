@@ -249,6 +249,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallStatus2 : aliased constant Windows.IID := (2531754378, 24210, 19113, (142, 220, 88, 254, 212, 184, 126, 0 ));
@@ -268,6 +269,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallItem : aliased constant Windows.IID := (1238622123, 5770, 19647, (169, 58, 158, 68, 140, 130, 115, 125 ));
@@ -356,6 +358,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallItem2 : aliased constant Windows.IID := (3549899512, 16576, 20439, (170, 108, 10, 161, 60, 166, 24, 140 ));
@@ -382,6 +385,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; correlationVector : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallItem3 : aliased constant Windows.IID := (1866320280, 56647, 17212, (146, 52, 86, 1, 114, 214, 122, 69 ));
@@ -401,6 +405,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGetEntitlementResult : aliased constant Windows.IID := (1962705983, 6814, 17929, (142, 77, 129, 144, 134, 208, 138, 61 ));
@@ -413,6 +418,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallManagerItemEventArgs : aliased constant Windows.IID := (3159381827, 18036, 19921, (149, 126, 194, 86, 130, 8, 106, 20 ));
@@ -425,6 +431,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallManager : aliased constant Windows.IID := (2471747952, 33857, 19269, (189, 114, 124, 47, 169, 37, 190, 238 ));
@@ -577,6 +584,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallManager2 : aliased constant Windows.IID := (378763345, 60727, 18445, (131, 20, 82, 226, 124, 3, 240, 74 ));
@@ -659,6 +667,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; correlationVector : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallManager3 : aliased constant Windows.IID := (2511489815, 59754, 19726, (132, 225, 200, 203, 65, 122, 1, 120 ));
@@ -756,6 +765,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; correlationVector : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallManager4 : aliased constant Windows.IID := (638200342, 23198, 20157, (185, 68, 242, 186, 117, 195, 17, 89 ));
@@ -792,6 +802,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IGetEntitlementResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppInstallManager5 : aliased constant Windows.IID := (1020771916, 7145, 20351, (182, 117, 170, 29, 100, 165, 41, 178 ));
@@ -804,6 +815,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IVectorView_IAppInstallItem -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAppInstallItem : aliased constant Windows.IID := (3433867291, 27895, 22256, (183, 255, 138, 197, 25, 30, 121, 191 ));
@@ -838,6 +850,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAppInstallItem : aliased constant Windows.IID := (2481049032, 20543, 21937, (145, 91, 192, 220, 120, 136, 206, 49 ));
@@ -850,6 +863,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IIterator_IAppInstallItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAppInstallItem : aliased constant Windows.IID := (1222113396, 43068, 21979, (178, 230, 148, 11, 233, 86, 152, 105 ));
@@ -888,6 +902,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IAppInstallItem : aliased constant Windows.IID := (2209684671, 13792, 22957, (171, 62, 255, 179, 240, 55, 4, 249 ));
@@ -914,6 +929,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IGetEntitlementResult : aliased constant Windows.IID := (1277482990, 19346, 23786, (164, 244, 122, 93, 110, 145, 144, 98 ));
@@ -940,6 +956,7 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
       ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.IGetEntitlementResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -949,7 +966,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    IID_TypedEventHandler_IAppInstallItem_add_Completed : aliased constant Windows.IID := (2457011303, 20510, 23301, (136, 38, 146, 111, 134, 146, 91, 3 ));
    
    type TypedEventHandler_IAppInstallItem_add_Completed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppInstallItem_add_Completed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppInstallItem_add_Completed_Interface
@@ -963,7 +979,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    IID_TypedEventHandler_IAppInstallItem_add_StatusChanged : aliased constant Windows.IID := (2457011303, 20510, 23301, (136, 38, 146, 111, 134, 146, 91, 3 ));
    
    type TypedEventHandler_IAppInstallItem_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppInstallItem_add_StatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppInstallItem_add_StatusChanged_Interface
@@ -977,7 +992,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    IID_TypedEventHandler_IAppInstallManager_add_ItemCompleted : aliased constant Windows.IID := (2884749367, 56013, 21574, (160, 50, 62, 233, 2, 136, 2, 68 ));
    
    type TypedEventHandler_IAppInstallManager_add_ItemCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager ; args : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManagerItemEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppInstallManager_add_ItemCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppInstallManager_add_ItemCompleted_Interface
@@ -991,7 +1005,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    IID_TypedEventHandler_IAppInstallManager_add_ItemStatusChanged : aliased constant Windows.IID := (2884749367, 56013, 21574, (160, 50, 62, 233, 2, 136, 2, 68 ));
    
    type TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager ; args : Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManagerItemEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppInstallManager_add_ItemStatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppInstallManager_add_ItemStatusChanged_Interface
@@ -1005,7 +1018,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    IID_AsyncOperationCompletedHandler_IAppInstallItem : aliased constant Windows.IID := (2824609003, 3724, 21538, (178, 239, 173, 72, 237, 51, 135, 6 ));
    
    type AsyncOperationCompletedHandler_IAppInstallItem_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IAppInstallItem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppInstallItem'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAppInstallItem_Interface
@@ -1019,7 +1031,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    IID_AsyncOperationCompletedHandler_IGetEntitlementResult : aliased constant Windows.IID := (1649778320, 7178, 22280, (146, 48, 3, 166, 88, 101, 45, 179 ));
    
    type AsyncOperationCompletedHandler_IGetEntitlementResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.Preview.InstallControl.IAsyncOperation_IGetEntitlementResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGetEntitlementResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGetEntitlementResult_Interface

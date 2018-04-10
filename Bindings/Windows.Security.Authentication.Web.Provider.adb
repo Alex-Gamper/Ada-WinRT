@@ -34,7 +34,6 @@ package body Windows.Security.Authentication.Web.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       webTokenResponse : Windows.Security.Authentication.Web.Core.IWebTokenResponse
@@ -105,7 +104,6 @@ package body Windows.Security.Authentication.Web.Provider is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function AddWebAccountWithScopeAndMapAsync
    (
@@ -610,5 +608,6 @@ package body Windows.Security.Authentication.Web.Provider is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

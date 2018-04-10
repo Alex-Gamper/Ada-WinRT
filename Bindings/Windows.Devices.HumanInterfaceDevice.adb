@@ -29,7 +29,6 @@ package body Windows.Devices.HumanInterfaceDevice is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IHidDevice_Interface
@@ -86,7 +85,6 @@ package body Windows.Devices.HumanInterfaceDevice is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -94,7 +92,6 @@ package body Windows.Devices.HumanInterfaceDevice is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    (
@@ -160,5 +157,6 @@ package body Windows.Devices.HumanInterfaceDevice is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

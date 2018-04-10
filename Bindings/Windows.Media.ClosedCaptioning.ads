@@ -248,6 +248,7 @@ package Windows.Media.ClosedCaptioning is
       ; RetVal : access Windows.Media.ClosedCaptioning.ClosedCaptionOpacity
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -256,7 +257,6 @@ package Windows.Media.ClosedCaptioning is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_FontColor
    return Windows.Media.ClosedCaptioning.ClosedCaptionColor;
@@ -293,5 +293,6 @@ package Windows.Media.ClosedCaptioning is
    
    function get_RegionOpacity
    return Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;
+   
 
 end;

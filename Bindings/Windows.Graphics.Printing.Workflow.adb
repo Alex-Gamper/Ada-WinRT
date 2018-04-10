@@ -31,7 +31,6 @@ package body Windows.Graphics.Printing.Workflow is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintWorkflowBackgroundSession_add_SetupRequested_Interface
@@ -87,7 +86,6 @@ package body Windows.Graphics.Printing.Workflow is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

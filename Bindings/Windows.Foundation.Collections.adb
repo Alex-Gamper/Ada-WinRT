@@ -27,7 +27,6 @@ package body Windows.Foundation.Collections is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPropertySet_Interface
@@ -44,7 +43,6 @@ package body Windows.Foundation.Collections is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreatePropertySet return Windows.Foundation.Collections.IPropertySet is
       Hr            : Windows.HResult := S_OK;

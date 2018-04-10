@@ -28,7 +28,6 @@ package body Windows.Graphics.Printing.PrintTicket is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult_Interface
@@ -58,7 +57,6 @@ package body Windows.Graphics.Printing.PrintTicket is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

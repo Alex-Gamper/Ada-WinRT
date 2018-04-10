@@ -29,7 +29,6 @@ package body Windows.Devices.Midi is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMidiInPort_Interface
@@ -85,7 +84,6 @@ package body Windows.Devices.Midi is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateMidiNoteOffMessage
    (
@@ -446,7 +444,6 @@ package body Windows.Devices.Midi is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -577,5 +574,6 @@ package body Windows.Devices.Midi is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

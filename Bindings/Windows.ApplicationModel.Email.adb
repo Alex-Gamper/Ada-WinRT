@@ -31,7 +31,6 @@ package body Windows.ApplicationModel.Email is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IEmailStore_Interface
@@ -217,7 +216,6 @@ package body Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateEmailMessage return Windows.ApplicationModel.Email.IEmailMessage is
       Hr            : Windows.HResult := S_OK;
@@ -413,7 +411,6 @@ package body Windows.ApplicationModel.Email is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function RequestStoreAsync
    (
       accessType : Windows.ApplicationModel.Email.EmailStoreAccessType
@@ -473,5 +470,6 @@ package body Windows.ApplicationModel.Email is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

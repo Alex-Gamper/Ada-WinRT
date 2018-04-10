@@ -30,7 +30,6 @@ package body Windows.UI.Input.Inking.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreInkIndependentInputSource_add_PointerEntering_Interface
@@ -191,7 +190,6 @@ package body Windows.UI.Input.Inking.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateCoreInkPresenterHost return Windows.UI.Input.Inking.Core.ICoreInkPresenterHost is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.Core.CoreInkPresenterHost");
@@ -238,7 +236,6 @@ package body Windows.UI.Input.Inking.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       inkPresenter : Windows.UI.Input.Inking.IInkPresenter
@@ -278,5 +275,6 @@ package body Windows.UI.Input.Inking.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -32,7 +32,6 @@ package body Windows.Devices is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       adc : Windows.Devices.Adc.Provider.IAdcControllerProvider
@@ -64,7 +63,6 @@ package body Windows.Devices is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_DefaultProvider
    return Windows.Devices.ILowLevelDevicesAggregateProvider is
@@ -100,5 +98,6 @@ package body Windows.Devices is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

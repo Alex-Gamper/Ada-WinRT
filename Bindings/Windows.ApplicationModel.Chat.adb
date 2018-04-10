@@ -30,7 +30,6 @@ package body Windows.ApplicationModel.Chat is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatMessage_Interface
@@ -191,7 +190,6 @@ package body Windows.ApplicationModel.Chat is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateChatMessage return Windows.ApplicationModel.Chat.IChatMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatMessage");
@@ -288,7 +286,6 @@ package body Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetTransportsAsync
    return Windows.Address is
@@ -547,5 +544,6 @@ package body Windows.ApplicationModel.Chat is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

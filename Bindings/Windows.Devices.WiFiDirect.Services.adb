@@ -31,7 +31,6 @@ package body Windows.Devices.WiFiDirect.Services is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested_Interface
@@ -153,7 +152,6 @@ package body Windows.Devices.WiFiDirect.Services is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateWiFiDirectServiceAdvertiser
    (
       serviceName : Windows.String
@@ -181,7 +179,6 @@ package body Windows.Devices.WiFiDirect.Services is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetSelector
    (
@@ -243,5 +240,6 @@ package body Windows.Devices.WiFiDirect.Services is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

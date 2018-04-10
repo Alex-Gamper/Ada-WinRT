@@ -28,7 +28,6 @@ package body Windows.Foundation.Diagnostics is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access EventHandler_ITracingStatusChangedEventArgs_Interface
@@ -84,7 +83,6 @@ package body Windows.Foundation.Diagnostics is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateRuntimeBrokerErrorSettings return Windows.Foundation.Diagnostics.IErrorReportingSettings is
       Hr            : Windows.HResult := S_OK;
@@ -268,7 +266,6 @@ package body Windows.Foundation.Diagnostics is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    procedure TraceOperationCreation
    (
       traceLevel : Windows.Foundation.Diagnostics.CausalityTraceLevel
@@ -435,5 +432,6 @@ package body Windows.Foundation.Diagnostics is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

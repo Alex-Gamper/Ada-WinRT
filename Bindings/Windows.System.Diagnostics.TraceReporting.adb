@@ -27,7 +27,6 @@ package body Windows.System.Diagnostics.TraceReporting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.System.Diagnostics.TraceReporting is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsScenarioEnabled
    (
@@ -206,5 +204,6 @@ package body Windows.System.Diagnostics.TraceReporting is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

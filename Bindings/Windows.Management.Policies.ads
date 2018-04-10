@@ -183,6 +183,7 @@ package Windows.Management.Policies is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INamedPolicyStatics : aliased constant Windows.IID := (2138651623, 30404, 16472, (140, 173, 103, 102, 44, 208, 95, 13 ));
@@ -207,6 +208,7 @@ package Windows.Management.Policies is
       ; RetVal : access Windows.Management.Policies.INamedPolicyData
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -216,7 +218,6 @@ package Windows.Management.Policies is
    IID_TypedEventHandler_INamedPolicyData_add_Changed : aliased constant Windows.IID := (2031762432, 23202, 24334, (187, 23, 52, 128, 188, 45, 150, 204 ));
    
    type TypedEventHandler_INamedPolicyData_add_Changed_Interface(Callback : access procedure (sender : Windows.Management.Policies.INamedPolicyData ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INamedPolicyData_add_Changed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_INamedPolicyData_add_Changed_Interface
@@ -235,7 +236,6 @@ package Windows.Management.Policies is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetPolicyFromPath
    (
       area : Windows.String
@@ -250,5 +250,6 @@ package Windows.Management.Policies is
       ; name : Windows.String
    )
    return Windows.Management.Policies.INamedPolicyData;
+   
 
 end;

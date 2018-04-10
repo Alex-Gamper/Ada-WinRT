@@ -448,6 +448,7 @@ package Windows.Devices.Perception is
       This       : access IPerceptionColorFrameSourceWatcher_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthFrameSourceWatcher : aliased constant Windows.IID := (2014222033, 36098, 19755, (173, 164, 91, 166, 36, 160, 235, 16 ));
@@ -532,6 +533,7 @@ package Windows.Devices.Perception is
       This       : access IPerceptionDepthFrameSourceWatcher_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionInfraredFrameSourceWatcher : aliased constant Windows.IID := (943521689, 55052, 17485, (168, 176, 114, 12, 46, 102, 254, 59 ));
@@ -616,6 +618,7 @@ package Windows.Devices.Perception is
       This       : access IPerceptionInfraredFrameSourceWatcher_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionColorFrameSourceAddedEventArgs : aliased constant Windows.IID := (3513513190, 55844, 17452, (187, 213, 85, 84, 155, 91, 148, 243 ));
@@ -628,6 +631,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionColorFrameSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionColorFrameSourceRemovedEventArgs : aliased constant Windows.IID := (3531078249, 60236, 17135, (186, 79, 40, 143, 97, 92, 147, 193 ));
@@ -640,6 +644,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionColorFrameSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthFrameSourceAddedEventArgs : aliased constant Windows.IID := (2477031784, 35832, 17874, (162, 248, 74, 192, 147, 28, 199, 166 ));
@@ -652,6 +657,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionDepthFrameSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthFrameSourceRemovedEventArgs : aliased constant Windows.IID := (2696989773, 59756, 19841, (134, 221, 56, 185, 94, 73, 198, 223 ));
@@ -664,6 +670,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionDepthFrameSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionInfraredFrameSourceAddedEventArgs : aliased constant Windows.IID := (1832075552, 38350, 18016, (144, 122, 217, 128, 53, 170, 43, 124 ));
@@ -676,6 +683,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionInfraredFrameSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionInfraredFrameSourceRemovedEventArgs : aliased constant Windows.IID := (3927605361, 31344, 19041, (175, 148, 7, 48, 56, 83, 246, 149 ));
@@ -688,6 +696,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionInfraredFrameSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownPerceptionFrameSourcePropertiesStatics : aliased constant Windows.IID := (1576127650, 504, 19079, (184, 89, 213, 229, 183, 225, 222, 71 ));
@@ -728,6 +737,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownPerceptionFrameSourcePropertiesStatics2 : aliased constant Windows.IID := (2848483441, 1500, 19021, (138, 92, 164, 236, 242, 107, 188, 70 ));
@@ -740,6 +750,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownPerceptionVideoFrameSourcePropertiesStatics : aliased constant Windows.IID := (1576127650, 504, 19079, (184, 89, 213, 229, 183, 225, 222, 72 ));
@@ -780,6 +791,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownPerceptionInfraredFrameSourcePropertiesStatics : aliased constant Windows.IID := (1576127650, 504, 19079, (184, 89, 213, 229, 183, 225, 222, 73 ));
@@ -834,6 +846,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownPerceptionDepthFrameSourcePropertiesStatics : aliased constant Windows.IID := (1576127650, 504, 19079, (184, 89, 213, 229, 183, 225, 222, 74 ));
@@ -853,6 +866,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownPerceptionColorFrameSourcePropertiesStatics : aliased constant Windows.IID := (1576127650, 504, 19079, (184, 89, 213, 229, 183, 225, 222, 75 ));
@@ -879,6 +893,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownPerceptionVideoProfilePropertiesStatics : aliased constant Windows.IID := (2399724263, 23158, 17379, (161, 58, 218, 61, 145, 169, 239, 152 ));
@@ -919,6 +934,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownCameraIntrinsicsPropertiesStatics : aliased constant Windows.IID := (146815352, 17274, 19863, (166, 99, 253, 49, 149, 96, 2, 73 ));
@@ -952,6 +968,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionFrameSourcePropertyChangeResult : aliased constant Windows.IID := (506673418, 15504, 19746, (184, 152, 244, 43, 186, 100, 24, 255 ));
@@ -971,6 +988,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionControlSession : aliased constant Windows.IID := (2576975443, 23101, 16767, (146, 57, 241, 136, 158, 84, 139, 72 ));
@@ -1000,6 +1018,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IAsyncOperation_IPerceptionFrameSourcePropertyChangeResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionFrameSourcePropertiesChangedEventArgs : aliased constant Windows.IID := (1818812520, 48369, 20172, (184, 145, 118, 37, 209, 36, 75, 107 ));
@@ -1019,6 +1038,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionInfraredFrameSourceStatics : aliased constant Windows.IID := (1576258722, 504, 19079, (184, 89, 213, 229, 183, 225, 222, 71 ));
@@ -1053,6 +1073,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IAsyncOperation_PerceptionFrameSourceAccessStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthFrameSourceStatics : aliased constant Windows.IID := (1576258722, 504, 19079, (184, 89, 213, 229, 183, 225, 222, 72 ));
@@ -1087,6 +1108,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IAsyncOperation_PerceptionFrameSourceAccessStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionColorFrameSourceStatics : aliased constant Windows.IID := (1576258722, 504, 19079, (184, 89, 213, 229, 183, 225, 222, 73 ));
@@ -1121,6 +1143,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IAsyncOperation_PerceptionFrameSourceAccessStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionColorFrameSource : aliased constant Windows.IID := (3698178684, 2904, 18061, (156, 161, 109, 176, 76, 192, 71, 124 ));
@@ -1343,6 +1366,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionColorFrameReader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionColorFrameSource2 : aliased constant Windows.IID := (4169140453, 22065, 17901, (173, 152, 140, 106, 160, 76, 251, 145 ));
@@ -1355,6 +1379,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthFrameSource : aliased constant Windows.IID := (2043950038, 18427, 19953, (191, 201, 240, 29, 64, 189, 153, 66 ));
@@ -1577,6 +1602,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionDepthFrameReader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthFrameSource2 : aliased constant Windows.IID := (3822206254, 28204, 20077, (145, 217, 112, 76, 216, 223, 247, 157 ));
@@ -1589,6 +1615,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionInfraredFrameSource : aliased constant Windows.IID := (1437632322, 6152, 18766, (158, 48, 157, 42, 123, 232, 247, 0 ));
@@ -1811,6 +1838,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionInfraredFrameReader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionInfraredFrameSource2 : aliased constant Windows.IID := (3704936344, 19211, 17152, (141, 133, 65, 8, 23, 250, 160, 50 ));
@@ -1823,6 +1851,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionVideoProfile : aliased constant Windows.IID := (1970683555, 282, 18190, (130, 37, 111, 5, 173, 226, 86, 72 ));
@@ -1871,6 +1900,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionColorFrameReader : aliased constant Windows.IID := (1985017198, 47605, 17947, (131, 173, 242, 34, 175, 42, 170, 220 ));
@@ -1919,6 +1949,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionColorFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthFrameReader : aliased constant Windows.IID := (2980298911, 10651, 17938, (164, 247, 39, 15, 37, 160, 150, 236 ));
@@ -1967,6 +1998,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionDepthFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionInfraredFrameReader : aliased constant Windows.IID := (2036387352, 54171, 20424, (160, 74, 146, 151, 52, 198, 117, 108 ));
@@ -2015,6 +2047,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionInfraredFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionColorFrame : aliased constant Windows.IID := (4267840841, 11455, 20372, (152, 97, 248, 23, 234, 49, 119, 71 ));
@@ -2027,6 +2060,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Media.IVideoFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthFrame : aliased constant Windows.IID := (2742780412, 39174, 20477, (145, 97, 0, 36, 179, 96, 182, 87 ));
@@ -2039,6 +2073,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Media.IVideoFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionInfraredFrame : aliased constant Windows.IID := (2961728118, 33950, 19578, (138, 230, 181, 96, 100, 83, 33, 83 ));
@@ -2051,6 +2086,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Media.IVideoFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionColorFrameArrivedEventArgs : aliased constant Windows.IID := (2410480341, 34551, 19853, (185, 102, 90, 55, 97, 186, 159, 89 ));
@@ -2070,6 +2106,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionColorFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthFrameArrivedEventArgs : aliased constant Windows.IID := (1144858034, 45698, 17975, (145, 115, 172, 151, 132, 53, 201, 133 ));
@@ -2089,6 +2126,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionDepthFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionInfraredFrameArrivedEventArgs : aliased constant Windows.IID := (2675440327, 46269, 18519, (157, 80, 190, 142, 240, 117, 218, 239 ));
@@ -2108,6 +2146,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionInfraredFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthCorrelatedCameraIntrinsics : aliased constant Windows.IID := (1699269121, 34526, 23521, (101, 130, 128, 127, 207, 76, 149, 207 ));
@@ -2150,6 +2189,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPerceptionDepthCorrelatedCoordinateMapper : aliased constant Windows.IID := (1531813149, 46582, 18076, (184, 194, 185, 122, 69, 230, 134, 59 ));
@@ -2192,6 +2232,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPerceptionFrameSourcePropertyChangeResult : aliased constant Windows.IID := (1249626985, 11017, 21969, (175, 104, 181, 170, 92, 44, 100, 113 ));
@@ -2218,6 +2259,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionFrameSourcePropertyChangeResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPerceptionInfraredFrameSource : aliased constant Windows.IID := (1427254850, 52325, 23757, (143, 108, 132, 206, 208, 157, 178, 78 ));
@@ -2244,6 +2286,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionInfraredFrameSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_PerceptionFrameSourceAccessStatus : aliased constant Windows.IID := (741286568, 62339, 22530, (186, 44, 12, 187, 205, 152, 156, 154 ));
@@ -2270,6 +2313,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.PerceptionFrameSourceAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPerceptionDepthFrameSource : aliased constant Windows.IID := (1132638264, 54449, 21515, (133, 154, 112, 22, 98, 107, 185, 157 ));
@@ -2296,6 +2340,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionDepthFrameSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPerceptionColorFrameSource : aliased constant Windows.IID := (2521300680, 11350, 21320, (134, 200, 169, 195, 169, 127, 185, 68 ));
@@ -2322,6 +2367,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionColorFrameSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPerceptionVideoProfile : aliased constant Windows.IID := (953057378, 28793, 23931, (132, 31, 154, 164, 88, 15, 213, 241 ));
@@ -2356,6 +2402,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPerceptionVideoProfile : aliased constant Windows.IID := (4138640209, 60315, 22093, (177, 10, 6, 103, 48, 148, 172, 200 ));
@@ -2368,6 +2415,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IIterator_IPerceptionVideoProfile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPerceptionVideoProfile : aliased constant Windows.IID := (2378903784, 20161, 20919, (153, 151, 16, 243, 37, 240, 61, 71 ));
@@ -2406,6 +2454,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPerceptionDepthCorrelatedCameraIntrinsics : aliased constant Windows.IID := (1881870153, 42818, 23610, (171, 214, 119, 249, 153, 155, 138, 9 ));
@@ -2432,6 +2481,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionDepthCorrelatedCameraIntrinsics
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPerceptionDepthCorrelatedCoordinateMapper : aliased constant Windows.IID := (4031487385, 49365, 23368, (154, 229, 152, 2, 9, 60, 180, 94 ));
@@ -2458,6 +2508,7 @@ package Windows.Devices.Perception is
       ; RetVal : access Windows.Devices.Perception.IPerceptionDepthCorrelatedCoordinateMapper
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2467,7 +2518,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceAdded : aliased constant Windows.IID := (1912793111, 8888, 24187, (134, 181, 196, 169, 12, 204, 35, 170 ));
    
    type TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceAdded_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionColorFrameSourceAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceAdded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceAdded_Interface
@@ -2481,7 +2531,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceRemoved : aliased constant Windows.IID := (3339918813, 65314, 24503, (173, 160, 150, 30, 59, 40, 145, 123 ));
    
    type TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceRemoved_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionColorFrameSourceRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceRemoved'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceRemoved_Interface
@@ -2495,7 +2544,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_Stopped : aliased constant Windows.IID := (3019226980, 32704, 23948, (151, 140, 163, 141, 91, 24, 165, 29 ));
    
    type TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_Stopped_Interface
@@ -2509,7 +2557,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (3019226980, 32704, 23948, (151, 140, 163, 141, 91, 24, 165, 29 ));
    
    type TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_EnumerationCompleted_Interface
@@ -2523,7 +2570,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceAdded : aliased constant Windows.IID := (2747392607, 13684, 23079, (167, 145, 22, 225, 188, 196, 36, 244 ));
    
    type TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceAdded_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionDepthFrameSourceAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceAdded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceAdded_Interface
@@ -2537,7 +2583,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceRemoved : aliased constant Windows.IID := (1559624439, 1925, 21897, (166, 33, 8, 157, 144, 4, 18, 200 ));
    
    type TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceRemoved_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionDepthFrameSourceRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceRemoved'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_SourceRemoved_Interface
@@ -2551,7 +2596,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_Stopped : aliased constant Windows.IID := (3320818038, 55624, 20679, (133, 85, 102, 65, 144, 249, 169, 104 ));
    
    type TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_Stopped_Interface
@@ -2565,7 +2609,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (3320818038, 55624, 20679, (133, 85, 102, 65, 144, 249, 169, 104 ));
    
    type TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameSourceWatcher_add_EnumerationCompleted_Interface
@@ -2579,7 +2622,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceAdded : aliased constant Windows.IID := (2820148433, 49755, 23679, (148, 221, 25, 132, 35, 187, 86, 213 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceAdded_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionInfraredFrameSourceAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceAdded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceAdded_Interface
@@ -2593,7 +2635,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceRemoved : aliased constant Windows.IID := (748923319, 13128, 22867, (141, 13, 239, 141, 120, 100, 11, 35 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceRemoved_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher ; args : Windows.Devices.Perception.IPerceptionInfraredFrameSourceRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceRemoved'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_SourceRemoved_Interface
@@ -2607,7 +2648,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_Stopped : aliased constant Windows.IID := (357934632, 15871, 24528, (177, 10, 202, 106, 219, 36, 64, 198 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_Stopped_Interface
@@ -2621,7 +2661,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (357934632, 15871, 24528, (177, 10, 202, 106, 219, 36, 64, 198 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameSourceWatcher_add_EnumerationCompleted_Interface
@@ -2635,7 +2674,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionControlSession_add_ControlLost : aliased constant Windows.IID := (2881622354, 9365, 24204, (174, 211, 125, 197, 83, 9, 172, 8 ));
    
    type TypedEventHandler_IPerceptionControlSession_add_ControlLost_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionControlSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionControlSession_add_ControlLost'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionControlSession_add_ControlLost_Interface
@@ -2649,7 +2687,6 @@ package Windows.Devices.Perception is
    IID_AsyncOperationCompletedHandler_IPerceptionFrameSourcePropertyChangeResult : aliased constant Windows.IID := (973474204, 56230, 22693, (132, 100, 226, 50, 104, 150, 132, 26 ));
    
    type AsyncOperationCompletedHandler_IPerceptionFrameSourcePropertyChangeResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionFrameSourcePropertyChangeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPerceptionFrameSourcePropertyChangeResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPerceptionFrameSourcePropertyChangeResult_Interface
@@ -2663,7 +2700,6 @@ package Windows.Devices.Perception is
    IID_AsyncOperationCompletedHandler_IPerceptionInfraredFrameSource : aliased constant Windows.IID := (2832518542, 45584, 21751, (174, 43, 119, 112, 225, 155, 62, 54 ));
    
    type AsyncOperationCompletedHandler_IPerceptionInfraredFrameSource_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionInfraredFrameSource ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPerceptionInfraredFrameSource'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPerceptionInfraredFrameSource_Interface
@@ -2677,7 +2713,6 @@ package Windows.Devices.Perception is
    IID_AsyncOperationCompletedHandler_PerceptionFrameSourceAccessStatus : aliased constant Windows.IID := (1651789476, 13383, 22306, (171, 94, 2, 86, 123, 79, 206, 235 ));
    
    type AsyncOperationCompletedHandler_PerceptionFrameSourceAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_PerceptionFrameSourceAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_PerceptionFrameSourceAccessStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_PerceptionFrameSourceAccessStatus_Interface
@@ -2691,7 +2726,6 @@ package Windows.Devices.Perception is
    IID_AsyncOperationCompletedHandler_IPerceptionDepthFrameSource : aliased constant Windows.IID := (3029121158, 13430, 22745, (183, 109, 253, 166, 179, 232, 31, 84 ));
    
    type AsyncOperationCompletedHandler_IPerceptionDepthFrameSource_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionDepthFrameSource ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPerceptionDepthFrameSource'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPerceptionDepthFrameSource_Interface
@@ -2705,7 +2739,6 @@ package Windows.Devices.Perception is
    IID_AsyncOperationCompletedHandler_IPerceptionColorFrameSource : aliased constant Windows.IID := (995536066, 57973, 21755, (190, 8, 159, 220, 143, 26, 30, 16 ));
    
    type AsyncOperationCompletedHandler_IPerceptionColorFrameSource_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionColorFrameSource ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPerceptionColorFrameSource'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPerceptionColorFrameSource_Interface
@@ -2719,7 +2752,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameSource_add_AvailableChanged : aliased constant Windows.IID := (36979929, 31559, 21655, (149, 105, 67, 153, 250, 249, 103, 23 ));
    
    type TypedEventHandler_IPerceptionColorFrameSource_add_AvailableChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameSource_add_AvailableChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSource_add_AvailableChanged_Interface
@@ -2733,7 +2765,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameSource_add_ActiveChanged : aliased constant Windows.IID := (36979929, 31559, 21655, (149, 105, 67, 153, 250, 249, 103, 23 ));
    
    type TypedEventHandler_IPerceptionColorFrameSource_add_ActiveChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameSource_add_ActiveChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSource_add_ActiveChanged_Interface
@@ -2747,7 +2778,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameSource_add_PropertiesChanged : aliased constant Windows.IID := (2999166088, 32473, 20752, (128, 74, 151, 146, 239, 127, 38, 190 ));
    
    type TypedEventHandler_IPerceptionColorFrameSource_add_PropertiesChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Devices.Perception.IPerceptionFrameSourcePropertiesChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameSource_add_PropertiesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSource_add_PropertiesChanged_Interface
@@ -2761,7 +2791,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameSource_add_VideoProfileChanged : aliased constant Windows.IID := (36979929, 31559, 21655, (149, 105, 67, 153, 250, 249, 103, 23 ));
    
    type TypedEventHandler_IPerceptionColorFrameSource_add_VideoProfileChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameSource_add_VideoProfileChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSource_add_VideoProfileChanged_Interface
@@ -2775,7 +2804,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameSource_add_CameraIntrinsicsChanged : aliased constant Windows.IID := (36979929, 31559, 21655, (149, 105, 67, 153, 250, 249, 103, 23 ));
    
    type TypedEventHandler_IPerceptionColorFrameSource_add_CameraIntrinsicsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameSource_add_CameraIntrinsicsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSource_add_CameraIntrinsicsChanged_Interface
@@ -2789,7 +2817,6 @@ package Windows.Devices.Perception is
    IID_AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCameraIntrinsics : aliased constant Windows.IID := (4086718506, 15757, 24533, (153, 227, 29, 54, 48, 190, 89, 56 ));
    
    type AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCameraIntrinsics_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionDepthCorrelatedCameraIntrinsics ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCameraIntrinsics'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCameraIntrinsics_Interface
@@ -2803,7 +2830,6 @@ package Windows.Devices.Perception is
    IID_AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCoordinateMapper : aliased constant Windows.IID := (1222569376, 26701, 20966, (176, 124, 210, 52, 209, 0, 107, 252 ));
    
    type AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCoordinateMapper_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Perception.IAsyncOperation_IPerceptionDepthCorrelatedCoordinateMapper ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCoordinateMapper'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPerceptionDepthCorrelatedCoordinateMapper_Interface
@@ -2817,7 +2843,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameSource_add_AvailableChanged : aliased constant Windows.IID := (324773738, 43844, 24425, (178, 8, 231, 50, 204, 233, 64, 59 ));
    
    type TypedEventHandler_IPerceptionDepthFrameSource_add_AvailableChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameSource_add_AvailableChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameSource_add_AvailableChanged_Interface
@@ -2831,7 +2856,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameSource_add_ActiveChanged : aliased constant Windows.IID := (324773738, 43844, 24425, (178, 8, 231, 50, 204, 233, 64, 59 ));
    
    type TypedEventHandler_IPerceptionDepthFrameSource_add_ActiveChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameSource_add_ActiveChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameSource_add_ActiveChanged_Interface
@@ -2845,7 +2869,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameSource_add_PropertiesChanged : aliased constant Windows.IID := (412081906, 55337, 21643, (168, 157, 56, 163, 76, 92, 182, 65 ));
    
    type TypedEventHandler_IPerceptionDepthFrameSource_add_PropertiesChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Devices.Perception.IPerceptionFrameSourcePropertiesChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameSource_add_PropertiesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameSource_add_PropertiesChanged_Interface
@@ -2859,7 +2882,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameSource_add_VideoProfileChanged : aliased constant Windows.IID := (324773738, 43844, 24425, (178, 8, 231, 50, 204, 233, 64, 59 ));
    
    type TypedEventHandler_IPerceptionDepthFrameSource_add_VideoProfileChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameSource_add_VideoProfileChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameSource_add_VideoProfileChanged_Interface
@@ -2873,7 +2895,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameSource_add_CameraIntrinsicsChanged : aliased constant Windows.IID := (324773738, 43844, 24425, (178, 8, 231, 50, 204, 233, 64, 59 ));
    
    type TypedEventHandler_IPerceptionDepthFrameSource_add_CameraIntrinsicsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameSource_add_CameraIntrinsicsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameSource_add_CameraIntrinsicsChanged_Interface
@@ -2887,7 +2908,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_AvailableChanged : aliased constant Windows.IID := (837659581, 53539, 24200, (137, 216, 200, 14, 232, 240, 242, 202 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_AvailableChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_AvailableChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameSource_add_AvailableChanged_Interface
@@ -2901,7 +2921,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_ActiveChanged : aliased constant Windows.IID := (837659581, 53539, 24200, (137, 216, 200, 14, 232, 240, 242, 202 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_ActiveChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_ActiveChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameSource_add_ActiveChanged_Interface
@@ -2915,7 +2934,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_PropertiesChanged : aliased constant Windows.IID := (3066148904, 41303, 21741, (156, 24, 105, 25, 185, 249, 27, 233 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_PropertiesChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Devices.Perception.IPerceptionFrameSourcePropertiesChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_PropertiesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameSource_add_PropertiesChanged_Interface
@@ -2929,7 +2947,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_VideoProfileChanged : aliased constant Windows.IID := (837659581, 53539, 24200, (137, 216, 200, 14, 232, 240, 242, 202 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_VideoProfileChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_VideoProfileChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameSource_add_VideoProfileChanged_Interface
@@ -2943,7 +2960,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_CameraIntrinsicsChanged : aliased constant Windows.IID := (837659581, 53539, 24200, (137, 216, 200, 14, 232, 240, 242, 202 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameSource_add_CameraIntrinsicsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameSource ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameSource_add_CameraIntrinsicsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameSource_add_CameraIntrinsicsChanged_Interface
@@ -2957,7 +2973,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionColorFrameReader_add_FrameArrived : aliased constant Windows.IID := (2762280613, 30605, 20566, (161, 207, 84, 106, 27, 226, 192, 16 ));
    
    type TypedEventHandler_IPerceptionColorFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionColorFrameReader ; args : Windows.Devices.Perception.IPerceptionColorFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionColorFrameReader_add_FrameArrived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameReader_add_FrameArrived_Interface
@@ -2971,7 +2986,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionDepthFrameReader_add_FrameArrived : aliased constant Windows.IID := (1297259390, 61088, 20763, (130, 133, 71, 232, 200, 93, 2, 149 ));
    
    type TypedEventHandler_IPerceptionDepthFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionDepthFrameReader ; args : Windows.Devices.Perception.IPerceptionDepthFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionDepthFrameReader_add_FrameArrived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionDepthFrameReader_add_FrameArrived_Interface
@@ -2985,7 +2999,6 @@ package Windows.Devices.Perception is
    IID_TypedEventHandler_IPerceptionInfraredFrameReader_add_FrameArrived : aliased constant Windows.IID := (1753214823, 34929, 22270, (142, 126, 29, 41, 41, 204, 111, 66 ));
    
    type TypedEventHandler_IPerceptionInfraredFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Devices.Perception.IPerceptionInfraredFrameReader ; args : Windows.Devices.Perception.IPerceptionInfraredFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPerceptionInfraredFrameReader_add_FrameArrived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionInfraredFrameReader_add_FrameArrived_Interface

@@ -97,6 +97,7 @@ package Windows.UI.Notifications.Management is
       ; RetVal : access Windows.UI.Notifications.Management.IUserNotificationListener
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserNotificationListener : aliased constant Windows.IID := (1649753665, 35334, 19695, (130, 21, 96, 51, 165, 190, 75, 3 ));
@@ -160,6 +161,7 @@ package Windows.UI.Notifications.Management is
       ; notificationId : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_UserNotificationListenerAccessStatus : aliased constant Windows.IID := (263903431, 2159, 23545, (129, 226, 141, 121, 231, 24, 72, 3 ));
@@ -186,6 +188,7 @@ package Windows.UI.Notifications.Management is
       ; RetVal : access Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -195,7 +198,6 @@ package Windows.UI.Notifications.Management is
    IID_AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus : aliased constant Windows.IID := (4036920378, 5067, 21915, (169, 252, 1, 87, 34, 194, 205, 87 ));
    
    type AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.Management.IAsyncOperation_UserNotificationListenerAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_UserNotificationListenerAccessStatus_Interface
@@ -209,7 +211,6 @@ package Windows.UI.Notifications.Management is
    IID_TypedEventHandler_IUserNotificationListener_add_NotificationChanged : aliased constant Windows.IID := (270805250, 47255, 21767, (153, 34, 44, 10, 125, 52, 70, 77 ));
    
    type TypedEventHandler_IUserNotificationListener_add_NotificationChanged_Interface(Callback : access procedure (sender : Windows.UI.Notifications.Management.IUserNotificationListener ; args : Windows.UI.Notifications.IUserNotificationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserNotificationListener_add_NotificationChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserNotificationListener_add_NotificationChanged_Interface
@@ -228,8 +229,8 @@ package Windows.UI.Notifications.Management is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_Current
    return Windows.UI.Notifications.Management.IUserNotificationListener;
+   
 
 end;

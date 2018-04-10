@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.LockScreen is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ILockScreenInfo_add_LockScreenImageChanged_Interface
@@ -98,7 +97,6 @@ package body Windows.ApplicationModel.LockScreen is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -106,7 +104,6 @@ package body Windows.ApplicationModel.LockScreen is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.ApplicationModel.LockScreen.ILockApplicationHost is
@@ -124,5 +121,6 @@ package body Windows.ApplicationModel.LockScreen is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

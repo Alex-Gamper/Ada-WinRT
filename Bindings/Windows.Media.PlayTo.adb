@@ -28,7 +28,6 @@ package body Windows.Media.PlayTo is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPlayToReceiver_add_PlayRequested_Interface
@@ -214,7 +213,6 @@ package body Windows.Media.PlayTo is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreatePlayToReceiver return Windows.Media.PlayTo.IPlayToReceiver is
       Hr            : Windows.HResult := S_OK;

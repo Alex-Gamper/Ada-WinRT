@@ -31,7 +31,6 @@ package body Windows.UI.ViewManagement is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IApplicationView_add_Consolidated_Interface
@@ -166,7 +165,6 @@ package body Windows.UI.ViewManagement is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateApplicationViewTransferContext return Windows.UI.ViewManagement.IApplicationViewTransferContext is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewTransferContext");
@@ -225,7 +223,6 @@ package body Windows.UI.ViewManagement is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateDefault
    (
@@ -968,5 +965,6 @@ package body Windows.UI.ViewManagement is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

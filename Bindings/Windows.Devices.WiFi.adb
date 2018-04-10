@@ -29,7 +29,6 @@ package body Windows.Devices.WiFi is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWiFiAdapter_Interface
@@ -99,7 +98,6 @@ package body Windows.Devices.WiFi is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -107,7 +105,6 @@ package body Windows.Devices.WiFi is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FindAllAdaptersAsync
    return Windows.Address is
@@ -179,5 +176,6 @@ package body Windows.Devices.WiFi is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

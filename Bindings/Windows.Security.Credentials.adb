@@ -30,7 +30,6 @@ package body Windows.Security.Credentials is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface
@@ -99,7 +98,6 @@ package body Windows.Security.Credentials is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateWebAccountProvider
    (
@@ -204,7 +202,6 @@ package body Windows.Security.Credentials is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function IsSupportedAsync
    return Windows.Foundation.IAsyncOperation_Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -299,5 +296,6 @@ package body Windows.Security.Credentials is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -28,7 +28,6 @@ package body Windows.Globalization.Fonts is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateLanguageFontGroup
    (
       languageTag : Windows.String

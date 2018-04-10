@@ -28,7 +28,6 @@ package body Windows.Data.Json is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateJsonArray return Windows.Data.Json.IJsonArray is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Data.Json.JsonArray");
@@ -70,7 +69,6 @@ package body Windows.Data.Json is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Parse
    (
@@ -291,5 +289,6 @@ package body Windows.Data.Json is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

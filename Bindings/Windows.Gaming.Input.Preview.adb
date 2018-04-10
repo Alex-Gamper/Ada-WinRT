@@ -28,7 +28,6 @@ package body Windows.Gaming.Input.Preview is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.Gaming.Input.Preview is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetParentProviderId
    (
@@ -77,5 +75,6 @@ package body Windows.Gaming.Input.Preview is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

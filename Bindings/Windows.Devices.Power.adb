@@ -28,7 +28,6 @@ package body Windows.Devices.Power is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBattery_add_ReportUpdated_Interface
@@ -59,7 +58,6 @@ package body Windows.Devices.Power is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -67,7 +65,6 @@ package body Windows.Devices.Power is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AggregateBattery
    return Windows.Devices.Power.IBattery is
@@ -122,5 +119,6 @@ package body Windows.Devices.Power is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -27,7 +27,6 @@ package body Windows.Devices.Gpio.Provider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGpioPinProvider_add_ValueChanged_Interface
@@ -44,7 +43,6 @@ package body Windows.Devices.Gpio.Provider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (

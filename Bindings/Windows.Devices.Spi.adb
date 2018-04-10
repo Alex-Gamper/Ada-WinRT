@@ -28,7 +28,6 @@ package body Windows.Devices.Spi is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISpiDevice_Interface
@@ -59,7 +58,6 @@ package body Windows.Devices.Spi is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       chipSelectLine : Windows.Int32
@@ -87,7 +85,6 @@ package body Windows.Devices.Spi is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String is
@@ -203,5 +200,6 @@ package body Windows.Devices.Spi is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

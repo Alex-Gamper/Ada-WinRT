@@ -30,7 +30,6 @@ package body Windows.UI.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access DispatchedHandler_Interface
@@ -604,7 +603,6 @@ package body Windows.UI.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateCursor
    (
       type_x : Windows.UI.Core.CoreCursorType
@@ -692,7 +690,6 @@ package body Windows.UI.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.UI.Core.ISystemNavigationManager is
       Hr            : Windows.HRESULT := S_OK;
@@ -743,5 +740,6 @@ package body Windows.UI.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

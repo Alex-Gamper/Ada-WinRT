@@ -30,7 +30,6 @@ package body Windows.ApplicationModel.DataTransfer.ShareTarget is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateQuickLink return Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink");

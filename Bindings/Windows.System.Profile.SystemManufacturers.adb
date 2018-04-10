@@ -27,7 +27,6 @@ package body Windows.System.Profile.SystemManufacturers is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.System.Profile.SystemManufacturers is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_LocalSystemEdition
    return Windows.String is
@@ -87,5 +85,6 @@ package body Windows.System.Profile.SystemManufacturers is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

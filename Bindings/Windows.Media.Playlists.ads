@@ -128,6 +128,7 @@ package Windows.Media.Playlists is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPlaylistStatics : aliased constant Windows.IID := (3317903821, 33273, 20467, (149, 185, 112, 182, 255, 4, 107, 104 ));
@@ -141,6 +142,7 @@ package Windows.Media.Playlists is
       ; RetVal : access Windows.Media.Playlists.IAsyncOperation_IPlaylist -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPlaylist : aliased constant Windows.IID := (2415621291, 37167, 23489, (135, 250, 40, 101, 246, 115, 203, 252 ));
@@ -167,6 +169,7 @@ package Windows.Media.Playlists is
       ; RetVal : access Windows.Media.Playlists.IPlaylist
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -176,7 +179,6 @@ package Windows.Media.Playlists is
    IID_AsyncOperationCompletedHandler_IPlaylist : aliased constant Windows.IID := (1115548413, 45606, 24304, (147, 32, 201, 243, 37, 227, 116, 116 ));
    
    type AsyncOperationCompletedHandler_IPlaylist_Interface(Callback : access procedure (asyncInfo : Windows.Media.Playlists.IAsyncOperation_IPlaylist ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPlaylist'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPlaylist_Interface
@@ -198,11 +200,11 @@ package Windows.Media.Playlists is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function LoadAsync
    (
       file : Windows.Storage.IStorageFile
    )
    return Windows.Media.Playlists.IAsyncOperation_IPlaylist;
+   
 
 end;

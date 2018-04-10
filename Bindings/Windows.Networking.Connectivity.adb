@@ -29,7 +29,6 @@ package body Windows.Networking.Connectivity is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access NetworkStatusChangedEventHandler_Interface
@@ -84,7 +83,6 @@ package body Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateConnectionProfileFilter return Windows.Networking.Connectivity.IConnectionProfileFilter is
       Hr            : Windows.HResult := S_OK;
@@ -149,7 +147,6 @@ package body Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetConnectionProfiles
    return Windows.Networking.Connectivity.IVectorView_IConnectionProfile is
@@ -373,5 +370,6 @@ package body Windows.Networking.Connectivity is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

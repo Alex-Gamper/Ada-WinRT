@@ -200,6 +200,7 @@ package Windows.Media.Casting is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICastingConnectionErrorOccurredEventArgs : aliased constant Windows.IID := (2818260073, 34585, 20224, (129, 251, 150, 24, 99, 199, 154, 50 ));
@@ -219,6 +220,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICastingConnection : aliased constant Windows.IID := (3449099859, 49905, 17560, (139, 120, 95, 180, 205, 54, 64, 221 ));
@@ -297,6 +299,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.Media.Casting.IAsyncOperation_CastingConnectionErrorStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICastingDevice : aliased constant Windows.IID := (3732020355, 19011, 19153, (166, 210, 36, 146, 167, 150, 195, 242 ));
@@ -337,6 +340,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.Media.Casting.ICastingConnection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICastingDeviceStatics : aliased constant Windows.IID := (3889780951, 19731, 16951, (163, 101, 76, 79, 106, 76, 253, 47 ));
@@ -374,6 +378,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICastingDeviceSelectedEventArgs : aliased constant Windows.IID := (3695419014, 56663, 19725, (148, 0, 175, 69, 228, 251, 54, 99 ));
@@ -386,6 +391,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.Media.Casting.ICastingDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICastingDevicePickerFilter : aliased constant Windows.IID := (3196871068, 46435, 17236, (174, 51, 159, 218, 173, 140, 98, 145 ));
@@ -440,6 +446,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.Media.Casting.IVector_ICastingSource -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICastingDevicePicker : aliased constant Windows.IID := (3704854820, 1425, 18878, (170, 203, 75, 130, 238, 117, 106, 149 ));
@@ -510,6 +517,7 @@ package Windows.Media.Casting is
       This       : access ICastingDevicePicker_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_CastingConnectionErrorStatus : aliased constant Windows.IID := (633872828, 57016, 22608, (138, 242, 211, 172, 53, 66, 107, 210 ));
@@ -536,6 +544,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.Media.Casting.CastingConnectionErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_CastingPlaybackTypes : aliased constant Windows.IID := (3757117011, 19550, 23994, (146, 105, 205, 97, 136, 27, 184, 179 ));
@@ -562,6 +571,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.Media.Casting.CastingPlaybackTypes
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ICastingDevice : aliased constant Windows.IID := (458154072, 19561, 24176, (136, 52, 193, 209, 113, 204, 27, 34 ));
@@ -588,6 +598,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.Media.Casting.ICastingDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ICastingSource : aliased constant Windows.IID := (1064080361, 52343, 24308, (178, 183, 37, 207, 207, 192, 151, 32 ));
@@ -622,6 +633,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ICastingSource : aliased constant Windows.IID := (448474313, 18082, 22705, (145, 170, 40, 105, 157, 102, 209, 171 ));
@@ -634,6 +646,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.Media.Casting.IIterator_ICastingSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ICastingSource : aliased constant Windows.IID := (2015943265, 56996, 21637, (178, 122, 143, 120, 224, 71, 36, 2 ));
@@ -672,6 +685,7 @@ package Windows.Media.Casting is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ICastingSource : aliased constant Windows.IID := (3269713576, 37600, 20655, (156, 147, 131, 179, 232, 107, 115, 180 ));
@@ -766,6 +780,7 @@ package Windows.Media.Casting is
       ; items : Windows.Media.Casting.ICastingSource_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -775,7 +790,6 @@ package Windows.Media.Casting is
    IID_TypedEventHandler_ICastingConnection_add_StateChanged : aliased constant Windows.IID := (4049035632, 39688, 23195, (135, 210, 193, 172, 71, 188, 102, 129 ));
    
    type TypedEventHandler_ICastingConnection_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.Casting.ICastingConnection ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICastingConnection_add_StateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICastingConnection_add_StateChanged_Interface
@@ -789,7 +803,6 @@ package Windows.Media.Casting is
    IID_TypedEventHandler_ICastingConnection_add_ErrorOccurred : aliased constant Windows.IID := (2024782800, 38929, 24334, (149, 102, 71, 195, 232, 205, 217, 41 ));
    
    type TypedEventHandler_ICastingConnection_add_ErrorOccurred_Interface(Callback : access procedure (sender : Windows.Media.Casting.ICastingConnection ; args : Windows.Media.Casting.ICastingConnectionErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICastingConnection_add_ErrorOccurred'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICastingConnection_add_ErrorOccurred_Interface
@@ -803,7 +816,6 @@ package Windows.Media.Casting is
    IID_AsyncOperationCompletedHandler_CastingConnectionErrorStatus : aliased constant Windows.IID := (1914087754, 41226, 22371, (142, 150, 191, 51, 197, 130, 237, 146 ));
    
    type AsyncOperationCompletedHandler_CastingConnectionErrorStatus_Interface(Callback : access procedure (asyncInfo : Windows.Media.Casting.IAsyncOperation_CastingConnectionErrorStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_CastingConnectionErrorStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_CastingConnectionErrorStatus_Interface
@@ -817,7 +829,6 @@ package Windows.Media.Casting is
    IID_AsyncOperationCompletedHandler_CastingPlaybackTypes : aliased constant Windows.IID := (3042858252, 57256, 20670, (190, 143, 93, 66, 201, 218, 193, 32 ));
    
    type AsyncOperationCompletedHandler_CastingPlaybackTypes_Interface(Callback : access procedure (asyncInfo : Windows.Media.Casting.IAsyncOperation_CastingPlaybackTypes ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_CastingPlaybackTypes'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_CastingPlaybackTypes_Interface
@@ -831,7 +842,6 @@ package Windows.Media.Casting is
    IID_AsyncOperationCompletedHandler_ICastingDevice : aliased constant Windows.IID := (4039547806, 5323, 20746, (142, 240, 126, 134, 215, 113, 186, 175 ));
    
    type AsyncOperationCompletedHandler_ICastingDevice_Interface(Callback : access procedure (asyncInfo : Windows.Media.Casting.IAsyncOperation_ICastingDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICastingDevice'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICastingDevice_Interface
@@ -845,7 +855,6 @@ package Windows.Media.Casting is
    IID_TypedEventHandler_ICastingDevicePicker_add_CastingDeviceSelected : aliased constant Windows.IID := (3009764147, 50349, 24396, (161, 135, 178, 228, 199, 112, 161, 107 ));
    
    type TypedEventHandler_ICastingDevicePicker_add_CastingDeviceSelected_Interface(Callback : access procedure (sender : Windows.Media.Casting.ICastingDevicePicker ; args : Windows.Media.Casting.ICastingDeviceSelectedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICastingDevicePicker_add_CastingDeviceSelected'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICastingDevicePicker_add_CastingDeviceSelected_Interface
@@ -859,7 +868,6 @@ package Windows.Media.Casting is
    IID_TypedEventHandler_ICastingDevicePicker_add_CastingDevicePickerDismissed : aliased constant Windows.IID := (2789971755, 43619, 23649, (156, 222, 205, 111, 254, 168, 162, 71 ));
    
    type TypedEventHandler_ICastingDevicePicker_add_CastingDevicePickerDismissed_Interface(Callback : access procedure (sender : Windows.Media.Casting.ICastingDevicePicker ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICastingDevicePicker_add_CastingDevicePickerDismissed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICastingDevicePicker_add_CastingDevicePickerDismissed_Interface
@@ -887,7 +895,6 @@ package Windows.Media.Casting is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetDeviceSelector
    (
       type_x : Windows.Media.Casting.CastingPlaybackTypes
@@ -911,5 +918,6 @@ package Windows.Media.Casting is
       device : Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
+   
 
 end;

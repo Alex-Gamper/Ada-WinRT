@@ -31,7 +31,6 @@ package body Windows.Devices.Perception is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPerceptionColorFrameSourceWatcher_add_SourceAdded_Interface
@@ -529,7 +528,6 @@ package body Windows.Devices.Perception is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

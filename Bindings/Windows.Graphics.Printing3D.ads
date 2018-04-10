@@ -562,6 +562,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.Print3DTaskDetail
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrint3DTaskSourceChangedEventArgs : aliased constant Windows.IID := (1540175023, 9449, 19472, (141, 7, 20, 195, 70, 186, 63, 207 ));
@@ -574,6 +575,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3D3MFPackage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrint3DTask : aliased constant Windows.IID := (2363740288, 8472, 19496, (128, 222, 244, 38, 215, 1, 145, 174 ));
@@ -631,6 +633,7 @@ package Windows.Graphics.Printing3D is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrint3DTaskSourceRequestedArgs : aliased constant Windows.IID := (3346832058, 9391, 16973, (163, 191, 146, 37, 12, 53, 86, 2 ));
@@ -643,6 +646,7 @@ package Windows.Graphics.Printing3D is
       ; source : Windows.Graphics.Printing3D.IPrinting3D3MFPackage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrint3DTaskRequest : aliased constant Windows.IID := (630572143, 8773, 19546, (135, 49, 13, 96, 77, 198, 188, 60 ));
@@ -658,6 +662,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrint3DTask
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrint3DTaskRequestedEventArgs : aliased constant Windows.IID := (353154943, 6341, 16599, (159, 64, 250, 179, 9, 110, 5, 169 ));
@@ -670,6 +675,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrint3DTaskRequest
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrint3DManagerStatics : aliased constant Windows.IID := (250727166, 43437, 19464, (169, 23, 29, 31, 134, 62, 171, 203 ));
@@ -689,6 +695,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrint3DManager : aliased constant Windows.IID := (1294977802, 29542, 18801, (139, 213, 23, 196, 227, 232, 198, 192 ));
@@ -709,6 +716,7 @@ package Windows.Graphics.Printing3D is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DMesh : aliased constant Windows.IID := (422482140, 552, 11777, (188, 32, 197, 41, 12, 191, 50, 196 ));
@@ -876,6 +884,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3DMeshVerificationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DModelTexture : aliased constant Windows.IID := (1571802881, 46493, 18492, (151, 187, 164, 213, 70, 209, 199, 92 ));
@@ -923,6 +932,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DTextureResource : aliased constant Windows.IID := (2802709293, 27313, 17582, (188, 69, 162, 115, 130, 192, 211, 140 ));
@@ -956,6 +966,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DComponentWithMatrix : aliased constant Windows.IID := (846852917, 3824, 17771, (154, 33, 73, 190, 190, 139, 81, 194 ));
@@ -989,6 +1000,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.Foundation.Numerics.Matrix4x4
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DComponent : aliased constant Windows.IID := (2116581445, 49023, 19675, (162, 127, 48, 160, 20, 55, 254, 222 ));
@@ -1071,6 +1083,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DBaseMaterialStatics : aliased constant Windows.IID := (2170177468, 14154, 18285, (190, 146, 62, 207, 209, 203, 151, 118 ));
@@ -1090,6 +1103,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DBaseMaterial : aliased constant Windows.IID := (3505448771, 50444, 19403, (157, 4, 252, 22, 173, 206, 162, 201 ));
@@ -1123,6 +1137,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.Graphics.Printing3D.IPrinting3DColorMaterial
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DColorMaterial : aliased constant Windows.IID := (3783891240, 31975, 17029, (163, 93, 241, 69, 201, 81, 12, 123 ));
@@ -1142,6 +1157,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DColorMaterial2 : aliased constant Windows.IID := (4205897810, 2799, 17641, (157, 221, 54, 238, 234, 90, 205, 68 ));
@@ -1161,6 +1177,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DTexture2CoordMaterial : aliased constant Windows.IID := (2374257659, 2025, 18822, (152, 51, 141, 211, 212, 140, 104, 89 ));
@@ -1208,6 +1225,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DCompositeMaterial : aliased constant Windows.IID := (1176647901, 22062, 20332, (136, 45, 244, 216, 65, 253, 99, 199 ));
@@ -1220,6 +1238,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Foundation.Collections.IVector_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DMultiplePropertyMaterial : aliased constant Windows.IID := (631645515, 50921, 18509, (162, 20, 162, 94, 87, 118, 186, 98 ));
@@ -1232,6 +1251,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Foundation.Collections.IVector_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DBaseMaterialGroupFactory : aliased constant Windows.IID := (1544898268, 34455, 16787, (151, 107, 132, 187, 65, 22, 229, 191 ));
@@ -1245,6 +1265,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3DBaseMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DBaseMaterialGroup : aliased constant Windows.IID := (2498785464, 9493, 19085, (161, 240, 208, 252, 19, 208, 96, 33 ));
@@ -1264,6 +1285,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DColorMaterialGroupFactory : aliased constant Windows.IID := (1909689709, 45546, 19035, (188, 84, 25, 198, 95, 61, 240, 68 ));
@@ -1277,6 +1299,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3DColorMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DColorMaterialGroup : aliased constant Windows.IID := (1731536, 43743, 16934, (175, 233, 243, 105, 160, 180, 80, 4 ));
@@ -1296,6 +1319,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DTexture2CoordMaterialGroupFactory : aliased constant Windows.IID := (3417328048, 18058, 19567, (178, 162, 142, 184, 186, 141, 234, 72 ));
@@ -1309,6 +1333,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DTexture2CoordMaterialGroup : aliased constant Windows.IID := (1652391079, 28048, 20409, (159, 196, 159, 239, 243, 223, 168, 146 ));
@@ -1328,6 +1353,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DTexture2CoordMaterialGroup2 : aliased constant Windows.IID := (1778113466, 45358, 17051, (131, 134, 223, 82, 132, 246, 232, 15 ));
@@ -1347,6 +1373,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.Graphics.Printing3D.IPrinting3DModelTexture
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DCompositeMaterialGroupFactory : aliased constant Windows.IID := (3499019539, 37631, 17322, (166, 39, 141, 67, 194, 44, 129, 126 ));
@@ -1360,6 +1387,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DCompositeMaterialGroup2 : aliased constant Windows.IID := (115895650, 32059, 16865, (148, 76, 186, 253, 228, 85, 84, 131 ));
@@ -1379,6 +1407,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.Graphics.Printing3D.IPrinting3DBaseMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DCompositeMaterialGroup : aliased constant Windows.IID := (2375314011, 16625, 18797, (165, 251, 52, 10, 90, 103, 142, 48 ));
@@ -1405,6 +1434,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Foundation.Collections.IVector_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DMultiplePropertyMaterialGroupFactory : aliased constant Windows.IID := (842930542, 54470, 17694, (168, 20, 77, 120, 162, 16, 254, 83 ));
@@ -1418,6 +1448,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DMultiplePropertyMaterialGroup : aliased constant Windows.IID := (4036298009, 44729, 17685, (163, 155, 160, 136, 251, 187, 39, 124 ));
@@ -1444,6 +1475,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DMaterial : aliased constant Windows.IID := (932033110, 60770, 18770, (184, 91, 3, 86, 125, 124, 70, 94 ));
@@ -1484,6 +1516,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IVector_IPrinting3DMultiplePropertyMaterialGroup -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DMeshVerificationResult : aliased constant Windows.IID := (425095610, 59706, 20106, (164, 111, 222, 168, 232, 82, 25, 126 ));
@@ -1510,6 +1543,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DModel : aliased constant Windows.IID := (755052272, 21243, 37274, (119, 176, 75, 26, 59, 128, 50, 79 ));
@@ -1620,6 +1654,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3DModel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DFaceReductionOptions : aliased constant Windows.IID := (3154039703, 11636, 18167, (190, 133, 153, 166, 123, 187, 102, 41 ));
@@ -1667,6 +1702,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3DModel2 : aliased constant Windows.IID := (3374344647, 51265, 18419, (168, 78, 161, 73, 253, 8, 182, 87 ));
@@ -1718,6 +1754,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3D3MFPackageStatics : aliased constant Windows.IID := (1884871087, 31386, 18311, (184, 23, 246, 244, 89, 33, 72, 35 ));
@@ -1731,6 +1768,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3D3MFPackage : aliased constant Windows.IID := (4132296136, 10935, 17833, (161, 183, 38, 126, 148, 141, 91, 24 ));
@@ -1808,6 +1846,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrinting3D3MFPackage2 : aliased constant Windows.IID := (2522643140, 37835, 17456, (146, 184, 120, 156, 212, 84, 248, 131 ));
@@ -1827,6 +1866,7 @@ package Windows.Graphics.Printing3D is
       ; value : Windows.Graphics.Printing3D.Printing3DPackageCompression
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPrinting3DMeshVerificationResult : aliased constant Windows.IID := (262059716, 6645, 23529, (154, 219, 100, 242, 74, 241, 21, 216 ));
@@ -1853,6 +1893,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3DMeshVerificationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DComponentWithMatrix : aliased constant Windows.IID := (30592580, 35683, 22303, (185, 46, 191, 44, 247, 204, 109, 83 ));
@@ -1887,6 +1928,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DComponentWithMatrix : aliased constant Windows.IID := (2317432392, 2945, 24099, (164, 142, 175, 233, 246, 105, 28, 193 ));
@@ -1899,6 +1941,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DComponentWithMatrix
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DComponentWithMatrix : aliased constant Windows.IID := (248867463, 30534, 21576, (141, 157, 223, 249, 250, 159, 215, 96 ));
@@ -1937,6 +1980,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DComponentWithMatrix : aliased constant Windows.IID := (4036967895, 25062, 23181, (157, 223, 87, 0, 31, 112, 93, 231 ));
@@ -2031,6 +2075,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DBaseMaterial : aliased constant Windows.IID := (3671383309, 22955, 20511, (157, 107, 162, 9, 199, 213, 70, 73 ));
@@ -2065,6 +2110,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DBaseMaterial : aliased constant Windows.IID := (2590757168, 28450, 21916, (185, 44, 20, 249, 248, 221, 218, 71 ));
@@ -2077,6 +2123,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DBaseMaterial
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DBaseMaterial : aliased constant Windows.IID := (3435589794, 19929, 21773, (133, 120, 51, 14, 19, 138, 218, 7 ));
@@ -2115,6 +2162,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DBaseMaterial : aliased constant Windows.IID := (1784325535, 65040, 20859, (177, 169, 198, 133, 236, 206, 22, 68 ));
@@ -2209,6 +2257,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DBaseMaterial_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DColorMaterial : aliased constant Windows.IID := (1515496609, 19863, 22739, (189, 204, 27, 243, 139, 67, 141, 109 ));
@@ -2243,6 +2292,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DColorMaterial : aliased constant Windows.IID := (3346878248, 30850, 21172, (179, 201, 125, 88, 200, 131, 101, 115 ));
@@ -2255,6 +2305,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DColorMaterial
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DColorMaterial : aliased constant Windows.IID := (2161809294, 31938, 21279, (129, 107, 250, 104, 170, 68, 110, 140 ));
@@ -2293,6 +2344,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DColorMaterial : aliased constant Windows.IID := (1616996093, 27637, 21409, (177, 174, 195, 72, 146, 239, 22, 99 ));
@@ -2387,6 +2439,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DColorMaterial_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DTexture2CoordMaterial : aliased constant Windows.IID := (1926761827, 13862, 23087, (165, 121, 120, 231, 10, 168, 109, 70 ));
@@ -2421,6 +2474,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DTexture2CoordMaterial : aliased constant Windows.IID := (674706038, 18492, 23504, (153, 199, 1, 191, 160, 74, 87, 212 ));
@@ -2433,6 +2487,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DTexture2CoordMaterial
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DTexture2CoordMaterial : aliased constant Windows.IID := (357892317, 61578, 23363, (135, 20, 139, 192, 23, 148, 206, 35 ));
@@ -2471,6 +2526,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DTexture2CoordMaterial : aliased constant Windows.IID := (4050632492, 51075, 24287, (173, 123, 127, 183, 234, 207, 21, 1 ));
@@ -2565,6 +2621,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterial_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DCompositeMaterial : aliased constant Windows.IID := (3085349242, 43141, 23703, (178, 158, 191, 38, 30, 181, 218, 212 ));
@@ -2599,6 +2656,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DCompositeMaterial : aliased constant Windows.IID := (2695833123, 6929, 21455, (151, 93, 100, 149, 147, 134, 205, 211 ));
@@ -2611,6 +2669,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DCompositeMaterial
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DCompositeMaterial : aliased constant Windows.IID := (3700687650, 11087, 23658, (183, 246, 53, 140, 237, 51, 188, 104 ));
@@ -2649,6 +2708,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DCompositeMaterial : aliased constant Windows.IID := (3283253909, 24316, 21191, (181, 222, 232, 46, 5, 154, 114, 46 ));
@@ -2743,6 +2803,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DMultiplePropertyMaterial : aliased constant Windows.IID := (1632373258, 49013, 22189, (163, 4, 183, 159, 96, 1, 123, 131 ));
@@ -2777,6 +2838,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DMultiplePropertyMaterial : aliased constant Windows.IID := (234628942, 44621, 23483, (147, 168, 125, 201, 248, 77, 218, 195 ));
@@ -2789,6 +2851,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DMultiplePropertyMaterial
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DMultiplePropertyMaterial : aliased constant Windows.IID := (2895584862, 44082, 22651, (167, 1, 251, 190, 106, 241, 177, 18 ));
@@ -2827,6 +2890,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DMultiplePropertyMaterial : aliased constant Windows.IID := (3793317286, 27177, 22946, (157, 214, 147, 6, 47, 68, 186, 173 ));
@@ -2921,6 +2985,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DBaseMaterialGroup : aliased constant Windows.IID := (2739783433, 58023, 21076, (157, 193, 205, 71, 232, 94, 37, 4 ));
@@ -2955,6 +3020,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DBaseMaterialGroup : aliased constant Windows.IID := (3230633584, 63215, 21609, (128, 106, 124, 182, 1, 221, 219, 103 ));
@@ -2967,6 +3033,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DBaseMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DBaseMaterialGroup : aliased constant Windows.IID := (1550347310, 52616, 21077, (169, 97, 91, 79, 43, 241, 60, 112 ));
@@ -3005,6 +3072,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DBaseMaterialGroup : aliased constant Windows.IID := (729862863, 21577, 23681, (130, 38, 235, 252, 125, 114, 245, 121 ));
@@ -3099,6 +3167,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DBaseMaterialGroup_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DColorMaterialGroup : aliased constant Windows.IID := (1233414078, 56846, 21803, (178, 78, 142, 226, 94, 201, 164, 134 ));
@@ -3133,6 +3202,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DColorMaterialGroup : aliased constant Windows.IID := (468920966, 9899, 22352, (181, 76, 59, 218, 103, 134, 127, 138 ));
@@ -3145,6 +3215,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DColorMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DColorMaterialGroup : aliased constant Windows.IID := (3702568512, 35343, 22467, (158, 62, 213, 169, 136, 28, 194, 17 ));
@@ -3183,6 +3254,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DColorMaterialGroup : aliased constant Windows.IID := (2088769523, 33637, 23208, (159, 208, 167, 105, 242, 110, 63, 239 ));
@@ -3277,6 +3349,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DColorMaterialGroup_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DTexture2CoordMaterialGroup : aliased constant Windows.IID := (300608708, 27329, 22167, (155, 245, 30, 246, 23, 225, 223, 235 ));
@@ -3311,6 +3384,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DTexture2CoordMaterialGroup : aliased constant Windows.IID := (96797, 38588, 23566, (183, 134, 89, 79, 180, 208, 119, 182 ));
@@ -3323,6 +3397,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DTexture2CoordMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DTexture2CoordMaterialGroup : aliased constant Windows.IID := (1296362560, 20281, 21810, (185, 218, 106, 111, 154, 97, 168, 66 ));
@@ -3361,6 +3436,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DTexture2CoordMaterialGroup : aliased constant Windows.IID := (2110164630, 10850, 24186, (133, 213, 72, 100, 208, 53, 145, 235 ));
@@ -3455,6 +3531,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DCompositeMaterialGroup : aliased constant Windows.IID := (2944855716, 56733, 23209, (174, 229, 190, 56, 146, 18, 71, 66 ));
@@ -3489,6 +3566,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DCompositeMaterialGroup : aliased constant Windows.IID := (4076859233, 49748, 22720, (130, 6, 179, 179, 9, 107, 233, 203 ));
@@ -3501,6 +3579,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DCompositeMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DCompositeMaterialGroup : aliased constant Windows.IID := (108092939, 21233, 23942, (158, 236, 31, 7, 151, 54, 51, 131 ));
@@ -3539,6 +3618,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DCompositeMaterialGroup : aliased constant Windows.IID := (508349816, 46784, 20913, (171, 43, 195, 66, 47, 2, 194, 78 ));
@@ -3633,6 +3713,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DMultiplePropertyMaterialGroup : aliased constant Windows.IID := (2722868122, 55622, 20534, (177, 201, 28, 9, 183, 147, 243, 108 ));
@@ -3667,6 +3748,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DMultiplePropertyMaterialGroup : aliased constant Windows.IID := (603410830, 9273, 21875, (166, 131, 239, 202, 12, 97, 168, 214 ));
@@ -3679,6 +3761,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DMultiplePropertyMaterialGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DMultiplePropertyMaterialGroup : aliased constant Windows.IID := (2232668985, 4841, 23819, (151, 141, 254, 150, 125, 5, 19, 21 ));
@@ -3717,6 +3800,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DMultiplePropertyMaterialGroup : aliased constant Windows.IID := (576215956, 13473, 23402, (186, 227, 191, 68, 101, 152, 18, 243 ));
@@ -3811,6 +3895,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DModelTexture : aliased constant Windows.IID := (1028078754, 19084, 23741, (128, 127, 73, 175, 21, 128, 210, 186 ));
@@ -3845,6 +3930,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DModelTexture : aliased constant Windows.IID := (2490959984, 24641, 23812, (134, 153, 23, 65, 113, 23, 187, 133 ));
@@ -3857,6 +3943,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DModelTexture
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DModelTexture : aliased constant Windows.IID := (864944973, 34866, 23557, (129, 191, 39, 171, 127, 73, 38, 74 ));
@@ -3895,6 +3982,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DModelTexture : aliased constant Windows.IID := (1316116367, 39914, 22115, (134, 153, 231, 252, 173, 53, 71, 167 ));
@@ -3989,6 +4077,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DModelTexture_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DMesh : aliased constant Windows.IID := (383643954, 63501, 21426, (176, 159, 164, 46, 217, 104, 159, 196 ));
@@ -4023,6 +4112,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DMesh : aliased constant Windows.IID := (2818674650, 56909, 22266, (134, 9, 253, 34, 152, 191, 181, 88 ));
@@ -4035,6 +4125,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DMesh
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DMesh : aliased constant Windows.IID := (1266904294, 7446, 24149, (177, 160, 97, 199, 15, 41, 147, 27 ));
@@ -4073,6 +4164,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DMesh : aliased constant Windows.IID := (3138502254, 46482, 23490, (154, 83, 1, 39, 169, 179, 33, 114 ));
@@ -4167,6 +4259,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DMesh_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DComponent : aliased constant Windows.IID := (782150586, 6219, 23572, (174, 95, 235, 99, 74, 167, 23, 224 ));
@@ -4201,6 +4294,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DComponent : aliased constant Windows.IID := (1365595850, 63586, 23032, (130, 65, 224, 240, 193, 119, 218, 221 ));
@@ -4213,6 +4307,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DComponent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DComponent : aliased constant Windows.IID := (3284966780, 45663, 24146, (148, 116, 157, 41, 21, 244, 78, 172 ));
@@ -4251,6 +4346,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DComponent : aliased constant Windows.IID := (1239831746, 62322, 22574, (151, 204, 203, 107, 15, 163, 186, 98 ));
@@ -4345,6 +4441,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DComponent_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPrinting3D3MFPackage : aliased constant Windows.IID := (1827859256, 57448, 21848, (148, 176, 1, 97, 25, 44, 95, 25 ));
@@ -4371,6 +4468,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3D3MFPackage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrinting3DTextureResource : aliased constant Windows.IID := (108582363, 36810, 20612, (168, 81, 115, 18, 254, 83, 247, 53 ));
@@ -4405,6 +4503,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrinting3DTextureResource : aliased constant Windows.IID := (1424205597, 60128, 20889, (151, 40, 250, 201, 100, 133, 14, 187 ));
@@ -4417,6 +4516,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IIterator_IPrinting3DTextureResource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrinting3DTextureResource : aliased constant Windows.IID := (172582093, 54151, 23921, (167, 29, 79, 10, 85, 185, 182, 137 ));
@@ -4455,6 +4555,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPrinting3DTextureResource : aliased constant Windows.IID := (302598345, 43685, 24293, (161, 51, 50, 21, 208, 86, 20, 4 ));
@@ -4549,6 +4650,7 @@ package Windows.Graphics.Printing3D is
       ; items : Windows.Graphics.Printing3D.IPrinting3DTextureResource_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPrinting3DModel : aliased constant Windows.IID := (455577611, 4309, 21503, (154, 52, 75, 49, 243, 21, 130, 176 ));
@@ -4575,6 +4677,7 @@ package Windows.Graphics.Printing3D is
       ; RetVal : access Windows.Graphics.Printing3D.IPrinting3DModel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -4584,7 +4687,6 @@ package Windows.Graphics.Printing3D is
    IID_Print3DTaskSourceRequestedHandler : aliased constant Windows.IID := (3910622832, 51479, 18142, (187, 81, 217, 169, 77, 179, 113, 31 ));
    
    type Print3DTaskSourceRequestedHandler_Interface(Callback : access procedure (args : Windows.Graphics.Printing3D.IPrint3DTaskSourceRequestedArgs)) is new Windows.IMulticastDelegate_Interface(IID_Print3DTaskSourceRequestedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access Print3DTaskSourceRequestedHandler_Interface
@@ -4597,7 +4699,6 @@ package Windows.Graphics.Printing3D is
    IID_TypedEventHandler_IPrint3DTask_add_Submitting : aliased constant Windows.IID := (3221755409, 29829, 22696, (136, 190, 130, 231, 18, 216, 193, 186 ));
    
    type TypedEventHandler_IPrint3DTask_add_Submitting_Interface(Callback : access procedure (sender : Windows.Graphics.Printing3D.IPrint3DTask ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrint3DTask_add_Submitting'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrint3DTask_add_Submitting_Interface
@@ -4611,7 +4712,6 @@ package Windows.Graphics.Printing3D is
    IID_TypedEventHandler_IPrint3DTask_add_Completed : aliased constant Windows.IID := (3167711381, 48270, 24565, (131, 192, 213, 105, 30, 10, 162, 77 ));
    
    type TypedEventHandler_IPrint3DTask_add_Completed_Interface(Callback : access procedure (sender : Windows.Graphics.Printing3D.IPrint3DTask ; args : Windows.Graphics.Printing3D.IPrint3DTaskCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrint3DTask_add_Completed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrint3DTask_add_Completed_Interface
@@ -4625,7 +4725,6 @@ package Windows.Graphics.Printing3D is
    IID_TypedEventHandler_IPrint3DTask_add_SourceChanged : aliased constant Windows.IID := (1490247765, 577, 21853, (175, 123, 159, 5, 229, 218, 164, 18 ));
    
    type TypedEventHandler_IPrint3DTask_add_SourceChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Printing3D.IPrint3DTask ; args : Windows.Graphics.Printing3D.IPrint3DTaskSourceChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrint3DTask_add_SourceChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrint3DTask_add_SourceChanged_Interface
@@ -4639,7 +4738,6 @@ package Windows.Graphics.Printing3D is
    IID_TypedEventHandler_IPrint3DManager_add_TaskRequested : aliased constant Windows.IID := (2009359523, 42950, 21778, (152, 89, 65, 45, 179, 246, 106, 196 ));
    
    type TypedEventHandler_IPrint3DManager_add_TaskRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing3D.IPrint3DManager ; args : Windows.Graphics.Printing3D.IPrint3DTaskRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrint3DManager_add_TaskRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrint3DManager_add_TaskRequested_Interface
@@ -4653,7 +4751,6 @@ package Windows.Graphics.Printing3D is
    IID_AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult : aliased constant Windows.IID := (409710103, 22678, 22238, (191, 244, 79, 23, 107, 62, 97, 148 ));
    
    type AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3DMeshVerificationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPrinting3DMeshVerificationResult_Interface
@@ -4667,7 +4764,6 @@ package Windows.Graphics.Printing3D is
    IID_AsyncOperationCompletedHandler_IPrinting3D3MFPackage : aliased constant Windows.IID := (683061768, 34215, 21489, (131, 174, 87, 122, 125, 230, 106, 155 ));
    
    type AsyncOperationCompletedHandler_IPrinting3D3MFPackage_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPrinting3D3MFPackage'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPrinting3D3MFPackage_Interface
@@ -4681,7 +4777,6 @@ package Windows.Graphics.Printing3D is
    IID_AsyncOperationCompletedHandler_IPrinting3DModel : aliased constant Windows.IID := (653579084, 41245, 23305, (153, 8, 173, 232, 177, 177, 53, 85 ));
    
    type AsyncOperationCompletedHandler_IPrinting3DModel_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3DModel ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPrinting3DModel'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPrinting3DModel_Interface
@@ -4727,56 +4822,56 @@ package Windows.Graphics.Printing3D is
    function CreatePrinting3DModelTexture return Windows.Graphics.Printing3D.IPrinting3DModelTexture;
    
    subtype Printing3DBaseMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DBaseMaterialGroup;
-   
    function Create
    (
       MaterialGroupId : Windows.UInt32
    )
    return Windows.Graphics.Printing3D.IPrinting3DBaseMaterialGroup;
    
+   
    subtype Printing3DBaseMaterial is Windows.Graphics.Printing3D.IPrinting3DBaseMaterial;
    
    function CreatePrinting3DBaseMaterial return Windows.Graphics.Printing3D.IPrinting3DBaseMaterial;
    
    subtype Printing3DColorMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DColorMaterialGroup;
-   
    function Create
    (
       MaterialGroupId : Windows.UInt32
    )
    return Windows.Graphics.Printing3D.IPrinting3DColorMaterialGroup;
    
-   subtype Printing3DTexture2CoordMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup;
    
+   subtype Printing3DTexture2CoordMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup;
    function Create
    (
       MaterialGroupId : Windows.UInt32
    )
    return Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup;
    
+   
    subtype Printing3DTexture2CoordMaterial is Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterial;
    
    function CreatePrinting3DTexture2CoordMaterial return Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterial;
    
    subtype Printing3DCompositeMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup;
-   
    function Create
    (
       MaterialGroupId : Windows.UInt32
    )
    return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup;
    
+   
    subtype Printing3DCompositeMaterial is Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial;
    
    function CreatePrinting3DCompositeMaterial return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial;
    
    subtype Printing3DMultiplePropertyMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup;
-   
    function Create
    (
       MaterialGroupId : Windows.UInt32
    )
    return Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup;
+   
    
    subtype Printing3DMultiplePropertyMaterial is Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial;
    
@@ -4803,7 +4898,6 @@ package Windows.Graphics.Printing3D is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.Graphics.Printing3D.IPrint3DManager;
    
@@ -4821,5 +4915,6 @@ package Windows.Graphics.Printing3D is
       value : Windows.Storage.Streams.IRandomAccessStream
    )
    return Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage;
+   
 
 end;

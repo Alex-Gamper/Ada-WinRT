@@ -28,7 +28,6 @@ package body Windows.Storage.AccessCache is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStorageItemMostRecentlyUsedList_add_ItemRemoved_Interface
@@ -46,7 +45,6 @@ package body Windows.Storage.AccessCache is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -54,7 +52,6 @@ package body Windows.Storage.AccessCache is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_FutureAccessList
    return Windows.Storage.AccessCache.IStorageItemAccessList is
@@ -89,5 +86,6 @@ package body Windows.Storage.AccessCache is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

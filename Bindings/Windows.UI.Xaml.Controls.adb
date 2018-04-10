@@ -55,7 +55,6 @@ package body Windows.UI.Xaml.Controls is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access BackClickEventHandler_Interface
@@ -1528,7 +1527,6 @@ package body Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateNavigationViewItemInvokedEventArgs return Windows.UI.Xaml.Controls.INavigationViewItemInvokedEventArgs is
       Hr            : Windows.HResult := S_OK;
@@ -22090,7 +22088,6 @@ package body Windows.UI.Xaml.Controls is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -41129,5 +41126,6 @@ package body Windows.UI.Xaml.Controls is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -137,6 +137,7 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.UI.Xaml.Interop.IBindableIterator
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBindableVector : aliased constant Windows.IID := (960358366, 28624, 19469, (187, 113, 71, 36, 74, 17, 62, 147 ));
@@ -215,6 +216,7 @@ package Windows.UI.Xaml.Interop is
       This       : access IBindableVector_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBindableObservableVector : aliased constant Windows.IID := (4263425334, 32383, 20368, (172, 154, 71, 73, 132, 170, 229, 18 ));
@@ -235,6 +237,7 @@ package Windows.UI.Xaml.Interop is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBindableVectorView : aliased constant Windows.IID := (879613671, 38766, 19395, (129, 93, 236, 226, 67, 188, 15, 51 ));
@@ -264,6 +267,7 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBindableIterator : aliased constant Windows.IID := (1780313095, 1901, 18930, (131, 20, 245, 44, 156, 154, 131, 49 ));
@@ -290,6 +294,7 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotifyCollectionChanged : aliased constant Windows.IID := (682715093, 6705, 18011, (155, 37, 213, 195, 174, 104, 108, 64 ));
@@ -310,6 +315,7 @@ package Windows.UI.Xaml.Interop is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotifyCollectionChangedEventArgs : aliased constant Windows.IID := (1291226419, 58354, 18788, (184, 94, 148, 91, 79, 126, 47, 33 ));
@@ -350,6 +356,7 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotifyCollectionChangedEventArgsFactory : aliased constant Windows.IID := (3003924026, 57229, 17573, (154, 56, 122, 192, 208, 140, 230, 61 ));
@@ -369,6 +376,7 @@ package Windows.UI.Xaml.Interop is
       ; RetVal : access Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -378,7 +386,6 @@ package Windows.UI.Xaml.Interop is
    IID_BindableVectorChangedEventHandler : aliased constant Windows.IID := (1649202401, 53255, 17329, (156, 3, 175, 77, 62, 98, 88, 196 ));
    
    type BindableVectorChangedEventHandler_Interface(Callback : access procedure (vector : Windows.UI.Xaml.Interop.IBindableObservableVector ; e : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_BindableVectorChangedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access BindableVectorChangedEventHandler_Interface
@@ -392,7 +399,6 @@ package Windows.UI.Xaml.Interop is
    IID_NotifyCollectionChangedEventHandler : aliased constant Windows.IID := (3390092156, 62338, 17809, (133, 87, 94, 36, 150, 82, 121, 176 ));
    
    type NotifyCollectionChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_NotifyCollectionChangedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access NotifyCollectionChangedEventHandler_Interface
@@ -412,7 +418,6 @@ package Windows.UI.Xaml.Interop is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateInstanceWithAllParameters
    (
       action : Windows.UI.Xaml.Interop.NotifyCollectionChangedAction
@@ -424,5 +429,6 @@ package Windows.UI.Xaml.Interop is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs;
+   
 
 end;

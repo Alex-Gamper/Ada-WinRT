@@ -27,7 +27,6 @@ package body Windows.Devices.Sensors.Custom is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICustomSensor_Interface
@@ -58,7 +57,6 @@ package body Windows.Devices.Sensors.Custom is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -66,7 +64,6 @@ package body Windows.Devices.Sensors.Custom is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    (
@@ -107,5 +104,6 @@ package body Windows.Devices.Sensors.Custom is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

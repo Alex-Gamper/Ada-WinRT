@@ -28,7 +28,6 @@ package body Windows.Devices.Gpio is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGpioController_Interface
@@ -58,7 +57,6 @@ package body Windows.Devices.Gpio is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -129,7 +127,6 @@ package body Windows.Devices.Gpio is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetControllersAsync
    (
       provider : Windows.Devices.Gpio.Provider.IGpioProvider
@@ -183,5 +180,6 @@ package body Windows.Devices.Gpio is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

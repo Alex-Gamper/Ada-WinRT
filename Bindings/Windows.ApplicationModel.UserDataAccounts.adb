@@ -33,7 +33,6 @@ package body Windows.ApplicationModel.UserDataAccounts is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUserDataAccount_Interface
@@ -77,7 +76,6 @@ package body Windows.ApplicationModel.UserDataAccounts is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -85,7 +83,6 @@ package body Windows.ApplicationModel.UserDataAccounts is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RequestStoreAsync
    (
@@ -186,5 +183,6 @@ package body Windows.ApplicationModel.UserDataAccounts is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

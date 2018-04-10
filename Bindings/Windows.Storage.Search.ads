@@ -271,6 +271,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Storage.Search.IContentIndexer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIndexableContent : aliased constant Windows.IID := (3438387295, 54453, 18490, (176, 110, 224, 219, 30, 196, 32, 228 ));
@@ -325,6 +326,7 @@ package Windows.Storage.Search is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContentIndexer : aliased constant Windows.IID := (2977333133, 63128, 18818, (176, 95, 58, 110, 140, 171, 1, 162 ));
@@ -385,6 +387,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IValueAndLanguage : aliased constant Windows.IID := (3113306241, 41454, 19396, (146, 165, 70, 105, 104, 227, 4, 54 ));
@@ -418,6 +421,7 @@ package Windows.Storage.Search is
       ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContentIndexerQueryOperations : aliased constant Windows.IID := (679624208, 18310, 17137, (151, 48, 121, 43, 53, 102, 177, 80 ));
@@ -453,6 +457,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Storage.Search.IContentIndexerQuery
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContentIndexerQuery : aliased constant Windows.IID := (1893970168, 19452, 17034, (136, 137, 204, 81, 218, 154, 123, 157 ));
@@ -504,6 +509,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IQueryOptions : aliased constant Windows.IID := (509495022, 3909, 18488, (168, 233, 208, 71, 157, 68, 108, 48 ));
@@ -638,6 +644,7 @@ package Windows.Storage.Search is
       ; propertiesToRetrieve : Windows.Foundation.Collections.IIterable_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IQueryOptionsWithProviderFilter : aliased constant Windows.IID := (1537019942, 5572, 17629, (184, 154, 71, 165, 155, 125, 124, 79 ));
@@ -650,6 +657,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IQueryOptionsFactory : aliased constant Windows.IID := (53354380, 43457, 20081, (128, 17, 13, 238, 157, 72, 17, 163 ));
@@ -672,6 +680,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Storage.Search.IQueryOptions
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageQueryResultBase : aliased constant Windows.IID := (3264730893, 29523, 18347, (186, 88, 140, 97, 66, 93, 197, 75 ));
@@ -743,6 +752,7 @@ package Windows.Storage.Search is
       ; newQueryOptions : Windows.Storage.Search.IQueryOptions
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFileQueryResult : aliased constant Windows.IID := (1392354375, 11178, 16684, (178, 159, 212, 177, 119, 142, 250, 30 ));
@@ -764,6 +774,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFileQueryResult2 : aliased constant Windows.IID := (1314765277, 28993, 18116, (139, 227, 233, 220, 158, 39, 39, 92 ));
@@ -777,6 +788,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFolderQueryResult : aliased constant Windows.IID := (1716832529, 32102, 18170, (174, 207, 228, 164, 186, 169, 58, 184 ));
@@ -798,6 +810,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageItemQueryResult : aliased constant Windows.IID := (3902046329, 40280, 18360, (178, 178, 65, 176, 127, 71, 149, 249 ));
@@ -819,6 +832,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageFolderQueryOperations : aliased constant Windows.IID := (3410218185, 17515, 19023, (190, 151, 117, 119, 113, 190, 82, 3 ));
@@ -961,6 +975,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_SortEntry : aliased constant Windows.IID := (3639230491, 18355, 21076, (132, 244, 238, 161, 12, 76, 240, 104 ));
@@ -1055,6 +1070,7 @@ package Windows.Storage.Search is
       ; items : Windows.Storage.Search.SortEntry_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_SortEntry : aliased constant Windows.IID := (900724473, 61301, 21120, (187, 132, 162, 191, 131, 23, 207, 53 ));
@@ -1067,6 +1083,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Storage.Search.SortEntry
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibraryContentChangedTriggerDetails : aliased constant Windows.IID := (708254071, 43967, 19997, (138, 165, 99, 133, 216, 136, 71, 153 ));
@@ -1087,6 +1104,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Storage.Search.IStorageItemQueryResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_SortEntry : aliased constant Windows.IID := (1376007330, 44279, 22729, (180, 122, 39, 65, 242, 250, 194, 194 ));
@@ -1121,6 +1139,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_SortEntry : aliased constant Windows.IID := (2185000452, 45947, 21605, (161, 105, 41, 73, 120, 147, 205, 185 ));
@@ -1159,6 +1178,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IndexedState : aliased constant Windows.IID := (2288601887, 62336, 22349, (138, 5, 79, 103, 189, 82, 205, 17 ));
@@ -1185,6 +1205,7 @@ package Windows.Storage.Search is
       ; RetVal : access Windows.Storage.Search.IndexedState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1194,7 +1215,6 @@ package Windows.Storage.Search is
    IID_TypedEventHandler_IStorageQueryResultBase_add_ContentsChanged : aliased constant Windows.IID := (1268918369, 196, 22911, (182, 191, 58, 245, 22, 243, 184, 112 ));
    
    type TypedEventHandler_IStorageQueryResultBase_add_ContentsChanged_Interface(Callback : access procedure (sender : Windows.Storage.Search.IStorageQueryResultBase ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageQueryResultBase_add_ContentsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStorageQueryResultBase_add_ContentsChanged_Interface
@@ -1208,7 +1228,6 @@ package Windows.Storage.Search is
    IID_TypedEventHandler_IStorageQueryResultBase_add_OptionsChanged : aliased constant Windows.IID := (1268918369, 196, 22911, (182, 191, 58, 245, 22, 243, 184, 112 ));
    
    type TypedEventHandler_IStorageQueryResultBase_add_OptionsChanged_Interface(Callback : access procedure (sender : Windows.Storage.Search.IStorageQueryResultBase ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageQueryResultBase_add_OptionsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStorageQueryResultBase_add_OptionsChanged_Interface
@@ -1222,7 +1241,6 @@ package Windows.Storage.Search is
    IID_AsyncOperationCompletedHandler_IndexedState : aliased constant Windows.IID := (3061464250, 62967, 24145, (150, 138, 56, 81, 38, 209, 249, 24 ));
    
    type AsyncOperationCompletedHandler_IndexedState_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Search.IAsyncOperation_IndexedState ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IndexedState'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IndexedState_Interface
@@ -1246,7 +1264,6 @@ package Windows.Storage.Search is
    function CreateIndexableContent return Windows.Storage.Search.IIndexableContent;
    
    subtype QueryOptions is Windows.Storage.Search.IQueryOptions;
-   
    function CreateCommonFileQuery
    (
       query : Windows.Storage.Search.CommonFileQuery
@@ -1260,6 +1277,7 @@ package Windows.Storage.Search is
    )
    return Windows.Storage.Search.IQueryOptions;
    
+   
    subtype StorageFileQueryResult is Windows.Storage.Search.IStorageFileQueryResult;
    subtype StorageFolderQueryResult is Windows.Storage.Search.IStorageFolderQueryResult;
    subtype StorageItemQueryResult is Windows.Storage.Search.IStorageItemQueryResult;
@@ -1270,7 +1288,6 @@ package Windows.Storage.Search is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetIndexerWithName
    (
       indexName : Windows.String
@@ -1279,5 +1296,6 @@ package Windows.Storage.Search is
    
    function GetIndexer
    return Windows.Storage.Search.IContentIndexer;
+   
 
 end;

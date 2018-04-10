@@ -31,7 +31,6 @@ package body Windows.UI.Input.Inking is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkPresenter_add_StrokesCollected_Interface
@@ -205,7 +204,6 @@ package body Windows.UI.Input.Inking is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       inkPresenter : Windows.UI.Input.Inking.IInkPresenter
@@ -363,7 +361,6 @@ package body Windows.UI.Input.Inking is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateForPencil
    return Windows.UI.Input.Inking.IInkDrawingAttributes is
       Hr            : Windows.HRESULT := S_OK;
@@ -380,5 +377,6 @@ package body Windows.UI.Input.Inking is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

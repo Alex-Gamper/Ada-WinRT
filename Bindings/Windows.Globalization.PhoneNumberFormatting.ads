@@ -209,6 +209,7 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhoneNumberFormatter : aliased constant Windows.IID := (358003870, 47828, 19274, (144, 13, 68, 7, 173, 183, 201, 129 ));
@@ -255,6 +256,7 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhoneNumberInfoFactory : aliased constant Windows.IID := (2181216612, 44458, 19711, (143, 207, 23, 231, 81, 106, 40, 255 ));
@@ -268,6 +270,7 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhoneNumberInfoStatics : aliased constant Windows.IID := (1530875754, 34473, 16617, (134, 73, 109, 97, 22, 25, 40, 212 ));
@@ -292,6 +295,7 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhoneNumberFormatterStatics : aliased constant Windows.IID := (1554446641, 34009, 16715, (171, 78, 160, 85, 44, 135, 134, 2 ));
@@ -330,17 +334,18 @@ package Windows.Globalization.PhoneNumberFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype PhoneNumberInfo is Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo;
-   
    function Create
    (
       number : Windows.String
    )
    return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo;
+   
    
    subtype PhoneNumberFormatter is Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter;
    
@@ -350,7 +355,6 @@ package Windows.Globalization.PhoneNumberFormatting is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function TryParse
    (
@@ -392,5 +396,6 @@ package Windows.Globalization.PhoneNumberFormatting is
       number : Windows.String
    )
    return Windows.String;
+   
 
 end;

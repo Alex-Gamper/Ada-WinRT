@@ -29,7 +29,6 @@ package body Windows.Security.Cryptography.Certificates is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICertificateChain_Interface
@@ -59,7 +58,6 @@ package body Windows.Security.Cryptography.Certificates is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateCertificateExtension return Windows.Security.Cryptography.Certificates.ICertificateExtension is
       Hr            : Windows.HResult := S_OK;
@@ -281,7 +279,6 @@ package body Windows.Security.Cryptography.Certificates is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function ImportPfxDataToKspWithParametersAsync
    (
@@ -918,5 +915,6 @@ package body Windows.Security.Cryptography.Certificates is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

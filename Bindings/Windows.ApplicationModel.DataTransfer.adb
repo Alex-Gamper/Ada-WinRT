@@ -31,7 +31,6 @@ package body Windows.ApplicationModel.DataTransfer is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access DataProviderHandler_Interface
@@ -164,7 +163,6 @@ package body Windows.ApplicationModel.DataTransfer is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       title : Windows.String
@@ -229,7 +227,6 @@ package body Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Text
    return Windows.String is
@@ -634,5 +631,6 @@ package body Windows.ApplicationModel.DataTransfer is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

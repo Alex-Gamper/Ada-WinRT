@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.UserActivities is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUserActivity_Interface
@@ -46,7 +45,6 @@ package body Windows.ApplicationModel.UserActivities is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateUserActivityAttribution return Windows.ApplicationModel.UserActivities.IUserActivityAttribution is
       Hr            : Windows.HResult := S_OK;
@@ -72,7 +70,6 @@ package body Windows.ApplicationModel.UserActivities is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromJson
    (
@@ -110,5 +107,6 @@ package body Windows.ApplicationModel.UserActivities is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

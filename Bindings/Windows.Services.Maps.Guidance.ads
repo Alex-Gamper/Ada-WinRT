@@ -406,6 +406,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceManeuver : aliased constant Windows.IID := (4228461164, 60617, 18728, (162, 161, 114, 50, 185, 155, 148, 161 ));
@@ -495,6 +496,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceUpdatedEventArgs : aliased constant Windows.IID := (4255913483, 40589, 19939, (169, 250, 176, 99, 33, 209, 141, 185 ));
@@ -598,6 +600,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.Guidance.IVectorView_IGuidanceLaneInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceReroutedEventArgs : aliased constant Windows.IID := (291323912, 54568, 17742, (187, 148, 165, 3, 65, 210, 201, 241 ));
@@ -610,6 +613,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.Guidance.IGuidanceRoute
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceAudioNotificationRequestedEventArgs : aliased constant Windows.IID := (3391791690, 51138, 19788, (157, 124, 73, 149, 118, 188, 237, 219 ));
@@ -636,6 +640,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceNavigator : aliased constant Windows.IID := (150044407, 36415, 19866, (190, 138, 16, 143, 154, 1, 44, 103 ));
@@ -842,6 +847,7 @@ package Windows.Services.Maps.Guidance is
       ; positionOverride : Windows.Devices.Geolocation.BasicGeoposition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceNavigator2 : aliased constant Windows.IID := (1826377937, 1052, 19443, (182, 51, 161, 1, 252, 47, 107, 87 ));
@@ -876,6 +882,7 @@ package Windows.Services.Maps.Guidance is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceNavigatorStatics : aliased constant Windows.IID := (16618771, 17494, 20070, (161, 67, 58, 221, 107, 224, 132, 38 ));
@@ -888,6 +895,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.Guidance.IGuidanceNavigator
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceNavigatorStatics2 : aliased constant Windows.IID := (1422246882, 30596, 19589, (140, 149, 208, 198, 239, 180, 57, 101 ));
@@ -900,6 +908,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceRoadSegment : aliased constant Windows.IID := (3005700262, 48760, 19555, (175, 231, 108, 41, 87, 71, 155, 62 ));
@@ -968,6 +977,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceRoadSegment2 : aliased constant Windows.IID := (611624477, 5923, 18929, (137, 91, 71, 162, 196, 170, 156, 85 ));
@@ -980,6 +990,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceMapMatchedCoordinate : aliased constant Windows.IID := (3081548136, 10514, 19097, (175, 241, 121, 134, 9, 185, 129, 254 ));
@@ -1020,6 +1031,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.Guidance.IGuidanceRoadSegment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceTelemetryCollectorStatics : aliased constant Windows.IID := (911417415, 61792, 17659, (181, 120, 148, 87, 124, 160, 89, 144 ));
@@ -1032,6 +1044,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.Guidance.IGuidanceTelemetryCollector
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceTelemetryCollector : aliased constant Windows.IID := (3676278181, 47224, 19858, (152, 221, 52, 125, 35, 211, 130, 98 ));
@@ -1085,6 +1098,7 @@ package Windows.Services.Maps.Guidance is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceRouteStatics : aliased constant Windows.IID := (4117598826, 21997, 18881, (176, 156, 75, 130, 35, 181, 13, 179 ));
@@ -1106,6 +1120,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.Guidance.IGuidanceRoute
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceRoute : aliased constant Windows.IID := (974410845, 32794, 16573, (162, 134, 175, 178, 1, 12, 206, 108 ));
@@ -1160,6 +1175,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.IMapRoute
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGuidanceLaneInfo : aliased constant Windows.IID := (2214908180, 25985, 17335, (172, 21, 201, 7, 155, 249, 13, 241 ));
@@ -1179,6 +1195,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IGuidanceLaneInfo : aliased constant Windows.IID := (1296884952, 31968, 20840, (171, 41, 107, 207, 127, 25, 138, 88 ));
@@ -1213,6 +1230,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGuidanceLaneInfo : aliased constant Windows.IID := (1167461746, 7158, 23069, (161, 127, 232, 63, 86, 241, 171, 87 ));
@@ -1225,6 +1243,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.Guidance.IIterator_IGuidanceLaneInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IGuidanceLaneInfo : aliased constant Windows.IID := (2169058928, 58645, 23650, (179, 76, 110, 61, 153, 108, 173, 49 ));
@@ -1263,6 +1282,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IGuidanceManeuver : aliased constant Windows.IID := (1956868242, 9793, 23613, (179, 203, 104, 157, 200, 171, 162, 46 ));
@@ -1297,6 +1317,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGuidanceManeuver : aliased constant Windows.IID := (3044543847, 35467, 21903, (164, 182, 196, 83, 30, 243, 46, 200 ));
@@ -1309,6 +1330,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.Guidance.IIterator_IGuidanceManeuver
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IGuidanceManeuver : aliased constant Windows.IID := (2270577880, 22436, 22998, (157, 44, 93, 69, 13, 57, 210, 246 ));
@@ -1347,6 +1369,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IGuidanceRoadSegment : aliased constant Windows.IID := (344766719, 15033, 21419, (136, 36, 37, 106, 98, 4, 123, 67 ));
@@ -1381,6 +1404,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGuidanceRoadSegment : aliased constant Windows.IID := (4156953796, 4042, 24282, (128, 76, 133, 200, 41, 149, 99, 52 ));
@@ -1393,6 +1417,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.Services.Maps.Guidance.IIterator_IGuidanceRoadSegment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IGuidanceRoadSegment : aliased constant Windows.IID := (4031544514, 19796, 21060, (190, 178, 143, 79, 5, 193, 132, 230 ));
@@ -1431,6 +1456,7 @@ package Windows.Services.Maps.Guidance is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1440,7 +1466,6 @@ package Windows.Services.Maps.Guidance is
    IID_TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated : aliased constant Windows.IID := (2192832479, 48915, 21573, (170, 220, 236, 97, 181, 15, 187, 70 ));
    
    type TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Services.Maps.Guidance.IGuidanceUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator_add_GuidanceUpdated_Interface
@@ -1454,7 +1479,6 @@ package Windows.Services.Maps.Guidance is
    IID_TypedEventHandler_IGuidanceNavigator_add_DestinationReached : aliased constant Windows.IID := (1061776437, 15818, 24209, (135, 48, 110, 247, 126, 157, 112, 189 ));
    
    type TypedEventHandler_IGuidanceNavigator_add_DestinationReached_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGuidanceNavigator_add_DestinationReached'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator_add_DestinationReached_Interface
@@ -1468,7 +1492,6 @@ package Windows.Services.Maps.Guidance is
    IID_TypedEventHandler_IGuidanceNavigator_add_Rerouting : aliased constant Windows.IID := (1061776437, 15818, 24209, (135, 48, 110, 247, 126, 157, 112, 189 ));
    
    type TypedEventHandler_IGuidanceNavigator_add_Rerouting_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGuidanceNavigator_add_Rerouting'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator_add_Rerouting_Interface
@@ -1482,7 +1505,6 @@ package Windows.Services.Maps.Guidance is
    IID_TypedEventHandler_IGuidanceNavigator_add_Rerouted : aliased constant Windows.IID := (1639525147, 61999, 22555, (191, 160, 72, 104, 195, 20, 198, 58 ));
    
    type TypedEventHandler_IGuidanceNavigator_add_Rerouted_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Services.Maps.Guidance.IGuidanceReroutedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGuidanceNavigator_add_Rerouted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator_add_Rerouted_Interface
@@ -1496,7 +1518,6 @@ package Windows.Services.Maps.Guidance is
    IID_TypedEventHandler_IGuidanceNavigator_add_RerouteFailed : aliased constant Windows.IID := (1061776437, 15818, 24209, (135, 48, 110, 247, 126, 157, 112, 189 ));
    
    type TypedEventHandler_IGuidanceNavigator_add_RerouteFailed_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGuidanceNavigator_add_RerouteFailed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator_add_RerouteFailed_Interface
@@ -1510,7 +1531,6 @@ package Windows.Services.Maps.Guidance is
    IID_TypedEventHandler_IGuidanceNavigator_add_UserLocationLost : aliased constant Windows.IID := (1061776437, 15818, 24209, (135, 48, 110, 247, 126, 157, 112, 189 ));
    
    type TypedEventHandler_IGuidanceNavigator_add_UserLocationLost_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGuidanceNavigator_add_UserLocationLost'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator_add_UserLocationLost_Interface
@@ -1524,7 +1544,6 @@ package Windows.Services.Maps.Guidance is
    IID_TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored : aliased constant Windows.IID := (1061776437, 15818, 24209, (135, 48, 110, 247, 126, 157, 112, 189 ));
    
    type TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator_add_UserLocationRestored_Interface
@@ -1538,7 +1557,6 @@ package Windows.Services.Maps.Guidance is
    IID_TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested : aliased constant Windows.IID := (1950200687, 59818, 21882, (159, 215, 48, 76, 155, 4, 153, 223 ));
    
    type TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested_Interface(Callback : access procedure (sender : Windows.Services.Maps.Guidance.IGuidanceNavigator ; args : Windows.Services.Maps.Guidance.IGuidanceAudioNotificationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGuidanceNavigator2_add_AudioNotificationRequested_Interface
@@ -1567,7 +1585,6 @@ package Windows.Services.Maps.Guidance is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CanCreateFromMapRoute
    (
       mapRoute : Windows.Services.Maps.IMapRoute
@@ -1588,5 +1605,6 @@ package Windows.Services.Maps.Guidance is
    
    function GetCurrent
    return Windows.Services.Maps.Guidance.IGuidanceTelemetryCollector;
+   
 
 end;

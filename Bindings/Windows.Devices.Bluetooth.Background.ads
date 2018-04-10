@@ -146,6 +146,7 @@ package Windows.Devices.Bluetooth.Background is
       ; value : Windows.Devices.Bluetooth.BluetoothServiceCapabilities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRfcommOutboundConnectionInformation : aliased constant Windows.IID := (2962301563, 62516, 19632, (153, 177, 74, 184, 206, 218, 237, 215 ));
@@ -165,6 +166,7 @@ package Windows.Devices.Bluetooth.Background is
       ; value : Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRfcommConnectionTriggerDetails : aliased constant Windows.IID := (4179784525, 11836, 20220, (171, 89, 252, 92, 249, 111, 151, 227 ));
@@ -191,6 +193,7 @@ package Windows.Devices.Bluetooth.Background is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattCharacteristicNotificationTriggerDetails : aliased constant Windows.IID := (2610969368, 4076, 17258, (147, 177, 244, 108, 105, 117, 50, 162 ));
@@ -210,6 +213,7 @@ package Windows.Devices.Bluetooth.Background is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattCharacteristicNotificationTriggerDetails2 : aliased constant Windows.IID := (1920618716, 38045, 17738, (177, 146, 152, 52, 103, 227, 213, 15 ));
@@ -236,6 +240,7 @@ package Windows.Devices.Bluetooth.Background is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IVectorView_IGattValueChangedEventArgs -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattServiceProviderConnectionStatics : aliased constant Windows.IID := (1028693835, 2830, 17510, (184, 205, 110, 189, 218, 31, 161, 125 ));
@@ -248,6 +253,7 @@ package Windows.Devices.Bluetooth.Background is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattServiceProviderConnection : aliased constant Windows.IID := (2141305273, 12051, 16565, (149, 130, 142, 183, 142, 152, 239, 19 ));
@@ -273,6 +279,7 @@ package Windows.Devices.Bluetooth.Background is
       This       : access IGattServiceProviderConnection_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattServiceProviderTriggerDetails : aliased constant Windows.IID := (2928412197, 1535, 19195, (177, 106, 222, 149, 243, 207, 1, 88 ));
@@ -285,6 +292,7 @@ package Windows.Devices.Bluetooth.Background is
       ; RetVal : access Windows.Devices.Bluetooth.Background.IGattServiceProviderConnection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEAdvertisementWatcherTriggerDetails : aliased constant Windows.IID := (2816170711, 8791, 20073, (151, 132, 254, 230, 69, 193, 220, 224 ));
@@ -311,6 +319,7 @@ package Windows.Devices.Bluetooth.Background is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEAdvertisementPublisherTriggerDetails : aliased constant Windows.IID := (1628359302, 13440, 16841, (169, 24, 125, 218, 223, 32, 126, 0 ));
@@ -330,6 +339,7 @@ package Windows.Devices.Bluetooth.Background is
       ; RetVal : access Windows.Devices.Bluetooth.BluetoothError
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -347,8 +357,8 @@ package Windows.Devices.Bluetooth.Background is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_AllServices
    return Windows.Address;
+   
 
 end;

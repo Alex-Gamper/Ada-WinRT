@@ -195,6 +195,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandDefinition : aliased constant Windows.IID := (2037557968, 2420, 18809, (152, 75, 203, 137, 89, 205, 97, 174 ));
@@ -223,6 +224,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandContentTile : aliased constant Windows.IID := (1055910384, 47303, 19574, (160, 222, 22, 7, 137, 94, 227, 39 ));
@@ -340,6 +342,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; value : Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandUserMessage : aliased constant Windows.IID := (1733211072, 17654, 20231, (185, 121, 76, 114, 63, 192, 133, 151 ));
@@ -373,6 +376,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommand : aliased constant Windows.IID := (2473546355, 60546, 17062, (165, 92, 210, 215, 158, 198, 249, 32 ));
@@ -399,6 +403,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.Media.SpeechRecognition.ISpeechRecognitionResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandCompletedEventArgs : aliased constant Windows.IID := (3361630045, 65090, 17196, (153, 7, 9, 223, 159, 207, 100, 232 ));
@@ -411,6 +416,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletionReason
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandDisambiguationResult : aliased constant Windows.IID := (3972435198, 51628, 17887, (168, 234, 254, 234, 8, 239, 156, 94 ));
@@ -423,6 +429,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.ApplicationModel.VoiceCommands.IVoiceCommandContentTile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandConfirmationResult : aliased constant Windows.IID := (2686605630, 33313, 17702, (176, 131, 132, 9, 114, 38, 34, 71 ));
@@ -435,6 +442,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandServiceConnection : aliased constant Windows.IID := (3633626015, 8666, 17572, (152, 162, 251, 19, 25, 32, 169, 204 ));
@@ -517,6 +525,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandServiceConnectionStatics : aliased constant Windows.IID := (923713531, 11572, 17119, (135, 112, 7, 77, 15, 51, 70, 151 ));
@@ -530,6 +539,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandResponseStatics : aliased constant Windows.IID := (691206163, 3387, 18930, (150, 221, 98, 80, 25, 189, 59, 93 ));
@@ -578,6 +588,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponse
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVoiceCommandResponse : aliased constant Windows.IID := (42251022, 35387, 19652, (166, 161, 202, 213, 190, 39, 22, 181 ));
@@ -632,6 +643,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.ApplicationModel.VoiceCommands.IVector_IVoiceCommandContentTile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IVoiceCommand : aliased constant Windows.IID := (2170493012, 19833, 22285, (155, 87, 91, 71, 226, 130, 205, 102 ));
@@ -658,6 +670,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.ApplicationModel.VoiceCommands.IVoiceCommand
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IVoiceCommandConfirmationResult : aliased constant Windows.IID := (993647455, 53924, 23944, (133, 31, 233, 160, 234, 13, 148, 126 ));
@@ -684,6 +697,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.ApplicationModel.VoiceCommands.IVoiceCommandConfirmationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IVoiceCommandDisambiguationResult : aliased constant Windows.IID := (2956805320, 1551, 23448, (149, 58, 253, 30, 177, 212, 106, 188 ));
@@ -710,6 +724,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.ApplicationModel.VoiceCommands.IVoiceCommandDisambiguationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IVoiceCommandContentTile : aliased constant Windows.IID := (2525845660, 1808, 21232, (133, 237, 17, 47, 172, 76, 255, 53 ));
@@ -744,6 +759,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IVoiceCommandContentTile : aliased constant Windows.IID := (3172148379, 32921, 21875, (191, 116, 116, 87, 121, 110, 146, 229 ));
@@ -756,6 +772,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.ApplicationModel.VoiceCommands.IIterator_IVoiceCommandContentTile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IVoiceCommandContentTile : aliased constant Windows.IID := (3408684691, 8137, 23445, (153, 181, 114, 57, 103, 150, 25, 185 ));
@@ -794,6 +811,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IVoiceCommandContentTile : aliased constant Windows.IID := (3831490304, 59912, 20850, (184, 140, 196, 179, 224, 72, 195, 232 ));
@@ -888,6 +906,7 @@ package Windows.ApplicationModel.VoiceCommands is
       ; items : Windows.ApplicationModel.VoiceCommands.IVoiceCommandContentTile_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -897,7 +916,6 @@ package Windows.ApplicationModel.VoiceCommands is
    IID_AsyncOperationCompletedHandler_IVoiceCommand : aliased constant Windows.IID := (270858313, 46241, 21222, (183, 113, 109, 47, 8, 195, 14, 99 ));
    
    type AsyncOperationCompletedHandler_IVoiceCommand_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.VoiceCommands.IAsyncOperation_IVoiceCommand ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVoiceCommand'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVoiceCommand_Interface
@@ -911,7 +929,6 @@ package Windows.ApplicationModel.VoiceCommands is
    IID_AsyncOperationCompletedHandler_IVoiceCommandConfirmationResult : aliased constant Windows.IID := (4112796856, 63762, 20681, (178, 24, 215, 160, 64, 57, 113, 170 ));
    
    type AsyncOperationCompletedHandler_IVoiceCommandConfirmationResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.VoiceCommands.IAsyncOperation_IVoiceCommandConfirmationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVoiceCommandConfirmationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVoiceCommandConfirmationResult_Interface
@@ -925,7 +942,6 @@ package Windows.ApplicationModel.VoiceCommands is
    IID_AsyncOperationCompletedHandler_IVoiceCommandDisambiguationResult : aliased constant Windows.IID := (1186556048, 10562, 21860, (130, 216, 49, 164, 133, 27, 215, 184 ));
    
    type AsyncOperationCompletedHandler_IVoiceCommandDisambiguationResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.VoiceCommands.IAsyncOperation_IVoiceCommandDisambiguationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVoiceCommandDisambiguationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVoiceCommandDisambiguationResult_Interface
@@ -939,7 +955,6 @@ package Windows.ApplicationModel.VoiceCommands is
    IID_TypedEventHandler_IVoiceCommandServiceConnection_add_VoiceCommandCompleted : aliased constant Windows.IID := (2013946706, 46080, 22375, (153, 59, 144, 135, 87, 16, 217, 55 ));
    
    type TypedEventHandler_IVoiceCommandServiceConnection_add_VoiceCommandCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnection ; args : Windows.ApplicationModel.VoiceCommands.IVoiceCommandCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IVoiceCommandServiceConnection_add_VoiceCommandCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IVoiceCommandServiceConnection_add_VoiceCommandCompleted_Interface
@@ -971,7 +986,6 @@ package Windows.ApplicationModel.VoiceCommands is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function InstallCommandDefinitionsFromStorageFileAsync
    (
@@ -1018,5 +1032,6 @@ package Windows.ApplicationModel.VoiceCommands is
       triggerDetails : Windows.ApplicationModel.AppService.IAppServiceTriggerDetails
    )
    return Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnection;
+   
 
 end;

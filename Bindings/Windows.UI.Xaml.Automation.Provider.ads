@@ -200,6 +200,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDockProvider : aliased constant Windows.IID := (1220690936, 30897, 17568, (172, 95, 117, 7, 87, 188, 222, 60 ));
@@ -219,6 +220,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; dockPosition : Windows.UI.Xaml.Automation.DockPosition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDragProvider : aliased constant Windows.IID := (779585193, 32764, 20311, (185, 101, 30, 241, 243, 115, 245, 70 ));
@@ -252,6 +254,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDropTargetProvider : aliased constant Windows.IID := (2049203165, 46168, 20448, (152, 200, 170, 200, 157, 245, 109, 97 ));
@@ -271,6 +274,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access String_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IExpandCollapseProvider : aliased constant Windows.IID := (1236042649, 54822, 17731, (148, 185, 166, 217, 169, 89, 58, 246 ));
@@ -295,6 +299,7 @@ package Windows.UI.Xaml.Automation.Provider is
       This       : access IExpandCollapseProvider_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGridItemProvider : aliased constant Windows.IID := (4294142012, 29703, 17851, (169, 54, 223, 62, 214, 211, 131, 125 ));
@@ -335,6 +340,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGridProvider : aliased constant Windows.IID := (2338502560, 37676, 17552, (154, 19, 2, 253, 179, 154, 143, 91 ));
@@ -363,6 +369,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInvokeProvider : aliased constant Windows.IID := (4157710727, 45372, 17728, (176, 158, 103, 120, 226, 220, 155, 165 ));
@@ -374,6 +381,7 @@ package Windows.UI.Xaml.Automation.Provider is
       This       : access IInvokeProvider_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IItemContainerProvider : aliased constant Windows.IID := (4015839301, 57812, 16628, (186, 213, 199, 250, 212, 74, 112, 62 ));
@@ -389,6 +397,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMultipleViewProvider : aliased constant Windows.IID := (3491029398, 3664, 18499, (165, 210, 194, 40, 151, 200, 132, 90 ));
@@ -423,6 +432,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; viewId : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IObjectModelProvider : aliased constant Windows.IID := (3284809401, 1939, 20176, (187, 244, 159, 244, 224, 249, 143, 128 ));
@@ -435,6 +445,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRangeValueProvider : aliased constant Windows.IID := (2206872744, 32095, 16505, (175, 3, 195, 208, 21, 233, 52, 19 ));
@@ -489,6 +500,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScrollItemProvider : aliased constant Windows.IID := (2587803792, 23852, 20034, (158, 230, 157, 88, 219, 16, 11, 85 ));
@@ -500,6 +512,7 @@ package Windows.UI.Xaml.Automation.Provider is
       This       : access IScrollItemProvider_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScrollProvider : aliased constant Windows.IID := (927724929, 30486, 19388, (130, 235, 217, 151, 0, 110, 169, 153 ));
@@ -563,6 +576,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; verticalPercent : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectionItemProvider : aliased constant Windows.IID := (1783199681, 33549, 17106, (191, 98, 4, 46, 189, 222, 204, 25 ));
@@ -600,6 +614,7 @@ package Windows.UI.Xaml.Automation.Provider is
       This       : access ISelectionItemProvider_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectionProvider : aliased constant Windows.IID := (520196042, 47428, 17301, (141, 225, 136, 246, 116, 175, 81, 211 ));
@@ -626,6 +641,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpreadsheetItemProvider : aliased constant Windows.IID := (3957231506, 24597, 18470, (183, 25, 71, 82, 26, 129, 198, 126 ));
@@ -652,6 +668,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.AnnotationType_Ptr -- Array Parameter type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpreadsheetProvider : aliased constant Windows.IID := (355831955, 48537, 19709, (159, 7, 59, 20, 179, 21, 226, 61 ));
@@ -665,6 +682,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStylesProvider : aliased constant Windows.IID := (442202647, 31745, 19436, (156, 212, 45, 250, 125, 194, 70, 205 ));
@@ -719,6 +737,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISynchronizedInputProvider : aliased constant Windows.IID := (1029754571, 55892, 19107, (185, 21, 227, 36, 68, 39, 212, 172 ));
@@ -737,6 +756,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; inputType : Windows.UI.Xaml.Automation.SynchronizedInputType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITableItemProvider : aliased constant Windows.IID := (992758221, 7650, 20194, (163, 225, 251, 85, 53, 89, 209, 93 ));
@@ -756,6 +776,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITableProvider : aliased constant Windows.IID := (2056180633, 26660, 17813, (186, 179, 70, 75, 201, 160, 68, 23 ));
@@ -782,6 +803,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextChildProvider : aliased constant Windows.IID := (288604982, 43163, 16688, (155, 230, 85, 227, 51, 52, 245, 87 ));
@@ -801,6 +823,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextRangeProvider : aliased constant Windows.IID := (41183373, 1769, 20326, (148, 70, 40, 165, 190, 152, 251, 208 ));
@@ -948,6 +971,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextProvider : aliased constant Windows.IID := (3680222367, 18439, 20266, (134, 120, 27, 19, 243, 198, 14, 34 ));
@@ -997,6 +1021,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextProvider2 : aliased constant Windows.IID := (3743238332, 1159, 20095, (157, 94, 240, 158, 119, 228, 18, 70 ));
@@ -1018,6 +1043,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextRangeProvider2 : aliased constant Windows.IID := (3552460283, 40788, 17986, (167, 165, 92, 24, 213, 238, 42, 63 ));
@@ -1029,6 +1055,7 @@ package Windows.UI.Xaml.Automation.Provider is
       This       : access ITextRangeProvider2_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToggleProvider : aliased constant Windows.IID := (2478342800, 25967, 17655, (174, 175, 120, 184, 249, 68, 208, 98 ));
@@ -1047,6 +1074,7 @@ package Windows.UI.Xaml.Automation.Provider is
       This       : access IToggleProvider_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITransformProvider : aliased constant Windows.IID := (2036797405, 63145, 19045, (175, 23, 134, 29, 183, 153, 162, 218 ));
@@ -1096,6 +1124,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; degrees : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITransformProvider2 : aliased constant Windows.IID := (2830178134, 41887, 20119, (140, 125, 193, 234, 141, 214, 51, 197 ));
@@ -1143,6 +1172,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; zoomUnit : Windows.UI.Xaml.Automation.ZoomUnit
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IValueProvider : aliased constant Windows.IID := (545699751, 44046, 18385, (171, 155, 42, 100, 41, 42, 253, 248 ));
@@ -1169,6 +1199,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVirtualizedItemProvider : aliased constant Windows.IID := (399810635, 54872, 18656, (165, 116, 90, 81, 108, 88, 223, 167 ));
@@ -1180,6 +1211,7 @@ package Windows.UI.Xaml.Automation.Provider is
       This       : access IVirtualizedItemProvider_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWindowProvider : aliased constant Windows.IID := (464161597, 14543, 16730, (133, 211, 32, 228, 58, 14, 193, 177 ));
@@ -1248,11 +1280,13 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIRawElementProviderSimple : aliased constant Windows.IID := (3967099428, 39799, 18208, (187, 33, 74, 200, 159, 219, 26, 253 ));
    
    type IIRawElementProviderSimple_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomNavigationProvider : aliased constant Windows.IID := (735618768, 12195, 18199, (178, 140, 73, 23, 206, 84, 146, 141 ));
@@ -1266,6 +1300,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextEditProvider : aliased constant Windows.IID := (3929408948, 14853, 16398, (181, 249, 78, 145, 180, 15, 97, 118 ));
@@ -1285,6 +1320,7 @@ package Windows.UI.Xaml.Automation.Provider is
       ; RetVal : access Windows.UI.Xaml.Automation.Provider.ITextRangeProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

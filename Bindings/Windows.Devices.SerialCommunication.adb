@@ -28,7 +28,6 @@ package body Windows.Devices.SerialCommunication is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISerialDevice_Interface
@@ -72,7 +71,6 @@ package body Windows.Devices.SerialCommunication is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -80,7 +78,6 @@ package body Windows.Devices.SerialCommunication is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String is
@@ -159,5 +156,6 @@ package body Windows.Devices.SerialCommunication is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

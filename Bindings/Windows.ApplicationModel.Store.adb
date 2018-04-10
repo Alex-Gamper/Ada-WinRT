@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Store is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access LicenseChangedEventHandler_Interface
@@ -83,7 +82,6 @@ package body Windows.ApplicationModel.Store is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateProductPurchaseDisplayProperties return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties");
@@ -108,7 +106,6 @@ package body Windows.ApplicationModel.Store is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetAppPurchaseCampaignIdAsync
    return Windows.Foundation.IAsyncOperation_String is
@@ -755,5 +752,6 @@ package body Windows.ApplicationModel.Store is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

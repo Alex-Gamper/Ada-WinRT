@@ -90,6 +90,7 @@ package Windows.System.Profile.SystemManufacturers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemSupportInfoStatics : aliased constant Windows.IID := (4017424756, 50210, 17879, (164, 77, 92, 28, 0, 67, 162, 179 ));
@@ -109,6 +110,7 @@ package Windows.System.Profile.SystemManufacturers is
       ; RetVal : access Windows.System.Profile.SystemManufacturers.IOemSupportInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISmbiosInformationStatics : aliased constant Windows.IID := (135055996, 25468, 18628, (183, 40, 249, 39, 56, 18, 219, 142 ));
@@ -121,6 +123,7 @@ package Windows.System.Profile.SystemManufacturers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -131,7 +134,6 @@ package Windows.System.Profile.SystemManufacturers is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_LocalSystemEdition
    return Windows.String;
    
@@ -140,5 +142,6 @@ package Windows.System.Profile.SystemManufacturers is
    
    function get_SerialNumber
    return Windows.String;
+   
 
 end;

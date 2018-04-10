@@ -29,7 +29,6 @@ package body Windows.Data.Xml.Dom is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IXmlDocument_Interface
@@ -46,7 +45,6 @@ package body Windows.Data.Xml.Dom is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateXmlDocument return Windows.Data.Xml.Dom.IXmlDocument is
       Hr            : Windows.HResult := S_OK;
@@ -89,7 +87,6 @@ package body Windows.Data.Xml.Dom is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function LoadFromUriAsync
    (
@@ -172,5 +169,6 @@ package body Windows.Data.Xml.Dom is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -28,7 +28,6 @@ package body Windows.Devices.Enumeration.Pnp is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPnpObjectWatcher_add_Added_Interface
@@ -124,7 +123,6 @@ package body Windows.Devices.Enumeration.Pnp is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -132,7 +130,6 @@ package body Windows.Devices.Enumeration.Pnp is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateFromIdAsync
    (
@@ -241,5 +238,6 @@ package body Windows.Devices.Enumeration.Pnp is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

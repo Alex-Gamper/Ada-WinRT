@@ -111,6 +111,7 @@ package Windows.Devices is
       ; RetVal : access Windows.Devices.Spi.Provider.ISpiControllerProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILowLevelDevicesAggregateProviderFactory : aliased constant Windows.IID := (2596580086, 13427, 18014, (150, 213, 54, 40, 26, 44, 87, 175 ));
@@ -128,11 +129,13 @@ package Windows.Devices is
       ; RetVal : access Windows.Devices.ILowLevelDevicesAggregateProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILowLevelDevicesController : aliased constant Windows.IID := (784481748, 6043, 17886, (155, 57, 58, 224, 37, 39, 222, 82 ));
    
    type ILowLevelDevicesController_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ILowLevelDevicesControllerStatics : aliased constant Windows.IID := (155095658, 64715, 17300, (166, 151, 25, 222, 99, 124, 45, 179 ));
@@ -152,12 +155,12 @@ package Windows.Devices is
       ; value : Windows.Devices.ILowLevelDevicesAggregateProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype LowLevelDevicesAggregateProvider is Windows.Devices.ILowLevelDevicesAggregateProvider;
-   
    function Create
    (
       adc : Windows.Devices.Adc.Provider.IAdcControllerProvider
@@ -168,12 +171,12 @@ package Windows.Devices is
    )
    return Windows.Devices.ILowLevelDevicesAggregateProvider;
    
+   
    subtype LowLevelDevicesController is Windows.Devices.ILowLevelDevicesController;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_DefaultProvider
    return Windows.Devices.ILowLevelDevicesAggregateProvider;
@@ -183,5 +186,6 @@ package Windows.Devices is
       value : Windows.Devices.ILowLevelDevicesAggregateProvider
    )
    ;
+   
 
 end;

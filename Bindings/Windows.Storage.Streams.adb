@@ -29,7 +29,6 @@ package body Windows.Storage.Streams is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IRandomAccessStreamWithContentType_Interface
@@ -112,7 +111,6 @@ package body Windows.Storage.Streams is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateDataReader
    (
       inputStream : Windows.Storage.Streams.IInputStream
@@ -194,7 +192,6 @@ package body Windows.Storage.Streams is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromBuffer
    (
@@ -555,5 +552,6 @@ package body Windows.Storage.Streams is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

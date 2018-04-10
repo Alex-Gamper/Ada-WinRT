@@ -29,7 +29,6 @@ package body Windows.UI.Composition.Interactions is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -37,7 +36,6 @@ package body Windows.UI.Composition.Interactions is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -199,5 +197,6 @@ package body Windows.UI.Composition.Interactions is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

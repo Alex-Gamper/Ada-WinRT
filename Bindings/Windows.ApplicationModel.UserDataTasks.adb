@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.UserDataTasks is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUserDataTaskStore_Interface
@@ -97,7 +96,6 @@ package body Windows.ApplicationModel.UserDataTasks is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateUserDataTaskQueryOptions return Windows.ApplicationModel.UserDataTasks.IUserDataTaskQueryOptions is
       Hr            : Windows.HResult := S_OK;
@@ -175,7 +173,6 @@ package body Windows.ApplicationModel.UserDataTasks is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetDefault
    return Windows.ApplicationModel.UserDataTasks.IUserDataTaskManager is
       Hr            : Windows.HRESULT := S_OK;
@@ -212,5 +209,6 @@ package body Windows.ApplicationModel.UserDataTasks is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

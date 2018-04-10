@@ -31,7 +31,6 @@ package body Windows.ApplicationModel.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_AppRestartFailureReason_Interface
@@ -114,7 +113,6 @@ package body Windows.ApplicationModel.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -122,7 +120,6 @@ package body Windows.ApplicationModel.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateNewViewFromMainView
    return Windows.ApplicationModel.Core.ICoreApplicationView is
@@ -672,5 +669,6 @@ package body Windows.ApplicationModel.Core is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

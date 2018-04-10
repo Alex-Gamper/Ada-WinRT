@@ -27,7 +27,6 @@ package body Windows.ApplicationModel.Payments is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access PaymentRequestChangedHandler_Interface
@@ -83,7 +82,6 @@ package body Windows.ApplicationModel.Payments is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreatePaymentMerchantInfo return Windows.ApplicationModel.Payments.IPaymentMerchantInfo is
       Hr            : Windows.HResult := S_OK;

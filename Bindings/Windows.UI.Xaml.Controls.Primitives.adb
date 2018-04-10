@@ -35,7 +35,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access DragCompletedEventHandler_Interface
@@ -143,7 +142,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateScrollEventArgs return Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs is
       Hr            : Windows.HResult := S_OK;
@@ -3913,7 +3911,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetLayoutExceptionElement
    (
       dispatcher : Windows.Object
@@ -6404,5 +6401,6 @@ package body Windows.UI.Xaml.Controls.Primitives is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

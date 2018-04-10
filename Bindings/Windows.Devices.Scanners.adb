@@ -30,7 +30,6 @@ package body Windows.Devices.Scanners is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IImageScannerPreviewResult_Interface
@@ -61,7 +60,6 @@ package body Windows.Devices.Scanners is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -69,7 +67,6 @@ package body Windows.Devices.Scanners is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromIdAsync
    (
@@ -107,5 +104,6 @@ package body Windows.Devices.Scanners is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -210,6 +210,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailDataProviderConnection : aliased constant Windows.IID := (1000119751, 14258, 19440, (174, 48, 123, 100, 74, 28, 150, 225 ));
@@ -446,6 +447,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       This       : access IEmailDataProviderConnection_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxSyncManagerSyncRequest : aliased constant Windows.IID := (1309731044, 32359, 16474, (182, 115, 220, 96, 201, 16, 144, 252 ));
@@ -472,6 +474,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxDownloadMessageRequest : aliased constant Windows.IID := (1232814471, 23373, 19235, (129, 108, 243, 132, 43, 235, 117, 62 ));
@@ -505,6 +508,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxDownloadAttachmentRequest : aliased constant Windows.IID := (186497972, 29964, 18657, (188, 228, 141, 88, 150, 132, 255, 188 ));
@@ -545,6 +549,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxCreateFolderRequest : aliased constant Windows.IID := (407713653, 51489, 19513, (163, 9, 225, 108, 159, 34, 176, 75 ));
@@ -587,6 +592,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxDeleteFolderRequest : aliased constant Windows.IID := (2489968778, 43313, 18297, (146, 61, 9, 163, 234, 41, 46, 41 ));
@@ -621,6 +627,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxEmptyFolderRequest : aliased constant Windows.IID := (4266329003, 63597, 18137, (180, 206, 188, 138, 109, 158, 146, 104 ));
@@ -655,6 +662,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxMoveFolderRequest : aliased constant Windows.IID := (280635478, 19093, 16488, (145, 204, 103, 204, 122, 207, 69, 79 ));
@@ -702,6 +710,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxUpdateMeetingResponseRequest : aliased constant Windows.IID := (1536797843, 45775, 18568, (186, 79, 48, 107, 107, 102, 223, 48 ));
@@ -763,6 +772,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxForwardMeetingRequest : aliased constant Windows.IID := (1634560753, 28884, 18482, (184, 105, 184, 5, 66, 174, 155, 232 ));
@@ -831,6 +841,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxProposeNewTimeForMeetingRequest : aliased constant Windows.IID := (1525674322, 38809, 20383, (163, 153, 255, 7, 243, 238, 240, 78 ));
@@ -892,6 +903,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxSetAutoReplySettingsRequest : aliased constant Windows.IID := (1973691088, 43150, 20052, (141, 199, 194, 67, 24, 107, 119, 78 ));
@@ -925,6 +937,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxGetAutoReplySettingsRequest : aliased constant Windows.IID := (2604140425, 7816, 19969, (132, 204, 19, 134, 173, 154, 44, 47 ));
@@ -959,6 +972,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxResolveRecipientsRequest : aliased constant Windows.IID := (4020555632, 31545, 19611, (129, 30, 65, 234, 244, 58, 51, 45 ));
@@ -993,6 +1007,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxValidateCertificatesRequest : aliased constant Windows.IID := (2840410417, 57626, 20375, (184, 26, 24, 122, 112, 168, 244, 26 ));
@@ -1027,6 +1042,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxServerSearchReadBatchRequest : aliased constant Windows.IID := (151972831, 23190, 16851, (138, 216, 52, 145, 47, 154, 166, 14 ));
@@ -1090,6 +1106,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxSyncManagerSyncRequestEventArgs : aliased constant Windows.IID := (1134166810, 36812, 19173, (185, 181, 212, 52, 224, 166, 90, 168 ));
@@ -1109,6 +1126,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxDownloadMessageRequestEventArgs : aliased constant Windows.IID := (1191446957, 53408, 19035, (187, 42, 55, 98, 16, 57, 197, 62 ));
@@ -1128,6 +1146,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxDownloadAttachmentRequestEventArgs : aliased constant Windows.IID := (3437085805, 65448, 18551, (159, 157, 254, 215, 188, 175, 65, 4 ));
@@ -1147,6 +1166,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxCreateFolderRequestEventArgs : aliased constant Windows.IID := (65323052, 9244, 20137, (166, 143, 255, 32, 188, 90, 252, 133 ));
@@ -1166,6 +1186,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxDeleteFolderRequestEventArgs : aliased constant Windows.IID := (3033738502, 9010, 18040, (131, 120, 40, 181, 121, 51, 104, 70 ));
@@ -1185,6 +1206,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxEmptyFolderRequestEventArgs : aliased constant Windows.IID := (1904473220, 39002, 19136, (179, 63, 238, 14, 38, 39, 163, 192 ));
@@ -1204,6 +1226,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxMoveFolderRequestEventArgs : aliased constant Windows.IID := (945958944, 5306, 19592, (134, 152, 114, 57, 227, 200, 170, 167 ));
@@ -1223,6 +1246,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxUpdateMeetingResponseRequestEventArgs : aliased constant Windows.IID := (1754847073, 22217, 20247, (190, 49, 102, 253, 169, 75, 161, 89 ));
@@ -1242,6 +1266,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxForwardMeetingRequestEventArgs : aliased constant Windows.IID := (735638330, 10612, 18265, (165, 165, 88, 244, 77, 60, 2, 117 ));
@@ -1261,6 +1286,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxProposeNewTimeForMeetingRequestEventArgs : aliased constant Windows.IID := (4215802776, 13229, 19047, (130, 81, 15, 156, 36, 155, 106, 32 ));
@@ -1280,6 +1306,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxSetAutoReplySettingsRequestEventArgs : aliased constant Windows.IID := (165286317, 55242, 16519, (172, 134, 83, 250, 103, 247, 98, 70 ));
@@ -1299,6 +1326,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxGetAutoReplySettingsRequestEventArgs : aliased constant Windows.IID := (3617543618, 64837, 16388, (138, 145, 155, 172, 243, 139, 112, 34 ));
@@ -1318,6 +1346,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxResolveRecipientsRequestEventArgs : aliased constant Windows.IID := (638557698, 45775, 16632, (140, 40, 227, 237, 67, 177, 232, 154 ));
@@ -1337,6 +1366,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxValidateCertificatesRequestEventArgs : aliased constant Windows.IID := (629391127, 767, 18942, (167, 60, 3, 243, 117, 102, 198, 145 ));
@@ -1356,6 +1386,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailMailboxServerSearchReadBatchRequestEventArgs : aliased constant Windows.IID := (336599886, 60830, 17873, (173, 122, 204, 155, 127, 100, 58, 226 ));
@@ -1375,6 +1406,7 @@ package Windows.ApplicationModel.Email.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1384,7 +1416,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested : aliased constant Windows.IID := (3059729388, 38006, 20932, (186, 112, 21, 5, 215, 152, 38, 185 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface
@@ -1398,7 +1429,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested : aliased constant Windows.IID := (3786775343, 56789, 20825, (174, 154, 20, 168, 102, 145, 32, 149 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadMessageRequested_Interface
@@ -1412,7 +1442,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested : aliased constant Windows.IID := (3538493465, 47511, 23766, (143, 136, 77, 188, 111, 150, 159, 21 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_DownloadAttachmentRequested_Interface
@@ -1426,7 +1455,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested : aliased constant Windows.IID := (2357048621, 18798, 21529, (189, 120, 184, 182, 87, 207, 78, 102 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxCreateFolderRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_CreateFolderRequested_Interface
@@ -1440,7 +1468,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested : aliased constant Windows.IID := (3647121846, 48052, 23938, (132, 180, 143, 112, 59, 243, 8, 111 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDeleteFolderRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_DeleteFolderRequested_Interface
@@ -1454,7 +1481,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested : aliased constant Windows.IID := (2592414596, 48305, 20769, (171, 97, 62, 254, 86, 143, 104, 61 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_EmptyFolderRequested_Interface
@@ -1468,7 +1494,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested : aliased constant Windows.IID := (745272008, 17139, 21053, (128, 219, 23, 14, 79, 177, 86, 127 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_MoveFolderRequested_Interface
@@ -1482,7 +1507,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested : aliased constant Windows.IID := (846527485, 49418, 23344, (173, 234, 43, 75, 134, 11, 74, 13 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_UpdateMeetingResponseRequested_Interface
@@ -1496,7 +1520,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested : aliased constant Windows.IID := (2640970111, 23152, 23939, (166, 128, 210, 128, 103, 72, 202, 11 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxForwardMeetingRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_ForwardMeetingRequested_Interface
@@ -1510,7 +1533,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested : aliased constant Windows.IID := (815631326, 7776, 21067, (130, 140, 90, 61, 100, 166, 114, 170 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface
@@ -1524,7 +1546,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested : aliased constant Windows.IID := (2857340851, 1504, 21734, (175, 172, 162, 142, 133, 62, 117, 110 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_SetAutoReplySettingsRequested_Interface
@@ -1538,7 +1559,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested : aliased constant Windows.IID := (1484550034, 43369, 22451, (137, 95, 154, 6, 179, 101, 13, 58 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_GetAutoReplySettingsRequested_Interface
@@ -1552,7 +1572,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested : aliased constant Windows.IID := (3960792454, 58619, 24512, (145, 252, 147, 28, 225, 122, 63, 195 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxResolveRecipientsRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_ResolveRecipientsRequested_Interface
@@ -1566,7 +1585,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested : aliased constant Windows.IID := (3727042039, 57711, 20782, (168, 198, 183, 68, 85, 50, 188, 198 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_ValidateCertificatesRequested_Interface
@@ -1580,7 +1598,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    IID_TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested : aliased constant Windows.IID := (4173303911, 32017, 22176, (163, 3, 22, 52, 53, 193, 64, 22 ));
    
    type TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection ; args : Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_ServerSearchReadBatchRequested_Interface

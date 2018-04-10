@@ -29,7 +29,6 @@ package body Windows.Gaming.Input.Custom is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -37,7 +36,6 @@ package body Windows.Gaming.Input.Custom is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    procedure RegisterCustomFactoryForGipInterface
    (
@@ -118,5 +116,6 @@ package body Windows.Gaming.Input.Custom is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

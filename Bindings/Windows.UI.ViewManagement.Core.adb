@@ -27,7 +27,6 @@ package body Windows.UI.ViewManagement.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface
@@ -45,7 +44,6 @@ package body Windows.UI.ViewManagement.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -53,7 +51,6 @@ package body Windows.UI.ViewManagement.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.UI.ViewManagement.Core.ICoreInputView is
@@ -71,5 +68,6 @@ package body Windows.UI.ViewManagement.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

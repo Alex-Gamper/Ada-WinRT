@@ -30,7 +30,6 @@ package body Windows.Media.Casting is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICastingConnection_add_StateChanged_Interface
@@ -126,7 +125,6 @@ package body Windows.Media.Casting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateCastingDevicePicker return Windows.Media.Casting.ICastingDevicePicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Casting.CastingDevicePicker");
@@ -151,7 +149,6 @@ package body Windows.Media.Casting is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    (
@@ -232,5 +229,6 @@ package body Windows.Media.Casting is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

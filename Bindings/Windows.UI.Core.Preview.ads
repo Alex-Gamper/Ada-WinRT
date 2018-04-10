@@ -87,6 +87,7 @@ package Windows.UI.Core.Preview is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemNavigationManagerPreviewStatics : aliased constant Windows.IID := (244781920, 57204, 19406, (132, 203, 189, 17, 129, 172, 10, 113 ));
@@ -99,6 +100,7 @@ package Windows.UI.Core.Preview is
       ; RetVal : access Windows.UI.Core.Preview.ISystemNavigationManagerPreview
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemNavigationCloseRequestedPreviewEventArgs : aliased constant Windows.IID := (2211450337, 52197, 20273, (132, 20, 54, 29, 160, 70, 81, 143 ));
@@ -125,6 +127,7 @@ package Windows.UI.Core.Preview is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -134,7 +137,6 @@ package Windows.UI.Core.Preview is
    IID_EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs : aliased constant Windows.IID := (29139011, 19721, 23012, (177, 179, 162, 206, 36, 98, 158, 65 ));
    
    type EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs_Interface
@@ -154,8 +156,8 @@ package Windows.UI.Core.Preview is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.UI.Core.Preview.ISystemNavigationManagerPreview;
+   
 
 end;

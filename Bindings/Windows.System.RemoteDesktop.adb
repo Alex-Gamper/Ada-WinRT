@@ -27,7 +27,6 @@ package body Windows.System.RemoteDesktop is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.System.RemoteDesktop is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_IsRemote
    return Windows.Boolean is
@@ -53,5 +51,6 @@ package body Windows.System.RemoteDesktop is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

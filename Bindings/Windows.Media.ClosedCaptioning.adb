@@ -28,7 +28,6 @@ package body Windows.Media.ClosedCaptioning is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.Media.ClosedCaptioning is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_FontColor
    return Windows.Media.ClosedCaptioning.ClosedCaptionColor is
@@ -241,5 +239,6 @@ package body Windows.Media.ClosedCaptioning is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

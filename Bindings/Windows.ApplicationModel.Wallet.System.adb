@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.Wallet.System is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWalletItemSystemStore2_add_ItemsChanged_Interface
@@ -60,7 +59,6 @@ package body Windows.ApplicationModel.Wallet.System is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -68,7 +66,6 @@ package body Windows.ApplicationModel.Wallet.System is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RequestStoreAsync
    return Windows.ApplicationModel.Wallet.System.IAsyncOperation_IWalletItemSystemStore is
@@ -86,5 +83,6 @@ package body Windows.ApplicationModel.Wallet.System is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

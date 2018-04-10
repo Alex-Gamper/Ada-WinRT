@@ -33,7 +33,6 @@ package body Windows.Media is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMediaExtension_Interface
@@ -194,7 +193,6 @@ package body Windows.Media is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       format : Windows.Graphics.Imaging.BitmapPixelFormat
@@ -319,7 +317,6 @@ package body Windows.Media is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_Bookmark
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -370,5 +367,6 @@ package body Windows.Media is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

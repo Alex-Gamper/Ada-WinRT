@@ -235,6 +235,7 @@ package Windows.UI.Xaml.Data is
       ; trackedItems : Windows.UI.Xaml.Data.IVectorView_IItemIndexRange
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectionInfo : aliased constant Windows.IID := (772983430, 57837, 16965, (190, 73, 32, 126, 66, 174, 197, 36 ));
@@ -269,6 +270,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.IVectorView_IItemIndexRange -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomProperty : aliased constant Windows.IID := (819630784, 9192, 17056, (174, 124, 115, 74, 14, 93, 39, 130 ));
@@ -336,6 +338,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomPropertyProvider : aliased constant Windows.IID := (2089965397, 15944, 17076, (134, 119, 118, 55, 34, 103, 3, 63 ));
@@ -372,6 +375,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Interop.TypeName
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotifyPropertyChanged : aliased constant Windows.IID := (3480606364, 62196, 18539, (179, 2, 187, 76, 9, 186, 235, 250 ));
@@ -392,6 +396,7 @@ package Windows.UI.Xaml.Data is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISupportIncrementalLoading : aliased constant Windows.IID := (2136926610, 30356, 20076, (165, 27, 227, 75, 244, 61, 231, 67 ));
@@ -412,6 +417,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IValueConverter : aliased constant Windows.IID := (3874684656, 1810, 18559, (179, 19, 243, 0, 184, 215, 154, 161 ));
@@ -439,21 +445,25 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBindingExpressionBase : aliased constant Windows.IID := (4260180308, 59732, 20327, (143, 182, 110, 215, 155, 58, 28, 179 ));
    
    type IBindingExpressionBase_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IBindingExpressionBaseFactory : aliased constant Windows.IID := (3933279911, 49881, 17269, (180, 113, 102, 185, 196, 140, 121, 48 ));
    
    type IBindingExpressionBaseFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IBindingOperations : aliased constant Windows.IID := (1879037752, 38969, 16796, (161, 122, 75, 54, 4, 225, 82, 78 ));
    
    type IBindingOperations_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IBindingOperationsStatics : aliased constant Windows.IID := (3780505459, 38304, 19115, (140, 125, 42, 71, 218, 7, 60, 121 ));
@@ -468,6 +478,7 @@ package Windows.UI.Xaml.Data is
       ; binding : Windows.UI.Xaml.Data.IBindingBase
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICurrentChangingEventArgs : aliased constant Windows.IID := (4186512937, 20940, 18397, (165, 185, 53, 220, 73, 20, 175, 105 ));
@@ -494,6 +505,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICurrentChangingEventArgsFactory : aliased constant Windows.IID := (356237038, 25331, 18639, (129, 131, 139, 226, 109, 227, 166, 110 ));
@@ -518,6 +530,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.ICurrentChangingEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPropertyChangedEventArgs : aliased constant Windows.IID := (1328785824, 23796, 18340, (177, 111, 215, 250, 175, 23, 69, 126 ));
@@ -530,6 +543,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPropertyChangedEventArgsFactory : aliased constant Windows.IID := (1842125827, 57543, 20206, (142, 169, 55, 227, 64, 110, 235, 28 ));
@@ -545,11 +559,13 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.IPropertyChangedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBindingBase : aliased constant Windows.IID := (361341611, 15637, 18876, (164, 71, 138, 84, 72, 229, 136, 112 ));
    
    type IBindingBase_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IBindingBaseFactory : aliased constant Windows.IID := (584776762, 30465, 18022, (161, 186, 152, 89, 189, 207, 236, 52 ));
@@ -564,6 +580,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.IBindingBase
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBindingExpression : aliased constant Windows.IID := (1365907877, 49917, 19102, (159, 211, 154, 164, 47, 153, 90, 60 ));
@@ -589,11 +606,13 @@ package Windows.UI.Xaml.Data is
       This       : access IBindingExpression_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBindingExpressionFactory : aliased constant Windows.IID := (481647833, 56178, 16563, (162, 181, 36, 238, 110, 165, 195, 40 ));
    
    type IBindingExpressionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IRelativeSource : aliased constant Windows.IID := (597151364, 10274, 18490, (180, 153, 208, 240, 49, 224, 108, 107 ));
@@ -613,6 +632,7 @@ package Windows.UI.Xaml.Data is
       ; value : Windows.UI.Xaml.Data.RelativeSourceMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRelativeSourceFactory : aliased constant Windows.IID := (4018377421, 17518, 20371, (170, 203, 155, 18, 85, 87, 116, 96 ));
@@ -627,6 +647,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.IRelativeSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBinding : aliased constant Windows.IID := (1064963179, 53263, 18224, (140, 29, 72, 225, 108, 70, 249, 202 ));
@@ -744,6 +765,7 @@ package Windows.UI.Xaml.Data is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBindingFactory : aliased constant Windows.IID := (4282563336, 50078, 20350, (132, 52, 161, 86, 144, 131, 136, 60 ));
@@ -758,6 +780,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.IBinding
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBinding2 : aliased constant Windows.IID := (888762315, 1030, 18611, (158, 130, 243, 51, 236, 76, 105, 16 ));
@@ -805,6 +828,7 @@ package Windows.UI.Xaml.Data is
       ; value : Windows.UI.Xaml.Data.UpdateSourceTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICollectionView : aliased constant Windows.IID := (2347286500, 56303, 17631, (129, 38, 163, 26, 137, 18, 29, 220 ));
@@ -934,6 +958,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.IAsyncOperation_LoadMoreItemsResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICollectionViewFactory : aliased constant Windows.IID := (886352628, 36466, 18768, (145, 146, 236, 208, 125, 57, 157, 10 ));
@@ -946,6 +971,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.ICollectionView
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICollectionViewGroup : aliased constant Windows.IID := (2114042328, 55221, 18614, (179, 28, 91, 181, 189, 245, 240, 155 ));
@@ -965,6 +991,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.Foundation.IObservableVector_Object -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IItemIndexRange : aliased constant Windows.IID := (2209887422, 1411, 18982, (155, 100, 139, 244, 162, 246, 87, 4 ));
@@ -991,6 +1018,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IItemIndexRangeFactory : aliased constant Windows.IID := (2263008320, 11898, 19581, (166, 100, 232, 171, 240, 123, 252, 126 ));
@@ -1007,6 +1035,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.IItemIndexRange
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICollectionViewSource : aliased constant Windows.IID := (2791969094, 54011, 20141, (190, 159, 53, 120, 164, 102, 220, 254 ));
@@ -1061,6 +1090,7 @@ package Windows.UI.Xaml.Data is
       ; value : Windows.UI.Xaml.IPropertyPath
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICollectionViewSourceStatics : aliased constant Windows.IID := (389678864, 18095, 19468, (129, 139, 33, 182, 239, 129, 191, 101 ));
@@ -1094,6 +1124,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_LoadMoreItemsResult : aliased constant Windows.IID := (3347581085, 14251, 23458, (184, 101, 90, 48, 154, 205, 252, 77 ));
@@ -1120,6 +1151,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.LoadMoreItemsResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IItemIndexRange : aliased constant Windows.IID := (2619488806, 3201, 23030, (169, 9, 186, 73, 102, 180, 207, 36 ));
@@ -1154,6 +1186,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IItemIndexRange : aliased constant Windows.IID := (658210931, 35862, 22978, (166, 22, 10, 83, 68, 131, 198, 18 ));
@@ -1166,6 +1199,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UI.Xaml.Data.IIterator_IItemIndexRange
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IItemIndexRange : aliased constant Windows.IID := (3501353734, 5864, 22375, (166, 11, 238, 62, 50, 228, 61, 251 ));
@@ -1204,6 +1238,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1213,7 +1248,6 @@ package Windows.UI.Xaml.Data is
    IID_CurrentChangingEventHandler : aliased constant Windows.IID := (4085812664, 5023, 19918, (141, 201, 247, 241, 68, 77, 17, 133 ));
    
    type CurrentChangingEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Data.ICurrentChangingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_CurrentChangingEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access CurrentChangingEventHandler_Interface
@@ -1227,7 +1261,6 @@ package Windows.UI.Xaml.Data is
    IID_PropertyChangedEventHandler : aliased constant Windows.IID := (1358011414, 2594, 19854, (160, 137, 30, 169, 149, 22, 87, 210 ));
    
    type PropertyChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Data.IPropertyChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_PropertyChangedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access PropertyChangedEventHandler_Interface
@@ -1241,7 +1274,6 @@ package Windows.UI.Xaml.Data is
    IID_AsyncOperationCompletedHandler_LoadMoreItemsResult : aliased constant Windows.IID := (284914571, 42555, 20590, (158, 215, 46, 171, 55, 145, 82, 33 ));
    
    type AsyncOperationCompletedHandler_LoadMoreItemsResult_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Data.IAsyncOperation_LoadMoreItemsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_LoadMoreItemsResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_LoadMoreItemsResult_Interface
@@ -1308,7 +1340,6 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    function get_Cancel
    (
       This       : access ICurrentChangingEventArgs_Interface_Impl
@@ -1329,6 +1360,7 @@ package Windows.UI.Xaml.Data is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT;
+   
    
    subtype PropertyChangedEventArgs is Windows.UI.Xaml.Data.IPropertyChangedEventArgs;
    
@@ -1384,13 +1416,13 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    function get_PropertyName
    (
       This       : access IPropertyChangedEventArgs_Interface_Impl
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT;
+   
    
    subtype BindingExpressionBase is Windows.UI.Xaml.Data.IBindingExpressionBase;
    
@@ -1506,7 +1538,6 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    function get_Mode
    (
       This       : access IRelativeSource_Interface_Impl
@@ -1520,6 +1551,7 @@ package Windows.UI.Xaml.Data is
       ; value : Windows.UI.Xaml.Data.RelativeSourceMode
    )
    return Windows.HRESULT;
+   
    
    subtype Binding is Windows.UI.Xaml.Data.IBinding;
    
@@ -1574,7 +1606,6 @@ package Windows.UI.Xaml.Data is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    function get_Path
    (
@@ -1688,6 +1719,7 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
+   
    subtype ItemIndexRange is Windows.UI.Xaml.Data.IItemIndexRange;
    
    type IItemIndexRange_Interface_Impl is new IItemIndexRange_Interface with record
@@ -1742,7 +1774,6 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    function get_FirstIndex
    (
       This       : access IItemIndexRange_Interface_Impl
@@ -1764,6 +1795,7 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
+   
    subtype CollectionViewSource is Windows.UI.Xaml.Data.ICollectionViewSource;
    
    function CreateCollectionViewSource return Windows.UI.Xaml.Data.ICollectionViewSource;
@@ -1772,7 +1804,6 @@ package Windows.UI.Xaml.Data is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateInstance
    (
@@ -1846,5 +1877,6 @@ package Windows.UI.Xaml.Data is
    
    function get_ItemsPathProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
 
 end;

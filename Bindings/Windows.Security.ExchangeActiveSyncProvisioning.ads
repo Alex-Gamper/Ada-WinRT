@@ -349,6 +349,7 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEasClientDeviceInformation2 : aliased constant Windows.IID := (4289943843, 47910, 19818, (129, 188, 22, 90, 238, 10, 215, 84 ));
@@ -368,6 +369,7 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEasClientSecurityPolicy : aliased constant Windows.IID := (1169630050, 57274, 19099, (172, 237, 111, 226, 173, 203, 100, 32 ));
@@ -499,6 +501,7 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.IAsyncOperation_IEasComplianceResults -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEasComplianceResults : aliased constant Windows.IID := (1178347932, 32537, 19558, (180, 3, 203, 69, 221, 87, 162, 179 ));
@@ -567,6 +570,7 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEasComplianceResults2 : aliased constant Windows.IID := (801005769, 6824, 18421, (136, 187, 203, 62, 240, 191, 251, 21 ));
@@ -579,6 +583,7 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IEasComplianceResults : aliased constant Windows.IID := (4231689018, 32237, 24210, (165, 105, 180, 51, 137, 238, 136, 39 ));
@@ -605,6 +610,7 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
       ; RetVal : access Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -614,7 +620,6 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    IID_AsyncOperationCompletedHandler_IEasComplianceResults : aliased constant Windows.IID := (614732570, 60721, 24319, (151, 46, 117, 11, 149, 100, 4, 208 ));
    
    type AsyncOperationCompletedHandler_IEasComplianceResults_Interface(Callback : access procedure (asyncInfo : Windows.Security.ExchangeActiveSyncProvisioning.IAsyncOperation_IEasComplianceResults ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IEasComplianceResults'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IEasComplianceResults_Interface

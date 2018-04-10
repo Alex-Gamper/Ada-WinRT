@@ -631,6 +631,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.AlarmAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhoneTriggerFactory : aliased constant Windows.IID := (2698591450, 24513, 18683, (165, 70, 50, 38, 32, 64, 21, 123 ));
@@ -645,6 +646,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IPhoneTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISmartCardTriggerFactory : aliased constant Windows.IID := (1673483459, 35265, 19968, (169, 211, 151, 198, 41, 38, 157, 173 ));
@@ -658,6 +660,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.ISmartCardTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationTriggerDetails : aliased constant Windows.IID := (2547804850, 8729, 19102, (156, 94, 65, 208, 71, 247, 110, 130 ));
@@ -670,6 +673,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContentPrefetchTriggerFactory : aliased constant Windows.IID := (3261349594, 35331, 16542, (184, 196, 136, 129, 76, 40, 204, 182 ));
@@ -683,6 +687,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IContentPrefetchTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemTriggerFactory : aliased constant Windows.IID := (3892585428, 34705, 17785, (129, 38, 135, 236, 138, 170, 64, 122 ));
@@ -697,6 +702,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.ISystemTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemConditionFactory : aliased constant Windows.IID := (3530150385, 1447, 18862, (135, 215, 22, 178, 184, 185, 165, 83 ));
@@ -710,6 +716,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.ISystemCondition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INetworkOperatorNotificationTriggerFactory : aliased constant Windows.IID := (170016256, 10199, 17235, (173, 185, 146, 101, 170, 234, 87, 157 ));
@@ -723,6 +730,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.INetworkOperatorNotificationTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceManufacturerNotificationTriggerFactory : aliased constant Windows.IID := (2035670645, 9659, 16723, (161, 162, 48, 41, 252, 171, 182, 82 ));
@@ -737,6 +745,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICachedFileUpdaterTriggerDetails : aliased constant Windows.IID := (1904446483, 4884, 18356, (149, 151, 220, 126, 36, 140, 23, 204 ));
@@ -763,6 +772,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITimeTriggerFactory : aliased constant Windows.IID := (952533758, 39764, 17894, (178, 243, 38, 155, 135, 166, 247, 52 ));
@@ -777,6 +787,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.ITimeTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMaintenanceTriggerFactory : aliased constant Windows.IID := (1262345006, 38877, 17961, (136, 176, 176, 108, 249, 72, 42, 229 ));
@@ -791,6 +802,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IMaintenanceTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundExecutionManagerStatics : aliased constant Windows.IID := (3894864472, 26281, 19777, (131, 212, 180, 193, 140, 135, 184, 70 ));
@@ -839,6 +851,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.BackgroundAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskInstance : aliased constant Windows.IID := (2254166650, 8664, 17779, (143, 50, 146, 138, 27, 6, 65, 246 ));
@@ -908,6 +921,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundWorkCostStatics : aliased constant Windows.IID := (3342902882, 49936, 19330, (179, 227, 59, 207, 185, 228, 199, 125 ));
@@ -920,6 +934,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.BackgroundWorkCostValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskDeferral : aliased constant Windows.IID := (2479625581, 44839, 19923, (132, 110, 36, 238, 64, 202, 221, 37 ));
@@ -931,6 +946,7 @@ package Windows.ApplicationModel.Background is
       This       : access IBackgroundTaskDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskInstance2 : aliased constant Windows.IID := (1333592438, 3190, 20404, (137, 109, 93, 225, 134, 65, 34, 246 ));
@@ -944,6 +960,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskInstance4 : aliased constant Windows.IID := (2133455420, 43524, 19208, (151, 176, 6, 216, 116, 205, 171, 245 ));
@@ -956,6 +973,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTask : aliased constant Windows.IID := (2098451764, 64786, 17358, (140, 34, 234, 31, 241, 60, 6, 223 ));
@@ -968,6 +986,7 @@ package Windows.ApplicationModel.Background is
       ; taskInstance : Windows.ApplicationModel.Background.IBackgroundTaskInstance
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskRegistration : aliased constant Windows.IID := (275074242, 41582, 17343, (140, 18, 31, 180, 13, 191, 191, 160 ));
@@ -1024,6 +1043,7 @@ package Windows.ApplicationModel.Background is
       ; cancelTask : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskRegistration2 : aliased constant Windows.IID := (1631110915, 48006, 16658, (175, 195, 127, 147, 155, 22, 110, 59 ));
@@ -1036,11 +1056,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTrigger : aliased constant Windows.IID := (2226364504, 24615, 19335, (151, 144, 189, 243, 247, 87, 219, 215 ));
    
    type IBackgroundTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IPhoneTrigger : aliased constant Windows.IID := (2379213211, 54469, 18929, (183, 211, 130, 232, 122, 14, 157, 222 ));
@@ -1060,11 +1082,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Calls.Background.PhoneTriggerType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommunicationBlockingAppSetAsActiveTrigger : aliased constant Windows.IID := (4220646026, 5797, 18541, (151, 76, 120, 53, 168, 71, 123, 226 ));
    
    type ICommunicationBlockingAppSetAsActiveTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISmartCardTrigger : aliased constant Windows.IID := (4114335148, 33994, 18802, (140, 233, 229, 143, 151, 179, 122, 80 ));
@@ -1077,6 +1101,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Devices.SmartCards.SmartCardTriggerType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationTrigger : aliased constant Windows.IID := (189171248, 38260, 18732, (158, 147, 26, 58, 230, 51, 95, 233 ));
@@ -1097,6 +1122,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IAsyncOperation_ApplicationTriggerResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaProcessingTrigger : aliased constant Windows.IID := (2593504869, 35410, 19248, (144, 17, 207, 56, 4, 14, 168, 176 ));
@@ -1117,6 +1143,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IAsyncOperation_MediaProcessingTriggerResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContentPrefetchTrigger : aliased constant Windows.IID := (1896228846, 1274, 17419, (128, 192, 23, 50, 2, 25, 158, 93 ));
@@ -1129,11 +1156,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorAuthenticationTrigger : aliased constant Windows.IID := (4063752999, 20865, 20260, (150, 167, 112, 10, 78, 95, 172, 98 ));
    
    type ISecondaryAuthenticationFactorAuthenticationTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemTrigger : aliased constant Windows.IID := (494978934, 14152, 17507, (141, 126, 39, 109, 193, 57, 172, 28 ));
@@ -1153,6 +1182,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.SystemTriggerType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INetworkOperatorNotificationTrigger : aliased constant Windows.IID := (2416483526, 25549, 18444, (149, 209, 110, 106, 239, 128, 30, 74 ));
@@ -1165,6 +1195,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceManufacturerNotificationTrigger : aliased constant Windows.IID := (2166852277, 16811, 5850, (134, 194, 127, 123, 240, 145, 47, 91 ));
@@ -1184,11 +1215,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICachedFileUpdaterTrigger : aliased constant Windows.IID := (3793530603, 13042, 19761, (181, 83, 185, 224, 27, 222, 55, 224 ));
    
    type ICachedFileUpdaterTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ITimeTrigger : aliased constant Windows.IID := (1701729622, 2858, 17271, (186, 112, 59, 69, 169, 53, 84, 127 ));
@@ -1208,6 +1241,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMaintenanceTrigger : aliased constant Windows.IID := (1746422915, 64546, 19685, (132, 26, 114, 57, 169, 129, 0, 71 ));
@@ -1227,11 +1261,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentStoreNotificationTrigger : aliased constant Windows.IID := (1691616268, 49665, 17069, (170, 42, 226, 27, 163, 66, 91, 109 ));
    
    type IAppointmentStoreNotificationTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskRegistration3 : aliased constant Windows.IID := (4264788373, 37923, 19851, (131, 13, 177, 221, 44, 123, 173, 213 ));
@@ -1244,6 +1280,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskRegistrationStatics : aliased constant Windows.IID := (1280585577, 45056, 17082, (160, 147, 106, 86, 60, 101, 227, 248 ));
@@ -1256,6 +1293,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskRegistrationStatics2 : aliased constant Windows.IID := (390817566, 45581, 20393, (173, 154, 233, 58, 214, 199, 30, 1 ));
@@ -1276,6 +1314,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskBuilder : aliased constant Windows.IID := (55661838, 15972, 17778, (169, 58, 132, 7, 90, 55, 201, 23 ));
@@ -1330,11 +1369,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskRegistration
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundCondition : aliased constant Windows.IID := (2923995630, 35153, 16394, (131, 2, 156, 156, 154, 42, 58, 59 ));
    
    type IBackgroundCondition_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISystemCondition : aliased constant Windows.IID := (3244274806, 35269, 16907, (171, 211, 251, 48, 48, 71, 33, 40 ));
@@ -1347,6 +1388,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.SystemConditionType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskBuilder2 : aliased constant Windows.IID := (1793576881, 4175, 16493, (141, 182, 132, 74, 87, 15, 66, 187 ));
@@ -1366,6 +1408,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskBuilder3 : aliased constant Windows.IID := (684150602, 35753, 19465, (162, 79, 25, 104, 62, 44, 146, 76 ));
@@ -1385,6 +1428,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskBuilder4 : aliased constant Windows.IID := (1196811554, 52130, 20021, (189, 22, 166, 218, 127, 28, 25, 170 ));
@@ -1404,6 +1448,7 @@ package Windows.ApplicationModel.Background is
       ; value : Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskCompletedEventArgs : aliased constant Windows.IID := (1448945103, 61961, 18676, (153, 103, 43, 24, 79, 123, 251, 240 ));
@@ -1422,6 +1467,7 @@ package Windows.ApplicationModel.Background is
       This       : access IBackgroundTaskCompletedEventArgs_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskProgressEventArgs : aliased constant Windows.IID := (4212418732, 33586, 19722, (149, 50, 3, 234, 230, 132, 218, 49 ));
@@ -1441,6 +1487,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskRegistrationGroup : aliased constant Windows.IID := (716280218, 34587, 16743, (138, 118, 5, 92, 214, 123, 91, 35 ));
@@ -1482,6 +1529,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundTaskRegistrationGroupFactory : aliased constant Windows.IID := (2212047721, 17615, 17969, (151, 64, 3, 199, 216, 116, 27, 197 ));
@@ -1504,31 +1552,37 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageNotificationTrigger : aliased constant Windows.IID := (1362838463, 7488, 23645, (120, 245, 201, 35, 254, 227, 115, 158 ));
    
    type IChatMessageNotificationTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageReceivedNotificationTrigger : aliased constant Windows.IID := (1050899982, 47861, 16503, (136, 233, 6, 12, 246, 240, 198, 213 ));
    
    type IChatMessageReceivedNotificationTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsEndUserMessageAvailableTrigger : aliased constant Windows.IID := (2557283690, 45814, 18047, (169, 120, 164, 64, 145, 193, 26, 102 ));
    
    type IRcsEndUserMessageAvailableTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IContactStoreNotificationTrigger : aliased constant Windows.IID := (3358802331, 18181, 17777, (154, 22, 6, 185, 151, 191, 156, 150 ));
    
    type IContactStoreNotificationTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IEmailStoreNotificationTrigger : aliased constant Windows.IID := (2557282010, 18411, 17000, (164, 242, 243, 247, 113, 136, 56, 138 ));
    
    type IEmailStoreNotificationTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISmsMessageReceivedTriggerFactory : aliased constant Windows.IID := (3929725128, 27556, 19122, (141, 33, 188, 107, 9, 199, 117, 100 ));
@@ -1542,11 +1596,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibraryContentChangedTrigger : aliased constant Windows.IID := (372760743, 33436, 17852, (146, 155, 161, 231, 234, 120, 216, 155 ));
    
    type IStorageLibraryContentChangedTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageLibraryContentChangedTriggerStatics : aliased constant Windows.IID := (2141133625, 24464, 19986, (145, 78, 167, 216, 224, 187, 251, 24 ));
@@ -1568,6 +1624,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IStorageLibraryContentChangedTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceUseTrigger : aliased constant Windows.IID := (229015569, 13135, 19799, (182, 236, 109, 202, 100, 180, 18, 228 ));
@@ -1590,6 +1647,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IAsyncOperation_DeviceTriggerResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceServicingTrigger : aliased constant Windows.IID := (447879085, 28212, 18899, (158, 111, 23, 241, 182, 223, 168, 129 ));
@@ -1614,6 +1672,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IAsyncOperation_DeviceTriggerResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRfcommConnectionTrigger : aliased constant Windows.IID := (3905211106, 2899, 17508, (147, 148, 253, 135, 86, 84, 222, 100 ));
@@ -1675,6 +1734,7 @@ package Windows.ApplicationModel.Background is
       ; value : Windows.Networking.IHostName
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceConnectionChangeTrigger : aliased constant Windows.IID := (2424790628, 15581, 20219, (171, 28, 91, 59, 106, 96, 206, 52 ));
@@ -1708,6 +1768,7 @@ package Windows.ApplicationModel.Background is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceConnectionChangeTriggerStatics : aliased constant Windows.IID := (3286901866, 20221, 17560, (170, 96, 164, 228, 227, 177, 122, 185 ));
@@ -1721,6 +1782,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IAsyncOperation_IDeviceConnectionChangeTrigger -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattCharacteristicNotificationTriggerFactory : aliased constant Windows.IID := (1471814037, 45379, 17781, (159, 107, 253, 89, 217, 58, 206, 26 ));
@@ -1734,6 +1796,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattCharacteristicNotificationTriggerFactory2 : aliased constant Windows.IID := (1503193375, 35411, 20127, (163, 44, 35, 205, 51, 102, 76, 238 ));
@@ -1748,6 +1811,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattCharacteristicNotificationTrigger : aliased constant Windows.IID := (3797913544, 1686, 18255, (167, 50, 242, 146, 176, 206, 188, 93 ));
@@ -1760,6 +1824,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattCharacteristicNotificationTrigger2 : aliased constant Windows.IID := (2468520644, 44558, 17138, (178, 140, 245, 19, 114, 230, 146, 69 ));
@@ -1772,6 +1837,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattServiceProviderTriggerResult : aliased constant Windows.IID := (1011257777, 45464, 20100, (186, 212, 207, 74, 210, 153, 237, 58 ));
@@ -1791,6 +1857,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Devices.Bluetooth.BluetoothError
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattServiceProviderTriggerStatics : aliased constant Windows.IID := (3021185898, 58004, 17809, (165, 166, 100, 137, 26, 130, 129, 83 ));
@@ -1805,6 +1872,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IAsyncOperation_IGattServiceProviderTriggerResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGattServiceProviderTrigger : aliased constant Windows.IID := (3720782825, 5463, 19416, (133, 66, 70, 138, 160, 198, 150, 246 ));
@@ -1838,6 +1906,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEAdvertisementWatcherTrigger : aliased constant Windows.IID := (447420441, 48353, 18667, (168, 39, 89, 251, 124, 238, 82, 166 ));
@@ -1899,6 +1968,7 @@ package Windows.ApplicationModel.Background is
       ; value : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementFilter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEAdvertisementPublisherTrigger : aliased constant Windows.IID := (2872976914, 9683, 18606, (135, 36, 216, 24, 119, 174, 97, 41 ));
@@ -1911,11 +1981,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceWatcherTrigger : aliased constant Windows.IID := (2757853149, 34163, 16992, (190, 252, 91, 236, 137, 203, 105, 61 ));
    
    type IDeviceWatcherTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ILocationTrigger : aliased constant Windows.IID := (1197894172, 26743, 18462, (128, 38, 255, 126, 20, 168, 17, 160 ));
@@ -1928,6 +2000,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.LocationTriggerType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILocationTriggerFactory : aliased constant Windows.IID := (285653767, 65385, 19977, (170, 139, 19, 132, 234, 71, 94, 152 ));
@@ -1941,6 +2014,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.ILocationTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGeovisitTrigger : aliased constant Windows.IID := (1209593258, 1249, 16679, (154, 76, 25, 53, 27, 138, 128, 164 ));
@@ -1960,6 +2034,7 @@ package Windows.ApplicationModel.Background is
       ; value : Windows.Devices.Geolocation.VisitMonitoringScope
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IActivitySensorTrigger : aliased constant Windows.IID := (3504161602, 58235, 18467, (165, 254, 107, 49, 223, 239, 222, 176 ));
@@ -1993,6 +2068,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IActivitySensorTriggerFactory : aliased constant Windows.IID := (2804322755, 14391, 17655, (131, 27, 1, 50, 204, 135, 43, 195 ));
@@ -2006,11 +2082,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IActivitySensorTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISensorDataThresholdTrigger : aliased constant Windows.IID := (1539371890, 54411, 19327, (171, 236, 21, 249, 186, 204, 18, 226 ));
    
    type ISensorDataThresholdTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISensorDataThresholdTriggerFactory : aliased constant Windows.IID := (2451564149, 32240, 19875, (151, 179, 229, 68, 238, 133, 127, 230 ));
@@ -2024,11 +2102,13 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.ISensorDataThresholdTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INetworkOperatorHotspotAuthenticationTrigger : aliased constant Windows.IID := (3881224081, 12289, 19941, (131, 199, 222, 97, 216, 136, 49, 208 ));
    
    type INetworkOperatorHotspotAuthenticationTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISocketActivityTrigger : aliased constant Windows.IID := (2847668240, 40414, 20362, (131, 227, 176, 224, 231, 165, 13, 112 ));
@@ -2041,6 +2121,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPushNotificationTriggerFactory : aliased constant Windows.IID := (1842933019, 17806, 20418, (188, 46, 213, 102, 79, 119, 237, 25 ));
@@ -2054,6 +2135,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationHistoryChangedTriggerFactory : aliased constant Windows.IID := (2177301165, 34711, 18309, (129, 180, 176, 204, 203, 115, 209, 217 ));
@@ -2067,6 +2149,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToastNotificationActionTriggerFactory : aliased constant Windows.IID := (2963143719, 25728, 17225, (129, 37, 151, 179, 239, 170, 10, 58 ));
@@ -2080,6 +2163,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserNotificationChangedTriggerFactory : aliased constant Windows.IID := (3402908524, 27051, 19992, (164, 138, 94, 210, 172, 67, 89, 87 ));
@@ -2093,6 +2177,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastTriggerProviderInfo : aliased constant Windows.IID := (4061738285, 40424, 17440, (156, 226, 94, 255, 143, 23, 55, 107 ));
@@ -2182,6 +2267,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastTriggerFactory : aliased constant Windows.IID := (671850308, 8948, 17944, (160, 46, 231, 228, 17, 235, 114, 56 ));
@@ -2195,6 +2281,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IAppBroadcastTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastTrigger : aliased constant Windows.IID := (1960113302, 36151, 17644, (148, 129, 42, 11, 152, 84, 235, 72 ));
@@ -2214,6 +2301,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IAppBroadcastTriggerProviderInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_AlarmAccessStatus : aliased constant Windows.IID := (2774168701, 23030, 23734, (180, 57, 200, 170, 214, 112, 144, 92 ));
@@ -2240,6 +2328,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.AlarmAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_BackgroundAccessStatus : aliased constant Windows.IID := (2068112769, 53161, 22371, (190, 215, 106, 101, 115, 159, 13, 191 ));
@@ -2266,6 +2355,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.BackgroundAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ApplicationTriggerResult : aliased constant Windows.IID := (1204541829, 3848, 23101, (146, 207, 178, 121, 96, 80, 110, 214 ));
@@ -2292,6 +2382,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.ApplicationTriggerResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_MediaProcessingTriggerResult : aliased constant Windows.IID := (630540332, 7359, 22161, (163, 13, 33, 100, 144, 156, 103, 18 ));
@@ -2318,6 +2409,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.MediaProcessingTriggerResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_DeviceTriggerResult : aliased constant Windows.IID := (3037948998, 12078, 20765, (158, 142, 94, 244, 222, 203, 29, 167 ));
@@ -2344,6 +2436,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.DeviceTriggerResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IDeviceConnectionChangeTrigger : aliased constant Windows.IID := (2634105421, 22099, 23032, (186, 107, 208, 192, 119, 52, 109, 45 ));
@@ -2370,6 +2463,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IDeviceConnectionChangeTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IGattServiceProviderTriggerResult : aliased constant Windows.IID := (4093832351, 33970, 22467, (149, 67, 1, 251, 218, 5, 33, 155 ));
@@ -2396,6 +2490,7 @@ package Windows.ApplicationModel.Background is
       ; RetVal : access Windows.ApplicationModel.Background.IGattServiceProviderTriggerResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2405,7 +2500,6 @@ package Windows.ApplicationModel.Background is
    IID_BackgroundTaskCanceledEventHandler : aliased constant Windows.IID := (2797910720, 20984, 19543, (172, 63, 21, 109, 209, 104, 12, 79 ));
    
    type BackgroundTaskCanceledEventHandler_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Background.IBackgroundTaskInstance ; reason : Windows.ApplicationModel.Background.BackgroundTaskCancellationReason)) is new Windows.IMulticastDelegate_Interface(IID_BackgroundTaskCanceledEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access BackgroundTaskCanceledEventHandler_Interface
@@ -2419,7 +2513,6 @@ package Windows.ApplicationModel.Background is
    IID_BackgroundTaskProgressEventHandler : aliased constant Windows.IID := (1189111868, 35464, 19609, (128, 76, 118, 137, 127, 98, 119, 166 ));
    
    type BackgroundTaskProgressEventHandler_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Background.IBackgroundTaskRegistration ; args : Windows.ApplicationModel.Background.IBackgroundTaskProgressEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_BackgroundTaskProgressEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access BackgroundTaskProgressEventHandler_Interface
@@ -2433,7 +2526,6 @@ package Windows.ApplicationModel.Background is
    IID_BackgroundTaskCompletedEventHandler : aliased constant Windows.IID := (1530456361, 41094, 18087, (166, 120, 67, 145, 53, 130, 43, 207 ));
    
    type BackgroundTaskCompletedEventHandler_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Background.IBackgroundTaskRegistration ; args : Windows.ApplicationModel.Background.IBackgroundTaskCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_BackgroundTaskCompletedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access BackgroundTaskCompletedEventHandler_Interface
@@ -2447,7 +2539,6 @@ package Windows.ApplicationModel.Background is
    IID_AsyncOperationCompletedHandler_AlarmAccessStatus : aliased constant Windows.IID := (2215673879, 43239, 21577, (183, 19, 223, 72, 80, 58, 149, 62 ));
    
    type AsyncOperationCompletedHandler_AlarmAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_AlarmAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_AlarmAccessStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_AlarmAccessStatus_Interface
@@ -2461,7 +2552,6 @@ package Windows.ApplicationModel.Background is
    IID_AsyncOperationCompletedHandler_BackgroundAccessStatus : aliased constant Windows.IID := (652027619, 16199, 22281, (178, 242, 214, 208, 173, 50, 136, 240 ));
    
    type AsyncOperationCompletedHandler_BackgroundAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_BackgroundAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_BackgroundAccessStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_BackgroundAccessStatus_Interface
@@ -2475,7 +2565,6 @@ package Windows.ApplicationModel.Background is
    IID_AsyncOperationCompletedHandler_ApplicationTriggerResult : aliased constant Windows.IID := (3490078454, 61085, 22008, (172, 43, 83, 169, 31, 249, 109, 46 ));
    
    type AsyncOperationCompletedHandler_ApplicationTriggerResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_ApplicationTriggerResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ApplicationTriggerResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ApplicationTriggerResult_Interface
@@ -2489,7 +2578,6 @@ package Windows.ApplicationModel.Background is
    IID_AsyncOperationCompletedHandler_MediaProcessingTriggerResult : aliased constant Windows.IID := (940885669, 10961, 22645, (190, 213, 80, 49, 205, 31, 80, 162 ));
    
    type AsyncOperationCompletedHandler_MediaProcessingTriggerResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_MediaProcessingTriggerResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_MediaProcessingTriggerResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_MediaProcessingTriggerResult_Interface
@@ -2503,7 +2591,6 @@ package Windows.ApplicationModel.Background is
    IID_TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated : aliased constant Windows.IID := (3573061480, 26767, 23020, (191, 36, 194, 175, 106, 49, 15, 164 ));
    
    type TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup ; args : Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBackgroundTaskRegistrationGroup_add_BackgroundActivated_Interface
@@ -2517,7 +2604,6 @@ package Windows.ApplicationModel.Background is
    IID_AsyncOperationCompletedHandler_DeviceTriggerResult : aliased constant Windows.IID := (3584726278, 5220, 22484, (133, 157, 126, 233, 178, 108, 177, 249 ));
    
    type AsyncOperationCompletedHandler_DeviceTriggerResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_DeviceTriggerResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DeviceTriggerResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_DeviceTriggerResult_Interface
@@ -2531,7 +2617,6 @@ package Windows.ApplicationModel.Background is
    IID_AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger : aliased constant Windows.IID := (1070966142, 18404, 22817, (177, 72, 92, 181, 134, 22, 108, 168 ));
    
    type AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_IDeviceConnectionChangeTrigger ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDeviceConnectionChangeTrigger_Interface
@@ -2545,7 +2630,6 @@ package Windows.ApplicationModel.Background is
    IID_AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult : aliased constant Windows.IID := (970461279, 42245, 24456, (145, 169, 176, 252, 109, 98, 134, 153 ));
    
    type AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Background.IAsyncOperation_IGattServiceProviderTriggerResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGattServiceProviderTriggerResult_Interface
@@ -2559,7 +2643,6 @@ package Windows.ApplicationModel.Background is
    ------------------------------------------------------------------------
    
    subtype PhoneTrigger is Windows.ApplicationModel.Background.IPhoneTrigger;
-   
    function Create
    (
       type_x : Windows.ApplicationModel.Calls.Background.PhoneTriggerType
@@ -2567,17 +2650,18 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IPhoneTrigger;
    
+   
    subtype CommunicationBlockingAppSetAsActiveTrigger is Windows.ApplicationModel.Background.ICommunicationBlockingAppSetAsActiveTrigger;
    
    function CreateCommunicationBlockingAppSetAsActiveTrigger return Windows.ApplicationModel.Background.ICommunicationBlockingAppSetAsActiveTrigger;
    
    subtype SmartCardTrigger is Windows.ApplicationModel.Background.ISmartCardTrigger;
-   
    function Create
    (
       triggerType : Windows.Devices.SmartCards.SmartCardTriggerType
    )
    return Windows.ApplicationModel.Background.ISmartCardTrigger;
+   
    
    subtype ApplicationTrigger is Windows.ApplicationModel.Background.IApplicationTrigger;
    
@@ -2597,7 +2681,6 @@ package Windows.ApplicationModel.Background is
    function CreateSecondaryAuthenticationFactorAuthenticationTrigger return Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger;
    
    subtype SystemTrigger is Windows.ApplicationModel.Background.ISystemTrigger;
-   
    function Create
    (
       triggerType : Windows.ApplicationModel.Background.SystemTriggerType
@@ -2605,24 +2688,24 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.ISystemTrigger;
    
-   subtype SystemCondition is Windows.ApplicationModel.Background.ISystemCondition;
    
+   subtype SystemCondition is Windows.ApplicationModel.Background.ISystemCondition;
    function Create
    (
       conditionType : Windows.ApplicationModel.Background.SystemConditionType
    )
    return Windows.ApplicationModel.Background.ISystemCondition;
    
-   subtype NetworkOperatorNotificationTrigger is Windows.ApplicationModel.Background.INetworkOperatorNotificationTrigger;
    
+   subtype NetworkOperatorNotificationTrigger is Windows.ApplicationModel.Background.INetworkOperatorNotificationTrigger;
    function Create
    (
       networkAccountId : Windows.String
    )
    return Windows.ApplicationModel.Background.INetworkOperatorNotificationTrigger;
    
-   subtype DeviceManufacturerNotificationTrigger is Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTrigger;
    
+   subtype DeviceManufacturerNotificationTrigger is Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTrigger;
    function Create
    (
       triggerQualifier : Windows.String
@@ -2630,13 +2713,13 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTrigger;
    
+   
    subtype CachedFileUpdaterTriggerDetails is Windows.ApplicationModel.Background.ICachedFileUpdaterTriggerDetails;
    subtype CachedFileUpdaterTrigger is Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger;
    
    function CreateCachedFileUpdaterTrigger return Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger;
    
    subtype TimeTrigger is Windows.ApplicationModel.Background.ITimeTrigger;
-   
    function Create
    (
       freshnessTime : Windows.UInt32
@@ -2644,14 +2727,15 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.ITimeTrigger;
    
-   subtype MaintenanceTrigger is Windows.ApplicationModel.Background.IMaintenanceTrigger;
    
+   subtype MaintenanceTrigger is Windows.ApplicationModel.Background.IMaintenanceTrigger;
    function Create
    (
       freshnessTime : Windows.UInt32
       ; oneShot : Windows.Boolean
    )
    return Windows.ApplicationModel.Background.IMaintenanceTrigger;
+   
    
    subtype AppointmentStoreNotificationTrigger is Windows.ApplicationModel.Background.IAppointmentStoreNotificationTrigger;
    
@@ -2662,7 +2746,6 @@ package Windows.ApplicationModel.Background is
    subtype BackgroundTaskProgressEventArgs is Windows.ApplicationModel.Background.IBackgroundTaskProgressEventArgs;
    subtype BackgroundTaskCompletedEventArgs is Windows.ApplicationModel.Background.IBackgroundTaskCompletedEventArgs;
    subtype BackgroundTaskRegistrationGroup is Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup;
-   
    function Create
    (
       id : Windows.String
@@ -2675,6 +2758,7 @@ package Windows.ApplicationModel.Background is
       ; name : Windows.String
    )
    return Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup;
+   
    
    subtype BackgroundTaskBuilder is Windows.ApplicationModel.Background.IBackgroundTaskBuilder;
    
@@ -2717,12 +2801,12 @@ package Windows.ApplicationModel.Background is
    function CreateMobileBroadbandDeviceServiceNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype SmsMessageReceivedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function Create
    (
       filterRules : Windows.Devices.Sms.ISmsFilterRules
    )
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
    
    subtype StorageLibraryContentChangedTrigger is Windows.ApplicationModel.Background.IStorageLibraryContentChangedTrigger;
    subtype PaymentAppCanMakePaymentTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
@@ -2743,13 +2827,13 @@ package Windows.ApplicationModel.Background is
    
    subtype DeviceConnectionChangeTrigger is Windows.ApplicationModel.Background.IDeviceConnectionChangeTrigger;
    subtype GattCharacteristicNotificationTrigger is Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger;
-   
    function CreateWithEventTriggeringMode
    (
       characteristic : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
       ; eventTriggeringMode : Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode
    )
    return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger;
+   
    
    subtype GattServiceProviderTrigger is Windows.ApplicationModel.Background.IGattServiceProviderTrigger;
    subtype GattServiceProviderTriggerResult is Windows.ApplicationModel.Background.IGattServiceProviderTriggerResult;
@@ -2763,32 +2847,32 @@ package Windows.ApplicationModel.Background is
    
    subtype DeviceWatcherTrigger is Windows.ApplicationModel.Background.IDeviceWatcherTrigger;
    subtype LocationTrigger is Windows.ApplicationModel.Background.ILocationTrigger;
-   
    function Create
    (
       triggerType : Windows.ApplicationModel.Background.LocationTriggerType
    )
    return Windows.ApplicationModel.Background.ILocationTrigger;
    
+   
    subtype GeovisitTrigger is Windows.ApplicationModel.Background.IGeovisitTrigger;
    
    function CreateGeovisitTrigger return Windows.ApplicationModel.Background.IGeovisitTrigger;
    
    subtype ActivitySensorTrigger is Windows.ApplicationModel.Background.IActivitySensorTrigger;
-   
    function Create
    (
       reportIntervalInMilliseconds : Windows.UInt32
    )
    return Windows.ApplicationModel.Background.IActivitySensorTrigger;
    
-   subtype SensorDataThresholdTrigger is Windows.ApplicationModel.Background.ISensorDataThresholdTrigger;
    
+   subtype SensorDataThresholdTrigger is Windows.ApplicationModel.Background.ISensorDataThresholdTrigger;
    function Create
    (
       threshold : Windows.Devices.Sensors.ISensorDataThreshold
    )
    return Windows.ApplicationModel.Background.ISensorDataThresholdTrigger;
+   
    
    subtype NetworkOperatorHotspotAuthenticationTrigger is Windows.ApplicationModel.Background.INetworkOperatorHotspotAuthenticationTrigger;
    
@@ -2803,28 +2887,27 @@ package Windows.ApplicationModel.Background is
    function CreatePushNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype ToastNotificationHistoryChangedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function Create
    (
       applicationId : Windows.String
    )
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
+   
    subtype ToastNotificationActionTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    function CreateToastNotificationActionTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype UserNotificationChangedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function Create
    (
       notificationKinds : Windows.UI.Notifications.NotificationKinds
    )
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
+   
    subtype AppBroadcastTriggerProviderInfo is Windows.ApplicationModel.Background.IAppBroadcastTriggerProviderInfo;
    subtype AppBroadcastTrigger is Windows.ApplicationModel.Background.IAppBroadcastTrigger;
-   
    function CreateAppBroadcastTrigger
    (
       providerKey : Windows.String
@@ -2832,10 +2915,10 @@ package Windows.ApplicationModel.Background is
    return Windows.ApplicationModel.Background.IAppBroadcastTrigger;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RequestAccessAsync
    return Windows.ApplicationModel.Background.IAsyncOperation_AlarmAccessStatus;
@@ -2909,5 +2992,6 @@ package Windows.ApplicationModel.Background is
       ; serviceUuid : Windows.Guid
    )
    return Windows.ApplicationModel.Background.IAsyncOperation_IGattServiceProviderTriggerResult;
+   
 
 end;

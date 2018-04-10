@@ -599,6 +599,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageTransport2 : aliased constant Windows.IID := (2426885666, 55370, 19490, (169, 77, 84, 68, 68, 237, 200, 161 ));
@@ -618,6 +619,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.ChatMessageTransportKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageTransportConfiguration : aliased constant Windows.IID := (2275407653, 6664, 19146, (160, 117, 51, 85, 18, 99, 18, 230 ));
@@ -658,6 +660,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageChange : aliased constant Windows.IID := (471384917, 16926, 21688, (109, 56, 107, 58, 108, 130, 252, 204 ));
@@ -677,6 +680,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageChangeReader : aliased constant Windows.IID := (338063392, 10446, 24358, (123, 5, 154, 92, 124, 206, 135, 202 ));
@@ -702,6 +706,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageChangeTracker : aliased constant Windows.IID := (1622667366, 28832, 21028, (80, 140, 36, 46, 247, 193, 208, 111 ));
@@ -726,6 +731,7 @@ package Windows.ApplicationModel.Chat is
       This       : access IChatMessageChangeTracker_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageValidationResult : aliased constant Windows.IID := (636041731, 10476, 22665, (86, 155, 126, 72, 107, 18, 111, 24 ));
@@ -759,6 +765,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.ChatMessageValidationStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessage : aliased constant Windows.IID := (1262028074, 4418, 20617, (118, 218, 242, 219, 61, 23, 205, 5 ));
@@ -883,6 +890,7 @@ package Windows.ApplicationModel.Chat is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessage3 : aliased constant Windows.IID := (1961570224, 15271, 17823, (142, 11, 232, 175, 15, 235, 217, 173 ));
@@ -895,6 +903,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessage2 : aliased constant Windows.IID := (2254865202, 21567, 18933, (172, 113, 108, 42, 252, 101, 101, 253 ));
@@ -1096,6 +1105,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IVector_IChatRecipientDeliveryInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessage4 : aliased constant Windows.IID := (756304655, 53951, 17932, (170, 104, 109, 63, 132, 131, 201, 191 ));
@@ -1115,6 +1125,7 @@ package Windows.ApplicationModel.Chat is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatQueryOptions : aliased constant Windows.IID := (802383014, 48950, 17143, (183, 231, 146, 60, 10, 171, 254, 22 ));
@@ -1134,6 +1145,7 @@ package Windows.ApplicationModel.Chat is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageStore : aliased constant Windows.IID := (838008065, 52470, 22539, (73, 118, 10, 7, 221, 93, 59, 71 ));
@@ -1232,6 +1244,7 @@ package Windows.ApplicationModel.Chat is
       ; value : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageStore2 : aliased constant Windows.IID := (2907555054, 15060, 18715, (179, 17, 171, 223, 155, 178, 39, 104 ));
@@ -1372,6 +1385,7 @@ package Windows.ApplicationModel.Chat is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageStore3 : aliased constant Windows.IID := (2598091529, 17221, 20161, (139, 116, 183, 51, 130, 67, 113, 156 ));
@@ -1385,6 +1399,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessage -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageStoreChangedEventArgs : aliased constant Windows.IID := (1707503532, 65164, 18132, (145, 25, 87, 184, 65, 3, 17, 213 ));
@@ -1404,6 +1419,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.ChatStoreChangedEventKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageChangedEventArgs : aliased constant Windows.IID := (3065462317, 26908, 20191, (134, 96, 110, 185, 137, 104, 146, 227 ));
@@ -1416,6 +1432,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatMessageChangedDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageChangedDeferral : aliased constant Windows.IID := (4224103180, 30860, 19916, (172, 231, 98, 130, 56, 41, 104, 207 ));
@@ -1427,6 +1444,7 @@ package Windows.ApplicationModel.Chat is
       This       : access IChatMessageChangedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageBlockingStatic : aliased constant Windows.IID := (4139361152, 52714, 4580, (136, 48, 8, 0, 32, 12, 154, 102 ));
@@ -1441,6 +1459,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageManagerStatic : aliased constant Windows.IID := (4049363191, 54760, 24210, (85, 109, 224, 59, 96, 37, 49, 4 ));
@@ -1474,6 +1493,7 @@ package Windows.ApplicationModel.Chat is
       This       : access IChatMessageManagerStatic_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageManager2Statics : aliased constant Windows.IID := (491075855, 40783, 20021, (150, 78, 27, 156, 166, 26, 192, 68 ));
@@ -1494,6 +1514,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessageTransport -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageManagerStatics3 : aliased constant Windows.IID := (546013965, 26453, 18636, (154, 179, 253, 3, 196, 99, 252, 146 ));
@@ -1506,6 +1527,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageReader : aliased constant Windows.IID := (3068819662, 17545, 22265, (118, 170, 226, 4, 104, 37, 20, 207 ));
@@ -1518,6 +1540,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageReader2 : aliased constant Windows.IID := (2305046147, 25787, 18189, (157, 244, 13, 232, 190, 26, 5, 191 ));
@@ -1531,6 +1554,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatSearchReader : aliased constant Windows.IID := (1181089353, 36896, 18258, (152, 13, 57, 97, 35, 37, 245, 137 ));
@@ -1551,6 +1575,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatItem : aliased constant Windows.IID := (2270285824, 52913, 16963, (184, 3, 21, 212, 90, 29, 212, 40 ));
@@ -1563,6 +1588,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.ChatItemKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageAttachment : aliased constant Windows.IID := (3351575924, 48995, 22763, (80, 140, 139, 134, 63, 241, 107, 103 ));
@@ -1624,6 +1650,7 @@ package Windows.ApplicationModel.Chat is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageAttachment2 : aliased constant Windows.IID := (1591317104, 32209, 19079, (168, 206, 172, 221, 135, 216, 13, 200 ));
@@ -1671,6 +1698,7 @@ package Windows.ApplicationModel.Chat is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageAttachmentFactory : aliased constant Windows.IID := (542659234, 41814, 23409, (108, 169, 102, 201, 133, 183, 208, 213 ));
@@ -1685,6 +1713,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatMessageAttachment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageNotificationTriggerDetails : aliased constant Windows.IID := (4248063483, 12387, 19991, (133, 134, 198, 192, 130, 98, 230, 192 ));
@@ -1697,6 +1726,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatMessageNotificationTriggerDetails2 : aliased constant Windows.IID := (1807033056, 43527, 20433, (148, 113, 119, 147, 79, 183, 94, 230 ));
@@ -1730,6 +1760,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatCapabilities : aliased constant Windows.IID := (989820860, 14793, 19921, (173, 45, 57, 100, 221, 157, 64, 63 ));
@@ -1770,6 +1801,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatCapabilitiesManagerStatics : aliased constant Windows.IID := (3044683568, 28737, 17806, (176, 207, 124, 13, 159, 234, 51, 58 ));
@@ -1791,6 +1823,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatRecipientDeliveryInfo : aliased constant Windows.IID := (4291277474, 10300, 19466, (138, 14, 140, 51, 189, 191, 5, 69 ));
@@ -1873,6 +1906,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.ChatMessageStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatConversationThreadingInfo : aliased constant Windows.IID := (857481692, 31239, 17442, (163, 44, 36, 190, 124, 109, 171, 36 ));
@@ -1941,6 +1975,7 @@ package Windows.ApplicationModel.Chat is
       ; value : Windows.ApplicationModel.Chat.ChatConversationThreadingKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatConversationReader : aliased constant Windows.IID := (89208530, 56882, 19015, (169, 58, 179, 220, 8, 51, 133, 43 ));
@@ -1961,6 +1996,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatConversation : aliased constant Windows.IID := (2777417741, 6767, 18140, (143, 61, 245, 2, 134, 96, 182, 238 ));
@@ -2098,6 +2134,7 @@ package Windows.ApplicationModel.Chat is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatConversation2 : aliased constant Windows.IID := (167972049, 38970, 18346, (154, 144, 238, 72, 238, 153, 123, 89 ));
@@ -2117,6 +2154,7 @@ package Windows.ApplicationModel.Chat is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRemoteParticipantComposingChangedEventArgs : aliased constant Windows.IID := (515917223, 53193, 17865, (152, 118, 68, 159, 43, 193, 128, 245 ));
@@ -2143,6 +2181,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatSyncManager : aliased constant Windows.IID := (2074422371, 9808, 18543, (180, 180, 107, 217, 211, 214, 60, 132 ));
@@ -2192,6 +2231,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChatSyncConfiguration : aliased constant Windows.IID := (167274930, 27124, 19199, (130, 182, 6, 153, 47, 244, 2, 210 ));
@@ -2225,6 +2265,7 @@ package Windows.ApplicationModel.Chat is
       ; value : Windows.ApplicationModel.Chat.ChatRestoreHistorySpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsServiceKindSupportedChangedEventArgs : aliased constant Windows.IID := (4101939780, 59267, 18534, (179, 167, 78, 92, 207, 2, 48, 112 ));
@@ -2237,6 +2278,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.RcsServiceKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsManagerStatics : aliased constant Windows.IID := (2099710661, 2749, 20273, (155, 153, 165, 158, 113, 167, 183, 49 ));
@@ -2272,6 +2314,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsTransport : aliased constant Windows.IID := (4272113497, 62332, 17177, (133, 70, 236, 132, 210, 29, 48, 255 ));
@@ -2343,6 +2386,7 @@ package Windows.ApplicationModel.Chat is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsTransportConfiguration : aliased constant Windows.IID := (533508354, 9330, 19385, (153, 136, 193, 33, 28, 131, 232, 169 ));
@@ -2390,6 +2434,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsEndUserMessageManager : aliased constant Windows.IID := (810856026, 19743, 19289, (148, 51, 18, 108, 115, 78, 134, 166 ));
@@ -2410,6 +2455,7 @@ package Windows.ApplicationModel.Chat is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsEndUserMessageAction : aliased constant Windows.IID := (2453112631, 39746, 18131, (157, 94, 60, 27, 45, 174, 124, 184 ));
@@ -2422,6 +2468,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsEndUserMessage : aliased constant Windows.IID := (3620578795, 52183, 20283, (133, 38, 181, 6, 222, 195, 92, 83 ));
@@ -2479,6 +2526,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsEndUserMessageAvailableEventArgs : aliased constant Windows.IID := (759541249, 16265, 16874, (151, 2, 158, 158, 212, 17, 170, 152 ));
@@ -2498,6 +2546,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IRcsEndUserMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRcsEndUserMessageAvailableTriggerDetails : aliased constant Windows.IID := (1536652333, 13599, 18066, (180, 30, 27, 3, 93, 193, 137, 134 ));
@@ -2517,6 +2566,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IChatMessageAttachment : aliased constant Windows.IID := (3157784741, 52577, 20564, (168, 151, 109, 64, 43, 86, 181, 139 ));
@@ -2551,6 +2601,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IChatMessageAttachment : aliased constant Windows.IID := (2317235884, 5046, 22396, (155, 67, 61, 36, 164, 83, 248, 102 ));
@@ -2563,6 +2614,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IIterator_IChatMessageAttachment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IChatMessageAttachment : aliased constant Windows.IID := (1358283659, 29855, 23542, (149, 96, 17, 169, 135, 111, 32, 209 ));
@@ -2601,6 +2653,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IChatMessageAttachment : aliased constant Windows.IID := (2904631281, 12822, 22779, (129, 84, 178, 65, 166, 11, 66, 82 ));
@@ -2695,6 +2748,7 @@ package Windows.ApplicationModel.Chat is
       ; items : Windows.ApplicationModel.Chat.IChatMessageAttachment_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IChatRecipientDeliveryInfo : aliased constant Windows.IID := (981143352, 60631, 22008, (165, 197, 224, 61, 67, 163, 151, 142 ));
@@ -2729,6 +2783,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IChatRecipientDeliveryInfo : aliased constant Windows.IID := (3822564428, 18473, 22043, (161, 94, 167, 69, 229, 173, 246, 209 ));
@@ -2741,6 +2796,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IIterator_IChatRecipientDeliveryInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IChatRecipientDeliveryInfo : aliased constant Windows.IID := (2023227347, 32134, 23689, (187, 226, 202, 112, 141, 26, 51, 152 ));
@@ -2779,6 +2835,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IChatRecipientDeliveryInfo : aliased constant Windows.IID := (342098785, 16269, 22022, (143, 203, 151, 50, 8, 183, 109, 114 ));
@@ -2873,6 +2930,7 @@ package Windows.ApplicationModel.Chat is
       ; items : Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IChatMessage : aliased constant Windows.IID := (3994197026, 55951, 23637, (144, 182, 167, 59, 172, 201, 215, 53 ));
@@ -2899,6 +2957,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IChatConversation : aliased constant Windows.IID := (3302548500, 3668, 23263, (136, 195, 229, 109, 78, 136, 181, 212 ));
@@ -2925,6 +2984,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatConversation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IChatMessageStore : aliased constant Windows.IID := (425993221, 3590, 20761, (154, 197, 22, 207, 209, 6, 179, 55 ));
@@ -2951,6 +3011,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatMessageStore
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IChatMessageTransport : aliased constant Windows.IID := (660502677, 14990, 20853, (183, 111, 33, 210, 224, 69, 189, 47 ));
@@ -2977,6 +3038,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatMessageTransport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IChatSyncManager : aliased constant Windows.IID := (2758179434, 7268, 20982, (151, 46, 161, 5, 7, 25, 248, 234 ));
@@ -3003,6 +3065,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatSyncManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IChatCapabilities : aliased constant Windows.IID := (814256181, 50823, 22331, (134, 228, 2, 78, 56, 242, 170, 109 ));
@@ -3029,6 +3092,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IChatCapabilities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IRcsTransport : aliased constant Windows.IID := (4169626856, 38500, 24053, (171, 189, 198, 69, 86, 210, 80, 98 ));
@@ -3055,6 +3119,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IRcsTransport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IRcsEndUserMessageAction : aliased constant Windows.IID := (1973649204, 55421, 21852, (142, 100, 161, 234, 72, 163, 221, 32 ));
@@ -3089,6 +3154,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IRcsEndUserMessageAction : aliased constant Windows.IID := (3067222613, 18206, 23077, (172, 221, 119, 132, 247, 180, 215, 186 ));
@@ -3101,6 +3167,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.ApplicationModel.Chat.IIterator_IRcsEndUserMessageAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IRcsEndUserMessageAction : aliased constant Windows.IID := (2517099383, 59507, 20625, (158, 50, 134, 149, 232, 245, 14, 122 ));
@@ -3139,6 +3206,7 @@ package Windows.ApplicationModel.Chat is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -3148,7 +3216,6 @@ package Windows.ApplicationModel.Chat is
    IID_AsyncOperationCompletedHandler_IChatMessage : aliased constant Windows.IID := (654634476, 157, 23227, (167, 24, 118, 119, 24, 21, 141, 136 ));
    
    type AsyncOperationCompletedHandler_IChatMessage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IChatMessage'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatMessage_Interface
@@ -3162,7 +3229,6 @@ package Windows.ApplicationModel.Chat is
    IID_TypedEventHandler_IChatMessageStore_add_MessageChanged : aliased constant Windows.IID := (709809105, 3329, 20787, (185, 228, 221, 246, 143, 9, 148, 133 ));
    
    type TypedEventHandler_IChatMessageStore_add_MessageChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IChatMessageStore ; args : Windows.ApplicationModel.Chat.IChatMessageChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IChatMessageStore_add_MessageChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IChatMessageStore_add_MessageChanged_Interface
@@ -3176,7 +3242,6 @@ package Windows.ApplicationModel.Chat is
    IID_AsyncOperationCompletedHandler_IChatConversation : aliased constant Windows.IID := (194778609, 6257, 20677, (134, 222, 110, 97, 77, 89, 60, 87 ));
    
    type AsyncOperationCompletedHandler_IChatConversation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatConversation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IChatConversation'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatConversation_Interface
@@ -3190,7 +3255,6 @@ package Windows.ApplicationModel.Chat is
    IID_TypedEventHandler_IChatMessageStore2_add_StoreChanged : aliased constant Windows.IID := (995689431, 41015, 23676, (131, 54, 136, 66, 61, 129, 228, 8 ));
    
    type TypedEventHandler_IChatMessageStore2_add_StoreChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IChatMessageStore ; args : Windows.ApplicationModel.Chat.IChatMessageStoreChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IChatMessageStore2_add_StoreChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IChatMessageStore2_add_StoreChanged_Interface
@@ -3204,7 +3268,6 @@ package Windows.ApplicationModel.Chat is
    IID_AsyncOperationCompletedHandler_IChatMessageStore : aliased constant Windows.IID := (2836877190, 8135, 20724, (141, 126, 16, 61, 63, 214, 229, 163 ));
    
    type AsyncOperationCompletedHandler_IChatMessageStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessageStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IChatMessageStore'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatMessageStore_Interface
@@ -3218,7 +3281,6 @@ package Windows.ApplicationModel.Chat is
    IID_AsyncOperationCompletedHandler_IChatMessageTransport : aliased constant Windows.IID := (1776059825, 47627, 22483, (183, 195, 97, 142, 1, 86, 248, 203 ));
    
    type AsyncOperationCompletedHandler_IChatMessageTransport_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessageTransport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IChatMessageTransport'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatMessageTransport_Interface
@@ -3232,7 +3294,6 @@ package Windows.ApplicationModel.Chat is
    IID_AsyncOperationCompletedHandler_IChatSyncManager : aliased constant Windows.IID := (1530204876, 34088, 24199, (176, 97, 27, 152, 42, 100, 127, 196 ));
    
    type AsyncOperationCompletedHandler_IChatSyncManager_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IChatSyncManager'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatSyncManager_Interface
@@ -3246,7 +3307,6 @@ package Windows.ApplicationModel.Chat is
    IID_AsyncOperationCompletedHandler_IChatCapabilities : aliased constant Windows.IID := (3459056476, 30342, 22205, (162, 202, 25, 71, 53, 253, 134, 23 ));
    
    type AsyncOperationCompletedHandler_IChatCapabilities_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IChatCapabilities'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IChatCapabilities_Interface
@@ -3260,7 +3320,6 @@ package Windows.ApplicationModel.Chat is
    IID_TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged : aliased constant Windows.IID := (165952434, 26925, 21296, (185, 231, 173, 246, 154, 213, 193, 169 ));
    
    type TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IChatConversation ; args : Windows.ApplicationModel.Chat.IRemoteParticipantComposingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IChatConversation_add_RemoteParticipantComposingChanged_Interface
@@ -3274,7 +3333,6 @@ package Windows.ApplicationModel.Chat is
    IID_AsyncOperationCompletedHandler_IRcsTransport : aliased constant Windows.IID := (2018617797, 5223, 23677, (175, 116, 87, 236, 107, 211, 52, 23 ));
    
    type AsyncOperationCompletedHandler_IRcsTransport_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Chat.IAsyncOperation_IRcsTransport ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IRcsTransport'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IRcsTransport_Interface
@@ -3288,7 +3346,6 @@ package Windows.ApplicationModel.Chat is
    IID_TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged : aliased constant Windows.IID := (3857826724, 58520, 20656, (145, 254, 148, 235, 176, 29, 224, 171 ));
    
    type TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IRcsTransport ; args : Windows.ApplicationModel.Chat.IRcsServiceKindSupportedChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRcsTransport_add_ServiceKindSupportedChanged_Interface
@@ -3302,7 +3359,6 @@ package Windows.ApplicationModel.Chat is
    IID_TypedEventHandler_IRcsEndUserMessageManager_add_MessageAvailableChanged : aliased constant Windows.IID := (2372660022, 63182, 22377, (150, 194, 37, 50, 110, 180, 99, 246 ));
    
    type TypedEventHandler_IRcsEndUserMessageManager_add_MessageAvailableChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Chat.IRcsEndUserMessageManager ; args : Windows.ApplicationModel.Chat.IRcsEndUserMessageAvailableEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRcsEndUserMessageManager_add_MessageAvailableChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRcsEndUserMessageManager_add_MessageAvailableChanged_Interface
@@ -3323,13 +3379,13 @@ package Windows.ApplicationModel.Chat is
    subtype ChatMessageChange is Windows.ApplicationModel.Chat.IChatMessageChange;
    subtype ChatMessageChangeReader is Windows.ApplicationModel.Chat.IChatMessageChangeReader;
    subtype ChatMessageAttachment is Windows.ApplicationModel.Chat.IChatMessageAttachment;
-   
    function CreateChatMessageAttachment
    (
       mimeType : Windows.String
       ; dataStreamReference : Windows.Storage.Streams.IRandomAccessStreamReference
    )
    return Windows.ApplicationModel.Chat.IChatMessageAttachment;
+   
    
    subtype ChatConversationThreadingInfo is Windows.ApplicationModel.Chat.IChatConversationThreadingInfo;
    
@@ -3371,7 +3427,6 @@ package Windows.ApplicationModel.Chat is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetTransportsAsync
    return Windows.Address;
@@ -3436,5 +3491,6 @@ package Windows.ApplicationModel.Chat is
       conversation : Windows.ApplicationModel.Chat.IChatConversation
    )
    return Windows.Foundation.IAsyncAction;
+   
 
 end;

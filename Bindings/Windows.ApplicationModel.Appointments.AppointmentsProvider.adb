@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Appointments.AppointmentsProvider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.ApplicationModel.Appointments.AppointmentsProvider is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AddAppointment
    return Windows.String is
@@ -122,5 +120,6 @@ package body Windows.ApplicationModel.Appointments.AppointmentsProvider is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

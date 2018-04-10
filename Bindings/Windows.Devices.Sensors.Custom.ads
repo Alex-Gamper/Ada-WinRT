@@ -105,6 +105,7 @@ package Windows.Devices.Sensors.Custom is
       ; RetVal : access Windows.Devices.Sensors.Custom.IAsyncOperation_ICustomSensor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomSensor : aliased constant Windows.IID := (2704734637, 16436, 19277, (153, 221, 83, 26, 172, 100, 156, 9 ));
@@ -160,6 +161,7 @@ package Windows.Devices.Sensors.Custom is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomSensor2 : aliased constant Windows.IID := (551235857, 60504, 19871, (191, 189, 231, 120, 37, 8, 133, 16 ));
@@ -186,6 +188,7 @@ package Windows.Devices.Sensors.Custom is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomSensorReading : aliased constant Windows.IID := (1677741901, 17514, 17254, (168, 122, 95, 150, 50, 104, 236, 83 ));
@@ -205,6 +208,7 @@ package Windows.Devices.Sensors.Custom is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomSensorReading2 : aliased constant Windows.IID := (574396650, 49011, 18834, (154, 72, 211, 200, 151, 89, 76, 203 ));
@@ -217,6 +221,7 @@ package Windows.Devices.Sensors.Custom is
       ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomSensorReadingChangedEventArgs : aliased constant Windows.IID := (1797267491, 53245, 19649, (143, 240, 226, 24, 35, 215, 111, 204 ));
@@ -229,6 +234,7 @@ package Windows.Devices.Sensors.Custom is
       ; RetVal : access Windows.Devices.Sensors.Custom.ICustomSensorReading
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ICustomSensor : aliased constant Windows.IID := (2143272533, 38516, 21731, (162, 105, 156, 170, 130, 14, 210, 60 ));
@@ -255,6 +261,7 @@ package Windows.Devices.Sensors.Custom is
       ; RetVal : access Windows.Devices.Sensors.Custom.ICustomSensor
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -264,7 +271,6 @@ package Windows.Devices.Sensors.Custom is
    IID_AsyncOperationCompletedHandler_ICustomSensor : aliased constant Windows.IID := (2156618455, 28162, 22144, (165, 158, 17, 138, 152, 164, 231, 15 ));
    
    type AsyncOperationCompletedHandler_ICustomSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.Custom.IAsyncOperation_ICustomSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICustomSensor'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICustomSensor_Interface
@@ -278,7 +284,6 @@ package Windows.Devices.Sensors.Custom is
    IID_TypedEventHandler_ICustomSensor_add_ReadingChanged : aliased constant Windows.IID := (2861850827, 61580, 22883, (178, 50, 204, 64, 117, 233, 132, 231 ));
    
    type TypedEventHandler_ICustomSensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.Custom.ICustomSensor ; args : Windows.Devices.Sensors.Custom.ICustomSensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICustomSensor_add_ReadingChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICustomSensor_add_ReadingChanged_Interface
@@ -299,7 +304,6 @@ package Windows.Devices.Sensors.Custom is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetDeviceSelector
    (
       interfaceId : Windows.Guid
@@ -311,5 +315,6 @@ package Windows.Devices.Sensors.Custom is
       sensorId : Windows.String
    )
    return Windows.Devices.Sensors.Custom.IAsyncOperation_ICustomSensor;
+   
 
 end;

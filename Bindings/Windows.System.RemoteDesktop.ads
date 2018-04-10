@@ -64,6 +64,7 @@ package Windows.System.RemoteDesktop is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -73,8 +74,8 @@ package Windows.System.RemoteDesktop is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_IsRemote
    return Windows.Boolean;
+   
 
 end;

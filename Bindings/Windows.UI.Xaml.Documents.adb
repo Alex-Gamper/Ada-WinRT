@@ -31,7 +31,6 @@ package body Windows.UI.Xaml.Documents is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested_Interface
@@ -87,7 +86,6 @@ package body Windows.UI.Xaml.Documents is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateInlineUIContainer return Windows.UI.Xaml.Documents.IInlineUIContainer is
       Hr            : Windows.HResult := S_OK;
@@ -778,7 +776,6 @@ package body Windows.UI.Xaml.Documents is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateInstance
    (
@@ -4138,5 +4135,6 @@ package body Windows.UI.Xaml.Documents is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

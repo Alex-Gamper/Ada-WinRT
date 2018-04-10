@@ -27,7 +27,6 @@ package body Windows.UI.Xaml.Interop is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access BindableVectorChangedEventHandler_Interface
@@ -58,7 +57,6 @@ package body Windows.UI.Xaml.Interop is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -66,7 +64,6 @@ package body Windows.UI.Xaml.Interop is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateInstanceWithAllParameters
    (
@@ -93,5 +90,6 @@ package body Windows.UI.Xaml.Interop is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

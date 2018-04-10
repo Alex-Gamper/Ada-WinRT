@@ -28,7 +28,6 @@ package body Windows.Graphics.Display is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access DisplayPropertiesEventHandler_Interface
@@ -149,7 +148,6 @@ package body Windows.Graphics.Display is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -157,7 +155,6 @@ package body Windows.Graphics.Display is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.Graphics.Display.IDisplayInformation is
@@ -302,5 +299,6 @@ package body Windows.Graphics.Display is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -27,7 +27,6 @@ package body Windows.UI is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.UI is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function ToDisplayName
    (
@@ -2476,5 +2474,6 @@ package body Windows.UI is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

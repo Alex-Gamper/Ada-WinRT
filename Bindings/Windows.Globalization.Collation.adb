@@ -27,7 +27,6 @@ package body Windows.Globalization.Collation is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       language : Windows.String

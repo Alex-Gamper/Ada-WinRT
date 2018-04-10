@@ -30,7 +30,6 @@ package body Windows.UI.Xaml.Markup is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -238,7 +237,6 @@ package body Windows.UI.Xaml.Markup is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateInstance
    (
@@ -793,5 +791,6 @@ package body Windows.UI.Xaml.Markup is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

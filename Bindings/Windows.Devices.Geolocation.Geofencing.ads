@@ -213,6 +213,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofence
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGeofence : aliased constant Windows.IID := (2617837603, 60856, 18400, (130, 69, 91, 246, 29, 50, 31, 45 ));
@@ -267,6 +268,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGeofenceStateChangeReport : aliased constant Windows.IID := (2586065944, 9316, 19593, (190, 5, 179, 255, 255, 91, 171, 197 ));
@@ -300,6 +302,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGeofenceMonitorStatics : aliased constant Windows.IID := (768815055, 32373, 18585, (172, 227, 43, 208, 166, 92, 206, 6 ));
@@ -312,6 +315,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGeofenceMonitor : aliased constant Windows.IID := (1276075896, 7199, 17953, (187, 189, 131, 59, 146, 36, 114, 38 ));
@@ -375,6 +379,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IGeofence : aliased constant Windows.IID := (3886670148, 8237, 22280, (169, 189, 227, 220, 14, 20, 223, 70 ));
@@ -409,6 +414,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGeofence : aliased constant Windows.IID := (3463018291, 22876, 20928, (173, 95, 50, 74, 245, 205, 242, 221 ));
@@ -421,6 +427,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.Devices.Geolocation.Geofencing.IIterator_IGeofence
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IGeofence : aliased constant Windows.IID := (3624114890, 6725, 23827, (140, 253, 73, 0, 194, 43, 142, 241 ));
@@ -459,6 +466,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IGeofence : aliased constant Windows.IID := (158189878, 24422, 23662, (149, 206, 239, 85, 65, 251, 244, 196 ));
@@ -553,6 +561,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; items : Windows.Devices.Geolocation.Geofencing.IGeofence_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IGeofenceStateChangeReport : aliased constant Windows.IID := (3942591972, 26192, 21578, (183, 172, 109, 91, 129, 157, 70, 152 ));
@@ -587,6 +596,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGeofenceStateChangeReport : aliased constant Windows.IID := (1995770702, 31399, 22107, (170, 218, 176, 193, 204, 20, 78, 208 ));
@@ -599,6 +609,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.Devices.Geolocation.Geofencing.IIterator_IGeofenceStateChangeReport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IGeofenceStateChangeReport : aliased constant Windows.IID := (3935394109, 60660, 20545, (134, 242, 131, 122, 40, 44, 77, 148 ));
@@ -637,6 +648,7 @@ package Windows.Devices.Geolocation.Geofencing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -646,7 +658,6 @@ package Windows.Devices.Geolocation.Geofencing is
    IID_TypedEventHandler_IGeofenceMonitor_add_GeofenceStateChanged : aliased constant Windows.IID := (3972378412, 58490, 22990, (134, 190, 156, 48, 102, 254, 38, 247 ));
    
    type TypedEventHandler_IGeofenceMonitor_add_GeofenceStateChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGeofenceMonitor_add_GeofenceStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGeofenceMonitor_add_GeofenceStateChanged_Interface
@@ -660,7 +671,6 @@ package Windows.Devices.Geolocation.Geofencing is
    IID_TypedEventHandler_IGeofenceMonitor_add_StatusChanged : aliased constant Windows.IID := (3972378412, 58490, 22990, (134, 190, 156, 48, 102, 254, 38, 247 ));
    
    type TypedEventHandler_IGeofenceMonitor_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGeofenceMonitor_add_StatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGeofenceMonitor_add_StatusChanged_Interface
@@ -674,7 +684,6 @@ package Windows.Devices.Geolocation.Geofencing is
    ------------------------------------------------------------------------
    
    subtype Geofence is Windows.Devices.Geolocation.Geofencing.IGeofence;
-   
    function Create
    (
       id : Windows.String
@@ -713,6 +722,7 @@ package Windows.Devices.Geolocation.Geofencing is
    )
    return Windows.Devices.Geolocation.Geofencing.IGeofence;
    
+   
    subtype GeofenceMonitor is Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor;
    subtype GeofenceStateChangeReport is Windows.Devices.Geolocation.Geofencing.IGeofenceStateChangeReport;
    
@@ -720,8 +730,8 @@ package Windows.Devices.Geolocation.Geofencing is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_Current
    return Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor;
+   
 
 end;

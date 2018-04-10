@@ -743,6 +743,7 @@ package Windows.System is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDispatcherQueue : aliased constant Windows.IID := (1614711012, 41784, 20478, (164, 87, 165, 207, 185, 206, 184, 153 ));
@@ -802,6 +803,7 @@ package Windows.System is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDispatcherQueueController : aliased constant Windows.IID := (586370662, 20699, 20022, (169, 141, 97, 192, 27, 56, 77, 32 ));
@@ -821,6 +823,7 @@ package Windows.System is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDispatcherQueueControllerStatics : aliased constant Windows.IID := (174889184, 20888, 18850, (163, 19, 63, 112, 209, 241, 60, 39 ));
@@ -833,6 +836,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IDispatcherQueueController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDispatcherQueueStatics : aliased constant Windows.IID := (2842526679, 37745, 17687, (146, 69, 208, 130, 74, 193, 44, 116 ));
@@ -845,6 +849,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IDispatcherQueue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDispatcherQueueTimer : aliased constant Windows.IID := (1609218845, 41756, 18215, (177, 172, 55, 69, 70, 73, 213, 106 ));
@@ -912,6 +917,7 @@ package Windows.System is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUser : aliased constant Windows.IID := (3751421638, 59206, 19405, (181, 212, 18, 1, 3, 196, 32, 155 ));
@@ -962,6 +968,7 @@ package Windows.System is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserStatics : aliased constant Windows.IID := (358527547, 9258, 17888, (162, 233, 49, 113, 252, 106, 127, 221 ));
@@ -1006,6 +1013,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserWatcher : aliased constant Windows.IID := (358527547, 9258, 17888, (162, 233, 49, 113, 252, 106, 127, 187 ));
@@ -1135,6 +1143,7 @@ package Windows.System is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserChangedEventArgs : aliased constant Windows.IID := (140794332, 6342, 18651, (188, 153, 114, 79, 185, 32, 60, 204 ));
@@ -1147,6 +1156,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserAuthenticationStatusChangeDeferral : aliased constant Windows.IID := (2293601640, 47920, 17147, (162, 112, 233, 144, 46, 64, 239, 167 ));
@@ -1158,6 +1168,7 @@ package Windows.System is
       This       : access IUserAuthenticationStatusChangeDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserAuthenticationStatusChangingEventArgs : aliased constant Windows.IID := (2349010728, 42769, 19486, (171, 72, 4, 23, 156, 21, 147, 143 ));
@@ -1191,6 +1202,7 @@ package Windows.System is
       ; RetVal : access Windows.System.UserAuthenticationStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKnownUserPropertiesStatics : aliased constant Windows.IID := (2002096410, 28869, 18661, (182, 55, 91, 163, 68, 30, 78, 228 ));
@@ -1259,6 +1271,7 @@ package Windows.System is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserPickerStatics : aliased constant Windows.IID := (3727855836, 32371, 19958, (161, 174, 77, 126, 202, 130, 180, 13 ));
@@ -1271,6 +1284,7 @@ package Windows.System is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserPicker : aliased constant Windows.IID := (2102689800, 61923, 19052, (141, 220, 169, 187, 15, 72, 138, 237 ));
@@ -1311,6 +1325,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IAsyncOperation_IUser -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDeviceAssociationChangedEventArgs : aliased constant Windows.IID := (3172953964, 47965, 19835, (165, 240, 200, 205, 17, 163, 141, 66 ));
@@ -1337,6 +1352,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDeviceAssociationStatics : aliased constant Windows.IID := (2118721044, 63578, 19463, (141, 169, 127, 227, 208, 84, 35, 67 ));
@@ -1365,6 +1381,7 @@ package Windows.System is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppMemoryReport : aliased constant Windows.IID := (1835348891, 19823, 17852, (156, 94, 228, 155, 63, 242, 117, 141 ));
@@ -1398,6 +1415,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppMemoryReport2 : aliased constant Windows.IID := (1602172728, 20919, 17116, (183, 237, 121, 186, 70, 210, 136, 87 ));
@@ -1410,6 +1428,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProcessMemoryReport : aliased constant Windows.IID := (141755816, 39792, 18306, (135, 65, 58, 152, 43, 108, 229, 228 ));
@@ -1429,6 +1448,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppMemoryUsageLimitChangingEventArgs : aliased constant Windows.IID := (2046322276, 65226, 19877, (158, 64, 43, 198, 62, 253, 201, 121 ));
@@ -1448,6 +1468,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMemoryManagerStatics : aliased constant Windows.IID := (1550591900, 55242, 18297, (145, 136, 64, 87, 33, 156, 230, 76 ));
@@ -1519,6 +1540,7 @@ package Windows.System is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMemoryManagerStatics2 : aliased constant Windows.IID := (1861104927, 28002, 16959, (148, 121, 176, 31, 156, 159, 118, 105 ));
@@ -1538,6 +1560,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IProcessMemoryReport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMemoryManagerStatics3 : aliased constant Windows.IID := (345725390, 37549, 20021, (137, 235, 80, 223, 180, 192, 217, 28 ));
@@ -1551,6 +1574,7 @@ package Windows.System is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMemoryManagerStatics4 : aliased constant Windows.IID := (3316205608, 59470, 18566, (138, 13, 68, 179, 25, 14, 59, 114 ));
@@ -1563,6 +1587,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProtocolForResultsOperation : aliased constant Windows.IID := (3582011706, 28137, 19752, (147, 120, 248, 103, 130, 225, 130, 187 ));
@@ -1575,6 +1600,7 @@ package Windows.System is
       ; data : Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppDiagnosticInfoStatics : aliased constant Windows.IID := (3462997439, 4298, 16584, (169, 202, 197, 201, 101, 1, 134, 110 ));
@@ -1587,6 +1613,7 @@ package Windows.System is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppDiagnosticInfoStatics2 : aliased constant Windows.IID := (95570822, 4096, 19600, (187, 159, 114, 53, 7, 28, 80, 254 ));
@@ -1629,6 +1656,7 @@ package Windows.System is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppDiagnosticInfo : aliased constant Windows.IID := (3813189274, 34953, 19619, (190, 7, 213, 255, 255, 95, 8, 4 ));
@@ -1641,6 +1669,7 @@ package Windows.System is
       ; RetVal : access Windows.ApplicationModel.IAppInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppDiagnosticInfo2 : aliased constant Windows.IID := (3745971159, 6426, 17516, (148, 115, 143, 188, 35, 116, 163, 84 ));
@@ -1660,6 +1689,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IAppResourceGroupInfoWatcher
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppDiagnosticInfoWatcherEventArgs : aliased constant Windows.IID := (1880606486, 57818, 19557, (153, 223, 4, 109, 255, 91, 231, 26 ));
@@ -1672,6 +1702,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IAppDiagnosticInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppDiagnosticInfoWatcher : aliased constant Windows.IID := (1968656496, 467, 18586, (147, 37, 82, 249, 204, 110, 222, 10 ));
@@ -1756,6 +1787,7 @@ package Windows.System is
       This       : access IAppDiagnosticInfoWatcher_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppResourceGroupBackgroundTaskReport : aliased constant Windows.IID := (627500878, 45149, 16578, (157, 193, 26, 79, 3, 158, 161, 32 ));
@@ -1789,6 +1821,7 @@ package Windows.System is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppResourceGroupMemoryReport : aliased constant Windows.IID := (747374257, 32177, 19537, (162, 37, 127, 174, 45, 73, 228, 49 ));
@@ -1822,6 +1855,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppResourceGroupInfo : aliased constant Windows.IID := (3105093498, 59399, 18932, (132, 94, 123, 139, 220, 254, 142, 231 ));
@@ -1869,6 +1903,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IAppResourceGroupStateReport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppResourceGroupInfoWatcherEventArgs : aliased constant Windows.IID := (2054714935, 25346, 19759, (191, 137, 28, 18, 208, 178, 166, 185 ));
@@ -1888,6 +1923,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IAppResourceGroupInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs : aliased constant Windows.IID := (467398103, 65254, 20436, (152, 221, 233, 42, 44, 194, 153, 243 ));
@@ -1907,6 +1943,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IAppResourceGroupInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppResourceGroupInfoWatcher : aliased constant Windows.IID := (3652231421, 28250, 19570, (139, 23, 9, 254, 196, 162, 18, 189 ));
@@ -2006,6 +2043,7 @@ package Windows.System is
       This       : access IAppResourceGroupInfoWatcher_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppResourceGroupStateReport : aliased constant Windows.IID := (1384423192, 12144, 16950, (171, 64, 208, 77, 176, 199, 185, 49 ));
@@ -2025,6 +2063,7 @@ package Windows.System is
       ; RetVal : access Windows.System.AppResourceGroupEnergyQuotaState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILaunchUriResult : aliased constant Windows.IID := (3962022111, 63189, 17866, (145, 58, 112, 164, 12, 92, 130, 33 ));
@@ -2044,6 +2083,7 @@ package Windows.System is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherUIOptions : aliased constant Windows.IID := (455465582, 35494, 16873, (130, 81, 65, 101, 245, 152, 95, 73 ));
@@ -2091,6 +2131,7 @@ package Windows.System is
       ; value : Windows.UI.Popups.Placement
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherOptions : aliased constant Windows.IID := (3136954840, 45169, 19672, (133, 62, 52, 18, 3, 229, 87, 211 ));
@@ -2187,6 +2228,7 @@ package Windows.System is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherOptions2 : aliased constant Windows.IID := (1000378036, 28224, 19918, (161, 163, 47, 83, 149, 10, 251, 73 ));
@@ -2220,6 +2262,7 @@ package Windows.System is
       ; value : Windows.Storage.Search.IStorageFileQueryResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherOptions3 : aliased constant Windows.IID := (4034332245, 19299, 20026, (145, 7, 78, 104, 120, 65, 146, 58 ));
@@ -2239,6 +2282,7 @@ package Windows.System is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherOptions4 : aliased constant Windows.IID := (4017082638, 59131, 18452, (164, 78, 87, 232, 185, 217, 160, 27 ));
@@ -2258,6 +2302,7 @@ package Windows.System is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherViewOptions : aliased constant Windows.IID := (2325424625, 31911, 18910, (155, 211, 60, 91, 113, 132, 246, 22 ));
@@ -2277,6 +2322,7 @@ package Windows.System is
       ; value : Windows.UI.ViewManagement.ViewSizePreference
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRemoteLauncherOptions : aliased constant Windows.IID := (2654611336, 10385, 19679, (162, 214, 157, 255, 125, 2, 230, 147 ));
@@ -2303,6 +2349,7 @@ package Windows.System is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFolderLauncherOptions : aliased constant Windows.IID := (3146891901, 27527, 17194, (189, 4, 119, 108, 111, 95, 178, 171 ));
@@ -2315,6 +2362,7 @@ package Windows.System is
       ; RetVal : access Windows.Storage.IVector_IStorageItem -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherStatics : aliased constant Windows.IID := (661737923, 40510, 17142, (145, 164, 93, 253, 235, 35, 36, 81 ));
@@ -2354,6 +2402,7 @@ package Windows.System is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherStatics2 : aliased constant Windows.IID := (1505374139, 9419, 19458, (164, 196, 130, 148, 86, 157, 84, 241 ));
@@ -2449,6 +2498,7 @@ package Windows.System is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherStatics3 : aliased constant Windows.IID := (591552936, 40371, 18051, (170, 66, 220, 111, 81, 211, 56, 71 ));
@@ -2471,6 +2521,7 @@ package Windows.System is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILauncherStatics4 : aliased constant Windows.IID := (3119284639, 46501, 16838, (179, 179, 221, 27, 49, 120, 188, 242 ));
@@ -2552,6 +2603,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IAsyncOperation_ILaunchUriResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRemoteLauncherStatics : aliased constant Windows.IID := (3621485203, 41740, 18615, (159, 33, 5, 16, 38, 164, 229, 23 ));
@@ -2587,6 +2639,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IAsyncOperation_RemoteLaunchUriStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDateTimeSettingsStatics : aliased constant Windows.IID := (1562464465, 18414, 18603, (165, 43, 159, 25, 84, 39, 141, 130 ));
@@ -2599,6 +2652,7 @@ package Windows.System is
       ; utcDateTime : Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProcessLauncherOptions : aliased constant Windows.IID := (813742543, 62532, 19075, (190, 175, 165, 73, 160, 243, 34, 156 ));
@@ -2660,6 +2714,7 @@ package Windows.System is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProcessLauncherStatics : aliased constant Windows.IID := (866871015, 11534, 17547, (166, 160, 193, 60, 56, 54, 208, 156 ));
@@ -2684,6 +2739,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IAsyncOperation_IProcessLauncherResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProcessLauncherResult : aliased constant Windows.IID := (1414302004, 34520, 18833, (142, 117, 236, 232, 164, 59, 107, 109 ));
@@ -2696,6 +2752,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShutdownManagerStatics : aliased constant Windows.IID := (1927432173, 56667, 19820, (177, 208, 197, 122, 123, 187, 95, 148 ));
@@ -2715,6 +2772,7 @@ package Windows.System is
       This       : access IShutdownManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShutdownManagerStatics2 : aliased constant Windows.IID := (258580527, 39988, 17351, (168, 195, 112, 179, 10, 127, 117, 4 ));
@@ -2743,6 +2801,7 @@ package Windows.System is
       ; wakeUpAfter : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITimeZoneSettingsStatics : aliased constant Windows.IID := (2604346346, 41217, 16814, (159, 189, 2, 135, 40, 186, 183, 61 ));
@@ -2776,6 +2835,7 @@ package Windows.System is
       ; timeZoneDisplayName : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IUser : aliased constant Windows.IID := (2828391161, 9113, 20740, (165, 50, 91, 164, 74, 180, 177, 101 ));
@@ -2802,6 +2862,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAppDiagnosticInfo : aliased constant Windows.IID := (406789706, 8740, 24548, (176, 100, 104, 134, 156, 83, 227, 97 ));
@@ -2836,6 +2897,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAppDiagnosticInfo : aliased constant Windows.IID := (2165890703, 15075, 21985, (128, 168, 37, 69, 60, 219, 168, 148 ));
@@ -2848,6 +2910,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IIterator_IAppDiagnosticInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAppDiagnosticInfo : aliased constant Windows.IID := (2965555108, 30906, 20733, (132, 254, 0, 224, 42, 108, 29, 66 ));
@@ -2886,6 +2949,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IAppDiagnosticInfo : aliased constant Windows.IID := (2633999043, 32491, 22940, (185, 77, 199, 148, 177, 31, 128, 127 ));
@@ -2980,6 +3044,7 @@ package Windows.System is
       ; items : Windows.System.IAppDiagnosticInfo_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_DiagnosticAccessStatus : aliased constant Windows.IID := (1640045502, 9752, 22666, (167, 202, 246, 6, 145, 39, 35, 36 ));
@@ -3006,6 +3071,7 @@ package Windows.System is
       ; RetVal : access Windows.System.DiagnosticAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAppResourceGroupInfo : aliased constant Windows.IID := (3830274129, 58556, 20665, (168, 152, 105, 3, 19, 125, 138, 153 ));
@@ -3040,6 +3106,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAppResourceGroupInfo : aliased constant Windows.IID := (2338589000, 49363, 23422, (169, 156, 89, 86, 25, 13, 84, 8 ));
@@ -3052,6 +3119,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IIterator_IAppResourceGroupInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAppResourceGroupInfo : aliased constant Windows.IID := (75499420, 64771, 23011, (171, 163, 150, 249, 249, 32, 96, 112 ));
@@ -3090,6 +3158,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IAppResourceGroupInfo : aliased constant Windows.IID := (3179112864, 3415, 20808, (139, 35, 73, 160, 134, 84, 240, 199 ));
@@ -3184,6 +3253,7 @@ package Windows.System is
       ; items : Windows.System.IAppResourceGroupInfo_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAppResourceGroupBackgroundTaskReport : aliased constant Windows.IID := (12720138, 2277, 24301, (160, 141, 86, 163, 86, 204, 0, 79 ));
@@ -3218,6 +3288,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAppResourceGroupBackgroundTaskReport : aliased constant Windows.IID := (1048431562, 6148, 22130, (173, 59, 88, 217, 68, 187, 4, 76 ));
@@ -3230,6 +3301,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IIterator_IAppResourceGroupBackgroundTaskReport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAppResourceGroupBackgroundTaskReport : aliased constant Windows.IID := (1318157731, 17835, 20931, (185, 225, 231, 212, 231, 161, 180, 229 ));
@@ -3268,6 +3340,7 @@ package Windows.System is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IAppResourceGroupBackgroundTaskReport : aliased constant Windows.IID := (2163311114, 56066, 23730, (161, 40, 81, 114, 21, 29, 20, 68 ));
@@ -3362,6 +3435,7 @@ package Windows.System is
       ; items : Windows.System.IAppResourceGroupBackgroundTaskReport_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILaunchUriResult : aliased constant Windows.IID := (2140666901, 7382, 21687, (162, 144, 172, 182, 13, 186, 129, 161 ));
@@ -3388,6 +3462,7 @@ package Windows.System is
       ; RetVal : access Windows.System.ILaunchUriResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_LaunchQuerySupportStatus : aliased constant Windows.IID := (3881015698, 8736, 23853, (130, 196, 61, 68, 248, 117, 13, 145 ));
@@ -3414,6 +3489,7 @@ package Windows.System is
       ; RetVal : access Windows.System.LaunchQuerySupportStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_LaunchUriStatus : aliased constant Windows.IID := (2872930843, 42227, 22625, (176, 52, 3, 11, 21, 35, 60, 82 ));
@@ -3440,6 +3516,7 @@ package Windows.System is
       ; RetVal : access Windows.System.LaunchUriStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_RemoteLaunchUriStatus : aliased constant Windows.IID := (3144738253, 25282, 24440, (172, 141, 244, 185, 115, 152, 29, 164 ));
@@ -3466,6 +3543,7 @@ package Windows.System is
       ; RetVal : access Windows.System.RemoteLaunchUriStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IProcessLauncherResult : aliased constant Windows.IID := (3867308608, 31373, 20926, (141, 33, 224, 147, 38, 140, 204, 21 ));
@@ -3492,6 +3570,7 @@ package Windows.System is
       ; RetVal : access Windows.System.IProcessLauncherResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -3501,7 +3580,6 @@ package Windows.System is
    IID_DispatcherQueueHandler : aliased constant Windows.IID := (3751992476, 6701, 18711, (152, 242, 147, 154, 241, 214, 224, 200 ));
    
    type DispatcherQueueHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface(IID_DispatcherQueueHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DispatcherQueueHandler_Interface
@@ -3513,7 +3591,6 @@ package Windows.System is
    IID_TypedEventHandler_IDispatcherQueue_add_ShutdownStarting : aliased constant Windows.IID := (3045809700, 57798, 21134, (157, 153, 7, 236, 136, 41, 222, 165 ));
    
    type TypedEventHandler_IDispatcherQueue_add_ShutdownStarting_Interface(Callback : access procedure (sender : Windows.System.IDispatcherQueue ; args : Windows.System.IDispatcherQueueShutdownStartingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDispatcherQueue_add_ShutdownStarting'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDispatcherQueue_add_ShutdownStarting_Interface
@@ -3527,7 +3604,6 @@ package Windows.System is
    IID_TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted : aliased constant Windows.IID := (4269406293, 12096, 23432, (160, 195, 76, 4, 42, 5, 221, 5 ));
    
    type TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted_Interface(Callback : access procedure (sender : Windows.System.IDispatcherQueue ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDispatcherQueue_add_ShutdownCompleted_Interface
@@ -3541,7 +3617,6 @@ package Windows.System is
    IID_TypedEventHandler_IDispatcherQueueTimer_add_Tick : aliased constant Windows.IID := (2337686728, 35671, 20686, (137, 51, 122, 178, 204, 90, 20, 239 ));
    
    type TypedEventHandler_IDispatcherQueueTimer_add_Tick_Interface(Callback : access procedure (sender : Windows.System.IDispatcherQueueTimer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDispatcherQueueTimer_add_Tick'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDispatcherQueueTimer_add_Tick_Interface
@@ -3555,7 +3630,6 @@ package Windows.System is
    IID_TypedEventHandler_IUserWatcher_add_Added : aliased constant Windows.IID := (3952936020, 9691, 22048, (152, 184, 190, 76, 93, 13, 188, 103 ));
    
    type TypedEventHandler_IUserWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserWatcher_add_Added'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserWatcher_add_Added_Interface
@@ -3569,7 +3643,6 @@ package Windows.System is
    IID_TypedEventHandler_IUserWatcher_add_Removed : aliased constant Windows.IID := (3952936020, 9691, 22048, (152, 184, 190, 76, 93, 13, 188, 103 ));
    
    type TypedEventHandler_IUserWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserWatcher_add_Removed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserWatcher_add_Removed_Interface
@@ -3583,7 +3656,6 @@ package Windows.System is
    IID_TypedEventHandler_IUserWatcher_add_Updated : aliased constant Windows.IID := (3952936020, 9691, 22048, (152, 184, 190, 76, 93, 13, 188, 103 ));
    
    type TypedEventHandler_IUserWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserWatcher_add_Updated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserWatcher_add_Updated_Interface
@@ -3597,7 +3669,6 @@ package Windows.System is
    IID_TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged : aliased constant Windows.IID := (3952936020, 9691, 22048, (152, 184, 190, 76, 93, 13, 188, 103 ));
    
    type TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanged_Interface
@@ -3611,7 +3682,6 @@ package Windows.System is
    IID_TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging : aliased constant Windows.IID := (2663635413, 46099, 20959, (140, 100, 100, 14, 51, 86, 227, 81 ));
    
    type TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.System.IUserAuthenticationStatusChangingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserWatcher_add_AuthenticationStatusChanging_Interface
@@ -3625,7 +3695,6 @@ package Windows.System is
    IID_TypedEventHandler_IUserWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (4048937215, 56245, 23604, (172, 12, 126, 41, 30, 51, 0, 171 ));
    
    type TypedEventHandler_IUserWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserWatcher_add_EnumerationCompleted_Interface
@@ -3639,7 +3708,6 @@ package Windows.System is
    IID_TypedEventHandler_IUserWatcher_add_Stopped : aliased constant Windows.IID := (4048937215, 56245, 23604, (172, 12, 126, 41, 30, 51, 0, 171 ));
    
    type TypedEventHandler_IUserWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.System.IUserWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUserWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserWatcher_add_Stopped_Interface
@@ -3653,7 +3721,6 @@ package Windows.System is
    IID_AsyncOperationCompletedHandler_IUser : aliased constant Windows.IID := (4178830242, 53701, 21256, (190, 207, 76, 45, 129, 103, 130, 74 ));
    
    type AsyncOperationCompletedHandler_IUser_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_IUser ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUser'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUser_Interface
@@ -3667,7 +3734,6 @@ package Windows.System is
    IID_EventHandler_IUserDeviceAssociationChangedEventArgs : aliased constant Windows.IID := (3550729413, 55478, 23054, (136, 237, 165, 73, 156, 55, 123, 227 ));
    
    type EventHandler_IUserDeviceAssociationChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.System.IUserDeviceAssociationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IUserDeviceAssociationChangedEventArgs'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IUserDeviceAssociationChangedEventArgs_Interface
@@ -3681,7 +3747,6 @@ package Windows.System is
    IID_EventHandler_IAppMemoryUsageLimitChangingEventArgs : aliased constant Windows.IID := (1613817795, 63807, 24220, (155, 162, 154, 1, 141, 43, 9, 192 ));
    
    type EventHandler_IAppMemoryUsageLimitChangingEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.System.IAppMemoryUsageLimitChangingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IAppMemoryUsageLimitChangingEventArgs'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IAppMemoryUsageLimitChangingEventArgs_Interface
@@ -3695,7 +3760,6 @@ package Windows.System is
    IID_AsyncOperationCompletedHandler_DiagnosticAccessStatus : aliased constant Windows.IID := (1561526999, 21655, 23186, (191, 67, 235, 139, 80, 103, 154, 171 ));
    
    type AsyncOperationCompletedHandler_DiagnosticAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_DiagnosticAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DiagnosticAccessStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_DiagnosticAccessStatus_Interface
@@ -3709,7 +3773,6 @@ package Windows.System is
    IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added : aliased constant Windows.IID := (2089578399, 54975, 21862, (176, 19, 57, 193, 65, 224, 255, 140 ));
    
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.IAppDiagnosticInfoWatcher ; args : Windows.System.IAppDiagnosticInfoWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface
@@ -3723,7 +3786,6 @@ package Windows.System is
    IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed : aliased constant Windows.IID := (2089578399, 54975, 21862, (176, 19, 57, 193, 65, 224, 255, 140 ));
    
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.IAppDiagnosticInfoWatcher ; args : Windows.System.IAppDiagnosticInfoWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Removed_Interface
@@ -3737,7 +3799,6 @@ package Windows.System is
    IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (2304634415, 57586, 21252, (164, 14, 28, 103, 162, 192, 88, 170 ));
    
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.IAppDiagnosticInfoWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_EnumerationCompleted_Interface
@@ -3751,7 +3812,6 @@ package Windows.System is
    IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped : aliased constant Windows.IID := (2304634415, 57586, 21252, (164, 14, 28, 103, 162, 192, 88, 170 ));
    
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.System.IAppDiagnosticInfoWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface
@@ -3765,7 +3825,6 @@ package Windows.System is
    IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added : aliased constant Windows.IID := (2816560046, 51064, 22113, (164, 28, 26, 195, 172, 99, 95, 121 ));
    
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.System.IAppResourceGroupInfoWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Interface
@@ -3779,7 +3838,6 @@ package Windows.System is
    IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed : aliased constant Windows.IID := (2816560046, 51064, 22113, (164, 28, 26, 195, 172, 99, 95, 121 ));
    
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.System.IAppResourceGroupInfoWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Removed_Interface
@@ -3793,7 +3851,6 @@ package Windows.System is
    IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (3795462401, 6522, 22631, (135, 40, 156, 157, 185, 73, 141, 118 ));
    
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_EnumerationCompleted_Interface
@@ -3807,7 +3864,6 @@ package Windows.System is
    IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped : aliased constant Windows.IID := (3795462401, 6522, 22631, (135, 40, 156, 157, 185, 73, 141, 118 ));
    
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_Stopped_Interface
@@ -3821,7 +3877,6 @@ package Windows.System is
    IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged : aliased constant Windows.IID := (2482598476, 6136, 24053, (166, 207, 47, 10, 185, 12, 10, 39 ));
    
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged_Interface(Callback : access procedure (sender : Windows.System.IAppResourceGroupInfoWatcher ; args : Windows.System.IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppResourceGroupInfoWatcher_add_ExecutionStateChanged_Interface
@@ -3835,7 +3890,6 @@ package Windows.System is
    IID_AsyncOperationCompletedHandler_ILaunchUriResult : aliased constant Windows.IID := (1890155512, 57509, 22971, (145, 116, 129, 42, 19, 29, 133, 160 ));
    
    type AsyncOperationCompletedHandler_ILaunchUriResult_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_ILaunchUriResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILaunchUriResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILaunchUriResult_Interface
@@ -3849,7 +3903,6 @@ package Windows.System is
    IID_AsyncOperationCompletedHandler_LaunchQuerySupportStatus : aliased constant Windows.IID := (428649554, 43981, 21801, (147, 63, 7, 28, 201, 63, 214, 53 ));
    
    type AsyncOperationCompletedHandler_LaunchQuerySupportStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_LaunchQuerySupportStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_LaunchQuerySupportStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_LaunchQuerySupportStatus_Interface
@@ -3863,7 +3916,6 @@ package Windows.System is
    IID_AsyncOperationCompletedHandler_LaunchUriStatus : aliased constant Windows.IID := (1376429454, 16598, 23127, (166, 220, 203, 95, 174, 165, 204, 165 ));
    
    type AsyncOperationCompletedHandler_LaunchUriStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_LaunchUriStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_LaunchUriStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_LaunchUriStatus_Interface
@@ -3877,7 +3929,6 @@ package Windows.System is
    IID_AsyncOperationCompletedHandler_RemoteLaunchUriStatus : aliased constant Windows.IID := (1066355483, 52564, 21564, (129, 127, 38, 48, 72, 127, 24, 120 ));
    
    type AsyncOperationCompletedHandler_RemoteLaunchUriStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_RemoteLaunchUriStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_RemoteLaunchUriStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_RemoteLaunchUriStatus_Interface
@@ -3891,7 +3942,6 @@ package Windows.System is
    IID_AsyncOperationCompletedHandler_IProcessLauncherResult : aliased constant Windows.IID := (2373484262, 2020, 24014, (143, 229, 181, 3, 161, 246, 54, 140 ));
    
    type AsyncOperationCompletedHandler_IProcessLauncherResult_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_IProcessLauncherResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IProcessLauncherResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IProcessLauncherResult_Interface
@@ -3955,7 +4005,6 @@ package Windows.System is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentThread
    return Windows.System.IDispatcherQueue;
@@ -4377,5 +4426,6 @@ package Windows.System is
       timeZoneDisplayName : Windows.String
    )
    ;
+   
 
 end;

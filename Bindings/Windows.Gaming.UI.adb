@@ -28,7 +28,6 @@ package body Windows.Gaming.UI is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_GameMonitoringPermission_Interface
@@ -59,7 +58,6 @@ package body Windows.Gaming.UI is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateGameChatOverlayMessageSource return Windows.Gaming.UI.IGameChatOverlayMessageSource is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Gaming.UI.GameChatOverlayMessageSource");
@@ -84,7 +82,6 @@ package body Windows.Gaming.UI is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function add_VisibilityChanged
    (
@@ -229,5 +226,6 @@ package body Windows.Gaming.UI is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

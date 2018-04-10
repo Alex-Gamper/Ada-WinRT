@@ -270,6 +270,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs : aliased constant Windows.IID := (3705266206, 33759, 17381, (143, 67, 203, 232, 71, 158, 132, 235 ));
@@ -289,6 +290,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectServiceRemotePortAddedEventArgs : aliased constant Windows.IID := (3570318017, 16339, 20238, (183, 189, 120, 41, 6, 244, 68, 17 ));
@@ -308,6 +310,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Devices.WiFiDirect.Services.WiFiDirectServiceIPProtocol
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectServiceSessionDeferredEventArgs : aliased constant Windows.IID := (2382109055, 4609, 20255, (182, 244, 93, 241, 183, 185, 251, 46 ));
@@ -320,6 +323,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectServiceSessionRequestedEventArgs : aliased constant Windows.IID := (1958595601, 21462, 18841, (180, 248, 108, 142, 204, 23, 113, 231 ));
@@ -332,6 +336,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequest
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectServiceSessionRequest : aliased constant Windows.IID := (2699197579, 20683, 19032, (155, 207, 228, 114, 185, 159, 186, 4 ));
@@ -358,6 +363,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectServiceAdvertiserFactory : aliased constant Windows.IID := (822520845, 46150, 20243, (159, 154, 138, 233, 37, 254, 186, 43 ));
@@ -371,6 +377,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectServiceAdvertiser : aliased constant Windows.IID := (2762612449, 40335, 20303, (147, 238, 125, 222, 162, 227, 127, 70 ));
@@ -569,6 +576,7 @@ package Windows.Devices.WiFiDirect.Services is
       This       : access IWiFiDirectServiceAdvertiser_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectServiceStatics : aliased constant Windows.IID := (2108948549, 64884, 18056, (183, 37, 93, 206, 134, 172, 242, 51 ));
@@ -599,6 +607,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectService : aliased constant Windows.IID := (1353366456, 24433, 17900, (132, 241, 161, 228, 252, 120, 121, 163 ));
@@ -691,6 +700,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectServiceSession -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWiFiDirectServiceSession : aliased constant Windows.IID := (2165580131, 58406, 18379, (134, 64, 225, 179, 88, 139, 242, 111 ));
@@ -798,6 +808,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_WiFiDirectServiceConfigurationMethod : aliased constant Windows.IID := (428384094, 18862, 24113, (176, 89, 8, 63, 159, 21, 50, 195 ));
@@ -832,6 +843,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_WiFiDirectServiceConfigurationMethod : aliased constant Windows.IID := (3648469786, 41288, 22719, (156, 75, 175, 234, 201, 190, 58, 180 ));
@@ -844,6 +856,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Devices.WiFiDirect.Services.IIterator_WiFiDirectServiceConfigurationMethod
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_WiFiDirectServiceConfigurationMethod : aliased constant Windows.IID := (3698397153, 32516, 20827, (138, 193, 28, 93, 60, 13, 43, 40 ));
@@ -882,6 +895,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_WiFiDirectServiceConfigurationMethod : aliased constant Windows.IID := (4138137884, 1401, 22109, (190, 7, 69, 56, 165, 86, 144, 190 ));
@@ -976,6 +990,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; items : Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWiFiDirectServiceSession : aliased constant Windows.IID := (3269086871, 29323, 21505, (169, 217, 58, 1, 133, 69, 10, 242 ));
@@ -1002,6 +1017,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWiFiDirectService : aliased constant Windows.IID := (3304729320, 20471, 23200, (175, 151, 237, 133, 234, 102, 249, 174 ));
@@ -1028,6 +1044,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Devices.WiFiDirect.Services.IWiFiDirectService
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWiFiDirectServiceProvisioningInfo : aliased constant Windows.IID := (3623505348, 18224, 20590, (191, 240, 128, 30, 180, 168, 49, 168 ));
@@ -1054,6 +1071,7 @@ package Windows.Devices.WiFiDirect.Services is
       ; RetVal : access Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceProvisioningInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1063,7 +1081,6 @@ package Windows.Devices.WiFiDirect.Services is
    IID_TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested : aliased constant Windows.IID := (3415801204, 34589, 22320, (145, 254, 129, 239, 148, 127, 231, 143 ));
    
    type TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_SessionRequested_Interface
@@ -1077,7 +1094,6 @@ package Windows.Devices.WiFiDirect.Services is
    IID_TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AutoAcceptSessionConnected : aliased constant Windows.IID := (1004721416, 43094, 23561, (153, 152, 82, 37, 151, 180, 75, 7 ));
    
    type TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AutoAcceptSessionConnected_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AutoAcceptSessionConnected'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AutoAcceptSessionConnected_Interface
@@ -1091,7 +1107,6 @@ package Windows.Devices.WiFiDirect.Services is
    IID_TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AdvertisementStatusChanged : aliased constant Windows.IID := (1744580897, 49568, 23587, (175, 88, 236, 183, 242, 167, 215, 115 ));
    
    type TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AdvertisementStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AdvertisementStatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWiFiDirectServiceAdvertiser_add_AdvertisementStatusChanged_Interface
@@ -1105,7 +1120,6 @@ package Windows.Devices.WiFiDirect.Services is
    IID_AsyncOperationCompletedHandler_IWiFiDirectServiceSession : aliased constant Windows.IID := (2996692753, 24760, 23002, (143, 77, 252, 121, 216, 204, 212, 34 ));
    
    type AsyncOperationCompletedHandler_IWiFiDirectServiceSession_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectServiceSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWiFiDirectServiceSession'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWiFiDirectServiceSession_Interface
@@ -1119,7 +1133,6 @@ package Windows.Devices.WiFiDirect.Services is
    IID_AsyncOperationCompletedHandler_IWiFiDirectService : aliased constant Windows.IID := (4110787528, 18487, 24078, (138, 77, 30, 42, 245, 71, 126, 92 ));
    
    type AsyncOperationCompletedHandler_IWiFiDirectService_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWiFiDirectService'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWiFiDirectService_Interface
@@ -1133,7 +1146,6 @@ package Windows.Devices.WiFiDirect.Services is
    IID_TypedEventHandler_IWiFiDirectService_add_SessionDeferred : aliased constant Windows.IID := (4231920684, 40186, 22562, (186, 63, 255, 58, 251, 101, 119, 126 ));
    
    type TypedEventHandler_IWiFiDirectService_add_SessionDeferred_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectService ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionDeferredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiDirectService_add_SessionDeferred'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWiFiDirectService_add_SessionDeferred_Interface
@@ -1147,7 +1159,6 @@ package Windows.Devices.WiFiDirect.Services is
    IID_AsyncOperationCompletedHandler_IWiFiDirectServiceProvisioningInfo : aliased constant Windows.IID := (2496370024, 1034, 20870, (163, 201, 82, 104, 14, 225, 121, 132 ));
    
    type AsyncOperationCompletedHandler_IWiFiDirectServiceProvisioningInfo_Interface(Callback : access procedure (asyncInfo : Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectServiceProvisioningInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWiFiDirectServiceProvisioningInfo'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWiFiDirectServiceProvisioningInfo_Interface
@@ -1161,7 +1172,6 @@ package Windows.Devices.WiFiDirect.Services is
    IID_TypedEventHandler_IWiFiDirectServiceSession_add_SessionStatusChanged : aliased constant Windows.IID := (281228033, 58140, 23758, (178, 160, 193, 220, 45, 141, 14, 19 ));
    
    type TypedEventHandler_IWiFiDirectServiceSession_add_SessionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiDirectServiceSession_add_SessionStatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWiFiDirectServiceSession_add_SessionStatusChanged_Interface
@@ -1175,7 +1185,6 @@ package Windows.Devices.WiFiDirect.Services is
    IID_TypedEventHandler_IWiFiDirectServiceSession_add_RemotePortAdded : aliased constant Windows.IID := (2200347447, 15385, 22439, (128, 236, 204, 162, 234, 98, 239, 18 ));
    
    type TypedEventHandler_IWiFiDirectServiceSession_add_RemotePortAdded_Interface(Callback : access procedure (sender : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession ; args : Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceRemotePortAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWiFiDirectServiceSession_add_RemotePortAdded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWiFiDirectServiceSession_add_RemotePortAdded_Interface
@@ -1196,19 +1205,18 @@ package Windows.Devices.WiFiDirect.Services is
    subtype WiFiDirectServiceSessionRequest is Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequest;
    subtype WiFiDirectServiceSessionRequestedEventArgs is Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs;
    subtype WiFiDirectServiceAdvertiser is Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser;
-   
    function CreateWiFiDirectServiceAdvertiser
    (
       serviceName : Windows.String
    )
    return Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser;
    
+   
    subtype WiFiDirectService is Windows.Devices.WiFiDirect.Services.IWiFiDirectService;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetSelector
    (
@@ -1228,5 +1236,6 @@ package Windows.Devices.WiFiDirect.Services is
       deviceId : Windows.String
    )
    return Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService;
+   
 
 end;

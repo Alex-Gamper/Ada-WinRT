@@ -535,6 +535,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.EdgeGestureKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEdgeGestureStatics : aliased constant Windows.IID := (3161097497, 6382, 16451, (152, 57, 79, 197, 132, 214, 10, 20 ));
@@ -547,6 +548,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IEdgeGesture
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEdgeGesture : aliased constant Windows.IID := (1477268114, 10929, 18858, (167, 240, 51, 189, 63, 141, 249, 241 ));
@@ -597,6 +599,7 @@ package Windows.UI.Input is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyboardDeliveryInterceptor : aliased constant Windows.IID := (3032150120, 36681, 17516, (141, 181, 140, 15, 254, 133, 204, 158 ));
@@ -646,6 +649,7 @@ package Windows.UI.Input is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyboardDeliveryInterceptorStatics : aliased constant Windows.IID := (4193663906, 52922, 18261, (138, 126, 20, 192, 255, 236, 210, 57 ));
@@ -658,6 +662,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IKeyboardDeliveryInterceptor
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITappedEventArgs : aliased constant Windows.IID := (3483444964, 9530, 19516, (149, 59, 57, 92, 55, 174, 211, 9 ));
@@ -684,6 +689,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRightTappedEventArgs : aliased constant Windows.IID := (1287602365, 44922, 18998, (148, 118, 177, 220, 225, 65, 112, 154 ));
@@ -703,6 +709,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHoldingEventArgs : aliased constant Windows.IID := (737629637, 59289, 16820, (187, 64, 36, 47, 64, 149, 155, 113 ));
@@ -729,6 +736,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.HoldingState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDraggingEventArgs : aliased constant Windows.IID := (479220612, 2108, 19411, (181, 89, 23, 156, 221, 235, 51, 236 ));
@@ -755,6 +763,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.DraggingState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IManipulationStartedEventArgs : aliased constant Windows.IID := (3723265854, 53198, 18738, (140, 29, 60, 61, 1, 26, 52, 192 ));
@@ -781,6 +790,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.ManipulationDelta
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IManipulationUpdatedEventArgs : aliased constant Windows.IID := (3409267941, 43960, 20383, (179, 206, 129, 129, 170, 97, 173, 130 ));
@@ -821,6 +831,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.ManipulationVelocities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IManipulationInertiaStartingEventArgs : aliased constant Windows.IID := (3711412376, 9919, 18042, (156, 229, 204, 243, 251, 17, 55, 30 ));
@@ -861,6 +872,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.ManipulationVelocities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IManipulationCompletedEventArgs : aliased constant Windows.IID := (3008016939, 53659, 18175, (159, 56, 222, 199, 117, 75, 185, 231 ));
@@ -894,6 +906,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.ManipulationVelocities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICrossSlidingEventArgs : aliased constant Windows.IID := (3912714040, 28552, 16857, (135, 32, 120, 224, 142, 57, 131, 73 ));
@@ -920,6 +933,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.CrossSlidingState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMouseWheelParameters : aliased constant Windows.IID := (3939551812, 40429, 16439, (129, 73, 94, 76, 194, 86, 68, 104 ));
@@ -981,6 +995,7 @@ package Windows.UI.Input is
       ; value : Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGestureRecognizer : aliased constant Windows.IID := (3027908543, 15723, 20360, (131, 232, 109, 203, 64, 18, 255, 176 ));
@@ -1402,6 +1417,7 @@ package Windows.UI.Input is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointerPointStatics : aliased constant Windows.IID := (2768659341, 10778, 16702, (188, 117, 159, 56, 56, 28, 192, 105 ));
@@ -1441,6 +1457,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IVector_IPointerPoint -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointerPointTransform : aliased constant Windows.IID := (1298129231, 47228, 16424, (188, 156, 89, 233, 148, 127, 176, 86 ));
@@ -1470,6 +1487,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointerPoint : aliased constant Windows.IID := (3918868861, 29334, 17113, (130, 51, 197, 190, 115, 183, 74, 74 ));
@@ -1531,6 +1549,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IPointerPointProperties
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointerPointProperties : aliased constant Windows.IID := (3348990539, 49507, 20199, (128, 63, 103, 206, 121, 249, 151, 45 ));
@@ -1708,6 +1727,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointerPointProperties2 : aliased constant Windows.IID := (583222074, 51259, 16832, (162, 150, 94, 35, 45, 100, 214, 175 ));
@@ -1720,6 +1740,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Foundation.IReference_Single -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointerVisualizationSettings : aliased constant Windows.IID := (1293837409, 34039, 18845, (189, 145, 42, 54, 226, 183, 170, 162 ));
@@ -1753,6 +1774,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPointerVisualizationSettingsStatics : aliased constant Windows.IID := (1753681627, 5723, 16916, (180, 243, 88, 78, 202, 140, 138, 105 ));
@@ -1765,6 +1787,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IPointerVisualizationSettings
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerScreenContact : aliased constant Windows.IID := (543859764, 58961, 4581, (191, 98, 44, 39, 215, 64, 78, 133 ));
@@ -1784,6 +1807,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerRotationChangedEventArgs : aliased constant Windows.IID := (543859765, 58961, 4581, (191, 98, 44, 39, 215, 64, 78, 133 ));
@@ -1803,6 +1827,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IRadialControllerScreenContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerRotationChangedEventArgs2 : aliased constant Windows.IID := (1029144300, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -1822,6 +1847,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerButtonPressedEventArgs : aliased constant Windows.IID := (1029144301, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -1841,6 +1867,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerButtonHoldingEventArgs : aliased constant Windows.IID := (1029144302, 15598, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -1860,6 +1887,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerButtonReleasedEventArgs : aliased constant Windows.IID := (1029144303, 15598, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -1879,6 +1907,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerScreenContactStartedEventArgs : aliased constant Windows.IID := (543859766, 58961, 4581, (191, 98, 44, 39, 215, 64, 78, 133 ));
@@ -1891,6 +1920,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IRadialControllerScreenContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerScreenContactStartedEventArgs2 : aliased constant Windows.IID := (1029144304, 15598, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -1910,6 +1940,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerScreenContactContinuedEventArgs : aliased constant Windows.IID := (543859767, 58961, 4581, (191, 98, 44, 39, 215, 64, 78, 133 ));
@@ -1922,6 +1953,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IRadialControllerScreenContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerScreenContactContinuedEventArgs2 : aliased constant Windows.IID := (1029144305, 15598, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -1941,6 +1973,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerScreenContactEndedEventArgs : aliased constant Windows.IID := (1029144306, 15598, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -1960,6 +1993,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerButtonClickedEventArgs : aliased constant Windows.IID := (543859768, 58961, 4581, (191, 98, 44, 39, 215, 64, 78, 133 ));
@@ -1972,6 +2006,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IRadialControllerScreenContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerButtonClickedEventArgs2 : aliased constant Windows.IID := (1029144307, 15598, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -1984,6 +2019,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerControlAcquiredEventArgs : aliased constant Windows.IID := (543859769, 58961, 4581, (191, 98, 44, 39, 215, 64, 78, 133 ));
@@ -1996,6 +2032,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IRadialControllerScreenContact
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerControlAcquiredEventArgs2 : aliased constant Windows.IID := (1029144308, 15598, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -2015,6 +2052,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialController : aliased constant Windows.IID := (810930632, 57169, 17364, (178, 59, 14, 16, 55, 70, 122, 9 ));
@@ -2160,6 +2198,7 @@ package Windows.UI.Input is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialController2 : aliased constant Windows.IID := (1029144319, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -2210,6 +2249,7 @@ package Windows.UI.Input is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerStatics : aliased constant Windows.IID := (4208906423, 47180, 18580, (135, 170, 143, 37, 170, 95, 40, 139 ));
@@ -2229,6 +2269,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IRadialController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerMenu : aliased constant Windows.IID := (2231808861, 63040, 17426, (171, 160, 186, 208, 119, 229, 234, 138 ));
@@ -2276,6 +2317,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerMenuItemStatics : aliased constant Windows.IID := (614336647, 55362, 17700, (157, 248, 224, 214, 71, 237, 200, 135 ));
@@ -2299,6 +2341,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IRadialControllerMenuItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerMenuItemStatics2 : aliased constant Windows.IID := (213610686, 32318, 18621, (190, 4, 44, 127, 202, 169, 193, 255 ));
@@ -2325,6 +2368,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IRadialControllerMenuItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerMenuItem : aliased constant Windows.IID := (3356477837, 44299, 19612, (143, 47, 19, 106, 35, 115, 166, 186 ));
@@ -2366,6 +2410,7 @@ package Windows.UI.Input is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerConfiguration : aliased constant Windows.IID := (2797051595, 27218, 17456, (145, 12, 86, 55, 10, 157, 107, 66 ));
@@ -2392,6 +2437,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerConfigurationStatics : aliased constant Windows.IID := (2042015973, 1690, 17542, (169, 157, 141, 183, 114, 185, 100, 47 ));
@@ -2404,6 +2450,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IRadialControllerConfiguration
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerConfiguration2 : aliased constant Windows.IID := (1029144311, 15598, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -2437,6 +2484,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRadialControllerConfigurationStatics2 : aliased constant Windows.IID := (1407224599, 57861, 18643, (156, 175, 128, 255, 71, 196, 215, 199 ));
@@ -2470,6 +2518,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPointerPoint : aliased constant Windows.IID := (1914691612, 23252, 21090, (176, 120, 58, 179, 69, 16, 93, 184 ));
@@ -2504,6 +2553,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPointerPoint : aliased constant Windows.IID := (4143106982, 28790, 23385, (150, 49, 246, 172, 50, 181, 118, 149 ));
@@ -2516,6 +2566,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IIterator_IPointerPoint
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPointerPoint : aliased constant Windows.IID := (4042617873, 30598, 20852, (135, 82, 76, 94, 131, 75, 109, 162 ));
@@ -2554,6 +2605,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IPointerPoint : aliased constant Windows.IID := (3752220111, 64999, 20552, (180, 191, 201, 9, 35, 27, 126, 219 ));
@@ -2648,6 +2700,7 @@ package Windows.UI.Input is
       ; items : Windows.UI.Input.IPointerPoint_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IRadialControllerMenuItem : aliased constant Windows.IID := (1517764132, 55656, 21342, (150, 154, 118, 206, 54, 2, 166, 55 ));
@@ -2682,6 +2735,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IRadialControllerMenuItem : aliased constant Windows.IID := (447173299, 56337, 23502, (178, 185, 205, 27, 248, 242, 53, 190 ));
@@ -2694,6 +2748,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IIterator_IRadialControllerMenuItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IRadialControllerMenuItem : aliased constant Windows.IID := (3105518402, 16331, 20779, (174, 241, 253, 164, 113, 46, 88, 23 ));
@@ -2732,6 +2787,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IRadialControllerMenuItem : aliased constant Windows.IID := (3219035367, 28920, 23744, (152, 226, 140, 15, 140, 229, 36, 171 ));
@@ -2826,6 +2882,7 @@ package Windows.UI.Input is
       ; items : Windows.UI.Input.IRadialControllerMenuItem_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_RadialControllerSystemMenuItemKind : aliased constant Windows.IID := (1069291608, 42046, 21724, (176, 226, 139, 9, 139, 221, 172, 246 ));
@@ -2860,6 +2917,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_RadialControllerSystemMenuItemKind : aliased constant Windows.IID := (1159069967, 64920, 24093, (191, 63, 174, 175, 121, 241, 243, 218 ));
@@ -2872,6 +2930,7 @@ package Windows.UI.Input is
       ; RetVal : access Windows.UI.Input.IIterator_RadialControllerSystemMenuItemKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2881,7 +2940,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IEdgeGesture_add_Starting : aliased constant Windows.IID := (3056434961, 51121, 23536, (163, 71, 51, 102, 37, 45, 180, 206 ));
    
    type TypedEventHandler_IEdgeGesture_add_Starting_Interface(Callback : access procedure (sender : Windows.UI.Input.IEdgeGesture ; args : Windows.UI.Input.IEdgeGestureEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEdgeGesture_add_Starting'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEdgeGesture_add_Starting_Interface
@@ -2895,7 +2953,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IEdgeGesture_add_Completed : aliased constant Windows.IID := (3056434961, 51121, 23536, (163, 71, 51, 102, 37, 45, 180, 206 ));
    
    type TypedEventHandler_IEdgeGesture_add_Completed_Interface(Callback : access procedure (sender : Windows.UI.Input.IEdgeGesture ; args : Windows.UI.Input.IEdgeGestureEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEdgeGesture_add_Completed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEdgeGesture_add_Completed_Interface
@@ -2909,7 +2966,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IEdgeGesture_add_Canceled : aliased constant Windows.IID := (3056434961, 51121, 23536, (163, 71, 51, 102, 37, 45, 180, 206 ));
    
    type TypedEventHandler_IEdgeGesture_add_Canceled_Interface(Callback : access procedure (sender : Windows.UI.Input.IEdgeGesture ; args : Windows.UI.Input.IEdgeGestureEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEdgeGesture_add_Canceled'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEdgeGesture_add_Canceled_Interface
@@ -2923,7 +2979,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown : aliased constant Windows.IID := (740077329, 40303, 24079, (169, 234, 76, 124, 115, 77, 115, 214 ));
    
    type TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface(Callback : access procedure (sender : Windows.UI.Input.IKeyboardDeliveryInterceptor ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface
@@ -2937,7 +2992,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp : aliased constant Windows.IID := (740077329, 40303, 24079, (169, 234, 76, 124, 115, 77, 115, 214 ));
    
    type TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp_Interface(Callback : access procedure (sender : Windows.UI.Input.IKeyboardDeliveryInterceptor ; args : Windows.UI.Core.IKeyEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyUp_Interface
@@ -2951,7 +3005,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IGestureRecognizer_add_Tapped : aliased constant Windows.IID := (670281047, 35220, 22290, (139, 131, 169, 59, 161, 124, 3, 194 ));
    
    type TypedEventHandler_IGestureRecognizer_add_Tapped_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.ITappedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGestureRecognizer_add_Tapped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGestureRecognizer_add_Tapped_Interface
@@ -2965,7 +3018,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IGestureRecognizer_add_RightTapped : aliased constant Windows.IID := (2216743490, 47668, 23319, (146, 243, 143, 118, 127, 29, 13, 228 ));
    
    type TypedEventHandler_IGestureRecognizer_add_RightTapped_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IRightTappedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGestureRecognizer_add_RightTapped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGestureRecognizer_add_RightTapped_Interface
@@ -2979,7 +3031,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IGestureRecognizer_add_Holding : aliased constant Windows.IID := (2604533, 26952, 21495, (175, 190, 212, 216, 254, 80, 15, 235 ));
    
    type TypedEventHandler_IGestureRecognizer_add_Holding_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IHoldingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGestureRecognizer_add_Holding'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGestureRecognizer_add_Holding_Interface
@@ -2993,7 +3044,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IGestureRecognizer_add_Dragging : aliased constant Windows.IID := (3195849282, 39133, 23922, (158, 145, 151, 97, 19, 215, 152, 94 ));
    
    type TypedEventHandler_IGestureRecognizer_add_Dragging_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IDraggingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGestureRecognizer_add_Dragging'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGestureRecognizer_add_Dragging_Interface
@@ -3007,7 +3057,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IGestureRecognizer_add_ManipulationStarted : aliased constant Windows.IID := (286094792, 47710, 21602, (139, 45, 74, 21, 130, 87, 75, 97 ));
    
    type TypedEventHandler_IGestureRecognizer_add_ManipulationStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IManipulationStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGestureRecognizer_add_ManipulationStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGestureRecognizer_add_ManipulationStarted_Interface
@@ -3021,7 +3070,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated : aliased constant Windows.IID := (3948025589, 522, 24128, (156, 75, 72, 145, 44, 105, 14, 45 ));
    
    type TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IManipulationUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGestureRecognizer_add_ManipulationUpdated_Interface
@@ -3035,7 +3083,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting : aliased constant Windows.IID := (889877163, 13477, 20883, (145, 61, 61, 76, 89, 131, 132, 44 ));
    
    type TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IManipulationInertiaStartingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGestureRecognizer_add_ManipulationInertiaStarting_Interface
@@ -3049,7 +3096,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted : aliased constant Windows.IID := (3259979269, 12377, 21196, (189, 243, 112, 152, 20, 109, 52, 215 ));
    
    type TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.IManipulationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGestureRecognizer_add_ManipulationCompleted_Interface
@@ -3063,7 +3109,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IGestureRecognizer_add_CrossSliding : aliased constant Windows.IID := (532802416, 3110, 23792, (158, 80, 132, 58, 52, 8, 54, 19 ));
    
    type TypedEventHandler_IGestureRecognizer_add_CrossSliding_Interface(Callback : access procedure (sender : Windows.UI.Input.IGestureRecognizer ; args : Windows.UI.Input.ICrossSlidingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGestureRecognizer_add_CrossSliding'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGestureRecognizer_add_CrossSliding_Interface
@@ -3077,7 +3122,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController_add_ScreenContactStarted : aliased constant Windows.IID := (523065422, 15064, 20553, (180, 81, 58, 68, 161, 2, 250, 130 ));
    
    type TypedEventHandler_IRadialController_add_ScreenContactStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController_add_ScreenContactStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController_add_ScreenContactStarted_Interface
@@ -3091,7 +3135,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController_add_ScreenContactEnded : aliased constant Windows.IID := (1578079153, 49906, 21329, (130, 170, 108, 245, 244, 194, 208, 104 ));
    
    type TypedEventHandler_IRadialController_add_ScreenContactEnded_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController_add_ScreenContactEnded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController_add_ScreenContactEnded_Interface
@@ -3105,7 +3148,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController_add_ScreenContactContinued : aliased constant Windows.IID := (811048551, 64335, 23864, (131, 180, 156, 182, 16, 9, 13, 239 ));
    
    type TypedEventHandler_IRadialController_add_ScreenContactContinued_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController_add_ScreenContactContinued'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController_add_ScreenContactContinued_Interface
@@ -3119,7 +3161,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController_add_ControlLost : aliased constant Windows.IID := (1578079153, 49906, 21329, (130, 170, 108, 245, 244, 194, 208, 104 ));
    
    type TypedEventHandler_IRadialController_add_ControlLost_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController_add_ControlLost'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController_add_ControlLost_Interface
@@ -3133,7 +3174,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController_add_RotationChanged : aliased constant Windows.IID := (2414295753, 35382, 20818, (129, 93, 3, 49, 14, 232, 191, 133 ));
    
    type TypedEventHandler_IRadialController_add_RotationChanged_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerRotationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController_add_RotationChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController_add_RotationChanged_Interface
@@ -3147,7 +3187,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController_add_ButtonClicked : aliased constant Windows.IID := (3499990988, 60856, 22208, (133, 109, 112, 228, 119, 169, 221, 243 ));
    
    type TypedEventHandler_IRadialController_add_ButtonClicked_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerButtonClickedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController_add_ButtonClicked'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController_add_ButtonClicked_Interface
@@ -3161,7 +3200,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController_add_ControlAcquired : aliased constant Windows.IID := (1321595901, 45591, 21586, (162, 189, 151, 37, 206, 159, 102, 117 ));
    
    type TypedEventHandler_IRadialController_add_ControlAcquired_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerControlAcquiredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController_add_ControlAcquired'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController_add_ControlAcquired_Interface
@@ -3175,7 +3213,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController2_add_ButtonPressed : aliased constant Windows.IID := (1712057930, 20461, 23138, (170, 93, 129, 19, 180, 119, 188, 105 ));
    
    type TypedEventHandler_IRadialController2_add_ButtonPressed_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerButtonPressedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController2_add_ButtonPressed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController2_add_ButtonPressed_Interface
@@ -3189,7 +3226,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController2_add_ButtonHolding : aliased constant Windows.IID := (1279587071, 14922, 20922, (160, 31, 159, 32, 2, 71, 31, 89 ));
    
    type TypedEventHandler_IRadialController2_add_ButtonHolding_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerButtonHoldingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController2_add_ButtonHolding'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController2_add_ButtonHolding_Interface
@@ -3203,7 +3239,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialController2_add_ButtonReleased : aliased constant Windows.IID := (3257923116, 50754, 23888, (147, 64, 254, 22, 49, 34, 114, 12 ));
    
    type TypedEventHandler_IRadialController2_add_ButtonReleased_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialController ; args : Windows.UI.Input.IRadialControllerButtonReleasedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialController2_add_ButtonReleased'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialController2_add_ButtonReleased_Interface
@@ -3217,7 +3252,6 @@ package Windows.UI.Input is
    IID_TypedEventHandler_IRadialControllerMenuItem_add_Invoked : aliased constant Windows.IID := (1552996091, 58616, 23522, (133, 68, 157, 227, 63, 130, 196, 26 ));
    
    type TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Interface(Callback : access procedure (sender : Windows.UI.Input.IRadialControllerMenuItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRadialControllerMenuItem_add_Invoked'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Interface
@@ -3268,7 +3302,6 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.UI.Input.IEdgeGesture;
@@ -3362,5 +3395,6 @@ package Windows.UI.Input is
    
    function GetForCurrentView
    return Windows.UI.Input.IRadialControllerConfiguration;
+   
 
 end;

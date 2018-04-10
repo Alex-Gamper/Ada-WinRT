@@ -156,6 +156,7 @@ package Windows.Devices.I2c.Provider is
       ; value : Windows.Devices.I2c.Provider.ProviderI2cSharingMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_II2cControllerProvider : aliased constant Windows.IID := (1640151938, 17680, 16739, (168, 124, 78, 21, 169, 85, 137, 128 ));
@@ -169,6 +170,7 @@ package Windows.Devices.I2c.Provider is
       ; RetVal : access Windows.Devices.I2c.Provider.II2cDeviceProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_II2cProvider : aliased constant Windows.IID := (1863518270, 48994, 20450, (169, 90, 240, 137, 153, 102, 152, 24 ));
@@ -181,6 +183,7 @@ package Windows.Devices.I2c.Provider is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_II2cDeviceProvider : aliased constant Windows.IID := (2905876052, 22504, 17726, (131, 41, 209, 228, 71, 209, 3, 169 ));
@@ -240,6 +243,7 @@ package Windows.Devices.I2c.Provider is
       ; RetVal : access Windows.Devices.I2c.Provider.ProviderI2cTransferResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

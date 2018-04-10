@@ -385,6 +385,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IVectorView_IPhotoImportOperation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportOperation : aliased constant Windows.IID := (3656882148, 41114, 20196, (164, 177, 32, 148, 2, 119, 165, 190 ));
@@ -425,6 +426,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportStorageMedium : aliased constant Windows.IID := (4072255635, 64645, 18559, (135, 194, 88, 214, 117, 208, 91, 7 ));
@@ -485,6 +487,7 @@ package Windows.Media.Import is
       This       : access IPhotoImportStorageMedium_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportSourceStatics : aliased constant Windows.IID := (86566278, 13016, 18044, (140, 238, 35, 161, 178, 244, 62, 133 ));
@@ -506,6 +509,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IAsyncOperation_IPhotoImportSource -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportSource : aliased constant Windows.IID := (529441630, 5211, 19670, (135, 241, 84, 150, 90, 152, 47, 239 ));
@@ -630,6 +634,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IPhotoImportSession
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportSession : aliased constant Windows.IID := (2858652014, 60635, 20222, (148, 198, 95, 92, 175, 227, 76, 251 ));
@@ -714,6 +719,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportSession2 : aliased constant Windows.IID := (710043408, 16070, 18077, (163, 117, 43, 159, 71, 133, 57, 30 ));
@@ -747,6 +753,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportItem : aliased constant Windows.IID := (2849013366, 39932, 17336, (179, 86, 99, 59, 106, 152, 140, 158 ));
@@ -843,6 +850,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportFindItemsResult : aliased constant Windows.IID := (957736519, 27768, 18731, (132, 78, 143, 229, 232, 246, 191, 185 ));
@@ -1079,6 +1087,7 @@ package Windows.Media.Import is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportFindItemsResult2 : aliased constant Windows.IID := (4225591867, 60665, 16490, (129, 94, 80, 21, 98, 91, 10, 136 ));
@@ -1092,6 +1101,7 @@ package Windows.Media.Import is
       ; rangeLength : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportImportItemsResult : aliased constant Windows.IID := (3839161464, 54297, 17475, (168, 78, 240, 106, 133, 12, 11, 0 ));
@@ -1195,6 +1205,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportDeleteImportedItemsFromSourceResult : aliased constant Windows.IID := (4108391160, 33853, 17034, (161, 166, 129, 81, 2, 146, 176, 174 ));
@@ -1291,6 +1302,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportSidecar : aliased constant Windows.IID := (1188550487, 63490, 17607, (156, 152, 122, 113, 244, 188, 20, 134 ));
@@ -1317,6 +1329,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportVideoSegment : aliased constant Windows.IID := (1648099977, 12826, 16856, (145, 102, 140, 98, 163, 51, 39, 108 ));
@@ -1357,6 +1370,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IVectorView_IPhotoImportSidecar -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportItemImportedEventArgs : aliased constant Windows.IID := (1120612317, 32104, 18357, (188, 124, 206, 183, 62, 12, 119, 220 ));
@@ -1369,6 +1383,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IPhotoImportItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoImportSelectionChangedEventArgs : aliased constant Windows.IID := (273028994, 64157, 19504, (139, 201, 77, 100, 145, 21, 114, 213 ));
@@ -1381,6 +1396,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPhotoImportOperation : aliased constant Windows.IID := (2090720794, 43169, 22871, (142, 13, 196, 1, 209, 156, 146, 55 ));
@@ -1415,6 +1431,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPhotoImportOperation : aliased constant Windows.IID := (2498968207, 4442, 20683, (181, 157, 171, 132, 131, 168, 72, 66 ));
@@ -1427,6 +1444,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IIterator_IPhotoImportOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPhotoImportOperation : aliased constant Windows.IID := (2779805704, 32024, 21248, (159, 1, 29, 133, 20, 149, 70, 210 ));
@@ -1465,6 +1483,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPhotoImportSource : aliased constant Windows.IID := (3368410142, 60231, 20664, (181, 217, 170, 254, 26, 130, 49, 138 ));
@@ -1491,6 +1510,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IPhotoImportSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPhotoImportStorageMedium : aliased constant Windows.IID := (2556213576, 38761, 21980, (133, 217, 18, 90, 93, 3, 214, 187 ));
@@ -1525,6 +1545,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPhotoImportStorageMedium : aliased constant Windows.IID := (842255358, 63982, 22031, (189, 15, 227, 106, 190, 108, 218, 127 ));
@@ -1537,6 +1558,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IIterator_IPhotoImportStorageMedium
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPhotoImportStorageMedium : aliased constant Windows.IID := (894014521, 57406, 22289, (169, 85, 247, 196, 89, 40, 188, 144 ));
@@ -1575,6 +1597,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPhotoImportSidecar : aliased constant Windows.IID := (2935352304, 4963, 22842, (134, 213, 249, 43, 194, 48, 191, 214 ));
@@ -1609,6 +1632,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPhotoImportSidecar : aliased constant Windows.IID := (729780909, 58774, 22121, (182, 34, 251, 251, 199, 4, 14, 137 ));
@@ -1621,6 +1645,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IIterator_IPhotoImportSidecar
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPhotoImportSidecar : aliased constant Windows.IID := (2801416894, 52665, 20564, (191, 61, 82, 86, 7, 249, 194, 210 ));
@@ -1659,6 +1684,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPhotoImportVideoSegment : aliased constant Windows.IID := (3301010037, 13072, 23225, (147, 7, 120, 117, 90, 177, 9, 77 ));
@@ -1693,6 +1719,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPhotoImportVideoSegment : aliased constant Windows.IID := (2497526596, 55811, 23929, (187, 251, 27, 234, 242, 237, 228, 130 ));
@@ -1705,6 +1732,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IIterator_IPhotoImportVideoSegment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPhotoImportVideoSegment : aliased constant Windows.IID := (3679753165, 26901, 22146, (141, 213, 29, 225, 68, 236, 89, 157 ));
@@ -1743,6 +1771,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPhotoImportItem : aliased constant Windows.IID := (3494731880, 46499, 20622, (188, 107, 29, 205, 252, 251, 13, 8 ));
@@ -1777,6 +1806,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPhotoImportItem : aliased constant Windows.IID := (2184475779, 15221, 24213, (187, 164, 171, 192, 184, 163, 32, 170 ));
@@ -1789,6 +1819,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.Media.Import.IIterator_IPhotoImportItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPhotoImportItem : aliased constant Windows.IID := (2593171534, 37451, 22649, (136, 247, 187, 47, 123, 19, 24, 152 ));
@@ -1827,6 +1858,7 @@ package Windows.Media.Import is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1836,7 +1868,6 @@ package Windows.Media.Import is
    IID_AsyncOperationCompletedHandler_IPhotoImportSource : aliased constant Windows.IID := (3694703146, 34606, 21496, (142, 151, 69, 237, 133, 223, 13, 35 ));
    
    type AsyncOperationCompletedHandler_IPhotoImportSource_Interface(Callback : access procedure (asyncInfo : Windows.Media.Import.IAsyncOperation_IPhotoImportSource ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPhotoImportSource'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPhotoImportSource_Interface
@@ -1850,7 +1881,6 @@ package Windows.Media.Import is
    IID_TypedEventHandler_IPhotoImportFindItemsResult_add_SelectionChanged : aliased constant Windows.IID := (3866262014, 26927, 22018, (130, 11, 134, 80, 152, 217, 180, 62 ));
    
    type TypedEventHandler_IPhotoImportFindItemsResult_add_SelectionChanged_Interface(Callback : access procedure (sender : Windows.Media.Import.IPhotoImportFindItemsResult ; args : Windows.Media.Import.IPhotoImportSelectionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPhotoImportFindItemsResult_add_SelectionChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPhotoImportFindItemsResult_add_SelectionChanged_Interface
@@ -1864,7 +1894,6 @@ package Windows.Media.Import is
    IID_TypedEventHandler_IPhotoImportFindItemsResult_add_ItemImported : aliased constant Windows.IID := (2748115277, 62062, 22745, (129, 56, 89, 154, 214, 60, 112, 105 ));
    
    type TypedEventHandler_IPhotoImportFindItemsResult_add_ItemImported_Interface(Callback : access procedure (sender : Windows.Media.Import.IPhotoImportFindItemsResult ; args : Windows.Media.Import.IPhotoImportItemImportedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPhotoImportFindItemsResult_add_ItemImported'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPhotoImportFindItemsResult_add_ItemImported_Interface
@@ -1894,7 +1923,6 @@ package Windows.Media.Import is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FromIdAsync
    (
       sourceId : Windows.String
@@ -1915,5 +1943,6 @@ package Windows.Media.Import is
    
    function GetPendingOperations
    return Windows.Media.Import.IVectorView_IPhotoImportOperation;
+   
 
 end;

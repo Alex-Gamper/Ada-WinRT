@@ -27,7 +27,6 @@ package body Windows.Services.Cortana is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_CortanaPermissionsChangeResult_Interface
@@ -45,7 +44,6 @@ package body Windows.Services.Cortana is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -53,7 +51,6 @@ package body Windows.Services.Cortana is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDefault
    return Windows.Services.Cortana.ICortanaPermissionsManager is
@@ -105,5 +102,6 @@ package body Windows.Services.Cortana is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -32,7 +32,6 @@ package body Windows.ApplicationModel.Store.Preview is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStorePreviewPurchaseResults_Interface
@@ -50,7 +49,6 @@ package body Windows.ApplicationModel.Store.Preview is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -58,7 +56,6 @@ package body Windows.ApplicationModel.Store.Preview is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RequestProductPurchaseByProductIdAndSkuIdAsync
    (
@@ -575,5 +572,6 @@ package body Windows.ApplicationModel.Store.Preview is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

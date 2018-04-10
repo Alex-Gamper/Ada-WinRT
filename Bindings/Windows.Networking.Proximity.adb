@@ -30,7 +30,6 @@ package body Windows.Networking.Proximity is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access MessageReceivedHandler_Interface
@@ -176,7 +175,6 @@ package body Windows.Networking.Proximity is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -184,7 +182,6 @@ package body Windows.Networking.Proximity is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String is
@@ -661,5 +658,6 @@ package body Windows.Networking.Proximity is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

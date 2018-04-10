@@ -28,7 +28,6 @@ package body Windows.Globalization.PhoneNumberFormatting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       number : Windows.String
@@ -73,7 +72,6 @@ package body Windows.Globalization.PhoneNumberFormatting is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function TryParse
    (
@@ -197,5 +195,6 @@ package body Windows.Globalization.PhoneNumberFormatting is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

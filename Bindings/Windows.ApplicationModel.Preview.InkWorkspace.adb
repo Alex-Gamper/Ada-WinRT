@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Preview.InkWorkspace is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.ApplicationModel.Preview.InkWorkspace is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentApp
    return Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManager is
@@ -54,5 +52,6 @@ package body Windows.ApplicationModel.Preview.InkWorkspace is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

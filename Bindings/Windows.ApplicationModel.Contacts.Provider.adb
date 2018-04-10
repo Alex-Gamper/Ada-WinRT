@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Contacts.Provider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IContactPickerUI_add_ContactRemoved_Interface
@@ -45,7 +44,6 @@ package body Windows.ApplicationModel.Contacts.Provider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

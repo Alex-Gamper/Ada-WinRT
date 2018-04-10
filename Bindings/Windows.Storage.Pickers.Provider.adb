@@ -28,7 +28,6 @@ package body Windows.Storage.Pickers.Provider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IFileOpenPickerUI_add_FileRemoved_Interface
@@ -84,7 +83,6 @@ package body Windows.Storage.Pickers.Provider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

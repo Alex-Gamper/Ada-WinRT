@@ -211,6 +211,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlNodeList
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IXmlNode : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -249,6 +250,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IXmlNode : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -261,6 +263,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlNode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlNodeSerializer : aliased constant Windows.IID := (1556460418, 59101, 18833, (171, 239, 6, 216, 210, 231, 189, 12 ));
@@ -287,6 +290,7 @@ package Windows.Data.Xml.Dom is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlNode : aliased constant Windows.IID := (477371737, 8482, 18389, (168, 86, 131, 243, 212, 33, 72, 117 ));
@@ -459,6 +463,7 @@ package Windows.Data.Xml.Dom is
       ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlDomImplementation : aliased constant Windows.IID := (1843757362, 61725, 20411, (140, 198, 88, 60, 186, 147, 17, 47 ));
@@ -473,6 +478,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlDocumentType : aliased constant Windows.IID := (4147389477, 38785, 18788, (142, 148, 155, 28, 109, 252, 155, 199 ));
@@ -499,6 +505,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlNamedNodeMap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlAttribute : aliased constant Windows.IID := (2887010980, 46321, 19894, (178, 6, 138, 34, 195, 8, 219, 10 ));
@@ -532,11 +539,13 @@ package Windows.Data.Xml.Dom is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlDocumentFragment : aliased constant Windows.IID := (3807013526, 3105, 17573, (139, 201, 158, 74, 38, 39, 8, 236 ));
    
    type IXmlDocumentFragment_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlElement : aliased constant Windows.IID := (771459615, 27408, 20216, (159, 131, 239, 204, 232, 250, 236, 55 ));
@@ -647,6 +656,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlAttribute
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDtdNotation : aliased constant Windows.IID := (2360664141, 27974, 20187, (171, 115, 223, 131, 197, 26, 211, 151 ));
@@ -666,6 +676,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDtdEntity : aliased constant Windows.IID := (1779130364, 25524, 18447, (158, 106, 138, 146, 129, 106, 173, 228 ));
@@ -692,11 +703,13 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlEntityReference : aliased constant Windows.IID := (774850492, 50128, 19663, (187, 134, 10, 184, 195, 106, 97, 207 ));
    
    type IXmlEntityReference_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlProcessingInstruction : aliased constant Windows.IID := (654834974, 7826, 20174, (182, 244, 38, 240, 105, 7, 141, 220 ));
@@ -723,6 +736,7 @@ package Windows.Data.Xml.Dom is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlCharacterData : aliased constant Windows.IID := (321798827, 20022, 19958, (177, 200, 12, 230, 47, 216, 139, 38 ));
@@ -790,11 +804,13 @@ package Windows.Data.Xml.Dom is
       ; data : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlComment : aliased constant Windows.IID := (3164894421, 46623, 17937, (156, 172, 46, 146, 227, 71, 109, 71 ));
    
    type IXmlComment_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlText : aliased constant Windows.IID := (4180780235, 12429, 18272, (161, 213, 67, 182, 116, 80, 172, 126 ));
@@ -808,11 +824,13 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlText
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlCDataSection : aliased constant Windows.IID := (1292153967, 51389, 17844, (136, 153, 4, 0, 215, 194, 198, 15 ));
    
    type IXmlCDataSection_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlDocument : aliased constant Windows.IID := (4159939846, 7815, 17110, (188, 251, 184, 200, 9, 250, 84, 148 ));
@@ -953,6 +971,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlNode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlNamedNodeMap : aliased constant Windows.IID := (3014041264, 43696, 19330, (166, 250, 177, 69, 63, 124, 2, 27 ));
@@ -1023,6 +1042,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlNode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlNodeList : aliased constant Windows.IID := (2355146103, 33700, 20161, (156, 84, 123, 164, 41, 225, 61, 166 ));
@@ -1043,6 +1063,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlNode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlLoadSettings : aliased constant Windows.IID := (1487538088, 65238, 18167, (180, 197, 251, 27, 167, 33, 8, 214 ));
@@ -1118,6 +1139,7 @@ package Windows.Data.Xml.Dom is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlDocumentIO : aliased constant Windows.IID := (1825630030, 61029, 17545, (158, 191, 202, 67, 232, 123, 166, 55 ));
@@ -1146,6 +1168,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlDocumentIO2 : aliased constant Windows.IID := (1560495713, 31704, 19157, (158, 191, 129, 230, 52, 114, 99, 177 ));
@@ -1166,6 +1189,7 @@ package Windows.Data.Xml.Dom is
       ; loadSettings : Windows.Data.Xml.Dom.IXmlLoadSettings
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXmlDocumentStatics : aliased constant Windows.IID := (1430508116, 55127, 19321, (149, 57, 35, 43, 24, 245, 11, 241 ));
@@ -1205,6 +1229,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IXmlDocument : aliased constant Windows.IID := (4166574649, 6294, 22914, (132, 149, 20, 49, 104, 71, 142, 184 ));
@@ -1231,6 +1256,7 @@ package Windows.Data.Xml.Dom is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1240,7 +1266,6 @@ package Windows.Data.Xml.Dom is
    IID_AsyncOperationCompletedHandler_IXmlDocument : aliased constant Windows.IID := (1592752151, 37853, 23563, (158, 90, 235, 73, 4, 8, 243, 169 ));
    
    type AsyncOperationCompletedHandler_IXmlDocument_Interface(Callback : access procedure (asyncInfo : Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IXmlDocument'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IXmlDocument_Interface
@@ -1280,7 +1305,6 @@ package Windows.Data.Xml.Dom is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function LoadFromUriAsync
    (
       uri : Windows.Foundation.IUriRuntimeClass
@@ -1306,5 +1330,6 @@ package Windows.Data.Xml.Dom is
       ; loadSettings : Windows.Data.Xml.Dom.IXmlLoadSettings
    )
    return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
+   
 
 end;

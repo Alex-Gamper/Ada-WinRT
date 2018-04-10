@@ -30,7 +30,6 @@ package body Windows.ApplicationModel.AppService is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_AppServiceConnectionStatus_Interface
@@ -100,7 +99,6 @@ package body Windows.ApplicationModel.AppService is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateAppServiceConnection return Windows.ApplicationModel.AppService.IAppServiceConnection is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppService.AppServiceConnection");
@@ -126,7 +124,6 @@ package body Windows.ApplicationModel.AppService is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FindAppServiceProvidersAsync
    (
       appServiceName : Windows.String
@@ -146,5 +143,6 @@ package body Windows.ApplicationModel.AppService is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

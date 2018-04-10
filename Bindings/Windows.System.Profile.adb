@@ -29,7 +29,6 @@ package body Windows.System.Profile is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -37,7 +36,6 @@ package body Windows.System.Profile is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetSystemIdForPublisher
    return Windows.System.Profile.ISystemIdentificationInfo is
@@ -663,5 +661,6 @@ package body Windows.System.Profile is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -28,7 +28,6 @@ package body Windows.Security.Credentials.UI is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICredentialPickerResults_Interface
@@ -72,7 +71,6 @@ package body Windows.Security.Credentials.UI is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateCredentialPickerOptions return Windows.Security.Credentials.UI.ICredentialPickerOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Credentials.UI.CredentialPickerOptions");
@@ -97,7 +95,6 @@ package body Windows.Security.Credentials.UI is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function PickWithOptionsAsync
    (
@@ -198,5 +195,6 @@ package body Windows.Security.Credentials.UI is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

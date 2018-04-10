@@ -74,6 +74,7 @@ package Windows.Gaming.Input.Preview is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -82,7 +83,6 @@ package Windows.Gaming.Input.Preview is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetParentProviderId
    (
@@ -95,5 +95,6 @@ package Windows.Gaming.Input.Preview is
       provider : Windows.Gaming.Input.Custom.IGameControllerProvider
    )
    return Windows.String;
+   
 
 end;

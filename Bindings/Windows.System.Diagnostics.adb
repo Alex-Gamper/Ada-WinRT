@@ -29,7 +29,6 @@ package body Windows.System.Diagnostics is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -37,7 +36,6 @@ package body Windows.System.Diagnostics is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForProcesses
    return Windows.System.Diagnostics.IVectorView_IProcessDiagnosticInfo is
@@ -163,5 +161,6 @@ package body Windows.System.Diagnostics is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

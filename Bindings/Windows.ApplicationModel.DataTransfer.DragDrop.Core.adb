@@ -30,7 +30,6 @@ package body Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreDragDropManager_add_TargetRequested_Interface
@@ -47,7 +46,6 @@ package body Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateCoreDragOperation return Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation is
       Hr            : Windows.HResult := S_OK;
@@ -74,7 +72,6 @@ package body Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager is
       Hr            : Windows.HRESULT := S_OK;
@@ -91,5 +88,6 @@ package body Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

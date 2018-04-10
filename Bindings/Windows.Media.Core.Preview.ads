@@ -80,6 +80,7 @@ package Windows.Media.Core.Preview is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -88,7 +89,6 @@ package Windows.Media.Core.Preview is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_SoundLevel
    return Windows.Media.SoundLevel;
@@ -104,5 +104,6 @@ package Windows.Media.Core.Preview is
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
+   
 
 end;

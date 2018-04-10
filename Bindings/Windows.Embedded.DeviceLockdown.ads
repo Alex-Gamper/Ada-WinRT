@@ -75,6 +75,7 @@ package Windows.Embedded.DeviceLockdown is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceLockdownProfileStatics : aliased constant Windows.IID := (1647274341, 63912, 16801, (166, 145, 136, 205, 128, 199, 160, 105 ));
@@ -110,6 +111,7 @@ package Windows.Embedded.DeviceLockdown is
       ; RetVal : access Windows.Embedded.DeviceLockdown.IDeviceLockdownProfileInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -119,7 +121,6 @@ package Windows.Embedded.DeviceLockdown is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetSupportedLockdownProfiles
    return Windows.Foundation.Collections.IVectorView_Guid;
@@ -138,5 +139,6 @@ package Windows.Embedded.DeviceLockdown is
       profileID : Windows.Guid
    )
    return Windows.Embedded.DeviceLockdown.IDeviceLockdownProfileInformation;
+   
 
 end;

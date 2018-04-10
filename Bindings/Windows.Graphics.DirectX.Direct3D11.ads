@@ -137,6 +137,7 @@ package Windows.Graphics.DirectX.Direct3D11 is
       This       : access IDirect3DDevice_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDirect3DSurface : aliased constant Windows.IID := (200581446, 5057, 18068, (190, 227, 122, 191, 21, 234, 245, 134 ));
@@ -149,6 +150,7 @@ package Windows.Graphics.DirectX.Direct3D11 is
       ; RetVal : access Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IDirect3DSurface : aliased constant Windows.IID := (3187371275, 59269, 23898, (171, 210, 254, 27, 24, 196, 50, 87 ));
@@ -183,6 +185,7 @@ package Windows.Graphics.DirectX.Direct3D11 is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IDirect3DSurface : aliased constant Windows.IID := (3429089180, 57706, 23157, (165, 170, 43, 83, 249, 117, 176, 176 ));
@@ -195,6 +198,7 @@ package Windows.Graphics.DirectX.Direct3D11 is
       ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IIterator_IDirect3DSurface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IDirect3DSurface : aliased constant Windows.IID := (444722238, 23291, 24080, (146, 187, 200, 67, 254, 199, 8, 135 ));
@@ -233,6 +237,7 @@ package Windows.Graphics.DirectX.Direct3D11 is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

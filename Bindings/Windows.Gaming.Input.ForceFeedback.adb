@@ -27,7 +27,6 @@ package body Windows.Gaming.Input.ForceFeedback is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult_Interface
@@ -44,7 +43,6 @@ package body Windows.Gaming.Input.ForceFeedback is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateInstance
    (

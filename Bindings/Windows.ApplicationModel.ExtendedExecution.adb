@@ -27,7 +27,6 @@ package body Windows.ApplicationModel.ExtendedExecution is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IExtendedExecutionSession_add_Revoked_Interface
@@ -57,7 +56,6 @@ package body Windows.ApplicationModel.ExtendedExecution is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateExtendedExecutionSession return Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionSession is
       Hr            : Windows.HResult := S_OK;

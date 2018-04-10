@@ -66,6 +66,7 @@ package Windows.UI.Xaml.Resources is
    IID_ICustomXamlResourceLoader : aliased constant Windows.IID := (1360692395, 19080, 16799, (133, 46, 84, 8, 59, 144, 176, 120 ));
    
    type ICustomXamlResourceLoader_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomXamlResourceLoaderOverrides : aliased constant Windows.IID := (4166117777, 44802, 18152, (154, 248, 66, 123, 126, 191, 233, 248 ));
@@ -82,6 +83,7 @@ package Windows.UI.Xaml.Resources is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomXamlResourceLoaderStatics : aliased constant Windows.IID := (575665687, 58588, 19495, (173, 50, 219, 147, 213, 208, 229, 218 ));
@@ -101,6 +103,7 @@ package Windows.UI.Xaml.Resources is
       ; value : Windows.UI.Xaml.Resources.ICustomXamlResourceLoader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomXamlResourceLoaderFactory : aliased constant Windows.IID := (1543339593, 30854, 17651, (142, 211, 111, 236, 4, 99, 237, 105 ));
@@ -115,6 +118,7 @@ package Windows.UI.Xaml.Resources is
       ; RetVal : access Windows.UI.Xaml.Resources.ICustomXamlResourceLoader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -173,7 +177,6 @@ package Windows.UI.Xaml.Resources is
    )
    return Windows.HRESULT;
    
-   
    function GetResource
    (
       This       : access ICustomXamlResourceLoaderOverrides_Interface_Impl
@@ -184,6 +187,7 @@ package Windows.UI.Xaml.Resources is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT;
+   
    
    type ICustomXamlResourceLoader_Interface_Impl is new ICustomXamlResourceLoader_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
@@ -243,7 +247,6 @@ package Windows.UI.Xaml.Resources is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -259,5 +262,6 @@ package Windows.UI.Xaml.Resources is
       value : Windows.UI.Xaml.Resources.ICustomXamlResourceLoader
    )
    ;
+   
 
 end;

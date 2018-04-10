@@ -113,6 +113,7 @@ package Windows.System.Threading.Core is
       ; RetVal : access Windows.System.Threading.Core.ISignalNotifier
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPreallocatedWorkItemFactory : aliased constant Windows.IID := (3822267205, 57322, 18075, (130, 197, 246, 227, 206, 253, 234, 251 ));
@@ -145,6 +146,7 @@ package Windows.System.Threading.Core is
       ; RetVal : access Windows.System.Threading.Core.IPreallocatedWorkItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPreallocatedWorkItem : aliased constant Windows.IID := (3067783676, 48219, 16410, (168, 178, 110, 117, 77, 20, 218, 166 ));
@@ -157,6 +159,7 @@ package Windows.System.Threading.Core is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISignalNotifier : aliased constant Windows.IID := (338189830, 25511, 18195, (182, 217, 98, 246, 75, 86, 251, 139 ));
@@ -174,6 +177,7 @@ package Windows.System.Threading.Core is
       This       : access ISignalNotifier_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -183,7 +187,6 @@ package Windows.System.Threading.Core is
    IID_SignalHandler : aliased constant Windows.IID := (2453422126, 18209, 17422, (157, 218, 85, 182, 242, 224, 119, 16 ));
    
    type SignalHandler_Interface(Callback : access procedure (signalNotifier : Windows.System.Threading.Core.ISignalNotifier ; timedOut : Windows.Boolean)) is new Windows.IMulticastDelegate_Interface(IID_SignalHandler'access) with null record;
-   
    function Invoke
    (
       This       : access SignalHandler_Interface
@@ -198,7 +201,6 @@ package Windows.System.Threading.Core is
    
    subtype SignalNotifier is Windows.System.Threading.Core.ISignalNotifier;
    subtype PreallocatedWorkItem is Windows.System.Threading.Core.IPreallocatedWorkItem;
-   
    function CreateWorkItem
    (
       handler : Windows.System.Threading.WorkItemHandler
@@ -221,10 +223,10 @@ package Windows.System.Threading.Core is
    return Windows.System.Threading.Core.IPreallocatedWorkItem;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function AttachToEvent
    (
@@ -255,5 +257,6 @@ package Windows.System.Threading.Core is
       ; timeout : Windows.Foundation.TimeSpan
    )
    return Windows.System.Threading.Core.ISignalNotifier;
+   
 
 end;

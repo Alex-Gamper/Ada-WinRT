@@ -32,7 +32,6 @@ package body Windows.UI.Xaml.Media.Animation is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IConnectedAnimation_add_Completed_Interface
@@ -49,7 +48,6 @@ package body Windows.UI.Xaml.Media.Animation is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateTransitionCollection return Windows.UI.Xaml.Media.Animation.IVector_Transition is
       Hr            : Windows.HResult := S_OK;
@@ -2262,7 +2260,6 @@ package body Windows.UI.Xaml.Media.Animation is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromTimeSpan
    (
@@ -4911,5 +4908,6 @@ package body Windows.UI.Xaml.Media.Animation is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

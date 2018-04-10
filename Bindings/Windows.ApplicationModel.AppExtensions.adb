@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.AppExtensions is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppExtensionCatalog_add_PackageInstalled_Interface
@@ -99,7 +98,6 @@ package body Windows.ApplicationModel.AppExtensions is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -107,7 +105,6 @@ package body Windows.ApplicationModel.AppExtensions is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Open
    (
@@ -128,5 +125,6 @@ package body Windows.ApplicationModel.AppExtensions is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

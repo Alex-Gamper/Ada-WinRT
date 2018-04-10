@@ -152,6 +152,7 @@ package Windows.Foundation.Numerics is
       ; RetVal : access Windows.Foundation.Numerics.Matrix4x4
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_Vector3 : aliased constant Windows.IID := (518484223, 51540, 22986, (167, 84, 97, 153, 169, 190, 40, 44 ));
@@ -164,6 +165,7 @@ package Windows.Foundation.Numerics is
       ; RetVal : access Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_Vector2 : aliased constant Windows.IID := (1224124062, 33893, 22446, (148, 0, 151, 100, 8, 127, 101, 173 ));
@@ -176,6 +178,7 @@ package Windows.Foundation.Numerics is
       ; RetVal : access Windows.Foundation.Numerics.Vector2
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_Quaternion : aliased constant Windows.IID := (2993685691, 49172, 24014, (154, 33, 121, 156, 90, 60, 20, 97 ));
@@ -188,6 +191,7 @@ package Windows.Foundation.Numerics is
       ; RetVal : access Windows.Foundation.Numerics.Quaternion
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

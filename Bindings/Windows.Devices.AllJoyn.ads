@@ -447,6 +447,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynBusAttachment : aliased constant Windows.IID := (4077515091, 7917, 17091, (162, 14, 67, 109, 65, 254, 98, 246 ));
@@ -567,6 +568,7 @@ package Windows.Devices.AllJoyn is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynBusAttachment2 : aliased constant Windows.IID := (880069406, 9064, 17330, (180, 62, 106, 58, 193, 39, 141, 152 ));
@@ -619,6 +621,7 @@ package Windows.Devices.AllJoyn is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynBusAttachmentStatics : aliased constant Windows.IID := (2208124221, 4177, 16599, (135, 42, 141, 1, 65, 17, 91, 31 ));
@@ -639,6 +642,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceWatcher
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynBusAttachmentStateChangedEventArgs : aliased constant Windows.IID := (3626923508, 49194, 16876, (168, 213, 234, 177, 85, 137, 83, 170 ));
@@ -658,6 +662,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynCredentials : aliased constant Windows.IID := (2185646322, 41360, 16561, (171, 171, 52, 158, 194, 68, 223, 170 ));
@@ -712,6 +717,7 @@ package Windows.Devices.AllJoyn is
       ; value : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynCredentialsRequestedEventArgs : aliased constant Windows.IID := (1787290446, 45161, 19328, (158, 26, 65, 188, 131, 124, 101, 210 ));
@@ -752,6 +758,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynCredentialsVerificationRequestedEventArgs : aliased constant Windows.IID := (2148169234, 47109, 17583, (162, 225, 121, 42, 182, 85, 162, 208 ));
@@ -812,6 +819,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynAuthenticationCompleteEventArgs : aliased constant Windows.IID := (2545184796, 5596, 19283, (182, 164, 125, 19, 67, 0, 215, 191 ));
@@ -838,6 +846,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynBusAttachmentFactory : aliased constant Windows.IID := (1680798116, 44421, 19935, (144, 174, 96, 68, 82, 178, 34, 136 ));
@@ -851,6 +860,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynBusAttachment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSession : aliased constant Windows.IID := (3906018060, 49364, 16492, (136, 169, 169, 62, 250, 133, 212, 177 ));
@@ -923,6 +933,7 @@ package Windows.Devices.AllJoyn is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSessionStatics : aliased constant Windows.IID := (2651182596, 41068, 18132, (180, 108, 11, 11, 84, 16, 91, 68 ));
@@ -945,6 +956,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynProducer : aliased constant Windows.IID := (2634565241, 18075, 18778, (167, 16, 172, 80, 241, 35, 6, 159 ));
@@ -957,6 +969,7 @@ package Windows.Devices.AllJoyn is
       ; busObject : Windows.Devices.AllJoyn.IAllJoynBusObject
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynBusObject : aliased constant Windows.IID := (3908928094, 63290, 18700, (136, 4, 4, 224, 38, 100, 48, 71 ));
@@ -1010,6 +1023,7 @@ package Windows.Devices.AllJoyn is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynBusObjectFactory : aliased constant Windows.IID := (741318411, 36354, 20380, (172, 39, 234, 109, 173, 93, 59, 80 ));
@@ -1032,6 +1046,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynBusObject
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynServiceInfo : aliased constant Windows.IID := (1287553545, 47422, 16770, (153, 155, 221, 208, 0, 249, 197, 117 ));
@@ -1058,6 +1073,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynServiceInfoStatics : aliased constant Windows.IID := (1450727178, 24634, 18940, (183, 80, 14, 241, 54, 9, 33, 60 ));
@@ -1071,6 +1087,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynServiceInfoFactory : aliased constant Windows.IID := (1971444413, 65027, 20299, (148, 164, 240, 47, 220, 189, 17, 184 ));
@@ -1086,6 +1103,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynServiceInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynAboutDataViewStatics : aliased constant Windows.IID := (1475196552, 3166, 16750, (136, 181, 57, 179, 45, 37, 196, 125 ));
@@ -1112,6 +1130,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynAboutDataView : aliased constant Windows.IID := (1747128607, 25106, 18740, (156, 72, 225, 156, 164, 152, 66, 136 ));
@@ -1229,6 +1248,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynAboutData : aliased constant Windows.IID := (3853106944, 8098, 18489, (147, 239, 249, 223, 64, 72, 144, 247 ));
@@ -1381,6 +1401,7 @@ package Windows.Devices.AllJoyn is
       ; value : Windows.Guid
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynAcceptSessionJoinerEventArgs : aliased constant Windows.IID := (1325093733, 16010, 16983, (143, 16, 83, 156, 224, 213, 108, 15 ));
@@ -1427,6 +1448,7 @@ package Windows.Devices.AllJoyn is
       This       : access IAllJoynAcceptSessionJoinerEventArgs_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynAcceptSessionJoiner : aliased constant Windows.IID := (1302861778, 52509, 16419, (167, 196, 22, 222, 248, 156, 40, 223 ));
@@ -1438,6 +1460,7 @@ package Windows.Devices.AllJoyn is
       This       : access IAllJoynAcceptSessionJoiner_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynAcceptSessionJoinerEventArgsFactory : aliased constant Windows.IID := (3024313280, 24901, 17054, (132, 219, 213, 191, 231, 114, 177, 79 ));
@@ -1455,6 +1478,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSessionMemberAddedEventArgs : aliased constant Windows.IID := (1235384714, 3537, 18113, (156, 214, 39, 25, 14, 80, 58, 94 ));
@@ -1467,6 +1491,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSessionMemberAddedEventArgsFactory : aliased constant Windows.IID := (874373970, 7475, 16545, (161, 211, 229, 119, 112, 32, 225, 241 ));
@@ -1480,6 +1505,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSessionMemberRemovedEventArgs : aliased constant Windows.IID := (1083842975, 43594, 18579, (180, 48, 186, 161, 182, 60, 98, 25 ));
@@ -1492,6 +1518,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSessionMemberRemovedEventArgsFactory : aliased constant Windows.IID := (3302184424, 17080, 19303, (183, 87, 208, 207, 202, 213, 146, 128 ));
@@ -1505,6 +1532,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSessionJoinedEventArgs : aliased constant Windows.IID := (2661243856, 46551, 18373, (141, 171, 176, 64, 204, 25, 40, 113 ));
@@ -1517,6 +1545,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynSession
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSessionJoinedEventArgsFactory : aliased constant Windows.IID := (1747244681, 54987, 19870, (160, 158, 53, 128, 104, 112, 177, 127 ));
@@ -1530,6 +1559,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSessionLostEventArgs : aliased constant Windows.IID := (3882263690, 35768, 18772, (174, 103, 210, 250, 67, 209, 249, 107 ));
@@ -1542,6 +1572,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.AllJoynSessionLostReason
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynSessionLostEventArgsFactory : aliased constant Windows.IID := (331087154, 54004, 18889, (152, 14, 40, 5, 225, 53, 134, 177 ));
@@ -1555,6 +1586,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynProducerStoppedEventArgs : aliased constant Windows.IID := (1362138992, 18743, 18733, (128, 128, 35, 100, 57, 152, 124, 235 ));
@@ -1567,6 +1599,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynProducerStoppedEventArgsFactory : aliased constant Windows.IID := (1448253793, 45593, 19822, (159, 120, 250, 63, 153, 250, 143, 229 ));
@@ -1580,6 +1613,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynProducerStoppedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynBusObjectStoppedEventArgs : aliased constant Windows.IID := (3725598997, 61326, 19778, (185, 59, 162, 174, 116, 81, 151, 102 ));
@@ -1592,6 +1626,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynBusObjectStoppedEventArgsFactory : aliased constant Windows.IID := (1797455176, 53411, 16981, (149, 58, 71, 114, 180, 2, 128, 115 ));
@@ -1605,6 +1640,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynWatcherStoppedEventArgs : aliased constant Windows.IID := (3388776507, 28701, 19112, (151, 221, 162, 187, 10, 143, 95, 163 ));
@@ -1617,6 +1653,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynWatcherStoppedEventArgsFactory : aliased constant Windows.IID := (2274338216, 11600, 18401, (144, 74, 32, 191, 13, 72, 199, 130 ));
@@ -1630,6 +1667,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynServiceInfoRemovedEventArgs : aliased constant Windows.IID := (811051359, 7487, 16883, (137, 105, 227, 39, 146, 98, 115, 150 ));
@@ -1642,6 +1680,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynServiceInfoRemovedEventArgsFactory : aliased constant Windows.IID := (230655527, 39679, 18773, (146, 39, 105, 83, 186, 244, 21, 105 ));
@@ -1655,6 +1694,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynServiceInfoRemovedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynMessageInfo : aliased constant Windows.IID := (4281008423, 11282, 18521, (170, 58, 199, 68, 97, 238, 129, 76 ));
@@ -1667,6 +1707,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAllJoynMessageInfoFactory : aliased constant Windows.IID := (879119402, 33417, 17364, (180, 168, 63, 77, 227, 89, 240, 67 ));
@@ -1680,6 +1721,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynMessageInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_AllJoynAuthenticationMechanism : aliased constant Windows.IID := (263993042, 62574, 23117, (170, 16, 76, 128, 107, 73, 69, 214 ));
@@ -1714,6 +1756,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_AllJoynAuthenticationMechanism : aliased constant Windows.IID := (3540502447, 16646, 23836, (176, 108, 94, 181, 147, 217, 190, 52 ));
@@ -1726,6 +1769,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IIterator_AllJoynAuthenticationMechanism
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_AllJoynAuthenticationMechanism : aliased constant Windows.IID := (3941957510, 45145, 23234, (156, 31, 211, 198, 94, 172, 103, 163 ));
@@ -1764,6 +1808,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_AllJoynAuthenticationMechanism : aliased constant Windows.IID := (432106387, 63946, 23557, (191, 115, 231, 76, 208, 84, 197, 135 ));
@@ -1858,6 +1903,7 @@ package Windows.Devices.AllJoyn is
       ; items : Windows.Devices.AllJoyn.AllJoynAuthenticationMechanism_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IAllJoynAboutDataView : aliased constant Windows.IID := (928465230, 62795, 20932, (143, 47, 224, 71, 117, 89, 178, 173 ));
@@ -1884,6 +1930,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynAboutDataView
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IAllJoynSession : aliased constant Windows.IID := (1957582328, 15715, 21618, (145, 61, 116, 233, 161, 18, 93, 211 ));
@@ -1910,6 +1957,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynSession
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IAllJoynServiceInfo : aliased constant Windows.IID := (3117304001, 5836, 24134, (145, 213, 229, 205, 6, 248, 2, 110 ));
@@ -1936,6 +1984,7 @@ package Windows.Devices.AllJoyn is
       ; RetVal : access Windows.Devices.AllJoyn.IAllJoynServiceInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1945,7 +1994,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynBusAttachment_add_StateChanged : aliased constant Windows.IID := (2192070173, 13971, 23696, (140, 242, 88, 222, 131, 216, 2, 67 ));
    
    type TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynBusAttachment_add_StateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment_add_StateChanged_Interface
@@ -1959,7 +2007,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested : aliased constant Windows.IID := (2871105255, 19265, 21437, (149, 177, 184, 12, 173, 130, 71, 149 ));
    
    type TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynCredentialsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsRequested_Interface
@@ -1973,7 +2020,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested : aliased constant Windows.IID := (2130287766, 20913, 22128, (164, 31, 174, 64, 79, 47, 245, 63 ));
    
    type TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynCredentialsVerificationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment_add_CredentialsVerificationRequested_Interface
@@ -1987,7 +2033,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete : aliased constant Windows.IID := (3841792180, 19678, 20622, (128, 132, 99, 231, 40, 50, 98, 197 ));
    
    type TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynAuthenticationCompleteEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment_add_AuthenticationComplete_Interface
@@ -2001,7 +2046,6 @@ package Windows.Devices.AllJoyn is
    IID_AsyncOperationCompletedHandler_IAllJoynAboutDataView : aliased constant Windows.IID := (3123553013, 63920, 23654, (143, 201, 125, 67, 122, 103, 242, 138 ));
    
    type AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface(Callback : access procedure (asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynAboutDataView ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAllJoynAboutDataView'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAllJoynAboutDataView_Interface
@@ -2015,7 +2059,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested : aliased constant Windows.IID := (3710012822, 62556, 24125, (136, 96, 133, 150, 208, 228, 116, 240 ));
    
    type TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment2_add_AcceptSessionJoinerRequested_Interface
@@ -2029,7 +2072,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined : aliased constant Windows.IID := (1455131942, 14774, 21498, (128, 19, 55, 129, 170, 39, 160, 188 ));
    
    type TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusAttachment ; args : Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusAttachment2_add_SessionJoined_Interface
@@ -2043,7 +2085,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynSession_add_MemberAdded : aliased constant Windows.IID := (856402529, 7204, 24490, (175, 60, 77, 105, 173, 47, 30, 49 ));
    
    type TypedEventHandler_IAllJoynSession_add_MemberAdded_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynSession ; args : Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynSession_add_MemberAdded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynSession_add_MemberAdded_Interface
@@ -2057,7 +2098,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynSession_add_MemberRemoved : aliased constant Windows.IID := (694807932, 56172, 22698, (159, 109, 137, 231, 254, 8, 159, 193 ));
    
    type TypedEventHandler_IAllJoynSession_add_MemberRemoved_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynSession ; args : Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynSession_add_MemberRemoved'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynSession_add_MemberRemoved_Interface
@@ -2071,7 +2111,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynSession_add_Lost : aliased constant Windows.IID := (3757845285, 23266, 21233, (187, 196, 54, 60, 239, 237, 160, 63 ));
    
    type TypedEventHandler_IAllJoynSession_add_Lost_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynSession ; args : Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynSession_add_Lost'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynSession_add_Lost_Interface
@@ -2085,7 +2124,6 @@ package Windows.Devices.AllJoyn is
    IID_AsyncOperationCompletedHandler_IAllJoynSession : aliased constant Windows.IID := (1380519780, 51599, 20505, (131, 97, 178, 163, 225, 103, 159, 39 ));
    
    type AsyncOperationCompletedHandler_IAllJoynSession_Interface(Callback : access procedure (asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAllJoynSession'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAllJoynSession_Interface
@@ -2099,7 +2137,6 @@ package Windows.Devices.AllJoyn is
    IID_TypedEventHandler_IAllJoynBusObject_add_Stopped : aliased constant Windows.IID := (2557565231, 33341, 22064, (190, 114, 202, 143, 23, 132, 107, 113 ));
    
    type TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.AllJoyn.IAllJoynBusObject ; args : Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAllJoynBusObject_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAllJoynBusObject_add_Stopped_Interface
@@ -2113,7 +2150,6 @@ package Windows.Devices.AllJoyn is
    IID_AsyncOperationCompletedHandler_IAllJoynServiceInfo : aliased constant Windows.IID := (4289864345, 43465, 23594, (172, 227, 12, 208, 166, 221, 16, 57 ));
    
    type AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface(Callback : access procedure (asyncInfo : Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynServiceInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAllJoynServiceInfo'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAllJoynServiceInfo_Interface
@@ -2136,7 +2172,6 @@ package Windows.Devices.AllJoyn is
    subtype AllJoynCredentialsVerificationRequestedEventArgs is Windows.Devices.AllJoyn.IAllJoynCredentialsVerificationRequestedEventArgs;
    subtype AllJoynAuthenticationCompleteEventArgs is Windows.Devices.AllJoyn.IAllJoynAuthenticationCompleteEventArgs;
    subtype AllJoynServiceInfo is Windows.Devices.AllJoyn.IAllJoynServiceInfo;
-   
    function Create
    (
       uniqueName : Windows.String
@@ -2145,9 +2180,9 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynServiceInfo;
    
+   
    subtype AllJoynAboutDataView is Windows.Devices.AllJoyn.IAllJoynAboutDataView;
    subtype AllJoynAcceptSessionJoinerEventArgs is Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs;
-   
    function Create
    (
       uniqueName : Windows.String
@@ -2158,42 +2193,42 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs;
    
-   subtype AllJoynSessionJoinedEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs;
    
+   subtype AllJoynSessionJoinedEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs;
    function Create
    (
       session : Windows.Devices.AllJoyn.IAllJoynSession
    )
    return Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs;
    
+   
    subtype AllJoynCredentials is Windows.Devices.AllJoyn.IAllJoynCredentials;
    subtype AllJoynSession is Windows.Devices.AllJoyn.IAllJoynSession;
    subtype AllJoynSessionMemberAddedEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs;
-   
    function Create
    (
       uniqueName : Windows.String
    )
    return Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs;
    
-   subtype AllJoynSessionMemberRemovedEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs;
    
+   subtype AllJoynSessionMemberRemovedEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs;
    function Create
    (
       uniqueName : Windows.String
    )
    return Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs;
    
-   subtype AllJoynSessionLostEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs;
    
+   subtype AllJoynSessionLostEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs;
    function Create
    (
       reason : Windows.Devices.AllJoyn.AllJoynSessionLostReason
    )
    return Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs;
    
-   subtype AllJoynBusObject is Windows.Devices.AllJoyn.IAllJoynBusObject;
    
+   subtype AllJoynBusObject is Windows.Devices.AllJoyn.IAllJoynBusObject;
    function Create
    (
       objectPath : Windows.String
@@ -2207,40 +2242,40 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynBusObject;
    
-   subtype AllJoynBusObjectStoppedEventArgs is Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs;
    
+   subtype AllJoynBusObjectStoppedEventArgs is Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs;
    function Create
    (
       status : Windows.Int32
    )
    return Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs;
    
-   subtype AllJoynProducerStoppedEventArgs is Windows.Devices.AllJoyn.IAllJoynProducerStoppedEventArgs;
    
+   subtype AllJoynProducerStoppedEventArgs is Windows.Devices.AllJoyn.IAllJoynProducerStoppedEventArgs;
    function Create
    (
       status : Windows.Int32
    )
    return Windows.Devices.AllJoyn.IAllJoynProducerStoppedEventArgs;
    
-   subtype AllJoynWatcherStoppedEventArgs is Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs;
    
+   subtype AllJoynWatcherStoppedEventArgs is Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs;
    function Create
    (
       status : Windows.Int32
    )
    return Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs;
    
-   subtype AllJoynServiceInfoRemovedEventArgs is Windows.Devices.AllJoyn.IAllJoynServiceInfoRemovedEventArgs;
    
+   subtype AllJoynServiceInfoRemovedEventArgs is Windows.Devices.AllJoyn.IAllJoynServiceInfoRemovedEventArgs;
    function Create
    (
       uniqueName : Windows.String
    )
    return Windows.Devices.AllJoyn.IAllJoynServiceInfoRemovedEventArgs;
    
-   subtype AllJoynMessageInfo is Windows.Devices.AllJoyn.IAllJoynMessageInfo;
    
+   subtype AllJoynMessageInfo is Windows.Devices.AllJoyn.IAllJoynMessageInfo;
    function Create
    (
       senderUniqueName : Windows.String
@@ -2248,10 +2283,10 @@ package Windows.Devices.AllJoyn is
    return Windows.Devices.AllJoyn.IAllJoynMessageInfo;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Ok
    return Windows.Int32;
@@ -2351,5 +2386,6 @@ package Windows.Devices.AllJoyn is
       ; busAttachment : Windows.Devices.AllJoyn.IAllJoynBusAttachment
    )
    return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
+   
 
 end;

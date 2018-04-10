@@ -29,7 +29,6 @@ package body Windows.Web.Syndication is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncActionProgressHandler_TransferProgress_Interface
@@ -59,7 +58,6 @@ package body Windows.Web.Syndication is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateSyndicationAttribute return Windows.Web.Syndication.ISyndicationAttribute is
       Hr            : Windows.HResult := S_OK;
@@ -343,7 +341,6 @@ package body Windows.Web.Syndication is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetStatus
    (
       hresult : Windows.Int32
@@ -363,5 +360,6 @@ package body Windows.Web.Syndication is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

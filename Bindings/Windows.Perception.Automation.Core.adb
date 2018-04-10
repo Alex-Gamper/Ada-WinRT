@@ -27,7 +27,6 @@ package body Windows.Perception.Automation.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.Perception.Automation.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    procedure SetActivationFactoryProvider
    (
@@ -54,5 +52,6 @@ package body Windows.Perception.Automation.Core is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

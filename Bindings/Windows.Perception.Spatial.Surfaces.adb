@@ -30,7 +30,6 @@ package body Windows.Perception.Spatial.Surfaces is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISpatialSurfaceMesh_Interface
@@ -60,7 +59,6 @@ package body Windows.Perception.Spatial.Surfaces is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateSpatialSurfaceMeshOptions return Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptions is
       Hr            : Windows.HResult := S_OK;
@@ -103,7 +101,6 @@ package body Windows.Perception.Spatial.Surfaces is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_SupportedVertexPositionFormats
    return Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat is
@@ -189,5 +186,6 @@ package body Windows.Perception.Spatial.Surfaces is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

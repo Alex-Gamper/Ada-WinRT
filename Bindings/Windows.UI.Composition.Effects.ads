@@ -149,6 +149,7 @@ package Windows.UI.Composition.Effects is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISceneLightingEffect2 : aliased constant Windows.IID := (2653359745, 29424, 19548, (149, 248, 138, 110, 0, 36, 244, 9 ));
@@ -168,6 +169,7 @@ package Windows.UI.Composition.Effects is
       ; value : Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IGraphicsEffect_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -185,9 +187,11 @@ package Windows.UI.Composition.Effects is
       ; name : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IGraphicsEffectSource_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

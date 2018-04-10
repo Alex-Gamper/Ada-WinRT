@@ -207,6 +207,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocialFeedContent : aliased constant Windows.IID := (2721375273, 15929, 18765, (163, 124, 244, 98, 162, 73, 69, 20 ));
@@ -254,6 +255,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocialUserInfo : aliased constant Windows.IID := (2656967633, 37072, 19997, (149, 84, 132, 77, 70, 96, 127, 97 ));
@@ -315,6 +317,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocialFeedItem : aliased constant Windows.IID := (1326682795, 8050, 19763, (182, 149, 222, 62, 29, 182, 3, 23 ));
@@ -460,6 +463,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; value : Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocialFeedChildItem : aliased constant Windows.IID := (191535194, 54685, 16574, (152, 12, 72, 138, 42, 179, 10, 131 ));
@@ -535,6 +539,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; value : Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocialFeedSharedItem : aliased constant Windows.IID := (2080087616, 42666, 17831, (159, 246, 84, 196, 33, 5, 221, 31 ));
@@ -603,6 +608,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; RetVal : access Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISocialItemThumbnail : aliased constant Windows.IID := (4206687135, 64840, 21840, (143, 71, 160, 241, 87, 62, 31, 83 ));
@@ -637,6 +643,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISocialItemThumbnail : aliased constant Windows.IID := (1561341037, 37571, 23027, (177, 220, 89, 134, 197, 100, 69, 165 ));
@@ -649,6 +656,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; RetVal : access Windows.ApplicationModel.SocialInfo.IIterator_ISocialItemThumbnail
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISocialItemThumbnail : aliased constant Windows.IID := (2587782470, 59520, 24043, (144, 6, 146, 254, 92, 67, 172, 225 ));
@@ -687,6 +695,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISocialItemThumbnail : aliased constant Windows.IID := (3255876567, 12118, 20598, (187, 14, 183, 73, 119, 38, 207, 149 ));
@@ -781,6 +790,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; items : Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISocialFeedItem : aliased constant Windows.IID := (3888696607, 14599, 23976, (157, 114, 144, 66, 109, 195, 112, 114 ));
@@ -815,6 +825,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISocialFeedItem : aliased constant Windows.IID := (2905856100, 38249, 24109, (189, 114, 24, 42, 143, 245, 12, 246 ));
@@ -827,6 +838,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; RetVal : access Windows.ApplicationModel.SocialInfo.IIterator_ISocialFeedItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISocialFeedItem : aliased constant Windows.IID := (3871222712, 64629, 22620, (131, 108, 52, 243, 255, 135, 104, 15 ));
@@ -865,6 +877,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISocialFeedItem : aliased constant Windows.IID := (919425687, 14019, 22183, (150, 86, 236, 157, 91, 222, 122, 186 ));
@@ -959,6 +972,7 @@ package Windows.ApplicationModel.SocialInfo is
       ; items : Windows.ApplicationModel.SocialInfo.ISocialFeedItem_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

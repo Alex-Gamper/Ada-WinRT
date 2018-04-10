@@ -39,7 +39,6 @@ package body Windows.Media.Capture is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access MediaCaptureFailedEventHandler_Interface
@@ -654,7 +653,6 @@ package body Windows.Media.Capture is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateCameraCaptureUI return Windows.Media.Capture.ICameraCaptureUI is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Capture.CameraCaptureUI");
@@ -730,7 +728,6 @@ package body Windows.Media.Capture is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.Media.Capture.IAppCapture is
@@ -1043,5 +1040,6 @@ package body Windows.Media.Capture is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

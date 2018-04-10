@@ -31,7 +31,6 @@ package body Windows.Web.AtomPub is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateAtomPubClientWithCredentials
    (
       serverCredential : Windows.Security.Credentials.IPasswordCredential

@@ -30,7 +30,6 @@ package body Windows.Media.Streaming.Adaptive is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAdaptiveMediaSourceCreationResult_Interface
@@ -126,7 +125,6 @@ package body Windows.Media.Streaming.Adaptive is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -134,7 +132,6 @@ package body Windows.Media.Streaming.Adaptive is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsContentTypeSupported
    (
@@ -241,5 +238,6 @@ package body Windows.Media.Streaming.Adaptive is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

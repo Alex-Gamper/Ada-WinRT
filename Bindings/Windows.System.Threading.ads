@@ -131,6 +131,7 @@ package Windows.System.Threading is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IThreadPoolTimer : aliased constant Windows.IID := (1498332792, 21994, 19080, (165, 13, 52, 2, 174, 31, 156, 242 ));
@@ -156,6 +157,7 @@ package Windows.System.Threading is
       This       : access IThreadPoolTimer_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IThreadPoolTimerStatics : aliased constant Windows.IID := (445291778, 58498, 17947, (184, 199, 142, 250, 209, 204, 229, 144 ));
@@ -199,6 +201,7 @@ package Windows.System.Threading is
       ; RetVal : access Windows.System.Threading.IThreadPoolTimer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -208,7 +211,6 @@ package Windows.System.Threading is
    IID_TimerElapsedHandler : aliased constant Windows.IID := (4205749863, 64491, 18891, (173, 178, 113, 24, 76, 85, 110, 67 ));
    
    type TimerElapsedHandler_Interface(Callback : access procedure (timer : Windows.System.Threading.IThreadPoolTimer)) is new Windows.IMulticastDelegate_Interface(IID_TimerElapsedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access TimerElapsedHandler_Interface
@@ -221,7 +223,6 @@ package Windows.System.Threading is
    IID_TimerDestroyedHandler : aliased constant Windows.IID := (887953914, 33668, 20153, (130, 9, 251, 80, 148, 238, 236, 53 ));
    
    type TimerDestroyedHandler_Interface(Callback : access procedure (timer : Windows.System.Threading.IThreadPoolTimer)) is new Windows.IMulticastDelegate_Interface(IID_TimerDestroyedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access TimerDestroyedHandler_Interface
@@ -234,7 +235,6 @@ package Windows.System.Threading is
    IID_WorkItemHandler : aliased constant Windows.IID := (488278923, 64102, 16719, (156, 189, 182, 95, 201, 157, 23, 250 ));
    
    type WorkItemHandler_Interface(Callback : access procedure (operation : Windows.Foundation.IAsyncAction)) is new Windows.IMulticastDelegate_Interface(IID_WorkItemHandler'access) with null record;
-   
    function Invoke
    (
       This       : access WorkItemHandler_Interface
@@ -251,7 +251,6 @@ package Windows.System.Threading is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreatePeriodicTimer
    (
@@ -303,5 +302,6 @@ package Windows.System.Threading is
       ; options : Windows.System.Threading.WorkItemOptions
    )
    return Windows.Foundation.IAsyncAction;
+   
 
 end;

@@ -31,7 +31,6 @@ package body Windows.Gaming.Input is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGameController_add_HeadsetConnected_Interface
@@ -153,7 +152,6 @@ package body Windows.Gaming.Input is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -161,7 +159,6 @@ package body Windows.Gaming.Input is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function add_ArcadeStickAdded
    (
@@ -840,5 +837,6 @@ package body Windows.Gaming.Input is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

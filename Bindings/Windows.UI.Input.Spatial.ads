@@ -374,6 +374,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialRecognitionEndedEventArgs : aliased constant Windows.IID := (238417355, 16245, 17395, (172, 129, 209, 220, 45, 249, 177, 251 ));
@@ -386,6 +387,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionSourceKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialTappedEventArgs : aliased constant Windows.IID := (695043038, 62532, 19105, (178, 191, 157, 200, 141, 86, 125, 166 ));
@@ -413,6 +415,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialHoldStartedEventArgs : aliased constant Windows.IID := (2385788281, 44214, 16708, (134, 21, 44, 251, 168, 163, 203, 63 ));
@@ -433,6 +436,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialPointerPose
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialHoldCompletedEventArgs : aliased constant Windows.IID := (1063536395, 19709, 17370, (141, 196, 230, 69, 82, 23, 57, 113 ));
@@ -445,6 +449,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionSourceKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialHoldCanceledEventArgs : aliased constant Windows.IID := (1576842855, 19626, 16531, (140, 53, 182, 1, 168, 57, 243, 27 ));
@@ -457,6 +462,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionSourceKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialManipulationDelta : aliased constant Windows.IID := (2817300090, 53539, 14977, (161, 91, 153, 41, 35, 220, 190, 145 ));
@@ -469,6 +475,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialManipulationStartedEventArgs : aliased constant Windows.IID := (2715204558, 17061, 14203, (173, 166, 210, 142, 61, 56, 71, 55 ));
@@ -489,6 +496,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialPointerPose
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialManipulationUpdatedEventArgs : aliased constant Windows.IID := (1596132251, 24774, 19910, (189, 201, 159, 74, 111, 21, 254, 73 ));
@@ -509,6 +517,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialManipulationDelta
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialManipulationCompletedEventArgs : aliased constant Windows.IID := (84436994, 62209, 17219, (146, 80, 47, 186, 165, 248, 122, 55 ));
@@ -529,6 +538,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialManipulationDelta
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialManipulationCanceledEventArgs : aliased constant Windows.IID := (759222731, 59354, 16928, (176, 191, 129, 147, 1, 103, 71, 128 ));
@@ -541,6 +551,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionSourceKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialNavigationStartedEventArgs : aliased constant Windows.IID := (1967797386, 64356, 18006, (142, 189, 157, 238, 202, 175, 228, 117 ));
@@ -582,6 +593,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialNavigationUpdatedEventArgs : aliased constant Windows.IID := (2607890391, 33693, 19060, (135, 50, 69, 70, 111, 192, 68, 181 ));
@@ -601,6 +613,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialNavigationCompletedEventArgs : aliased constant Windows.IID := (19824823, 44859, 17090, (158, 65, 186, 170, 14, 114, 31, 58 ));
@@ -620,6 +633,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialNavigationCanceledEventArgs : aliased constant Windows.IID := (3461365468, 59557, 18160, (146, 212, 60, 18, 43, 53, 17, 42 ));
@@ -632,6 +646,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionSourceKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialGestureRecognizer : aliased constant Windows.IID := (1902140364, 3125, 18035, (173, 189, 204, 4, 202, 166, 239, 69 ));
@@ -875,6 +890,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialGestureSettings
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialGestureRecognizerFactory : aliased constant Windows.IID := (1998668166, 22457, 12624, (131, 130, 105, 139, 36, 226, 100, 208 ));
@@ -888,6 +904,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialGestureRecognizer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSourceLocation : aliased constant Windows.IID := (3930494660, 32395, 12490, (188, 197, 199, 113, 137, 206, 163, 10 ));
@@ -907,6 +924,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.IReference_Vector3 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSourceLocation2 : aliased constant Windows.IID := (1281822789, 14615, 16636, (169, 172, 49, 201, 207, 95, 249, 27 ));
@@ -919,6 +937,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.IReference_Quaternion -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSourceLocation3 : aliased constant Windows.IID := (1728243294, 59669, 19707, (156, 27, 5, 56, 239, 200, 102, 135 ));
@@ -945,6 +964,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialPointerInteractionSourcePose
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialPointerInteractionSourcePose : aliased constant Windows.IID := (2802860807, 11307, 19770, (146, 167, 128, 206, 215, 196, 160, 208 ));
@@ -971,6 +991,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Foundation.Numerics.Vector3
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialPointerInteractionSourcePose2 : aliased constant Windows.IID := (3972892344, 21211, 18079, (158, 63, 128, 196, 127, 116, 188, 233 ));
@@ -990,6 +1011,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSource : aliased constant Windows.IID := (4216599482, 45235, 12616, (159, 59, 233, 245, 222, 86, 143, 93 ));
@@ -1009,6 +1031,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionSourceKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSource2 : aliased constant Windows.IID := (3838162700, 1136, 16424, (136, 192, 160, 235, 68, 211, 78, 254 ));
@@ -1050,6 +1073,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialInteractionSourceState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSource3 : aliased constant Windows.IID := (67557881, 39677, 17657, (133, 220, 112, 0, 35, 169, 98, 227 ));
@@ -1062,6 +1086,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSourceProperties : aliased constant Windows.IID := (90195266, 16119, 12834, (159, 83, 99, 201, 203, 126, 59, 199 ));
@@ -1090,6 +1115,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialInteractionSourceLocation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionController : aliased constant Windows.IID := (1594776483, 2388, 20119, (134, 197, 231, 243, 11, 17, 77, 253 ));
@@ -1137,6 +1163,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionController2 : aliased constant Windows.IID := (901175588, 51106, 18871, (183, 46, 84, 54, 178, 251, 143, 156 ));
@@ -1149,6 +1176,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialPointerPose : aliased constant Windows.IID := (1767089198, 49534, 13693, (151, 161, 114, 105, 208, 237, 45, 16 ));
@@ -1168,6 +1196,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Perception.People.IHeadPose
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialPointerPose2 : aliased constant Windows.IID := (2636131095, 38222, 19980, (150, 209, 182, 121, 11, 111, 194, 253 ));
@@ -1181,6 +1210,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialPointerInteractionSourcePose
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialPointerPoseStatics : aliased constant Windows.IID := (2723516841, 44193, 16096, (152, 22, 120, 92, 251, 46, 63, 184 ));
@@ -1195,6 +1225,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialPointerPose
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSourceState : aliased constant Windows.IID := (3586422255, 19299, 14316, (152, 185, 159, 198, 82, 185, 210, 242 ));
@@ -1236,6 +1267,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialPointerPose
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSourceState2 : aliased constant Windows.IID := (1173803197, 6003, 18734, (155, 163, 138, 193, 203, 231, 124, 8 ));
@@ -1276,6 +1308,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialInteractionControllerProperties
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionControllerProperties : aliased constant Windows.IID := (1627746225, 31657, 20021, (185, 63, 146, 114, 203, 169, 178, 139 ));
@@ -1330,6 +1363,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteraction : aliased constant Windows.IID := (4237719097, 35046, 17990, (145, 18, 67, 68, 170, 236, 157, 250 ));
@@ -1342,6 +1376,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialInteractionSourceState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionDetectedEventArgs : aliased constant Windows.IID := (123238628, 22881, 15169, (157, 251, 206, 165, 216, 156, 195, 138 ));
@@ -1369,6 +1404,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialInteraction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionDetectedEventArgs2 : aliased constant Windows.IID := (2066103955, 24339, 16796, (151, 213, 131, 70, 120, 38, 106, 166 ));
@@ -1381,6 +1417,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialInteractionSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSourceEventArgs : aliased constant Windows.IID := (599230159, 60451, 14713, (178, 124, 235, 14, 18, 254, 183, 199 ));
@@ -1393,6 +1430,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialInteractionSourceState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionSourceEventArgs2 : aliased constant Windows.IID := (3635721319, 58952, 19794, (171, 73, 224, 210, 39, 25, 159, 99 ));
@@ -1405,6 +1443,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionPressKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionManager : aliased constant Windows.IID := (849759912, 41306, 14741, (184, 189, 128, 81, 60, 181, 173, 239 ));
@@ -1508,6 +1547,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.IVectorView_ISpatialInteractionSourceState -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpatialInteractionManagerStatics : aliased constant Windows.IID := (14884774, 36002, 12479, (145, 254, 217, 203, 74, 0, 137, 144 ));
@@ -1520,6 +1560,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialInteractionManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISpatialInteractionSourceState : aliased constant Windows.IID := (603258930, 36990, 23923, (187, 220, 247, 86, 61, 230, 85, 196 ));
@@ -1554,6 +1595,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISpatialInteractionSourceState : aliased constant Windows.IID := (2127356149, 2164, 20591, (141, 66, 76, 149, 25, 21, 100, 7 ));
@@ -1566,6 +1608,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UI.Input.Spatial.IIterator_ISpatialInteractionSourceState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISpatialInteractionSourceState : aliased constant Windows.IID := (3755798673, 28220, 24155, (161, 147, 3, 172, 196, 20, 201, 33 ));
@@ -1604,6 +1647,7 @@ package Windows.UI.Input.Spatial is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1613,7 +1657,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted : aliased constant Windows.IID := (4072511958, 39418, 21913, (161, 74, 31, 122, 122, 146, 227, 215 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialRecognitionStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted_Interface
@@ -1627,7 +1670,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionEnded : aliased constant Windows.IID := (2947021527, 16343, 23681, (136, 2, 25, 92, 82, 63, 110, 123 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionEnded_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialRecognitionEndedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionEnded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionEnded_Interface
@@ -1641,7 +1683,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_Tapped : aliased constant Windows.IID := (1661076900, 12179, 20514, (183, 184, 196, 62, 212, 40, 73, 138 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_Tapped_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialTappedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_Tapped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_Tapped_Interface
@@ -1655,7 +1696,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_HoldStarted : aliased constant Windows.IID := (1966595346, 696, 20786, (143, 247, 144, 200, 14, 244, 84, 209 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_HoldStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialHoldStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_HoldStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_HoldStarted_Interface
@@ -1669,7 +1709,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_HoldCompleted : aliased constant Windows.IID := (3827685390, 35864, 21365, (182, 0, 29, 215, 161, 29, 186, 94 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_HoldCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialHoldCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_HoldCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_HoldCompleted_Interface
@@ -1683,7 +1722,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_HoldCanceled : aliased constant Windows.IID := (1785813347, 50335, 24381, (191, 236, 149, 39, 0, 48, 136, 96 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_HoldCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialHoldCanceledEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_HoldCanceled'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_HoldCanceled_Interface
@@ -1697,7 +1735,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationStarted : aliased constant Windows.IID := (2703435051, 53224, 23803, (182, 28, 242, 220, 1, 30, 177, 46 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialManipulationStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationStarted_Interface
@@ -1711,7 +1748,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationUpdated : aliased constant Windows.IID := (3469467683, 15433, 21262, (160, 16, 140, 12, 60, 189, 48, 136 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationUpdated_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialManipulationUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationUpdated_Interface
@@ -1725,7 +1761,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCompleted : aliased constant Windows.IID := (282773780, 48802, 23911, (134, 7, 220, 71, 14, 161, 220, 216 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialManipulationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCompleted_Interface
@@ -1739,7 +1774,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCanceled : aliased constant Windows.IID := (3106563924, 14662, 21331, (184, 249, 42, 7, 235, 14, 136, 134 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialManipulationCanceledEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCanceled'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_ManipulationCanceled_Interface
@@ -1753,7 +1787,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_NavigationStarted : aliased constant Windows.IID := (1410976476, 9728, 21115, (147, 152, 23, 68, 49, 141, 6, 24 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_NavigationStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialNavigationStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_NavigationStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationStarted_Interface
@@ -1767,7 +1800,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_NavigationUpdated : aliased constant Windows.IID := (2803985296, 49525, 23080, (181, 0, 164, 69, 240, 117, 28, 91 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_NavigationUpdated_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialNavigationUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_NavigationUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationUpdated_Interface
@@ -1781,7 +1813,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCompleted : aliased constant Windows.IID := (4040448479, 60371, 21384, (176, 169, 95, 68, 188, 214, 245, 143 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCompleted_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialNavigationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCompleted_Interface
@@ -1795,7 +1826,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCanceled : aliased constant Windows.IID := (2571627150, 60237, 24467, (159, 217, 42, 222, 100, 112, 188, 93 ));
    
    type TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialGestureRecognizer ; args : Windows.UI.Input.Spatial.ISpatialNavigationCanceledEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCanceled'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_NavigationCanceled_Interface
@@ -1809,7 +1839,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialInteractionManager_add_SourceDetected : aliased constant Windows.IID := (2927828326, 28912, 21361, (134, 111, 163, 252, 139, 96, 226, 216 ));
    
    type TypedEventHandler_ISpatialInteractionManager_add_SourceDetected_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialInteractionManager_add_SourceDetected'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialInteractionManager_add_SourceDetected_Interface
@@ -1823,7 +1852,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialInteractionManager_add_SourceLost : aliased constant Windows.IID := (2927828326, 28912, 21361, (134, 111, 163, 252, 139, 96, 226, 216 ));
    
    type TypedEventHandler_ISpatialInteractionManager_add_SourceLost_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialInteractionManager_add_SourceLost'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialInteractionManager_add_SourceLost_Interface
@@ -1837,7 +1865,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialInteractionManager_add_SourceUpdated : aliased constant Windows.IID := (2927828326, 28912, 21361, (134, 111, 163, 252, 139, 96, 226, 216 ));
    
    type TypedEventHandler_ISpatialInteractionManager_add_SourceUpdated_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialInteractionManager_add_SourceUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialInteractionManager_add_SourceUpdated_Interface
@@ -1851,7 +1878,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialInteractionManager_add_SourcePressed : aliased constant Windows.IID := (2927828326, 28912, 21361, (134, 111, 163, 252, 139, 96, 226, 216 ));
    
    type TypedEventHandler_ISpatialInteractionManager_add_SourcePressed_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialInteractionManager_add_SourcePressed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialInteractionManager_add_SourcePressed_Interface
@@ -1865,7 +1891,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialInteractionManager_add_SourceReleased : aliased constant Windows.IID := (2927828326, 28912, 21361, (134, 111, 163, 252, 139, 96, 226, 216 ));
    
    type TypedEventHandler_ISpatialInteractionManager_add_SourceReleased_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionSourceEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialInteractionManager_add_SourceReleased'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialInteractionManager_add_SourceReleased_Interface
@@ -1879,7 +1904,6 @@ package Windows.UI.Input.Spatial is
    IID_TypedEventHandler_ISpatialInteractionManager_add_InteractionDetected : aliased constant Windows.IID := (253902735, 61984, 21384, (143, 230, 179, 183, 231, 147, 9, 135 ));
    
    type TypedEventHandler_ISpatialInteractionManager_add_InteractionDetected_Interface(Callback : access procedure (sender : Windows.UI.Input.Spatial.ISpatialInteractionManager ; args : Windows.UI.Input.Spatial.ISpatialInteractionDetectedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialInteractionManager_add_InteractionDetected'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialInteractionManager_add_InteractionDetected_Interface
@@ -1894,12 +1918,12 @@ package Windows.UI.Input.Spatial is
    
    subtype SpatialManipulationDelta is Windows.UI.Input.Spatial.ISpatialManipulationDelta;
    subtype SpatialGestureRecognizer is Windows.UI.Input.Spatial.ISpatialGestureRecognizer;
-   
    function Create
    (
       settings : Windows.UI.Input.Spatial.SpatialGestureSettings
    )
    return Windows.UI.Input.Spatial.ISpatialGestureRecognizer;
+   
    
    subtype SpatialRecognitionStartedEventArgs is Windows.UI.Input.Spatial.ISpatialRecognitionStartedEventArgs;
    subtype SpatialRecognitionEndedEventArgs is Windows.UI.Input.Spatial.ISpatialRecognitionEndedEventArgs;
@@ -1932,7 +1956,6 @@ package Windows.UI.Input.Spatial is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function TryGetAtTimestamp
    (
       coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
@@ -1942,5 +1965,6 @@ package Windows.UI.Input.Spatial is
    
    function GetForCurrentView
    return Windows.UI.Input.Spatial.ISpatialInteractionManager;
+   
 
 end;

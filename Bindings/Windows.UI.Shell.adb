@@ -28,7 +28,6 @@ package body Windows.UI.Shell is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.UI.Shell is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateAdaptiveCardFromJson
    (
@@ -74,5 +72,6 @@ package body Windows.UI.Shell is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

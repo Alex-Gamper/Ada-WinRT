@@ -288,6 +288,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyCredential : aliased constant Windows.IID := (2508582797, 17787, 18503, (177, 26, 250, 150, 11, 189, 177, 56 ));
@@ -330,6 +331,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IKeyCredentialAttestationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyCredentialRetrievalResult : aliased constant Windows.IID := (1489860355, 36231, 16969, (155, 88, 246, 89, 140, 201, 100, 78 ));
@@ -349,6 +351,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.KeyCredentialStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyCredentialOperationResult : aliased constant Windows.IID := (4114056897, 21089, 19677, (151, 109, 204, 144, 154, 199, 22, 32 ));
@@ -368,6 +371,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.KeyCredentialStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyCredentialAttestationResult : aliased constant Windows.IID := (2024453025, 41921, 16643, (182, 204, 71, 44, 68, 23, 28, 187 ));
@@ -394,6 +398,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.KeyCredentialAttestationStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountFactory : aliased constant Windows.IID := (2895838009, 7657, 20114, (183, 143, 5, 129, 168, 127, 110, 92 ));
@@ -409,6 +414,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IWebAccount
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccount : aliased constant Windows.IID := (1766276786, 32817, 18878, (128, 187, 150, 203, 70, 217, 154, 186 ));
@@ -435,6 +441,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.WebAccountState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccount2 : aliased constant Windows.IID := (2069288696, 39179, 20149, (148, 167, 86, 33, 243, 168, 184, 36 ));
@@ -477,6 +484,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProviderFactory : aliased constant Windows.IID := (494304753, 57825, 19354, (167, 116, 92, 124, 126, 59, 243, 113 ));
@@ -492,6 +500,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IWebAccountProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProvider : aliased constant Windows.IID := (702335171, 31417, 19068, (163, 54, 185, 66, 249, 219, 247, 199 ));
@@ -518,6 +527,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProvider2 : aliased constant Windows.IID := (1241639685, 20034, 16852, (181, 24, 224, 8, 165, 22, 54, 20 ));
@@ -537,6 +547,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebAccountProvider3 : aliased constant Windows.IID := (3659288971, 38669, 19785, (130, 92, 242, 112, 111, 140, 167, 254 ));
@@ -549,6 +560,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPasswordCredential : aliased constant Windows.IID := (1790019977, 50976, 16807, (166, 193, 254, 173, 179, 99, 41, 160 ));
@@ -609,6 +621,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICredentialFactory : aliased constant Windows.IID := (1424954273, 48934, 18357, (151, 221, 222, 119, 155, 124, 173, 88 ));
@@ -624,6 +637,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IPasswordCredential
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPasswordVault : aliased constant Windows.IID := (1643981835, 51412, 18625, (165, 79, 188, 90, 100, 32, 90, 242 ));
@@ -675,6 +689,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IVectorView_IPasswordCredential -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IObservableMap_String_Object : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -695,6 +710,7 @@ package Windows.Security.Credentials is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_Object : aliased constant Windows.IID := (453850480, 2167, 24258, (138, 44, 59, 149, 57, 80, 106, 202 ));
@@ -752,6 +768,7 @@ package Windows.Security.Credentials is
       This       : access IMap_String_Object_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -764,9 +781,11 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IPropertySet_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IKeyCredentialRetrievalResult : aliased constant Windows.IID := (2312154398, 48460, 21940, (129, 14, 189, 221, 76, 236, 122, 42 ));
@@ -793,6 +812,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IKeyCredentialRetrievalResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IKeyCredentialOperationResult : aliased constant Windows.IID := (1702290867, 38197, 20694, (152, 246, 198, 125, 106, 172, 162, 197 ));
@@ -819,6 +839,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IKeyCredentialOperationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IKeyCredentialAttestationResult : aliased constant Windows.IID := (3091016169, 62692, 23204, (146, 213, 178, 98, 203, 64, 198, 34 ));
@@ -845,6 +866,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IKeyCredentialAttestationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWebAccount : aliased constant Windows.IID := (2899798868, 10623, 23064, (145, 67, 32, 163, 9, 226, 223, 211 ));
@@ -871,6 +893,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IWebAccount
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWebAccountProvider : aliased constant Windows.IID := (2294702089, 4855, 22754, (141, 190, 110, 252, 98, 12, 133, 186 ));
@@ -897,6 +920,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IWebAccountProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IWebAccount : aliased constant Windows.IID := (3216518346, 44732, 22140, (149, 217, 235, 162, 92, 54, 95, 170 ));
@@ -931,6 +955,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWebAccount : aliased constant Windows.IID := (3407205433, 43280, 21546, (137, 237, 124, 254, 103, 132, 138, 131 ));
@@ -943,6 +968,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IIterator_IWebAccount
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IWebAccount : aliased constant Windows.IID := (3766062397, 11082, 22682, (171, 18, 2, 220, 204, 21, 138, 252 ));
@@ -981,6 +1007,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPasswordCredential : aliased constant Windows.IID := (2953876440, 20306, 20720, (154, 164, 226, 38, 57, 17, 17, 98 ));
@@ -1015,6 +1042,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPasswordCredential : aliased constant Windows.IID := (220351078, 47829, 23253, (154, 222, 30, 159, 90, 96, 254, 115 ));
@@ -1027,6 +1055,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.Security.Credentials.IIterator_IPasswordCredential
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPasswordCredential : aliased constant Windows.IID := (1315014061, 42719, 21544, (175, 245, 23, 228, 95, 63, 71, 111 ));
@@ -1065,6 +1094,7 @@ package Windows.Security.Credentials is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1074,7 +1104,6 @@ package Windows.Security.Credentials is
    IID_AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult : aliased constant Windows.IID := (65691825, 43124, 22734, (142, 142, 255, 244, 72, 182, 115, 62 ));
    
    type AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialRetrievalResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IKeyCredentialRetrievalResult_Interface
@@ -1088,7 +1117,6 @@ package Windows.Security.Credentials is
    IID_AsyncOperationCompletedHandler_IKeyCredentialOperationResult : aliased constant Windows.IID := (968122522, 514, 22010, (128, 5, 111, 131, 112, 158, 32, 243 ));
    
    type AsyncOperationCompletedHandler_IKeyCredentialOperationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialOperationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IKeyCredentialOperationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IKeyCredentialOperationResult_Interface
@@ -1102,7 +1130,6 @@ package Windows.Security.Credentials is
    IID_AsyncOperationCompletedHandler_IKeyCredentialAttestationResult : aliased constant Windows.IID := (739696899, 63363, 24025, (165, 243, 51, 98, 188, 189, 170, 189 ));
    
    type AsyncOperationCompletedHandler_IKeyCredentialAttestationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IKeyCredentialAttestationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IKeyCredentialAttestationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IKeyCredentialAttestationResult_Interface
@@ -1116,7 +1143,6 @@ package Windows.Security.Credentials is
    IID_AsyncOperationCompletedHandler_IWebAccount : aliased constant Windows.IID := (1272377829, 51849, 21056, (143, 61, 127, 27, 84, 174, 144, 167 ));
    
    type AsyncOperationCompletedHandler_IWebAccount_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IWebAccount ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWebAccount'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWebAccount_Interface
@@ -1130,7 +1156,6 @@ package Windows.Security.Credentials is
    IID_AsyncOperationCompletedHandler_IWebAccountProvider : aliased constant Windows.IID := (2490851883, 4928, 21876, (129, 252, 80, 19, 88, 31, 87, 201 ));
    
    type AsyncOperationCompletedHandler_IWebAccountProvider_Interface(Callback : access procedure (asyncInfo : Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWebAccountProvider'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWebAccountProvider_Interface
@@ -1148,7 +1173,6 @@ package Windows.Security.Credentials is
    subtype KeyCredentialAttestationResult is Windows.Security.Credentials.IKeyCredentialAttestationResult;
    subtype KeyCredential is Windows.Security.Credentials.IKeyCredential;
    subtype WebAccountProvider is Windows.Security.Credentials.IWebAccountProvider;
-   
    function CreateWebAccountProvider
    (
       id : Windows.String
@@ -1157,8 +1181,8 @@ package Windows.Security.Credentials is
    )
    return Windows.Security.Credentials.IWebAccountProvider;
    
-   subtype WebAccount is Windows.Security.Credentials.IWebAccount;
    
+   subtype WebAccount is Windows.Security.Credentials.IWebAccount;
    function CreateWebAccount
    (
       webAccountProvider : Windows.Security.Credentials.IWebAccountProvider
@@ -1166,6 +1190,7 @@ package Windows.Security.Credentials is
       ; state : Windows.Security.Credentials.WebAccountState
    )
    return Windows.Security.Credentials.IWebAccount;
+   
    
    subtype PasswordCredential is Windows.Security.Credentials.IPasswordCredential;
    
@@ -1183,7 +1208,6 @@ package Windows.Security.Credentials is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsSupportedAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
@@ -1209,5 +1233,6 @@ package Windows.Security.Credentials is
       name : Windows.String
    )
    return Windows.Foundation.IAsyncAction;
+   
 
 end;

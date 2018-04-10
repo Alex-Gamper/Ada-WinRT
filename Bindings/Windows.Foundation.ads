@@ -522,6 +522,7 @@ package Windows.Foundation is
       This       : access IClosable_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPropertyValue : aliased constant Windows.IID := (1272349405, 30036, 16617, (154, 155, 130, 101, 78, 222, 126, 98 ));
@@ -800,6 +801,7 @@ package Windows.Foundation is
       ; value : access Windows.Foundation.Rect_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPropertyValueStatics : aliased constant Windows.IID := (1654381512, 55602, 20468, (150, 185, 141, 150, 197, 193, 232, 88 ));
@@ -1116,6 +1118,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStringable : aliased constant Windows.IID := (2520162132, 36534, 18672, (171, 206, 193, 178, 17, 230, 39, 195 ));
@@ -1128,6 +1131,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeferral : aliased constant Windows.IID := (3592853298, 15231, 18087, (180, 11, 79, 220, 162, 162, 198, 147 ));
@@ -1139,6 +1143,7 @@ package Windows.Foundation is
       This       : access IDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeferralFactory : aliased constant Windows.IID := (1705110725, 16309, 18482, (140, 169, 240, 97, 178, 129, 209, 58 ));
@@ -1152,6 +1157,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncInfo : aliased constant Windows.IID := (54, 0, 0, (192, 0, 0, 0, 0, 0, 0, 70 ));
@@ -1190,6 +1196,7 @@ package Windows.Foundation is
       This       : access IAsyncInfo_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncAction : aliased constant Windows.IID := (1516535814, 33850, 19881, (134, 91, 157, 38, 229, 223, 173, 123 ));
@@ -1215,6 +1222,7 @@ package Windows.Foundation is
       This       : access IAsyncAction_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMemoryBufferReference : aliased constant Windows.IID := (4223982889, 9307, 4580, (175, 152, 104, 148, 35, 38, 12, 248 ));
@@ -1242,6 +1250,7 @@ package Windows.Foundation is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMemoryBuffer : aliased constant Windows.IID := (4223982890, 9307, 4580, (175, 152, 104, 148, 35, 38, 12, 248 ));
@@ -1254,6 +1263,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IMemoryBufferReference
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMemoryBufferFactory : aliased constant Windows.IID := (4223982891, 9307, 4580, (175, 152, 104, 148, 35, 38, 12, 248 ));
@@ -1267,6 +1277,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IMemoryBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUriRuntimeClass : aliased constant Windows.IID := (2654363223, 18610, 16736, (149, 111, 199, 56, 81, 32, 187, 252 ));
@@ -1393,6 +1404,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IWwwFormUrlDecoderEntry : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1431,6 +1443,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IWwwFormUrlDecoderEntry : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1443,6 +1456,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IWwwFormUrlDecoderEntry
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUriRuntimeClassWithAbsoluteCanonicalUri : aliased constant Windows.IID := (1972213345, 8732, 18447, (163, 57, 80, 101, 102, 115, 244, 111 ));
@@ -1462,6 +1476,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUriEscapeStatics : aliased constant Windows.IID := (3251909306, 51236, 17490, (167, 253, 81, 43, 195, 187, 233, 161 ));
@@ -1483,6 +1498,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUriRuntimeClassFactory : aliased constant Windows.IID := (1151957359, 29246, 20447, (162, 24, 3, 62, 117, 176, 192, 132 ));
@@ -1505,6 +1521,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWwwFormUrlDecoderEntry : aliased constant Windows.IID := (308180017, 63096, 20110, (182, 112, 32, 169, 176, 108, 81, 45 ));
@@ -1524,6 +1541,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWwwFormUrlDecoderRuntimeClass : aliased constant Windows.IID := (3562669137, 61989, 17730, (146, 150, 14, 29, 245, 210, 84, 223 ));
@@ -1537,6 +1555,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWwwFormUrlDecoderRuntimeClassFactory : aliased constant Windows.IID := (1535929149, 9390, 16821, (161, 191, 240, 195, 213, 68, 132, 91 ));
@@ -1550,6 +1569,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IWwwFormUrlDecoderRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGetActivationFactory : aliased constant Windows.IID := (1323011810, 38621, 18855, (148, 247, 70, 7, 221, 171, 142, 60 ));
@@ -1563,6 +1583,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_Object_Interface is interface and Windows.IInspectable_Interface;
@@ -1573,6 +1594,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_Object_Interface is interface and Windows.IInspectable_Interface;
@@ -1597,6 +1619,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_UInt8_Interface is interface and Windows.IInspectable_Interface;
@@ -1607,6 +1630,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_UInt8_Interface is interface and Windows.IInspectable_Interface;
@@ -1631,6 +1655,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_UInt16_Interface is interface and Windows.IInspectable_Interface;
@@ -1641,6 +1666,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_UInt16_Interface is interface and Windows.IInspectable_Interface;
@@ -1665,6 +1691,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_UInt32_Interface is interface and Windows.IInspectable_Interface;
@@ -1675,6 +1702,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_UInt32_Interface is interface and Windows.IInspectable_Interface;
@@ -1699,6 +1727,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_UInt64_Interface is interface and Windows.IInspectable_Interface;
@@ -1709,6 +1738,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_UInt64_Interface is interface and Windows.IInspectable_Interface;
@@ -1733,6 +1763,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_Int8_Interface is interface and Windows.IInspectable_Interface;
@@ -1743,6 +1774,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Int8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_Int8_Interface is interface and Windows.IInspectable_Interface;
@@ -1767,6 +1799,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Int8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_Int16_Interface is interface and Windows.IInspectable_Interface;
@@ -1777,6 +1810,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Int16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_Int16_Interface is interface and Windows.IInspectable_Interface;
@@ -1801,6 +1835,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Int16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_Int32_Interface is interface and Windows.IInspectable_Interface;
@@ -1811,6 +1846,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_Int32_Interface is interface and Windows.IInspectable_Interface;
@@ -1835,6 +1871,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_Int64_Interface is interface and Windows.IInspectable_Interface;
@@ -1845,6 +1882,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Int64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_Int64_Interface is interface and Windows.IInspectable_Interface;
@@ -1869,6 +1907,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Int64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_Guid_Interface is interface and Windows.IInspectable_Interface;
@@ -1879,6 +1918,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_Guid_Interface is interface and Windows.IInspectable_Interface;
@@ -1903,6 +1943,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_Single_Interface is interface and Windows.IInspectable_Interface;
@@ -1913,6 +1954,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_Single_Interface is interface and Windows.IInspectable_Interface;
@@ -1937,6 +1979,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_Double_Interface is interface and Windows.IInspectable_Interface;
@@ -1947,6 +1990,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_Double_Interface is interface and Windows.IInspectable_Interface;
@@ -1971,6 +2015,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_String_Interface is interface and Windows.IInspectable_Interface;
@@ -1981,6 +2026,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_String_Interface is interface and Windows.IInspectable_Interface;
@@ -2005,6 +2051,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_Boolean_Interface is interface and Windows.IInspectable_Interface;
@@ -2015,6 +2062,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_Boolean_Interface is interface and Windows.IInspectable_Interface;
@@ -2039,6 +2087,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_DateTime_Interface is interface and Windows.IInspectable_Interface;
@@ -2049,6 +2098,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_DateTime_Interface is interface and Windows.IInspectable_Interface;
@@ -2073,6 +2123,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IReference_TimeSpan_Interface is interface and Windows.IInspectable_Interface;
@@ -2083,6 +2134,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IAsyncOperation_TimeSpan_Interface is interface and Windows.IInspectable_Interface;
@@ -2107,6 +2159,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IUriRuntimeClass : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2141,6 +2194,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IUriRuntimeClass : aliased constant Windows.IID := (2966829944, 30893, 24113, (182, 216, 227, 42, 14, 22, 196, 71 ));
@@ -2153,6 +2207,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IIterator_IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IUriRuntimeClass : aliased constant Windows.IID := (1266910653, 41677, 24561, (191, 116, 126, 165, 128, 66, 62, 80 ));
@@ -2191,6 +2246,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IUriRuntimeClass : aliased constant Windows.IID := (1679604189, 41613, 23010, (184, 219, 162, 39, 237, 166, 207, 46 ));
@@ -2217,6 +2273,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_Rect : aliased constant Windows.IID := (2151825169, 1359, 24236, (175, 211, 99, 182, 206, 21, 231, 123 ));
@@ -2229,6 +2286,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Size : aliased constant Windows.IID := (2739965664, 13607, 20804, (137, 77, 66, 46, 173, 239, 67, 215 ));
@@ -2263,6 +2321,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Size : aliased constant Windows.IID := (3386856899, 19777, 24208, (186, 118, 232, 158, 213, 100, 68, 107 ));
@@ -2275,6 +2334,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IIterator_Size
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Size : aliased constant Windows.IID := (3411032061, 26123, 20981, (157, 40, 135, 244, 8, 120, 38, 141 ));
@@ -2313,6 +2373,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncActionWithProgress_Double : aliased constant Windows.IID := (1326723238, 43045, 22218, (176, 71, 26, 155, 173, 82, 186, 103 ));
@@ -2352,6 +2413,7 @@ package Windows.Foundation is
       This       : access IAsyncActionWithProgress_Double_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IUriRuntimeClass : aliased constant Windows.IID := (226672013, 65122, 23911, (167, 185, 120, 134, 221, 117, 188, 78 ));
@@ -2446,6 +2508,7 @@ package Windows.Foundation is
       ; items : Windows.Foundation.IUriRuntimeClass_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Point : aliased constant Windows.IID := (3322066334, 2702, 24217, (180, 120, 43, 86, 69, 133, 39, 141 ));
@@ -2480,6 +2543,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Point : aliased constant Windows.IID := (3247581197, 14857, 21539, (157, 197, 103, 184, 62, 189, 228, 29 ));
@@ -2492,6 +2556,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.IIterator_Point
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Point : aliased constant Windows.IID := (192629917, 6191, 22570, (189, 219, 66, 177, 170, 195, 12, 173 ));
@@ -2530,6 +2595,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncActionWithProgress_UInt64 : aliased constant Windows.IID := (1140265936, 50333, 24149, (174, 191, 175, 57, 87, 104, 53, 30 ));
@@ -2569,6 +2635,7 @@ package Windows.Foundation is
       This       : access IAsyncActionWithProgress_UInt64_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IObservableVector_Object : aliased constant Windows.IID := (2072102250, 2437, 20877, (186, 169, 13, 169, 174, 0, 159, 101 ));
@@ -2589,6 +2656,7 @@ package Windows.Foundation is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_Point : aliased constant Windows.IID := (2230406178, 40970, 21106, (141, 61, 130, 17, 46, 102, 223, 0 ));
@@ -2601,6 +2669,7 @@ package Windows.Foundation is
       ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2610,7 +2679,6 @@ package Windows.Foundation is
    IID_AsyncActionCompletedHandler : aliased constant Windows.IID := (2767019137, 30409, 16573, (139, 230, 177, 217, 15, 178, 10, 231 ));
    
    type AsyncActionCompletedHandler_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncAction ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionCompletedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncActionCompletedHandler_Interface
@@ -2624,7 +2692,6 @@ package Windows.Foundation is
    IID_DeferralCompletedHandler : aliased constant Windows.IID := (3979518834, 62408, 20394, (156, 251, 71, 1, 72, 218, 56, 136 ));
    
    type DeferralCompletedHandler_Interface(Callback : access procedure) is new Windows.IMulticastDelegate_Interface(IID_DeferralCompletedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DeferralCompletedHandler_Interface
@@ -2636,7 +2703,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_Object : aliased constant Windows.IID := (1057498670, 41697, 20788, (146, 151, 233, 33, 31, 72, 26, 45 ));
    
    type AsyncOperationCompletedHandler_Object_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Object ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Object'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_Object_Interface
@@ -2650,7 +2716,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_UInt8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_UInt8_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt8 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt8'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_UInt8_Interface
@@ -2664,7 +2729,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_UInt16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_UInt16_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt16 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt16'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_UInt16_Interface
@@ -2678,7 +2742,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_UInt32 : aliased constant Windows.IID := (2470688487, 58322, 24138, (171, 45, 43, 206, 73, 25, 166, 164 ));
    
    type AsyncOperationCompletedHandler_UInt32_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt32 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt32'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_UInt32_Interface
@@ -2692,7 +2755,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_UInt64 : aliased constant Windows.IID := (4002081538, 64256, 20986, (143, 87, 50, 88, 62, 162, 65, 249 ));
    
    type AsyncOperationCompletedHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_UInt64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_UInt64'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_UInt64_Interface
@@ -2706,7 +2768,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_Int8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_Int8_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int8 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Int8'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_Int8_Interface
@@ -2720,7 +2781,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_Int16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_Int16_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int16 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Int16'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_Int16_Interface
@@ -2734,7 +2794,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_Int32 : aliased constant Windows.IID := (3591155357, 35019, 23025, (133, 118, 63, 186, 68, 121, 107, 232 ));
    
    type AsyncOperationCompletedHandler_Int32_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int32 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Int32'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_Int32_Interface
@@ -2748,7 +2807,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_Int64 : aliased constant Windows.IID := (3555678322, 32078, 22971, (149, 237, 121, 254, 15, 13, 190, 137 ));
    
    type AsyncOperationCompletedHandler_Int64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Int64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Int64'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_Int64_Interface
@@ -2762,7 +2820,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_Guid : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_Guid_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Guid ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Guid'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_Guid_Interface
@@ -2776,7 +2833,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_Single : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_Single_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Single ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Single'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_Single_Interface
@@ -2790,7 +2846,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_Double : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Double ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Double'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_Double_Interface
@@ -2804,7 +2859,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_String : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_String_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_String ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_String'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_String_Interface
@@ -2818,7 +2872,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_Boolean : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_Boolean_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_Boolean ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_Boolean'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_Boolean_Interface
@@ -2832,7 +2885,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_DateTime : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_DateTime_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_DateTime ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DateTime'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_DateTime_Interface
@@ -2846,7 +2898,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_TimeSpan : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_TimeSpan_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_TimeSpan ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_TimeSpan'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_TimeSpan_Interface
@@ -2860,7 +2911,6 @@ package Windows.Foundation is
    IID_EventHandler_Object : aliased constant Windows.IID := (3305674998, 50486, 24391, (133, 131, 139, 44, 36, 56, 161, 59 ));
    
    type EventHandler_Object_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_Object'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_Object_Interface
@@ -2874,7 +2924,6 @@ package Windows.Foundation is
    IID_TypedEventHandler_IMemoryBufferReference_add_Closed : aliased constant Windows.IID := (4100160842, 1888, 21553, (191, 192, 36, 235, 29, 79, 108, 79 ));
    
    type TypedEventHandler_IMemoryBufferReference_add_Closed_Interface(Callback : access procedure (sender : Windows.Foundation.IMemoryBufferReference ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMemoryBufferReference_add_Closed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMemoryBufferReference_add_Closed_Interface
@@ -2888,7 +2937,6 @@ package Windows.Foundation is
    IID_AsyncOperationCompletedHandler_IUriRuntimeClass : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_IUriRuntimeClass_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncOperation_IUriRuntimeClass ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUriRuntimeClass'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUriRuntimeClass_Interface
@@ -2902,7 +2950,6 @@ package Windows.Foundation is
    IID_AsyncActionProgressHandler_Double : aliased constant Windows.IID := (1149394044, 3497, 22161, (178, 180, 145, 79, 35, 30, 236, 237 ));
    
    type AsyncActionProgressHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double ; progressInfo : Windows.Double)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionProgressHandler_Double'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncActionProgressHandler_Double_Interface
@@ -2916,7 +2963,6 @@ package Windows.Foundation is
    IID_AsyncActionWithProgressCompletedHandler_Double : aliased constant Windows.IID := (2497071814, 17553, 21487, (139, 232, 54, 72, 31, 63, 241, 232 ));
    
    type AsyncActionWithProgressCompletedHandler_Double_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_Double ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionWithProgressCompletedHandler_Double'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncActionWithProgressCompletedHandler_Double_Interface
@@ -2930,7 +2976,6 @@ package Windows.Foundation is
    IID_AsyncActionProgressHandler_UInt64 : aliased constant Windows.IID := (1440887754, 62019, 23266, (133, 59, 249, 204, 124, 10, 224, 207 ));
    
    type AsyncActionProgressHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64 ; progressInfo : Windows.UInt64)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionProgressHandler_UInt64'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncActionProgressHandler_UInt64_Interface
@@ -2944,7 +2989,6 @@ package Windows.Foundation is
    IID_AsyncActionWithProgressCompletedHandler_UInt64 : aliased constant Windows.IID := (3875505531, 61792, 22298, (169, 52, 44, 97, 249, 140, 134, 45 ));
    
    type AsyncActionWithProgressCompletedHandler_UInt64_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.IAsyncActionWithProgress_UInt64 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionWithProgressCompletedHandler_UInt64'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncActionWithProgressCompletedHandler_UInt64_Interface
@@ -2958,7 +3002,6 @@ package Windows.Foundation is
    IID_VectorChangedEventHandler_Object : aliased constant Windows.IID := (3022235649, 54110, 22201, (129, 59, 0, 136, 149, 54, 203, 152 ));
    
    type VectorChangedEventHandler_Object_Interface(Callback : access procedure (sender : Windows.Foundation.IObservableVector_Object ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_VectorChangedEventHandler_Object'access) with null record;
-   
    function Invoke
    (
       This       : access VectorChangedEventHandler_Object_Interface
@@ -2972,31 +3015,30 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    
    subtype Deferral is Windows.Foundation.IDeferral;
-   
    function Create
    (
       handler : Windows.Foundation.DeferralCompletedHandler
    )
    return Windows.Foundation.IDeferral;
    
-   subtype MemoryBuffer is Windows.Foundation.IMemoryBuffer;
    
+   subtype MemoryBuffer is Windows.Foundation.IMemoryBuffer;
    function Create
    (
       capacity : Windows.UInt32
    )
    return Windows.Foundation.IMemoryBuffer;
    
-   subtype WwwFormUrlDecoder is Windows.Foundation.IWwwFormUrlDecoderRuntimeClass;
    
+   subtype WwwFormUrlDecoder is Windows.Foundation.IWwwFormUrlDecoderRuntimeClass;
    function CreateWwwFormUrlDecoder
    (
       query : Windows.String
    )
    return Windows.Foundation.IWwwFormUrlDecoderRuntimeClass;
    
-   subtype Uri is Windows.Foundation.IUriRuntimeClass;
    
+   subtype Uri is Windows.Foundation.IUriRuntimeClass;
    function CreateUri
    (
       uri : Windows.String
@@ -3010,12 +3052,12 @@ package Windows.Foundation is
    )
    return Windows.Foundation.IUriRuntimeClass;
    
+   
    subtype WwwFormUrlDecoderEntry is Windows.Foundation.IWwwFormUrlDecoderEntry;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateEmpty
    return Windows.Object;
@@ -3259,5 +3301,6 @@ package Windows.Foundation is
       toEscape : Windows.String
    )
    return Windows.String;
+   
 
 end;

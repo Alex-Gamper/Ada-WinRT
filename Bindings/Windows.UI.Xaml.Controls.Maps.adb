@@ -33,7 +33,6 @@ package body Windows.UI.Xaml.Controls.Maps is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMapModel3D_Interface
@@ -505,7 +504,6 @@ package body Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateMapActualCameraChangedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
@@ -2596,7 +2594,6 @@ package body Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Area
    return Windows.String is
@@ -5910,5 +5907,6 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -27,7 +27,6 @@ package body Windows.Data.Text is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access WordSegmentsTokenizingHandler_Interface
@@ -57,7 +56,6 @@ package body Windows.Data.Text is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -207,7 +205,6 @@ package body Windows.Data.Text is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetCodepointFromSurrogatePair
    (
@@ -549,5 +546,6 @@ package body Windows.Data.Text is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

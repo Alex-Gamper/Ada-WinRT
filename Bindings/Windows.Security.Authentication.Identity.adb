@@ -27,7 +27,6 @@ package body Windows.Security.Authentication.Identity is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.Security.Authentication.Identity is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Current
    return Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager is
@@ -53,5 +51,6 @@ package body Windows.Security.Authentication.Identity is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

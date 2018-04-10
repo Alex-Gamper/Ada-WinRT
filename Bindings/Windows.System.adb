@@ -35,7 +35,6 @@ package body Windows.System is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access DispatcherQueueHandler_Interface
@@ -415,7 +414,6 @@ package body Windows.System is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateUserPicker return Windows.System.IUserPicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.UserPicker");
@@ -508,7 +506,6 @@ package body Windows.System is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentThread
    return Windows.System.IDispatcherQueue is
@@ -2002,5 +1999,6 @@ package body Windows.System is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

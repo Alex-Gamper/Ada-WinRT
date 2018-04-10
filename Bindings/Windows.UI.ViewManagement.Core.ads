@@ -113,6 +113,7 @@ package Windows.UI.ViewManagement.Core is
       ; RetVal : access Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreInputView : aliased constant Windows.IID := (3346058618, 28673, 19506, (191, 148, 37, 193, 245, 84, 203, 241 ));
@@ -154,6 +155,7 @@ package Windows.UI.ViewManagement.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreInputViewStatics : aliased constant Windows.IID := (2107348941, 60862, 18895, (165, 79, 51, 125, 224, 82, 144, 127 ));
@@ -166,6 +168,7 @@ package Windows.UI.ViewManagement.Core is
       ; RetVal : access Windows.UI.ViewManagement.Core.ICoreInputView
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICoreInputViewOcclusionsChangedEventArgs : aliased constant Windows.IID := (3188729832, 46062, 19959, (149, 84, 137, 205, 198, 96, 130, 194 ));
@@ -192,6 +195,7 @@ package Windows.UI.ViewManagement.Core is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ICoreInputViewOcclusion : aliased constant Windows.IID := (1538618196, 20288, 24307, (165, 209, 106, 96, 73, 249, 5, 161 ));
@@ -226,6 +230,7 @@ package Windows.UI.ViewManagement.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ICoreInputViewOcclusion : aliased constant Windows.IID := (168924555, 25562, 21862, (145, 58, 24, 5, 80, 218, 210, 106 ));
@@ -238,6 +243,7 @@ package Windows.UI.ViewManagement.Core is
       ; RetVal : access Windows.UI.ViewManagement.Core.IIterator_ICoreInputViewOcclusion
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ICoreInputViewOcclusion : aliased constant Windows.IID := (3767940472, 41542, 22144, (134, 209, 39, 81, 148, 35, 226, 18 ));
@@ -276,6 +282,7 @@ package Windows.UI.ViewManagement.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -285,7 +292,6 @@ package Windows.UI.ViewManagement.Core is
    IID_TypedEventHandler_ICoreInputView_add_OcclusionsChanged : aliased constant Windows.IID := (1524551428, 60881, 20787, (171, 199, 88, 42, 2, 127, 9, 187 ));
    
    type TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.Core.ICoreInputView ; args : Windows.UI.ViewManagement.Core.ICoreInputViewOcclusionsChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInputView_add_OcclusionsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface
@@ -306,8 +312,8 @@ package Windows.UI.ViewManagement.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.UI.ViewManagement.Core.ICoreInputView;
+   
 
 end;

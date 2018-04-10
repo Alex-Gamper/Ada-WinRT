@@ -27,7 +27,6 @@ package body Windows.Embedded.DeviceLockdown is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.Embedded.DeviceLockdown is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetSupportedLockdownProfiles
    return Windows.Foundation.Collections.IVectorView_Guid is
@@ -110,5 +108,6 @@ package body Windows.Embedded.DeviceLockdown is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

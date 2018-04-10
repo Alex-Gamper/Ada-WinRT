@@ -903,6 +903,7 @@ package Windows.UI.Text is
       ; RetVal : access Windows.UI.Text.FontStyle
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextDocument : aliased constant Windows.IID := (3203288539, 37042, 16524, (162, 246, 10, 10, 195, 30, 51, 228 ));
@@ -1101,6 +1102,7 @@ package Windows.UI.Text is
       This       : access ITextDocument_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextRange : aliased constant Windows.IID := (1537101399, 49266, 17056, (137, 69, 175, 80, 62, 229, 71, 104 ));
@@ -1508,6 +1510,7 @@ package Windows.UI.Text is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextSelection : aliased constant Windows.IID := (2798872356, 62095, 17162, (178, 207, 195, 67, 103, 30, 192, 233 ));
@@ -1599,6 +1602,7 @@ package Windows.UI.Text is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextCharacterFormat : aliased constant Windows.IID := (1524560859, 1531, 17453, (128, 101, 100, 42, 254, 160, 44, 237 ));
@@ -1955,6 +1959,7 @@ package Windows.UI.Text is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextParagraphFormat : aliased constant Windows.IID := (754503590, 18038, 18826, (147, 245, 187, 219, 252, 11, 216, 131 ));
@@ -2304,6 +2309,7 @@ package Windows.UI.Text is
       ; spacing : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITextDocument2 : aliased constant Windows.IID := (4063301906, 35977, 18889, (145, 24, 240, 87, 203, 184, 20, 238 ));
@@ -2337,11 +2343,13 @@ package Windows.UI.Text is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFontWeights : aliased constant Windows.IID := (2021696580, 427, 18839, (133, 23, 223, 130, 42, 12, 69, 241 ));
    
    type IFontWeights_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IFontWeightsStatics : aliased constant Windows.IID := (3015014869, 7081, 18667, (157, 173, 192, 149, 232, 194, 59, 163 ));
@@ -2424,6 +2432,7 @@ package Windows.UI.Text is
       ; RetVal : access Windows.UI.Text.FontWeight
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_UnderlineType : aliased constant Windows.IID := (459533335, 31531, 23038, (171, 157, 182, 14, 164, 249, 201, 184 ));
@@ -2436,6 +2445,7 @@ package Windows.UI.Text is
       ; RetVal : access Windows.UI.Text.UnderlineType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -2446,7 +2456,6 @@ package Windows.UI.Text is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AutoColor
    return Windows.UI.Color;
@@ -2504,5 +2513,6 @@ package Windows.UI.Text is
    
    function get_Thin
    return Windows.UI.Text.FontWeight;
+   
 
 end;

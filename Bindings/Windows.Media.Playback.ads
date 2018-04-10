@@ -715,6 +715,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPlaybackMediaMarkerFactory : aliased constant Windows.IID := (2354252408, 57518, 19994, (168, 200, 226, 63, 152, 42, 147, 123 ));
@@ -738,6 +739,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IPlaybackMediaMarker
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPlaybackMediaMarkerSequence : aliased constant Windows.IID := (4068543726, 25483, 18127, (136, 23, 29, 17, 31, 233, 216, 196 ));
@@ -763,6 +765,7 @@ package Windows.Media.Playback is
       This       : access IPlaybackMediaMarkerSequence_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_PlaybackMediaMarker : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -775,6 +778,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IPlaybackMediaMarker
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayerFailedEventArgs : aliased constant Windows.IID := (658827705, 42979, 20246, (186, 196, 121, 20, 235, 192, 131, 1 ));
@@ -801,6 +805,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayerRateChangedEventArgs : aliased constant Windows.IID := (1080036696, 15201, 19378, (152, 159, 252, 101, 96, 139, 108, 171 ));
@@ -813,6 +818,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPlaybackMediaMarkerReachedEventArgs : aliased constant Windows.IID := (1468846521, 37090, 20064, (171, 196, 135, 64, 176, 31, 97, 150 ));
@@ -825,6 +831,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IPlaybackMediaMarker
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayerDataReceivedEventArgs : aliased constant Windows.IID := (3344602117, 51201, 16682, (131, 91, 131, 252, 14, 98, 42, 142 ));
@@ -837,6 +844,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayer : aliased constant Windows.IID := (941261771, 28671, 18843, (141, 100, 40, 133, 223, 193, 36, 158 ));
@@ -1144,6 +1152,7 @@ package Windows.Media.Playback is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayer2 : aliased constant Windows.IID := (1015288344, 8483, 20421, (144, 130, 47, 136, 63, 119, 189, 245 ));
@@ -1184,6 +1193,7 @@ package Windows.Media.Playback is
       ; value : Windows.Media.Playback.MediaPlayerAudioDeviceType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayer3 : aliased constant Windows.IID := (3993395418, 795, 20459, (189, 155, 146, 224, 160, 168, 210, 153 ));
@@ -1343,6 +1353,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Casting.ICastingSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayer4 : aliased constant Windows.IID := (2147704240, 29768, 18288, (175, 207, 42, 87, 69, 9, 20, 197 ));
@@ -1363,6 +1374,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlayerSurface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayer5 : aliased constant Windows.IID := (3487905789, 63594, 17478, (191, 77, 200, 231, 146, 183, 180, 179 ));
@@ -1420,6 +1432,7 @@ package Windows.Media.Playback is
       ; destinationRightEye : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayer6 : aliased constant Windows.IID := (3771375750, 44645, 16716, (176, 16, 139, 197, 95, 0, 230, 146 ));
@@ -1457,6 +1470,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackSession : aliased constant Windows.IID := (3274401853, 1031, 16826, (137, 70, 139, 52, 90, 90, 84, 53 ));
@@ -1738,6 +1752,7 @@ package Windows.Media.Playback is
       ; value : Windows.Media.MediaProperties.StereoscopicVideoPackingMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackSphericalVideoProjection : aliased constant Windows.IID := (3557143420, 28430, 18017, (184, 238, 212, 135, 186, 151, 82, 213 ));
@@ -1813,6 +1828,7 @@ package Windows.Media.Playback is
       ; value : Windows.Media.Playback.SphericalVideoProjectionMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackSession2 : aliased constant Windows.IID := (4172971129, 8136, 16535, (173, 112, 192, 250, 24, 204, 0, 80 ));
@@ -1929,6 +1945,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackSessionBufferingStartedEventArgs : aliased constant Windows.IID := (3446321133, 29922, 17333, (177, 21, 118, 35, 108, 51, 121, 26 ));
@@ -1941,6 +1958,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayerSource : aliased constant Windows.IID := (3176106135, 5155, 19518, (130, 197, 15, 177, 175, 148, 247, 21 ));
@@ -1981,6 +1999,7 @@ package Windows.Media.Playback is
       ; source : Windows.Media.Core.IMediaSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayerSource2 : aliased constant Windows.IID := (2185534367, 29474, 19467, (176, 59, 62, 105, 164, 130, 96, 197 ));
@@ -2000,6 +2019,7 @@ package Windows.Media.Playback is
       ; value : Windows.Media.Playback.IMediaPlaybackSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayerEffects : aliased constant Windows.IID := (2241978074, 51894, 19648, (139, 227, 96, 53, 244, 222, 37, 145 ));
@@ -2020,6 +2040,7 @@ package Windows.Media.Playback is
       This       : access IMediaPlayerEffects_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayerEffects2 : aliased constant Windows.IID := (4198603385, 7102, 18117, (174, 31, 142, 230, 159, 179, 194, 199 ));
@@ -2034,6 +2055,7 @@ package Windows.Media.Playback is
       ; effectConfiguration : Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaBreakStartedEventArgs : aliased constant Windows.IID := (2826894961, 57300, 17738, (149, 110, 10, 74, 100, 131, 149, 248 ));
@@ -2046,6 +2068,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaBreak
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaBreakEndedEventArgs : aliased constant Windows.IID := (850997878, 7261, 20462, (135, 50, 35, 109, 195, 168, 133, 128 ));
@@ -2058,6 +2081,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaBreak
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaBreakSkippedEventArgs : aliased constant Windows.IID := (1860783109, 12116, 19006, (163, 171, 36, 195, 178, 112, 180, 163 ));
@@ -2070,6 +2094,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaBreak
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaBreakSeekedOverEventArgs : aliased constant Windows.IID := (3853150022, 1542, 17554, (185, 211, 195, 200, 253, 224, 164, 234 ));
@@ -2096,6 +2121,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaBreakManager : aliased constant Windows.IID := (2824134065, 65204, 19867, (157, 151, 15, 219, 229, 142, 94, 57 ));
@@ -2188,6 +2214,7 @@ package Windows.Media.Playback is
       This       : access IMediaBreakManager_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlayerSurface : aliased constant Windows.IID := (248927164, 46902, 18883, (131, 11, 118, 74, 56, 69, 49, 58 ));
@@ -2214,6 +2241,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlayer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundMediaPlayerStatics : aliased constant Windows.IID := (2238569409, 22007, 18207, (160, 242, 104, 172, 76, 144, 69, 146 ));
@@ -2283,6 +2311,7 @@ package Windows.Media.Playback is
       This       : access IBackgroundMediaPlayerStatics_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerPlayReceivedEventArgs : aliased constant Windows.IID := (2599419982, 22411, 19542, (160, 6, 22, 21, 157, 136, 138, 72 ));
@@ -2309,6 +2338,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerPauseReceivedEventArgs : aliased constant Windows.IID := (1559022876, 49756, 16929, (177, 108, 195, 201, 140, 224, 18, 214 ));
@@ -2335,6 +2365,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerNextReceivedEventArgs : aliased constant Windows.IID := (3780133939, 41648, 17876, (185, 222, 95, 66, 172, 20, 168, 57 ));
@@ -2361,6 +2392,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerPreviousReceivedEventArgs : aliased constant Windows.IID := (1381904513, 17970, 20342, (153, 177, 215, 113, 98, 63, 98, 135 ));
@@ -2387,6 +2419,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerFastForwardReceivedEventArgs : aliased constant Windows.IID := (821060825, 46225, 19722, (188, 33, 48, 152, 189, 19, 50, 233 ));
@@ -2413,6 +2446,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerRewindReceivedEventArgs : aliased constant Windows.IID := (2668124487, 41920, 16989, (170, 239, 151, 186, 120, 152, 177, 65 ));
@@ -2439,6 +2473,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerShuffleReceivedEventArgs : aliased constant Windows.IID := (1352686831, 25582, 19094, (183, 181, 254, 224, 139, 159, 249, 12 ));
@@ -2472,6 +2507,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs : aliased constant Windows.IID := (1030704931, 21040, 17425, (160, 233, 186, 217, 76, 42, 4, 92 ));
@@ -2505,6 +2541,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerPositionReceivedEventArgs : aliased constant Windows.IID := (1435608916, 54823, 19421, (169, 13, 134, 160, 21, 178, 73, 2 ));
@@ -2538,6 +2575,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerRateReceivedEventArgs : aliased constant Windows.IID := (418003257, 18966, 16745, (139, 5, 62, 185, 245, 255, 120, 235 ));
@@ -2571,6 +2609,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManagerCommandBehavior : aliased constant Windows.IID := (2020351608, 52856, 18960, (175, 214, 132, 63, 203, 185, 12, 46 ));
@@ -2619,6 +2658,7 @@ package Windows.Media.Playback is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackCommandManager : aliased constant Windows.IID := (1523508646, 23734, 19034, (133, 33, 204, 134, 177, 193, 237, 55 ));
@@ -2865,11 +2905,13 @@ package Windows.Media.Playback is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackSource : aliased constant Windows.IID := (4020093628, 37655, 18070, (176, 81, 43, 173, 100, 49, 119, 181 ));
    
    type IMediaPlaybackSource_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackItemFactory : aliased constant Windows.IID := (1899232481, 5993, 20473, (167, 193, 56, 210, 196, 212, 35, 96 ));
@@ -2883,6 +2925,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlaybackItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackItemFactory2 : aliased constant Windows.IID := (3615285050, 47431, 18802, (179, 93, 173, 251, 147, 26, 113, 230 ));
@@ -2907,6 +2950,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlaybackItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackItemStatics : aliased constant Windows.IID := (1260120052, 17221, 16444, (138, 103, 245, 222, 145, 223, 76, 134 ));
@@ -2920,6 +2964,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlaybackItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackItem : aliased constant Windows.IID := (74487762, 58543, 18603, (178, 131, 105, 41, 230, 116, 236, 226 ));
@@ -2998,6 +3043,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IVectorView_TimedMetadataTrack
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_AudioTrack : aliased constant Windows.IID := (3877632586, 5287, 20584, (137, 28, 110, 113, 122, 248, 191, 141 ));
@@ -3036,6 +3082,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_AudioTrack : aliased constant Windows.IID := (3015594152, 38998, 22102, (171, 109, 205, 88, 249, 222, 10, 79 ));
@@ -3048,6 +3095,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Core.IMediaTrack
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_VideoTrack : aliased constant Windows.IID := (537682468, 2883, 21755, (153, 95, 253, 134, 136, 191, 36, 222 ));
@@ -3086,6 +3134,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_VideoTrack : aliased constant Windows.IID := (2218865730, 41699, 24079, (147, 109, 188, 64, 176, 251, 45, 205 ));
@@ -3098,6 +3147,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Core.IMediaTrack
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_TimedMetadataTrack : aliased constant Windows.IID := (51621498, 10243, 23877, (181, 161, 160, 252, 92, 213, 94, 124 ));
@@ -3136,6 +3186,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_TimedMetadataTrack : aliased constant Windows.IID := (352994388, 955, 24017, (129, 83, 106, 96, 14, 133, 31, 113 ));
@@ -3148,6 +3199,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Core.ITimedMetadataTrack
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaItemDisplayProperties : aliased constant Windows.IID := (507255624, 28823, 17284, (162, 23, 193, 41, 29, 250, 140, 22 ));
@@ -3201,6 +3253,7 @@ package Windows.Media.Playback is
       This       : access IMediaItemDisplayProperties_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackItem2 : aliased constant Windows.IID := (3629764977, 55279, 19329, (172, 31, 244, 4, 147, 203, 176, 145 ));
@@ -3255,6 +3308,7 @@ package Windows.Media.Playback is
       ; value : Windows.Media.Playback.IMediaItemDisplayProperties
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackItem3 : aliased constant Windows.IID := (221413920, 47114, 19721, (159, 248, 248, 112, 148, 161, 200, 49 ));
@@ -3295,6 +3349,7 @@ package Windows.Media.Playback is
       ; value : Windows.Media.Playback.AutoLoadedDisplayPropertyKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaBreakFactory : aliased constant Windows.IID := (1159127042, 6368, 16505, (139, 95, 211, 52, 149, 193, 93, 46 ));
@@ -3317,6 +3372,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaBreak
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaBreak : aliased constant Windows.IID := (1900798576, 3567, 20156, (164, 137, 107, 52, 147, 14, 21, 88 ));
@@ -3364,6 +3420,7 @@ package Windows.Media.Playback is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaBreakSchedule : aliased constant Windows.IID := (2711246867, 39094, 16856, (131, 218, 249, 113, 210, 43, 123, 186 ));
@@ -3440,6 +3497,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlaybackItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackItemError : aliased constant Windows.IID := (1778118443, 56534, 19961, (164, 80, 219, 244, 198, 241, 194, 194 ));
@@ -3459,6 +3517,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaEnginePlaybackSource : aliased constant Windows.IID := (1545407399, 14422, 18617, (141, 198, 36, 75, 241, 7, 191, 140 ));
@@ -3478,6 +3537,7 @@ package Windows.Media.Playback is
       ; source : Windows.Media.Playback.IMediaPlaybackSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackItemOpenedEventArgs : aliased constant Windows.IID := (3420044674, 12343, 20414, (174, 143, 57, 252, 57, 237, 244, 239 ));
@@ -3490,6 +3550,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlaybackItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackItemFailedEventArgs : aliased constant Windows.IID := (1996690250, 59815, 18371, (134, 44, 198, 86, 211, 6, 131, 212 ));
@@ -3509,6 +3570,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlaybackItemError
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICurrentMediaPlaybackItemChangedEventArgs : aliased constant Windows.IID := (390310034, 23619, 18965, (150, 122, 87, 45, 45, 15, 38, 198 ));
@@ -3528,6 +3590,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlaybackItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICurrentMediaPlaybackItemChangedEventArgs2 : aliased constant Windows.IID := (494970142, 39278, 16553, (190, 72, 230, 110, 201, 11, 43, 125 ));
@@ -3540,6 +3603,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.MediaPlaybackItemChangedReason
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackList : aliased constant Windows.IID := (2138566300, 56386, 20006, (169, 141, 120, 80, 223, 142, 201, 37 ));
@@ -3661,6 +3725,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IMediaPlaybackItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackList2 : aliased constant Windows.IID := (235517048, 24586, 17012, (161, 75, 11, 103, 35, 208, 244, 139 ));
@@ -3708,6 +3773,7 @@ package Windows.Media.Playback is
       ; value : Windows.Media.Playback.IIterable_IMediaPlaybackItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackList3 : aliased constant Windows.IID := (3710172073, 48199, 17507, (170, 144, 193, 139, 126, 95, 253, 225 ));
@@ -3727,6 +3793,7 @@ package Windows.Media.Playback is
       ; value : Windows.Foundation.IReference_UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaPlaybackTimedMetadataTrackList : aliased constant Windows.IID := (1924403993, 48123, 18083, (147, 114, 156, 156, 116, 75, 148, 56 ));
@@ -3763,6 +3830,7 @@ package Windows.Media.Playback is
       ; value : Windows.Media.Playback.TimedMetadataTrackPresentationMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITimedMetadataPresentationModeChangedEventArgs : aliased constant Windows.IID := (3512950937, 26079, 17838, (140, 239, 220, 11, 83, 253, 194, 187 ));
@@ -3789,6 +3857,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.TimedMetadataTrackPresentationMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type ISingleSelectMediaTrackList_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -3821,6 +3890,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IMediaBreak : aliased constant Windows.IID := (2667415366, 63804, 21071, (159, 149, 75, 89, 138, 207, 141, 37 ));
@@ -3855,6 +3925,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IMediaBreak : aliased constant Windows.IID := (82837740, 50983, 24000, (159, 124, 36, 92, 117, 201, 47, 47 ));
@@ -3867,6 +3938,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IIterator_IMediaBreak
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IMediaBreak : aliased constant Windows.IID := (3264672761, 4712, 22946, (183, 195, 47, 88, 142, 212, 160, 23 ));
@@ -3905,6 +3977,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IMediaPlaybackItem : aliased constant Windows.IID := (2869379161, 35848, 21479, (150, 84, 2, 210, 89, 143, 255, 85 ));
@@ -3939,6 +4012,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IMediaPlaybackItem : aliased constant Windows.IID := (2341123236, 595, 22249, (162, 50, 148, 227, 53, 174, 250, 143 ));
@@ -3951,6 +4025,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.Media.Playback.IIterator_IMediaPlaybackItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IMediaPlaybackItem : aliased constant Windows.IID := (3064252926, 51005, 24250, (181, 171, 111, 141, 234, 202, 48, 185 ));
@@ -3989,6 +4064,7 @@ package Windows.Media.Playback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IMediaPlaybackItem : aliased constant Windows.IID := (3780136774, 50342, 23081, (143, 201, 169, 52, 209, 45, 114, 66 ));
@@ -4083,6 +4159,7 @@ package Windows.Media.Playback is
       ; items : Windows.Media.Playback.IMediaPlaybackItem_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IObservableVector_IMediaPlaybackItem : aliased constant Windows.IID := (4206839875, 14827, 23613, (161, 43, 252, 161, 137, 180, 110, 142 ));
@@ -4103,6 +4180,7 @@ package Windows.Media.Playback is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -4112,7 +4190,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_MediaOpened : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer_add_MediaOpened_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_MediaOpened'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_MediaOpened_Interface
@@ -4126,7 +4203,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_MediaEnded : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer_add_MediaEnded_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_MediaEnded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_MediaEnded_Interface
@@ -4140,7 +4216,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_MediaFailed : aliased constant Windows.IID := (908871079, 14858, 24103, (153, 206, 207, 246, 209, 183, 112, 225 ));
    
    type TypedEventHandler_IMediaPlayer_add_MediaFailed_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Media.Playback.IMediaPlayerFailedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_MediaFailed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_MediaFailed_Interface
@@ -4154,7 +4229,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_CurrentStateChanged : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer_add_CurrentStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_CurrentStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_CurrentStateChanged_Interface
@@ -4168,7 +4242,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_PlaybackMediaMarkerReached : aliased constant Windows.IID := (1738863676, 49748, 22512, (163, 157, 164, 117, 163, 66, 210, 29 ));
    
    type TypedEventHandler_IMediaPlayer_add_PlaybackMediaMarkerReached_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Media.Playback.IPlaybackMediaMarkerReachedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_PlaybackMediaMarkerReached'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_PlaybackMediaMarkerReached_Interface
@@ -4182,7 +4255,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_MediaPlayerRateChanged : aliased constant Windows.IID := (3125924634, 22152, 23885, (175, 66, 18, 32, 112, 177, 238, 250 ));
    
    type TypedEventHandler_IMediaPlayer_add_MediaPlayerRateChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Media.Playback.IMediaPlayerRateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_MediaPlayerRateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_MediaPlayerRateChanged_Interface
@@ -4196,7 +4268,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_VolumeChanged : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer_add_VolumeChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_VolumeChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_VolumeChanged_Interface
@@ -4210,7 +4281,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_SeekCompleted : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer_add_SeekCompleted_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_SeekCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_SeekCompleted_Interface
@@ -4224,7 +4294,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_BufferingStarted : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer_add_BufferingStarted_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_BufferingStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_BufferingStarted_Interface
@@ -4238,7 +4307,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer_add_BufferingEnded : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer_add_BufferingEnded_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer_add_BufferingEnded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_BufferingEnded_Interface
@@ -4252,7 +4320,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer3_add_IsMutedChanged : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer3_add_IsMutedChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer3_add_IsMutedChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer3_add_IsMutedChanged_Interface
@@ -4266,7 +4333,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer3_add_SourceChanged : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer3_add_SourceChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer3_add_SourceChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer3_add_SourceChanged_Interface
@@ -4280,7 +4346,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer5_add_VideoFrameAvailable : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer5_add_VideoFrameAvailable_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer5_add_VideoFrameAvailable'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer5_add_VideoFrameAvailable_Interface
@@ -4294,7 +4359,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlayer6_add_SubtitleFrameChanged : aliased constant Windows.IID := (4054230302, 53368, 23616, (186, 63, 52, 136, 112, 186, 92, 135 ));
    
    type TypedEventHandler_IMediaPlayer6_add_SubtitleFrameChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlayer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlayer6_add_SubtitleFrameChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer6_add_SubtitleFrameChanged_Interface
@@ -4308,7 +4372,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_PlaybackStateChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_PlaybackStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_PlaybackStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_PlaybackStateChanged_Interface
@@ -4322,7 +4385,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_PlaybackRateChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_PlaybackRateChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_PlaybackRateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_PlaybackRateChanged_Interface
@@ -4336,7 +4398,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_SeekCompleted : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_SeekCompleted_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_SeekCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_SeekCompleted_Interface
@@ -4350,7 +4411,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_BufferingStarted : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_BufferingStarted_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_BufferingStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_BufferingStarted_Interface
@@ -4364,7 +4424,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_BufferingEnded : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_BufferingEnded_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_BufferingEnded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_BufferingEnded_Interface
@@ -4378,7 +4437,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_BufferingProgressChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_BufferingProgressChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_BufferingProgressChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_BufferingProgressChanged_Interface
@@ -4392,7 +4450,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_DownloadProgressChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_DownloadProgressChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_DownloadProgressChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_DownloadProgressChanged_Interface
@@ -4406,7 +4463,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_NaturalDurationChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_NaturalDurationChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_NaturalDurationChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_NaturalDurationChanged_Interface
@@ -4420,7 +4476,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_PositionChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_PositionChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_PositionChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_PositionChanged_Interface
@@ -4434,7 +4489,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession_add_NaturalVideoSizeChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession_add_NaturalVideoSizeChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession_add_NaturalVideoSizeChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession_add_NaturalVideoSizeChanged_Interface
@@ -4448,7 +4502,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession2_add_BufferedRangesChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession2_add_BufferedRangesChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession2_add_BufferedRangesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession2_add_BufferedRangesChanged_Interface
@@ -4462,7 +4515,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession2_add_PlayedRangesChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession2_add_PlayedRangesChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession2_add_PlayedRangesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession2_add_PlayedRangesChanged_Interface
@@ -4476,7 +4528,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession2_add_SeekableRangesChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession2_add_SeekableRangesChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession2_add_SeekableRangesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession2_add_SeekableRangesChanged_Interface
@@ -4490,7 +4541,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackSession2_add_SupportedPlaybackRatesChanged : aliased constant Windows.IID := (2087777165, 10913, 21794, (166, 214, 52, 181, 43, 152, 138, 231 ));
    
    type TypedEventHandler_IMediaPlaybackSession2_add_SupportedPlaybackRatesChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackSession ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackSession2_add_SupportedPlaybackRatesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackSession2_add_SupportedPlaybackRatesChanged_Interface
@@ -4504,7 +4554,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaBreakManager_add_BreaksSeekedOver : aliased constant Windows.IID := (2794802224, 39388, 24452, (180, 130, 125, 6, 146, 192, 39, 123 ));
    
    type TypedEventHandler_IMediaBreakManager_add_BreaksSeekedOver_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaBreakManager ; args : Windows.Media.Playback.IMediaBreakSeekedOverEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaBreakManager_add_BreaksSeekedOver'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaBreakManager_add_BreaksSeekedOver_Interface
@@ -4518,7 +4567,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaBreakManager_add_BreakStarted : aliased constant Windows.IID := (1274203297, 52637, 23944, (158, 71, 24, 129, 32, 27, 183, 45 ));
    
    type TypedEventHandler_IMediaBreakManager_add_BreakStarted_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaBreakManager ; args : Windows.Media.Playback.IMediaBreakStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaBreakManager_add_BreakStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaBreakManager_add_BreakStarted_Interface
@@ -4532,7 +4580,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaBreakManager_add_BreakEnded : aliased constant Windows.IID := (78622633, 55354, 23755, (140, 171, 130, 201, 217, 42, 25, 171 ));
    
    type TypedEventHandler_IMediaBreakManager_add_BreakEnded_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaBreakManager ; args : Windows.Media.Playback.IMediaBreakEndedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaBreakManager_add_BreakEnded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaBreakManager_add_BreakEnded_Interface
@@ -4546,7 +4593,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaBreakManager_add_BreakSkipped : aliased constant Windows.IID := (3308321373, 6742, 22570, (162, 84, 27, 26, 225, 123, 141, 45 ));
    
    type TypedEventHandler_IMediaBreakManager_add_BreakSkipped_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaBreakManager ; args : Windows.Media.Playback.IMediaBreakSkippedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaBreakManager_add_BreakSkipped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaBreakManager_add_BreakSkipped_Interface
@@ -4560,7 +4606,6 @@ package Windows.Media.Playback is
    IID_EventHandler_IMediaPlayerDataReceivedEventArgs : aliased constant Windows.IID := (126863384, 6645, 23434, (172, 130, 37, 25, 59, 234, 86, 238 ));
    
    type EventHandler_IMediaPlayerDataReceivedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Media.Playback.IMediaPlayerDataReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IMediaPlayerDataReceivedEventArgs'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IMediaPlayerDataReceivedEventArgs_Interface
@@ -4574,7 +4619,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManagerCommandBehavior_add_IsEnabledChanged : aliased constant Windows.IID := (645240634, 60205, 22177, (130, 160, 52, 11, 15, 240, 65, 230 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManagerCommandBehavior_add_IsEnabledChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManagerCommandBehavior ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManagerCommandBehavior_add_IsEnabledChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManagerCommandBehavior_add_IsEnabledChanged_Interface
@@ -4588,7 +4632,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_PlayReceived : aliased constant Windows.IID := (1993711484, 60915, 24030, (149, 41, 111, 128, 107, 219, 31, 203 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_PlayReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerPlayReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_PlayReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_PlayReceived_Interface
@@ -4602,7 +4645,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_PauseReceived : aliased constant Windows.IID := (2045455059, 1921, 24420, (176, 205, 49, 225, 20, 93, 16, 159 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_PauseReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerPauseReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_PauseReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_PauseReceived_Interface
@@ -4616,7 +4658,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_NextReceived : aliased constant Windows.IID := (3460411200, 37798, 21183, (156, 173, 77, 95, 255, 209, 14, 224 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_NextReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerNextReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_NextReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_NextReceived_Interface
@@ -4630,7 +4671,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_PreviousReceived : aliased constant Windows.IID := (628256180, 35091, 22887, (144, 235, 16, 240, 159, 48, 221, 51 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_PreviousReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerPreviousReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_PreviousReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_PreviousReceived_Interface
@@ -4644,7 +4684,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_FastForwardReceived : aliased constant Windows.IID := (3620564195, 20847, 23348, (190, 175, 62, 233, 11, 98, 40, 114 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_FastForwardReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerFastForwardReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_FastForwardReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_FastForwardReceived_Interface
@@ -4658,7 +4697,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_RewindReceived : aliased constant Windows.IID := (1010294822, 36107, 23923, (166, 80, 159, 24, 171, 188, 53, 61 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_RewindReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerRewindReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_RewindReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_RewindReceived_Interface
@@ -4672,7 +4710,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_ShuffleReceived : aliased constant Windows.IID := (1821847441, 63014, 22425, (186, 134, 94, 148, 31, 2, 2, 200 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_ShuffleReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerShuffleReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_ShuffleReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_ShuffleReceived_Interface
@@ -4686,7 +4723,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_AutoRepeatModeReceived : aliased constant Windows.IID := (2185774520, 50655, 22027, (167, 34, 193, 91, 37, 212, 70, 58 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_AutoRepeatModeReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_AutoRepeatModeReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_AutoRepeatModeReceived_Interface
@@ -4700,7 +4736,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_PositionReceived : aliased constant Windows.IID := (3630412228, 29762, 21444, (148, 210, 32, 216, 151, 61, 245, 133 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_PositionReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerPositionReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_PositionReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_PositionReceived_Interface
@@ -4714,7 +4749,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackCommandManager_add_RateReceived : aliased constant Windows.IID := (1066045089, 65434, 22035, (152, 70, 51, 121, 159, 107, 140, 138 ));
    
    type TypedEventHandler_IMediaPlaybackCommandManager_add_RateReceived_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackCommandManager ; args : Windows.Media.Playback.IMediaPlaybackCommandManagerRateReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackCommandManager_add_RateReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackCommandManager_add_RateReceived_Interface
@@ -4728,7 +4762,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackItem_add_AudioTracksChanged : aliased constant Windows.IID := (768940312, 17701, 23525, (166, 193, 64, 155, 199, 40, 99, 166 ));
    
    type TypedEventHandler_IMediaPlaybackItem_add_AudioTracksChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackItem ; args : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackItem_add_AudioTracksChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackItem_add_AudioTracksChanged_Interface
@@ -4742,7 +4775,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackItem_add_VideoTracksChanged : aliased constant Windows.IID := (768940312, 17701, 23525, (166, 193, 64, 155, 199, 40, 99, 166 ));
    
    type TypedEventHandler_IMediaPlaybackItem_add_VideoTracksChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackItem ; args : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackItem_add_VideoTracksChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackItem_add_VideoTracksChanged_Interface
@@ -4756,7 +4788,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackItem_add_TimedMetadataTracksChanged : aliased constant Windows.IID := (768940312, 17701, 23525, (166, 193, 64, 155, 199, 40, 99, 166 ));
    
    type TypedEventHandler_IMediaPlaybackItem_add_TimedMetadataTracksChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackItem ; args : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackItem_add_TimedMetadataTracksChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackItem_add_TimedMetadataTracksChanged_Interface
@@ -4770,7 +4801,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaBreakSchedule_add_ScheduleChanged : aliased constant Windows.IID := (1012378815, 51719, 22634, (138, 219, 128, 71, 220, 145, 101, 166 ));
    
    type TypedEventHandler_IMediaBreakSchedule_add_ScheduleChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaBreakSchedule ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaBreakSchedule_add_ScheduleChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaBreakSchedule_add_ScheduleChanged_Interface
@@ -4784,7 +4814,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackList_add_ItemFailed : aliased constant Windows.IID := (590454397, 13489, 22455, (151, 229, 132, 73, 72, 186, 71, 25 ));
    
    type TypedEventHandler_IMediaPlaybackList_add_ItemFailed_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackList ; args : Windows.Media.Playback.IMediaPlaybackItemFailedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackList_add_ItemFailed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackList_add_ItemFailed_Interface
@@ -4798,7 +4827,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackList_add_CurrentItemChanged : aliased constant Windows.IID := (1078747037, 9485, 24460, (150, 39, 107, 65, 5, 195, 45, 9 ));
    
    type TypedEventHandler_IMediaPlaybackList_add_CurrentItemChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackList ; args : Windows.Media.Playback.ICurrentMediaPlaybackItemChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackList_add_CurrentItemChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackList_add_CurrentItemChanged_Interface
@@ -4812,7 +4840,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackList_add_ItemOpened : aliased constant Windows.IID := (1731378159, 13073, 24451, (156, 157, 130, 165, 207, 60, 216, 42 ));
    
    type TypedEventHandler_IMediaPlaybackList_add_ItemOpened_Interface(Callback : access procedure (sender : Windows.Media.Playback.IMediaPlaybackList ; args : Windows.Media.Playback.IMediaPlaybackItemOpenedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackList_add_ItemOpened'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackList_add_ItemOpened_Interface
@@ -4826,7 +4853,6 @@ package Windows.Media.Playback is
    IID_VectorChangedEventHandler_IMediaPlaybackItem : aliased constant Windows.IID := (2300304862, 27635, 23839, (128, 171, 90, 52, 42, 22, 160, 187 ));
    
    type VectorChangedEventHandler_IMediaPlaybackItem_Interface(Callback : access procedure (sender : Windows.Media.Playback.IObservableVector_IMediaPlaybackItem ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_VectorChangedEventHandler_IMediaPlaybackItem'access) with null record;
-   
    function Invoke
    (
       This       : access VectorChangedEventHandler_IMediaPlaybackItem_Interface
@@ -4840,7 +4866,6 @@ package Windows.Media.Playback is
    IID_TypedEventHandler_IMediaPlaybackTimedMetadataTrackList_add_PresentationModeChanged : aliased constant Windows.IID := (1075920005, 48931, 24440, (185, 196, 224, 63, 59, 226, 180, 28 ));
    
    type TypedEventHandler_IMediaPlaybackTimedMetadataTrackList_add_PresentationModeChanged_Interface(Callback : access procedure (sender : Windows.Media.Playback.IVectorView_TimedMetadataTrack ; args : Windows.Media.Playback.ITimedMetadataPresentationModeChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaPlaybackTimedMetadataTrackList_add_PresentationModeChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlaybackTimedMetadataTrackList_add_PresentationModeChanged_Interface
@@ -4854,7 +4879,6 @@ package Windows.Media.Playback is
    ------------------------------------------------------------------------
    
    subtype PlaybackMediaMarker is Windows.Media.Playback.IPlaybackMediaMarker;
-   
    function CreateFromTime
    (
       value : Windows.Foundation.TimeSpan
@@ -4868,6 +4892,7 @@ package Windows.Media.Playback is
       ; text : Windows.String
    )
    return Windows.Media.Playback.IPlaybackMediaMarker;
+   
    
    subtype PlaybackMediaMarkerSequence is Windows.Media.Playback.IPlaybackMediaMarkerSequence;
    subtype MediaPlayerFailedEventArgs is Windows.Media.Playback.IMediaPlayerFailedEventArgs;
@@ -4900,7 +4925,6 @@ package Windows.Media.Playback is
    subtype MediaPlaybackCommandManagerRateReceivedEventArgs is Windows.Media.Playback.IMediaPlaybackCommandManagerRateReceivedEventArgs;
    subtype MediaPlaybackCommandManagerCommandBehavior is Windows.Media.Playback.IMediaPlaybackCommandManagerCommandBehavior;
    subtype MediaPlaybackItem is Windows.Media.Playback.IMediaPlaybackItem;
-   
    function CreateWithStartTime
    (
       source : Windows.Media.Core.IMediaSource2
@@ -4916,13 +4940,13 @@ package Windows.Media.Playback is
    )
    return Windows.Media.Playback.IMediaPlaybackItem;
    
+   
    subtype MediaPlaybackAudioTrackList is Windows.Media.Playback.IVectorView_AudioTrack;
    subtype MediaPlaybackVideoTrackList is Windows.Media.Playback.IVectorView_VideoTrack;
    subtype MediaPlaybackTimedMetadataTrackList is Windows.Media.Playback.IVectorView_TimedMetadataTrack;
    subtype MediaBreakSchedule is Windows.Media.Playback.IMediaBreakSchedule;
    subtype MediaItemDisplayProperties is Windows.Media.Playback.IMediaItemDisplayProperties;
    subtype MediaBreak is Windows.Media.Playback.IMediaBreak;
-   
    function Create
    (
       insertionMethod : Windows.Media.Playback.MediaBreakInsertionMethod
@@ -4935,6 +4959,7 @@ package Windows.Media.Playback is
       ; presentationPosition : Windows.Foundation.TimeSpan
    )
    return Windows.Media.Playback.IMediaBreak;
+   
    
    subtype MediaPlaybackList is Windows.Media.Playback.IMediaPlaybackList;
    
@@ -4950,11 +4975,11 @@ package Windows.Media.Playback is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FindFromMediaSource
    (
       source : Windows.Media.Core.IMediaSource2
    )
    return Windows.Media.Playback.IMediaPlaybackItem;
+   
 
 end;

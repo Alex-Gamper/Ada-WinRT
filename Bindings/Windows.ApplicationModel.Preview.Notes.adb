@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.Preview.Notes is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface
@@ -73,7 +72,6 @@ package body Windows.ApplicationModel.Preview.Notes is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateNotesWindowManagerPreviewShowNoteOptions return Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewShowNoteOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions");
@@ -99,7 +97,6 @@ package body Windows.ApplicationModel.Preview.Notes is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentApp
    return Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview is
       Hr            : Windows.HRESULT := S_OK;
@@ -116,5 +113,6 @@ package body Windows.ApplicationModel.Preview.Notes is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

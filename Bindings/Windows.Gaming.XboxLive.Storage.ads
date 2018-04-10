@@ -249,6 +249,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveProviderStatics : aliased constant Windows.IID := (3491577552, 31491, 17565, (140, 189, 52, 2, 132, 42, 16, 72 ));
@@ -272,6 +273,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveProviderGetResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveProviderGetResult : aliased constant Windows.IID := (985204758, 54163, 19813, (172, 22, 65, 195, 230, 122, 185, 69 ));
@@ -291,6 +293,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IGameSaveProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveContainer : aliased constant Windows.IID := (3284176777, 22079, 20173, (156, 111, 51, 253, 14, 50, 61, 16 ));
@@ -354,6 +357,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoQuery
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveBlobGetResult : aliased constant Windows.IID := (2440200672, 29185, 18771, (170, 44, 64, 8, 240, 58, 239, 69 ));
@@ -373,6 +377,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveContainerInfo : aliased constant Windows.IID := (3085071104, 5469, 19380, (178, 186, 147, 3, 6, 243, 145, 181 ));
@@ -413,6 +418,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveBlobInfo : aliased constant Windows.IID := (2916319284, 47856, 17989, (182, 208, 70, 237, 175, 251, 60, 43 ));
@@ -432,6 +438,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveContainerInfoQuery : aliased constant Windows.IID := (1016391779, 28544, 17191, (147, 39, 255, 193, 26, 253, 66, 179 ));
@@ -460,6 +467,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Foundation.IAsyncOperation_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveContainerInfoGetResult : aliased constant Windows.IID := (4291104116, 50561, 20381, (158, 57, 48, 161, 12, 30, 76, 80 ));
@@ -479,6 +487,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IVectorView_IGameSaveContainerInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveBlobInfoQuery : aliased constant Windows.IID := (2682090674, 61166, 17531, (169, 210, 127, 150, 192, 248, 50, 8 ));
@@ -507,6 +516,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Foundation.IAsyncOperation_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveBlobInfoGetResult : aliased constant Windows.IID := (3344401794, 13975, 17087, (152, 156, 102, 93, 146, 59, 82, 49 ));
@@ -526,6 +536,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IVectorView_IGameSaveBlobInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameSaveOperationResult : aliased constant Windows.IID := (3473873413, 9376, 17794, (154, 85, 177, 187, 187, 147, 136, 216 ));
@@ -538,6 +549,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IGameSaveOperationResult : aliased constant Windows.IID := (472382359, 7706, 20847, (171, 178, 18, 193, 142, 24, 33, 141 ));
@@ -564,6 +576,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IGameSaveOperationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IGameSaveProviderGetResult : aliased constant Windows.IID := (1036214405, 24556, 21531, (150, 207, 98, 123, 42, 216, 13, 54 ));
@@ -590,6 +603,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IGameSaveProviderGetResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGameSaveContainer_SubmitUpdatesAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -602,6 +616,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_IGameSaveContainer_SubmitUpdatesAsync : aliased constant Windows.IID := (754904143, 57953, 24396, (174, 225, 199, 133, 24, 233, 213, 185 ));
@@ -638,6 +653,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGameSaveContainer_ReadAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -650,6 +666,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_IGameSaveContainer_ReadAsync : aliased constant Windows.IID := (754904143, 57953, 24396, (174, 225, 199, 133, 24, 233, 213, 185 ));
@@ -686,6 +703,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; second : access Windows.Address
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IGameSaveBlobGetResult : aliased constant Windows.IID := (1881387043, 31469, 21100, (179, 188, 190, 18, 227, 92, 225, 207 ));
@@ -712,6 +730,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IGameSaveBlobGetResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IGameSaveContainerInfoGetResult : aliased constant Windows.IID := (3489181675, 23064, 24401, (182, 27, 148, 56, 135, 247, 41, 238 ));
@@ -738,6 +757,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfoGetResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IGameSaveContainerInfo : aliased constant Windows.IID := (248354646, 15885, 21055, (165, 73, 43, 101, 4, 219, 82, 2 ));
@@ -772,6 +792,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGameSaveContainerInfo : aliased constant Windows.IID := (1441061263, 2185, 23558, (168, 87, 125, 209, 104, 194, 216, 82 ));
@@ -784,6 +805,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IIterator_IGameSaveContainerInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IGameSaveContainerInfo : aliased constant Windows.IID := (2622031252, 2118, 20725, (178, 239, 198, 240, 62, 230, 134, 138 ));
@@ -822,6 +844,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IGameSaveBlobInfoGetResult : aliased constant Windows.IID := (3619156916, 24616, 21039, (132, 157, 166, 148, 149, 228, 220, 208 ));
@@ -848,6 +871,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoGetResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IGameSaveBlobInfo : aliased constant Windows.IID := (2863617115, 62953, 23974, (175, 112, 157, 144, 76, 122, 77, 55 ));
@@ -882,6 +906,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGameSaveBlobInfo : aliased constant Windows.IID := (2814662359, 64159, 21359, (142, 210, 69, 149, 69, 129, 30, 212 ));
@@ -894,6 +919,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.Gaming.XboxLive.Storage.IIterator_IGameSaveBlobInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IGameSaveBlobInfo : aliased constant Windows.IID := (3116656288, 10815, 24360, (161, 193, 156, 177, 146, 246, 199, 134 ));
@@ -932,6 +958,7 @@ package Windows.Gaming.XboxLive.Storage is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -941,7 +968,6 @@ package Windows.Gaming.XboxLive.Storage is
    IID_AsyncOperationCompletedHandler_IGameSaveOperationResult : aliased constant Windows.IID := (3998475855, 21273, 22269, (162, 138, 44, 71, 79, 196, 46, 72 ));
    
    type AsyncOperationCompletedHandler_IGameSaveOperationResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveOperationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGameSaveOperationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGameSaveOperationResult_Interface
@@ -955,7 +981,6 @@ package Windows.Gaming.XboxLive.Storage is
    IID_AsyncOperationCompletedHandler_IGameSaveProviderGetResult : aliased constant Windows.IID := (1981240461, 36448, 20683, (161, 30, 18, 15, 162, 8, 46, 91 ));
    
    type AsyncOperationCompletedHandler_IGameSaveProviderGetResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveProviderGetResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGameSaveProviderGetResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGameSaveProviderGetResult_Interface
@@ -969,7 +994,6 @@ package Windows.Gaming.XboxLive.Storage is
    IID_AsyncOperationCompletedHandler_IGameSaveBlobGetResult : aliased constant Windows.IID := (2643863596, 46763, 23763, (153, 27, 163, 88, 197, 49, 188, 182 ));
    
    type AsyncOperationCompletedHandler_IGameSaveBlobGetResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveBlobGetResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGameSaveBlobGetResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGameSaveBlobGetResult_Interface
@@ -983,7 +1007,6 @@ package Windows.Gaming.XboxLive.Storage is
    IID_AsyncOperationCompletedHandler_IGameSaveContainerInfoGetResult : aliased constant Windows.IID := (100166272, 48731, 24190, (185, 119, 130, 87, 197, 228, 138, 204 ));
    
    type AsyncOperationCompletedHandler_IGameSaveContainerInfoGetResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveContainerInfoGetResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGameSaveContainerInfoGetResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGameSaveContainerInfoGetResult_Interface
@@ -997,7 +1020,6 @@ package Windows.Gaming.XboxLive.Storage is
    IID_AsyncOperationCompletedHandler_IGameSaveBlobInfoGetResult : aliased constant Windows.IID := (2469520698, 42004, 20967, (191, 188, 119, 132, 223, 131, 220, 142 ));
    
    type AsyncOperationCompletedHandler_IGameSaveBlobInfoGetResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveBlobInfoGetResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IGameSaveBlobInfoGetResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IGameSaveBlobInfoGetResult_Interface
@@ -1026,7 +1048,6 @@ package Windows.Gaming.XboxLive.Storage is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForUserAsync
    (
       user : Windows.System.IUser
@@ -1040,5 +1061,6 @@ package Windows.Gaming.XboxLive.Storage is
       ; serviceConfigId : Windows.String
    )
    return Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveProviderGetResult;
+   
 
 end;

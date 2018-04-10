@@ -28,7 +28,6 @@ package body Windows.Management.Deployment is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPackageVolume_Interface
@@ -45,7 +44,6 @@ package body Windows.Management.Deployment is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreatePackageManager return Windows.Management.Deployment.IPackageManager is
       Hr            : Windows.HResult := S_OK;

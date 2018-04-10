@@ -32,7 +32,6 @@ package body Windows.Storage is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access StreamedFileDataRequestedHandler_Interface
@@ -178,7 +177,6 @@ package body Windows.Storage is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateApplicationDataCompositeValue return Windows.Foundation.Collections.IPropertySet is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.ApplicationDataCompositeValue");
@@ -203,7 +201,6 @@ package body Windows.Storage is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetLibraryAsync
    (
@@ -1822,5 +1819,6 @@ package body Windows.Storage is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

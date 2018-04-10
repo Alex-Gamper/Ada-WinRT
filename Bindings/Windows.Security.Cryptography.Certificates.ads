@@ -440,6 +440,7 @@ package Windows.Security.Cryptography.Certificates is
       ; value : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateRequestProperties : aliased constant Windows.IID := (1216251126, 38114, 19918, (136, 51, 26, 112, 10, 55, 162, 154 ));
@@ -571,6 +572,7 @@ package Windows.Security.Cryptography.Certificates is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateRequestProperties2 : aliased constant Windows.IID := (1033947476, 55103, 20467, (160, 166, 6, 119, 192, 173, 160, 91 ));
@@ -618,6 +620,7 @@ package Windows.Security.Cryptography.Certificates is
       ; value : Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateRequestProperties3 : aliased constant Windows.IID := (3867670038, 29517, 18097, (157, 76, 110, 223, 219, 252, 132, 91 ));
@@ -693,6 +696,7 @@ package Windows.Security.Cryptography.Certificates is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateRequestProperties4 : aliased constant Windows.IID := (1312987858, 7265, 20458, (184, 254, 19, 95, 177, 156, 220, 228 ));
@@ -719,6 +723,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IVector_ICertificateExtension -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateEnrollmentManagerStatics : aliased constant Windows.IID := (2286350143, 43398, 18683, (159, 215, 154, 236, 6, 147, 91, 241 ));
@@ -754,6 +759,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateEnrollmentManagerStatics2 : aliased constant Windows.IID := (3696958515, 25641, 16404, (153, 156, 93, 151, 53, 128, 45, 29 ));
@@ -780,6 +786,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateEnrollmentManagerStatics3 : aliased constant Windows.IID := (4260135614, 24956, 16986, (183, 45, 57, 139, 38, 172, 114, 100 ));
@@ -795,6 +802,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyAttestationHelperStatics : aliased constant Windows.IID := (373875270, 63044, 17190, (136, 190, 58, 241, 2, 211, 14, 12 ));
@@ -816,6 +824,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyAttestationHelperStatics2 : aliased constant Windows.IID := (2623081260, 42694, 19038, (158, 100, 232, 93, 82, 121, 223, 151 ));
@@ -830,6 +839,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateStoresStatics : aliased constant Windows.IID := (4226598713, 50942, 19943, (153, 207, 116, 195, 229, 150, 224, 50 ));
@@ -872,6 +882,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificateStore
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateStoresStatics2 : aliased constant Windows.IID := (4203744121, 41172, 19340, (188, 85, 192, 163, 126, 177, 65, 237 ));
@@ -885,6 +896,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IUserCertificateStore
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserCertificateEnrollmentManager : aliased constant Windows.IID := (2519807768, 8929, 18457, (178, 11, 171, 70, 166, 236, 160, 110 ));
@@ -934,6 +946,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserCertificateEnrollmentManager2 : aliased constant Windows.IID := (229481649, 26078, 18730, (184, 109, 252, 92, 72, 44, 55, 71 ));
@@ -949,6 +962,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateStore : aliased constant Windows.IID := (2965370656, 13390, 17201, (175, 20, 167, 247, 167, 235, 201, 58 ));
@@ -968,6 +982,7 @@ package Windows.Security.Cryptography.Certificates is
       ; certificate : Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateStore2 : aliased constant Windows.IID := (3353775690, 16765, 19738, (186, 189, 21, 104, 126, 84, 153, 116 ));
@@ -980,6 +995,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserCertificateStore : aliased constant Windows.IID := (3388677507, 30879, 19278, (145, 128, 4, 90, 117, 122, 172, 109 ));
@@ -1008,6 +1024,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStandardCertificateStoreNamesStatics : aliased constant Windows.IID := (202722011, 42134, 16888, (143, 229, 158, 150, 243, 110, 251, 248 ));
@@ -1034,6 +1051,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyAlgorithmNamesStatics : aliased constant Windows.IID := (1200645591, 31431, 17793, (140, 59, 208, 112, 39, 20, 4, 72 ));
@@ -1095,6 +1113,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyAlgorithmNamesStatics2 : aliased constant Windows.IID := (3382400646, 57853, 19018, (137, 61, 162, 111, 51, 221, 139, 180 ));
@@ -1114,6 +1133,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyStorageProviderNamesStatics : aliased constant Windows.IID := (2937613024, 21801, 17922, (189, 148, 10, 171, 145, 149, 123, 92 ));
@@ -1140,6 +1160,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IKeyStorageProviderNamesStatics2 : aliased constant Windows.IID := (640513085, 39982, 16844, (136, 18, 196, 217, 113, 221, 124, 96 ));
@@ -1152,6 +1173,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChainBuildingParameters : aliased constant Windows.IID := (1110157602, 31885, 18359, (181, 155, 177, 39, 3, 115, 58, 195 ));
@@ -1241,6 +1263,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IVector_ICertificate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IChainValidationParameters : aliased constant Windows.IID := (3295951690, 32432, 19286, (160, 64, 185, 200, 230, 85, 221, 243 ));
@@ -1274,6 +1297,7 @@ package Windows.Security.Cryptography.Certificates is
       ; value : Windows.Networking.IHostName
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateQuery : aliased constant Windows.IID := (1527261745, 42792, 18710, (181, 238, 255, 203, 138, 207, 36, 23 ));
@@ -1342,6 +1366,7 @@ package Windows.Security.Cryptography.Certificates is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateQuery2 : aliased constant Windows.IID := (2472151799, 3033, 20341, (184, 194, 226, 122, 127, 116, 238, 205 ));
@@ -1389,6 +1414,7 @@ package Windows.Security.Cryptography.Certificates is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateChain : aliased constant Windows.IID := (549409669, 13969, 17665, (166, 44, 253, 151, 39, 139, 49, 238 ));
@@ -1417,6 +1443,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificate : aliased constant Windows.IID := (859796492, 1240, 17331, (178, 120, 140, 95, 204, 155, 229, 160 ));
@@ -1531,6 +1558,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificate2 : aliased constant Windows.IID := (397948748, 35365, 19862, (164, 146, 143, 194, 154, 196, 253, 166 ));
@@ -1578,6 +1606,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificate3 : aliased constant Windows.IID := (3193022822, 44639, 18002, (172, 231, 198, 215, 231, 114, 76, 243 ));
@@ -1604,6 +1633,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateFactory : aliased constant Windows.IID := (397681180, 19375, 17570, (150, 8, 4, 251, 98, 177, 105, 66 ));
@@ -1617,6 +1647,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICmsTimestampInfo : aliased constant Windows.IID := (794755314, 11288, 20360, (132, 53, 197, 52, 8, 96, 118, 245 ));
@@ -1643,6 +1674,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Foundation.DateTime
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICmsSignerInfo : aliased constant Windows.IID := (1355817179, 7471, 19482, (181, 197, 208, 24, 143, 249, 31, 71 ));
@@ -1683,6 +1715,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICmsTimestampInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISubjectAlternativeNameInfo : aliased constant Windows.IID := (1479039473, 22173, 19488, (190, 123, 78, 28, 154, 11, 197, 43 ));
@@ -1730,6 +1763,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISubjectAlternativeNameInfo2 : aliased constant Windows.IID := (1132099782, 7249, 16874, (179, 74, 61, 101, 67, 152, 163, 112 ));
@@ -1784,6 +1818,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificateExtension
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPfxImportParameters : aliased constant Windows.IID := (1745696017, 39432, 18376, (134, 74, 46, 221, 77, 142, 180, 108 ));
@@ -1887,6 +1922,7 @@ package Windows.Security.Cryptography.Certificates is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICertificateKeyUsages : aliased constant Windows.IID := (1791369327, 57807, 18538, (180, 133, 166, 156, 131, 228, 111, 209 ));
@@ -2004,6 +2040,7 @@ package Windows.Security.Cryptography.Certificates is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICmsAttachedSignature : aliased constant Windows.IID := (1636408733, 14167, 20171, (189, 220, 12, 163, 87, 215, 169, 54 ));
@@ -2037,6 +2074,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.SignatureValidationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICmsAttachedSignatureFactory : aliased constant Windows.IID := (3502832661, 63319, 19556, (163, 98, 82, 204, 28, 119, 207, 251 ));
@@ -2050,6 +2088,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICmsAttachedSignature
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICmsAttachedSignatureStatics : aliased constant Windows.IID := (2274925710, 45229, 18829, (167, 245, 120, 181, 155, 206, 75, 54 ));
@@ -2065,6 +2104,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICmsDetachedSignature : aliased constant Windows.IID := (253686100, 63070, 17718, (131, 57, 89, 68, 8, 29, 178, 202 ));
@@ -2092,6 +2132,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IAsyncOperation_SignatureValidationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICmsDetachedSignatureFactory : aliased constant Windows.IID := (3299554563, 44671, 17287, (173, 25, 0, 241, 80, 228, 142, 187 ));
@@ -2105,6 +2146,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICmsDetachedSignature
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICmsDetachedSignatureStatics : aliased constant Windows.IID := (1024543997, 49051, 18050, (155, 230, 145, 245, 124, 5, 56, 8 ));
@@ -2120,6 +2162,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ICertificateExtension : aliased constant Windows.IID := (1583020418, 13101, 21740, (142, 84, 230, 44, 26, 30, 172, 233 ));
@@ -2154,6 +2197,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ICertificateExtension : aliased constant Windows.IID := (467497255, 29619, 20882, (139, 222, 32, 193, 54, 40, 18, 96 ));
@@ -2166,6 +2210,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IIterator_ICertificateExtension
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ICertificateExtension : aliased constant Windows.IID := (1132819539, 59313, 23738, (151, 48, 94, 164, 221, 235, 221, 149 ));
@@ -2204,6 +2249,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ICertificateExtension : aliased constant Windows.IID := (1277502440, 38771, 20734, (184, 112, 72, 63, 216, 185, 6, 220 ));
@@ -2298,6 +2344,7 @@ package Windows.Security.Cryptography.Certificates is
       ; items : Windows.Security.Cryptography.Certificates.ICertificateExtension_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ICertificate : aliased constant Windows.IID := (1735377241, 61788, 22717, (145, 167, 40, 247, 231, 149, 199, 86 ));
@@ -2332,6 +2379,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ICertificate : aliased constant Windows.IID := (209523747, 59645, 23185, (181, 92, 139, 251, 231, 172, 45, 64 ));
@@ -2344,6 +2392,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IIterator_ICertificate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ICertificate : aliased constant Windows.IID := (2520739859, 30658, 20933, (128, 56, 181, 188, 239, 99, 62, 219 ));
@@ -2382,6 +2431,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ICertificate : aliased constant Windows.IID := (908602383, 12063, 22516, (178, 177, 134, 122, 249, 12, 61, 19 ));
@@ -2476,6 +2526,7 @@ package Windows.Security.Cryptography.Certificates is
       ; items : Windows.Security.Cryptography.Certificates.ICertificate_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ICertificateChain : aliased constant Windows.IID := (4128819156, 44769, 22702, (175, 232, 252, 51, 109, 175, 3, 149 ));
@@ -2502,6 +2553,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.ICertificateChain
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ICmsSignerInfo : aliased constant Windows.IID := (3127449128, 54297, 24074, (185, 36, 3, 235, 194, 54, 177, 30 ));
@@ -2536,6 +2588,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ICmsSignerInfo : aliased constant Windows.IID := (1794261364, 11738, 23124, (160, 185, 77, 102, 144, 5, 148, 39 ));
@@ -2548,6 +2601,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IIterator_ICmsSignerInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ICmsSignerInfo : aliased constant Windows.IID := (4100704936, 29820, 23187, (130, 254, 133, 214, 53, 73, 254, 129 ));
@@ -2586,6 +2640,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_SignatureValidationResult : aliased constant Windows.IID := (4036758479, 52795, 24063, (151, 31, 44, 63, 254, 111, 208, 77 ));
@@ -2612,6 +2667,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.SignatureValidationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ChainValidationResult : aliased constant Windows.IID := (2345325239, 3643, 24238, (191, 105, 225, 246, 217, 200, 136, 248 ));
@@ -2646,6 +2702,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ChainValidationResult : aliased constant Windows.IID := (640218511, 16130, 21746, (128, 143, 225, 17, 119, 9, 214, 208 ));
@@ -2658,6 +2715,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IIterator_ChainValidationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ChainValidationResult : aliased constant Windows.IID := (3409458310, 49852, 22358, (145, 45, 106, 112, 138, 7, 229, 189 ));
@@ -2696,6 +2754,7 @@ package Windows.Security.Cryptography.Certificates is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ChainValidationResult : aliased constant Windows.IID := (3615657207, 17153, 22739, (170, 181, 6, 229, 238, 252, 247, 159 ));
@@ -2790,6 +2849,7 @@ package Windows.Security.Cryptography.Certificates is
       ; items : Windows.Security.Cryptography.Certificates.ChainValidationResult_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2799,7 +2859,6 @@ package Windows.Security.Cryptography.Certificates is
    IID_AsyncOperationCompletedHandler_ICertificateChain : aliased constant Windows.IID := (1279217897, 37091, 23088, (144, 21, 74, 160, 55, 105, 4, 243 ));
    
    type AsyncOperationCompletedHandler_ICertificateChain_Interface(Callback : access procedure (asyncInfo : Windows.Security.Cryptography.Certificates.IAsyncOperation_ICertificateChain ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICertificateChain'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICertificateChain_Interface
@@ -2813,7 +2872,6 @@ package Windows.Security.Cryptography.Certificates is
    IID_AsyncOperationCompletedHandler_SignatureValidationResult : aliased constant Windows.IID := (3757375493, 30893, 24399, (160, 133, 203, 97, 74, 103, 74, 37 ));
    
    type AsyncOperationCompletedHandler_SignatureValidationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Cryptography.Certificates.IAsyncOperation_SignatureValidationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SignatureValidationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_SignatureValidationResult_Interface
@@ -2831,12 +2889,12 @@ package Windows.Security.Cryptography.Certificates is
    function CreateCertificateExtension return Windows.Security.Cryptography.Certificates.ICertificateExtension;
    
    subtype Certificate is Windows.Security.Cryptography.Certificates.ICertificate;
-   
    function CreateCertificate
    (
       certBlob : Windows.Storage.Streams.IBuffer
    )
    return Windows.Security.Cryptography.Certificates.ICertificate;
+   
    
    subtype SubjectAlternativeNameInfo is Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo;
    
@@ -2876,15 +2934,14 @@ package Windows.Security.Cryptography.Certificates is
    function CreateCmsSignerInfo return Windows.Security.Cryptography.Certificates.ICmsSignerInfo;
    
    subtype CmsAttachedSignature is Windows.Security.Cryptography.Certificates.ICmsAttachedSignature;
-   
    function CreateCmsAttachedSignature
    (
       inputBlob : Windows.Storage.Streams.IBuffer
    )
    return Windows.Security.Cryptography.Certificates.ICmsAttachedSignature;
    
-   subtype CmsDetachedSignature is Windows.Security.Cryptography.Certificates.ICmsDetachedSignature;
    
+   subtype CmsDetachedSignature is Windows.Security.Cryptography.Certificates.ICmsDetachedSignature;
    function CreateCmsDetachedSignature
    (
       inputBlob : Windows.Storage.Streams.IBuffer
@@ -2892,10 +2949,10 @@ package Windows.Security.Cryptography.Certificates is
    return Windows.Security.Cryptography.Certificates.ICmsDetachedSignature;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function ImportPfxDataToKspWithParametersAsync
    (
@@ -3056,5 +3113,6 @@ package Windows.Security.Cryptography.Certificates is
       ; certificates : Windows.Security.Cryptography.Certificates.IIterable_ICertificate
    )
    return Windows.Storage.Streams.IAsyncOperation_IBuffer;
+   
 
 end;

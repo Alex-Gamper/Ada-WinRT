@@ -28,7 +28,6 @@ package body Windows.Security.Authentication.OnlineId is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IOnlineIdSystemTicketResult_Interface
@@ -45,7 +44,6 @@ package body Windows.Security.Authentication.OnlineId is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateOnlineIdServiceTicketRequest
    (
@@ -113,7 +111,6 @@ package body Windows.Security.Authentication.OnlineId is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_Default
    return Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser is
       Hr            : Windows.HRESULT := S_OK;
@@ -150,5 +147,6 @@ package body Windows.Security.Authentication.OnlineId is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

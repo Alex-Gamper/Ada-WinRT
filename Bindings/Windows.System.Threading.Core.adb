@@ -28,7 +28,6 @@ package body Windows.System.Threading.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access SignalHandler_Interface
@@ -45,7 +44,6 @@ package body Windows.System.Threading.Core is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateWorkItem
    (
@@ -117,7 +115,6 @@ package body Windows.System.Threading.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function AttachToEvent
    (
@@ -204,5 +201,6 @@ package body Windows.System.Threading.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

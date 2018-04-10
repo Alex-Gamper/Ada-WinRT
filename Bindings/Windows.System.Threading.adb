@@ -27,7 +27,6 @@ package body Windows.System.Threading is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TimerElapsedHandler_Interface
@@ -68,7 +67,6 @@ package body Windows.System.Threading is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -76,7 +74,6 @@ package body Windows.System.Threading is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreatePeriodicTimer
    (
@@ -226,5 +223,6 @@ package body Windows.System.Threading is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

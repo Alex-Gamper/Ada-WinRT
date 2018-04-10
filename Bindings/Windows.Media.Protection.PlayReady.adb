@@ -30,7 +30,6 @@ package body Windows.Media.Protection.PlayReady is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_INDSendResult_Interface
@@ -138,7 +137,6 @@ package body Windows.Media.Protection.PlayReady is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateInstanceFromWindowsMediaDrmHeader
    (
@@ -596,7 +594,6 @@ package body Windows.Media.Protection.PlayReady is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function ServiceRequest
    (
       contentHeader : Windows.Media.Protection.PlayReady.IPlayReadyContentHeader
@@ -860,5 +857,6 @@ package body Windows.Media.Protection.PlayReady is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

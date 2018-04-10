@@ -990,6 +990,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintPageInfo : aliased constant Windows.IID := (3712739785, 42657, 19162, (147, 14, 218, 135, 42, 79, 35, 211 ));
@@ -1065,6 +1066,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Graphics.Printing.PrintOrientation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskOptions : aliased constant Windows.IID := (1510631099, 53897, 16827, (150, 221, 87, 226, 131, 56, 174, 63 ));
@@ -1092,6 +1094,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Storage.Streams.IRandomAccessStream
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskOptionsCoreUIConfiguration : aliased constant Windows.IID := (1659280931, 39454, 17206, (183, 79, 60, 199, 244, 207, 247, 9 ));
@@ -1104,6 +1107,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskOptionsCore : aliased constant Windows.IID := (467383412, 20177, 16875, (190, 60, 114, 209, 142, 214, 115, 55 ));
@@ -1117,6 +1121,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Graphics.Printing.PrintPageDescription
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStandardPrintTaskOptionsStatic : aliased constant Windows.IID := (3024633126, 3536, 19668, (186, 255, 147, 15, 199, 214, 165, 116 ));
@@ -1213,6 +1218,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStandardPrintTaskOptionsStatic2 : aliased constant Windows.IID := (1004768244, 31300, 17001, (154, 82, 129, 38, 30, 40, 158, 233 ));
@@ -1225,11 +1231,13 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintDocumentSource : aliased constant Windows.IID := (3738962992, 61931, 18399, (170, 230, 237, 84, 39, 81, 31, 1 ));
    
    type IPrintDocumentSource_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskProgressingEventArgs : aliased constant Windows.IID := (2165101515, 46096, 17026, (160, 115, 90, 195, 120, 35, 65, 116 ));
@@ -1242,6 +1250,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskCompletedEventArgs : aliased constant Windows.IID := (1540175023, 9449, 19472, (141, 7, 20, 195, 70, 186, 63, 206 ));
@@ -1254,6 +1263,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Graphics.Printing.PrintTaskCompletion
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTask : aliased constant Windows.IID := (1641546311, 27894, 20397, (132, 226, 165, 232, 46, 45, 76, 235 ));
@@ -1340,6 +1350,7 @@ package Windows.Graphics.Printing is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskTargetDeviceSupport : aliased constant Windows.IID := (693989568, 49867, 19325, (176, 234, 147, 9, 80, 145, 162, 32 ));
@@ -1373,6 +1384,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTask2 : aliased constant Windows.IID := (908281975, 15955, 19869, (143, 94, 49, 106, 200, 222, 218, 225 ));
@@ -1392,6 +1404,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskSourceRequestedDeferral : aliased constant Windows.IID := (1242915025, 27026, 19869, (133, 85, 76, 164, 86, 63, 177, 102 ));
@@ -1403,6 +1416,7 @@ package Windows.Graphics.Printing is
       This       : access IPrintTaskSourceRequestedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskSourceRequestedArgs : aliased constant Windows.IID := (4193281982, 62550, 16880, (156, 152, 92, 231, 62, 133, 20, 16 ));
@@ -1429,6 +1443,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Graphics.Printing.IPrintTaskSourceRequestedDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskRequestedDeferral : aliased constant Windows.IID := (3488592880, 52798, 17095, (148, 150, 100, 128, 12, 98, 44, 68 ));
@@ -1440,6 +1455,7 @@ package Windows.Graphics.Printing is
       This       : access IPrintTaskRequestedDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskRequest : aliased constant Windows.IID := (1878400558, 10018, 16960, (166, 124, 243, 100, 132, 154, 23, 243 ));
@@ -1468,6 +1484,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Graphics.Printing.IPrintTaskRequestedDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskRequestedEventArgs : aliased constant Windows.IID := (3501193508, 41755, 17740, (167, 182, 93, 12, 197, 34, 252, 22 ));
@@ -1480,6 +1497,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Graphics.Printing.IPrintTaskRequest
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintManagerStatic : aliased constant Windows.IID := (1477991885, 58932, 18004, (132, 240, 224, 21, 42, 130, 23, 172 ));
@@ -1499,6 +1517,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintManagerStatic2 : aliased constant Windows.IID := (900307285, 59051, 16697, (154, 189, 184, 106, 114, 155, 53, 152 ));
@@ -1511,6 +1530,7 @@ package Windows.Graphics.Printing is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintManager : aliased constant Windows.IID := (4280981140, 35993, 17661, (174, 74, 25, 217, 170, 154, 15, 10 ));
@@ -1531,6 +1551,7 @@ package Windows.Graphics.Printing is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1540,7 +1561,6 @@ package Windows.Graphics.Printing is
    IID_PrintTaskSourceRequestedHandler : aliased constant Windows.IID := (1813028776, 23734, 19258, (134, 99, 243, 156, 176, 45, 201, 180 ));
    
    type PrintTaskSourceRequestedHandler_Interface(Callback : access procedure (args : Windows.Graphics.Printing.IPrintTaskSourceRequestedArgs)) is new Windows.IMulticastDelegate_Interface(IID_PrintTaskSourceRequestedHandler'access) with null record;
-   
    function Invoke
    (
       This       : access PrintTaskSourceRequestedHandler_Interface
@@ -1553,7 +1573,6 @@ package Windows.Graphics.Printing is
    IID_TypedEventHandler_IPrintTask_add_Previewing : aliased constant Windows.IID := (1287733716, 49369, 21024, (177, 206, 128, 255, 243, 189, 45, 68 ));
    
    type TypedEventHandler_IPrintTask_add_Previewing_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintTask ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTask_add_Previewing'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintTask_add_Previewing_Interface
@@ -1567,7 +1586,6 @@ package Windows.Graphics.Printing is
    IID_TypedEventHandler_IPrintTask_add_Submitting : aliased constant Windows.IID := (1287733716, 49369, 21024, (177, 206, 128, 255, 243, 189, 45, 68 ));
    
    type TypedEventHandler_IPrintTask_add_Submitting_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintTask ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTask_add_Submitting'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintTask_add_Submitting_Interface
@@ -1581,7 +1599,6 @@ package Windows.Graphics.Printing is
    IID_TypedEventHandler_IPrintTask_add_Progressing : aliased constant Windows.IID := (3230467364, 22681, 21356, (143, 70, 85, 253, 170, 76, 247, 139 ));
    
    type TypedEventHandler_IPrintTask_add_Progressing_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintTask ; args : Windows.Graphics.Printing.IPrintTaskProgressingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTask_add_Progressing'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintTask_add_Progressing_Interface
@@ -1595,7 +1612,6 @@ package Windows.Graphics.Printing is
    IID_TypedEventHandler_IPrintTask_add_Completed : aliased constant Windows.IID := (2964333897, 47533, 21030, (137, 138, 123, 86, 59, 70, 100, 12 ));
    
    type TypedEventHandler_IPrintTask_add_Completed_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintTask ; args : Windows.Graphics.Printing.IPrintTaskCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTask_add_Completed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintTask_add_Completed_Interface
@@ -1609,7 +1625,6 @@ package Windows.Graphics.Printing is
    IID_TypedEventHandler_IPrintManager_add_PrintTaskRequested : aliased constant Windows.IID := (2324478071, 28869, 21710, (139, 66, 215, 144, 226, 145, 72, 89 ));
    
    type TypedEventHandler_IPrintManager_add_PrintTaskRequested_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.IPrintManager ; args : Windows.Graphics.Printing.IPrintTaskRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintManager_add_PrintTaskRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintManager_add_PrintTaskRequested_Interface
@@ -1640,7 +1655,6 @@ package Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Bordering
    return Windows.String;
@@ -1692,5 +1706,6 @@ package Windows.Graphics.Printing is
    
    function ShowPrintUIAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
+   
 
 end;

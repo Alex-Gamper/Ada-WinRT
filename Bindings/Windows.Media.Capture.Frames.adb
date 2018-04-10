@@ -37,7 +37,6 @@ package body Windows.Media.Capture.Frames is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMediaFrameReader_Interface
@@ -172,7 +171,6 @@ package body Windows.Media.Capture.Frames is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -180,7 +178,6 @@ package body Windows.Media.Capture.Frames is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FindAllAsync
    return Windows.Address is
@@ -235,5 +232,6 @@ package body Windows.Media.Capture.Frames is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

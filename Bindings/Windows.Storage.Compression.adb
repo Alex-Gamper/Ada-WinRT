@@ -28,7 +28,6 @@ package body Windows.Storage.Compression is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateCompressor
    (
       underlyingStream : Windows.Storage.Streams.IOutputStream

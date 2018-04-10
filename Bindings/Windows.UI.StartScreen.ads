@@ -292,6 +292,7 @@ package Windows.UI.StartScreen is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJumpListItemStatics : aliased constant Windows.IID := (4055876840, 51114, 18891, (141, 222, 236, 252, 205, 122, 215, 228 ));
@@ -313,6 +314,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.IJumpListItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJumpList : aliased constant Windows.IID := (2955103294, 52591, 19638, (166, 17, 97, 253, 80, 95, 62, 209 ));
@@ -346,6 +348,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJumpListStatics : aliased constant Windows.IID := (2816525953, 59006, 19316, (130, 80, 63, 50, 44, 77, 146, 195 ));
@@ -365,6 +368,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryTile : aliased constant Windows.IID := (2661175776, 11189, 19392, (187, 141, 66, 178, 58, 188, 200, 141 ));
@@ -609,6 +613,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryTile2 : aliased constant Windows.IID := (3002518581, 12880, 18832, (146, 60, 41, 74, 180, 182, 148, 221 ));
@@ -664,6 +669,7 @@ package Windows.UI.StartScreen is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryTileVisualElements : aliased constant Windows.IID := (495842099, 33118, 16703, (159, 80, 168, 29, 167, 10, 150, 178 ));
@@ -809,6 +815,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryTileVisualElements2 : aliased constant Windows.IID := (4247663056, 22492, 18324, (142, 207, 86, 130, 245, 243, 230, 239 ));
@@ -828,6 +835,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryTileVisualElements3 : aliased constant Windows.IID := (1454725846, 53596, 16628, (129, 231, 87, 255, 216, 248, 164, 233 ));
@@ -847,6 +855,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITileMixedRealityModel : aliased constant Windows.IID := (2960543323, 34941, 16962, (154, 25, 61, 10, 78, 167, 128, 49 ));
@@ -880,6 +889,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.Perception.Spatial.IReference_SpatialBoundingBox -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryTileVisualElements4 : aliased constant Windows.IID := (1716936983, 46404, 16594, (141, 18, 116, 212, 236, 36, 208, 76 ));
@@ -892,6 +902,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.ITileMixedRealityModel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryTileFactory : aliased constant Windows.IID := (1475685536, 20924, 19135, (142, 191, 98, 122, 3, 152, 176, 90 ));
@@ -932,6 +943,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryTileFactory2 : aliased constant Windows.IID := (659262011, 21037, 17550, (158, 178, 208, 103, 42, 179, 69, 200 ));
@@ -949,6 +961,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.ISecondaryTile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryTileStatics : aliased constant Windows.IID := (2576387502, 53329, 18038, (135, 254, 158, 194, 66, 216, 60, 116 ));
@@ -984,6 +997,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVisualElementsRequestedEventArgs : aliased constant Windows.IID := (2070923650, 14861, 20174, (175, 150, 205, 23, 225, 176, 11, 45 ));
@@ -996,6 +1010,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.IVisualElementsRequest
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVisualElementsRequest : aliased constant Windows.IID := (3241685818, 37640, 16498, (136, 204, 208, 104, 219, 52, 124, 104 ));
@@ -1029,6 +1044,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.IVisualElementsRequestDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVisualElementsRequestDeferral : aliased constant Windows.IID := (2707779248, 294, 17239, (130, 4, 189, 130, 187, 42, 4, 109 ));
@@ -1040,6 +1056,7 @@ package Windows.UI.StartScreen is
       This       : access IVisualElementsRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStartScreenManager : aliased constant Windows.IID := (1243466699, 9961, 20148, (137, 51, 133, 158, 182, 236, 219, 41 ));
@@ -1076,6 +1093,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStartScreenManagerStatics : aliased constant Windows.IID := (2019946255, 46469, 17998, (137, 147, 52, 232, 248, 115, 141, 72 ));
@@ -1096,6 +1114,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.IStartScreenManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IJumpListItem : aliased constant Windows.IID := (4137639108, 79, 21483, (137, 230, 120, 110, 70, 5, 136, 164 ));
@@ -1130,6 +1149,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IJumpListItem : aliased constant Windows.IID := (319451764, 6907, 23568, (171, 234, 97, 216, 22, 146, 164, 150 ));
@@ -1142,6 +1162,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.IIterator_IJumpListItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IJumpListItem : aliased constant Windows.IID := (3191966697, 43890, 22192, (182, 211, 236, 112, 239, 17, 246, 99 ));
@@ -1180,6 +1201,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IJumpListItem : aliased constant Windows.IID := (2945400754, 61817, 24330, (170, 9, 40, 148, 46, 237, 246, 37 ));
@@ -1274,6 +1296,7 @@ package Windows.UI.StartScreen is
       ; items : Windows.UI.StartScreen.IJumpListItem_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IJumpList : aliased constant Windows.IID := (469797976, 29499, 23362, (150, 42, 179, 51, 40, 35, 108, 211 ));
@@ -1300,6 +1323,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.IJumpList
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISecondaryTileVisualElements : aliased constant Windows.IID := (3150373228, 51918, 21040, (136, 4, 34, 152, 55, 81, 104, 172 ));
@@ -1334,6 +1358,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISecondaryTileVisualElements : aliased constant Windows.IID := (1861731156, 61779, 23379, (153, 194, 224, 69, 199, 140, 206, 8 ));
@@ -1346,6 +1371,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UI.StartScreen.IIterator_ISecondaryTileVisualElements
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISecondaryTileVisualElements : aliased constant Windows.IID := (483576987, 42012, 24007, (157, 149, 76, 239, 105, 162, 147, 244 ));
@@ -1384,6 +1410,7 @@ package Windows.UI.StartScreen is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1393,7 +1420,6 @@ package Windows.UI.StartScreen is
    IID_AsyncOperationCompletedHandler_IJumpList : aliased constant Windows.IID := (1006926954, 50523, 21637, (182, 115, 141, 75, 215, 195, 66, 226 ));
    
    type AsyncOperationCompletedHandler_IJumpList_Interface(Callback : access procedure (asyncInfo : Windows.UI.StartScreen.IAsyncOperation_IJumpList ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IJumpList'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IJumpList_Interface
@@ -1407,7 +1433,6 @@ package Windows.UI.StartScreen is
    IID_TypedEventHandler_ISecondaryTile2_add_VisualElementsRequested : aliased constant Windows.IID := (47839592, 64118, 23927, (147, 75, 102, 94, 124, 59, 231, 207 ));
    
    type TypedEventHandler_ISecondaryTile2_add_VisualElementsRequested_Interface(Callback : access procedure (sender : Windows.UI.StartScreen.ISecondaryTile ; args : Windows.UI.StartScreen.IVisualElementsRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISecondaryTile2_add_VisualElementsRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISecondaryTile2_add_VisualElementsRequested_Interface
@@ -1436,7 +1461,6 @@ package Windows.UI.StartScreen is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateWithArguments
    (
@@ -1480,5 +1504,6 @@ package Windows.UI.StartScreen is
       user : Windows.System.IUser
    )
    return Windows.UI.StartScreen.IStartScreenManager;
+   
 
 end;

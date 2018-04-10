@@ -34,7 +34,6 @@ package body Windows.UI.Xaml.Media is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access RateChangedRoutedEventHandler_Interface
@@ -77,7 +76,6 @@ package body Windows.UI.Xaml.Media is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreatePartialMediaFailureDetectedEventArgs return Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs is
       Hr            : Windows.HResult := S_OK;
@@ -2715,7 +2713,6 @@ package body Windows.UI.Xaml.Media is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FindElementsInHostCoordinatesPoint
    (
       intersectingPoint : Windows.Foundation.Point
@@ -5213,5 +5210,6 @@ package body Windows.UI.Xaml.Media is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -30,7 +30,6 @@ package body Windows.Networking.PushNotifications is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPushNotificationChannel_Interface
@@ -61,7 +60,6 @@ package body Windows.Networking.PushNotifications is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -69,7 +67,6 @@ package body Windows.Networking.PushNotifications is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreatePushNotificationChannelForApplicationAsync
    return Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel is
@@ -164,5 +161,6 @@ package body Windows.Networking.PushNotifications is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

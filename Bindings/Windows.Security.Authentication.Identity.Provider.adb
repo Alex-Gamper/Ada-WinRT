@@ -28,7 +28,6 @@ package body Windows.Security.Authentication.Identity.Provider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Interface
@@ -111,7 +110,6 @@ package body Windows.Security.Authentication.Identity.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -119,7 +117,6 @@ package body Windows.Security.Authentication.Identity.Provider is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RegisterDevicePresenceMonitoringAsync
    (
@@ -387,5 +384,6 @@ package body Windows.Security.Authentication.Identity.Provider is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

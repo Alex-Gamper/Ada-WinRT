@@ -354,6 +354,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistration
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorAuthenticationResult : aliased constant Windows.IID := (2629523847, 61293, 19394, (191, 73, 70, 23, 81, 90, 15, 154 ));
@@ -373,6 +374,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthentication
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorRegistrationStatics : aliased constant Windows.IID := (450826085, 58295, 16725, (153, 127, 183, 86, 239, 101, 190, 186 ));
@@ -416,6 +418,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics : aliased constant Windows.IID := (2420742681, 32498, 17699, (149, 28, 164, 23, 162, 74, 207, 147 ));
@@ -459,6 +462,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorRegistration : aliased constant Windows.IID := (2672606132, 36026, 18608, (132, 13, 219, 178, 42, 84, 198, 120 ));
@@ -480,6 +484,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorAuthenticationStatics : aliased constant Windows.IID := (1062741590, 10488, 19983, (174, 140, 88, 152, 185, 174, 36, 105 ));
@@ -525,6 +530,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorAuthentication : aliased constant Windows.IID := (34215653, 27173, 16547, (140, 0, 80, 160, 35, 246, 25, 209 ));
@@ -575,6 +581,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorInfo : aliased constant Windows.IID := (506177633, 34099, 20430, (131, 155, 236, 183, 36, 16, 172, 20 ));
@@ -608,6 +615,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorInfo2 : aliased constant Windows.IID := (349798819, 64550, 20471, (171, 195, 72, 232, 42, 81, 42, 10 ));
@@ -635,6 +643,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorAuthenticationStageInfo : aliased constant Windows.IID := (1459536523, 59562, 19471, (142, 76, 165, 89, 231, 58, 221, 136 ));
@@ -661,6 +670,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs : aliased constant Windows.IID := (3567644246, 29329, 16499, (188, 31, 204, 184, 245, 175, 223, 150 ));
@@ -673,6 +683,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult : aliased constant Windows.IID := (98193932, 43940, 22604, (188, 8, 25, 197, 56, 154, 112, 226 ));
@@ -699,6 +710,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus : aliased constant Windows.IID := (2134371562, 58344, 21500, (176, 229, 122, 164, 113, 151, 14, 221 ));
@@ -725,6 +737,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult : aliased constant Windows.IID := (414230332, 56153, 21113, (167, 109, 2, 65, 107, 45, 144, 182 ));
@@ -751,6 +764,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo : aliased constant Windows.IID := (2253005591, 46144, 24222, (174, 85, 69, 80, 187, 99, 7, 223 ));
@@ -777,6 +791,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus : aliased constant Windows.IID := (2438546298, 17303, 21614, (190, 97, 46, 241, 97, 113, 126, 6 ));
@@ -803,6 +818,7 @@ package Windows.Security.Authentication.Identity.Provider is
       ; RetVal : access Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorFinishAuthenticationStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -812,7 +828,6 @@ package Windows.Security.Authentication.Identity.Provider is
    IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult : aliased constant Windows.IID := (2689139432, 63536, 20714, (137, 234, 150, 226, 166, 251, 148, 83 ));
    
    type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorRegistrationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorRegistrationResult_Interface
@@ -826,7 +841,6 @@ package Windows.Security.Authentication.Identity.Provider is
    IID_AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus : aliased constant Windows.IID := (580166162, 36961, 24217, (162, 38, 164, 74, 200, 248, 244, 221 ));
    
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus_Interface
@@ -840,7 +854,6 @@ package Windows.Security.Authentication.Identity.Provider is
    IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult : aliased constant Windows.IID := (625424189, 38532, 24155, (169, 184, 166, 249, 12, 230, 50, 173 ));
    
    type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationResult_Interface
@@ -854,7 +867,6 @@ package Windows.Security.Authentication.Identity.Provider is
    IID_EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs : aliased constant Windows.IID := (272669500, 17124, 22639, (132, 193, 128, 61, 162, 55, 101, 175 ));
    
    type EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Interface
@@ -868,7 +880,6 @@ package Windows.Security.Authentication.Identity.Provider is
    IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo : aliased constant Windows.IID := (2014434180, 11960, 22769, (175, 237, 75, 75, 136, 143, 67, 87 ));
    
    type AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISecondaryAuthenticationFactorAuthenticationStageInfo_Interface
@@ -882,7 +893,6 @@ package Windows.Security.Authentication.Identity.Provider is
    IID_AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus : aliased constant Windows.IID := (2921165126, 15761, 20707, (143, 19, 97, 60, 242, 128, 18, 7 ));
    
    type AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Identity.Provider.IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface
@@ -906,7 +916,6 @@ package Windows.Security.Authentication.Identity.Provider is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RegisterDevicePresenceMonitoringAsync
    (
@@ -994,5 +1003,6 @@ package Windows.Security.Authentication.Identity.Provider is
    
    function GetAuthenticationStageInfoAsync
    return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo;
+   
 
 end;

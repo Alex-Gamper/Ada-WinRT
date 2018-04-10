@@ -27,7 +27,6 @@ package body Windows.Devices.Spi.Provider is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       chipSelectLine : Windows.Int32

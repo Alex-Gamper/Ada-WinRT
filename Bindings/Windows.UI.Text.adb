@@ -29,7 +29,6 @@ package body Windows.UI.Text is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -37,7 +36,6 @@ package body Windows.UI.Text is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AutoColor
    return Windows.UI.Color is
@@ -361,5 +359,6 @@ package body Windows.UI.Text is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

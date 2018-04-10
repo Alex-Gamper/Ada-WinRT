@@ -31,7 +31,6 @@ package body Windows.Web.Http.Filters is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested_Interface
@@ -48,7 +47,6 @@ package body Windows.Web.Http.Filters is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateHttpBaseProtocolFilter return Windows.Web.Http.Filters.IHttpBaseProtocolFilter is
       Hr            : Windows.HResult := S_OK;

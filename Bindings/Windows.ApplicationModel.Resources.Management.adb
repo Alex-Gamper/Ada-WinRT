@@ -27,7 +27,6 @@ package body Windows.ApplicationModel.Resources.Management is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateResourceIndexer
    (
       projectRoot : Windows.Foundation.IUriRuntimeClass

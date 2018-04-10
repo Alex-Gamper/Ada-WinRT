@@ -35,7 +35,6 @@ package body Windows.Media.Audio is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICreateAudioGraphResult_Interface
@@ -183,7 +182,6 @@ package body Windows.Media.Audio is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       audioRenderCategory : Windows.Media.Render.AudioRenderCategory
@@ -326,7 +324,6 @@ package body Windows.Media.Audio is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateAsync
    (
       settings : Windows.Media.Audio.IAudioGraphSettings
@@ -429,5 +426,6 @@ package body Windows.Media.Audio is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

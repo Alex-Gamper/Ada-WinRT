@@ -105,6 +105,7 @@ package Windows.System.Diagnostics.Telemetry is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPlatformTelemetryRegistrationResult : aliased constant Windows.IID := (1300568235, 8850, 18877, (161, 90, 61, 113, 210, 20, 81, 18 ));
@@ -117,6 +118,7 @@ package Windows.System.Diagnostics.Telemetry is
       ; RetVal : access Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPlatformTelemetryClientStatics : aliased constant Windows.IID := (2616455773, 54723, 20202, (141, 190, 156, 141, 187, 13, 157, 143 ));
@@ -139,6 +141,7 @@ package Windows.System.Diagnostics.Telemetry is
       ; RetVal : access Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -153,7 +156,6 @@ package Windows.System.Diagnostics.Telemetry is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function Register
    (
       id : Windows.String
@@ -166,5 +168,6 @@ package Windows.System.Diagnostics.Telemetry is
       ; settings : Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings
    )
    return Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationResult;
+   
 
 end;

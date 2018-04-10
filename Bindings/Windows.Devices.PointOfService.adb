@@ -30,7 +30,6 @@ package body Windows.Devices.PointOfService is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBarcodeScanner_Interface
@@ -477,7 +476,6 @@ package body Windows.Devices.PointOfService is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -485,7 +483,6 @@ package body Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Gs1DWCode
    return Windows.UInt32 is
@@ -2718,5 +2715,6 @@ package body Windows.Devices.PointOfService is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

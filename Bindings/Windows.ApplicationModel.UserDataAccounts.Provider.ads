@@ -112,6 +112,7 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataAccountProviderAddAccountOperation : aliased constant Windows.IID := (3116836144, 16260, 19293, (142, 170, 69, 233, 122, 168, 66, 237 ));
@@ -138,6 +139,7 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
       ; userDataAccountId : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataAccountPartnerAccountInfo : aliased constant Windows.IID := (1595932727, 63215, 20163, (134, 48, 1, 44, 89, 193, 20, 159 ));
@@ -164,6 +166,7 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataAccountProviderSettingsOperation : aliased constant Windows.IID := (2449690039, 34376, 20272, (172, 250, 48, 2, 101, 140, 168, 13 ));
@@ -182,6 +185,7 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
       This       : access IUserDataAccountProviderSettingsOperation_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataAccountProviderResolveErrorsOperation : aliased constant Windows.IID := (1647696917, 49099, 16865, (153, 87, 151, 89, 162, 136, 70, 204 ));
@@ -200,6 +204,7 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
       This       : access IUserDataAccountProviderResolveErrorsOperation_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IUserDataAccountPartnerAccountInfo : aliased constant Windows.IID := (2889882406, 16063, 23743, (150, 67, 201, 106, 64, 171, 64, 162 ));
@@ -234,6 +239,7 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IUserDataAccountPartnerAccountInfo : aliased constant Windows.IID := (1557873246, 55898, 22010, (179, 73, 84, 103, 153, 108, 171, 50 ));
@@ -246,6 +252,7 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.Provider.IIterator_IUserDataAccountPartnerAccountInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IUserDataAccountPartnerAccountInfo : aliased constant Windows.IID := (3073437843, 58107, 23328, (157, 158, 79, 157, 239, 230, 71, 176 ));
@@ -284,6 +291,7 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

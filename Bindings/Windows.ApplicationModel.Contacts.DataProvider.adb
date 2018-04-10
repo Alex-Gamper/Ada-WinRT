@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Contacts.DataProvider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IContactDataProviderConnection_add_SyncRequested_Interface
@@ -84,7 +83,6 @@ package body Windows.ApplicationModel.Contacts.DataProvider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

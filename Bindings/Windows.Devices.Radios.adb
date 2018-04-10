@@ -27,7 +27,6 @@ package body Windows.Devices.Radios is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IRadio_Interface
@@ -71,7 +70,6 @@ package body Windows.Devices.Radios is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -79,7 +77,6 @@ package body Windows.Devices.Radios is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetRadiosAsync
    return Windows.Address is
@@ -151,5 +148,6 @@ package body Windows.Devices.Radios is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

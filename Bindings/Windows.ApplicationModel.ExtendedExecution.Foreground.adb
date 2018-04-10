@@ -27,7 +27,6 @@ package body Windows.ApplicationModel.ExtendedExecution.Foreground is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IExtendedExecutionForegroundSession_add_Revoked_Interface
@@ -57,7 +56,6 @@ package body Windows.ApplicationModel.ExtendedExecution.Foreground is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateExtendedExecutionForegroundSession return Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundSession is
       Hr            : Windows.HResult := S_OK;

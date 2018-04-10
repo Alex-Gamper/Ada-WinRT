@@ -43,7 +43,6 @@ package body Windows.Media.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaStreamSource_add_Closed_Interface
@@ -503,7 +502,6 @@ package body Windows.Media.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateTimedTextRegion return Windows.Media.Core.ITimedTextRegion is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.TimedTextRegion");
@@ -889,7 +887,6 @@ package body Windows.Media.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_VideoFormatDV25
    return Windows.String is
@@ -2244,5 +2241,6 @@ package body Windows.Media.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

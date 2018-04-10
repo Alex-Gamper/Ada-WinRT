@@ -106,6 +106,7 @@ package Windows.ApplicationModel.Store.LicenseManagement is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILicenseSatisfactionInfo : aliased constant Windows.IID := (1019981967, 56113, 18645, (131, 132, 250, 23, 200, 20, 116, 226 ));
@@ -160,6 +161,7 @@ package Windows.ApplicationModel.Store.LicenseManagement is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILicenseManagerStatics : aliased constant Windows.IID := (3047963360, 55879, 20256, (154, 35, 9, 24, 44, 148, 118, 255 ));
@@ -182,6 +184,7 @@ package Windows.ApplicationModel.Store.LicenseManagement is
       ; RetVal : access Windows.ApplicationModel.Store.LicenseManagement.IAsyncOperation_ILicenseSatisfactionResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILicenseManagerStatics2 : aliased constant Windows.IID := (2871968891, 8057, 17536, (184, 126, 44, 73, 158, 96, 27, 163 ));
@@ -195,6 +198,7 @@ package Windows.ApplicationModel.Store.LicenseManagement is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILicenseSatisfactionResult : aliased constant Windows.IID := (3091495881, 43512, 22631, (139, 48, 205, 52, 114, 14, 220, 49 ));
@@ -221,6 +225,7 @@ package Windows.ApplicationModel.Store.LicenseManagement is
       ; RetVal : access Windows.ApplicationModel.Store.LicenseManagement.ILicenseSatisfactionResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -230,7 +235,6 @@ package Windows.ApplicationModel.Store.LicenseManagement is
    IID_AsyncOperationCompletedHandler_ILicenseSatisfactionResult : aliased constant Windows.IID := (2473493617, 9519, 21305, (137, 195, 148, 40, 65, 32, 134, 202 ));
    
    type AsyncOperationCompletedHandler_ILicenseSatisfactionResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Store.LicenseManagement.IAsyncOperation_ILicenseSatisfactionResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILicenseSatisfactionResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILicenseSatisfactionResult_Interface
@@ -250,7 +254,6 @@ package Windows.ApplicationModel.Store.LicenseManagement is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function RefreshLicensesAsync
    (
       refreshOption : Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption
@@ -269,5 +272,6 @@ package Windows.ApplicationModel.Store.LicenseManagement is
       ; keyIds : Windows.Foundation.Collections.IIterable_String
    )
    return Windows.ApplicationModel.Store.LicenseManagement.IAsyncOperation_ILicenseSatisfactionResult;
+   
 
 end;

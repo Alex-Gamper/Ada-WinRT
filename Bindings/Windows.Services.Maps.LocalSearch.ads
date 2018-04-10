@@ -184,6 +184,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILocalLocationFinderResult : aliased constant Windows.IID := (3499846854, 62264, 16785, (159, 216, 84, 64, 185, 166, 143, 82 ));
@@ -203,6 +204,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILocalLocationFinderStatics : aliased constant Windows.IID := (3538907972, 41182, 18634, (129, 168, 7, 199, 220, 253, 55, 171 ));
@@ -219,6 +221,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.Services.Maps.LocalSearch.IAsyncOperation_ILocalLocationFinderResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILocalCategoriesStatics : aliased constant Windows.IID := (4103313909, 33377, 17185, (153, 116, 239, 146, 212, 154, 141, 202 ));
@@ -280,6 +283,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILocalLocationHoursOfOperationItem : aliased constant Windows.IID := (592743538, 41415, 17393, (164, 240, 16, 145, 195, 158, 198, 64 ));
@@ -306,6 +310,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILocalLocationRatingInfo : aliased constant Windows.IID := (3407719254, 13140, 17169, (139, 192, 162, 212, 213, 235, 128, 110 ));
@@ -332,6 +337,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILocalLocation2 : aliased constant Windows.IID := (1855860860, 60597, 20476, (187, 140, 186, 80, 186, 140, 45, 198 ));
@@ -358,6 +364,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.Services.Maps.LocalSearch.IVectorView_ILocalLocationHoursOfOperationItem -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPlaceInfoHelperStatics : aliased constant Windows.IID := (3709643175, 43462, 18715, (188, 9, 232, 15, 206, 164, 142, 230 ));
@@ -371,6 +378,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.Services.Maps.IPlaceInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ILocalLocation : aliased constant Windows.IID := (2721853063, 43239, 22159, (150, 161, 105, 233, 143, 134, 185, 211 ));
@@ -405,6 +413,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ILocalLocation : aliased constant Windows.IID := (1416949499, 24820, 22700, (137, 226, 110, 131, 247, 159, 167, 108 ));
@@ -417,6 +426,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.Services.Maps.LocalSearch.IIterator_ILocalLocation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ILocalLocation : aliased constant Windows.IID := (1636930290, 20381, 22057, (171, 1, 177, 133, 18, 80, 61, 115 ));
@@ -455,6 +465,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILocalLocationFinderResult : aliased constant Windows.IID := (149330738, 62496, 21120, (167, 33, 7, 91, 79, 208, 61, 148 ));
@@ -481,6 +492,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.Services.Maps.LocalSearch.ILocalLocationFinderResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ILocalLocationHoursOfOperationItem : aliased constant Windows.IID := (1067165120, 45788, 22391, (168, 30, 176, 162, 131, 155, 21, 43 ));
@@ -515,6 +527,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ILocalLocationHoursOfOperationItem : aliased constant Windows.IID := (4070110485, 47549, 21143, (184, 189, 28, 0, 64, 218, 172, 118 ));
@@ -527,6 +540,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.Services.Maps.LocalSearch.IIterator_ILocalLocationHoursOfOperationItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ILocalLocationHoursOfOperationItem : aliased constant Windows.IID := (1699959154, 52625, 23372, (170, 96, 218, 177, 70, 48, 18, 132 ));
@@ -565,6 +579,7 @@ package Windows.Services.Maps.LocalSearch is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -574,7 +589,6 @@ package Windows.Services.Maps.LocalSearch is
    IID_AsyncOperationCompletedHandler_ILocalLocationFinderResult : aliased constant Windows.IID := (2068454291, 10563, 24144, (160, 16, 238, 154, 236, 27, 191, 231 ));
    
    type AsyncOperationCompletedHandler_ILocalLocationFinderResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Maps.LocalSearch.IAsyncOperation_ILocalLocationFinderResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILocalLocationFinderResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILocalLocationFinderResult_Interface
@@ -595,7 +609,6 @@ package Windows.Services.Maps.LocalSearch is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FindLocalLocationsAsync
    (
@@ -635,5 +648,6 @@ package Windows.Services.Maps.LocalSearch is
       location : Windows.Services.Maps.LocalSearch.ILocalLocation
    )
    return Windows.Services.Maps.IPlaceInfo;
+   
 
 end;

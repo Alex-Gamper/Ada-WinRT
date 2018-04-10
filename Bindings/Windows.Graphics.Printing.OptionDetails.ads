@@ -187,6 +187,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintNumberOptionDetails : aliased constant Windows.IID := (1291959215, 25692, 19945, (150, 95, 111, 198, 187, 196, 124, 171 ));
@@ -206,6 +207,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTextOptionDetails : aliased constant Windows.IID := (2910184803, 23780, 18108, (153, 24, 171, 159, 173, 20, 76, 91 ));
@@ -218,6 +220,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintItemListOptionDetails : aliased constant Windows.IID := (2585941951, 65121, 17368, (162, 79, 163, 246, 171, 115, 32, 231 ));
@@ -230,6 +233,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; RetVal : access Windows.Foundation.Collections.IVectorView_Object -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintCustomOptionDetails : aliased constant Windows.IID := (3811302940, 10415, 19344, (149, 218, 163, 172, 243, 32, 185, 41 ));
@@ -249,6 +253,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintCustomTextOptionDetails : aliased constant Windows.IID := (718369272, 51389, 18693, (145, 146, 13, 117, 19, 110, 139, 49 ));
@@ -268,6 +273,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintCustomItemDetails : aliased constant Windows.IID := (1459926583, 23610, 17562, (170, 54, 179, 41, 27, 17, 146, 253 ));
@@ -294,6 +300,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintCustomItemListOptionDetails : aliased constant Windows.IID := (2784689544, 22770, 20157, (185, 15, 81, 228, 242, 148, 76, 93 ));
@@ -307,6 +314,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; displayName : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskOptionChangedEventArgs : aliased constant Windows.IID := (1696169221, 42478, 17159, (148, 7, 154, 202, 209, 71, 103, 156 ));
@@ -319,6 +327,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskOptionDetails : aliased constant Windows.IID := (4117891825, 43166, 17062, (129, 175, 248, 224, 16, 179, 138, 104 ));
@@ -379,6 +388,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTaskOptionDetailsStatic : aliased constant Windows.IID := (324903315, 2401, 19310, (135, 102, 241, 59, 127, 188, 205, 88 ));
@@ -392,6 +402,7 @@ package Windows.Graphics.Printing.OptionDetails is
       ; RetVal : access Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -401,7 +412,6 @@ package Windows.Graphics.Printing.OptionDetails is
    IID_TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged : aliased constant Windows.IID := (455034219, 34849, 22830, (180, 167, 155, 76, 55, 18, 81, 142 ));
    
    type TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails ; args : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface
@@ -415,7 +425,6 @@ package Windows.Graphics.Printing.OptionDetails is
    IID_TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation : aliased constant Windows.IID := (1552434524, 23385, 21884, (128, 100, 94, 79, 61, 89, 168, 236 ));
    
    type TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface(Callback : access procedure (sender : Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintTaskOptionDetails_add_BeginValidation_Interface
@@ -450,11 +459,11 @@ package Windows.Graphics.Printing.OptionDetails is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetFromPrintTaskOptions
    (
       printTaskOptions : Windows.Graphics.Printing.IPrintTaskOptionsCore
    )
    return Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails;
+   
 
 end;

@@ -170,6 +170,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameExposureCompensationCapabilities : aliased constant Windows.IID := (3112740899, 32869, 16878, (176, 79, 114, 34, 101, 149, 69, 0 ));
@@ -203,6 +204,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameIsoSpeedCapabilities : aliased constant Windows.IID := (381550433, 28150, 19145, (185, 42, 159, 110, 205, 26, 210, 250 ));
@@ -236,6 +238,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameFocusCapabilities : aliased constant Windows.IID := (2066074968, 448, 16485, (156, 64, 193, 167, 33, 66, 92, 26 ));
@@ -269,6 +272,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameFlashCapabilities : aliased constant Windows.IID := (3146989986, 24254, 20322, (130, 35, 14, 43, 5, 191, 187, 208 ));
@@ -295,6 +299,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameControlCapabilities : aliased constant Windows.IID := (2835328608, 20126, 17271, (167, 137, 226, 76, 74, 231, 229, 68 ));
@@ -335,6 +340,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameControlCapabilities2 : aliased constant Windows.IID := (3466265700, 18224, 17423, (189, 62, 239, 232, 168, 242, 48, 168 ));
@@ -347,6 +353,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.Media.Devices.Core.IFrameFlashCapabilities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameExposureControl : aliased constant Windows.IID := (2975881825, 65455, 18258, (182, 33, 245, 182, 241, 23, 244, 50 ));
@@ -380,6 +387,7 @@ package Windows.Media.Devices.Core is
       ; value : Windows.Foundation.IReference_TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameExposureCompensationControl : aliased constant Windows.IID := (3914897097, 63481, 18634, (133, 145, 162, 101, 49, 203, 21, 120 ));
@@ -399,6 +407,7 @@ package Windows.Media.Devices.Core is
       ; value : Windows.Foundation.IReference_Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameIsoSpeedControl : aliased constant Windows.IID := (436465645, 30826, 19573, (165, 87, 122, 185, 168, 95, 88, 140 ));
@@ -432,6 +441,7 @@ package Windows.Media.Devices.Core is
       ; value : Windows.Foundation.IReference_UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameFocusControl : aliased constant Windows.IID := (657322448, 55570, 16916, (166, 123, 227, 138, 141, 72, 216, 198 ));
@@ -451,6 +461,7 @@ package Windows.Media.Devices.Core is
       ; value : Windows.Foundation.IReference_UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameFlashControl : aliased constant Windows.IID := (1976956615, 48453, 20395, (147, 117, 69, 172, 4, 179, 50, 194 ));
@@ -512,6 +523,7 @@ package Windows.Media.Devices.Core is
       ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameController : aliased constant Windows.IID := (3244579289, 47855, 16466, (145, 119, 72, 175, 242, 175, 117, 34 ));
@@ -559,6 +571,7 @@ package Windows.Media.Devices.Core is
       ; value : Windows.Foundation.IReference_Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFrameController2 : aliased constant Windows.IID := (13876341, 55420, 18523, (138, 9, 92, 53, 133, 104, 180, 39 ));
@@ -571,6 +584,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.Media.Devices.Core.IFrameFlashControl
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVariablePhotoSequenceController : aliased constant Windows.IID := (2143287424, 60812, 17405, (167, 195, 179, 88, 9, 228, 34, 154 ));
@@ -633,6 +647,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.Media.Devices.Core.IVector_IFrameController -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICameraIntrinsicsFactory : aliased constant Windows.IID := (3235759238, 8498, 18996, (166, 89, 155, 254, 42, 5, 87, 18 ));
@@ -651,6 +666,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.Media.Devices.Core.ICameraIntrinsics
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICameraIntrinsics : aliased constant Windows.IID := (178711858, 25993, 18906, (175, 222, 89, 66, 112, 202, 10, 172 ));
@@ -730,6 +746,7 @@ package Windows.Media.Devices.Core is
       ; results : Windows.Foundation.Numerics.Vector2_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICameraIntrinsics2 : aliased constant Windows.IID := (215655495, 1944, 19277, (131, 159, 197, 236, 65, 77, 178, 122 ));
@@ -774,6 +791,7 @@ package Windows.Media.Devices.Core is
       ; results : Windows.Foundation.Point_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDepthCorrelatedCoordinateMapper : aliased constant Windows.IID := (4183656955, 35568, 19632, (146, 109, 105, 104, 102, 229, 4, 106 ));
@@ -817,6 +835,7 @@ package Windows.Media.Devices.Core is
       ; results : Windows.Foundation.Point_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IFrameController : aliased constant Windows.IID := (339795080, 25599, 23041, (187, 147, 57, 12, 118, 116, 36, 136 ));
@@ -851,6 +870,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IFrameController : aliased constant Windows.IID := (3180260060, 11737, 23256, (172, 93, 243, 177, 59, 148, 185, 194 ));
@@ -863,6 +883,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.Media.Devices.Core.IIterator_IFrameController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IFrameController : aliased constant Windows.IID := (4241924771, 46847, 21874, (145, 43, 153, 235, 175, 149, 22, 93 ));
@@ -901,6 +922,7 @@ package Windows.Media.Devices.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IFrameController : aliased constant Windows.IID := (479167094, 47258, 20627, (161, 237, 175, 73, 223, 183, 42, 137 ));
@@ -995,6 +1017,7 @@ package Windows.Media.Devices.Core is
       ; items : Windows.Media.Devices.Core.IFrameController_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

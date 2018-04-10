@@ -28,7 +28,6 @@ package body Windows.Media.Playlists is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPlaylist_Interface
@@ -45,7 +44,6 @@ package body Windows.Media.Playlists is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreatePlaylist return Windows.Media.Playlists.IPlaylist is
       Hr            : Windows.HResult := S_OK;
@@ -72,7 +70,6 @@ package body Windows.Media.Playlists is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function LoadAsync
    (
       file : Windows.Storage.IStorageFile
@@ -92,5 +89,6 @@ package body Windows.Media.Playlists is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -28,7 +28,6 @@ package body Windows.Devices.Printers is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPrint3DDevice_Interface
@@ -46,7 +45,6 @@ package body Windows.Devices.Printers is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -54,7 +52,6 @@ package body Windows.Devices.Printers is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromIdAsync
    (
@@ -92,5 +89,6 @@ package body Windows.Devices.Printers is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

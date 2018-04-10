@@ -110,6 +110,7 @@ package Windows.Management.Workplace is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMdmPolicyStatics2 : aliased constant Windows.IID := (3382474022, 980, 18937, (169, 147, 67, 239, 204, 210, 101, 196 ));
@@ -122,6 +123,7 @@ package Windows.Management.Workplace is
       ; RetVal : access Windows.Management.Workplace.MessagingSyncPolicy
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWorkplaceSettingsStatics : aliased constant Windows.IID := (3831984125, 11666, 19464, (186, 212, 246, 89, 11, 84, 166, 211 ));
@@ -134,6 +136,7 @@ package Windows.Management.Workplace is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -142,7 +145,6 @@ package Windows.Management.Workplace is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsBrowserAllowed
    return Windows.Boolean;
@@ -161,5 +163,6 @@ package Windows.Management.Workplace is
    
    function get_IsMicrosoftAccountOptional
    return Windows.Boolean;
+   
 
 end;

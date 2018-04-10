@@ -325,6 +325,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothAdapter -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothAdapter : aliased constant Windows.IID := (2037706828, 24442, 18996, (146, 37, 168, 85, 248, 75, 26, 139 ));
@@ -386,6 +387,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Radios.IAsyncOperation_IRadio -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothDeviceIdStatics : aliased constant Windows.IID := (2810728039, 16123, 20273, (187, 194, 129, 14, 9, 151, 116, 4 ));
@@ -399,6 +401,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDeviceId
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothDeviceId : aliased constant Windows.IID := (3245951407, 22465, 17986, (188, 206, 230, 192, 107, 32, 174, 118 ));
@@ -425,6 +428,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothUuidHelperStatics : aliased constant Windows.IID := (400493784, 53108, 19233, (175, 230, 245, 122, 17, 188, 222, 160 ));
@@ -446,6 +450,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Foundation.IReference_UInt32 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothDeviceStatics : aliased constant Windows.IID := (160554833, 22491, 18213, (187, 215, 132, 246, 67, 39, 236, 44 ));
@@ -482,6 +487,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothDeviceStatics2 : aliased constant Windows.IID := (3265170991, 19988, 17527, (170, 27, 184, 180, 126, 91, 126, 206 ));
@@ -527,6 +533,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothDevice : aliased constant Windows.IID := (590721366, 37074, 18948, (174, 245, 14, 32, 185, 230, 183, 7 ));
@@ -633,6 +640,7 @@ package Windows.Devices.Bluetooth is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothDevice2 : aliased constant Windows.IID := (20183380, 45398, 19920, (177, 245, 193, 27, 195, 26, 81, 99 ));
@@ -645,6 +653,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothDevice3 : aliased constant Windows.IID := (1476392843, 25882, 17492, (185, 15, 235, 33, 239, 11, 13, 113 ));
@@ -696,6 +705,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceServicesResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothDevice4 : aliased constant Windows.IID := (2172400813, 3740, 17074, (168, 220, 62, 128, 148, 148, 13, 18 ));
@@ -708,6 +718,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDeviceId
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEAppearanceCategoriesStatics : aliased constant Windows.IID := (1833784574, 1130, 16773, (170, 182, 130, 76, 240, 97, 8, 97 ));
@@ -867,6 +878,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEAppearanceSubcategoriesStatics : aliased constant Windows.IID := (3850085894, 8516, 16730, (131, 18, 113, 204, 242, 145, 248, 209 ));
@@ -1068,6 +1080,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEAppearance : aliased constant Windows.IID := (1562409458, 26280, 16984, (152, 94, 2, 180, 217, 80, 159, 24 ));
@@ -1094,6 +1107,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEAppearanceStatics : aliased constant Windows.IID := (2710814919, 17668, 20298, (155, 165, 205, 16, 84, 229, 224, 101 ));
@@ -1116,6 +1130,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothLEAppearance
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEDeviceStatics : aliased constant Windows.IID := (3369015833, 61622, 19440, (134, 137, 65, 48, 61, 226, 217, 244 ));
@@ -1144,6 +1159,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEDeviceStatics2 : aliased constant Windows.IID := (1595064427, 15276, 17384, (173, 22, 86, 50, 113, 189, 65, 194 ));
@@ -1207,6 +1223,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEDevice : aliased constant Windows.IID := (3052285819, 19160, 17986, (172, 72, 128, 160, 181, 0, 232, 135 ));
@@ -1300,6 +1317,7 @@ package Windows.Devices.Bluetooth is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEDevice2 : aliased constant Windows.IID := (653288115, 31470, 19761, (186, 186, 177, 185, 119, 95, 89, 22 ));
@@ -1326,6 +1344,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.BluetoothAddressType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEDevice3 : aliased constant Windows.IID := (2934563987, 17580, 16604, (175, 51, 178, 193, 60, 1, 202, 70 ));
@@ -1377,6 +1396,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattDeviceServicesResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothLEDevice4 : aliased constant Windows.IID := (727732273, 8776, 19247, (172, 240, 124, 238, 54, 252, 88, 112 ));
@@ -1389,6 +1409,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDeviceId
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothClassOfDevice : aliased constant Windows.IID := (3594527358, 55255, 18017, (148, 84, 101, 3, 156, 161, 122, 43 ));
@@ -1422,6 +1443,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.BluetoothServiceCapabilities
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothClassOfDeviceStatics : aliased constant Windows.IID := (3831575997, 4002, 16748, (145, 180, 193, 228, 140, 160, 97, 193 ));
@@ -1445,6 +1467,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothClassOfDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBluetoothSignalStrengthFilter : aliased constant Windows.IID := (3749409681, 27573, 19710, (144, 177, 93, 115, 36, 237, 207, 127 ));
@@ -1506,6 +1529,7 @@ package Windows.Devices.Bluetooth is
       ; value : Windows.Foundation.IReference_TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IBluetoothAdapter : aliased constant Windows.IID := (1190979340, 27655, 23098, (183, 117, 38, 249, 148, 2, 85, 63 ));
@@ -1532,6 +1556,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothAdapter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IBluetoothDevice : aliased constant Windows.IID := (3045952793, 17597, 23232, (160, 214, 27, 80, 128, 15, 49, 129 ));
@@ -1558,6 +1583,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IBluetoothLEDevice : aliased constant Windows.IID := (929013095, 29858, 24465, (161, 29, 22, 144, 147, 113, 141, 65 ));
@@ -1584,6 +1610,7 @@ package Windows.Devices.Bluetooth is
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothLEDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1593,7 +1620,6 @@ package Windows.Devices.Bluetooth is
    IID_AsyncOperationCompletedHandler_IBluetoothAdapter : aliased constant Windows.IID := (278989448, 37088, 20762, (154, 8, 215, 95, 235, 82, 161, 159 ));
    
    type AsyncOperationCompletedHandler_IBluetoothAdapter_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothAdapter ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBluetoothAdapter'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBluetoothAdapter_Interface
@@ -1607,7 +1633,6 @@ package Windows.Devices.Bluetooth is
    IID_AsyncOperationCompletedHandler_IBluetoothDevice : aliased constant Windows.IID := (3001601489, 26282, 22674, (133, 163, 143, 11, 22, 94, 67, 252 ));
    
    type AsyncOperationCompletedHandler_IBluetoothDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBluetoothDevice'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBluetoothDevice_Interface
@@ -1621,7 +1646,6 @@ package Windows.Devices.Bluetooth is
    IID_TypedEventHandler_IBluetoothDevice_add_NameChanged : aliased constant Windows.IID := (3679899164, 24223, 20792, (146, 39, 177, 166, 109, 96, 188, 27 ));
    
    type TypedEventHandler_IBluetoothDevice_add_NameChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothDevice_add_NameChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBluetoothDevice_add_NameChanged_Interface
@@ -1635,7 +1659,6 @@ package Windows.Devices.Bluetooth is
    IID_TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged : aliased constant Windows.IID := (3679899164, 24223, 20792, (146, 39, 177, 166, 109, 96, 188, 27 ));
    
    type TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBluetoothDevice_add_SdpRecordsChanged_Interface
@@ -1649,7 +1672,6 @@ package Windows.Devices.Bluetooth is
    IID_TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged : aliased constant Windows.IID := (3679899164, 24223, 20792, (146, 39, 177, 166, 109, 96, 188, 27 ));
    
    type TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBluetoothDevice_add_ConnectionStatusChanged_Interface
@@ -1663,7 +1685,6 @@ package Windows.Devices.Bluetooth is
    IID_AsyncOperationCompletedHandler_IBluetoothLEDevice : aliased constant Windows.IID := (2438379423, 50506, 21111, (143, 139, 210, 204, 67, 199, 224, 4 ));
    
    type AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBluetoothLEDevice'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBluetoothLEDevice_Interface
@@ -1677,7 +1698,6 @@ package Windows.Devices.Bluetooth is
    IID_TypedEventHandler_IBluetoothLEDevice_add_NameChanged : aliased constant Windows.IID := (2835767778, 14126, 23838, (187, 187, 184, 162, 206, 14, 124, 77 ));
    
    type TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothLEDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothLEDevice_add_NameChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBluetoothLEDevice_add_NameChanged_Interface
@@ -1691,7 +1711,6 @@ package Windows.Devices.Bluetooth is
    IID_TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged : aliased constant Windows.IID := (2835767778, 14126, 23838, (187, 187, 184, 162, 206, 14, 124, 77 ));
    
    type TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothLEDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBluetoothLEDevice_add_GattServicesChanged_Interface
@@ -1705,7 +1724,6 @@ package Windows.Devices.Bluetooth is
    IID_TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged : aliased constant Windows.IID := (2835767778, 14126, 23838, (187, 187, 184, 162, 206, 14, 124, 77 ));
    
    type TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface(Callback : access procedure (sender : Windows.Devices.Bluetooth.IBluetoothLEDevice ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBluetoothLEDevice_add_ConnectionStatusChanged_Interface
@@ -1732,7 +1750,6 @@ package Windows.Devices.Bluetooth is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String;
@@ -2050,5 +2067,6 @@ package Windows.Devices.Bluetooth is
       ; bluetoothAddressType : Windows.Devices.Bluetooth.BluetoothAddressType
    )
    return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice;
+   
 
 end;

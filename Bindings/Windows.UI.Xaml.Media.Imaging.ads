@@ -216,6 +216,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapSource : aliased constant Windows.IID := (601383953, 8239, 16818, (140, 91, 168, 163, 179, 51, 128, 11 ));
@@ -250,6 +251,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapSourceStatics : aliased constant Windows.IID := (2593954177, 33403, 20049, (137, 27, 138, 21, 181, 17, 132, 45 ));
@@ -269,6 +271,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapSourceFactory : aliased constant Windows.IID := (3795862030, 54439, 18852, (160, 180, 165, 159, 221, 119, 229, 8 ));
@@ -283,6 +286,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.IBitmapSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRenderTargetBitmap : aliased constant Windows.IID := (1343090305, 35132, 19466, (143, 236, 70, 120, 172, 113, 117, 137 ));
@@ -327,6 +331,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRenderTargetBitmapStatics : aliased constant Windows.IID := (4037144558, 49457, 19776, (156, 71, 247, 215, 207, 43, 7, 127 ));
@@ -346,11 +351,13 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISurfaceImageSource : aliased constant Windows.IID := (1660408854, 50964, 19532, (130, 115, 248, 57, 188, 88, 19, 92 ));
    
    type ISurfaceImageSource_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISurfaceImageSourceFactory : aliased constant Windows.IID := (984752426, 61285, 19039, (191, 172, 115, 153, 62, 140, 18, 201 ));
@@ -379,6 +386,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapImage : aliased constant Windows.IID := (833565297, 58292, 17453, (163, 65, 76, 2, 38, 178, 114, 91 ));
@@ -485,6 +493,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapImageStatics : aliased constant Windows.IID := (2653430083, 28904, 17276, (159, 164, 44, 191, 41, 92, 255, 132 ));
@@ -518,6 +527,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapImageFactory : aliased constant Windows.IID := (3373476216, 18448, 20062, (128, 135, 3, 103, 30, 230, 13, 133 ));
@@ -531,6 +541,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.IBitmapImage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapImage2 : aliased constant Windows.IID := (275366326, 35995, 18274, (190, 61, 117, 159, 86, 152, 242, 179 ));
@@ -550,6 +561,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; value : Windows.UI.Xaml.Media.Imaging.DecodePixelType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapImageStatics2 : aliased constant Windows.IID := (3321190250, 30127, 16804, (184, 147, 143, 233, 31, 238, 40, 130 ));
@@ -562,6 +574,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapImage3 : aliased constant Windows.IID := (4057886502, 15475, 17727, (167, 186, 155, 133, 193, 139, 55, 51 ));
@@ -607,6 +620,7 @@ package Windows.UI.Xaml.Media.Imaging is
       This       : access IBitmapImage3_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBitmapImageStatics3 : aliased constant Windows.IID := (725934861, 63189, 17425, (168, 205, 191, 118, 3, 196, 250, 160 ));
@@ -633,11 +647,13 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVirtualSurfaceImageSource : aliased constant Windows.IID := (1248927722, 49068, 4576, (160, 106, 157, 228, 71, 36, 1, 155 ));
    
    type IVirtualSurfaceImageSource_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IVirtualSurfaceImageSourceFactory : aliased constant Windows.IID := (984752426, 49068, 4576, (138, 146, 105, 228, 71, 36, 1, 155 ));
@@ -662,6 +678,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWriteableBitmap : aliased constant Windows.IID := (3205201519, 57212, 19077, (132, 19, 161, 33, 98, 133, 131, 92 ));
@@ -680,6 +697,7 @@ package Windows.UI.Xaml.Media.Imaging is
       This       : access IWriteableBitmap_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWriteableBitmapFactory : aliased constant Windows.IID := (1432611761, 16114, 17093, (156, 109, 28, 245, 220, 192, 65, 255 ));
@@ -694,6 +712,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.IWriteableBitmap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISvgImageSourceFailedEventArgs : aliased constant Windows.IID := (1757098352, 15564, 16437, (172, 1, 152, 52, 84, 61, 116, 78 ));
@@ -706,16 +725,19 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.SvgImageSourceLoadStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISvgImageSourceOpenedEventArgs : aliased constant Windows.IID := (2247052310, 29838, 16392, (149, 199, 106, 35, 221, 115, 22, 219 ));
    
    type ISvgImageSourceOpenedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlRenderingBackgroundTask : aliased constant Windows.IID := (1566566826, 21310, 17592, (169, 117, 252, 95, 30, 59, 255, 82 ));
    
    type IXamlRenderingBackgroundTask_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlRenderingBackgroundTaskOverrides : aliased constant Windows.IID := (2620025239, 43272, 18193, (180, 178, 169, 96, 219, 61, 142, 90 ));
@@ -728,6 +750,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; taskInstance : Windows.ApplicationModel.Background.IBackgroundTaskInstance
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlRenderingBackgroundTaskFactory : aliased constant Windows.IID := (2748431203, 14584, 19875, (159, 202, 253, 129, 40, 162, 203, 249 ));
@@ -742,6 +765,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISoftwareBitmapSource : aliased constant Windows.IID := (3537739472, 54213, 16470, (145, 181, 183, 193, 209, 232, 19, 14 ));
@@ -755,6 +779,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISvgImageSource : aliased constant Windows.IID := (65130179, 3240, 19022, (141, 124, 200, 8, 160, 131, 133, 134 ));
@@ -840,6 +865,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.IAsyncOperation_SvgImageSourceLoadStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISvgImageSourceStatics : aliased constant Windows.IID := (2623944910, 48849, 19115, (172, 187, 211, 226, 24, 93, 49, 90 ));
@@ -866,6 +892,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISvgImageSourceFactory : aliased constant Windows.IID := (3348425191, 53027, 19826, (191, 26, 223, 170, 22, 216, 234, 82 ));
@@ -890,6 +917,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.ISvgImageSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_SvgImageSourceLoadStatus : aliased constant Windows.IID := (4053661122, 11128, 21417, (141, 56, 92, 168, 219, 181, 219, 198 ));
@@ -916,6 +944,7 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.SvgImageSourceLoadStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -925,7 +954,6 @@ package Windows.UI.Xaml.Media.Imaging is
    IID_DownloadProgressEventHandler : aliased constant Windows.IID := (448458275, 29934, 19655, (153, 186, 177, 113, 227, 205, 166, 30 ));
    
    type DownloadProgressEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Media.Imaging.IDownloadProgressEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_DownloadProgressEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DownloadProgressEventHandler_Interface
@@ -939,7 +967,6 @@ package Windows.UI.Xaml.Media.Imaging is
    IID_TypedEventHandler_ISvgImageSource_add_Opened : aliased constant Windows.IID := (2654081361, 35623, 24088, (158, 163, 80, 82, 10, 206, 183, 239 ));
    
    type TypedEventHandler_ISvgImageSource_add_Opened_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.Imaging.ISvgImageSource ; args : Windows.UI.Xaml.Media.Imaging.ISvgImageSourceOpenedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISvgImageSource_add_Opened'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISvgImageSource_add_Opened_Interface
@@ -953,7 +980,6 @@ package Windows.UI.Xaml.Media.Imaging is
    IID_TypedEventHandler_ISvgImageSource_add_OpenFailed : aliased constant Windows.IID := (3609432973, 61422, 23052, (171, 62, 30, 29, 179, 201, 162, 22 ));
    
    type TypedEventHandler_ISvgImageSource_add_OpenFailed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.Imaging.ISvgImageSource ; args : Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFailedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISvgImageSource_add_OpenFailed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISvgImageSource_add_OpenFailed_Interface
@@ -967,7 +993,6 @@ package Windows.UI.Xaml.Media.Imaging is
    IID_AsyncOperationCompletedHandler_SvgImageSourceLoadStatus : aliased constant Windows.IID := (2089535080, 19979, 22820, (183, 231, 35, 74, 17, 214, 61, 97 ));
    
    type AsyncOperationCompletedHandler_SvgImageSourceLoadStatus_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Media.Imaging.IAsyncOperation_SvgImageSourceLoadStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_SvgImageSourceLoadStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_SvgImageSourceLoadStatus_Interface
@@ -1035,7 +1060,6 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.HRESULT;
    
-   
    function get_PixelWidth
    (
       This       : access IBitmapSource_Interface_Impl
@@ -1065,6 +1089,7 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.HRESULT;
    
+   
    subtype RenderTargetBitmap is Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap;
    
    function CreateRenderTargetBitmap return Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap;
@@ -1072,15 +1097,14 @@ package Windows.UI.Xaml.Media.Imaging is
    subtype SurfaceImageSource is Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
    
    subtype BitmapImage is Windows.UI.Xaml.Media.Imaging.IBitmapImage;
-   
    function CreateInstanceWithUriSource
    (
       uriSource : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.UI.Xaml.Media.Imaging.IBitmapImage;
    
-   subtype VirtualSurfaceImageSource is Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSource;
    
+   subtype VirtualSurfaceImageSource is Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSource;
    function CreateInstanceWithDimensions
    (
       pixelWidth : Windows.Int32
@@ -1096,14 +1120,15 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSource;
    
-   subtype WriteableBitmap is Windows.UI.Xaml.Media.Imaging.IWriteableBitmap;
    
+   subtype WriteableBitmap is Windows.UI.Xaml.Media.Imaging.IWriteableBitmap;
    function CreateInstanceWithDimensions
    (
       pixelWidth : Windows.Int32
       ; pixelHeight : Windows.Int32
    )
    return Windows.UI.Xaml.Media.Imaging.IWriteableBitmap;
+   
    
    subtype SvgImageSourceFailedEventArgs is Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFailedEventArgs;
    subtype SvgImageSourceOpenedEventArgs is Windows.UI.Xaml.Media.Imaging.ISvgImageSourceOpenedEventArgs;
@@ -1161,13 +1186,13 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.HRESULT;
    
-   
    function OnRun
    (
       This       : access IXamlRenderingBackgroundTaskOverrides_Interface_Impl
       ; taskInstance : Windows.ApplicationModel.Background.IBackgroundTaskInstance
    )
    return Windows.HRESULT;
+   
    
    type IXamlRenderingBackgroundTask_Interface_Impl is new IXamlRenderingBackgroundTask_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
@@ -1280,7 +1305,6 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.HRESULT;
    
-   
    function get_UriSource
    (
       This       : access ISvgImageSource_Interface_Impl
@@ -1362,10 +1386,10 @@ package Windows.UI.Xaml.Media.Imaging is
    return Windows.HRESULT;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_PixelWidthProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -1459,5 +1483,6 @@ package Windows.UI.Xaml.Media.Imaging is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
+   
 
 end;

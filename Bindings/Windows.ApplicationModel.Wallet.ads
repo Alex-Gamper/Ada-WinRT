@@ -268,6 +268,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletItemCustomProperty : aliased constant Windows.IID := (3108716787, 64000, 16637, (152, 220, 157, 228, 102, 151, 241, 231 ));
@@ -343,6 +344,7 @@ package Windows.ApplicationModel.Wallet is
       ; value : Windows.ApplicationModel.Wallet.WalletSummaryViewPosition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletVerb : aliased constant Windows.IID := (397944534, 58305, 19572, (138, 148, 33, 122, 173, 188, 72, 132 ));
@@ -362,6 +364,7 @@ package Windows.ApplicationModel.Wallet is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletItem : aliased constant Windows.IID := (548752360, 4493, 20164, (153, 108, 185, 99, 231, 189, 62, 116 ));
@@ -731,6 +734,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletTransaction : aliased constant Windows.IID := (1088547136, 9734, 17689, (129, 203, 191, 241, 198, 13, 31, 121 ));
@@ -820,6 +824,7 @@ package Windows.ApplicationModel.Wallet is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletRelevantLocation : aliased constant Windows.IID := (2681763882, 58361, 19937, (186, 179, 187, 25, 46, 70, 179, 243 ));
@@ -853,6 +858,7 @@ package Windows.ApplicationModel.Wallet is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletItemStore : aliased constant Windows.IID := (1902135371, 27977, 18680, (145, 169, 64, 161, 208, 241, 62, 244 ));
@@ -936,6 +942,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletItemStore2 : aliased constant Windows.IID := (1709605616, 28681, 18965, (189, 84, 79, 255, 55, 155, 255, 226 ));
@@ -956,6 +963,7 @@ package Windows.ApplicationModel.Wallet is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletManagerStatics : aliased constant Windows.IID := (1360123576, 51620, 19556, (180, 221, 225, 229, 72, 0, 28, 13 ));
@@ -968,6 +976,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.ApplicationModel.Wallet.IAsyncOperation_IWalletItemStore -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletItemCustomPropertyFactory : aliased constant Windows.IID := (3489950276, 24993, 16810, (178, 89, 165, 97, 10, 181, 213, 117 ));
@@ -982,6 +991,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.ApplicationModel.Wallet.IWalletItemCustomProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletVerbFactory : aliased constant Windows.IID := (1979787121, 48728, 19806, (131, 237, 88, 177, 102, 156, 122, 217 ));
@@ -995,6 +1005,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.ApplicationModel.Wallet.IWalletVerb
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletItemFactory : aliased constant Windows.IID := (1407349872, 20235, 19006, (153, 229, 11, 187, 30, 171, 56, 212 ));
@@ -1009,6 +1020,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.ApplicationModel.Wallet.IWalletItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWalletBarcodeFactory : aliased constant Windows.IID := (806449505, 60828, 18078, (187, 253, 48, 108, 149, 234, 113, 8 ));
@@ -1031,6 +1043,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.ApplicationModel.Wallet.IWalletBarcode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWalletItem : aliased constant Windows.IID := (2388975024, 59996, 21907, (161, 243, 11, 130, 9, 223, 57, 5 ));
@@ -1057,6 +1070,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.ApplicationModel.Wallet.IWalletItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWalletItemStore : aliased constant Windows.IID := (2523198394, 73, 23743, (132, 95, 143, 11, 202, 210, 177, 76 ));
@@ -1083,6 +1097,7 @@ package Windows.ApplicationModel.Wallet is
       ; RetVal : access Windows.ApplicationModel.Wallet.IWalletItemStore
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1092,7 +1107,6 @@ package Windows.ApplicationModel.Wallet is
    IID_AsyncOperationCompletedHandler_IWalletItem : aliased constant Windows.IID := (2293249183, 20541, 22406, (162, 103, 85, 187, 55, 168, 161, 177 ));
    
    type AsyncOperationCompletedHandler_IWalletItem_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Wallet.IAsyncOperation_IWalletItem ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWalletItem'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWalletItem_Interface
@@ -1106,7 +1120,6 @@ package Windows.ApplicationModel.Wallet is
    IID_TypedEventHandler_IWalletItemStore2_add_ItemsChanged : aliased constant Windows.IID := (133992580, 40609, 21765, (137, 204, 77, 117, 71, 25, 245, 130 ));
    
    type TypedEventHandler_IWalletItemStore2_add_ItemsChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Wallet.IWalletItemStore ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWalletItemStore2_add_ItemsChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWalletItemStore2_add_ItemsChanged_Interface
@@ -1120,7 +1133,6 @@ package Windows.ApplicationModel.Wallet is
    IID_AsyncOperationCompletedHandler_IWalletItemStore : aliased constant Windows.IID := (1395955550, 8282, 23404, (150, 253, 137, 111, 185, 57, 73, 189 ));
    
    type AsyncOperationCompletedHandler_IWalletItemStore_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.Wallet.IAsyncOperation_IWalletItemStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWalletItemStore'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWalletItemStore_Interface
@@ -1134,7 +1146,6 @@ package Windows.ApplicationModel.Wallet is
    ------------------------------------------------------------------------
    
    subtype WalletBarcode is Windows.ApplicationModel.Wallet.IWalletBarcode;
-   
    function CreateWalletBarcode
    (
       symbology : Windows.ApplicationModel.Wallet.WalletBarcodeSymbology
@@ -1148,6 +1159,7 @@ package Windows.ApplicationModel.Wallet is
    )
    return Windows.ApplicationModel.Wallet.IWalletBarcode;
    
+   
    subtype WalletTransaction is Windows.ApplicationModel.Wallet.IWalletTransaction;
    
    function CreateWalletTransaction return Windows.ApplicationModel.Wallet.IWalletTransaction;
@@ -1157,7 +1169,6 @@ package Windows.ApplicationModel.Wallet is
    function CreateWalletRelevantLocation return Windows.ApplicationModel.Wallet.IWalletRelevantLocation;
    
    subtype WalletItemCustomProperty is Windows.ApplicationModel.Wallet.IWalletItemCustomProperty;
-   
    function CreateWalletItemCustomProperty
    (
       name : Windows.String
@@ -1165,16 +1176,16 @@ package Windows.ApplicationModel.Wallet is
    )
    return Windows.ApplicationModel.Wallet.IWalletItemCustomProperty;
    
-   subtype WalletVerb is Windows.ApplicationModel.Wallet.IWalletVerb;
    
+   subtype WalletVerb is Windows.ApplicationModel.Wallet.IWalletVerb;
    function CreateWalletVerb
    (
       name : Windows.String
    )
    return Windows.ApplicationModel.Wallet.IWalletVerb;
    
-   subtype WalletItem is Windows.ApplicationModel.Wallet.IWalletItem;
    
+   subtype WalletItem is Windows.ApplicationModel.Wallet.IWalletItem;
    function CreateWalletItem
    (
       kind : Windows.ApplicationModel.Wallet.WalletItemKind
@@ -1182,14 +1193,15 @@ package Windows.ApplicationModel.Wallet is
    )
    return Windows.ApplicationModel.Wallet.IWalletItem;
    
+   
    subtype WalletItemStore is Windows.ApplicationModel.Wallet.IWalletItemStore;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function RequestStoreAsync
    return Windows.ApplicationModel.Wallet.IAsyncOperation_IWalletItemStore;
+   
 
 end;

@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.Search is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISearchPane_add_VisibilityChanged_Interface
@@ -98,7 +97,6 @@ package body Windows.ApplicationModel.Search is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateLocalContentSuggestionSettings return Windows.ApplicationModel.Search.ILocalContentSuggestionSettings is
       Hr            : Windows.HResult := S_OK;

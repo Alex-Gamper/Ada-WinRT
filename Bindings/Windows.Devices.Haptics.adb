@@ -27,7 +27,6 @@ package body Windows.Devices.Haptics is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_VibrationAccessStatus_Interface
@@ -58,7 +57,6 @@ package body Windows.Devices.Haptics is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -66,7 +64,6 @@ package body Windows.Devices.Haptics is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Click
    return Windows.UInt16 is
@@ -240,5 +237,6 @@ package body Windows.Devices.Haptics is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

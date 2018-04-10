@@ -153,6 +153,7 @@ package Windows.Devices.Custom is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIOControlCode : aliased constant Windows.IID := (244668903, 24776, 17269, (167, 97, 127, 136, 8, 6, 108, 96 ));
@@ -193,6 +194,7 @@ package Windows.Devices.Custom is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIOControlCodeFactory : aliased constant Windows.IID := (2238348528, 19473, 17582, (175, 198, 184, 212, 162, 18, 120, 143 ));
@@ -209,6 +211,7 @@ package Windows.Devices.Custom is
       ; RetVal : access Windows.Devices.Custom.IIOControlCode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomDeviceStatics : aliased constant Windows.IID := (3357672210, 61260, 18097, (165, 142, 238, 179, 8, 220, 137, 23 ));
@@ -232,6 +235,7 @@ package Windows.Devices.Custom is
       ; RetVal : access Windows.Devices.Custom.IAsyncOperation_ICustomDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICustomDevice : aliased constant Windows.IID := (3710919967, 50315, 17341, (188, 177, 222, 200, 143, 21, 20, 62 ));
@@ -271,6 +275,7 @@ package Windows.Devices.Custom is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ICustomDevice : aliased constant Windows.IID := (711148714, 1384, 21646, (161, 162, 182, 187, 69, 29, 34, 140 ));
@@ -297,6 +302,7 @@ package Windows.Devices.Custom is
       ; RetVal : access Windows.Devices.Custom.ICustomDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -306,7 +312,6 @@ package Windows.Devices.Custom is
    IID_AsyncOperationCompletedHandler_ICustomDevice : aliased constant Windows.IID := (534591920, 57573, 23641, (178, 125, 165, 73, 177, 7, 92, 233 ));
    
    type AsyncOperationCompletedHandler_ICustomDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Custom.IAsyncOperation_ICustomDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICustomDevice'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICustomDevice_Interface
@@ -320,7 +325,6 @@ package Windows.Devices.Custom is
    ------------------------------------------------------------------------
    
    subtype IOControlCode is Windows.Devices.Custom.IIOControlCode;
-   
    function CreateIOControlCode
    (
       deviceType : Windows.UInt16
@@ -330,12 +334,12 @@ package Windows.Devices.Custom is
    )
    return Windows.Devices.Custom.IIOControlCode;
    
+   
    subtype CustomDevice is Windows.Devices.Custom.ICustomDevice;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Unknown
    return Windows.UInt16;
@@ -353,5 +357,6 @@ package Windows.Devices.Custom is
       ; sharingMode : Windows.Devices.Custom.DeviceSharingMode
    )
    return Windows.Devices.Custom.IAsyncOperation_ICustomDevice;
+   
 
 end;

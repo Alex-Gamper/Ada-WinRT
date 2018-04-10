@@ -29,7 +29,6 @@ package body Windows.Management.Policies is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_INamedPolicyData_add_Changed_Interface
@@ -47,7 +46,6 @@ package body Windows.Management.Policies is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -55,7 +53,6 @@ package body Windows.Management.Policies is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetPolicyFromPath
    (
@@ -99,5 +96,6 @@ package body Windows.Management.Policies is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

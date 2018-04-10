@@ -136,6 +136,7 @@ package Windows.Web.Http.Filters is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCacheControl : aliased constant Windows.IID := (3346930868, 15594, 20149, (172, 133, 4, 225, 134, 230, 58, 183 ));
@@ -169,6 +170,7 @@ package Windows.Web.Http.Filters is
       ; value : Windows.Web.Http.Filters.HttpCacheWriteBehavior
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpServerCustomValidationRequestedEventArgs : aliased constant Windows.IID := (828767794, 59357, 18615, (163, 97, 147, 156, 117, 14, 99, 204 ));
@@ -222,6 +224,7 @@ package Windows.Web.Http.Filters is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpBaseProtocolFilter : aliased constant Windows.IID := (1908972297, 57649, 19284, (165, 60, 235, 67, 255, 55, 233, 187 ));
@@ -360,6 +363,7 @@ package Windows.Web.Http.Filters is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpBaseProtocolFilter2 : aliased constant Windows.IID := (784531475, 37927, 18688, (160, 23, 250, 125, 163, 181, 201, 174 ));
@@ -379,6 +383,7 @@ package Windows.Web.Http.Filters is
       ; value : Windows.Web.Http.HttpVersion
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpBaseProtocolFilter3 : aliased constant Windows.IID := (3560918348, 48450, 17326, (135, 23, 173, 44, 143, 75, 41, 55 ));
@@ -398,6 +403,7 @@ package Windows.Web.Http.Filters is
       ; value : Windows.Web.Http.Filters.HttpCookieUsageBehavior
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpBaseProtocolFilter4 : aliased constant Windows.IID := (2682481871, 10627, 18579, (148, 31, 235, 81, 140, 168, 206, 249 ));
@@ -424,6 +430,7 @@ package Windows.Web.Http.Filters is
       This       : access IHttpBaseProtocolFilter4_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -433,7 +440,6 @@ package Windows.Web.Http.Filters is
    IID_TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested : aliased constant Windows.IID := (3976356038, 16882, 23044, (154, 139, 41, 48, 215, 255, 138, 158 ));
    
    type TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested_Interface(Callback : access procedure (sender : Windows.Web.Http.Filters.IHttpBaseProtocolFilter ; args : Windows.Web.Http.Filters.IHttpServerCustomValidationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested_Interface

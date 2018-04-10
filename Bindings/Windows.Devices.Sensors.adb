@@ -28,7 +28,6 @@ package body Windows.Devices.Sensors is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAccelerometer_Interface
@@ -358,7 +357,6 @@ package body Windows.Devices.Sensors is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       sensor : Windows.Devices.Sensors.IPedometer
@@ -407,7 +405,6 @@ package body Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDefaultWithAccelerometerReadingType
    (
@@ -1286,5 +1283,6 @@ package body Windows.Devices.Sensors is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -32,7 +32,6 @@ package body Windows.UI.StartScreen is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IJumpList_Interface
@@ -63,7 +62,6 @@ package body Windows.UI.StartScreen is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateSecondaryTile return Windows.UI.StartScreen.ISecondaryTile is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.StartScreen.SecondaryTile");
@@ -88,7 +86,6 @@ package body Windows.UI.StartScreen is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateWithArguments
    (
@@ -272,5 +269,6 @@ package body Windows.UI.StartScreen is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

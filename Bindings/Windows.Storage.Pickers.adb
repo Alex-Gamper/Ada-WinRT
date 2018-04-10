@@ -28,7 +28,6 @@ package body Windows.Storage.Pickers is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateFileOpenPicker return Windows.Storage.Pickers.IFileOpenPicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FileOpenPicker");
@@ -88,7 +87,6 @@ package body Windows.Storage.Pickers is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function ResumePickSingleFileAsync
    return Windows.Storage.IAsyncOperation_IStorageFile is
       Hr            : Windows.HRESULT := S_OK;
@@ -105,5 +103,6 @@ package body Windows.Storage.Pickers is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

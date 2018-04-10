@@ -30,7 +30,6 @@ package body Windows.UI.Xaml.Navigation is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access LoadCompletedEventHandler_Interface
@@ -100,7 +99,6 @@ package body Windows.UI.Xaml.Navigation is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       sourcePageType : Windows.UI.Xaml.Interop.TypeName
@@ -131,7 +129,6 @@ package body Windows.UI.Xaml.Navigation is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_SourcePageTypeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -148,5 +145,6 @@ package body Windows.UI.Xaml.Navigation is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

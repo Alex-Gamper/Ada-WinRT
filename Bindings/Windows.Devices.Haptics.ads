@@ -157,6 +157,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISimpleHapticsControllerFeedback : aliased constant Windows.IID := (1029144312, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -176,6 +177,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISimpleHapticsController : aliased constant Windows.IID := (1029144313, 19694, 4582, (181, 53, 0, 27, 220, 6, 171, 59 ));
@@ -263,6 +265,7 @@ package Windows.Devices.Haptics is
       ; replayPauseInterval : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVibrationDeviceStatics : aliased constant Windows.IID := (1407380973, 8848, 19145, (142, 179, 26, 132, 18, 46, 183, 28 ));
@@ -304,6 +307,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVibrationDevice : aliased constant Windows.IID := (1089608254, 34884, 18431, (179, 18, 6, 24, 90, 56, 68, 218 ));
@@ -323,6 +327,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.Devices.Haptics.ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISimpleHapticsControllerFeedback : aliased constant Windows.IID := (3084031958, 38502, 23710, (157, 204, 92, 56, 46, 174, 103, 80 ));
@@ -357,6 +362,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISimpleHapticsControllerFeedback : aliased constant Windows.IID := (2291441887, 13232, 22448, (170, 26, 146, 85, 238, 231, 45, 213 ));
@@ -369,6 +375,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.Devices.Haptics.IIterator_ISimpleHapticsControllerFeedback
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISimpleHapticsControllerFeedback : aliased constant Windows.IID := (1375030020, 48029, 23675, (143, 95, 103, 248, 202, 244, 176, 3 ));
@@ -407,6 +414,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_VibrationAccessStatus : aliased constant Windows.IID := (124462609, 22036, 21925, (156, 88, 249, 209, 122, 143, 11, 121 ));
@@ -433,6 +441,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.Devices.Haptics.VibrationAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IVibrationDevice : aliased constant Windows.IID := (1142502548, 58161, 20682, (187, 97, 106, 113, 189, 155, 1, 196 ));
@@ -459,6 +468,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.Devices.Haptics.IVibrationDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISimpleHapticsController : aliased constant Windows.IID := (1011882916, 60836, 21048, (189, 183, 209, 11, 163, 80, 205, 131 ));
@@ -493,6 +503,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISimpleHapticsController : aliased constant Windows.IID := (3037570706, 18987, 23690, (142, 20, 4, 57, 192, 177, 219, 164 ));
@@ -505,6 +516,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.Devices.Haptics.IIterator_ISimpleHapticsController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISimpleHapticsController : aliased constant Windows.IID := (1402007582, 50945, 21378, (151, 204, 148, 234, 172, 75, 108, 191 ));
@@ -543,6 +555,7 @@ package Windows.Devices.Haptics is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -552,7 +565,6 @@ package Windows.Devices.Haptics is
    IID_AsyncOperationCompletedHandler_VibrationAccessStatus : aliased constant Windows.IID := (2743818715, 20209, 23506, (137, 239, 241, 217, 241, 250, 202, 150 ));
    
    type AsyncOperationCompletedHandler_VibrationAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Haptics.IAsyncOperation_VibrationAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_VibrationAccessStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_VibrationAccessStatus_Interface
@@ -566,7 +578,6 @@ package Windows.Devices.Haptics is
    IID_AsyncOperationCompletedHandler_IVibrationDevice : aliased constant Windows.IID := (1310892341, 62874, 21613, (159, 207, 130, 222, 184, 51, 217, 104 ));
    
    type AsyncOperationCompletedHandler_IVibrationDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Haptics.IAsyncOperation_IVibrationDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVibrationDevice'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVibrationDevice_Interface
@@ -586,7 +597,6 @@ package Windows.Devices.Haptics is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Click
    return Windows.UInt16;
@@ -620,5 +630,6 @@ package Windows.Devices.Haptics is
    
    function FindAllAsync
    return Windows.Address;
+   
 
 end;

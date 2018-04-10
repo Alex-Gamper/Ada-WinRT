@@ -29,7 +29,6 @@ package body Windows.Security.Cryptography.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICryptographicKey_Interface
@@ -47,7 +46,6 @@ package body Windows.Security.Cryptography.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -55,7 +53,6 @@ package body Windows.Security.Cryptography.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function BuildForCapi1Kdf
    (
@@ -2538,5 +2535,6 @@ package body Windows.Security.Cryptography.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

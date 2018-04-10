@@ -75,6 +75,7 @@ package Windows.UI.Shell is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdaptiveCardBuilderStatics : aliased constant Windows.IID := (1986891528, 54270, 17223, (160, 188, 185, 234, 154, 109, 194, 142 ));
@@ -88,6 +89,7 @@ package Windows.UI.Shell is
       ; RetVal : access Windows.UI.Shell.IAdaptiveCard
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITaskbarManager : aliased constant Windows.IID := (2269710873, 6873, 18932, (178, 232, 134, 115, 141, 197, 172, 64 ));
@@ -137,6 +139,7 @@ package Windows.UI.Shell is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITaskbarManagerStatics : aliased constant Windows.IID := (3677530996, 56914, 20454, (183, 182, 149, 255, 159, 131, 149, 223 ));
@@ -149,6 +152,7 @@ package Windows.UI.Shell is
       ; RetVal : access Windows.UI.Shell.ITaskbarManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -159,7 +163,6 @@ package Windows.UI.Shell is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateAdaptiveCardFromJson
    (
       value : Windows.String
@@ -168,5 +171,6 @@ package Windows.UI.Shell is
    
    function GetDefault
    return Windows.UI.Shell.ITaskbarManager;
+   
 
 end;

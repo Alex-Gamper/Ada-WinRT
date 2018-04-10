@@ -30,7 +30,6 @@ package body Windows.Media.MediaProperties is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMediaEncodingProfile_Interface
@@ -47,7 +46,6 @@ package body Windows.Media.MediaProperties is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateMediaPropertySet return Windows.Media.MediaProperties.IMap_Guid_Object is
       Hr            : Windows.HResult := S_OK;
@@ -158,7 +156,6 @@ package body Windows.Media.MediaProperties is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateAlac
    (
@@ -1751,5 +1748,6 @@ package body Windows.Media.MediaProperties is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

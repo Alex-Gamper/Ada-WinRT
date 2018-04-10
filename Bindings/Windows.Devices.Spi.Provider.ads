@@ -107,6 +107,7 @@ package Windows.Devices.Spi.Provider is
       ; RetVal : access Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProviderSpiConnectionSettings : aliased constant Windows.IID := (4127409488, 42306, 20160, (150, 1, 164, 221, 104, 248, 105, 123 ));
@@ -182,6 +183,7 @@ package Windows.Devices.Spi.Provider is
       ; value : Windows.Devices.Spi.Provider.ProviderSpiSharingMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpiControllerProvider : aliased constant Windows.IID := (3244844292, 718, 16934, (163, 133, 79, 17, 251, 4, 180, 27 ));
@@ -195,6 +197,7 @@ package Windows.Devices.Spi.Provider is
       ; RetVal : access Windows.Devices.Spi.Provider.ISpiDeviceProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpiProvider : aliased constant Windows.IID := (2528403938, 30676, 18638, (170, 160, 117, 113, 90, 131, 98, 207 ));
@@ -207,6 +210,7 @@ package Windows.Devices.Spi.Provider is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpiDeviceProvider : aliased constant Windows.IID := (219952195, 12363, 16476, (180, 247, 245, 171, 16, 116, 70, 30 ));
@@ -256,17 +260,18 @@ package Windows.Devices.Spi.Provider is
       ; readBuffer : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype ProviderSpiConnectionSettings is Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings;
-   
    function Create
    (
       chipSelectLine : Windows.Int32
    )
    return Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings;
+   
    
    
    ------------------------------------------------------------------------

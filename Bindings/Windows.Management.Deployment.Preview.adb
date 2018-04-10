@@ -27,7 +27,6 @@ package body Windows.Management.Deployment.Preview is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.Management.Deployment.Preview is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FindInstalledApp
    (
@@ -56,5 +54,6 @@ package body Windows.Management.Deployment.Preview is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

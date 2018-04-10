@@ -80,6 +80,7 @@ package Windows.System.Power.Diagnostics is
       This       : access IBackgroundEnergyDiagnosticsStatics_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IForegroundEnergyDiagnosticsStatics : aliased constant Windows.IID := (600443159, 52487, 17929, (190, 21, 143, 232, 148, 197, 228, 30 ));
@@ -105,6 +106,7 @@ package Windows.System.Power.Diagnostics is
       This       : access IForegroundEnergyDiagnosticsStatics_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -113,7 +115,6 @@ package Windows.System.Power.Diagnostics is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_DeviceSpecificConversionFactor
    return Windows.Double;
@@ -132,5 +133,6 @@ package Windows.System.Power.Diagnostics is
    
    procedure ResetTotalEnergyUsage_ForegroundEnergyDiagnostics
    ;
+   
 
 end;

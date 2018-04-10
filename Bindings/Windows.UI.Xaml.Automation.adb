@@ -29,7 +29,6 @@ package body Windows.UI.Xaml.Automation is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       type_x : Windows.UI.Xaml.Automation.AnnotationType
@@ -78,7 +77,6 @@ package body Windows.UI.Xaml.Automation is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AnnotationTypeIdProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty is
@@ -3276,5 +3274,6 @@ package body Windows.UI.Xaml.Automation is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

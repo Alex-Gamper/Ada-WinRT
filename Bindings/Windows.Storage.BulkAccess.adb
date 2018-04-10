@@ -31,7 +31,6 @@ package body Windows.Storage.BulkAccess is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface
@@ -61,7 +60,6 @@ package body Windows.Storage.BulkAccess is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateWithMode
    (

@@ -29,7 +29,6 @@ package body Windows.Media.SpeechRecognition is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISpeechRecognitionCompilationResult_Interface
@@ -124,7 +123,6 @@ package body Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -279,7 +277,6 @@ package body Windows.Media.SpeechRecognition is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_SystemSpeechLanguage
    return Windows.Globalization.ILanguage is
       Hr            : Windows.HRESULT := S_OK;
@@ -387,5 +384,6 @@ package body Windows.Media.SpeechRecognition is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

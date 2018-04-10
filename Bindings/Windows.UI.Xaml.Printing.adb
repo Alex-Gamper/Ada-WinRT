@@ -29,7 +29,6 @@ package body Windows.UI.Xaml.Printing is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AddPagesEventHandler_Interface
@@ -72,7 +71,6 @@ package body Windows.UI.Xaml.Printing is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateAddPagesEventArgs return Windows.UI.Xaml.Printing.IAddPagesEventArgs is
       Hr            : Windows.HResult := S_OK;
@@ -359,7 +357,6 @@ package body Windows.UI.Xaml.Printing is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_DocumentSourceProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -397,5 +394,6 @@ package body Windows.UI.Xaml.Printing is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

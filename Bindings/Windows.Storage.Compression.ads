@@ -108,6 +108,7 @@ package Windows.Storage.Compression is
       ; RetVal : access Windows.Storage.Streams.IOutputStream
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDecompressor : aliased constant Windows.IID := (3095658054, 54922, 19595, (173, 160, 78, 232, 19, 252, 82, 131 ));
@@ -120,6 +121,7 @@ package Windows.Storage.Compression is
       ; RetVal : access Windows.Storage.Streams.IInputStream
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICompressorFactory : aliased constant Windows.IID := (1597871780, 11515, 17452, (168, 186, 215, 209, 27, 3, 157, 160 ));
@@ -143,6 +145,7 @@ package Windows.Storage.Compression is
       ; RetVal : access Windows.Storage.Compression.ICompressor
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDecompressorFactory : aliased constant Windows.IID := (1396171346, 7586, 17121, (136, 52, 3, 121, 210, 141, 116, 47 ));
@@ -156,6 +159,7 @@ package Windows.Storage.Compression is
       ; RetVal : access Windows.Storage.Compression.IDecompressor
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -174,6 +178,7 @@ package Windows.Storage.Compression is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -187,12 +192,12 @@ package Windows.Storage.Compression is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype Compressor is Windows.Storage.Compression.ICompressor;
-   
    function CreateCompressor
    (
       underlyingStream : Windows.Storage.Streams.IOutputStream
@@ -207,13 +212,14 @@ package Windows.Storage.Compression is
    )
    return Windows.Storage.Compression.ICompressor;
    
-   subtype Decompressor is Windows.Storage.Compression.IDecompressor;
    
+   subtype Decompressor is Windows.Storage.Compression.IDecompressor;
    function CreateDecompressor
    (
       underlyingStream : Windows.Storage.Streams.IInputStream
    )
    return Windows.Storage.Compression.IDecompressor;
+   
    
    
    ------------------------------------------------------------------------

@@ -129,6 +129,7 @@ package Windows.UI.Xaml.Hosting is
    IID_IElementCompositionPreview : aliased constant Windows.IID := (3069290102, 53222, 18092, (172, 246, 196, 104, 123, 182, 94, 96 ));
    
    type IElementCompositionPreview_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IElementCompositionPreviewStatics : aliased constant Windows.IID := (147401528, 60569, 19541, (188, 133, 161, 193, 128, 178, 118, 70 ));
@@ -166,6 +167,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.UI.Composition.ICompositionPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IElementCompositionPreviewStatics2 : aliased constant Windows.IID := (605327291, 9174, 20279, (186, 12, 7, 51, 231, 153, 114, 45 ));
@@ -203,6 +205,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.UI.Composition.ICompositionPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlUIPresenterHost : aliased constant Windows.IID := (2868610253, 40813, 20352, (172, 44, 14, 108, 185, 243, 22, 89 ));
@@ -216,6 +219,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlUIPresenterHost2 : aliased constant Windows.IID := (1633244786, 31908, 18977, (181, 106, 136, 244, 129, 35, 136, 202 ));
@@ -228,6 +232,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlUIPresenterHost3 : aliased constant Windows.IID := (2973930175, 29472, 16827, (159, 38, 77, 111, 211, 77, 180, 90 ));
@@ -243,6 +248,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDesignerAppExitedEventArgs : aliased constant Windows.IID := (4138387562, 3245, 16652, (143, 98, 220, 41, 54, 21, 28, 116 ));
@@ -255,6 +261,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDesignerAppManager : aliased constant Windows.IID := (2787585194, 54726, 16587, (171, 217, 39, 186, 67, 131, 27, 183 ));
@@ -301,6 +308,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDesignerAppManagerFactory : aliased constant Windows.IID := (2409456443, 4710, 19470, (132, 153, 13, 184, 91, 189, 76, 67 ));
@@ -314,6 +322,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.UI.Xaml.Hosting.IDesignerAppManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDesignerAppView : aliased constant Windows.IID := (1551334634, 56689, 19076, (165, 111, 218, 203, 75, 20, 112, 111 ));
@@ -356,6 +365,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlUIPresenter : aliased constant Windows.IID := (2803143754, 5657, 20422, (179, 27, 137, 81, 46, 240, 34, 162 ));
@@ -423,6 +433,7 @@ package Windows.UI.Xaml.Hosting is
       This       : access IXamlUIPresenter_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlUIPresenterStatics : aliased constant Windows.IID := (1911220936, 17889, 16786, (133, 170, 58, 66, 46, 221, 35, 207 ));
@@ -455,6 +466,7 @@ package Windows.UI.Xaml.Hosting is
       This       : access IXamlUIPresenterStatics_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IXamlUIPresenterStatics2 : aliased constant Windows.IID := (1550543058, 53020, 20307, (191, 9, 106, 116, 95, 122, 151, 3 ));
@@ -485,6 +497,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IDesignerAppView : aliased constant Windows.IID := (1237763672, 7122, 22558, (163, 133, 110, 179, 253, 155, 254, 227 ));
@@ -511,6 +524,7 @@ package Windows.UI.Xaml.Hosting is
       ; RetVal : access Windows.UI.Xaml.Hosting.IDesignerAppView
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -520,7 +534,6 @@ package Windows.UI.Xaml.Hosting is
    IID_TypedEventHandler_IDesignerAppManager_add_DesignerAppExited : aliased constant Windows.IID := (930270872, 39840, 20555, (138, 13, 54, 183, 248, 22, 161, 194 ));
    
    type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Hosting.IDesignerAppManager ; args : Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDesignerAppManager_add_DesignerAppExited'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface
@@ -534,7 +547,6 @@ package Windows.UI.Xaml.Hosting is
    IID_AsyncOperationCompletedHandler_IDesignerAppView : aliased constant Windows.IID := (2934646574, 43028, 22913, (162, 195, 98, 62, 34, 110, 74, 113 ));
    
    type AsyncOperationCompletedHandler_IDesignerAppView_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Hosting.IAsyncOperation_IDesignerAppView ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDesignerAppView'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDesignerAppView_Interface
@@ -550,12 +562,12 @@ package Windows.UI.Xaml.Hosting is
    subtype ElementCompositionPreview is Windows.UI.Xaml.Hosting.IElementCompositionPreview;
    subtype DesignerAppExitedEventArgs is Windows.UI.Xaml.Hosting.IDesignerAppExitedEventArgs;
    subtype DesignerAppManager is Windows.UI.Xaml.Hosting.IDesignerAppManager;
-   
    function Create
    (
       appUserModelId : Windows.String
    )
    return Windows.UI.Xaml.Hosting.IDesignerAppManager;
+   
    
    subtype DesignerAppView is Windows.UI.Xaml.Hosting.IDesignerAppView;
    subtype XamlUIPresenter is Windows.UI.Xaml.Hosting.IXamlUIPresenter;
@@ -563,7 +575,6 @@ package Windows.UI.Xaml.Hosting is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetElementVisual
    (
@@ -655,5 +666,6 @@ package Windows.UI.Xaml.Hosting is
       ; chosenPlacement : access Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
    )
    return Windows.Foundation.Rect;
+   
 
 end;

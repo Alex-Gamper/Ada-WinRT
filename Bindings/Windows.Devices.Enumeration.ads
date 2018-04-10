@@ -505,6 +505,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePickerAppearance : aliased constant Windows.IID := (3868857030, 58919, 20184, (155, 108, 70, 10, 244, 69, 229, 109 ));
@@ -608,6 +609,7 @@ package Windows.Devices.Enumeration is
       ; value : Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceSelectedEventArgs : aliased constant Windows.IID := (647944926, 7471, 18752, (132, 2, 65, 86, 184, 29, 60, 119 ));
@@ -620,6 +622,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceDisconnectButtonClickedEventArgs : aliased constant Windows.IID := (2386867565, 63746, 18944, (181, 54, 243, 121, 146, 230, 162, 167 ));
@@ -632,6 +635,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePickerFilter : aliased constant Windows.IID := (2447086242, 22475, 18673, (155, 89, 165, 155, 122, 31, 2, 162 ));
@@ -651,6 +655,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePicker : aliased constant Windows.IID := (2224650914, 842, 17472, (136, 19, 125, 11, 212, 121, 191, 90 ));
@@ -769,6 +774,7 @@ package Windows.Devices.Enumeration is
       ; options : Windows.Devices.Enumeration.DevicePickerDisplayStatusOptions
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEnclosureLocation : aliased constant Windows.IID := (1110706727, 22544, 17820, (170, 187, 198, 94, 31, 129, 62, 207 ));
@@ -795,6 +801,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.Panel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEnclosureLocation2 : aliased constant Windows.IID := (679844187, 57469, 18525, (138, 158, 189, 242, 154, 239, 79, 102 ));
@@ -807,6 +814,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformationUpdate : aliased constant Windows.IID := (2402374405, 55666, 17591, (163, 126, 158, 130, 44, 120, 33, 59 ));
@@ -826,6 +834,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformationUpdate2 : aliased constant Windows.IID := (1570575500, 43123, 18526, (186, 166, 170, 98, 7, 136, 227, 204 ));
@@ -838,6 +847,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.DeviceInformationKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_DeviceInformation : aliased constant Windows.IID := (3782240399, 13461, 23542, (170, 181, 156, 172, 23, 224, 241, 15 ));
@@ -876,6 +886,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_DeviceInformation : aliased constant Windows.IID := (3718220381, 60568, 24395, (163, 234, 156, 139, 90, 213, 60, 75 ));
@@ -888,6 +899,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceWatcher : aliased constant Windows.IID := (3387603325, 36715, 20374, (169, 244, 171, 200, 20, 226, 34, 113 ));
@@ -987,6 +999,7 @@ package Windows.Devices.Enumeration is
       This       : access IDeviceWatcher_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceWatcher2 : aliased constant Windows.IID := (4278732142, 60692, 18921, (154, 105, 129, 23, 197, 74, 233, 113 ));
@@ -1000,6 +1013,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.ApplicationModel.Background.IDeviceWatcherTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformationStatics : aliased constant Windows.IID := (3246329870, 14918, 19064, (128, 19, 118, 157, 201, 185, 115, 144 ));
@@ -1086,6 +1100,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceWatcher
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformationStatics2 : aliased constant Windows.IID := (1228623668, 43087, 17917, (145, 103, 21, 209, 203, 27, 209, 249 ));
@@ -1129,6 +1144,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceWatcher
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformation : aliased constant Windows.IID := (2879454101, 17304, 18589, (142, 68, 230, 19, 9, 39, 1, 31 ));
@@ -1197,6 +1213,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePairingResult : aliased constant Windows.IID := (120259263, 56725, 16421, (155, 55, 222, 81, 173, 186, 55, 183 ));
@@ -1216,6 +1233,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.DevicePairingProtectionLevel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceUnpairingResult : aliased constant Windows.IID := (1727285971, 31193, 17483, (146, 207, 169, 46, 247, 37, 113, 199 ));
@@ -1228,11 +1246,13 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.DeviceUnpairingResultStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePairingSettings : aliased constant Windows.IID := (1210888828, 33723, 16910, (190, 81, 102, 2, 178, 34, 222, 84 ));
    
    type IDevicePairingSettings_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePairingRequestedEventArgs : aliased constant Windows.IID := (4145544278, 56939, 18559, (131, 118, 1, 128, 172, 166, 153, 99 ));
@@ -1279,6 +1299,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformationCustomPairing : aliased constant Windows.IID := (2232650754, 20198, 18708, (131, 112, 16, 122, 57, 20, 76, 14 ));
@@ -1326,6 +1347,7 @@ package Windows.Devices.Enumeration is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformationPairing : aliased constant Windows.IID := (742877685, 63108, 16597, (132, 105, 232, 219, 170, 183, 4, 133 ));
@@ -1360,6 +1382,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IAsyncOperation_IDevicePairingResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformationPairing2 : aliased constant Windows.IID := (4135981821, 2798, 17192, (133, 204, 28, 116, 43, 177, 121, 13 ));
@@ -1395,6 +1418,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IAsyncOperation_IDeviceUnpairingResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformationPairingStatics : aliased constant Windows.IID := (3910517768, 14036, 18849, (191, 19, 81, 65, 115, 121, 155, 107 ));
@@ -1408,6 +1432,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceInformation2 : aliased constant Windows.IID := (4048987704, 31127, 18649, (161, 12, 38, 157, 70, 83, 63, 72 ));
@@ -1427,6 +1452,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformationPairing
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceAccessChangedEventArgs : aliased constant Windows.IID := (3738831820, 20381, 20312, (157, 186, 169, 188, 128, 4, 8, 213 ));
@@ -1439,6 +1465,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.DeviceAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceAccessChangedEventArgs2 : aliased constant Windows.IID := (2186424930, 37707, 19248, (161, 120, 173, 195, 159, 47, 43, 227 ));
@@ -1451,6 +1478,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceAccessInformation : aliased constant Windows.IID := (195730035, 28133, 18709, (141, 221, 154, 5, 84, 166, 245, 69 ));
@@ -1478,6 +1506,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.DeviceAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceAccessInformationStatics : aliased constant Windows.IID := (1464587219, 24368, 17869, (138, 148, 114, 79, 229, 151, 48, 132 ));
@@ -1507,6 +1536,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceAccessInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceWatcherEvent : aliased constant Windows.IID := (1957338123, 7613, 18429, (182, 53, 60, 197, 86, 208, 255, 139 ));
@@ -1533,6 +1563,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformationUpdate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceWatcherTriggerDetails : aliased constant Windows.IID := (947945753, 19639, 20055, (165, 109, 119, 109, 7, 203, 254, 249 ));
@@ -1545,9 +1576,11 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IVectorView_IDeviceWatcherEvent -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -1558,6 +1591,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -1626,6 +1660,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -1644,6 +1679,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -1657,6 +1693,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_DeviceAccessStatus : aliased constant Windows.IID := (3221996274, 43000, 24383, (128, 209, 40, 8, 239, 107, 202, 16 ));
@@ -1683,6 +1720,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.DeviceAccessStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_DeviceClass : aliased constant Windows.IID := (3279975043, 5142, 22844, (149, 92, 11, 74, 40, 111, 247, 187 ));
@@ -1717,6 +1755,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_DeviceClass : aliased constant Windows.IID := (1205124613, 22769, 21038, (129, 198, 151, 94, 180, 19, 27, 185 ));
@@ -1729,6 +1768,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IIterator_DeviceClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_DeviceClass : aliased constant Windows.IID := (27789975, 48519, 23690, (151, 253, 212, 73, 201, 139, 218, 198 ));
@@ -1767,6 +1807,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_DeviceClass : aliased constant Windows.IID := (3999673655, 45291, 22313, (152, 50, 21, 111, 210, 136, 157, 72 ));
@@ -1861,6 +1902,7 @@ package Windows.Devices.Enumeration is
       ; items : Windows.Devices.Enumeration.DeviceClass_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IDeviceInformation : aliased constant Windows.IID := (133865555, 60207, 23738, (178, 91, 217, 213, 123, 230, 113, 95 ));
@@ -1887,6 +1929,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_DeviceWatcherEventKind : aliased constant Windows.IID := (3411847643, 52438, 20739, (169, 61, 201, 37, 201, 8, 131, 141 ));
@@ -1921,6 +1964,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_DeviceWatcherEventKind : aliased constant Windows.IID := (4030948779, 54259, 24453, (167, 218, 220, 25, 207, 247, 61, 134 ));
@@ -1933,6 +1977,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IIterator_DeviceWatcherEventKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IVectorView_DeviceInformation : aliased constant Windows.IID := (1159201364, 2094, 21108, (178, 231, 172, 5, 23, 244, 77, 7 ));
@@ -1959,6 +2004,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IVectorView_DeviceInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IDevicePairingResult : aliased constant Windows.IID := (268622708, 35144, 22814, (129, 93, 228, 11, 102, 117, 153, 163 ));
@@ -1985,6 +2031,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDevicePairingResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IDeviceUnpairingResult : aliased constant Windows.IID := (733273917, 48510, 24544, (144, 32, 86, 220, 13, 48, 185, 53 ));
@@ -2011,6 +2058,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IDeviceUnpairingResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IDeviceWatcherEvent : aliased constant Windows.IID := (1962399436, 39968, 23481, (186, 206, 178, 255, 163, 134, 135, 249 ));
@@ -2045,6 +2093,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IDeviceWatcherEvent : aliased constant Windows.IID := (3029323857, 60154, 21055, (166, 110, 157, 65, 81, 197, 213, 34 ));
@@ -2057,6 +2106,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.Devices.Enumeration.IIterator_IDeviceWatcherEvent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IDeviceWatcherEvent : aliased constant Windows.IID := (2409188663, 36779, 20934, (161, 224, 201, 63, 104, 162, 14, 240 ));
@@ -2095,6 +2145,7 @@ package Windows.Devices.Enumeration is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2104,7 +2155,6 @@ package Windows.Devices.Enumeration is
    IID_AsyncOperationCompletedHandler_DeviceAccessStatus : aliased constant Windows.IID := (3994373507, 32859, 21480, (132, 105, 144, 113, 80, 54, 208, 19 ));
    
    type AsyncOperationCompletedHandler_DeviceAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_DeviceAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DeviceAccessStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_DeviceAccessStatus_Interface
@@ -2118,7 +2168,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDevicePicker_add_DeviceSelected : aliased constant Windows.IID := (1206160520, 7254, 23384, (150, 162, 142, 129, 61, 37, 7, 122 ));
    
    type TypedEventHandler_IDevicePicker_add_DeviceSelected_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDevicePicker ; args : Windows.Devices.Enumeration.IDeviceSelectedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDevicePicker_add_DeviceSelected'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDevicePicker_add_DeviceSelected_Interface
@@ -2132,7 +2181,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDevicePicker_add_DisconnectButtonClicked : aliased constant Windows.IID := (903676697, 22307, 20588, (136, 150, 26, 40, 184, 43, 231, 152 ));
    
    type TypedEventHandler_IDevicePicker_add_DisconnectButtonClicked_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDevicePicker ; args : Windows.Devices.Enumeration.IDeviceDisconnectButtonClickedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDevicePicker_add_DisconnectButtonClicked'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDevicePicker_add_DisconnectButtonClicked_Interface
@@ -2146,7 +2194,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDevicePicker_add_DevicePickerDismissed : aliased constant Windows.IID := (1657198988, 22510, 23480, (164, 28, 149, 141, 32, 195, 243, 232 ));
    
    type TypedEventHandler_IDevicePicker_add_DevicePickerDismissed_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDevicePicker ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDevicePicker_add_DevicePickerDismissed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDevicePicker_add_DevicePickerDismissed_Interface
@@ -2160,7 +2207,6 @@ package Windows.Devices.Enumeration is
    IID_AsyncOperationCompletedHandler_IDeviceInformation : aliased constant Windows.IID := (3142073842, 31670, 22819, (162, 141, 131, 66, 236, 48, 4, 107 ));
    
    type AsyncOperationCompletedHandler_IDeviceInformation_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDeviceInformation'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDeviceInformation_Interface
@@ -2174,7 +2220,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDeviceWatcher_add_Added : aliased constant Windows.IID := (63283323, 39180, 23817, (176, 184, 87, 52, 234, 163, 130, 34 ));
    
    type TypedEventHandler_IDeviceWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Devices.Enumeration.IDeviceInformation)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDeviceWatcher_add_Added'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDeviceWatcher_add_Added_Interface
@@ -2188,7 +2233,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDeviceWatcher_add_Updated : aliased constant Windows.IID := (2423198292, 31149, 21756, (147, 196, 205, 185, 155, 67, 120, 153 ));
    
    type TypedEventHandler_IDeviceWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Devices.Enumeration.IDeviceInformationUpdate)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDeviceWatcher_add_Updated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDeviceWatcher_add_Updated_Interface
@@ -2202,7 +2246,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDeviceWatcher_add_Removed : aliased constant Windows.IID := (2423198292, 31149, 21756, (147, 196, 205, 185, 155, 67, 120, 153 ));
    
    type TypedEventHandler_IDeviceWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Devices.Enumeration.IDeviceInformationUpdate)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDeviceWatcher_add_Removed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDeviceWatcher_add_Removed_Interface
@@ -2216,7 +2259,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDeviceWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (2452906767, 8180, 21750, (158, 63, 172, 32, 54, 155, 119, 37 ));
    
    type TypedEventHandler_IDeviceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDeviceWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDeviceWatcher_add_EnumerationCompleted_Interface
@@ -2230,7 +2272,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDeviceWatcher_add_Stopped : aliased constant Windows.IID := (2452906767, 8180, 21750, (158, 63, 172, 32, 54, 155, 119, 37 ));
    
    type TypedEventHandler_IDeviceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDeviceWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDeviceWatcher_add_Stopped_Interface
@@ -2244,7 +2285,6 @@ package Windows.Devices.Enumeration is
    IID_AsyncOperationCompletedHandler_IVectorView_DeviceInformation : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_IVectorView_DeviceInformation_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVectorView_DeviceInformation'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVectorView_DeviceInformation_Interface
@@ -2258,7 +2298,6 @@ package Windows.Devices.Enumeration is
    IID_AsyncOperationCompletedHandler_IDevicePairingResult : aliased constant Windows.IID := (2128618623, 24407, 23730, (180, 14, 24, 181, 162, 17, 214, 195 ));
    
    type AsyncOperationCompletedHandler_IDevicePairingResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDevicePairingResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDevicePairingResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDevicePairingResult_Interface
@@ -2272,7 +2311,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDeviceInformationCustomPairing_add_PairingRequested : aliased constant Windows.IID := (4200932127, 16760, 24033, (178, 204, 3, 226, 45, 119, 2, 180 ));
    
    type TypedEventHandler_IDeviceInformationCustomPairing_add_PairingRequested_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceInformationCustomPairing ; args : Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDeviceInformationCustomPairing_add_PairingRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDeviceInformationCustomPairing_add_PairingRequested_Interface
@@ -2286,7 +2324,6 @@ package Windows.Devices.Enumeration is
    IID_AsyncOperationCompletedHandler_IDeviceUnpairingResult : aliased constant Windows.IID := (2612948665, 56109, 20832, (162, 12, 240, 194, 101, 242, 13, 142 ));
    
    type AsyncOperationCompletedHandler_IDeviceUnpairingResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.IAsyncOperation_IDeviceUnpairingResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDeviceUnpairingResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDeviceUnpairingResult_Interface
@@ -2300,7 +2337,6 @@ package Windows.Devices.Enumeration is
    IID_TypedEventHandler_IDeviceAccessInformation_add_AccessChanged : aliased constant Windows.IID := (1282527272, 46995, 23502, (174, 89, 250, 119, 244, 90, 64, 216 ));
    
    type TypedEventHandler_IDeviceAccessInformation_add_AccessChanged_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.IDeviceAccessInformation ; args : Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDeviceAccessInformation_add_AccessChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDeviceAccessInformation_add_AccessChanged_Interface
@@ -2341,7 +2377,6 @@ package Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateFromIdAsync
    (
@@ -2453,5 +2488,6 @@ package Windows.Devices.Enumeration is
       deviceClass : Windows.Devices.Enumeration.DeviceClass
    )
    return Windows.Devices.Enumeration.IDeviceAccessInformation;
+   
 
 end;

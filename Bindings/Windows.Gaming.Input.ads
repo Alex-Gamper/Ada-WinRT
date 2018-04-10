@@ -742,6 +742,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameControllerBatteryInfo : aliased constant Windows.IID := (3706504833, 14691, 19878, (149, 93, 85, 63, 59, 111, 97, 97 ));
@@ -754,6 +755,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Devices.Power.IBatteryReport
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IArcadeStick : aliased constant Windows.IID := (2974438301, 48891, 19585, (128, 81, 21, 236, 243, 177, 48, 54 ));
@@ -774,6 +776,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.ArcadeStickReading
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IArcadeStickStatics : aliased constant Windows.IID := (1547155656, 14257, 19160, (148, 88, 32, 15, 26, 48, 1, 142 ));
@@ -816,6 +819,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IVectorView_IArcadeStick -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IArcadeStickStatics2 : aliased constant Windows.IID := (1387648836, 48006, 17498, (181, 156, 89, 111, 14, 42, 73, 223 ));
@@ -829,6 +833,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IArcadeStick
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlightStick : aliased constant Windows.IID := (3030564892, 47163, 17497, (161, 169, 151, 176, 60, 51, 218, 124 ));
@@ -856,6 +861,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.FlightStickReading
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlightStickStatics : aliased constant Windows.IID := (1427411530, 65228, 17246, (131, 220, 92, 236, 138, 24, 165, 32 ));
@@ -906,6 +912,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IFlightStick
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGamepad : aliased constant Windows.IID := (3162223676, 2665, 14595, (158, 157, 165, 15, 134, 164, 93, 229 ));
@@ -932,6 +939,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.GamepadReading
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGamepad2 : aliased constant Windows.IID := (1008110013, 22805, 16965, (176, 192, 200, 159, 174, 3, 8, 255 ));
@@ -945,6 +953,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.GameControllerButtonLabel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGamepadStatics : aliased constant Windows.IID := (2344412457, 54428, 14825, (149, 96, 228, 125, 222, 150, 183, 200 ));
@@ -987,6 +996,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IVectorView_IGamepad -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGamepadStatics2 : aliased constant Windows.IID := (1114074565, 2134, 18372, (146, 19, 179, 149, 80, 76, 58, 60 ));
@@ -1000,6 +1010,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IGamepad
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHeadset : aliased constant Windows.IID := (1070683887, 26917, 16296, (145, 129, 2, 156, 82, 35, 174, 59 ));
@@ -1019,6 +1030,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRacingWheel : aliased constant Windows.IID := (4115031407, 57606, 19586, (169, 15, 85, 64, 18, 144, 75, 133 ));
@@ -1081,6 +1093,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.RacingWheelReading
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRacingWheelStatics : aliased constant Windows.IID := (985738453, 22555, 18742, (159, 148, 105, 241, 230, 81, 76, 125 ));
@@ -1123,6 +1136,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IVectorView_IRacingWheel -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRacingWheelStatics2 : aliased constant Windows.IID := (3865492650, 60925, 17187, (169, 246, 60, 56, 64, 72, 209, 237 ));
@@ -1136,6 +1150,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IRacingWheel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRawGameController : aliased constant Windows.IID := (2091740561, 42977, 20337, (154, 120, 51, 233, 197, 223, 234, 98 ));
@@ -1209,6 +1224,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.GameControllerSwitchKind
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRawGameController2 : aliased constant Windows.IID := (1136705589, 47987, 18262, (167, 135, 62, 214, 190, 166, 23, 189 ));
@@ -1235,6 +1251,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRawGameControllerStatics : aliased constant Windows.IID := (3951888274, 59738, 19225, (175, 199, 10, 89, 248, 191, 117, 158 ));
@@ -1285,6 +1302,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IRawGameController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUINavigationController : aliased constant Windows.IID := (3853447133, 62734, 19029, (140, 220, 211, 50, 41, 84, 129, 117 ));
@@ -1313,6 +1331,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.GameControllerButtonLabel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUINavigationControllerStatics : aliased constant Windows.IID := (789877514, 63224, 19016, (141, 137, 148, 120, 108, 202, 12, 46 ));
@@ -1355,6 +1374,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IVectorView_IUINavigationController -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUINavigationControllerStatics2 : aliased constant Windows.IID := (3771410659, 45579, 19211, (158, 212, 243, 213, 60, 236, 13, 228 ));
@@ -1368,6 +1388,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IUINavigationController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IArcadeStick : aliased constant Windows.IID := (3540396463, 52381, 21217, (139, 31, 15, 250, 150, 41, 175, 238 ));
@@ -1402,6 +1423,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IArcadeStick : aliased constant Windows.IID := (2474046551, 11685, 21578, (164, 9, 198, 54, 245, 216, 28, 53 ));
@@ -1414,6 +1436,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IIterator_IArcadeStick
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IArcadeStick : aliased constant Windows.IID := (3200962165, 53453, 23196, (132, 95, 114, 240, 133, 80, 60, 223 ));
@@ -1452,6 +1475,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IFlightStick : aliased constant Windows.IID := (4126808345, 16152, 21856, (187, 19, 207, 112, 24, 172, 65, 213 ));
@@ -1486,6 +1510,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IFlightStick : aliased constant Windows.IID := (998228341, 48830, 21231, (163, 233, 221, 167, 94, 161, 172, 252 ));
@@ -1498,6 +1523,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IIterator_IFlightStick
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IFlightStick : aliased constant Windows.IID := (2342323838, 46837, 22831, (169, 10, 215, 44, 61, 152, 212, 218 ));
@@ -1536,6 +1562,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IGamepad : aliased constant Windows.IID := (610744296, 4796, 23652, (175, 82, 6, 219, 75, 19, 250, 47 ));
@@ -1570,6 +1597,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IGamepad : aliased constant Windows.IID := (1192438688, 27415, 23762, (168, 189, 181, 211, 68, 60, 203, 19 ));
@@ -1582,6 +1610,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IIterator_IGamepad
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IGamepad : aliased constant Windows.IID := (3952589673, 2505, 23193, (134, 178, 62, 54, 8, 82, 132, 212 ));
@@ -1620,6 +1649,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IRacingWheel : aliased constant Windows.IID := (601306552, 19766, 21367, (162, 69, 105, 223, 151, 201, 252, 217 ));
@@ -1654,6 +1684,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IRacingWheel : aliased constant Windows.IID := (2591832112, 39559, 21127, (161, 226, 138, 42, 242, 156, 246, 140 ));
@@ -1666,6 +1697,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IIterator_IRacingWheel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IRacingWheel : aliased constant Windows.IID := (356094898, 24658, 22873, (145, 236, 144, 12, 83, 254, 241, 32 ));
@@ -1704,6 +1736,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IRawGameController : aliased constant Windows.IID := (1372358876, 26363, 21994, (154, 27, 170, 220, 215, 28, 192, 142 ));
@@ -1738,6 +1771,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IRawGameController : aliased constant Windows.IID := (2402224332, 62708, 21817, (147, 87, 31, 7, 51, 77, 56, 31 ));
@@ -1750,6 +1784,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IIterator_IRawGameController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IRawGameController : aliased constant Windows.IID := (2006762274, 16576, 21953, (141, 197, 204, 110, 58, 254, 2, 207 ));
@@ -1788,6 +1823,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IUINavigationController : aliased constant Windows.IID := (3238733462, 25763, 21090, (188, 79, 183, 65, 229, 213, 175, 171 ));
@@ -1822,6 +1858,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IUINavigationController : aliased constant Windows.IID := (2380957088, 516, 22493, (171, 173, 144, 227, 124, 14, 242, 64 ));
@@ -1834,6 +1871,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.Gaming.Input.IIterator_IUINavigationController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IUINavigationController : aliased constant Windows.IID := (1749786202, 11714, 21756, (173, 245, 92, 168, 246, 135, 20, 37 ));
@@ -1872,6 +1910,7 @@ package Windows.Gaming.Input is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1881,7 +1920,6 @@ package Windows.Gaming.Input is
    IID_TypedEventHandler_IGameController_add_HeadsetConnected : aliased constant Windows.IID := (129168055, 34853, 23630, (160, 82, 252, 254, 223, 58, 238, 161 ));
    
    type TypedEventHandler_IGameController_add_HeadsetConnected_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.Gaming.Input.IHeadset)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameController_add_HeadsetConnected'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGameController_add_HeadsetConnected_Interface
@@ -1895,7 +1933,6 @@ package Windows.Gaming.Input is
    IID_TypedEventHandler_IGameController_add_HeadsetDisconnected : aliased constant Windows.IID := (129168055, 34853, 23630, (160, 82, 252, 254, 223, 58, 238, 161 ));
    
    type TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.Gaming.Input.IHeadset)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameController_add_HeadsetDisconnected'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGameController_add_HeadsetDisconnected_Interface
@@ -1909,7 +1946,6 @@ package Windows.Gaming.Input is
    IID_TypedEventHandler_IGameController_add_UserChanged : aliased constant Windows.IID := (3413458732, 12086, 23183, (173, 173, 5, 123, 234, 231, 58, 164 ));
    
    type TypedEventHandler_IGameController_add_UserChanged_Interface(Callback : access procedure (sender : Windows.Gaming.Input.IGameController ; args : Windows.System.IUserChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameController_add_UserChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGameController_add_UserChanged_Interface
@@ -1923,7 +1959,6 @@ package Windows.Gaming.Input is
    IID_EventHandler_IArcadeStick : aliased constant Windows.IID := (1794867592, 53901, 21403, (187, 105, 234, 23, 99, 251, 153, 32 ));
    
    type EventHandler_IArcadeStick_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IArcadeStick)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IArcadeStick'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IArcadeStick_Interface
@@ -1937,7 +1972,6 @@ package Windows.Gaming.Input is
    IID_EventHandler_IFlightStick : aliased constant Windows.IID := (3581178033, 52258, 23107, (142, 24, 92, 160, 100, 170, 254, 33 ));
    
    type EventHandler_IFlightStick_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IFlightStick)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IFlightStick'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IFlightStick_Interface
@@ -1951,7 +1985,6 @@ package Windows.Gaming.Input is
    IID_EventHandler_IGamepad : aliased constant Windows.IID := (2323003886, 25162, 20506, (187, 83, 86, 45, 30, 193, 27, 82 ));
    
    type EventHandler_IGamepad_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IGamepad)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IGamepad'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IGamepad_Interface
@@ -1965,7 +1998,6 @@ package Windows.Gaming.Input is
    IID_EventHandler_IRacingWheel : aliased constant Windows.IID := (892258340, 63051, 21331, (128, 234, 127, 245, 142, 59, 146, 164 ));
    
    type EventHandler_IRacingWheel_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IRacingWheel)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IRacingWheel'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IRacingWheel_Interface
@@ -1979,7 +2011,6 @@ package Windows.Gaming.Input is
    IID_EventHandler_IRawGameController : aliased constant Windows.IID := (6429730, 17128, 21151, (146, 112, 131, 107, 50, 147, 29, 114 ));
    
    type EventHandler_IRawGameController_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IRawGameController)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IRawGameController'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IRawGameController_Interface
@@ -1993,7 +2024,6 @@ package Windows.Gaming.Input is
    IID_EventHandler_IUINavigationController : aliased constant Windows.IID := (2662253604, 30145, 22641, (141, 169, 206, 89, 12, 101, 48, 69 ));
    
    type EventHandler_IUINavigationController_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Gaming.Input.IUINavigationController)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IUINavigationController'access) with null record;
-   
    function Invoke
    (
       This       : access EventHandler_IUINavigationController_Interface
@@ -2017,7 +2047,6 @@ package Windows.Gaming.Input is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function add_ArcadeStickAdded
    (
@@ -2216,5 +2245,6 @@ package Windows.Gaming.Input is
    
    function get_UINavigationControllers
    return Windows.Gaming.Input.IVectorView_IUINavigationController;
+   
 
 end;

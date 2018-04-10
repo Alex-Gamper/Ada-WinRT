@@ -27,7 +27,6 @@ package body Windows.Foundation.Metadata is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.Foundation.Metadata is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsTypePresent
    (
@@ -247,5 +245,6 @@ package body Windows.Foundation.Metadata is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

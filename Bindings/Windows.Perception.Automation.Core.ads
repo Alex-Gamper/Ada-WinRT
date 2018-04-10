@@ -70,6 +70,7 @@ package Windows.Perception.Automation.Core is
       ; provider : Windows.Foundation.IGetActivationFactory
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -79,11 +80,11 @@ package Windows.Perception.Automation.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    procedure SetActivationFactoryProvider
    (
       provider : Windows.Foundation.IGetActivationFactory
    )
    ;
+   
 
 end;

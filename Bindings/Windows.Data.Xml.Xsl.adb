@@ -28,7 +28,6 @@ package body Windows.Data.Xml.Xsl is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       document : Windows.Data.Xml.Dom.IXmlDocument

@@ -28,7 +28,6 @@ package body Windows.UI.Input.Inking.Analysis is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IInkAnalysisResult_Interface
@@ -45,7 +44,6 @@ package body Windows.UI.Input.Inking.Analysis is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateInkAnalyzer return Windows.UI.Input.Inking.Analysis.IInkAnalyzer is
       Hr            : Windows.HResult := S_OK;

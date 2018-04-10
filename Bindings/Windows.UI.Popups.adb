@@ -27,7 +27,6 @@ package body Windows.UI.Popups is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access UICommandInvokedHandler_Interface
@@ -56,7 +55,6 @@ package body Windows.UI.Popups is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (

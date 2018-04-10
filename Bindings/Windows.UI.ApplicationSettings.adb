@@ -29,7 +29,6 @@ package body Windows.UI.ApplicationSettings is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access WebAccountProviderCommandInvokedHandler_Interface
@@ -96,7 +95,6 @@ package body Windows.UI.ApplicationSettings is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateSettingsCommand
    (
@@ -212,7 +210,6 @@ package body Windows.UI.ApplicationSettings is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_AccountsCommand
    return Windows.UI.Popups.IUICommand is
       Hr            : Windows.HRESULT := S_OK;
@@ -295,5 +292,6 @@ package body Windows.UI.ApplicationSettings is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

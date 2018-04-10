@@ -69,6 +69,7 @@ package Windows.System.Display is
       This       : access IDisplayRequest_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

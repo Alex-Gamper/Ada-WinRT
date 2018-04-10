@@ -28,7 +28,6 @@ package body Windows.Devices.Lights is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILamp_Interface
@@ -59,7 +58,6 @@ package body Windows.Devices.Lights is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -67,7 +65,6 @@ package body Windows.Devices.Lights is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String is
@@ -122,5 +119,6 @@ package body Windows.Devices.Lights is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

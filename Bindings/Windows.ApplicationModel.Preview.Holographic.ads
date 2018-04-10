@@ -73,6 +73,7 @@ package Windows.ApplicationModel.Preview.Holographic is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -82,7 +83,6 @@ package Windows.ApplicationModel.Preview.Holographic is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function IsCurrentViewPresentedOnHolographicDisplay
    return Windows.Boolean;
    
@@ -91,5 +91,6 @@ package Windows.ApplicationModel.Preview.Holographic is
       activatedEventArgs : Windows.ApplicationModel.Activation.IActivatedEventArgs
    )
    return Windows.Boolean;
+   
 
 end;

@@ -115,6 +115,7 @@ package Windows.ApplicationModel.UserActivities is
       ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityAttribution
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserActivityAttribution : aliased constant Windows.IID := (883280053, 34525, 19180, (164, 145, 106, 79, 174, 165, 210, 46 ));
@@ -162,6 +163,7 @@ package Windows.ApplicationModel.UserActivities is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserActivityContentInfo : aliased constant Windows.IID := (3013207469, 4991, 16541, (130, 45, 225, 175, 39, 206, 8, 220 ));
@@ -174,6 +176,7 @@ package Windows.ApplicationModel.UserActivities is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserActivityContentInfoStatics : aliased constant Windows.IID := (2575876939, 902, 19401, (150, 138, 130, 0, 176, 4, 20, 79 ));
@@ -187,6 +190,7 @@ package Windows.ApplicationModel.UserActivities is
       ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityContentInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserActivityVisualElements : aliased constant Windows.IID := (2490725651, 9775, 18927, (187, 191, 155, 117, 210, 232, 82, 80 ));
@@ -262,6 +266,7 @@ package Windows.ApplicationModel.UserActivities is
       ; RetVal : access Windows.UI.Shell.IAdaptiveCard
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserActivitySession : aliased constant Windows.IID := (2923646328, 9466, 17571, (173, 72, 110, 218, 97, 170, 25, 36 ));
@@ -274,6 +279,7 @@ package Windows.ApplicationModel.UserActivities is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserActivity : aliased constant Windows.IID := (4228923038, 11435, 19766, (174, 162, 180, 187, 85, 108, 239, 15 ));
@@ -384,6 +390,7 @@ package Windows.ApplicationModel.UserActivities is
       ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivitySession
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserActivityChannelStatics : aliased constant Windows.IID := (3368027563, 6541, 19840, (171, 178, 201, 119, 94, 196, 167, 41 ));
@@ -396,6 +403,7 @@ package Windows.ApplicationModel.UserActivities is
       ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityChannel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserActivityChannel : aliased constant Windows.IID := (3133208760, 41188, 18491, (185, 72, 156, 186, 189, 6, 7, 12 ));
@@ -424,6 +432,7 @@ package Windows.ApplicationModel.UserActivities is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IUserActivity : aliased constant Windows.IID := (889805187, 30608, 22900, (166, 96, 28, 45, 189, 210, 239, 167 ));
@@ -450,6 +459,7 @@ package Windows.ApplicationModel.UserActivities is
       ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivity
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -459,7 +469,6 @@ package Windows.ApplicationModel.UserActivities is
    IID_AsyncOperationCompletedHandler_IUserActivity : aliased constant Windows.IID := (1696925639, 3014, 23819, (130, 190, 151, 173, 34, 87, 182, 133 ));
    
    type AsyncOperationCompletedHandler_IUserActivity_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserActivities.IAsyncOperation_IUserActivity ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUserActivity'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUserActivity_Interface
@@ -486,7 +495,6 @@ package Windows.ApplicationModel.UserActivities is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FromJson
    (
       value : Windows.String
@@ -495,5 +503,6 @@ package Windows.ApplicationModel.UserActivities is
    
    function GetDefault
    return Windows.ApplicationModel.UserActivities.IUserActivityChannel;
+   
 
 end;

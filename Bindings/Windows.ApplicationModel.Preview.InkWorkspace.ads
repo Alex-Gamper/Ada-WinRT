@@ -75,6 +75,7 @@ package Windows.ApplicationModel.Preview.InkWorkspace is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkWorkspaceHostedAppManagerStatics : aliased constant Windows.IID := (3422391493, 41314, 19396, (132, 238, 232, 113, 109, 82, 51, 197 ));
@@ -87,6 +88,7 @@ package Windows.ApplicationModel.Preview.InkWorkspace is
       ; RetVal : access Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -97,8 +99,8 @@ package Windows.ApplicationModel.Preview.InkWorkspace is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentApp
    return Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManager;
+   
 
 end;

@@ -308,11 +308,13 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPropertySet : aliased constant Windows.IID := (2319707551, 62694, 17441, (172, 249, 29, 171, 41, 134, 130, 12 ));
    
    type IPropertySet_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IObservableMap_String_Object : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -333,6 +335,7 @@ package Windows.Foundation.Collections is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_Object : aliased constant Windows.IID := (453850480, 2167, 24258, (138, 44, 59, 149, 57, 80, 106, 202 ));
@@ -390,6 +393,7 @@ package Windows.Foundation.Collections is
       This       : access IMap_String_Object_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -402,6 +406,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_String : aliased constant Windows.IID := (4140955392, 18882, 21166, (129, 84, 130, 111, 153, 8, 119, 60 ));
@@ -459,6 +464,7 @@ package Windows.Foundation.Collections is
       This       : access IMap_String_String_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IObservableMap_String_String : aliased constant Windows.IID := (503538294, 12128, 22006, (183, 243, 248, 96, 121, 230, 144, 11 ));
@@ -479,6 +485,7 @@ package Windows.Foundation.Collections is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Object : aliased constant Windows.IID := (1151946541, 1272, 20625, (179, 54, 190, 120, 146, 221, 16, 190 ));
@@ -513,6 +520,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Object : aliased constant Windows.IID := (153846939, 24753, 21182, (164, 74, 111, 232, 233, 51, 203, 228 ));
@@ -525,6 +533,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Object : aliased constant Windows.IID := (2789765987, 45172, 23648, (171, 22, 134, 109, 206, 78, 229, 77 ));
@@ -563,6 +572,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_Object_Interface is interface and Windows.IInspectable_Interface;
@@ -655,6 +665,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Object_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_UInt8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -689,6 +700,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_UInt8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -701,6 +713,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_UInt8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_UInt8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -739,6 +752,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_UInt8_Interface is interface and Windows.IInspectable_Interface;
@@ -831,6 +845,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.UInt8_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_UInt16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -865,6 +880,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_UInt16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -877,6 +893,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_UInt16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_UInt16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -915,6 +932,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_UInt16_Interface is interface and Windows.IInspectable_Interface;
@@ -1007,6 +1025,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.UInt16_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_UInt32 : aliased constant Windows.IID := (4033488697, 37955, 24304, (178, 132, 220, 90, 255, 62, 125, 16 ));
@@ -1041,6 +1060,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_UInt32 : aliased constant Windows.IID := (1109216145, 45371, 24375, (174, 84, 181, 36, 155, 216, 5, 57 ));
@@ -1053,6 +1073,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_UInt32 : aliased constant Windows.IID := (3855489543, 36147, 20487, (186, 100, 125, 37, 8, 204, 248, 92 ));
@@ -1091,6 +1112,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_UInt32_Interface is interface and Windows.IInspectable_Interface;
@@ -1183,6 +1205,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.UInt32_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_UInt64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1217,6 +1240,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_UInt64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1229,6 +1253,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_UInt64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1267,6 +1292,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_UInt64_Interface is interface and Windows.IInspectable_Interface;
@@ -1359,6 +1385,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.UInt64_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Int8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1393,6 +1420,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Int8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1405,6 +1433,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_Int8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Int8 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1443,6 +1472,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_Int8_Interface is interface and Windows.IInspectable_Interface;
@@ -1535,6 +1565,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Int8_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Int16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1569,6 +1600,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Int16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1581,6 +1613,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_Int16
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Int16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1619,6 +1652,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_Int16_Interface is interface and Windows.IInspectable_Interface;
@@ -1711,6 +1745,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Int16_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Int32 : aliased constant Windows.IID := (3219816312, 20674, 24349, (166, 234, 158, 151, 141, 38, 153, 255 ));
@@ -1745,6 +1780,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Int32 : aliased constant Windows.IID := (2175157243, 62748, 21861, (131, 196, 249, 100, 37, 119, 123, 102 ));
@@ -1757,6 +1793,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Int32 : aliased constant Windows.IID := (2373061855, 14644, 23871, (154, 85, 64, 232, 6, 59, 8, 106 ));
@@ -1795,6 +1832,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_Int32_Interface is interface and Windows.IInspectable_Interface;
@@ -1887,6 +1925,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Int32_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Int64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1921,6 +1960,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Int64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1933,6 +1973,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_Int64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Int64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1971,6 +2012,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_Int64_Interface is interface and Windows.IInspectable_Interface;
@@ -2063,6 +2105,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Int64_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Guid : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2097,6 +2140,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Guid : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2109,6 +2153,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_Guid
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Guid : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2147,6 +2192,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_Guid_Interface is interface and Windows.IInspectable_Interface;
@@ -2239,6 +2285,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Guid_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Single : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2273,6 +2320,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Single : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2285,6 +2333,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Single : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2323,6 +2372,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_Single_Interface is interface and Windows.IInspectable_Interface;
@@ -2415,6 +2465,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Single_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Double : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2449,6 +2500,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Double : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2461,6 +2513,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Double : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2499,6 +2552,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_Double_Interface is interface and Windows.IInspectable_Interface;
@@ -2591,6 +2645,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Double_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_String : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2625,6 +2680,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_String : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2637,6 +2693,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_String : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2675,6 +2732,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_String_Interface is interface and Windows.IInspectable_Interface;
@@ -2767,6 +2825,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.String_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_Boolean : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2801,6 +2860,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Boolean : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2813,6 +2873,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_Boolean : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2851,6 +2912,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_Boolean_Interface is interface and Windows.IInspectable_Interface;
@@ -2943,6 +3005,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Boolean_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_DateTime : aliased constant Windows.IID := (4116797663, 35143, 21632, (150, 237, 54, 193, 5, 120, 119, 234 ));
@@ -2977,6 +3040,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_DateTime : aliased constant Windows.IID := (1466572925, 38780, 23350, (181, 77, 98, 78, 200, 108, 83, 163 ));
@@ -2989,6 +3053,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_DateTime
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_DateTime : aliased constant Windows.IID := (324689778, 43032, 21672, (185, 85, 223, 242, 89, 58, 59, 245 ));
@@ -3027,6 +3092,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_DateTime_Interface is interface and Windows.IInspectable_Interface;
@@ -3119,6 +3185,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Foundation.DateTime_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_TimeSpan : aliased constant Windows.IID := (1743383259, 12875, 22113, (164, 5, 222, 216, 68, 91, 30, 234 ));
@@ -3153,6 +3220,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_TimeSpan : aliased constant Windows.IID := (3925313318, 33434, 24423, (141, 25, 149, 239, 21, 75, 119, 66 ));
@@ -3165,6 +3233,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IIterator_TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_TimeSpan : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -3203,6 +3272,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IVector_TimeSpan_Interface is interface and Windows.IInspectable_Interface;
@@ -3295,6 +3365,7 @@ package Windows.Foundation.Collections is
       ; items : Windows.Foundation.TimeSpan_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPropertySet : aliased constant Windows.IID := (1225459334, 45015, 20535, (150, 71, 216, 254, 36, 143, 24, 44 ));
@@ -3321,6 +3392,7 @@ package Windows.Foundation.Collections is
       ; RetVal : access Windows.Foundation.Collections.IPropertySet
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -3330,7 +3402,6 @@ package Windows.Foundation.Collections is
    IID_AsyncOperationCompletedHandler_IPropertySet : aliased constant Windows.IID := (1349887327, 26810, 22258, (151, 230, 155, 28, 191, 162, 197, 242 ));
    
    type AsyncOperationCompletedHandler_IPropertySet_Interface(Callback : access procedure (asyncInfo : Windows.Foundation.Collections.IAsyncOperation_IPropertySet ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPropertySet'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPropertySet_Interface

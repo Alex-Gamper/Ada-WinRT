@@ -32,7 +32,6 @@ package body Windows.UI.Xaml.Automation.Peers is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       type_x : Windows.UI.Xaml.Automation.AnnotationType
@@ -1310,7 +1309,6 @@ package body Windows.UI.Xaml.Automation.Peers is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function ListenerExists
    (
@@ -2990,5 +2988,6 @@ package body Windows.UI.Xaml.Automation.Peers is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

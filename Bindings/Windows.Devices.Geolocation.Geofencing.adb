@@ -28,7 +28,6 @@ package body Windows.Devices.Geolocation.Geofencing is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGeofenceMonitor_add_GeofenceStateChanged_Interface
@@ -58,7 +57,6 @@ package body Windows.Devices.Geolocation.Geofencing is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -162,7 +160,6 @@ package body Windows.Devices.Geolocation.Geofencing is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_Current
    return Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor is
       Hr            : Windows.HRESULT := S_OK;
@@ -179,5 +176,6 @@ package body Windows.Devices.Geolocation.Geofencing is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

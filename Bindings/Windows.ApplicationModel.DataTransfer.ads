@@ -308,6 +308,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStandardDataFormatsStatics2 : aliased constant Windows.IID := (1117934836, 40310, 17128, (134, 27, 71, 194, 93, 208, 207, 113 ));
@@ -327,6 +328,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackagePropertySetView : aliased constant Windows.IID := (3108826113, 3098, 19543, (190, 85, 117, 208, 18, 137, 115, 93 ));
@@ -374,6 +376,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackagePropertySetView2 : aliased constant Windows.IID := (1616138395, 36542, 20459, (156, 30, 117, 230, 157, 229, 75, 132 ));
@@ -414,6 +417,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackagePropertySetView3 : aliased constant Windows.IID := (3681963237, 53620, 18780, (132, 252, 26, 81, 246, 171, 69, 215 ));
@@ -426,6 +430,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackagePropertySet : aliased constant Windows.IID := (3441202155, 19532, 17466, (168, 211, 245, 194, 65, 233, 22, 137 ));
@@ -508,6 +513,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackagePropertySet2 : aliased constant Windows.IID := (3947912522, 38912, 18090, (177, 129, 123, 111, 15, 43, 145, 154 ));
@@ -583,6 +589,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; value : Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackagePropertySet3 : aliased constant Windows.IID := (2659712411, 20997, 16411, (135, 74, 69, 86, 83, 189, 57, 232 ));
@@ -602,6 +609,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_String_Object : aliased constant Windows.IID := (3145224234, 63389, 21754, (146, 201, 144, 197, 3, 159, 223, 126 ));
@@ -638,6 +646,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; second : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -650,6 +659,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_Object : aliased constant Windows.IID := (453850480, 2167, 24258, (138, 44, 59, 149, 57, 80, 106, 202 ));
@@ -707,6 +717,7 @@ package Windows.ApplicationModel.DataTransfer is
       This       : access IMap_String_Object_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataProviderDeferral : aliased constant Windows.IID := (3268354931, 11558, 17369, (182, 157, 220, 184, 109, 3, 246, 218 ));
@@ -718,6 +729,7 @@ package Windows.ApplicationModel.DataTransfer is
       This       : access IDataProviderDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataProviderRequest : aliased constant Windows.IID := (3954995543, 54216, 18394, (172, 222, 248, 35, 136, 213, 247, 22 ));
@@ -751,6 +763,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOperationCompletedEventArgs : aliased constant Windows.IID := (3887018653, 1309, 20395, (177, 169, 71, 253, 119, 247, 10, 65 ));
@@ -763,6 +776,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOperationCompletedEventArgs2 : aliased constant Windows.IID := (2240782451, 7705, 16645, (178, 247, 200, 71, 136, 8, 213, 98 ));
@@ -775,6 +789,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareProvider : aliased constant Windows.IID := (799793190, 17470, 19674, (175, 37, 141, 129, 7, 14, 253, 128 ));
@@ -815,6 +830,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareProviderFactory : aliased constant Windows.IID := (388634444, 59294, 20333, (176, 125, 18, 143, 70, 158, 2, 150 ));
@@ -831,6 +847,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareProviderOperation : aliased constant Windows.IID := (432994615, 54325, 16761, (182, 175, 20, 224, 73, 43, 105, 246 ));
@@ -856,6 +873,7 @@ package Windows.ApplicationModel.DataTransfer is
       This       : access IShareProviderOperation_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareTargetInfo : aliased constant Windows.IID := (945546759, 50920, 16660, (178, 148, 40, 243, 187, 111, 153, 4 ));
@@ -875,6 +893,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareCompletedEventArgs : aliased constant Windows.IID := (1165280322, 63763, 20320, (157, 247, 204, 64, 96, 171, 25, 22 ));
@@ -887,6 +906,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IShareTargetInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackageView : aliased constant Windows.IID := (2072249457, 22784, 19845, (169, 11, 16, 203, 133, 254, 53, 82 ));
@@ -993,6 +1013,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackageView2 : aliased constant Windows.IID := (1089256085, 9296, 19485, (182, 180, 237, 69, 70, 61, 238, 156 ));
@@ -1012,6 +1033,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.Foundation.IAsyncOperation_IUriRuntimeClass -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackageView3 : aliased constant Windows.IID := (3547820456, 56749, 17032, (132, 40, 209, 202, 227, 148, 18, 139 ));
@@ -1039,6 +1061,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackageView4 : aliased constant Windows.IID := (3756617503, 57410, 17459, (160, 159, 38, 214, 255, 218, 139, 133 ));
@@ -1051,6 +1074,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; formatId : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackage : aliased constant Windows.IID := (1642853831, 61418, 17222, (149, 84, 152, 29, 126, 25, 143, 254 ));
@@ -1187,6 +1211,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; readOnly : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackage2 : aliased constant Windows.IID := (68952041, 9225, 17889, (165, 56, 76, 83, 238, 238, 4, 167 ));
@@ -1206,6 +1231,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataPackage3 : aliased constant Windows.IID := (2297634653, 30843, 19762, (150, 90, 169, 131, 129, 5, 160, 86 ));
@@ -1226,6 +1252,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHtmlFormatHelperStatics : aliased constant Windows.IID := (3794696009, 56688, 17519, (174, 252, 97, 206, 229, 159, 101, 94 ));
@@ -1247,6 +1274,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClipboardStatics : aliased constant Windows.IID := (3324502673, 13538, 18787, (142, 237, 147, 203, 176, 234, 61, 112 ));
@@ -1293,6 +1321,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareUIOptions : aliased constant Windows.IID := (1929022080, 13359, 19856, (149, 81, 42, 224, 78, 55, 104, 12 ));
@@ -1326,6 +1355,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; value : Windows.Foundation.IReference_Rect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataRequestDeferral : aliased constant Windows.IID := (1841608863, 902, 16995, (135, 193, 237, 125, 206, 48, 137, 14 ));
@@ -1337,6 +1367,7 @@ package Windows.ApplicationModel.DataTransfer is
       This       : access IDataRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataRequest : aliased constant Windows.IID := (1128377915, 64530, 20051, (140, 2, 172, 113, 76, 65, 90, 39 ));
@@ -1377,6 +1408,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataRequestDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataRequestedEventArgs : aliased constant Windows.IID := (3414927367, 27333, 17353, (138, 197, 155, 162, 50, 22, 49, 130 ));
@@ -1389,6 +1421,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataRequest
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareProvidersRequestedEventArgs : aliased constant Windows.IID := (4169724758, 41976, 20430, (133, 228, 136, 38, 230, 59, 231, 153 ));
@@ -1415,6 +1448,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITargetApplicationChosenEventArgs : aliased constant Windows.IID := (3396319404, 10631, 20195, (156, 84, 216, 175, 188, 184, 108, 29 ));
@@ -1427,6 +1461,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataTransferManager : aliased constant Windows.IID := (2781539995, 34568, 18897, (141, 54, 103, 210, 90, 141, 160, 12 ));
@@ -1462,6 +1497,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataTransferManager2 : aliased constant Windows.IID := (816741745, 35752, 19458, (142, 63, 221, 178, 59, 56, 135, 21 ));
@@ -1482,6 +1518,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataTransferManagerStatics : aliased constant Windows.IID := (2849636778, 57358, 19710, (170, 68, 45, 217, 50, 220, 163, 216 ));
@@ -1500,6 +1537,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataTransferManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataTransferManagerStatics2 : aliased constant Windows.IID := (3310273260, 40855, 19811, (152, 104, 57, 94, 39, 26, 216, 245 ));
@@ -1512,6 +1550,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataTransferManagerStatics3 : aliased constant Windows.IID := (92558451, 27778, 20316, (172, 35, 98, 228, 88, 54, 31, 172 ));
@@ -1524,6 +1563,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; options : Windows.ApplicationModel.DataTransfer.IShareUIOptions
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISharedStorageAccessManagerStatics : aliased constant Windows.IID := (3323144922, 13489, 18505, (189, 95, 208, 159, 238, 49, 88, 197 ));
@@ -1552,6 +1592,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; token : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_DataPackageOperation : aliased constant Windows.IID := (2342039209, 25840, 22130, (179, 14, 223, 217, 194, 228, 246, 254 ));
@@ -1578,6 +1619,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IShareProvider : aliased constant Windows.IID := (2288997954, 59897, 22331, (146, 19, 88, 64, 181, 6, 43, 64 ));
@@ -1612,6 +1654,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IShareProvider : aliased constant Windows.IID := (151237144, 23725, 21478, (154, 33, 111, 75, 49, 196, 164, 9 ));
@@ -1624,6 +1667,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IIterator_IShareProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IShareProvider : aliased constant Windows.IID := (2489661346, 37676, 23415, (171, 54, 183, 6, 80, 240, 188, 213 ));
@@ -1662,6 +1706,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IShareProvider : aliased constant Windows.IID := (2707978341, 12770, 21814, (151, 236, 41, 34, 105, 167, 128, 70 ));
@@ -1756,6 +1801,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; items : Windows.ApplicationModel.DataTransfer.IShareProvider_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IDataPackage : aliased constant Windows.IID := (2708417799, 60115, 21476, (148, 144, 117, 189, 186, 235, 122, 91 ));
@@ -1782,6 +1828,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1791,7 +1838,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_DataProviderHandler : aliased constant Windows.IID := (3891058464, 62196, 18989, (146, 14, 23, 10, 47, 72, 42, 39 ));
    
    type DataProviderHandler_Interface(Callback : access procedure (request : Windows.ApplicationModel.DataTransfer.IDataProviderRequest)) is new Windows.IMulticastDelegate_Interface(IID_DataProviderHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DataProviderHandler_Interface
@@ -1804,7 +1850,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_ShareProviderHandler : aliased constant Windows.IID := (3891911098, 57786, 20045, (189, 101, 212, 56, 69, 211, 33, 47 ));
    
    type ShareProviderHandler_Interface(Callback : access procedure (operation : Windows.ApplicationModel.DataTransfer.IShareProviderOperation)) is new Windows.IMulticastDelegate_Interface(IID_ShareProviderHandler'access) with null record;
-   
    function Invoke
    (
       This       : access ShareProviderHandler_Interface
@@ -1817,7 +1862,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_TypedEventHandler_IDataPackage_add_OperationCompleted : aliased constant Windows.IID := (3712528236, 61338, 22987, (179, 38, 87, 217, 226, 65, 31, 33 ));
    
    type TypedEventHandler_IDataPackage_add_OperationCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataPackage_add_OperationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDataPackage_add_OperationCompleted_Interface
@@ -1831,7 +1875,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_TypedEventHandler_IDataPackage_add_Destroyed : aliased constant Windows.IID := (3243684035, 7356, 23716, (144, 28, 98, 197, 168, 202, 92, 181 ));
    
    type TypedEventHandler_IDataPackage_add_Destroyed_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataPackage_add_Destroyed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDataPackage_add_Destroyed_Interface
@@ -1845,7 +1888,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_TypedEventHandler_IDataPackage3_add_ShareCompleted : aliased constant Windows.IID := (4176994890, 22270, 22751, (188, 21, 35, 101, 174, 192, 57, 102 ));
    
    type TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataPackage3_add_ShareCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface
@@ -1859,7 +1901,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_AsyncOperationCompletedHandler_DataPackageOperation : aliased constant Windows.IID := (2916228422, 6111, 23107, (166, 133, 50, 98, 252, 232, 70, 67 ));
    
    type AsyncOperationCompletedHandler_DataPackageOperation_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_DataPackageOperation ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DataPackageOperation'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_DataPackageOperation_Interface
@@ -1873,7 +1914,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_TypedEventHandler_IDataTransferManager_add_DataRequested : aliased constant Windows.IID := (3966737608, 18128, 24078, (180, 210, 125, 119, 115, 174, 55, 160 ));
    
    type TypedEventHandler_IDataTransferManager_add_DataRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataTransferManager ; args : Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataTransferManager_add_DataRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDataTransferManager_add_DataRequested_Interface
@@ -1887,7 +1927,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen : aliased constant Windows.IID := (3299613602, 30801, 23108, (188, 141, 61, 124, 113, 63, 31, 65 ));
    
    type TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataTransferManager ; args : Windows.ApplicationModel.DataTransfer.ITargetApplicationChosenEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDataTransferManager_add_TargetApplicationChosen_Interface
@@ -1901,7 +1940,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested : aliased constant Windows.IID := (343812192, 29591, 22575, (128, 219, 184, 104, 83, 131, 169, 55 ));
    
    type TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataTransferManager ; args : Windows.ApplicationModel.DataTransfer.IShareProvidersRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDataTransferManager2_add_ShareProvidersRequested_Interface
@@ -1915,7 +1953,6 @@ package Windows.ApplicationModel.DataTransfer is
    IID_AsyncOperationCompletedHandler_IDataPackage : aliased constant Windows.IID := (2839165849, 59718, 22478, (170, 217, 194, 61, 19, 140, 53, 62 ));
    
    type AsyncOperationCompletedHandler_IDataPackage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IDataPackage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDataPackage'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDataPackage_Interface
@@ -1935,7 +1972,6 @@ package Windows.ApplicationModel.DataTransfer is
    subtype OperationCompletedEventArgs is Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs;
    subtype ShareProviderOperation is Windows.ApplicationModel.DataTransfer.IShareProviderOperation;
    subtype ShareProvider is Windows.ApplicationModel.DataTransfer.IShareProvider;
-   
    function Create
    (
       title : Windows.String
@@ -1944,6 +1980,7 @@ package Windows.ApplicationModel.DataTransfer is
       ; handler : Windows.ApplicationModel.DataTransfer.ShareProviderHandler
    )
    return Windows.ApplicationModel.DataTransfer.IShareProvider;
+   
    
    subtype DataPackageView is Windows.ApplicationModel.DataTransfer.IDataPackageView;
    subtype ShareTargetInfo is Windows.ApplicationModel.DataTransfer.IShareTargetInfo;
@@ -1966,7 +2003,6 @@ package Windows.ApplicationModel.DataTransfer is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Text
    return Windows.String;
@@ -2063,5 +2099,6 @@ package Windows.ApplicationModel.DataTransfer is
       token : Windows.String
    )
    ;
+   
 
 end;

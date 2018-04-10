@@ -128,6 +128,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentDataProviderConnection : aliased constant Windows.IID := (4091387267, 12884, 18015, (171, 219, 146, 128, 70, 85, 44, 244 ));
@@ -229,6 +230,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       This       : access IAppointmentDataProviderConnection_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarSyncManagerSyncRequest : aliased constant Windows.IID := (313210923, 29027, 19030, (154, 78, 114, 35, 168, 74, 223, 70 ));
@@ -255,6 +257,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarCreateOrUpdateAppointmentRequest : aliased constant Windows.IID := (778236594, 51862, 18604, (145, 36, 64, 107, 25, 254, 250, 112 ));
@@ -303,6 +306,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarCancelMeetingRequest : aliased constant Windows.IID := (1229328269, 25652, 16599, (173, 70, 98, 151, 65, 147, 20, 209 ));
@@ -364,6 +368,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarForwardMeetingRequest : aliased constant Windows.IID := (2196106838, 9910, 16979, (138, 143, 108, 245, 242, 255, 120, 132 ));
@@ -432,6 +437,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarProposeNewTimeForMeetingRequest : aliased constant Windows.IID := (3457967093, 60918, 17347, (130, 183, 190, 107, 54, 140, 105, 0 ));
@@ -500,6 +506,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarUpdateMeetingResponseRequest : aliased constant Windows.IID := (2741854348, 49821, 19348, (176, 134, 126, 159, 247, 189, 132, 160 ));
@@ -568,6 +575,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarSyncManagerSyncRequestEventArgs : aliased constant Windows.IID := (3390555895, 644, 20189, (135, 186, 77, 143, 105, 220, 245, 192 ));
@@ -587,6 +595,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs : aliased constant Windows.IID := (3482185000, 46, 19447, (142, 157, 94, 32, 212, 154, 163, 186 ));
@@ -606,6 +615,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarCancelMeetingRequestEventArgs : aliased constant Windows.IID := (444186134, 32560, 20021, (190, 239, 157, 44, 123, 109, 202, 225 ));
@@ -625,6 +635,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarForwardMeetingRequestEventArgs : aliased constant Windows.IID := (822678810, 9122, 17149, (156, 130, 201, 166, 13, 89, 248, 168 ));
@@ -644,6 +655,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs : aliased constant Windows.IID := (3537336280, 65233, 17024, (163, 186, 46, 31, 71, 96, 154, 162 ));
@@ -663,6 +675,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppointmentCalendarUpdateMeetingResponseRequestEventArgs : aliased constant Windows.IID := (2289408131, 38847, 18333, (174, 213, 11, 232, 206, 86, 125, 30 ));
@@ -682,6 +695,7 @@ package Windows.ApplicationModel.Appointments.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -691,7 +705,6 @@ package Windows.ApplicationModel.Appointments.DataProvider is
    IID_TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested : aliased constant Windows.IID := (938813047, 24378, 22502, (130, 245, 203, 171, 46, 77, 190, 142 ));
    
    type TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_SyncRequested_Interface
@@ -705,7 +718,6 @@ package Windows.ApplicationModel.Appointments.DataProvider is
    IID_TypedEventHandler_IAppointmentDataProviderConnection_add_CreateOrUpdateAppointmentRequested : aliased constant Windows.IID := (3025227961, 57097, 23686, (181, 125, 62, 109, 239, 242, 71, 103 ));
    
    type TypedEventHandler_IAppointmentDataProviderConnection_add_CreateOrUpdateAppointmentRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentDataProviderConnection_add_CreateOrUpdateAppointmentRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_CreateOrUpdateAppointmentRequested_Interface
@@ -719,7 +731,6 @@ package Windows.ApplicationModel.Appointments.DataProvider is
    IID_TypedEventHandler_IAppointmentDataProviderConnection_add_CancelMeetingRequested : aliased constant Windows.IID := (245154264, 3366, 20999, (183, 217, 154, 209, 191, 102, 225, 230 ));
    
    type TypedEventHandler_IAppointmentDataProviderConnection_add_CancelMeetingRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentDataProviderConnection_add_CancelMeetingRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_CancelMeetingRequested_Interface
@@ -733,7 +744,6 @@ package Windows.ApplicationModel.Appointments.DataProvider is
    IID_TypedEventHandler_IAppointmentDataProviderConnection_add_ForwardMeetingRequested : aliased constant Windows.IID := (2304890680, 60636, 21448, (176, 236, 231, 41, 216, 16, 148, 89 ));
    
    type TypedEventHandler_IAppointmentDataProviderConnection_add_ForwardMeetingRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentDataProviderConnection_add_ForwardMeetingRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_ForwardMeetingRequested_Interface
@@ -747,7 +757,6 @@ package Windows.ApplicationModel.Appointments.DataProvider is
    IID_TypedEventHandler_IAppointmentDataProviderConnection_add_ProposeNewTimeForMeetingRequested : aliased constant Windows.IID := (1340367012, 59509, 22582, (158, 236, 39, 61, 82, 200, 106, 179 ));
    
    type TypedEventHandler_IAppointmentDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentDataProviderConnection_add_ProposeNewTimeForMeetingRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_ProposeNewTimeForMeetingRequested_Interface
@@ -761,7 +770,6 @@ package Windows.ApplicationModel.Appointments.DataProvider is
    IID_TypedEventHandler_IAppointmentDataProviderConnection_add_UpdateMeetingResponseRequested : aliased constant Windows.IID := (1399906091, 25293, 20787, (147, 230, 252, 128, 165, 2, 175, 100 ));
    
    type TypedEventHandler_IAppointmentDataProviderConnection_add_UpdateMeetingResponseRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection ; args : Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppointmentDataProviderConnection_add_UpdateMeetingResponseRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppointmentDataProviderConnection_add_UpdateMeetingResponseRequested_Interface

@@ -27,7 +27,6 @@ package body Windows.Security.Authentication.Web is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWebAuthenticationResult_Interface
@@ -45,7 +44,6 @@ package body Windows.Security.Authentication.Web is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -53,7 +51,6 @@ package body Windows.Security.Authentication.Web is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function AuthenticateWithCallbackUriAsync
    (
@@ -213,5 +210,6 @@ package body Windows.Security.Authentication.Web is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -376,6 +376,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreProductPagedQueryResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreProductQueryResult : aliased constant Windows.IID := (3624265413, 54358, 20470, (128, 73, 144, 118, 213, 22, 95, 115 ));
@@ -395,6 +396,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreProductResult : aliased constant Windows.IID := (3077001075, 15495, 20193, (130, 1, 244, 40, 53, 155, 211, 175 ));
@@ -414,6 +416,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorePurchaseProperties : aliased constant Windows.IID := (2204268787, 65415, 17252, (165, 180, 253, 33, 83, 235, 228, 59 ));
@@ -447,6 +450,7 @@ package Windows.Services.Store is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorePurchasePropertiesFactory : aliased constant Windows.IID := (2808673694, 65277, 18591, (154, 23, 34, 165, 147, 230, 139, 157 ));
@@ -460,6 +464,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStorePurchaseProperties
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreCollectionData : aliased constant Windows.IID := (2326053811, 23475, 17434, (42, 180, 77, 171, 115, 213, 206, 103 ));
@@ -521,6 +526,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreLicense : aliased constant Windows.IID := (651990393, 19535, 20272, (188, 137, 100, 159, 96, 227, 96, 85 ));
@@ -561,6 +567,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreAppLicense : aliased constant Windows.IID := (4085905886, 29632, 17870, (155, 171, 178, 254, 62, 94, 175, 211 ));
@@ -629,6 +636,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreSendRequestResult : aliased constant Windows.IID := (3342515808, 33394, 17666, (138, 105, 110, 117, 21, 58, 66, 153 ));
@@ -648,6 +656,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreSendRequestResult2 : aliased constant Windows.IID := (687941999, 49328, 18896, (142, 141, 170, 148, 10, 249, 193, 11 ));
@@ -660,6 +669,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Web.Http.HttpStatusCode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreProduct : aliased constant Windows.IID := (839789650, 55136, 17674, (164, 43, 103, 209, 233, 1, 172, 144 ));
@@ -792,6 +802,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreImage : aliased constant Windows.IID := (136303176, 44468, 19300, (169, 147, 120, 71, 137, 146, 110, 213 ));
@@ -832,6 +843,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreVideo : aliased constant Windows.IID := (4067209604, 28510, 19906, (136, 108, 60, 99, 8, 60, 47, 148 ));
@@ -879,6 +891,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreImage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreSku : aliased constant Windows.IID := (964587349, 17472, 20227, (134, 60, 145, 243, 254, 200, 61, 121 ));
@@ -1018,6 +1031,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreSubscriptionInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreAvailability : aliased constant Windows.IID := (4194698021, 4093, 17555, (173, 67, 241, 249, 145, 143, 105, 250 ));
@@ -1066,6 +1080,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IAsyncOperation_IStorePurchaseResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorePrice : aliased constant Windows.IID := (1438291140, 5617, 16508, (143, 6, 0, 99, 128, 244, 223, 11 ));
@@ -1113,6 +1128,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreSubscriptionInfo : aliased constant Windows.IID := (1099528042, 1369, 17324, (169, 198, 58, 176, 1, 31, 184, 235 ));
@@ -1153,6 +1169,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.StoreDurationUnit
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreConsumableResult : aliased constant Windows.IID := (3932007282, 27136, 16466, (190, 91, 191, 218, 180, 67, 51, 82 ));
@@ -1186,6 +1203,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorePurchaseResult : aliased constant Windows.IID := (2916255058, 63850, 17981, (167, 187, 194, 11, 79, 202, 105, 82 ));
@@ -1205,6 +1223,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreContextStatics : aliased constant Windows.IID := (2617699935, 5568, 20082, (147, 48, 214, 25, 28, 235, 209, 156 ));
@@ -1225,6 +1244,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreContext
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreRequestHelperStatics : aliased constant Windows.IID := (1827005945, 41161, 19244, (150, 166, 161, 113, 198, 48, 3, 141 ));
@@ -1240,6 +1260,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreSendRequestResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreContext : aliased constant Windows.IID := (2895689406, 62717, 18706, (186, 189, 80, 53, 229, 232, 188, 171 ));
@@ -1416,6 +1437,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreContext2 : aliased constant Windows.IID := (414995674, 31705, 17708, (145, 22, 59, 189, 6, 255, 198, 58 ));
@@ -1430,6 +1452,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreProductResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorePackageUpdate : aliased constant Windows.IID := (336568656, 15551, 18997, (185, 31, 72, 39, 28, 49, 176, 114 ));
@@ -1449,6 +1472,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorePackageUpdateResult : aliased constant Windows.IID := (3885056749, 25081, 18579, (180, 254, 207, 25, 22, 3, 175, 123 ));
@@ -1468,6 +1492,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IVectorView_StorePackageUpdateStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStoreAcquireLicenseResult : aliased constant Windows.IID := (4225209453, 61504, 19635, (154, 57, 41, 188, 236, 219, 226, 45 ));
@@ -1487,6 +1512,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorePackageLicense : aliased constant Windows.IID := (205936404, 5345, 18803, (189, 20, 247, 119, 36, 39, 30, 153 ));
@@ -1527,6 +1553,7 @@ package Windows.Services.Store is
       This       : access IStorePackageLicense_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStoreProductPagedQueryResult : aliased constant Windows.IID := (813295579, 7076, 23454, (133, 106, 101, 118, 191, 127, 156, 138 ));
@@ -1553,6 +1580,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreProductPagedQueryResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStoreImage : aliased constant Windows.IID := (4225791734, 50130, 24055, (131, 159, 1, 42, 192, 249, 81, 197 ));
@@ -1587,6 +1615,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStoreImage : aliased constant Windows.IID := (3000659432, 44373, 22222, (135, 84, 44, 150, 244, 254, 28, 46 ));
@@ -1599,6 +1628,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IIterator_IStoreImage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IStoreImage : aliased constant Windows.IID := (2115824334, 33469, 23987, (143, 53, 155, 240, 200, 142, 248, 57 ));
@@ -1637,6 +1667,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStoreVideo : aliased constant Windows.IID := (2444277076, 42295, 24098, (179, 159, 106, 147, 93, 11, 239, 69 ));
@@ -1671,6 +1702,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStoreVideo : aliased constant Windows.IID := (1186882020, 29043, 22110, (174, 213, 74, 33, 82, 241, 206, 105 ));
@@ -1683,6 +1715,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IIterator_IStoreVideo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IStoreVideo : aliased constant Windows.IID := (1848769701, 4510, 22425, (165, 27, 205, 106, 221, 236, 216, 112 ));
@@ -1721,6 +1754,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStoreSku : aliased constant Windows.IID := (912055954, 32739, 22997, (184, 248, 143, 5, 172, 245, 9, 71 ));
@@ -1755,6 +1789,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStoreSku : aliased constant Windows.IID := (1378694383, 19290, 23364, (160, 70, 122, 22, 5, 29, 1, 30 ));
@@ -1767,6 +1802,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IIterator_IStoreSku
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IStoreSku : aliased constant Windows.IID := (1081886099, 1597, 23707, (184, 224, 148, 159, 225, 56, 121, 99 ));
@@ -1805,6 +1841,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStorePurchaseResult : aliased constant Windows.IID := (869846064, 30965, 24449, (170, 45, 164, 250, 42, 59, 28, 104 ));
@@ -1831,6 +1868,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStorePurchaseResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStoreAvailability : aliased constant Windows.IID := (1347493067, 2206, 23411, (187, 74, 77, 30, 247, 123, 143, 15 ));
@@ -1865,6 +1903,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStoreAvailability : aliased constant Windows.IID := (3314409888, 9694, 22411, (187, 105, 224, 162, 109, 103, 178, 3 ));
@@ -1877,6 +1916,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IIterator_IStoreAvailability
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IStoreAvailability : aliased constant Windows.IID := (31848273, 35920, 21195, (171, 194, 233, 134, 36, 2, 199, 138 ));
@@ -1915,6 +1955,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStoreSendRequestResult : aliased constant Windows.IID := (718143464, 9628, 24238, (147, 193, 19, 162, 60, 116, 223, 238 ));
@@ -1941,6 +1982,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreSendRequestResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStoreAppLicense : aliased constant Windows.IID := (946222859, 44998, 23809, (132, 194, 69, 116, 98, 141, 229, 57 ));
@@ -1967,6 +2009,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreAppLicense
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStoreProductResult : aliased constant Windows.IID := (2657216619, 27387, 20654, (175, 193, 197, 159, 84, 81, 8, 221 ));
@@ -1993,6 +2036,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreProductResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStoreProductQueryResult : aliased constant Windows.IID := (2526668731, 59935, 24067, (148, 57, 200, 14, 105, 119, 183, 17 ));
@@ -2019,6 +2063,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreProductQueryResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStoreConsumableResult : aliased constant Windows.IID := (2268875131, 50167, 22103, (185, 33, 62, 88, 206, 72, 238, 80 ));
@@ -2045,6 +2090,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreConsumableResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStoreAcquireLicenseResult : aliased constant Windows.IID := (3714860805, 42860, 21134, (153, 165, 205, 209, 49, 151, 212, 207 ));
@@ -2071,6 +2117,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IStoreAcquireLicenseResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStorePackageUpdate : aliased constant Windows.IID := (3076380539, 34762, 22870, (137, 2, 132, 233, 255, 201, 125, 131 ));
@@ -2105,6 +2152,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStorePackageUpdate : aliased constant Windows.IID := (1795648593, 33950, 24261, (174, 213, 155, 5, 133, 89, 25, 2 ));
@@ -2117,6 +2165,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IIterator_IStorePackageUpdate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_StorePackageUpdateStatus : aliased constant Windows.IID := (1635899471, 63281, 22456, (154, 107, 138, 18, 252, 213, 141, 4 ));
@@ -2151,6 +2200,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_StorePackageUpdateStatus : aliased constant Windows.IID := (1619206691, 32436, 23767, (131, 64, 245, 7, 113, 115, 211, 100 ));
@@ -2163,6 +2213,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.Services.Store.IIterator_StorePackageUpdateStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_StorePackageUpdateStatus : aliased constant Windows.IID := (1759703094, 18818, 21987, (140, 15, 155, 244, 230, 154, 164, 90 ));
@@ -2201,6 +2252,7 @@ package Windows.Services.Store is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2210,7 +2262,6 @@ package Windows.Services.Store is
    IID_AsyncOperationCompletedHandler_IStoreProductPagedQueryResult : aliased constant Windows.IID := (3884331551, 46993, 24120, (139, 196, 152, 203, 40, 125, 16, 133 ));
    
    type AsyncOperationCompletedHandler_IStoreProductPagedQueryResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreProductPagedQueryResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreProductPagedQueryResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStoreProductPagedQueryResult_Interface
@@ -2224,7 +2275,6 @@ package Windows.Services.Store is
    IID_AsyncOperationCompletedHandler_IStorePurchaseResult : aliased constant Windows.IID := (496994798, 12238, 21734, (160, 169, 82, 208, 12, 82, 204, 58 ));
    
    type AsyncOperationCompletedHandler_IStorePurchaseResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStorePurchaseResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStorePurchaseResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStorePurchaseResult_Interface
@@ -2238,7 +2288,6 @@ package Windows.Services.Store is
    IID_AsyncOperationCompletedHandler_IStoreSendRequestResult : aliased constant Windows.IID := (2013311651, 48060, 23057, (140, 53, 210, 189, 229, 72, 158, 129 ));
    
    type AsyncOperationCompletedHandler_IStoreSendRequestResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreSendRequestResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreSendRequestResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStoreSendRequestResult_Interface
@@ -2252,7 +2301,6 @@ package Windows.Services.Store is
    IID_TypedEventHandler_IStoreContext_add_OfflineLicensesChanged : aliased constant Windows.IID := (3584035527, 2093, 21628, (160, 75, 37, 64, 193, 205, 233, 122 ));
    
    type TypedEventHandler_IStoreContext_add_OfflineLicensesChanged_Interface(Callback : access procedure (sender : Windows.Services.Store.IStoreContext ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStoreContext_add_OfflineLicensesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStoreContext_add_OfflineLicensesChanged_Interface
@@ -2266,7 +2314,6 @@ package Windows.Services.Store is
    IID_AsyncOperationCompletedHandler_IStoreAppLicense : aliased constant Windows.IID := (3472825865, 58630, 20653, (169, 8, 82, 3, 140, 37, 101, 82 ));
    
    type AsyncOperationCompletedHandler_IStoreAppLicense_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreAppLicense ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreAppLicense'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStoreAppLicense_Interface
@@ -2280,7 +2327,6 @@ package Windows.Services.Store is
    IID_AsyncOperationCompletedHandler_IStoreProductResult : aliased constant Windows.IID := (3952339254, 54549, 21524, (157, 21, 240, 80, 192, 184, 245, 33 ));
    
    type AsyncOperationCompletedHandler_IStoreProductResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreProductResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreProductResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStoreProductResult_Interface
@@ -2294,7 +2340,6 @@ package Windows.Services.Store is
    IID_AsyncOperationCompletedHandler_IStoreProductQueryResult : aliased constant Windows.IID := (49587244, 1112, 22742, (146, 60, 180, 75, 168, 239, 34, 34 ));
    
    type AsyncOperationCompletedHandler_IStoreProductQueryResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreProductQueryResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreProductQueryResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStoreProductQueryResult_Interface
@@ -2308,7 +2353,6 @@ package Windows.Services.Store is
    IID_AsyncOperationCompletedHandler_IStoreConsumableResult : aliased constant Windows.IID := (1059828088, 15438, 22253, (134, 165, 173, 19, 121, 124, 251, 253 ));
    
    type AsyncOperationCompletedHandler_IStoreConsumableResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreConsumableResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreConsumableResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStoreConsumableResult_Interface
@@ -2322,7 +2366,6 @@ package Windows.Services.Store is
    IID_AsyncOperationCompletedHandler_IStoreAcquireLicenseResult : aliased constant Windows.IID := (1770506620, 11289, 24388, (181, 172, 55, 57, 63, 60, 26, 74 ));
    
    type AsyncOperationCompletedHandler_IStoreAcquireLicenseResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreAcquireLicenseResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreAcquireLicenseResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStoreAcquireLicenseResult_Interface
@@ -2336,7 +2379,6 @@ package Windows.Services.Store is
    IID_TypedEventHandler_IStorePackageLicense_add_LicenseLost : aliased constant Windows.IID := (1817826871, 10608, 24420, (149, 17, 211, 154, 194, 69, 188, 148 ));
    
    type TypedEventHandler_IStorePackageLicense_add_LicenseLost_Interface(Callback : access procedure (sender : Windows.Services.Store.IStorePackageLicense ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorePackageLicense_add_LicenseLost'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStorePackageLicense_add_LicenseLost_Interface
@@ -2379,7 +2421,6 @@ package Windows.Services.Store is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetDefault
    return Windows.Services.Store.IStoreContext;
    
@@ -2396,5 +2437,6 @@ package Windows.Services.Store is
       ; parametersAsJson : Windows.String
    )
    return Windows.Services.Store.IAsyncOperation_IStoreSendRequestResult;
+   
 
 end;

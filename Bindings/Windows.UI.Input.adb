@@ -31,7 +31,6 @@ package body Windows.UI.Input is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEdgeGesture_add_Starting_Interface
@@ -361,7 +360,6 @@ package body Windows.UI.Input is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateGestureRecognizer return Windows.UI.Input.IGestureRecognizer is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.GestureRecognizer");
@@ -386,7 +384,6 @@ package body Windows.UI.Input is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.UI.Input.IEdgeGesture is
@@ -728,5 +725,6 @@ package body Windows.UI.Input is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -405,6 +405,7 @@ package Windows.Web.Http.Headers is
       This       : access IMap_String_String_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -417,6 +418,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentHeaderCollection : aliased constant Windows.IID := (1080109636, 18350, 19326, (145, 36, 105, 98, 139, 100, 170, 24 ));
@@ -565,6 +567,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpContentCodingHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -659,6 +662,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpContentCodingHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpContentCodingHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -671,6 +675,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpContentCodingHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_Language : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -765,6 +770,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Globalization.ILanguage_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_Language : aliased constant Windows.IID := (1212193296, 25014, 23985, (166, 157, 138, 188, 70, 172, 96, 138 ));
@@ -777,6 +783,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Globalization.ILanguage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpRequestHeaderCollection : aliased constant Windows.IID := (2940220059, 46404, 18075, (134, 185, 172, 61, 70, 111, 234, 54 ));
@@ -988,6 +995,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpMediaTypeWithQualityHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1082,6 +1090,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpMediaTypeWithQualityHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1094,6 +1103,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpContentCodingWithQualityHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1188,6 +1198,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpContentCodingWithQualityHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1200,6 +1211,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpLanguageRangeWithQualityHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1294,6 +1306,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpLanguageRangeWithQualityHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1306,6 +1319,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpNameValueHeaderValue : aliased constant Windows.IID := (754450644, 13776, 21596, (171, 130, 246, 121, 59, 231, 76, 186 ));
@@ -1400,6 +1414,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpNameValueHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpNameValueHeaderValue : aliased constant Windows.IID := (1480106278, 46615, 21527, (179, 46, 222, 210, 210, 125, 64, 163 ));
@@ -1412,6 +1427,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpNameValueHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpConnectionOptionHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1506,6 +1522,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpConnectionOptionHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1518,6 +1535,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpCookiePairHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1612,6 +1630,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpCookiePairHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpCookiePairHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1624,6 +1643,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpCookiePairHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpExpectationHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1718,6 +1738,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpExpectationHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpExpectationHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1730,6 +1751,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpExpectationHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpTransferCodingHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1824,6 +1846,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpTransferCodingHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1836,6 +1859,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpProductInfoHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1930,6 +1954,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpProductInfoHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpProductInfoHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -1942,6 +1967,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpProductInfoHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpResponseHeaderCollection : aliased constant Windows.IID := (2056849769, 64063, 16877, (170, 198, 191, 149, 121, 117, 193, 107 ));
@@ -2062,6 +2088,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpMethod : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2156,6 +2183,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.IHttpMethod_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpMethod : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2168,6 +2196,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.IHttpMethod
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_HttpChallengeHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2262,6 +2291,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpChallengeHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_HttpChallengeHeaderValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -2274,6 +2304,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpChallengeHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCacheDirectiveHeaderValueCollection : aliased constant Windows.IID := (2589485961, 54736, 20414, (189, 157, 181, 179, 99, 104, 17, 180 ));
@@ -2350,6 +2381,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpChallengeHeaderValueStatics : aliased constant Windows.IID := (4090727026, 64513, 19713, (160, 8, 252, 183, 196, 89, 214, 53 ));
@@ -2372,6 +2404,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpChallengeHeaderValueFactory : aliased constant Windows.IID := (3293758545, 55708, 16554, (147, 153, 144, 238, 185, 143, 198, 19 ));
@@ -2394,6 +2427,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpChallengeHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpChallengeHeaderValue : aliased constant Windows.IID := (959668655, 3965, 18464, (159, 221, 162, 185, 86, 238, 174, 171 ));
@@ -2420,6 +2454,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpChallengeHeaderValueCollection : aliased constant Windows.IID := (3399376769, 44768, 17235, (161, 11, 230, 37, 186, 189, 100, 194 ));
@@ -2440,6 +2475,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCredentialsHeaderValueStatics : aliased constant Windows.IID := (2795187174, 52876, 17475, (163, 90, 27, 114, 123, 19, 16, 54 ));
@@ -2462,6 +2498,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCredentialsHeaderValueFactory : aliased constant Windows.IID := (4062027409, 19740, 16770, (191, 209, 52, 71, 10, 98, 249, 80 ));
@@ -2484,6 +2521,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpCredentialsHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCredentialsHeaderValue : aliased constant Windows.IID := (3276587979, 21550, 16759, (166, 199, 182, 116, 206, 25, 63, 191 ));
@@ -2510,6 +2548,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpConnectionOptionHeaderValueStatics : aliased constant Windows.IID := (2863095095, 43334, 19231, (133, 175, 72, 182, 139, 60, 80, 189 ));
@@ -2532,6 +2571,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpConnectionOptionHeaderValueFactory : aliased constant Windows.IID := (3644640286, 2941, 19519, (165, 141, 162, 161, 189, 234, 188, 10 ));
@@ -2545,6 +2585,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpConnectionOptionHeaderValue : aliased constant Windows.IID := (3410686586, 20112, 17899, (141, 205, 253, 20, 8, 244, 196, 79 ));
@@ -2557,6 +2598,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpConnectionOptionHeaderValueCollection : aliased constant Windows.IID := (3841289245, 20802, 19968, (142, 15, 1, 149, 9, 51, 118, 41 ));
@@ -2577,6 +2619,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentCodingHeaderValueStatics : aliased constant Windows.IID := (2497208366, 63935, 17143, (170, 70, 237, 39, 42, 65, 226, 18 ));
@@ -2599,6 +2642,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentCodingHeaderValueFactory : aliased constant Windows.IID := (3309120471, 13099, 17232, (133, 16, 46, 103, 162, 40, 154, 90 ));
@@ -2612,6 +2656,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpContentCodingHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentCodingHeaderValue : aliased constant Windows.IID := (3170367786, 37750, 19845, (188, 204, 159, 79, 154, 202, 180, 52 ));
@@ -2624,6 +2669,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentCodingHeaderValueCollection : aliased constant Windows.IID := (2099386145, 42715, 17262, (142, 131, 145, 89, 97, 146, 129, 156 ));
@@ -2644,6 +2690,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentDispositionHeaderValueStatics : aliased constant Windows.IID := (700801127, 23095, 18148, (176, 116, 197, 23, 125, 105, 202, 102 ));
@@ -2666,6 +2713,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentDispositionHeaderValueFactory : aliased constant Windows.IID := (2568338372, 17772, 20097, (130, 149, 178, 171, 60, 188, 245, 69 ));
@@ -2679,6 +2727,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpContentDispositionHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentDispositionHeaderValue : aliased constant Windows.IID := (4070764252, 9769, 19273, (153, 8, 150, 161, 104, 233, 54, 94 ));
@@ -2761,6 +2810,7 @@ package Windows.Web.Http.Headers is
       ; value : Windows.Foundation.IReference_UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentRangeHeaderValueStatics : aliased constant Windows.IID := (2158184138, 5964, 20398, (130, 28, 19, 76, 210, 148, 170, 56 ));
@@ -2783,6 +2833,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentRangeHeaderValueFactory : aliased constant Windows.IID := (1062983313, 41020, 17494, (154, 111, 239, 39, 236, 208, 60, 174 ));
@@ -2815,6 +2866,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpContentRangeHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentRangeHeaderValue : aliased constant Windows.IID := (81356755, 42230, 18780, (149, 48, 133, 121, 252, 186, 138, 169 ));
@@ -2855,6 +2907,7 @@ package Windows.Web.Http.Headers is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCookiePairHeaderValueStatics : aliased constant Windows.IID := (1854303560, 1711, 17506, (129, 88, 153, 56, 141, 93, 202, 129 ));
@@ -2877,6 +2930,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCookiePairHeaderValueFactory : aliased constant Windows.IID := (1667117679, 5231, 20310, (170, 33, 44, 183, 214, 213, 139, 30 ));
@@ -2899,6 +2953,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpCookiePairHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCookiePairHeaderValue : aliased constant Windows.IID := (3419693591, 19241, 16683, (189, 144, 179, 216, 20, 171, 142, 27 ));
@@ -2925,6 +2980,7 @@ package Windows.Web.Http.Headers is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpCookiePairHeaderValueCollection : aliased constant Windows.IID := (4092871504, 22558, 20172, (159, 89, 229, 7, 208, 79, 6, 230 ));
@@ -2945,6 +3001,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpDateOrDeltaHeaderValueStatics : aliased constant Windows.IID := (2082888104, 26226, 20112, (154, 154, 243, 151, 102, 247, 245, 118 ));
@@ -2967,6 +3024,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpDateOrDeltaHeaderValue : aliased constant Windows.IID := (3942427242, 50396, 18914, (162, 125, 4, 58, 223, 88, 103, 163 ));
@@ -2986,6 +3044,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpExpectationHeaderValueStatics : aliased constant Windows.IID := (806988770, 53221, 18235, (165, 127, 251, 165, 177, 78, 178, 87 ));
@@ -3008,6 +3067,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpExpectationHeaderValueFactory : aliased constant Windows.IID := (1319269835, 54590, 18536, (136, 86, 30, 33, 165, 3, 13, 192 ));
@@ -3030,6 +3090,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpExpectationHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpExpectationHeaderValue : aliased constant Windows.IID := (1290110413, 15001, 17327, (162, 230, 236, 35, 47, 234, 150, 88 ));
@@ -3063,6 +3124,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IVector_IHttpNameValueHeaderValue -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpExpectationHeaderValueCollection : aliased constant Windows.IID := (3884261811, 41186, 19140, (158, 102, 121, 112, 108, 185, 253, 88 ));
@@ -3083,6 +3145,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpLanguageHeaderValueCollection : aliased constant Windows.IID := (2663218339, 33305, 17654, (153, 2, 140, 86, 223, 211, 52, 12 ));
@@ -3103,6 +3166,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpLanguageRangeWithQualityHeaderValueStatics : aliased constant Windows.IID := (625074502, 62216, 18165, (182, 149, 66, 245, 64, 36, 236, 104 ));
@@ -3125,6 +3189,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpLanguageRangeWithQualityHeaderValueFactory : aliased constant Windows.IID := (2075670896, 30735, 19587, (159, 228, 220, 48, 135, 246, 189, 85 ));
@@ -3147,6 +3212,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpLanguageRangeWithQualityHeaderValue : aliased constant Windows.IID := (1918296322, 128, 19892, (160, 131, 125, 231, 178, 229, 186, 76 ));
@@ -3166,6 +3232,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpLanguageRangeWithQualityHeaderValueCollection : aliased constant Windows.IID := (2287819453, 19279, 18442, (137, 206, 138, 237, 206, 230, 227, 160 ));
@@ -3186,6 +3253,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMediaTypeHeaderValueStatics : aliased constant Windows.IID := (3763176415, 7489, 19852, (162, 222, 111, 210, 237, 135, 57, 155 ));
@@ -3208,6 +3276,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMediaTypeHeaderValueFactory : aliased constant Windows.IID := (3201779624, 52503, 17117, (147, 103, 171, 156, 91, 86, 221, 125 ));
@@ -3221,6 +3290,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpMediaTypeHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMediaTypeHeaderValue : aliased constant Windows.IID := (380798259, 59176, 20427, (189, 176, 8, 164, 49, 161, 72, 68 ));
@@ -3261,6 +3331,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IVector_IHttpNameValueHeaderValue -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMediaTypeWithQualityHeaderValueStatics : aliased constant Windows.IID := (1527188697, 46432, 20424, (152, 53, 126, 108, 10, 101, 123, 36 ));
@@ -3283,6 +3354,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMediaTypeWithQualityHeaderValueFactory : aliased constant Windows.IID := (1282220276, 37975, 17638, (163, 35, 209, 34, 185, 88, 120, 11 ));
@@ -3305,6 +3377,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMediaTypeWithQualityHeaderValue : aliased constant Windows.IID := (411917874, 30398, 17568, (177, 205, 32, 116, 189, 237, 45, 222 ));
@@ -3359,6 +3432,7 @@ package Windows.Web.Http.Headers is
       ; value : Windows.Foundation.IReference_Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMediaTypeWithQualityHeaderValueCollection : aliased constant Windows.IID := (1007446899, 4930, 17799, (160, 86, 24, 208, 47, 246, 113, 101 ));
@@ -3379,6 +3453,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpMethodHeaderValueCollection : aliased constant Windows.IID := (1136410612, 24857, 19167, (147, 140, 52, 191, 255, 207, 146, 237 ));
@@ -3399,6 +3474,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpNameValueHeaderValueStatics : aliased constant Windows.IID := (4292084495, 4400, 16722, (134, 89, 37, 105, 9, 169, 209, 21 ));
@@ -3421,6 +3497,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpNameValueHeaderValueFactory : aliased constant Windows.IID := (1997415015, 52216, 18230, (169, 37, 147, 251, 225, 12, 124, 168 ));
@@ -3443,6 +3520,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpNameValueHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpNameValueHeaderValue : aliased constant Windows.IID := (3636098147, 23450, 19739, (147, 249, 170, 91, 68, 236, 253, 223 ));
@@ -3469,6 +3547,7 @@ package Windows.Web.Http.Headers is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpProductHeaderValueStatics : aliased constant Windows.IID := (2428714537, 48892, 17207, (190, 98, 73, 240, 151, 151, 95, 83 ));
@@ -3491,6 +3570,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpProductHeaderValueFactory : aliased constant Windows.IID := (1629136117, 33468, 17147, (151, 123, 220, 0, 83, 110, 94, 134 ));
@@ -3513,6 +3593,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpProductHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpProductHeaderValue : aliased constant Windows.IID := (4110347779, 60372, 16736, (185, 255, 128, 124, 81, 131, 182, 230 ));
@@ -3532,6 +3613,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpProductInfoHeaderValueStatics : aliased constant Windows.IID := (3682588759, 12922, 20083, (129, 229, 112, 89, 163, 2, 176, 66 ));
@@ -3554,6 +3636,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpProductInfoHeaderValueFactory : aliased constant Windows.IID := (606212030, 60094, 17508, (180, 96, 236, 1, 11, 124, 65, 226 ));
@@ -3576,6 +3659,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpProductInfoHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpProductInfoHeaderValue : aliased constant Windows.IID := (454723378, 19509, 18538, (150, 111, 100, 100, 137, 25, 142, 77 ));
@@ -3595,6 +3679,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpProductInfoHeaderValueCollection : aliased constant Windows.IID := (2273179466, 54939, 17656, (173, 79, 69, 58, 249, 196, 46, 208 ));
@@ -3615,6 +3700,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentCodingWithQualityHeaderValueStatics : aliased constant Windows.IID := (3905500540, 36745, 18433, (142, 117, 76, 154, 191, 195, 222, 113 ));
@@ -3637,6 +3723,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentCodingWithQualityHeaderValueFactory : aliased constant Windows.IID := (3294555674, 50515, 18172, (173, 226, 215, 92, 29, 83, 223, 123 ));
@@ -3659,6 +3746,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentCodingWithQualityHeaderValue : aliased constant Windows.IID := (2488474837, 35603, 19827, (134, 81, 247, 107, 56, 248, 132, 149 ));
@@ -3678,6 +3766,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpContentCodingWithQualityHeaderValueCollection : aliased constant Windows.IID := (2081256766, 59545, 17272, (181, 200, 65, 45, 130, 7, 17, 204 ));
@@ -3698,6 +3787,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpTransferCodingHeaderValueStatics : aliased constant Windows.IID := (1790478634, 6808, 19762, (169, 6, 116, 112, 169, 135, 92, 229 ));
@@ -3720,6 +3810,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpTransferCodingHeaderValueFactory : aliased constant Windows.IID := (3143819260, 58209, 20232, (142, 79, 201, 231, 35, 222, 112, 59 ));
@@ -3733,6 +3824,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpTransferCodingHeaderValue : aliased constant Windows.IID := (1131361017, 15853, 17085, (179, 138, 84, 150, 162, 81, 28, 230 ));
@@ -3752,6 +3844,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHttpTransferCodingHeaderValueCollection : aliased constant Windows.IID := (539790388, 11267, 18872, (150, 101, 115, 226, 124, 178, 252, 121 ));
@@ -3772,6 +3865,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IHttpNameValueHeaderValue : aliased constant Windows.IID := (1001441530, 24351, 23664, (153, 80, 93, 29, 26, 112, 61, 212 ));
@@ -3806,6 +3900,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IHttpNameValueHeaderValue : aliased constant Windows.IID := (1480106278, 46615, 21527, (179, 46, 222, 210, 210, 125, 64, 163 ));
@@ -3818,6 +3913,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.Web.Http.Headers.IIterator_IHttpNameValueHeaderValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IHttpNameValueHeaderValue : aliased constant Windows.IID := (519635912, 36591, 24222, (185, 56, 185, 228, 40, 167, 118, 114 ));
@@ -3856,6 +3952,7 @@ package Windows.Web.Http.Headers is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IHttpNameValueHeaderValue : aliased constant Windows.IID := (754450644, 13776, 21596, (171, 130, 246, 121, 59, 231, 76, 186 ));
@@ -3950,6 +4047,7 @@ package Windows.Web.Http.Headers is
       ; items : Windows.Web.Http.Headers.IHttpNameValueHeaderValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -3961,17 +4059,16 @@ package Windows.Web.Http.Headers is
    subtype HttpRequestHeaderCollection is Windows.Web.Http.Headers.IHttpRequestHeaderCollection;
    subtype HttpResponseHeaderCollection is Windows.Web.Http.Headers.IHttpResponseHeaderCollection;
    subtype HttpContentDispositionHeaderValue is Windows.Web.Http.Headers.IHttpContentDispositionHeaderValue;
-   
    function Create
    (
       dispositionType : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpContentDispositionHeaderValue;
    
+   
    subtype HttpContentCodingHeaderValueCollection is Windows.Web.Http.Headers.IHttpContentCodingHeaderValueCollection;
    subtype HttpLanguageHeaderValueCollection is Windows.Web.Http.Headers.IHttpLanguageHeaderValueCollection;
    subtype HttpContentRangeHeaderValue is Windows.Web.Http.Headers.IHttpContentRangeHeaderValue;
-   
    function CreateFromLength
    (
       length : Windows.UInt64
@@ -3993,19 +4090,19 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpContentRangeHeaderValue;
    
-   subtype HttpMediaTypeHeaderValue is Windows.Web.Http.Headers.IHttpMediaTypeHeaderValue;
    
+   subtype HttpMediaTypeHeaderValue is Windows.Web.Http.Headers.IHttpMediaTypeHeaderValue;
    function Create
    (
       mediaType : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpMediaTypeHeaderValue;
    
+   
    subtype HttpMediaTypeWithQualityHeaderValueCollection is Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValueCollection;
    subtype HttpContentCodingWithQualityHeaderValueCollection is Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValueCollection;
    subtype HttpLanguageRangeWithQualityHeaderValueCollection is Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValueCollection;
    subtype HttpCredentialsHeaderValue is Windows.Web.Http.Headers.IHttpCredentialsHeaderValue;
-   
    function CreateFromScheme
    (
       scheme : Windows.String
@@ -4018,6 +4115,7 @@ package Windows.Web.Http.Headers is
       ; token : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpCredentialsHeaderValue;
+   
    
    subtype HttpCacheDirectiveHeaderValueCollection is Windows.Web.Http.Headers.IHttpCacheDirectiveHeaderValueCollection;
    subtype HttpConnectionOptionHeaderValueCollection is Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValueCollection;
@@ -4029,7 +4127,6 @@ package Windows.Web.Http.Headers is
    subtype HttpChallengeHeaderValueCollection is Windows.Web.Http.Headers.IHttpChallengeHeaderValueCollection;
    subtype HttpDateOrDeltaHeaderValue is Windows.Web.Http.Headers.IHttpDateOrDeltaHeaderValue;
    subtype HttpNameValueHeaderValue is Windows.Web.Http.Headers.IHttpNameValueHeaderValue;
-   
    function CreateFromName
    (
       name : Windows.String
@@ -4043,8 +4140,8 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpNameValueHeaderValue;
    
-   subtype HttpChallengeHeaderValue is Windows.Web.Http.Headers.IHttpChallengeHeaderValue;
    
+   subtype HttpChallengeHeaderValue is Windows.Web.Http.Headers.IHttpChallengeHeaderValue;
    function CreateFromScheme
    (
       scheme : Windows.String
@@ -4058,24 +4155,24 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpChallengeHeaderValue;
    
-   subtype HttpConnectionOptionHeaderValue is Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue;
    
+   subtype HttpConnectionOptionHeaderValue is Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue;
    function Create
    (
       token : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue;
    
-   subtype HttpContentCodingHeaderValue is Windows.Web.Http.Headers.IHttpContentCodingHeaderValue;
    
+   subtype HttpContentCodingHeaderValue is Windows.Web.Http.Headers.IHttpContentCodingHeaderValue;
    function Create
    (
       contentCoding : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpContentCodingHeaderValue;
    
-   subtype HttpCookiePairHeaderValue is Windows.Web.Http.Headers.IHttpCookiePairHeaderValue;
    
+   subtype HttpCookiePairHeaderValue is Windows.Web.Http.Headers.IHttpCookiePairHeaderValue;
    function CreateFromName
    (
       name : Windows.String
@@ -4088,9 +4185,9 @@ package Windows.Web.Http.Headers is
       ; value : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpCookiePairHeaderValue;
+   
    
    subtype HttpExpectationHeaderValue is Windows.Web.Http.Headers.IHttpExpectationHeaderValue;
-   
    function CreateFromName
    (
       name : Windows.String
@@ -4104,8 +4201,8 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpExpectationHeaderValue;
    
-   subtype HttpLanguageRangeWithQualityHeaderValue is Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue;
    
+   subtype HttpLanguageRangeWithQualityHeaderValue is Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue;
    function CreateFromLanguageRange
    (
       languageRange : Windows.String
@@ -4119,8 +4216,8 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue;
    
-   subtype HttpMediaTypeWithQualityHeaderValue is Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue;
    
+   subtype HttpMediaTypeWithQualityHeaderValue is Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue;
    function CreateFromMediaType
    (
       mediaType : Windows.String
@@ -4134,8 +4231,8 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue;
    
-   subtype HttpProductHeaderValue is Windows.Web.Http.Headers.IHttpProductHeaderValue;
    
+   subtype HttpProductHeaderValue is Windows.Web.Http.Headers.IHttpProductHeaderValue;
    function CreateFromName
    (
       productName : Windows.String
@@ -4149,8 +4246,8 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpProductHeaderValue;
    
-   subtype HttpProductInfoHeaderValue is Windows.Web.Http.Headers.IHttpProductInfoHeaderValue;
    
+   subtype HttpProductInfoHeaderValue is Windows.Web.Http.Headers.IHttpProductInfoHeaderValue;
    function CreateFromComment
    (
       productComment : Windows.String
@@ -4164,8 +4261,8 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpProductInfoHeaderValue;
    
-   subtype HttpContentCodingWithQualityHeaderValue is Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue;
    
+   subtype HttpContentCodingWithQualityHeaderValue is Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue;
    function CreateFromValue
    (
       contentCoding : Windows.String
@@ -4179,8 +4276,8 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue;
    
-   subtype HttpTransferCodingHeaderValue is Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue;
    
+   subtype HttpTransferCodingHeaderValue is Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue;
    function Create
    (
       input : Windows.String
@@ -4188,10 +4285,10 @@ package Windows.Web.Http.Headers is
    return Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Parse
    (
@@ -4413,5 +4510,6 @@ package Windows.Web.Http.Headers is
       ; transferCodingHeaderValue : access Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue
    )
    return Windows.Boolean;
+   
 
 end;

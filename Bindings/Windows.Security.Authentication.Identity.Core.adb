@@ -27,7 +27,6 @@ package body Windows.Security.Authentication.Identity.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMicrosoftAccountMultiFactorOneTimeCodedInfo_Interface
@@ -84,7 +83,6 @@ package body Windows.Security.Authentication.Identity.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -92,7 +90,6 @@ package body Windows.Security.Authentication.Identity.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Current
    return Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticationManager is
@@ -110,5 +107,6 @@ package body Windows.Security.Authentication.Identity.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

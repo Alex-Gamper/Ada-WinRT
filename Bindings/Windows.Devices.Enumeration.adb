@@ -31,7 +31,6 @@ package body Windows.Devices.Enumeration is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_DeviceAccessStatus_Interface
@@ -231,7 +230,6 @@ package body Windows.Devices.Enumeration is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateDevicePicker return Windows.Devices.Enumeration.IDevicePicker is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DevicePicker");
@@ -256,7 +254,6 @@ package body Windows.Devices.Enumeration is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateFromIdAsync
    (
@@ -620,5 +617,6 @@ package body Windows.Devices.Enumeration is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

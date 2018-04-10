@@ -29,7 +29,6 @@ package body Windows.Devices.Bluetooth.Advertisement is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IBluetoothLEAdvertisementWatcher_add_Received_Interface
@@ -72,7 +71,6 @@ package body Windows.Devices.Bluetooth.Advertisement is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateBluetoothLEManufacturerData return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData is
       Hr            : Windows.HResult := S_OK;
@@ -205,7 +203,6 @@ package body Windows.Devices.Bluetooth.Advertisement is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Flags
    return Windows.UInt8 is
@@ -580,5 +577,6 @@ package body Windows.Devices.Bluetooth.Advertisement is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

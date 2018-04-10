@@ -33,7 +33,6 @@ package body Windows.Devices.Bluetooth.Background is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -41,7 +40,6 @@ package body Windows.Devices.Bluetooth.Background is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AllServices
    return Windows.Address is
@@ -59,5 +57,6 @@ package body Windows.Devices.Bluetooth.Background is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

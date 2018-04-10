@@ -30,7 +30,6 @@ package body Windows.Perception.Spatial is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialAnchor_add_RawCoordinateSystemAdjusted_Interface
@@ -165,7 +164,6 @@ package body Windows.Perception.Spatial is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateWithSpatialAnchor
    (
       spatialAnchor : Windows.Perception.Spatial.ISpatialAnchor
@@ -214,7 +212,6 @@ package body Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function TryCreateRelativeTo
    (
@@ -505,5 +502,6 @@ package body Windows.Perception.Spatial is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

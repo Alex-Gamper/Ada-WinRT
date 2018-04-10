@@ -27,7 +27,6 @@ package body Windows.System.Power.Diagnostics is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.System.Power.Diagnostics is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_DeviceSpecificConversionFactor
    return Windows.Double is
@@ -134,5 +132,6 @@ package body Windows.System.Power.Diagnostics is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

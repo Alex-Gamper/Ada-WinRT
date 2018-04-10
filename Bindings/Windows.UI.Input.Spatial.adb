@@ -32,7 +32,6 @@ package body Windows.UI.Input.Spatial is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ISpatialGestureRecognizer_add_RecognitionStarted_Interface
@@ -297,7 +296,6 @@ package body Windows.UI.Input.Spatial is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       settings : Windows.UI.Input.Spatial.SpatialGestureSettings
@@ -325,7 +323,6 @@ package body Windows.UI.Input.Spatial is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function TryGetAtTimestamp
    (
@@ -364,5 +361,6 @@ package body Windows.UI.Input.Spatial is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

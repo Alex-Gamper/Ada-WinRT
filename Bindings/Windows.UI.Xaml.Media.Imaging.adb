@@ -31,7 +31,6 @@ package body Windows.UI.Xaml.Media.Imaging is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access DownloadProgressEventHandler_Interface
@@ -87,7 +86,6 @@ package body Windows.UI.Xaml.Media.Imaging is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateRenderTargetBitmap return Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap is
       Hr            : Windows.HResult := S_OK;
@@ -766,7 +764,6 @@ package body Windows.UI.Xaml.Media.Imaging is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_PixelWidthProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -1153,5 +1150,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

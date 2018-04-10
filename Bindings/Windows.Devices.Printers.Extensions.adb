@@ -27,7 +27,6 @@ package body Windows.Devices.Printers.Extensions is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintTaskConfiguration_add_SaveRequested_Interface
@@ -71,7 +70,6 @@ package body Windows.Devices.Printers.Extensions is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -79,7 +77,6 @@ package body Windows.Devices.Printers.Extensions is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromDeviceId
    (
@@ -100,5 +97,6 @@ package body Windows.Devices.Printers.Extensions is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

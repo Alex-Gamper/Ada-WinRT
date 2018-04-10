@@ -28,7 +28,6 @@ package body Windows.Media.Protection is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access ServiceRequestedEventHandler_Interface
@@ -96,7 +95,6 @@ package body Windows.Media.Protection is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateMediaProtectionManager return Windows.Media.Protection.IMediaProtectionManager is
       Hr            : Windows.HResult := S_OK;
@@ -177,7 +175,6 @@ package body Windows.Media.Protection is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function RenewSystemComponentsAsync
    (
       information : Windows.Media.Protection.IRevocationAndRenewalInformation
@@ -197,5 +194,6 @@ package body Windows.Media.Protection is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

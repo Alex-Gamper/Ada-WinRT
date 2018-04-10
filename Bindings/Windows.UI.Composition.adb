@@ -33,7 +33,6 @@ package body Windows.UI.Composition is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICompositionCapabilities_add_Changed_Interface
@@ -90,7 +89,6 @@ package body Windows.UI.Composition is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       name : Windows.String
@@ -136,7 +134,6 @@ package body Windows.UI.Composition is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.UI.Composition.ICompositionCapabilities is
       Hr            : Windows.HRESULT := S_OK;
@@ -153,5 +150,6 @@ package body Windows.UI.Composition is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

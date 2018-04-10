@@ -398,6 +398,7 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDeviceAccountConfiguration2 : aliased constant Windows.IID := (4071810470, 29325, 19018, (137, 69, 43, 248, 88, 1, 54, 222 ));
@@ -795,6 +796,7 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataAccountSystemAccessManagerStatics : aliased constant Windows.IID := (2641039801, 52197, 17909, (130, 43, 194, 103, 184, 29, 189, 182 ));
@@ -808,6 +810,7 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IUserDataAccountSystemAccessManagerStatics2 : aliased constant Windows.IID := (2487190861, 19278, 17311, (131, 211, 151, 155, 39, 192, 90, 199 ));
@@ -845,6 +848,7 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IAsyncOperation_IDeviceAccountConfiguration -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IDeviceAccountConfiguration : aliased constant Windows.IID := (1366317703, 36299, 22897, (141, 107, 202, 138, 230, 169, 85, 173 ));
@@ -879,6 +883,7 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IDeviceAccountConfiguration : aliased constant Windows.IID := (2848189038, 40409, 21246, (157, 39, 249, 228, 222, 221, 77, 63 ));
@@ -891,6 +896,7 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IIterator_IDeviceAccountConfiguration
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IDeviceAccountConfiguration : aliased constant Windows.IID := (1184389619, 27515, 21401, (138, 140, 254, 97, 91, 149, 174, 7 ));
@@ -917,6 +923,7 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       ; RetVal : access Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -926,7 +933,6 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    IID_AsyncOperationCompletedHandler_IDeviceAccountConfiguration : aliased constant Windows.IID := (3421383752, 58349, 24253, (164, 174, 86, 88, 51, 136, 164, 154 ));
    
    type AsyncOperationCompletedHandler_IDeviceAccountConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IAsyncOperation_IDeviceAccountConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDeviceAccountConfiguration'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDeviceAccountConfiguration_Interface
@@ -947,7 +953,6 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function AddAndShowDeviceAccountsAsync
    (
@@ -978,5 +983,6 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       accountId : Windows.String
    )
    return Windows.ApplicationModel.UserDataAccounts.SystemAccess.IAsyncOperation_IDeviceAccountConfiguration;
+   
 
 end;

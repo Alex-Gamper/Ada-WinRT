@@ -28,7 +28,6 @@ package body Windows.Media.Capture.Core is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVariablePhotoSequenceCapture_Interface
@@ -71,7 +70,6 @@ package body Windows.Media.Capture.Core is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

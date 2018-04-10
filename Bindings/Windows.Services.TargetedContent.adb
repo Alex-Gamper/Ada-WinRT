@@ -28,7 +28,6 @@ package body Windows.Services.TargetedContent is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ITargetedContentSubscription_Interface
@@ -98,7 +97,6 @@ package body Windows.Services.TargetedContent is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -106,7 +104,6 @@ package body Windows.Services.TargetedContent is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetAsync
    (
@@ -167,5 +164,6 @@ package body Windows.Services.TargetedContent is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

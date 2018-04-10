@@ -107,6 +107,7 @@ package Windows.System.Diagnostics.DevicePortal is
       ; RetVal : access Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePortalConnectionRequestReceivedEventArgs : aliased constant Windows.IID := (1692065861, 28634, 17497, (158, 189, 236, 206, 34, 227, 133, 89 ));
@@ -126,6 +127,7 @@ package Windows.System.Diagnostics.DevicePortal is
       ; RetVal : access Windows.Web.Http.IHttpResponseMessage
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePortalConnectionStatics : aliased constant Windows.IID := (1270755815, 59833, 17989, (143, 237, 165, 62, 234, 14, 219, 214 ));
@@ -139,6 +141,7 @@ package Windows.System.Diagnostics.DevicePortal is
       ; RetVal : access Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDevicePortalConnection : aliased constant Windows.IID := (256147281, 4504, 19873, (141, 84, 189, 239, 57, 62, 9, 182 ));
@@ -174,6 +177,7 @@ package Windows.System.Diagnostics.DevicePortal is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -183,7 +187,6 @@ package Windows.System.Diagnostics.DevicePortal is
    IID_TypedEventHandler_IDevicePortalConnection_add_Closed : aliased constant Windows.IID := (716018600, 21242, 21683, (149, 86, 21, 214, 81, 32, 139, 63 ));
    
    type TypedEventHandler_IDevicePortalConnection_add_Closed_Interface(Callback : access procedure (sender : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection ; args : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDevicePortalConnection_add_Closed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDevicePortalConnection_add_Closed_Interface
@@ -197,7 +200,6 @@ package Windows.System.Diagnostics.DevicePortal is
    IID_TypedEventHandler_IDevicePortalConnection_add_RequestReceived : aliased constant Windows.IID := (3638771704, 35524, 24537, (177, 132, 138, 232, 125, 130, 142, 185 ));
    
    type TypedEventHandler_IDevicePortalConnection_add_RequestReceived_Interface(Callback : access procedure (sender : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection ; args : Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDevicePortalConnection_add_RequestReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDevicePortalConnection_add_RequestReceived_Interface
@@ -218,11 +220,11 @@ package Windows.System.Diagnostics.DevicePortal is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForAppServiceConnection
    (
       appServiceConnection : Windows.ApplicationModel.AppService.IAppServiceConnection
    )
    return Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection;
+   
 
 end;

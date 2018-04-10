@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.Email.DataProvider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IEmailDataProviderConnection_add_MailboxSyncRequested_Interface
@@ -228,7 +227,6 @@ package body Windows.ApplicationModel.Email.DataProvider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

@@ -28,7 +28,6 @@ package body Windows.System.RemoteSystems is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IRemoteSystem_Interface
@@ -253,7 +252,6 @@ package body Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -480,7 +478,6 @@ package body Windows.System.RemoteSystems is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsAuthorizationKindEnabled
    (
@@ -796,5 +793,6 @@ package body Windows.System.RemoteSystems is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -29,7 +29,6 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppInstallItem_add_Completed_Interface
@@ -111,7 +110,6 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateAppInstallManager return Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager is
       Hr            : Windows.HResult := S_OK;

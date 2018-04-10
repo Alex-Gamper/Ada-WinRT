@@ -31,7 +31,6 @@ package body Windows.UI.Xaml.Hosting is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface
@@ -62,7 +61,6 @@ package body Windows.UI.Xaml.Hosting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       appUserModelId : Windows.String
@@ -90,7 +88,6 @@ package body Windows.UI.Xaml.Hosting is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetElementVisual
    (
@@ -364,5 +361,6 @@ package body Windows.UI.Xaml.Hosting is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

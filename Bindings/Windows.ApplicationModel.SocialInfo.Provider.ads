@@ -110,6 +110,7 @@ package Windows.ApplicationModel.SocialInfo.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocialDashboardItemUpdater : aliased constant Windows.IID := (1021222345, 18432, 18125, (134, 155, 25, 115, 236, 104, 91, 222 ));
@@ -178,6 +179,7 @@ package Windows.ApplicationModel.SocialInfo.Provider is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocialInfoProviderManagerStatics : aliased constant Windows.IID := (461956395, 30599, 18646, (170, 18, 216, 232, 244, 122, 184, 90 ));
@@ -231,6 +233,7 @@ package Windows.ApplicationModel.SocialInfo.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ISocialFeedUpdater : aliased constant Windows.IID := (1325026729, 50518, 23028, (157, 153, 231, 128, 28, 91, 15, 69 ));
@@ -257,6 +260,7 @@ package Windows.ApplicationModel.SocialInfo.Provider is
       ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.ISocialFeedUpdater
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ISocialDashboardItemUpdater : aliased constant Windows.IID := (2344397220, 42236, 24546, (182, 177, 14, 90, 117, 208, 91, 7 ));
@@ -283,6 +287,7 @@ package Windows.ApplicationModel.SocialInfo.Provider is
       ; RetVal : access Windows.ApplicationModel.SocialInfo.Provider.ISocialDashboardItemUpdater
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -292,7 +297,6 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    IID_AsyncOperationCompletedHandler_ISocialFeedUpdater : aliased constant Windows.IID := (186807412, 32960, 24371, (159, 249, 35, 68, 3, 171, 214, 250 ));
    
    type AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISocialFeedUpdater'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface
@@ -306,7 +310,6 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    IID_AsyncOperationCompletedHandler_ISocialDashboardItemUpdater : aliased constant Windows.IID := (869259690, 27708, 20703, (187, 200, 52, 194, 42, 14, 91, 107 ));
    
    type AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISocialDashboardItemUpdater'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISocialDashboardItemUpdater_Interface

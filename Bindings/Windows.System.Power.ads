@@ -218,6 +218,7 @@ package Windows.System.Power is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IBackgroundEnergyManagerStatics : aliased constant Windows.IID := (3004571029, 4480, 17270, (150, 225, 64, 149, 86, 129, 71, 206 ));
@@ -309,6 +310,7 @@ package Windows.System.Power is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IForegroundEnergyManagerStatics : aliased constant Windows.IID := (2683857010, 58999, 18452, (154, 32, 83, 55, 202, 115, 43, 152 ));
@@ -386,6 +388,7 @@ package Windows.System.Power is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -394,7 +397,6 @@ package Windows.System.Power is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_EnergySaverStatus
    return Windows.System.Power.EnergySaverStatus;
@@ -560,5 +562,6 @@ package Windows.System.Power is
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
+   
 
 end;

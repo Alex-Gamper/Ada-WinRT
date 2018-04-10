@@ -168,6 +168,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTicketOption : aliased constant Windows.IID := (2961624976, 45927, 20043, (189, 72, 156, 120, 160, 187, 49, 206 ));
@@ -237,6 +238,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Graphics.Printing.PrintTicket.IPrintTicketValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTicketFeature : aliased constant Windows.IID := (3881860458, 23029, 16643, (136, 88, 185, 119, 16, 150, 61, 57 ));
@@ -307,6 +309,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTicketParameterDefinition : aliased constant Windows.IID := (3602560228, 10594, 19457, (183, 243, 154, 146, 148, 235, 131, 53 ));
@@ -361,6 +364,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTicketCapabilities : aliased constant Windows.IID := (2353352843, 48092, 16982, (161, 66, 47, 214, 21, 236, 180, 22 ));
@@ -510,6 +514,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterDefinition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrintTicketParameterInitializer : aliased constant Windows.IID := (1580414395, 41125, 18609, (157, 92, 7, 17, 109, 220, 89, 122 ));
@@ -550,6 +555,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Graphics.Printing.PrintTicket.IPrintTicketValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWorkflowPrintTicketValidationResult : aliased constant Windows.IID := (181531538, 55931, 18998, (191, 54, 106, 153, 166, 46, 32, 89 ));
@@ -569,6 +575,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWorkflowPrintTicket : aliased constant Windows.IID := (1104487045, 13800, 17550, (168, 197, 228, 182, 162, 207, 130, 108 ));
@@ -767,6 +774,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPrintTicketOption : aliased constant Windows.IID := (3374986722, 33437, 23263, (135, 78, 77, 116, 91, 78, 240, 170 ));
@@ -801,6 +809,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPrintTicketOption : aliased constant Windows.IID := (1551787638, 36934, 23402, (158, 176, 198, 169, 84, 232, 34, 107 ));
@@ -813,6 +822,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Graphics.Printing.PrintTicket.IIterator_IPrintTicketOption
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPrintTicketOption : aliased constant Windows.IID := (3356182767, 10828, 22149, (183, 164, 136, 204, 121, 108, 162, 116 ));
@@ -851,6 +861,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWorkflowPrintTicketValidationResult : aliased constant Windows.IID := (4101803905, 9199, 23144, (136, 64, 112, 7, 71, 177, 9, 153 ));
@@ -877,6 +888,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketValidationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IWorkflowPrintTicket : aliased constant Windows.IID := (648994681, 1625, 23133, (154, 207, 180, 66, 62, 239, 222, 187 ));
@@ -903,6 +915,7 @@ package Windows.Graphics.Printing.PrintTicket is
       ; RetVal : access Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -912,7 +925,6 @@ package Windows.Graphics.Printing.PrintTicket is
    IID_AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult : aliased constant Windows.IID := (990642168, 3403, 20971, (176, 64, 73, 61, 225, 173, 218, 185 ));
    
    type AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicketValidationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWorkflowPrintTicketValidationResult_Interface
@@ -926,7 +938,6 @@ package Windows.Graphics.Printing.PrintTicket is
    IID_AsyncOperationCompletedHandler_IWorkflowPrintTicket : aliased constant Windows.IID := (3565600909, 36476, 24461, (135, 171, 13, 247, 186, 6, 197, 227 ));
    
    type AsyncOperationCompletedHandler_IWorkflowPrintTicket_Interface(Callback : access procedure (asyncInfo : Windows.Graphics.Printing.PrintTicket.IAsyncOperation_IWorkflowPrintTicket ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWorkflowPrintTicket'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWorkflowPrintTicket_Interface

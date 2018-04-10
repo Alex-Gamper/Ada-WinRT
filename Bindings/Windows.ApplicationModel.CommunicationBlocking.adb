@@ -27,7 +27,6 @@ package body Windows.ApplicationModel.CommunicationBlocking is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.ApplicationModel.CommunicationBlocking is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RequestSetAsActiveBlockingAppAsync
    return Windows.Foundation.IAsyncOperation_Boolean is
@@ -192,5 +190,6 @@ package body Windows.ApplicationModel.CommunicationBlocking is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

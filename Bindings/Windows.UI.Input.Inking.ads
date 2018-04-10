@@ -402,6 +402,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IVectorView_IInkStroke -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStrokesErasedEventArgs : aliased constant Windows.IID := (2753653282, 5379, 20159, (143, 245, 45, 232, 69, 132, 168, 170 ));
@@ -414,6 +415,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IVectorView_IInkStroke -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPresenter : aliased constant Windows.IID := (2795204834, 34939, 17807, (177, 115, 79, 228, 67, 137, 48, 163 ));
@@ -540,6 +542,7 @@ package Windows.UI.Input.Inking is
       ; cookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPresenter2 : aliased constant Windows.IID := (3478382098, 39476, 4582, (159, 51, 162, 79, 192, 217, 100, 156 ));
@@ -559,6 +562,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.UI.Input.Inking.InkHighContrastAdjustment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkInputProcessingConfiguration : aliased constant Windows.IID := (662231134, 13258, 19206, (166, 211, 172, 57, 69, 17, 109, 55 ));
@@ -592,6 +596,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.UI.Input.Inking.InkInputRightDragAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkSynchronizer : aliased constant Windows.IID := (2610864480, 44699, 17913, (132, 7, 75, 73, 59, 22, 54, 97 ));
@@ -610,6 +615,7 @@ package Windows.UI.Input.Inking is
       This       : access IInkSynchronizer_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkUnprocessedInput : aliased constant Windows.IID := (3678684640, 33688, 18721, (172, 59, 171, 151, 140, 91, 162, 86 ));
@@ -727,6 +733,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkPresenter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStrokeInput : aliased constant Windows.IID := (3476029051, 24080, 17350, (160, 128, 136, 242, 110, 29, 198, 125 ));
@@ -799,6 +806,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkPresenter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPresenterStencil : aliased constant Windows.IID := (819015021, 15878, 19714, (177, 22, 39, 127, 181, 216, 173, 220 ));
@@ -867,6 +875,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.Foundation.Numerics.Matrix3x2
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPresenterRuler : aliased constant Windows.IID := (1826258266, 57031, 19927, (135, 122, 33, 51, 241, 131, 212, 138 ));
@@ -900,6 +909,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPresenterRuler2 : aliased constant Windows.IID := (1158876609, 48225, 17620, (164, 35, 84, 113, 42, 230, 113, 196 ));
@@ -933,6 +943,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPresenterProtractor : aliased constant Windows.IID := (2112090794, 61292, 20113, (167, 59, 91, 112, 213, 111, 189, 23 ));
@@ -1036,6 +1047,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.UI.Color
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPresenterRulerFactory : aliased constant Windows.IID := (875961323, 36865, 19019, (166, 144, 105, 219, 175, 99, 229, 1 ));
@@ -1049,6 +1061,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkPresenterRuler
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPresenterProtractorFactory : aliased constant Windows.IID := (838927305, 26874, 18409, (129, 39, 131, 112, 113, 31, 196, 108 ));
@@ -1062,6 +1075,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkPresenterProtractor
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPoint : aliased constant Windows.IID := (2676434731, 34188, 18085, (155, 65, 209, 149, 151, 4, 89, 253 ));
@@ -1081,6 +1095,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPoint2 : aliased constant Windows.IID := (4222206967, 44630, 19804, (189, 47, 10, 196, 95, 94, 74, 249 ));
@@ -1107,6 +1122,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPointFactory : aliased constant Windows.IID := (702928156, 51599, 16477, (159, 59, 229, 62, 49, 6, 141, 77 ));
@@ -1121,6 +1137,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkPoint
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkPointFactory2 : aliased constant Windows.IID := (3759431301, 56063, 17906, (173, 105, 5, 13, 130, 86, 162, 9 ));
@@ -1138,6 +1155,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkPoint
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkDrawingAttributes : aliased constant Windows.IID := (2543982444, 26484, 18605, (132, 240, 72, 245, 169, 190, 116, 249 ));
@@ -1213,6 +1231,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkDrawingAttributes2 : aliased constant Windows.IID := (2091607304, 36548, 17149, (165, 165, 228, 183, 209, 213, 49, 109 ));
@@ -1246,6 +1265,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkDrawingAttributesPencilProperties : aliased constant Windows.IID := (1327838411, 11654, 16827, (176, 232, 228, 194, 160, 37, 60, 82 ));
@@ -1265,6 +1285,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkDrawingAttributes3 : aliased constant Windows.IID := (1912733698, 32091, 18064, (138, 244, 230, 100, 203, 226, 183, 79 ));
@@ -1284,6 +1305,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkDrawingAttributesPencilProperties
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkDrawingAttributes4 : aliased constant Windows.IID := (4016430117, 40729, 17773, (145, 163, 188, 58, 61, 145, 197, 251 ));
@@ -1303,6 +1325,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkDrawingAttributesStatics : aliased constant Windows.IID := (4147241023, 6757, 18530, (150, 203, 110, 22, 101, 225, 127, 109 ));
@@ -1315,6 +1338,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkDrawingAttributes
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStrokeRenderingSegment : aliased constant Windows.IID := (1750142751, 35043, 18298, (162, 250, 86, 159, 95, 31, 155, 213 ));
@@ -1369,6 +1393,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStroke : aliased constant Windows.IID := (353652064, 52451, 20431, (157, 82, 17, 81, 138, 182, 175, 212 ));
@@ -1430,6 +1455,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkStroke
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStroke2 : aliased constant Windows.IID := (1572463860, 47866, 19937, (137, 211, 32, 27, 30, 215, 216, 155 ));
@@ -1456,6 +1482,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IVectorView_IInkPoint -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStroke3 : aliased constant Windows.IID := (1249932148, 38041, 16669, (161, 196, 104, 133, 93, 3, 214, 95 ));
@@ -1496,6 +1523,7 @@ package Windows.UI.Input.Inking is
       ; value : Windows.Foundation.IReference_TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStrokeBuilder : aliased constant Windows.IID := (2193347036, 7267, 16860, (158, 7, 75, 74, 112, 206, 216, 1 ));
@@ -1539,6 +1567,7 @@ package Windows.UI.Input.Inking is
       ; drawingAttributes : Windows.UI.Input.Inking.IInkDrawingAttributes
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStrokeBuilder2 : aliased constant Windows.IID := (3179461671, 29471, 19644, (187, 191, 109, 70, 128, 68, 241, 229 ));
@@ -1553,6 +1582,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkStroke
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStrokeBuilder3 : aliased constant Windows.IID := (2999394253, 21618, 18097, (168, 29, 195, 122, 61, 22, 148, 65 ));
@@ -1569,6 +1599,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkStroke
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkRecognitionResult : aliased constant Windows.IID := (910563988, 20584, 16623, (138, 5, 44, 47, 182, 9, 8, 162 ));
@@ -1595,6 +1626,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IVectorView_IInkStroke -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStrokeContainer : aliased constant Windows.IID := (581749702, 64169, 20244, (182, 140, 246, 206, 230, 112, 174, 22 ));
@@ -1704,6 +1736,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IVectorView_IInkRecognitionResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStrokeContainer2 : aliased constant Windows.IID := (2298598244, 55862, 19407, (158, 92, 209, 149, 130, 89, 149, 180 ));
@@ -1722,6 +1755,7 @@ package Windows.UI.Input.Inking is
       This       : access IInkStrokeContainer2_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkStrokeContainer3 : aliased constant Windows.IID := (1023917733, 47850, 19586, (167, 25, 123, 131, 218, 16, 103, 210 ));
@@ -1744,6 +1778,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IInkStroke
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkRecognizer : aliased constant Windows.IID := (125619875, 36941, 17450, (177, 81, 170, 202, 54, 49, 196, 59 ));
@@ -1756,6 +1791,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkRecognizerContainer : aliased constant Windows.IID := (2806880817, 32839, 18072, (169, 18, 248, 42, 80, 133, 1, 47 ));
@@ -1784,6 +1820,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IVectorView_IInkRecognizer -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IInkManager : aliased constant Windows.IID := (1195668349, 26395, 16739, (156, 149, 78, 141, 122, 3, 95, 225 ));
@@ -1841,6 +1878,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IInkStroke : aliased constant Windows.IID := (1443419561, 59364, 23051, (148, 31, 183, 254, 215, 107, 53, 191 ));
@@ -1875,6 +1913,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IInkStroke : aliased constant Windows.IID := (3149992961, 35280, 21253, (163, 179, 54, 200, 135, 113, 75, 155 ));
@@ -1887,6 +1926,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IIterator_IInkStroke
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IInkStroke : aliased constant Windows.IID := (1732572248, 45634, 22375, (166, 67, 153, 110, 1, 223, 240, 228 ));
@@ -1925,6 +1965,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IInkPoint : aliased constant Windows.IID := (1195463762, 56185, 22142, (132, 213, 233, 145, 35, 48, 249, 68 ));
@@ -1959,6 +2000,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IInkPoint : aliased constant Windows.IID := (103858415, 42210, 23286, (178, 233, 142, 4, 46, 41, 78, 23 ));
@@ -1971,6 +2013,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IIterator_IInkPoint
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IInkPoint : aliased constant Windows.IID := (3517727051, 51325, 21519, (138, 177, 78, 13, 9, 217, 210, 131 ));
@@ -2009,6 +2052,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IInkPoint : aliased constant Windows.IID := (281309698, 18347, 22716, (145, 222, 213, 0, 15, 26, 116, 192 ));
@@ -2103,6 +2147,7 @@ package Windows.UI.Input.Inking is
       ; items : Windows.UI.Input.Inking.IInkPoint_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IInkStrokeRenderingSegment : aliased constant Windows.IID := (3621307159, 28479, 20882, (146, 16, 101, 162, 99, 186, 248, 209 ));
@@ -2137,6 +2182,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IInkStrokeRenderingSegment : aliased constant Windows.IID := (654315335, 10373, 23977, (137, 35, 22, 163, 165, 139, 122, 85 ));
@@ -2149,6 +2195,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IIterator_IInkStrokeRenderingSegment
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IInkStrokeRenderingSegment : aliased constant Windows.IID := (4087260189, 18196, 23936, (135, 222, 151, 61, 210, 109, 162, 105 ));
@@ -2187,6 +2234,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IInkRecognitionResult : aliased constant Windows.IID := (2596021375, 547, 24388, (143, 161, 13, 109, 105, 27, 249, 175 ));
@@ -2221,6 +2269,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IInkRecognitionResult : aliased constant Windows.IID := (3801834891, 31937, 22044, (153, 18, 0, 29, 188, 168, 102, 81 ));
@@ -2233,6 +2282,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IIterator_IInkRecognitionResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IInkRecognitionResult : aliased constant Windows.IID := (3975958283, 4396, 23763, (172, 240, 215, 70, 214, 189, 254, 181 ));
@@ -2271,6 +2321,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IInkRecognizer : aliased constant Windows.IID := (4173148311, 21090, 24186, (161, 157, 19, 192, 41, 210, 215, 229 ));
@@ -2305,6 +2356,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IInkRecognizer : aliased constant Windows.IID := (1629191812, 43011, 20593, (170, 234, 79, 44, 224, 21, 16, 82 ));
@@ -2317,6 +2369,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UI.Input.Inking.IIterator_IInkRecognizer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IInkRecognizer : aliased constant Windows.IID := (2393766479, 10223, 23133, (176, 184, 127, 213, 192, 206, 107, 57 ));
@@ -2355,6 +2408,7 @@ package Windows.UI.Input.Inking is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2364,7 +2418,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkPresenter_add_StrokesCollected : aliased constant Windows.IID := (392952463, 49374, 23354, (178, 140, 15, 57, 49, 202, 82, 211 ));
    
    type TypedEventHandler_IInkPresenter_add_StrokesCollected_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkPresenter ; args : Windows.UI.Input.Inking.IInkStrokesCollectedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkPresenter_add_StrokesCollected'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkPresenter_add_StrokesCollected_Interface
@@ -2378,7 +2431,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkPresenter_add_StrokesErased : aliased constant Windows.IID := (822004009, 5328, 21775, (132, 242, 19, 127, 198, 169, 240, 143 ));
    
    type TypedEventHandler_IInkPresenter_add_StrokesErased_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkPresenter ; args : Windows.UI.Input.Inking.IInkStrokesErasedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkPresenter_add_StrokesErased'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkPresenter_add_StrokesErased_Interface
@@ -2392,7 +2444,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkUnprocessedInput_add_PointerEntered : aliased constant Windows.IID := (1250344312, 23503, 24286, (143, 101, 168, 198, 82, 53, 5, 92 ));
    
    type TypedEventHandler_IInkUnprocessedInput_add_PointerEntered_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkUnprocessedInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkUnprocessedInput_add_PointerEntered'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerEntered_Interface
@@ -2406,7 +2457,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkUnprocessedInput_add_PointerHovered : aliased constant Windows.IID := (1250344312, 23503, 24286, (143, 101, 168, 198, 82, 53, 5, 92 ));
    
    type TypedEventHandler_IInkUnprocessedInput_add_PointerHovered_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkUnprocessedInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkUnprocessedInput_add_PointerHovered'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerHovered_Interface
@@ -2420,7 +2470,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkUnprocessedInput_add_PointerExited : aliased constant Windows.IID := (1250344312, 23503, 24286, (143, 101, 168, 198, 82, 53, 5, 92 ));
    
    type TypedEventHandler_IInkUnprocessedInput_add_PointerExited_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkUnprocessedInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkUnprocessedInput_add_PointerExited'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerExited_Interface
@@ -2434,7 +2483,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkUnprocessedInput_add_PointerPressed : aliased constant Windows.IID := (1250344312, 23503, 24286, (143, 101, 168, 198, 82, 53, 5, 92 ));
    
    type TypedEventHandler_IInkUnprocessedInput_add_PointerPressed_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkUnprocessedInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkUnprocessedInput_add_PointerPressed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerPressed_Interface
@@ -2448,7 +2496,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkUnprocessedInput_add_PointerMoved : aliased constant Windows.IID := (1250344312, 23503, 24286, (143, 101, 168, 198, 82, 53, 5, 92 ));
    
    type TypedEventHandler_IInkUnprocessedInput_add_PointerMoved_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkUnprocessedInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkUnprocessedInput_add_PointerMoved'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerMoved_Interface
@@ -2462,7 +2509,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkUnprocessedInput_add_PointerReleased : aliased constant Windows.IID := (1250344312, 23503, 24286, (143, 101, 168, 198, 82, 53, 5, 92 ));
    
    type TypedEventHandler_IInkUnprocessedInput_add_PointerReleased_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkUnprocessedInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkUnprocessedInput_add_PointerReleased'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerReleased_Interface
@@ -2476,7 +2522,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkUnprocessedInput_add_PointerLost : aliased constant Windows.IID := (1250344312, 23503, 24286, (143, 101, 168, 198, 82, 53, 5, 92 ));
    
    type TypedEventHandler_IInkUnprocessedInput_add_PointerLost_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkUnprocessedInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkUnprocessedInput_add_PointerLost'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkUnprocessedInput_add_PointerLost_Interface
@@ -2490,7 +2535,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkStrokeInput_add_StrokeStarted : aliased constant Windows.IID := (3211180386, 28717, 23559, (162, 213, 21, 242, 21, 131, 196, 58 ));
    
    type TypedEventHandler_IInkStrokeInput_add_StrokeStarted_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkStrokeInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkStrokeInput_add_StrokeStarted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkStrokeInput_add_StrokeStarted_Interface
@@ -2504,7 +2548,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkStrokeInput_add_StrokeContinued : aliased constant Windows.IID := (3211180386, 28717, 23559, (162, 213, 21, 242, 21, 131, 196, 58 ));
    
    type TypedEventHandler_IInkStrokeInput_add_StrokeContinued_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkStrokeInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkStrokeInput_add_StrokeContinued'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkStrokeInput_add_StrokeContinued_Interface
@@ -2518,7 +2561,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkStrokeInput_add_StrokeEnded : aliased constant Windows.IID := (3211180386, 28717, 23559, (162, 213, 21, 242, 21, 131, 196, 58 ));
    
    type TypedEventHandler_IInkStrokeInput_add_StrokeEnded_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkStrokeInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkStrokeInput_add_StrokeEnded'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkStrokeInput_add_StrokeEnded_Interface
@@ -2532,7 +2574,6 @@ package Windows.UI.Input.Inking is
    IID_TypedEventHandler_IInkStrokeInput_add_StrokeCanceled : aliased constant Windows.IID := (3211180386, 28717, 23559, (162, 213, 21, 242, 21, 131, 196, 58 ));
    
    type TypedEventHandler_IInkStrokeInput_add_StrokeCanceled_Interface(Callback : access procedure (sender : Windows.UI.Input.Inking.IInkStrokeInput ; args : Windows.UI.Core.IPointerEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInkStrokeInput_add_StrokeCanceled'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IInkStrokeInput_add_StrokeCanceled_Interface
@@ -2553,23 +2594,22 @@ package Windows.UI.Input.Inking is
    subtype InkStrokesCollectedEventArgs is Windows.UI.Input.Inking.IInkStrokesCollectedEventArgs;
    subtype InkStrokesErasedEventArgs is Windows.UI.Input.Inking.IInkStrokesErasedEventArgs;
    subtype InkPresenterRuler is Windows.UI.Input.Inking.IInkPresenterRuler;
-   
    function Create
    (
       inkPresenter : Windows.UI.Input.Inking.IInkPresenter
    )
    return Windows.UI.Input.Inking.IInkPresenterRuler;
    
-   subtype InkPresenterProtractor is Windows.UI.Input.Inking.IInkPresenterProtractor;
    
+   subtype InkPresenterProtractor is Windows.UI.Input.Inking.IInkPresenterProtractor;
    function Create
    (
       inkPresenter : Windows.UI.Input.Inking.IInkPresenter
    )
    return Windows.UI.Input.Inking.IInkPresenterProtractor;
    
-   subtype InkPoint is Windows.UI.Input.Inking.IInkPoint;
    
+   subtype InkPoint is Windows.UI.Input.Inking.IInkPoint;
    function CreateInkPointWithTiltAndTimestamp
    (
       position : Windows.Foundation.Point
@@ -2579,6 +2619,7 @@ package Windows.UI.Input.Inking is
       ; timestamp : Windows.UInt64
    )
    return Windows.UI.Input.Inking.IInkPoint;
+   
    
    subtype InkDrawingAttributesPencilProperties is Windows.UI.Input.Inking.IInkDrawingAttributesPencilProperties;
    subtype InkDrawingAttributes is Windows.UI.Input.Inking.IInkDrawingAttributes;
@@ -2610,8 +2651,8 @@ package Windows.UI.Input.Inking is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateForPencil
    return Windows.UI.Input.Inking.IInkDrawingAttributes;
+   
 
 end;

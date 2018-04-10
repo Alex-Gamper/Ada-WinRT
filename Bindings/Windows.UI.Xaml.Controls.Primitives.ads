@@ -790,6 +790,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IColorSpectrumStatics : aliased constant Windows.IID := (2422992508, 11502, 20112, (150, 139, 240, 165, 189, 105, 27, 74 ));
@@ -865,6 +866,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IColorSpectrumFactory : aliased constant Windows.IID := (2429019678, 36941, 17067, (180, 79, 230, 141, 191, 12, 222, 233 ));
@@ -879,6 +881,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IColorSpectrum
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IColorPickerSlider : aliased constant Windows.IID := (2486783363, 57567, 19551, (187, 205, 129, 85, 244, 2, 4, 64 ));
@@ -898,6 +901,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.Controls.ColorPickerHsvChannel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IColorPickerSliderStatics : aliased constant Windows.IID := (585825386, 40931, 20206, (135, 52, 161, 57, 142, 196, 65, 58 ));
@@ -910,6 +914,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IColorPickerSliderFactory : aliased constant Windows.IID := (114850210, 35847, 19230, (169, 64, 159, 188, 232, 244, 150, 57 ));
@@ -924,6 +929,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScrollSnapPointsInfo : aliased constant Windows.IID := (459084598, 58907, 19793, (190, 65, 253, 141, 220, 85, 197, 140 ));
@@ -992,6 +998,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IItemsChangedEventArgs : aliased constant Windows.IID := (3904132456, 32016, 16926, (190, 41, 129, 131, 154, 145, 222, 32 ));
@@ -1032,11 +1039,13 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILayoutInformation : aliased constant Windows.IID := (3040365723, 51407, 16819, (191, 22, 24, 200, 66, 14, 114, 201 ));
    
    type ILayoutInformation_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ILayoutInformationStatics : aliased constant Windows.IID := (3473330073, 22761, 18050, (131, 38, 80, 202, 171, 101, 237, 124 ));
@@ -1058,6 +1067,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILayoutInformationStatics2 : aliased constant Windows.IID := (1979913653, 27982, 18745, (172, 97, 99, 152, 99, 206, 163, 107 ));
@@ -1071,6 +1081,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Foundation.Size
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IComboBoxTemplateSettings : aliased constant Windows.IID := (2200460366, 6134, 19107, (182, 27, 232, 124, 113, 134, 4, 234 ));
@@ -1104,6 +1115,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.AnimationDirection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IComboBoxTemplateSettings2 : aliased constant Windows.IID := (15273175, 26814, 17565, (181, 167, 118, 226, 111, 112, 62, 155 ));
@@ -1116,6 +1128,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDragCompletedEventArgs : aliased constant Windows.IID := (2957978017, 48406, 18678, (165, 17, 156, 39, 99, 100, 19, 49 ));
@@ -1142,6 +1155,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDragCompletedEventArgsFactory : aliased constant Windows.IID := (916969885, 5260, 18783, (160, 252, 175, 200, 113, 214, 47, 51 ));
@@ -1159,6 +1173,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDragDeltaEventArgs : aliased constant Windows.IID := (741201724, 10246, 18940, (170, 233, 109, 121, 43, 87, 43, 106 ));
@@ -1178,6 +1193,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDragDeltaEventArgsFactory : aliased constant Windows.IID := (1189585391, 44565, 17574, (138, 4, 149, 176, 191, 154, 184, 118 ));
@@ -1194,6 +1210,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDragStartedEventArgs : aliased constant Windows.IID := (2677104080, 41252, 17254, (189, 133, 36, 8, 33, 74, 238, 212 ));
@@ -1213,6 +1230,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDragStartedEventArgsFactory : aliased constant Windows.IID := (1592780153, 50950, 18305, (163, 8, 201, 231, 244, 198, 161, 215 ));
@@ -1229,6 +1247,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGridViewItemTemplateSettings : aliased constant Windows.IID := (2653993647, 5725, 16999, (164, 94, 26, 67, 167, 87, 6, 172 ));
@@ -1241,6 +1260,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IListViewItemTemplateSettings : aliased constant Windows.IID := (1739556031, 33401, 18054, (147, 38, 205, 24, 159, 39, 87, 93 ));
@@ -1253,6 +1273,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMenuFlyoutPresenterTemplateSettings : aliased constant Windows.IID := (3599749133, 25245, 17225, (172, 81, 184, 119, 200, 9, 131, 184 ));
@@ -1265,6 +1286,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProgressBarTemplateSettings : aliased constant Windows.IID := (1071835690, 58354, 19499, (148, 136, 145, 141, 119, 210, 187, 228 ));
@@ -1319,6 +1341,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IProgressRingTemplateSettings : aliased constant Windows.IID := (3115742700, 50979, 17126, (131, 233, 152, 38, 39, 43, 220, 14 ));
@@ -1345,6 +1368,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRangeBaseValueChangedEventArgs : aliased constant Windows.IID := (2710706039, 54721, 20380, (167, 176, 4, 1, 183, 230, 220, 92 ));
@@ -1364,6 +1388,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScrollEventArgs : aliased constant Windows.IID := (3313389928, 15102, 17549, (183, 82, 47, 54, 76, 117, 215, 67 ));
@@ -1383,6 +1408,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.ScrollEventType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISettingsFlyoutTemplateSettings : aliased constant Windows.IID := (3169930256, 52903, 17393, (157, 104, 87, 96, 93, 237, 105, 212 ));
@@ -1430,6 +1456,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IVector_Transition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToggleSwitchTemplateSettings : aliased constant Windows.IID := (45596109, 25226, 17251, (134, 224, 81, 214, 226, 232, 158, 88 ));
@@ -1491,6 +1518,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToolTipTemplateSettings : aliased constant Windows.IID := (3560473159, 3780, 17670, (175, 253, 175, 172, 34, 37, 180, 140 ));
@@ -1510,6 +1538,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPopup : aliased constant Windows.IID := (1648460352, 59091, 18181, (161, 220, 57, 21, 100, 86, 238, 41 ));
@@ -1629,6 +1658,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPopupStatics : aliased constant Windows.IID := (1524875034, 28212, 16598, (138, 127, 202, 130, 42, 175, 89, 227 ));
@@ -1676,6 +1706,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPopup2 : aliased constant Windows.IID := (929729612, 43712, 19232, (150, 106, 11, 147, 100, 254, 180, 181 ));
@@ -1695,6 +1726,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.Controls.LightDismissOverlayMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPopupStatics2 : aliased constant Windows.IID := (731572716, 21999, 17334, (180, 89, 18, 228, 15, 250, 67, 2 ));
@@ -1707,6 +1739,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITickBar : aliased constant Windows.IID := (2571535354, 61942, 18557, (165, 172, 193, 89, 33, 191, 169, 149 ));
@@ -1726,6 +1759,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITickBarStatics : aliased constant Windows.IID := (745373248, 31133, 19028, (190, 9, 31, 239, 198, 29, 1, 142 ));
@@ -1738,6 +1772,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRangeBase : aliased constant Windows.IID := (4194315290, 18766, 18127, (145, 212, 225, 74, 141, 121, 134, 117 ));
@@ -1828,6 +1863,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRangeBaseOverrides : aliased constant Windows.IID := (1116843833, 32523, 19394, (153, 196, 6, 231, 6, 38, 130, 216 ));
@@ -1857,6 +1893,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; newValue : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRangeBaseStatics : aliased constant Windows.IID := (1743722465, 65079, 18255, (158, 151, 59, 94, 11, 48, 242, 224 ));
@@ -1897,6 +1934,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRangeBaseFactory : aliased constant Windows.IID := (949714033, 21024, 17074, (153, 146, 38, 144, 193, 166, 112, 48 ));
@@ -1911,6 +1949,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IRangeBase
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IThumb : aliased constant Windows.IID := (3904025217, 3434, 17871, (179, 51, 36, 2, 176, 55, 240, 153 ));
@@ -1974,6 +2013,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       This       : access IThumb_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IThumbStatics : aliased constant Windows.IID := (2505057515, 14067, 18034, (161, 134, 186, 175, 98, 106, 196, 173 ));
@@ -1986,6 +2026,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IButtonBase : aliased constant Windows.IID := (4194315290, 18766, 18127, (145, 212, 225, 74, 141, 121, 134, 116 ));
@@ -2062,6 +2103,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IButtonBaseStatics : aliased constant Windows.IID := (1743722465, 65079, 18255, (158, 151, 59, 94, 11, 48, 242, 223 ));
@@ -2102,6 +2144,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IButtonBaseFactory : aliased constant Windows.IID := (949714033, 21024, 17074, (153, 146, 38, 144, 193, 166, 112, 47 ));
@@ -2116,6 +2159,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IButtonBase
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICarouselPanel : aliased constant Windows.IID := (3735779506, 14139, 16721, (135, 133, 229, 68, 208, 217, 54, 43 ));
@@ -2300,6 +2344,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICarouselPanelFactory : aliased constant Windows.IID := (3239089156, 39649, 17422, (160, 221, 187, 182, 226, 41, 60, 190 ));
@@ -2314,6 +2359,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.ICarouselPanel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOrientedVirtualizingPanel : aliased constant Windows.IID := (4034377079, 14781, 18158, (189, 215, 8, 38, 190, 237, 113, 184 ));
@@ -2498,11 +2544,13 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOrientedVirtualizingPanelFactory : aliased constant Windows.IID := (2072948399, 63791, 17309, (158, 191, 233, 145, 159, 86, 201, 77 ));
    
    type IOrientedVirtualizingPanelFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IScrollBar : aliased constant Windows.IID := (4118472394, 53670, 19344, (164, 233, 84, 223, 27, 168, 210, 236 ));
@@ -2565,6 +2613,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScrollBarStatics : aliased constant Windows.IID := (1173025677, 47124, 18639, (151, 242, 83, 158, 177, 109, 253, 77 ));
@@ -2591,6 +2640,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelector : aliased constant Windows.IID := (3809391525, 45931, 17116, (133, 39, 205, 37, 19, 108, 8, 60 ));
@@ -2681,6 +2731,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectorStatics : aliased constant Windows.IID := (321915654, 48400, 19977, (191, 247, 113, 239, 184, 187, 180, 43 ));
@@ -2729,11 +2780,13 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectorFactory : aliased constant Windows.IID := (3384682901, 53558, 17920, (177, 135, 138, 213, 96, 121, 180, 138 ));
    
    type ISelectorFactory_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectorItem : aliased constant Windows.IID := (1411157356, 643, 17793, (185, 69, 42, 100, 194, 138, 6, 70 ));
@@ -2753,6 +2806,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectorItemStatics : aliased constant Windows.IID := (708131512, 52201, 17155, (146, 231, 200, 144, 110, 33, 131, 146 ));
@@ -2765,6 +2819,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectorItemFactory : aliased constant Windows.IID := (3107338565, 51306, 19230, (148, 64, 24, 121, 55, 141, 83, 19 ));
@@ -2779,6 +2834,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.ISelectorItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRepeatButton : aliased constant Windows.IID := (35655161, 538, 18506, (169, 59, 15, 49, 2, 3, 20, 229 ));
@@ -2812,6 +2868,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRepeatButtonStatics : aliased constant Windows.IID := (957656142, 62562, 20339, (129, 151, 232, 132, 102, 57, 198, 130 ));
@@ -2831,6 +2888,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToggleButton : aliased constant Windows.IID := (1486387195, 4039, 16438, (157, 139, 18, 125, 250, 117, 193, 109 ));
@@ -2909,6 +2967,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToggleButtonOverrides : aliased constant Windows.IID := (3524152360, 61835, 18714, (154, 69, 241, 160, 74, 147, 105, 164 ));
@@ -2920,6 +2979,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       This       : access IToggleButtonOverrides_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToggleButtonStatics : aliased constant Windows.IID := (2938022674, 296, 20327, (156, 90, 130, 50, 12, 68, 93, 25 ));
@@ -2939,6 +2999,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IToggleButtonFactory : aliased constant Windows.IID := (3580535548, 64639, 17564, (152, 85, 122, 16, 85, 214, 104, 168 ));
@@ -2953,6 +3014,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IToggleButton
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBarTemplateSettings : aliased constant Windows.IID := (3166873699, 60213, 16956, (131, 137, 215, 130, 123, 227, 191, 103 ));
@@ -3007,6 +3069,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Thickness
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICalendarViewTemplateSettings : aliased constant Windows.IID := (1455887491, 25825, 18300, (138, 11, 203, 47, 51, 52, 185, 176 ));
@@ -3117,6 +3180,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommandBarTemplateSettings : aliased constant Windows.IID := (1640560940, 1450, 16714, (162, 174, 72, 44, 90, 70, 192, 142 ));
@@ -3171,6 +3235,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommandBarTemplateSettings2 : aliased constant Windows.IID := (4222766995, 49890, 16759, (162, 182, 60, 215, 5, 7, 60, 246 ));
@@ -3183,6 +3248,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommandBarTemplateSettings3 : aliased constant Windows.IID := (1003953850, 13315, 19454, (132, 45, 44, 232, 197, 17, 210, 69 ));
@@ -3195,6 +3261,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Visibility
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISplitViewTemplateSettings : aliased constant Windows.IID := (3244996007, 18838, 17475, (177, 153, 107, 107, 137, 18, 78, 171 ));
@@ -3242,11 +3309,13 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.GridLength
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICalendarPanel : aliased constant Windows.IID := (4241840685, 723, 20198, (154, 144, 157, 243, 234, 208, 9, 148 ));
    
    type ICalendarPanel_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IGridViewItemPresenter : aliased constant Windows.IID := (558862352, 22242, 18465, (138, 28, 35, 5, 112, 154, 249, 75 ));
@@ -3560,6 +3629,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.Thickness
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGridViewItemPresenterStatics : aliased constant Windows.IID := (3914922180, 10110, 19058, (160, 30, 158, 22, 136, 152, 1, 120 ));
@@ -3719,6 +3789,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGridViewItemPresenterFactory : aliased constant Windows.IID := (1405165944, 25531, 19045, (163, 241, 171, 17, 76, 252, 111, 254 ));
@@ -3733,6 +3804,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IListViewItemPresenter : aliased constant Windows.IID := (4236854973, 41890, 18793, (129, 116, 37, 181, 211, 194, 128, 51 ));
@@ -4046,6 +4118,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.Thickness
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IListViewItemPresenterStatics : aliased constant Windows.IID := (1694803290, 5597, 17147, (170, 93, 45, 140, 226, 233, 194, 148 ));
@@ -4205,6 +4278,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IListViewItemPresenterFactory : aliased constant Windows.IID := (3765927165, 63460, 19047, (154, 192, 169, 148, 252, 172, 208, 32 ));
@@ -4219,6 +4293,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IListViewItemPresenter2 : aliased constant Windows.IID := (4124857494, 57634, 19543, (166, 37, 172, 75, 8, 251, 45, 76 ));
@@ -4308,6 +4383,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IListViewItemPresenterStatics2 : aliased constant Windows.IID := (1286846789, 53837, 17059, (158, 131, 168, 109, 6, 24, 191, 27 ));
@@ -4355,6 +4431,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IListViewItemPresenter3 : aliased constant Windows.IID := (912392211, 912, 20016, (173, 151, 135, 68, 64, 79, 112, 16 ));
@@ -4416,6 +4493,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IListViewItemPresenterStatics3 : aliased constant Windows.IID := (3285438750, 64038, 19687, (164, 237, 255, 148, 143, 1, 183, 192 ));
@@ -4449,11 +4527,13 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGeneratorPositionHelper : aliased constant Windows.IID := (3443536269, 30533, 16601, (171, 157, 171, 189, 164, 167, 255, 234 ));
    
    type IGeneratorPositionHelper_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IGeneratorPositionHelperStatics : aliased constant Windows.IID := (2906691021, 24812, 17800, (141, 96, 57, 210, 144, 151, 164, 223 ));
@@ -4468,6 +4548,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.GeneratorPosition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBaseClosingEventArgs : aliased constant Windows.IID := (3497362733, 45210, 20433, (176, 5, 219, 43, 160, 18, 6, 251 ));
@@ -4487,6 +4568,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBase : aliased constant Windows.IID := (1916725771, 53550, 17165, (169, 240, 155, 179, 43, 191, 153, 19 ));
@@ -4564,6 +4646,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       This       : access IFlyoutBase_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBaseOverrides : aliased constant Windows.IID := (270396550, 28493, 17828, (157, 14, 62, 206, 111, 22, 151, 126 ));
@@ -4576,6 +4659,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.IControl
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBaseStatics : aliased constant Windows.IID := (3805779427, 34240, 19938, (186, 193, 82, 148, 202, 1, 26, 120 ));
@@ -4618,6 +4702,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; flyoutOwner : Windows.UI.Xaml.IFrameworkElement
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBaseFactory : aliased constant Windows.IID := (473129943, 64679, 16510, (146, 14, 112, 225, 94, 159, 11, 241 ));
@@ -4632,6 +4717,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBase2 : aliased constant Windows.IID := (4163584862, 26035, 16838, (169, 226, 119, 182, 123, 196, 192, 12 ));
@@ -4715,6 +4801,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBaseStatics2 : aliased constant Windows.IID := (2833847294, 11616, 17159, (170, 217, 86, 180, 80, 18, 27, 88 ));
@@ -4748,6 +4835,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBase3 : aliased constant Windows.IID := (2828834578, 18656, 16960, (149, 185, 13, 253, 8, 38, 168, 211 ));
@@ -4767,6 +4855,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBaseStatics3 : aliased constant Windows.IID := (2074685007, 56598, 19428, (153, 219, 189, 157, 68, 6, 192, 248 ));
@@ -4779,6 +4868,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBase4 : aliased constant Windows.IID := (3817438569, 41855, 18472, (155, 112, 14, 246, 124, 3, 181, 248 ));
@@ -4791,6 +4881,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; args : Windows.UI.Xaml.Input.IProcessKeyboardAcceleratorEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFlyoutBaseOverrides4 : aliased constant Windows.IID := (2797588557, 24563, 17432, (173, 216, 64, 66, 168, 141, 45, 165 ));
@@ -4803,6 +4894,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; args : Windows.UI.Xaml.Input.IProcessKeyboardAcceleratorEventArgs
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJumpListItemBackgroundConverter : aliased constant Windows.IID := (2165799000, 53796, 16652, (177, 108, 197, 182, 187, 97, 136, 178 ));
@@ -4836,6 +4928,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJumpListItemBackgroundConverterStatics : aliased constant Windows.IID := (552059869, 28455, 18440, (176, 190, 131, 224, 233, 181, 204, 69 ));
@@ -4855,6 +4948,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJumpListItemForegroundConverter : aliased constant Windows.IID := (361819448, 50436, 18326, (166, 58, 91, 252, 158, 239, 170, 232 ));
@@ -4888,6 +4982,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.Media.IBrush
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJumpListItemForegroundConverterStatics : aliased constant Windows.IID := (1196323666, 8460, 18035, (172, 106, 65, 63, 14, 44, 119, 80 ));
@@ -4907,11 +5002,13 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPickerFlyoutBase : aliased constant Windows.IID := (3811931370, 4214, 17617, (147, 131, 220, 36, 172, 92, 255, 42 ));
    
    type IPickerFlyoutBase_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IPickerFlyoutBaseOverrides : aliased constant Windows.IID := (1543262026, 18466, 18356, (169, 88, 119, 194, 11, 161, 32, 211 ));
@@ -4930,6 +5027,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPickerFlyoutBaseStatics : aliased constant Windows.IID := (1514998469, 35246, 16613, (167, 241, 187, 112, 35, 85, 173, 243 ));
@@ -4958,6 +5056,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPickerFlyoutBaseFactory : aliased constant Windows.IID := (2126674515, 38146, 19435, (179, 66, 0, 86, 108, 143, 22, 176 ));
@@ -4972,6 +5071,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILoopingSelector : aliased constant Windows.IID := (1285176836, 18471, 18905, (136, 6, 9, 57, 87, 176, 253, 33 ));
@@ -5090,6 +5190,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILoopingSelectorStatics : aliased constant Windows.IID := (65583866, 35965, 20421, (185, 42, 240, 73, 251, 147, 60, 197 ));
@@ -5144,26 +5245,31 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPivotPanel : aliased constant Windows.IID := (2907618944, 8873, 19619, (146, 18, 39, 115, 182, 53, 159, 243 ));
    
    type IPivotPanel_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ILoopingSelectorItem : aliased constant Windows.IID := (3331790009, 10182, 17459, (157, 124, 13, 191, 178, 244, 52, 79 ));
    
    type ILoopingSelectorItem_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ILoopingSelectorPanel : aliased constant Windows.IID := (1084865136, 4113, 18296, (135, 247, 107, 253, 32, 214, 55, 125 ));
    
    type ILoopingSelectorPanel_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IPivotHeaderItem : aliased constant Windows.IID := (1497723586, 33450, 16651, (158, 85, 253, 142, 44, 152, 134, 45 ));
    
    type IPivotHeaderItem_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IPivotHeaderItemFactory : aliased constant Windows.IID := (338725687, 6235, 16663, (188, 119, 221, 162, 235, 38, 27, 153 ));
@@ -5178,11 +5284,13 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPivotHeaderPanel : aliased constant Windows.IID := (558386876, 37441, 16899, (189, 55, 108, 8, 251, 9, 102, 18 ));
    
    type IPivotHeaderPanel_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    type IValueConverter_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -5208,6 +5316,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IPopup : aliased constant Windows.IID := (1540032880, 21618, 22248, (177, 132, 208, 31, 184, 30, 64, 138 ));
@@ -5242,6 +5351,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IPopup : aliased constant Windows.IID := (183524585, 15119, 23149, (160, 83, 208, 26, 26, 85, 79, 140 ));
@@ -5254,6 +5364,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IIterator_IPopup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IPopup : aliased constant Windows.IID := (2106171314, 18022, 23102, (179, 108, 152, 134, 188, 188, 70, 99 ));
@@ -5292,6 +5403,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -5301,7 +5413,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    IID_DragCompletedEventHandler : aliased constant Windows.IID := (917670024, 6572, 19278, (145, 55, 166, 207, 43, 2, 56, 131 ));
    
    type DragCompletedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_DragCompletedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DragCompletedEventHandler_Interface
@@ -5315,7 +5426,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    IID_DragDeltaEventHandler : aliased constant Windows.IID := (1254248351, 44072, 18921, (145, 137, 220, 207, 254, 182, 100, 114 ));
    
    type DragDeltaEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_DragDeltaEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DragDeltaEventHandler_Interface
@@ -5329,7 +5439,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    IID_DragStartedEventHandler : aliased constant Windows.IID := (3538855050, 50778, 18781, (162, 241, 114, 198, 105, 137, 20, 45 ));
    
    type DragStartedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_DragStartedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access DragStartedEventHandler_Interface
@@ -5343,7 +5452,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    IID_ItemsChangedEventHandler : aliased constant Windows.IID := (394418110, 41732, 18479, (139, 240, 185, 210, 227, 150, 18, 163 ));
    
    type ItemsChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IItemsChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_ItemsChangedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access ItemsChangedEventHandler_Interface
@@ -5357,7 +5465,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    IID_RangeBaseValueChangedEventHandler : aliased constant Windows.IID := (3817893849, 19739, 19144, (164, 60, 195, 185, 8, 116, 39, 153 ));
    
    type RangeBaseValueChangedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IRangeBaseValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_RangeBaseValueChangedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access RangeBaseValueChangedEventHandler_Interface
@@ -5371,7 +5478,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    IID_ScrollEventHandler : aliased constant Windows.IID := (2288038052, 41859, 19587, (179, 6, 161, 195, 157, 125, 184, 127 ));
    
    type ScrollEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_ScrollEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access ScrollEventHandler_Interface
@@ -5385,7 +5491,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    IID_TypedEventHandler_IColorSpectrum_add_ColorChanged : aliased constant Windows.IID := (1695349257, 28866, 20817, (162, 205, 39, 87, 15, 185, 85, 107 ));
    
    type TypedEventHandler_IColorSpectrum_add_ColorChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Primitives.IColorSpectrum ; args : Windows.UI.Xaml.Controls.IColorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IColorSpectrum_add_ColorChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IColorSpectrum_add_ColorChanged_Interface
@@ -5399,7 +5504,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    IID_TypedEventHandler_IFlyoutBase2_add_Closing : aliased constant Windows.IID := (2531360700, 30919, 21856, (172, 58, 88, 127, 70, 219, 112, 214 ));
    
    type TypedEventHandler_IFlyoutBase2_add_Closing_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.Primitives.IFlyoutBase ; args : Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseClosingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFlyoutBase2_add_Closing'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IFlyoutBase2_add_Closing_Interface
@@ -5500,7 +5604,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    function get_CanVerticallyScroll
    (
@@ -5681,6 +5784,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
+   
    subtype OrientedVirtualizingPanel is Windows.UI.Xaml.Controls.Primitives.IOrientedVirtualizingPanel;
    
    subtype CalendarPanel is Windows.UI.Xaml.Controls.Primitives.ICalendarPanel;
@@ -5740,7 +5844,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    function get_SelectionCheckMarkVisualEnabled
    (
@@ -6050,6 +6153,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
+   
    subtype ListViewItemPresenter is Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter;
    
    type IListViewItemPresenter_Interface_Impl is new IListViewItemPresenter_Interface with record
@@ -6103,7 +6207,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    function get_SelectionCheckMarkVisualEnabled
    (
@@ -6413,6 +6516,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
+   
    subtype ColorSpectrum is Windows.UI.Xaml.Controls.Primitives.IColorSpectrum;
    
    type IColorSpectrum_Interface_Impl is new IColorSpectrum_Interface with record
@@ -6466,7 +6570,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    function get_Color
    (
@@ -6623,6 +6726,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
+   
    subtype SelectorItem is Windows.UI.Xaml.Controls.Primitives.ISelectorItem;
    
    type ISelectorItem_Interface_Impl is new ISelectorItem_Interface with record
@@ -6677,7 +6781,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    function get_IsSelected
    (
       This       : access ISelectorItem_Interface_Impl
@@ -6691,6 +6794,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT;
+   
    
    subtype RangeBase is Windows.UI.Xaml.Controls.Primitives.IRangeBase;
    
@@ -6746,7 +6850,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    function OnMinimumChanged
    (
       This       : access IRangeBaseOverrides_Interface_Impl
@@ -6770,6 +6873,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; newValue : Windows.Double
    )
    return Windows.HRESULT;
+   
    
    type IRangeBase_Interface_Impl is new IRangeBase_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
@@ -6822,7 +6926,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    function get_Minimum
    (
@@ -6909,6 +7012,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
+   
    subtype ColorPickerSlider is Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider;
    
    type IColorPickerSlider_Interface_Impl is new IColorPickerSlider_Interface with record
@@ -6963,7 +7067,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    function get_ColorChannel
    (
       This       : access IColorPickerSlider_Interface_Impl
@@ -6977,6 +7080,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.UI.Xaml.Controls.ColorPickerHsvChannel
    )
    return Windows.HRESULT;
+   
    
    subtype Thumb is Windows.UI.Xaml.Controls.Primitives.IThumb;
    
@@ -7035,7 +7139,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    function get_ClickMode
    (
@@ -7108,6 +7211,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
+   
    subtype ScrollBar is Windows.UI.Xaml.Controls.Primitives.IScrollBar;
    
    function CreateScrollBar return Windows.UI.Xaml.Controls.Primitives.IScrollBar;
@@ -7172,12 +7276,12 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    function OnToggle
    (
       This       : access IToggleButtonOverrides_Interface_Impl
    )
    return Windows.HRESULT;
+   
    
    type IToggleButton_Interface_Impl is new IToggleButton_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
@@ -7230,7 +7334,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    function get_IsChecked
    (
@@ -7305,6 +7408,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
+   
    subtype FlyoutBaseClosingEventArgs is Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseClosingEventArgs;
    subtype FlyoutBase is Windows.UI.Xaml.Controls.Primitives.IFlyoutBase;
    
@@ -7360,13 +7464,13 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    function CreatePresenter
    (
       This       : access IFlyoutBaseOverrides_Interface_Impl
       ; RetVal : access Windows.UI.Xaml.Controls.IControl
    )
    return Windows.HRESULT;
+   
    
    type IFlyoutBase_Interface_Impl is new IFlyoutBase_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
@@ -7419,7 +7523,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    function get_Placement
    (
@@ -7493,6 +7596,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
+   
    subtype JumpListItemBackgroundConverter is Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter;
    
    function CreateJumpListItemBackgroundConverter return Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter;
@@ -7555,7 +7659,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    function OnConfirmed
    (
       This       : access IPickerFlyoutBaseOverrides_Interface_Impl
@@ -7568,6 +7671,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT;
+   
    
    type IPickerFlyoutBase_Interface_Impl is new IPickerFlyoutBase_Interface with record
       m_RefCount : aliased Windows.UInt32 := 0;
@@ -7692,7 +7796,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetLayoutExceptionElement
    (
@@ -8216,5 +8319,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItem;
+   
 
 end;

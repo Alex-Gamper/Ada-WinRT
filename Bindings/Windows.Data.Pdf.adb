@@ -30,7 +30,6 @@ package body Windows.Data.Pdf is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPdfDocument_Interface
@@ -47,7 +46,6 @@ package body Windows.Data.Pdf is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreatePdfPageRenderOptions return Windows.Data.Pdf.IPdfPageRenderOptions is
       Hr            : Windows.HResult := S_OK;
@@ -73,7 +71,6 @@ package body Windows.Data.Pdf is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function LoadFromFileAsync
    (
@@ -156,5 +153,6 @@ package body Windows.Data.Pdf is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

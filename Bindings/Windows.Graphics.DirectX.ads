@@ -354,6 +354,7 @@ package Windows.Graphics.DirectX is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_DirectXPixelFormat : aliased constant Windows.IID := (956887750, 6894, 20777, (185, 166, 42, 110, 1, 217, 80, 126 ));
@@ -366,6 +367,7 @@ package Windows.Graphics.DirectX is
       ; RetVal : access Windows.Graphics.DirectX.IIterator_DirectXPixelFormat
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_DirectXPixelFormat : aliased constant Windows.IID := (517841346, 3950, 20844, (128, 184, 118, 135, 220, 209, 40, 14 ));
@@ -404,6 +406,7 @@ package Windows.Graphics.DirectX is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

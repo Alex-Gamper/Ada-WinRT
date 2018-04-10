@@ -28,7 +28,6 @@ package body Windows.Media.Core.Preview is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.Media.Core.Preview is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_SoundLevel
    return Windows.Media.SoundLevel is
@@ -92,5 +90,6 @@ package body Windows.Media.Core.Preview is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

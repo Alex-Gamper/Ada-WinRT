@@ -27,7 +27,6 @@ package body Windows.Globalization.NumberFormatting is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateSignificantDigitsNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder");

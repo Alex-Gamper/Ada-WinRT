@@ -30,7 +30,6 @@ package body Windows.Media.SpeechSynthesis is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISpeechSynthesisStream_Interface
@@ -47,7 +46,6 @@ package body Windows.Media.SpeechSynthesis is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateSpeechSynthesizer return Windows.Media.SpeechSynthesis.ISpeechSynthesizer is
       Hr            : Windows.HResult := S_OK;
@@ -73,7 +71,6 @@ package body Windows.Media.SpeechSynthesis is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AllVoices
    return Windows.Media.SpeechSynthesis.IVectorView_IVoiceInformation is
@@ -128,5 +125,6 @@ package body Windows.Media.SpeechSynthesis is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

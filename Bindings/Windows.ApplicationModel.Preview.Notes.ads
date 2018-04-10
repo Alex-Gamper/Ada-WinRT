@@ -101,6 +101,7 @@ package Windows.ApplicationModel.Preview.Notes is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INoteVisibilityChangedPreviewEventArgs : aliased constant Windows.IID := (238314654, 14357, 20470, (131, 179, 161, 77, 23, 18, 14, 36 ));
@@ -120,6 +121,7 @@ package Windows.ApplicationModel.Preview.Notes is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotesWindowManagerPreviewShowNoteOptions : aliased constant Windows.IID := (2288716246, 42670, 16391, (165, 109, 28, 167, 12, 132, 192, 210 ));
@@ -139,6 +141,7 @@ package Windows.ApplicationModel.Preview.Notes is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotesWindowManagerPreview : aliased constant Windows.IID := (3693789758, 18512, 20243, (156, 199, 255, 72, 126, 253, 252, 222 ));
@@ -257,6 +260,7 @@ package Windows.ApplicationModel.Preview.Notes is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotesWindowManagerPreview2 : aliased constant Windows.IID := (3992880714, 8020, 19209, (152, 35, 255, 71, 127, 111, 163, 188 ));
@@ -294,6 +298,7 @@ package Windows.ApplicationModel.Preview.Notes is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INotesWindowManagerPreviewStatics : aliased constant Windows.IID := (1718144136, 2702, 16679, (163, 142, 153, 84, 69, 134, 138, 120 ));
@@ -306,6 +311,7 @@ package Windows.ApplicationModel.Preview.Notes is
       ; RetVal : access Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -315,7 +321,6 @@ package Windows.ApplicationModel.Preview.Notes is
    IID_TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged : aliased constant Windows.IID := (1864848891, 27699, 21564, (154, 180, 222, 72, 107, 199, 191, 226 ));
    
    type TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_INotesWindowManagerPreview_add_SystemLockStateChanged_Interface
@@ -329,7 +334,6 @@ package Windows.ApplicationModel.Preview.Notes is
    IID_TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged : aliased constant Windows.IID := (2727015111, 16402, 22937, (163, 34, 82, 54, 179, 13, 153, 95 ));
    
    type TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview ; args : Windows.ApplicationModel.Preview.Notes.INotePlacementChangedPreviewEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_INotesWindowManagerPreview_add_NotePlacementChanged_Interface
@@ -343,7 +347,6 @@ package Windows.ApplicationModel.Preview.Notes is
    IID_TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged : aliased constant Windows.IID := (383264200, 21105, 20936, (160, 15, 12, 251, 27, 2, 154, 182 ));
    
    type TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview ; args : Windows.ApplicationModel.Preview.Notes.INoteVisibilityChangedPreviewEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_INotesWindowManagerPreview_add_NoteVisibilityChanged_Interface
@@ -368,8 +371,8 @@ package Windows.ApplicationModel.Preview.Notes is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentApp
    return Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview;
+   
 
 end;

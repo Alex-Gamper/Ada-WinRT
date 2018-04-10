@@ -27,7 +27,6 @@ package body Windows.System.Diagnostics.Telemetry is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreatePlatformTelemetryRegistrationSettings return Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings");
@@ -52,7 +51,6 @@ package body Windows.System.Diagnostics.Telemetry is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Register
    (
@@ -94,5 +92,6 @@ package body Windows.System.Diagnostics.Telemetry is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

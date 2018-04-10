@@ -29,7 +29,6 @@ package body Windows.Graphics.Printing3D is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access Print3DTaskSourceRequestedHandler_Interface
@@ -136,7 +135,6 @@ package body Windows.Graphics.Printing3D is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreatePrinting3DTextureResource return Windows.Graphics.Printing3D.IPrinting3DTextureResource is
       Hr            : Windows.HResult := S_OK;
@@ -484,7 +482,6 @@ package body Windows.Graphics.Printing3D is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.Graphics.Printing3D.IPrint3DManager is
       Hr            : Windows.HRESULT := S_OK;
@@ -572,5 +569,6 @@ package body Windows.Graphics.Printing3D is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

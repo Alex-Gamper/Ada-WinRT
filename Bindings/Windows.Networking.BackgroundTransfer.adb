@@ -33,7 +33,6 @@ package body Windows.Networking.BackgroundTransfer is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IUnconstrainedTransferRequestResult_Interface
@@ -89,7 +88,6 @@ package body Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateBackgroundTransferCompletionGroup return Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup is
       Hr            : Windows.HResult := S_OK;
@@ -169,7 +167,6 @@ package body Windows.Networking.BackgroundTransfer is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateGroup
    (
@@ -433,5 +430,6 @@ package body Windows.Networking.BackgroundTransfer is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

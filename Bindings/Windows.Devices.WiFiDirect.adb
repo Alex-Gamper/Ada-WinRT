@@ -31,7 +31,6 @@ package body Windows.Devices.WiFiDirect is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IWiFiDirectDevice_Interface
@@ -87,7 +86,6 @@ package body Windows.Devices.WiFiDirect is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateWiFiDirectConnectionParameters return Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters is
       Hr            : Windows.HResult := S_OK;
@@ -164,7 +162,6 @@ package body Windows.Devices.WiFiDirect is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String is
@@ -303,5 +300,6 @@ package body Windows.Devices.WiFiDirect is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

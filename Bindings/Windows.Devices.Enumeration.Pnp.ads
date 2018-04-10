@@ -151,6 +151,7 @@ package Windows.Devices.Enumeration.Pnp is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_PnpObject : aliased constant Windows.IID := (3437602712, 53865, 24526, (153, 206, 239, 10, 227, 205, 5, 105 ));
@@ -189,6 +190,7 @@ package Windows.Devices.Enumeration.Pnp is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_PnpObject : aliased constant Windows.IID := (817168530, 14062, 21503, (148, 80, 2, 144, 4, 67, 108, 96 ));
@@ -201,6 +203,7 @@ package Windows.Devices.Enumeration.Pnp is
       ; RetVal : access Windows.Devices.Enumeration.Pnp.IPnpObject
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPnpObjectWatcher : aliased constant Windows.IID := (2211011752, 18290, 19066, (172, 168, 228, 140, 66, 168, 156, 68 ));
@@ -300,6 +303,7 @@ package Windows.Devices.Enumeration.Pnp is
       This       : access IPnpObjectWatcher_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPnpObjectStatics : aliased constant Windows.IID := (3015911997, 53608, 18016, (187, 243, 167, 51, 177, 75, 110, 1 ));
@@ -353,6 +357,7 @@ package Windows.Devices.Enumeration.Pnp is
       ; RetVal : access Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPnpObject : aliased constant Windows.IID := (2512806488, 29499, 19087, (147, 163, 219, 7, 138, 200, 112, 193 ));
@@ -386,6 +391,7 @@ package Windows.Devices.Enumeration.Pnp is
       ; updateInfo : Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPnpObject : aliased constant Windows.IID := (582024083, 12518, 20506, (189, 59, 159, 163, 6, 62, 156, 22 ));
@@ -412,6 +418,7 @@ package Windows.Devices.Enumeration.Pnp is
       ; RetVal : access Windows.Devices.Enumeration.Pnp.IPnpObject
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IVectorView_PnpObject : aliased constant Windows.IID := (4085498572, 62246, 23486, (149, 209, 203, 194, 71, 20, 239, 134 ));
@@ -438,6 +445,7 @@ package Windows.Devices.Enumeration.Pnp is
       ; RetVal : access Windows.Devices.Enumeration.Pnp.IVectorView_PnpObject
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -447,7 +455,6 @@ package Windows.Devices.Enumeration.Pnp is
    IID_TypedEventHandler_IPnpObjectWatcher_add_Added : aliased constant Windows.IID := (3581472466, 22757, 22565, (138, 242, 18, 248, 147, 135, 182, 86 ));
    
    type TypedEventHandler_IPnpObjectWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Devices.Enumeration.Pnp.IPnpObject)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPnpObjectWatcher_add_Added'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPnpObjectWatcher_add_Added_Interface
@@ -461,7 +468,6 @@ package Windows.Devices.Enumeration.Pnp is
    IID_TypedEventHandler_IPnpObjectWatcher_add_Updated : aliased constant Windows.IID := (2945421981, 32856, 23608, (163, 216, 48, 170, 122, 8, 181, 136 ));
    
    type TypedEventHandler_IPnpObjectWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPnpObjectWatcher_add_Updated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPnpObjectWatcher_add_Updated_Interface
@@ -475,7 +481,6 @@ package Windows.Devices.Enumeration.Pnp is
    IID_TypedEventHandler_IPnpObjectWatcher_add_Removed : aliased constant Windows.IID := (2945421981, 32856, 23608, (163, 216, 48, 170, 122, 8, 181, 136 ));
    
    type TypedEventHandler_IPnpObjectWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPnpObjectWatcher_add_Removed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPnpObjectWatcher_add_Removed_Interface
@@ -489,7 +494,6 @@ package Windows.Devices.Enumeration.Pnp is
    IID_TypedEventHandler_IPnpObjectWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (786609353, 46742, 24268, (178, 155, 241, 224, 239, 95, 225, 247 ));
    
    type TypedEventHandler_IPnpObjectWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPnpObjectWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPnpObjectWatcher_add_EnumerationCompleted_Interface
@@ -503,7 +507,6 @@ package Windows.Devices.Enumeration.Pnp is
    IID_TypedEventHandler_IPnpObjectWatcher_add_Stopped : aliased constant Windows.IID := (786609353, 46742, 24268, (178, 155, 241, 224, 239, 95, 225, 247 ));
    
    type TypedEventHandler_IPnpObjectWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPnpObjectWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPnpObjectWatcher_add_Stopped_Interface
@@ -517,7 +520,6 @@ package Windows.Devices.Enumeration.Pnp is
    IID_AsyncOperationCompletedHandler_IPnpObject : aliased constant Windows.IID := (2640401507, 26745, 21023, (142, 151, 230, 109, 61, 219, 201, 94 ));
    
    type AsyncOperationCompletedHandler_IPnpObject_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.Pnp.IAsyncOperation_IPnpObject ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPnpObject'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPnpObject_Interface
@@ -531,7 +533,6 @@ package Windows.Devices.Enumeration.Pnp is
    IID_AsyncOperationCompletedHandler_IVectorView_PnpObject : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type AsyncOperationCompletedHandler_IVectorView_PnpObject_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Enumeration.Pnp.IAsyncOperation_IVectorView_PnpObject ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IVectorView_PnpObject'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVectorView_PnpObject_Interface
@@ -552,7 +553,6 @@ package Windows.Devices.Enumeration.Pnp is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateFromIdAsync
    (
@@ -591,5 +591,6 @@ package Windows.Devices.Enumeration.Pnp is
       ; aqsFilter : Windows.String
    )
    return Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher;
+   
 
 end;

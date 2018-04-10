@@ -29,7 +29,6 @@ package body Windows.Networking is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateHostName
    (
       hostName : Windows.String
@@ -81,7 +80,6 @@ package body Windows.Networking is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function Compare
    (
       value1 : Windows.String
@@ -102,5 +100,6 @@ package body Windows.Networking is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

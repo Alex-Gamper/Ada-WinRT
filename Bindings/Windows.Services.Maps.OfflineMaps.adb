@@ -28,7 +28,6 @@ package body Windows.Services.Maps.OfflineMaps is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IOfflineMapPackage_add_StatusChanged_Interface
@@ -72,7 +71,6 @@ package body Windows.Services.Maps.OfflineMaps is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -80,7 +78,6 @@ package body Windows.Services.Maps.OfflineMaps is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FindPackagesAsync
    (
@@ -141,5 +138,6 @@ package body Windows.Services.Maps.OfflineMaps is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

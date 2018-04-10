@@ -96,6 +96,7 @@ package Windows.Security.Cryptography.DataProtection is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDataProtectionProviderFactory : aliased constant Windows.IID := (2918399404, 18738, 19679, (172, 65, 114, 20, 51, 53, 20, 202 ));
@@ -109,6 +110,7 @@ package Windows.Security.Cryptography.DataProtection is
       ; RetVal : access Windows.Security.Cryptography.DataProtection.IDataProtectionProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

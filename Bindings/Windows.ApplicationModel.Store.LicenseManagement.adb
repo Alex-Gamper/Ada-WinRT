@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Store.LicenseManagement is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILicenseSatisfactionResult_Interface
@@ -46,7 +45,6 @@ package body Windows.ApplicationModel.Store.LicenseManagement is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -54,7 +52,6 @@ package body Windows.ApplicationModel.Store.LicenseManagement is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RefreshLicensesAsync
    (
@@ -116,5 +113,6 @@ package body Windows.ApplicationModel.Store.LicenseManagement is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

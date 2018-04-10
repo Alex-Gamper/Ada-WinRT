@@ -28,7 +28,6 @@ package body Windows.Devices.Adc is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAdcController_Interface
@@ -46,7 +45,6 @@ package body Windows.Devices.Adc is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -54,7 +52,6 @@ package body Windows.Devices.Adc is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDefaultAsync
    return Windows.Devices.Adc.IAsyncOperation_IAdcController is
@@ -92,5 +89,6 @@ package body Windows.Devices.Adc is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

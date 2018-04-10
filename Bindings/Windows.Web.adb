@@ -28,7 +28,6 @@ package body Windows.Web is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.Web is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetStatus
    (
@@ -57,5 +55,6 @@ package body Windows.Web is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

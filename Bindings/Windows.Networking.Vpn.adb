@@ -31,7 +31,6 @@ package body Windows.Networking.Vpn is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IVpnChannel_add_ActivityChange_Interface
@@ -87,7 +86,6 @@ package body Windows.Networking.Vpn is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateVpnRoute
    (
@@ -518,7 +516,6 @@ package body Windows.Networking.Vpn is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    procedure ProcessEventAsync
    (
       thirdPartyPlugIn : Windows.Object
@@ -537,5 +534,6 @@ package body Windows.Networking.Vpn is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

@@ -29,7 +29,6 @@ package body Windows.Storage.Provider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICachedFileUpdaterUI_add_FileUpdateRequested_Interface
@@ -72,7 +71,6 @@ package body Windows.Storage.Provider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateStorageProviderItemProperty return Windows.Storage.Provider.IStorageProviderItemProperty is
       Hr            : Windows.HResult := S_OK;
@@ -132,7 +130,6 @@ package body Windows.Storage.Provider is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    procedure SetUpdateInformation
    (
@@ -269,5 +266,6 @@ package body Windows.Storage.Provider is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

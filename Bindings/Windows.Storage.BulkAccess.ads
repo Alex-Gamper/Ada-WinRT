@@ -160,6 +160,7 @@ package Windows.Storage.BulkAccess is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileInformationFactoryFactory : aliased constant Windows.IID := (2229931645, 58530, 20224, (138, 250, 175, 94, 15, 130, 107, 213 ));
@@ -207,6 +208,7 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Storage.BulkAccess.IFileInformationFactory
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileInformationFactory : aliased constant Windows.IID := (1075677374, 38415, 19821, (167, 208, 26, 56, 97, 231, 108, 131 ));
@@ -281,6 +283,7 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IInputStreamReference_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -291,6 +294,7 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IInputStream -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IRandomAccessStreamReference_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -301,6 +305,7 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IStorageFolderQueryOperations_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -441,6 +446,7 @@ package Windows.Storage.BulkAccess is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -450,7 +456,6 @@ package Windows.Storage.BulkAccess is
    IID_TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated : aliased constant Windows.IID := (1536734034, 57551, 22750, (178, 236, 79, 215, 134, 187, 181, 167 ));
    
    type TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface(Callback : access procedure (sender : Windows.Storage.BulkAccess.IStorageItemInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStorageItemInformation_add_ThumbnailUpdated_Interface
@@ -464,7 +469,6 @@ package Windows.Storage.BulkAccess is
    IID_TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated : aliased constant Windows.IID := (1536734034, 57551, 22750, (178, 236, 79, 215, 134, 187, 181, 167 ));
    
    type TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Interface(Callback : access procedure (sender : Windows.Storage.BulkAccess.IStorageItemInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStorageItemInformation_add_PropertiesUpdated_Interface
@@ -478,7 +482,6 @@ package Windows.Storage.BulkAccess is
    ------------------------------------------------------------------------
    
    subtype FileInformationFactory is Windows.Storage.BulkAccess.IFileInformationFactory;
-   
    function CreateWithMode
    (
       queryResult : Windows.Storage.Search.IStorageQueryResultBase
@@ -512,6 +515,7 @@ package Windows.Storage.BulkAccess is
       ; delayLoad : Windows.Boolean
    )
    return Windows.Storage.BulkAccess.IFileInformationFactory;
+   
    
    subtype FileInformation is Windows.Storage.BulkAccess.IStorageItemInformation;
    subtype FolderInformation is Windows.Storage.BulkAccess.IStorageItemInformation;

@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.SocialInfo.Provider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ISocialFeedUpdater_Interface
@@ -58,7 +57,6 @@ package body Windows.ApplicationModel.SocialInfo.Provider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

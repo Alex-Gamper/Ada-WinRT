@@ -224,6 +224,7 @@ package Windows.Graphics.Display.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHdmiDisplayInformationStatics : aliased constant Windows.IID := (1827058272, 62506, 18965, (145, 76, 123, 142, 42, 90, 101, 223 ));
@@ -236,6 +237,7 @@ package Windows.Graphics.Display.Core is
       ; RetVal : access Windows.Graphics.Display.Core.IHdmiDisplayInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IHdmiDisplayInformation : aliased constant Windows.IID := (319503370, 62821, 18286, (171, 213, 234, 5, 174, 231, 76, 105 ));
@@ -304,6 +306,7 @@ package Windows.Graphics.Display.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IHdmiDisplayMode : aliased constant Windows.IID := (3597580337, 57900, 24291, (175, 69, 225, 192, 61, 228, 188, 98 ));
@@ -338,6 +341,7 @@ package Windows.Graphics.Display.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IHdmiDisplayMode : aliased constant Windows.IID := (1233010001, 3745, 23520, (141, 186, 143, 127, 76, 228, 251, 51 ));
@@ -350,6 +354,7 @@ package Windows.Graphics.Display.Core is
       ; RetVal : access Windows.Graphics.Display.Core.IIterator_IHdmiDisplayMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IHdmiDisplayMode : aliased constant Windows.IID := (2098101348, 57102, 21402, (171, 95, 60, 38, 0, 38, 197, 206 ));
@@ -388,6 +393,7 @@ package Windows.Graphics.Display.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -397,7 +403,6 @@ package Windows.Graphics.Display.Core is
    IID_TypedEventHandler_IHdmiDisplayInformation_add_DisplayModesChanged : aliased constant Windows.IID := (3507065643, 40161, 23773, (148, 199, 147, 198, 12, 131, 58, 163 ));
    
    type TypedEventHandler_IHdmiDisplayInformation_add_DisplayModesChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Display.Core.IHdmiDisplayInformation ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHdmiDisplayInformation_add_DisplayModesChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IHdmiDisplayInformation_add_DisplayModesChanged_Interface
@@ -417,8 +422,8 @@ package Windows.Graphics.Display.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.Graphics.Display.Core.IHdmiDisplayInformation;
+   
 
 end;

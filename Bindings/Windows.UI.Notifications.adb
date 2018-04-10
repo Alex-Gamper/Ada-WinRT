@@ -30,7 +30,6 @@ package body Windows.UI.Notifications is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IToastCollection_Interface
@@ -112,7 +111,6 @@ package body Windows.UI.Notifications is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateNotification return Windows.UI.Notifications.INotification is
       Hr            : Windows.HResult := S_OK;
@@ -364,7 +362,6 @@ package body Windows.UI.Notifications is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Style
    return Windows.String is
@@ -1207,5 +1204,6 @@ package body Windows.UI.Notifications is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

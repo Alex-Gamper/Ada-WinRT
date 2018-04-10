@@ -112,6 +112,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; RetVal : access Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactDataProviderConnection : aliased constant Windows.IID := (439978578, 35997, 19823, (164, 224, 17, 30, 154, 18, 90, 48 ));
@@ -153,6 +154,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       This       : access IContactDataProviderConnection_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactDataProviderConnection2 : aliased constant Windows.IID := (2714970032, 6508, 19453, (143, 15, 198, 141, 103, 242, 73, 211 ));
@@ -188,6 +190,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactListSyncManagerSyncRequest : aliased constant Windows.IID := (1007572900, 50407, 18800, (154, 143, 154, 102, 162, 187, 108, 26 ));
@@ -214,6 +217,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactListServerSearchReadBatchRequest : aliased constant Windows.IID := (3128388247, 16432, 18725, (159, 180, 20, 59, 41, 94, 101, 59 ));
@@ -270,6 +274,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactListCreateOrUpdateContactRequest : aliased constant Windows.IID := (3031384351, 51273, 18384, (177, 25, 145, 207, 96, 91, 47, 42 ));
@@ -304,6 +309,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactListDeleteContactRequest : aliased constant Windows.IID := (1578190471, 52739, 19941, (133, 87, 156, 207, 85, 45, 71, 42 ));
@@ -337,6 +343,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactListSyncManagerSyncRequestEventArgs : aliased constant Windows.IID := (361647532, 17517, 20240, (175, 194, 2, 104, 62, 197, 51, 166 ));
@@ -356,6 +363,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactListServerSearchReadBatchRequestEventArgs : aliased constant Windows.IID := (438823035, 27095, 20046, (128, 66, 134, 28, 186, 97, 71, 30 ));
@@ -375,6 +383,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactListCreateOrUpdateContactRequestEventArgs : aliased constant Windows.IID := (2233210512, 6737, 19212, (174, 239, 18, 64, 172, 91, 237, 117 ));
@@ -394,6 +403,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IContactListDeleteContactRequestEventArgs : aliased constant Windows.IID := (2988463265, 59642, 19893, (147, 137, 45, 18, 238, 125, 21, 238 ));
@@ -413,6 +423,7 @@ package Windows.ApplicationModel.Contacts.DataProvider is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -422,7 +433,6 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    IID_TypedEventHandler_IContactDataProviderConnection_add_SyncRequested : aliased constant Windows.IID := (3147776271, 42809, 21120, (155, 183, 182, 169, 56, 199, 166, 32 ));
    
    type TypedEventHandler_IContactDataProviderConnection_add_SyncRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListSyncManagerSyncRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactDataProviderConnection_add_SyncRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IContactDataProviderConnection_add_SyncRequested_Interface
@@ -436,7 +446,6 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    IID_TypedEventHandler_IContactDataProviderConnection_add_ServerSearchReadBatchRequested : aliased constant Windows.IID := (3136166703, 42422, 23043, (174, 89, 251, 24, 243, 224, 37, 183 ));
    
    type TypedEventHandler_IContactDataProviderConnection_add_ServerSearchReadBatchRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListServerSearchReadBatchRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactDataProviderConnection_add_ServerSearchReadBatchRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IContactDataProviderConnection_add_ServerSearchReadBatchRequested_Interface
@@ -450,7 +459,6 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    IID_TypedEventHandler_IContactDataProviderConnection2_add_CreateOrUpdateContactRequested : aliased constant Windows.IID := (2609949366, 31651, 20841, (183, 60, 126, 100, 19, 210, 189, 87 ));
    
    type TypedEventHandler_IContactDataProviderConnection2_add_CreateOrUpdateContactRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListCreateOrUpdateContactRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactDataProviderConnection2_add_CreateOrUpdateContactRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IContactDataProviderConnection2_add_CreateOrUpdateContactRequested_Interface
@@ -464,7 +472,6 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    IID_TypedEventHandler_IContactDataProviderConnection2_add_DeleteContactRequested : aliased constant Windows.IID := (2683553639, 46216, 21474, (164, 148, 50, 112, 97, 97, 202, 1 ));
    
    type TypedEventHandler_IContactDataProviderConnection2_add_DeleteContactRequested_Interface(Callback : access procedure (sender : Windows.ApplicationModel.Contacts.DataProvider.IContactDataProviderConnection ; args : Windows.ApplicationModel.Contacts.DataProvider.IContactListDeleteContactRequestEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContactDataProviderConnection2_add_DeleteContactRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IContactDataProviderConnection2_add_DeleteContactRequested_Interface

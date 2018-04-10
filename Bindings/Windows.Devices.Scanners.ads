@@ -207,6 +207,7 @@ package Windows.Devices.Scanners is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IImageScannerSourceConfiguration : aliased constant Windows.IID := (3216310357, 2884, 19586, (158, 137, 32, 95, 156, 35, 78, 89 ));
@@ -417,6 +418,7 @@ package Windows.Devices.Scanners is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IImageScannerFeederConfiguration : aliased constant Windows.IID := (1958587630, 64151, 19479, (130, 128, 64, 227, 156, 109, 204, 103 ));
@@ -543,6 +545,7 @@ package Windows.Devices.Scanners is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IImageScannerScanResult : aliased constant Windows.IID := (3373671629, 36919, 20040, (132, 193, 172, 9, 117, 7, 107, 197 ));
@@ -555,6 +558,7 @@ package Windows.Devices.Scanners is
       ; RetVal : access Windows.Storage.IVectorView_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IImageScannerPreviewResult : aliased constant Windows.IID := (146275982, 34961, 17437, (190, 156, 23, 111, 161, 9, 200, 187 ));
@@ -574,6 +578,7 @@ package Windows.Devices.Scanners is
       ; RetVal : access Windows.Devices.Scanners.ImageScannerFormat
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IImageScanner : aliased constant Windows.IID := (1403555704, 21144, 18592, (141, 163, 128, 135, 81, 150, 101, 224 ));
@@ -648,6 +653,7 @@ package Windows.Devices.Scanners is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IImageScannerStatics : aliased constant Windows.IID := (3159877390, 55300, 17527, (159, 181, 185, 17, 181, 71, 56, 151 ));
@@ -668,6 +674,7 @@ package Windows.Devices.Scanners is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IImageScannerPreviewResult : aliased constant Windows.IID := (796153711, 1176, 21320, (188, 59, 167, 13, 26, 119, 23, 24 ));
@@ -694,6 +701,7 @@ package Windows.Devices.Scanners is
       ; RetVal : access Windows.Devices.Scanners.IImageScannerPreviewResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IImageScanner : aliased constant Windows.IID := (1977059126, 27730, 21790, (171, 95, 80, 103, 79, 50, 52, 49 ));
@@ -720,6 +728,7 @@ package Windows.Devices.Scanners is
       ; RetVal : access Windows.Devices.Scanners.IImageScanner
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -729,7 +738,6 @@ package Windows.Devices.Scanners is
    IID_AsyncOperationCompletedHandler_IImageScannerPreviewResult : aliased constant Windows.IID := (3226772496, 44092, 21331, (177, 238, 232, 94, 120, 250, 243, 241 ));
    
    type AsyncOperationCompletedHandler_IImageScannerPreviewResult_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Scanners.IAsyncOperation_IImageScannerPreviewResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IImageScannerPreviewResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IImageScannerPreviewResult_Interface
@@ -743,7 +751,6 @@ package Windows.Devices.Scanners is
    IID_AsyncOperationCompletedHandler_IImageScanner : aliased constant Windows.IID := (3009074868, 3488, 21057, (135, 255, 238, 243, 161, 136, 50, 67 ));
    
    type AsyncOperationCompletedHandler_IImageScanner_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Scanners.IAsyncOperation_IImageScanner ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IImageScanner'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IImageScanner_Interface
@@ -767,7 +774,6 @@ package Windows.Devices.Scanners is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -776,5 +782,6 @@ package Windows.Devices.Scanners is
    
    function GetDeviceSelector
    return Windows.String;
+   
 
 end;

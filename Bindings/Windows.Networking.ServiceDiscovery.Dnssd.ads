@@ -196,6 +196,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
       This       : access IDnssdServiceWatcher_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDnssdRegistrationResult : aliased constant Windows.IID := (1031301842, 58886, 21328, (115, 234, 126, 151, 240, 102, 22, 47 ));
@@ -222,6 +223,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDnssdServiceInstanceFactory : aliased constant Windows.IID := (1823498657, 50296, 17201, (150, 132, 74, 242, 24, 108, 10, 43 ));
@@ -237,6 +239,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
       ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDnssdServiceInstance : aliased constant Windows.IID := (3796294526, 39077, 19617, (185, 228, 194, 83, 211, 60, 53, 255 ));
@@ -353,6 +356,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
       ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IAsyncOperation_IDnssdRegistrationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_DnssdServiceInstance : aliased constant Windows.IID := (4150261802, 32272, 23798, (128, 100, 106, 229, 133, 224, 189, 141 ));
@@ -391,6 +395,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_DnssdServiceInstance : aliased constant Windows.IID := (501457893, 14462, 21288, (184, 100, 63, 14, 52, 117, 211, 67 ));
@@ -403,6 +408,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
       ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IDnssdRegistrationResult : aliased constant Windows.IID := (203759219, 21193, 20518, (168, 117, 246, 133, 165, 12, 191, 253 ));
@@ -429,6 +435,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
       ; RetVal : access Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -438,7 +445,6 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    IID_TypedEventHandler_IDnssdServiceWatcher_add_Added : aliased constant Windows.IID := (3860295966, 52693, 22901, (143, 179, 142, 170, 174, 210, 78, 123 ));
    
    type TypedEventHandler_IDnssdServiceWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher ; args : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDnssdServiceWatcher_add_Added'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDnssdServiceWatcher_add_Added_Interface
@@ -452,7 +458,6 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    IID_TypedEventHandler_IDnssdServiceWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (1785513429, 40771, 21594, (145, 215, 58, 64, 5, 84, 117, 218 ));
    
    type TypedEventHandler_IDnssdServiceWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDnssdServiceWatcher_add_EnumerationCompleted'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDnssdServiceWatcher_add_EnumerationCompleted_Interface
@@ -466,7 +471,6 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    IID_TypedEventHandler_IDnssdServiceWatcher_add_Stopped : aliased constant Windows.IID := (1785513429, 40771, 21594, (145, 215, 58, 64, 5, 84, 117, 218 ));
    
    type TypedEventHandler_IDnssdServiceWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDnssdServiceWatcher_add_Stopped'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDnssdServiceWatcher_add_Stopped_Interface
@@ -480,7 +484,6 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    IID_AsyncOperationCompletedHandler_IDnssdRegistrationResult : aliased constant Windows.IID := (4083363666, 35146, 21317, (155, 230, 131, 137, 117, 28, 81, 137 ));
    
    type AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.ServiceDiscovery.Dnssd.IAsyncOperation_IDnssdRegistrationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDnssdRegistrationResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDnssdRegistrationResult_Interface
@@ -495,7 +498,6 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    
    subtype DnssdServiceWatcher is Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher;
    subtype DnssdServiceInstance is Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance;
-   
    function Create
    (
       dnssdServiceInstanceName : Windows.String
@@ -503,6 +505,7 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
       ; port : Windows.UInt16
    )
    return Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance;
+   
    
    subtype DnssdRegistrationResult is Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult;
    

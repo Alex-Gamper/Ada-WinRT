@@ -125,6 +125,7 @@ package Windows.ApplicationModel.DataTransfer.ShareTarget is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareOperation : aliased constant Windows.IID := (575060664, 53496, 16833, (168, 42, 65, 55, 219, 101, 4, 251 ));
@@ -188,6 +189,7 @@ package Windows.ApplicationModel.DataTransfer.ShareTarget is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareOperation2 : aliased constant Windows.IID := (268146625, 38776, 18953, (142, 91, 203, 94, 72, 45, 5, 85 ));
@@ -199,6 +201,7 @@ package Windows.ApplicationModel.DataTransfer.ShareTarget is
       This       : access IShareOperation2_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IShareOperation3 : aliased constant Windows.IID := (1593226114, 47015, 17777, (162, 166, 153, 74, 3, 73, 136, 178 ));
@@ -211,6 +214,7 @@ package Windows.ApplicationModel.DataTransfer.ShareTarget is
       ; RetVal : access Windows.ApplicationModel.Contacts.IVectorView_IContact -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

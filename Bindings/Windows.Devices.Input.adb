@@ -27,7 +27,6 @@ package body Windows.Devices.Input is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMouseDevice_add_MouseMoved_Interface
@@ -44,7 +43,6 @@ package body Windows.Devices.Input is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateMouseCapabilities return Windows.Devices.Input.IMouseCapabilities is
       Hr            : Windows.HResult := S_OK;
@@ -105,7 +103,6 @@ package body Windows.Devices.Input is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetPointerDevice
    (
       pointerId : Windows.UInt32
@@ -159,5 +156,6 @@ package body Windows.Devices.Input is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

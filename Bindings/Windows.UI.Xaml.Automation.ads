@@ -688,6 +688,7 @@ package Windows.UI.Xaml.Automation is
    IID_IAnnotationPatternIdentifiers : aliased constant Windows.IID := (3564478657, 18610, 20032, (166, 207, 61, 196, 182, 56, 192, 222 ));
    
    type IAnnotationPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IAnnotationPatternIdentifiersStatics : aliased constant Windows.IID := (3773014877, 53607, 18140, (149, 171, 51, 10, 246, 26, 235, 181 ));
@@ -728,11 +729,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationElementIdentifiers : aliased constant Windows.IID := (3867829199, 17221, 20013, (138, 106, 73, 204, 225, 250, 45, 204 ));
    
    type IAutomationElementIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationElementIdentifiersStatics : aliased constant Windows.IID := (1162426783, 33600, 19815, (185, 191, 140, 42, 198, 160, 119, 58 ));
@@ -899,6 +902,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationElementIdentifiersStatics2 : aliased constant Windows.IID := (3050025442, 54623, 18089, (158, 218, 26, 71, 66, 81, 93, 195 ));
@@ -911,6 +915,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationElementIdentifiersStatics3 : aliased constant Windows.IID := (257736381, 46059, 16515, (173, 199, 12, 47, 57, 187, 53, 67 ));
@@ -944,6 +949,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationElementIdentifiersStatics4 : aliased constant Windows.IID := (1526013813, 22803, 19832, (179, 48, 166, 245, 11, 115, 237, 155 ));
@@ -963,6 +969,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationElementIdentifiersStatics5 : aliased constant Windows.IID := (2557116934, 56921, 17145, (161, 231, 98, 184, 175, 158, 117, 109 ));
@@ -1010,6 +1017,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationElementIdentifiersStatics6 : aliased constant Windows.IID := (3729960973, 33576, 20142, (128, 53, 248, 219, 153, 200, 186, 196 ));
@@ -1022,11 +1030,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationProperties : aliased constant Windows.IID := (1758929708, 58914, 18665, (175, 11, 31, 250, 51, 204, 92, 186 ));
    
    type IAutomationProperties_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationPropertiesStatics : aliased constant Windows.IID := (3055091067, 13008, 18800, (156, 66, 124, 3, 154, 199, 190, 120 ));
@@ -1262,6 +1272,7 @@ package Windows.UI.Xaml.Automation is
       ; value : Windows.UI.Xaml.Automation.Peers.AutomationLiveSetting
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationPropertiesStatics2 : aliased constant Windows.IID := (964056191, 28809, 18433, (143, 29, 170, 183, 128, 144, 209, 160 ));
@@ -1305,6 +1316,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.IVector_IUIElement -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationPropertiesStatics3 : aliased constant Windows.IID := (2071320373, 23729, 17069, (155, 87, 95, 171, 168, 193, 134, 127 ));
@@ -1394,6 +1406,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IVector_IAutomationAnnotation -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationPropertiesStatics4 : aliased constant Windows.IID := (4158006869, 12570, 19324, (161, 49, 82, 78, 137, 205, 60, 249 ));
@@ -1445,6 +1458,7 @@ package Windows.UI.Xaml.Automation is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationPropertiesStatics5 : aliased constant Windows.IID := (199449382, 51449, 16802, (180, 219, 230, 167, 163, 43, 12, 52 ));
@@ -1587,6 +1601,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.IVector_IDependencyObject -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationPropertiesStatics6 : aliased constant Windows.IID := (3323855631, 60233, 20061, (176, 18, 76, 28, 150, 195, 144, 27 ));
@@ -1615,16 +1630,19 @@ package Windows.UI.Xaml.Automation is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationProperty : aliased constant Windows.IID := (3056015707, 12839, 19990, (149, 52, 221, 236, 227, 13, 219, 70 ));
    
    type IAutomationProperty_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IDockPatternIdentifiers : aliased constant Windows.IID := (3436704998, 58617, 18431, (189, 231, 55, 139, 17, 247, 142, 9 ));
    
    type IDockPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IDockPatternIdentifiersStatics : aliased constant Windows.IID := (730276956, 60800, 20453, (142, 180, 112, 138, 57, 200, 65, 229 ));
@@ -1637,11 +1655,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDragPatternIdentifiers : aliased constant Windows.IID := (1650911621, 19719, 20096, (130, 235, 143, 150, 105, 10, 26, 12 ));
    
    type IDragPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IDragPatternIdentifiersStatics : aliased constant Windows.IID := (704984989, 5973, 16514, (157, 144, 70, 241, 65, 29, 121, 134 ));
@@ -1675,11 +1695,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDropTargetPatternIdentifiers : aliased constant Windows.IID := (294015283, 42750, 17972, (189, 24, 14, 246, 18, 183, 178, 8 ));
    
    type IDropTargetPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IDropTargetPatternIdentifiersStatics : aliased constant Windows.IID := (459879172, 35323, 19210, (148, 82, 202, 44, 102, 170, 249, 243 ));
@@ -1699,11 +1721,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IExpandCollapsePatternIdentifiers : aliased constant Windows.IID := (2953231040, 29979, 19797, (146, 203, 97, 62, 193, 189, 245, 208 ));
    
    type IExpandCollapsePatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IExpandCollapsePatternIdentifiersStatics : aliased constant Windows.IID := (3615584212, 28384, 20280, (142, 20, 86, 239, 33, 173, 172, 253 ));
@@ -1716,11 +1740,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGridItemPatternIdentifiers : aliased constant Windows.IID := (1970750705, 12933, 20401, (128, 59, 37, 69, 189, 67, 21, 153 ));
    
    type IGridItemPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IGridItemPatternIdentifiersStatics : aliased constant Windows.IID := (561849346, 24134, 19809, (135, 148, 184, 238, 142, 119, 71, 20 ));
@@ -1761,11 +1787,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGridPatternIdentifiers : aliased constant Windows.IID := (3372390415, 38597, 17676, (144, 68, 126, 82, 194, 79, 158, 148 ));
    
    type IGridPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IGridPatternIdentifiersStatics : aliased constant Windows.IID := (2076463859, 41345, 16695, (141, 233, 31, 155, 26, 131, 32, 237 ));
@@ -1785,11 +1813,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMultipleViewPatternIdentifiers : aliased constant Windows.IID := (1566364600, 7698, 18571, (176, 234, 94, 108, 184, 152, 22, 225 ));
    
    type IMultipleViewPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IMultipleViewPatternIdentifiersStatics : aliased constant Windows.IID := (2848958063, 27524, 19825, (158, 72, 215, 100, 211, 188, 218, 142 ));
@@ -1809,11 +1839,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRangeValuePatternIdentifiers : aliased constant Windows.IID := (4168486725, 13257, 18045, (188, 158, 209, 81, 82, 99, 172, 225 ));
    
    type IRangeValuePatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IRangeValuePatternIdentifiersStatics : aliased constant Windows.IID := (3458417935, 7207, 17791, (184, 21, 122, 94, 70, 134, 61, 187 ));
@@ -1861,11 +1893,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScrollPatternIdentifiers : aliased constant Windows.IID := (912986115, 16988, 18769, (174, 131, 213, 33, 231, 59, 198, 150 ));
    
    type IScrollPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IScrollPatternIdentifiersStatics : aliased constant Windows.IID := (1274601633, 64383, 20388, (131, 179, 207, 174, 177, 3, 166, 133 ));
@@ -1920,11 +1954,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectionItemPatternIdentifiers : aliased constant Windows.IID := (766485530, 16120, 19381, (160, 43, 62, 225, 178, 39, 71, 64 ));
    
    type ISelectionItemPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectionItemPatternIdentifiersStatics : aliased constant Windows.IID := (2836975971, 18558, 20030, (159, 134, 123, 68, 172, 190, 39, 206 ));
@@ -1944,11 +1980,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectionPatternIdentifiers : aliased constant Windows.IID := (1252421552, 58359, 18271, (183, 141, 248, 168, 59, 183, 48, 196 ));
    
    type ISelectionPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISelectionPatternIdentifiersStatics : aliased constant Windows.IID := (2466470732, 27472, 16545, (178, 63, 92, 120, 221, 189, 71, 154 ));
@@ -1975,11 +2013,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISpreadsheetItemPatternIdentifiers : aliased constant Windows.IID := (2218032665, 51787, 18082, (167, 148, 200, 121, 40, 163, 177, 171 ));
    
    type ISpreadsheetItemPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ISpreadsheetItemPatternIdentifiersStatics : aliased constant Windows.IID := (1130727289, 21376, 20242, (180, 104, 180, 243, 104, 173, 68, 153 ));
@@ -1992,11 +2032,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStylesPatternIdentifiers : aliased constant Windows.IID := (2967790081, 59549, 17259, (130, 135, 79, 121, 3, 70, 104, 121 ));
    
    type IStylesPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IStylesPatternIdentifiersStatics : aliased constant Windows.IID := (1384793466, 48188, 19784, (148, 175, 31, 104, 112, 60, 162, 150 ));
@@ -2051,11 +2093,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITableItemPatternIdentifiers : aliased constant Windows.IID := (3274106285, 32887, 19556, (152, 228, 232, 59, 207, 27, 67, 137 ));
    
    type ITableItemPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ITableItemPatternIdentifiersStatics : aliased constant Windows.IID := (616872227, 59810, 19945, (178, 164, 168, 178, 45, 11, 227, 98 ));
@@ -2075,11 +2119,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITablePatternIdentifiers : aliased constant Windows.IID := (953222398, 3340, 16682, (191, 141, 81, 237, 230, 131, 186, 245 ));
    
    type ITablePatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ITablePatternIdentifiersStatics : aliased constant Windows.IID := (1963408677, 13001, 18691, (174, 207, 220, 53, 4, 203, 210, 68 ));
@@ -2106,11 +2152,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITogglePatternIdentifiers : aliased constant Windows.IID := (2115575659, 13524, 19175, (131, 172, 41, 248, 136, 130, 217, 133 ));
    
    type ITogglePatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ITogglePatternIdentifiersStatics : aliased constant Windows.IID := (3354875204, 5285, 20271, (146, 252, 118, 5, 36, 222, 6, 234 ));
@@ -2123,11 +2171,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITransformPattern2Identifiers : aliased constant Windows.IID := (145399869, 56999, 16431, (128, 151, 154, 39, 131, 214, 14, 93 ));
    
    type ITransformPattern2Identifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ITransformPattern2IdentifiersStatics : aliased constant Windows.IID := (2023110212, 4592, 18044, (167, 43, 93, 172, 65, 193, 246, 254 ));
@@ -2161,11 +2211,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ITransformPatternIdentifiers : aliased constant Windows.IID := (3826342796, 50120, 18999, (185, 148, 39, 9, 167, 129, 22, 101 ));
    
    type ITransformPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_ITransformPatternIdentifiersStatics : aliased constant Windows.IID := (1165028779, 55045, 16580, (161, 220, 233, 172, 252, 239, 133, 246 ));
@@ -2192,11 +2244,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IValuePatternIdentifiers : aliased constant Windows.IID := (1113323084, 21299, 20033, (180, 112, 43, 173, 20, 236, 208, 133 ));
    
    type IValuePatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IValuePatternIdentifiersStatics : aliased constant Windows.IID := (3259492599, 44492, 17423, (177, 35, 51, 120, 138, 64, 82, 90 ));
@@ -2216,11 +2270,13 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWindowPatternIdentifiers : aliased constant Windows.IID := (972524468, 28722, 16866, (183, 158, 39, 183, 74, 134, 40, 222 ));
    
    type IWindowPatternIdentifiers_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    IID_IWindowPatternIdentifiersStatics : aliased constant Windows.IID := (131116294, 25346, 19753, (135, 139, 25, 218, 3, 252, 34, 141 ));
@@ -2268,6 +2324,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationAnnotation : aliased constant Windows.IID := (4215025866, 984, 17944, (145, 191, 228, 216, 79, 74, 243, 24 ));
@@ -2301,6 +2358,7 @@ package Windows.UI.Xaml.Automation is
       ; value : Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationAnnotationStatics : aliased constant Windows.IID := (3842239159, 20197, 18635, (181, 184, 187, 205, 70, 201, 209, 218 ));
@@ -2320,6 +2378,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAutomationAnnotationFactory : aliased constant Windows.IID := (1225194066, 56768, 20073, (183, 107, 1, 157, 146, 141, 130, 47 ));
@@ -2342,6 +2401,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationAnnotation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAutomationAnnotation : aliased constant Windows.IID := (2127768483, 56076, 23124, (171, 67, 48, 98, 138, 251, 194, 216 ));
@@ -2376,6 +2436,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAutomationAnnotation : aliased constant Windows.IID := (3336704203, 7291, 24170, (147, 107, 97, 212, 229, 54, 162, 145 ));
@@ -2388,6 +2449,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UI.Xaml.Automation.IIterator_IAutomationAnnotation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAutomationAnnotation : aliased constant Windows.IID := (2763563628, 36873, 21396, (152, 200, 152, 16, 126, 128, 219, 97 ));
@@ -2426,6 +2488,7 @@ package Windows.UI.Xaml.Automation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IAutomationAnnotation : aliased constant Windows.IID := (1935240322, 63205, 23383, (141, 197, 85, 108, 183, 168, 251, 230 ));
@@ -2520,6 +2583,7 @@ package Windows.UI.Xaml.Automation is
       ; items : Windows.UI.Xaml.Automation.IAutomationAnnotation_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -2549,7 +2613,6 @@ package Windows.UI.Xaml.Automation is
    subtype ValuePatternIdentifiers is Windows.UI.Xaml.Automation.IValuePatternIdentifiers;
    subtype WindowPatternIdentifiers is Windows.UI.Xaml.Automation.IWindowPatternIdentifiers;
    subtype AutomationAnnotation is Windows.UI.Xaml.Automation.IAutomationAnnotation;
-   
    function CreateInstance
    (
       type_x : Windows.UI.Xaml.Automation.AnnotationType
@@ -2564,10 +2627,10 @@ package Windows.UI.Xaml.Automation is
    return Windows.UI.Xaml.Automation.IAutomationAnnotation;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_AnnotationTypeIdProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
@@ -3273,5 +3336,6 @@ package Windows.UI.Xaml.Automation is
    
    function get_ElementProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
 
 end;

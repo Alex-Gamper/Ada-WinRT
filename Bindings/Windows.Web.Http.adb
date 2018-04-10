@@ -32,7 +32,6 @@ package body Windows.Web.Http is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       method : Windows.Web.Http.IHttpMethod
@@ -344,7 +343,6 @@ package body Windows.Web.Http is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_Delete
    return Windows.Web.Http.IHttpMethod is
       Hr            : Windows.HRESULT := S_OK;
@@ -463,5 +461,6 @@ package body Windows.Web.Http is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

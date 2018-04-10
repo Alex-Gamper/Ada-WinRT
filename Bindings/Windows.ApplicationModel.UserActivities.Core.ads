@@ -76,6 +76,7 @@ package Windows.ApplicationModel.UserActivities.Core is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -84,7 +85,6 @@ package Windows.ApplicationModel.UserActivities.Core is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateUserActivitySessionInBackground
    (
@@ -99,5 +99,6 @@ package Windows.ApplicationModel.UserActivities.Core is
       ; endTime : Windows.Foundation.DateTime
    )
    return Windows.Foundation.IAsyncAction;
+   
 
 end;

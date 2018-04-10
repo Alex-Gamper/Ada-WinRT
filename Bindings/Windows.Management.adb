@@ -27,7 +27,6 @@ package body Windows.Management is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateMdmAlert return Windows.Management.IMdmAlert is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Management.MdmAlert");
@@ -52,7 +51,6 @@ package body Windows.Management is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_SessionIds
    return Windows.Foundation.Collections.IVectorView_String is
@@ -125,5 +123,6 @@ package body Windows.Management is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

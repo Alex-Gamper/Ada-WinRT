@@ -200,6 +200,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISignificantDigitsNumberRounder : aliased constant Windows.IID := (4120124362, 26182, 18707, (140, 118, 27, 25, 31, 249, 77, 253 ));
@@ -233,6 +234,7 @@ package Windows.Globalization.NumberFormatting is
       ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIncrementNumberRounder : aliased constant Windows.IID := (1889947640, 26283, 16725, (157, 161, 115, 158, 70, 118, 69, 67 ));
@@ -266,6 +268,7 @@ package Windows.Globalization.NumberFormatting is
       ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INumberFormatter : aliased constant Windows.IID := (2768272457, 30326, 19895, (134, 49, 27, 111, 242, 101, 202, 169 ));
@@ -295,6 +298,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INumberFormatter2 : aliased constant Windows.IID := (3567829488, 32976, 19213, (168, 158, 136, 44, 30, 143, 131, 16 ));
@@ -324,6 +328,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INumberParser : aliased constant Windows.IID := (3865416722, 18963, 19027, (131, 161, 57, 47, 190, 76, 255, 159 ));
@@ -353,6 +358,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INumberFormatterOptions : aliased constant Windows.IID := (2150837537, 44769, 19001, (186, 162, 7, 237, 140, 150, 218, 246 ));
@@ -456,6 +462,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISignificantDigitsOption : aliased constant Windows.IID := (491650269, 11587, 20200, (187, 241, 193, 178, 106, 113, 26, 88 ));
@@ -475,6 +482,7 @@ package Windows.Globalization.NumberFormatting is
       ; value : Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INumberRounderOption : aliased constant Windows.IID := (990413875, 25711, 20222, (141, 72, 102, 235, 46, 73, 231, 54 ));
@@ -494,6 +502,7 @@ package Windows.Globalization.NumberFormatting is
       ; value : Windows.Globalization.NumberFormatting.INumberRounder
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISignedZeroOption : aliased constant Windows.IID := (4246527281, 2620, 18884, (166, 66, 150, 161, 86, 79, 79, 48 ));
@@ -513,6 +522,7 @@ package Windows.Globalization.NumberFormatting is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDecimalFormatterFactory : aliased constant Windows.IID := (218205338, 58259, 18104, (184, 48, 122, 105, 200, 248, 159, 187 ));
@@ -527,6 +537,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.Globalization.NumberFormatting.INumberFormatterOptions
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPercentFormatterFactory : aliased constant Windows.IID := (3078785775, 65236, 16408, (166, 226, 224, 153, 97, 224, 55, 101 ));
@@ -541,6 +552,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.Globalization.NumberFormatting.INumberFormatterOptions
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPermilleFormatterFactory : aliased constant Windows.IID := (725071020, 58936, 20181, (169, 152, 98, 246, 176, 106, 73, 174 ));
@@ -555,6 +567,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.Globalization.NumberFormatting.INumberFormatterOptions
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICurrencyFormatterFactory : aliased constant Windows.IID := (2261209982, 47416, 19106, (132, 176, 44, 51, 220, 91, 20, 80 ));
@@ -578,6 +591,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.Globalization.NumberFormatting.ICurrencyFormatter
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICurrencyFormatter : aliased constant Windows.IID := (292752549, 19200, 16818, (179, 50, 115, 177, 42, 73, 125, 84 ));
@@ -597,6 +611,7 @@ package Windows.Globalization.NumberFormatting is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICurrencyFormatter2 : aliased constant Windows.IID := (120336157, 59322, 16791, (146, 14, 36, 124, 146, 247, 222, 166 ));
@@ -623,6 +638,7 @@ package Windows.Globalization.NumberFormatting is
       ; roundingAlgorithm : Windows.Globalization.NumberFormatting.RoundingAlgorithm
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INumeralSystemTranslatorFactory : aliased constant Windows.IID := (2519779546, 14063, 19848, (168, 92, 111, 13, 152, 214, 32, 166 ));
@@ -636,6 +652,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.Globalization.NumberFormatting.INumeralSystemTranslator
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INumeralSystemTranslator : aliased constant Windows.IID := (687193132, 35875, 16948, (173, 46, 250, 90, 58, 66, 110, 155 ));
@@ -677,6 +694,7 @@ package Windows.Globalization.NumberFormatting is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -690,7 +708,6 @@ package Windows.Globalization.NumberFormatting is
    function CreateIncrementNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder;
    
    subtype DecimalFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
-   
    function CreateDecimalFormatter
    (
       languages : Windows.Foundation.Collections.IIterable_String
@@ -698,8 +715,8 @@ package Windows.Globalization.NumberFormatting is
    )
    return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
-   subtype PercentFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
+   subtype PercentFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    function CreatePercentFormatter
    (
       languages : Windows.Foundation.Collections.IIterable_String
@@ -707,8 +724,8 @@ package Windows.Globalization.NumberFormatting is
    )
    return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
-   subtype PermilleFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
+   subtype PermilleFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    function CreatePermilleFormatter
    (
       languages : Windows.Foundation.Collections.IIterable_String
@@ -716,8 +733,8 @@ package Windows.Globalization.NumberFormatting is
    )
    return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
-   subtype CurrencyFormatter is Windows.Globalization.NumberFormatting.ICurrencyFormatter;
    
+   subtype CurrencyFormatter is Windows.Globalization.NumberFormatting.ICurrencyFormatter;
    function CreateCurrencyFormatterCode
    (
       currencyCode : Windows.String
@@ -731,6 +748,7 @@ package Windows.Globalization.NumberFormatting is
       ; geographicRegion : Windows.String
    )
    return Windows.Globalization.NumberFormatting.ICurrencyFormatter;
+   
    
    subtype NumeralSystemTranslator is Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
    

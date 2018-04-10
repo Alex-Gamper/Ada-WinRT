@@ -100,6 +100,7 @@ package Windows.Security.Authentication.Identity is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEnterpriseKeyCredentialRegistrationManagerStatics : aliased constant Windows.IID := (2008571550, 44276, 19392, (186, 194, 64, 187, 70, 239, 187, 63 ));
@@ -112,6 +113,7 @@ package Windows.Security.Authentication.Identity is
       ; RetVal : access Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IEnterpriseKeyCredentialRegistrationManager : aliased constant Windows.IID := (2213789247, 41567, 19642, (187, 142, 189, 195, 45, 3, 194, 151 ));
@@ -124,6 +126,7 @@ package Windows.Security.Authentication.Identity is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -135,8 +138,8 @@ package Windows.Security.Authentication.Identity is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function get_Current
    return Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager;
+   
 
 end;

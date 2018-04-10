@@ -203,6 +203,7 @@ package Windows.Web is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IInputStream -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebErrorStatics : aliased constant Windows.IID := (4267796326, 48935, 16484, (135, 183, 101, 99, 187, 17, 206, 46 ));
@@ -216,6 +217,7 @@ package Windows.Web is
       ; RetVal : access Windows.Web.WebErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_WebErrorStatus : aliased constant Windows.IID := (4201662761, 1889, 24022, (150, 117, 5, 42, 140, 97, 226, 194 ));
@@ -250,6 +252,7 @@ package Windows.Web is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_WebErrorStatus : aliased constant Windows.IID := (2071926830, 42702, 21867, (154, 46, 239, 151, 102, 47, 42, 238 ));
@@ -262,6 +265,7 @@ package Windows.Web is
       ; RetVal : access Windows.Web.IIterator_WebErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_WebErrorStatus : aliased constant Windows.IID := (4124118338, 42870, 21306, (143, 75, 46, 28, 110, 91, 191, 36 ));
@@ -300,6 +304,7 @@ package Windows.Web is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_WebErrorStatus : aliased constant Windows.IID := (1639712483, 46930, 23382, (131, 116, 59, 69, 162, 20, 105, 63 ));
@@ -394,6 +399,7 @@ package Windows.Web is
       ; items : Windows.Web.WebErrorStatus_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_WebErrorStatus : aliased constant Windows.IID := (4071777078, 27293, 21726, (142, 202, 0, 214, 200, 113, 228, 105 ));
@@ -406,6 +412,7 @@ package Windows.Web is
       ; RetVal : access Windows.Web.WebErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -415,11 +422,11 @@ package Windows.Web is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetStatus
    (
       hresult : Windows.Int32
    )
    return Windows.Web.WebErrorStatus;
+   
 
 end;

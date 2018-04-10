@@ -34,7 +34,6 @@ package body Windows.Networking.Sockets is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStreamSocket_Interface
@@ -129,7 +128,6 @@ package body Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -304,7 +302,6 @@ package body Windows.Networking.Sockets is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetEndpointPairsAsync
    (
       remoteHostName : Windows.Networking.IHostName
@@ -447,5 +444,6 @@ package body Windows.Networking.Sockets is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -27,7 +27,6 @@ package body Windows.Perception is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -35,7 +34,6 @@ package body Windows.Perception is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromHistoricalTargetTime
    (
@@ -56,5 +54,6 @@ package body Windows.Perception is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

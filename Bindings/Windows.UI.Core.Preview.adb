@@ -27,7 +27,6 @@ package body Windows.UI.Core.Preview is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access EventHandler_ISystemNavigationCloseRequestedPreviewEventArgs_Interface
@@ -45,7 +44,6 @@ package body Windows.UI.Core.Preview is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -53,7 +51,6 @@ package body Windows.UI.Core.Preview is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetForCurrentView
    return Windows.UI.Core.Preview.ISystemNavigationManagerPreview is
@@ -71,5 +68,6 @@ package body Windows.UI.Core.Preview is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

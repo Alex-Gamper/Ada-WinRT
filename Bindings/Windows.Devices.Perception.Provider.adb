@@ -30,7 +30,6 @@ package body Windows.Devices.Perception.Provider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access PerceptionStartFaceAuthenticationHandler_Interface
@@ -59,7 +58,6 @@ package body Windows.Devices.Perception.Provider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreatePerceptionFrameProviderInfo return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo is
       Hr            : Windows.HResult := S_OK;

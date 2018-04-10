@@ -28,7 +28,6 @@ package body Windows.Graphics.Printing.OptionDetails is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IPrintTaskOptionDetails_add_OptionChanged_Interface
@@ -59,7 +58,6 @@ package body Windows.Graphics.Printing.OptionDetails is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -67,7 +65,6 @@ package body Windows.Graphics.Printing.OptionDetails is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetFromPrintTaskOptions
    (
@@ -88,5 +85,6 @@ package body Windows.Graphics.Printing.OptionDetails is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

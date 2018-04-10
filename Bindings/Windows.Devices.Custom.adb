@@ -28,7 +28,6 @@ package body Windows.Devices.Custom is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICustomDevice_Interface
@@ -45,7 +44,6 @@ package body Windows.Devices.Custom is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateIOControlCode
    (
@@ -77,7 +75,6 @@ package body Windows.Devices.Custom is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function get_Unknown
    return Windows.UInt16 is
@@ -137,5 +134,6 @@ package body Windows.Devices.Custom is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -30,7 +30,6 @@ package body Windows.UI.Input.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -38,7 +37,6 @@ package body Windows.UI.Input.Core is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateForView
    (
@@ -59,5 +57,6 @@ package body Windows.UI.Input.Core is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

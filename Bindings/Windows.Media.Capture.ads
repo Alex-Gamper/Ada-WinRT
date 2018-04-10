@@ -1337,6 +1337,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureStatics : aliased constant Windows.IID := (4179811692, 2686, 20084, (139, 32, 156, 31, 144, 45, 8, 161 ));
@@ -1349,6 +1350,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAppCapture
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureStatics2 : aliased constant Windows.IID := (3000533460, 33644, 19876, (175, 215, 250, 204, 4, 30, 28, 243 ));
@@ -1362,6 +1364,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICameraCaptureUIPhotoCaptureSettings : aliased constant Windows.IID := (3119890071, 13426, 18088, (138, 158, 4, 206, 66, 204, 201, 125 ));
@@ -1437,6 +1440,7 @@ package Windows.Media.Capture is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICameraCaptureUIVideoCaptureSettings : aliased constant Windows.IID := (1693003039, 41613, 16986, (184, 79, 229, 104, 51, 95, 242, 78 ));
@@ -1498,6 +1502,7 @@ package Windows.Media.Capture is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICameraCaptureUI : aliased constant Windows.IID := (1213756736, 28563, 19380, (184, 243, 232, 158, 72, 148, 140, 145 ));
@@ -1525,6 +1530,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureFailedEventArgs : aliased constant Windows.IID := (2164122612, 21700, 17088, (141, 25, 206, 161, 168, 124, 161, 139 ));
@@ -1544,6 +1550,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureVideoProfileMediaDescription : aliased constant Windows.IID := (2148708335, 46737, 18943, (131, 242, 193, 231, 110, 170, 234, 27 ));
@@ -1584,6 +1591,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureVideoProfile : aliased constant Windows.IID := (564163519, 41966, 20175, (158, 246, 80, 176, 188, 78, 19, 5 ));
@@ -1631,6 +1639,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IVectorView_IMediaCaptureVideoProfile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureInitializationSettings : aliased constant Windows.IID := (2541927024, 60005, 18688, (147, 86, 140, 168, 135, 114, 104, 132 ));
@@ -1692,6 +1701,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.PhotoCaptureSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureInitializationSettings2 : aliased constant Windows.IID := (1078855206, 51676, 17385, (174, 228, 230, 191, 27, 87, 180, 76 ));
@@ -1725,6 +1735,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.AudioProcessing
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureInitializationSettings3 : aliased constant Windows.IID := (1096831389, 48712, 18224, (129, 4, 12, 246, 233, 233, 121, 72 ));
@@ -1758,6 +1769,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Core.IMediaSource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureInitializationSettings4 : aliased constant Windows.IID := (4110591287, 19639, 19752, (149, 237, 79, 159, 1, 46, 5, 24 ));
@@ -1819,6 +1831,7 @@ package Windows.Media.Capture is
       ; value : Windows.Media.Capture.IMediaCaptureVideoProfileMediaDescription
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureInitializationSettings5 : aliased constant Windows.IID := (3584222136, 9766, 20116, (183, 179, 83, 8, 160, 246, 75, 26 ));
@@ -1866,6 +1879,7 @@ package Windows.Media.Capture is
       ; value : Windows.Media.Capture.MediaCaptureMemoryPreference
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureInitializationSettings6 : aliased constant Windows.IID := (3001183047, 15793, 19763, (171, 99, 15, 250, 9, 5, 101, 133 ));
@@ -1885,6 +1899,7 @@ package Windows.Media.Capture is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureStatics : aliased constant Windows.IID := (2901377535, 39405, 17989, (150, 94, 25, 37, 207, 198, 56, 52 ));
@@ -1923,6 +1938,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IVectorView_IMediaCaptureVideoProfile -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCapture : aliased constant Windows.IID := (3323657140, 64272, 18996, (172, 24, 202, 128, 217, 200, 231, 238 ));
@@ -2134,6 +2150,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.VideoRotation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCapture2 : aliased constant Windows.IID := (2630255200, 32161, 16451, (182, 82, 33, 184, 135, 141, 175, 249 ));
@@ -2202,6 +2219,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCapture3 : aliased constant Windows.IID := (3558043440, 5476, 18030, (188, 10, 175, 148, 224, 42, 176, 22 ));
@@ -2245,6 +2263,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCapture4 : aliased constant Windows.IID := (3134025686, 64264, 18759, (174, 162, 206, 20, 239, 240, 206, 19 ));
@@ -2349,6 +2368,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAsyncOperation_IAdvancedPhotoCapture -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCapture5 : aliased constant Windows.IID := (3665329186, 15003, 18208, (167, 30, 151, 144, 10, 49, 110, 90 ));
@@ -2411,6 +2431,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.Frames.IAsyncOperation_IMediaFrameReader -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCapture6 : aliased constant Windows.IID := (579422397, 19232, 19377, (159, 214, 165, 131, 33, 42, 16, 18 ));
@@ -2439,6 +2460,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.Frames.IAsyncOperation_IMultiSourceMediaFrameReader -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILowLagPhotoCapture : aliased constant Windows.IID := (2742178231, 27460, 18237, (143, 36, 247, 3, 214, 192, 236, 68 ));
@@ -2458,6 +2480,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdvancedPhotoCapture : aliased constant Windows.IID := (2214570746, 26215, 17628, (151, 60, 166, 188, 229, 150, 170, 15 ));
@@ -2515,6 +2538,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdvancedCapturedPhoto : aliased constant Windows.IID := (4034032267, 45714, 17553, (157, 65, 153, 128, 122, 85, 11, 191 ));
@@ -2541,6 +2565,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdvancedCapturedPhoto2 : aliased constant Windows.IID := (416247000, 53246, 17112, (129, 4, 1, 123, 179, 24, 244, 161 ));
@@ -2553,6 +2578,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IReference_Rect -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IOptionalReferencePhotoCapturedEventArgs : aliased constant Windows.IID := (1192200371, 7789, 16465, (156, 139, 241, 216, 90, 240, 71, 183 ));
@@ -2572,6 +2598,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILowLagMediaRecording : aliased constant Windows.IID := (1103674103, 65343, 18928, (164, 119, 241, 149, 227, 206, 81, 8 ));
@@ -2598,6 +2625,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILowLagMediaRecording2 : aliased constant Windows.IID := (1667876696, 22084, 16866, (151, 175, 142, 245, 106, 37, 226, 37 ));
@@ -2618,6 +2646,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILowLagMediaRecording3 : aliased constant Windows.IID := (1546890002, 18679, 18394, (180, 30, 144, 136, 10, 95, 224, 236 ));
@@ -2638,6 +2667,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAsyncOperation_IMediaCaptureStopResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCapturePauseResult : aliased constant Windows.IID := (2932112547, 17527, 19204, (160, 111, 44, 28, 81, 130, 254, 157 ));
@@ -2657,6 +2687,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureStopResult : aliased constant Windows.IID := (4191906346, 41106, 19153, (151, 212, 242, 1, 249, 208, 130, 219 ));
@@ -2676,6 +2707,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILowLagPhotoSequenceCapture : aliased constant Windows.IID := (2093172411, 47529, 19601, (143, 250, 40, 126, 156, 102, 134, 105 ));
@@ -2717,6 +2749,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICapturedFrameControlValues : aliased constant Windows.IID := (2428918655, 19981, 19620, (136, 45, 122, 20, 79, 237, 10, 144 ));
@@ -2785,6 +2818,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IReference_Single -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICapturedFrameControlValues2 : aliased constant Windows.IID := (1342909320, 1746, 19111, (167, 219, 211, 122, 247, 51, 33, 216 ));
@@ -2825,6 +2859,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IReference_WhiteBalanceGain -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoCapturedEventArgs : aliased constant Windows.IID := (926677953, 38990, 20464, (191, 133, 28, 0, 170, 188, 90, 69 ));
@@ -2851,6 +2886,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICapturedPhoto : aliased constant Windows.IID := (2966322778, 53196, 19820, (138, 209, 8, 105, 32, 138, 202, 22 ));
@@ -2870,6 +2906,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.ICapturedFrame
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICapturedFrame : aliased constant Windows.IID := (500358687, 22299, 17624, (142, 128, 160, 138, 21, 120, 118, 110 ));
@@ -2889,6 +2926,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICapturedFrameWithSoftwareBitmap : aliased constant Windows.IID := (3046017902, 34051, 18869, (158, 134, 137, 125, 38, 163, 255, 61 ));
@@ -2901,6 +2939,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Graphics.Imaging.ISoftwareBitmap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureVideoPreview : aliased constant Windows.IID := (661811315, 21662, 17535, (162, 10, 79, 3, 196, 121, 216, 192 ));
@@ -2939,6 +2978,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureSettings : aliased constant Windows.IID := (495168254, 27973, 17527, (141, 196, 172, 91, 192, 28, 64, 145 ));
@@ -2979,6 +3019,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.VideoDeviceCharacteristic
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureSettings2 : aliased constant Windows.IID := (1872657659, 64159, 19219, (156, 190, 90, 185, 79, 31, 52, 147 ));
@@ -3040,6 +3081,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.AudioProcessing
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureFocusChangedEventArgs : aliased constant Windows.IID := (2179054719, 8823, 18750, (171, 238, 211, 244, 79, 249, 140, 4 ));
@@ -3052,6 +3094,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Devices.MediaCaptureFocusState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhotoConfirmationCapturedEventArgs : aliased constant Windows.IID := (2873570930, 49802, 18471, (143, 141, 54, 54, 211, 190, 181, 30 ));
@@ -3071,6 +3114,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVideoStreamConfiguration : aliased constant Windows.IID := (3631680111, 17296, 19294, (173, 62, 15, 138, 240, 150, 52, 144 ));
@@ -3090,6 +3134,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.MediaProperties.IVideoEncodingProperties
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs : aliased constant Windows.IID := (2637140493, 42376, 17350, (137, 214, 90, 211, 34, 175, 0, 106 ));
@@ -3109,6 +3154,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastManagerStatics : aliased constant Windows.IID := (911081867, 7758, 16671, (171, 62, 146, 149, 152, 68, 193, 86 ));
@@ -3142,6 +3188,7 @@ package Windows.Media.Capture is
       ; value : Windows.Media.Capture.IAppBroadcastProviderSettings
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastGlobalSettings : aliased constant Windows.IID := (2999658405, 28924, 19991, (128, 189, 107, 160, 253, 63, 243, 160 ));
@@ -3315,6 +3362,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastProviderSettings : aliased constant Windows.IID := (3272335202, 39240, 17807, (173, 80, 170, 6, 236, 3, 218, 8 ));
@@ -3418,6 +3466,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastBackgroundServiceSignInInfo : aliased constant Windows.IID := (1584616053, 35016, 20170, (137, 186, 72, 37, 152, 93, 184, 128 ));
@@ -3494,6 +3543,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastBackgroundServiceSignInInfo2 : aliased constant Windows.IID := (2432968796, 25295, 19004, (167, 238, 174, 181, 7, 64, 70, 69 ));
@@ -3514,6 +3564,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastBackgroundServiceStreamInfo : aliased constant Windows.IID := (836502204, 39178, 18692, (170, 150, 254, 54, 67, 129, 241, 54 ));
@@ -3620,6 +3671,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastBackgroundServiceStreamInfo2 : aliased constant Windows.IID := (3172900717, 38108, 20430, (149, 65, 169, 241, 41, 89, 99, 52 ));
@@ -3631,6 +3683,7 @@ package Windows.Media.Capture is
       This       : access IAppBroadcastBackgroundServiceStreamInfo2_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastBackgroundService : aliased constant Windows.IID := (3134318378, 64148, 18169, (149, 252, 215, 21, 17, 205, 167, 11 ));
@@ -3736,6 +3789,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastBackgroundService2 : aliased constant Windows.IID := (4237085631, 21833, 19335, (149, 159, 35, 202, 64, 31, 212, 115 ));
@@ -3821,6 +3875,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastSignInStateChangedEventArgs : aliased constant Windows.IID := (45519524, 22809, 19102, (141, 94, 201, 187, 13, 211, 55, 122 ));
@@ -3840,6 +3895,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.AppBroadcastSignInResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastStreamStateChangedEventArgs : aliased constant Windows.IID := (1359521587, 53256, 19081, (147, 190, 88, 174, 217, 97, 55, 78 ));
@@ -3852,6 +3908,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.AppBroadcastStreamState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastHeartbeatRequestedEventArgs : aliased constant Windows.IID := (3466936963, 61009, 19903, (148, 114, 121, 169, 237, 78, 33, 101 ));
@@ -3871,6 +3928,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastStreamReader : aliased constant Windows.IID := (3006840057, 13156, 17504, (181, 241, 60, 194, 121, 106, 138, 162 ));
@@ -3969,6 +4027,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastStreamVideoFrame : aliased constant Windows.IID := (261607211, 51684, 20104, (129, 148, 216, 20, 203, 213, 133, 216 ));
@@ -3988,6 +4047,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastStreamAudioFrame : aliased constant Windows.IID := (4020980424, 8634, 17727, (139, 183, 94, 147, 138, 46, 154, 116 ));
@@ -4007,6 +4067,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastStreamAudioHeader : aliased constant Windows.IID := (3206653296, 27512, 16918, (159, 7, 90, 255, 82, 86, 241, 183 ));
@@ -4047,6 +4108,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastStreamVideoHeader : aliased constant Windows.IID := (194952910, 32306, 17197, (140, 162, 54, 191, 16, 185, 244, 98 ));
@@ -4094,6 +4156,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastTriggerDetails : aliased constant Windows.IID := (3739986741, 60510, 19855, (177, 192, 93, 166, 232, 199, 86, 56 ));
@@ -4106,6 +4169,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAppBroadcastBackgroundService
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastPlugInManagerStatics : aliased constant Windows.IID := (4066663456, 23670, 19676, (147, 100, 130, 254, 158, 182, 83, 77 ));
@@ -4126,6 +4190,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAppBroadcastPlugInManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastPlugInManager : aliased constant Windows.IID := (3847281017, 10145, 18855, (187, 244, 215, 169, 233, 208, 118, 104 ));
@@ -4159,6 +4224,7 @@ package Windows.Media.Capture is
       ; value : Windows.Media.Capture.IAppBroadcastPlugIn
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastPlugIn : aliased constant Windows.IID := (1376525926, 25875, 17780, (172, 84, 35, 183, 151, 41, 97, 91 ));
@@ -4192,6 +4258,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastServices : aliased constant Windows.IID := (2254484694, 38555, 20028, (172, 58, 139, 4, 46, 228, 238, 99 ));
@@ -4301,6 +4368,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAppBroadcastState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastState : aliased constant Windows.IID := (3993503085, 32921, 19933, (146, 46, 197, 109, 172, 88, 171, 251 ));
@@ -4555,6 +4623,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastPreview : aliased constant Windows.IID := (347475802, 28234, 19328, (161, 79, 103, 238, 119, 209, 83, 231 ));
@@ -4602,6 +4671,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAppBroadcastPreviewStreamReader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastPlugInStateChangedEventArgs : aliased constant Windows.IID := (1216467186, 43973, 20422, (132, 176, 137, 55, 11, 180, 114, 18 ));
@@ -4614,6 +4684,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.AppBroadcastPlugInState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastPreviewStateChangedEventArgs : aliased constant Windows.IID := (1515713246, 36330, 20102, (144, 173, 3, 252, 38, 185, 101, 60 ));
@@ -4633,6 +4704,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastPreviewStreamReader : aliased constant Windows.IID := (2451737936, 56127, 16552, (140, 212, 244, 227, 113, 221, 171, 55 ));
@@ -4695,6 +4767,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastPreviewStreamVideoFrame : aliased constant Windows.IID := (17809057, 38142, 17561, (184, 192, 141, 36, 66, 121, 251, 18 ));
@@ -4714,6 +4787,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastPreviewStreamVideoHeader : aliased constant Windows.IID := (2347720979, 55940, 17561, (167, 171, 135, 17, 140, 180, 161, 87 ));
@@ -4747,6 +4821,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt64
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastMicrophoneCaptureStateChangedEventArgs : aliased constant Windows.IID := (2825573865, 37952, 18696, (157, 9, 101, 183, 227, 21, 215, 149 ));
@@ -4766,6 +4841,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastCameraCaptureStateChangedEventArgs : aliased constant Windows.IID := (506678480, 47234, 19336, (134, 146, 5, 153, 154, 206, 183, 15 ));
@@ -4785,6 +4861,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppBroadcastViewerCountChangedEventArgs : aliased constant Windows.IID := (3873511461, 21505, 19166, (139, 210, 193, 78, 206, 230, 128, 125 ));
@@ -4797,6 +4874,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureManagerStatics : aliased constant Windows.IID := (2107522727, 25218, 18229, (141, 78, 170, 69, 249, 15, 103, 35 ));
@@ -4816,6 +4894,7 @@ package Windows.Media.Capture is
       ; appCaptureSettings : Windows.Media.Capture.IAppCaptureSettings
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureAlternateShortcutKeys : aliased constant Windows.IID := (434692335, 9068, 16633, (179, 143, 155, 125, 214, 93, 28, 204 ));
@@ -4961,6 +5040,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.System.VirtualKeyModifiers
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureAlternateShortcutKeys2 : aliased constant Windows.IID := (3278278800, 56599, 18416, (149, 229, 206, 66, 40, 108, 243, 56 ));
@@ -4994,6 +5074,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.System.VirtualKeyModifiers
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureAlternateShortcutKeys3 : aliased constant Windows.IID := (2072069260, 16782, 18076, (164, 154, 69, 181, 151, 200, 38, 182 ));
@@ -5055,6 +5136,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.System.VirtualKeyModifiers
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureSettings : aliased constant Windows.IID := (342375046, 34823, 18643, (136, 58, 151, 14, 228, 83, 42, 57 ));
@@ -5312,6 +5394,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureSettings2 : aliased constant Windows.IID := (4239970023, 57963, 18287, (155, 26, 236, 52, 45, 42, 143, 222 ));
@@ -5331,6 +5414,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAppCaptureAlternateShortcutKeys
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureSettings3 : aliased constant Windows.IID := (2838823678, 35010, 17110, (170, 170, 64, 254, 255, 215, 90, 236 ));
@@ -5350,6 +5434,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureSettings4 : aliased constant Windows.IID := (130185036, 6785, 18479, (162, 68, 4, 157, 149, 242, 91, 11 ));
@@ -5411,6 +5496,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.AppCaptureVideoEncodingFrameRateMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureSettings5 : aliased constant Windows.IID := (411649314, 45288, 19360, (143, 19, 62, 170, 95, 164, 1, 59 ));
@@ -5444,6 +5530,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureServices : aliased constant Windows.IID := (1157546165, 13557, 20248, (174, 140, 185, 18, 58, 187, 252, 13 ));
@@ -5479,6 +5566,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAppCaptureState
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureState : aliased constant Windows.IID := (1930642290, 54507, 17614, (149, 56, 70, 95, 80, 106, 196, 234 ));
@@ -5562,6 +5650,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureMicrophoneCaptureStateChangedEventArgs : aliased constant Windows.IID := (843916446, 17852, 19509, (188, 53, 228, 105, 252, 122, 105, 224 ));
@@ -5581,6 +5670,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureRecordOperation : aliased constant Windows.IID := (3328188585, 5432, 18780, (155, 187, 43, 168, 112, 236, 88, 97 ));
@@ -5672,6 +5762,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureRecordingStateChangedEventArgs : aliased constant Windows.IID := (620529426, 58117, 18701, (180, 21, 107, 28, 144, 73, 115, 107 ));
@@ -5691,6 +5782,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureDurationGeneratedEventArgs : aliased constant Windows.IID := (3254081083, 65441, 17609, (151, 95, 39, 251, 235, 85, 59, 53 ));
@@ -5703,6 +5795,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureFileGeneratedEventArgs : aliased constant Windows.IID := (1099561972, 18014, 17855, (144, 127, 22, 91, 63, 178, 55, 88 ));
@@ -5715,6 +5808,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAppCaptureMetadataWriter : aliased constant Windows.IID := (3771615351, 39599, 18100, (173, 49, 106, 96, 180, 65, 199, 128 ));
@@ -5809,6 +5903,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICameraOptionsUIStatics : aliased constant Windows.IID := (990731828, 14598, 19325, (148, 108, 123, 222, 132, 68, 153, 174 ));
@@ -5821,6 +5916,7 @@ package Windows.Media.Capture is
       ; mediaCapture : Windows.Media.Capture.IMediaCapture
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameBarServicesManagerStatics : aliased constant Windows.IID := (885110294, 65317, 18322, (152, 242, 211, 117, 63, 21, 172, 19 ));
@@ -5833,6 +5929,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IGameBarServicesManager
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameBarServicesManager : aliased constant Windows.IID := (978033914, 32651, 19552, (157, 187, 11, 205, 38, 45, 255, 198 ));
@@ -5853,6 +5950,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameBarServicesManagerGameBarServicesCreatedEventArgs : aliased constant Windows.IID := (3991780764, 5182, 18851, (165, 234, 11, 25, 149, 200, 212, 110 ));
@@ -5865,6 +5963,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IGameBarServices
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameBarServices : aliased constant Windows.IID := (767470935, 20646, 18846, (140, 108, 211, 48, 167, 49, 23, 150 ));
@@ -5932,6 +6031,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameBarServicesTargetInfo : aliased constant Windows.IID := (3022008210, 5649, 19973, (182, 239, 223, 215, 55, 174, 51, 176 ));
@@ -5965,6 +6065,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.GameBarServicesDisplayMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IGameBarServicesCommandEventArgs : aliased constant Windows.IID := (2806130354, 61814, 20431, (143, 187, 207, 105, 139, 46, 184, 224 ));
@@ -5984,6 +6085,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.GameBarCommandOrigin
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISourceSuspensionChangedEventArgs : aliased constant Windows.IID := (785283934, 54427, 17300, (188, 50, 249, 125, 108, 237, 236, 28 ));
@@ -6003,6 +6105,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScreenCapture : aliased constant Windows.IID := (2300026615, 52498, 19982, (166, 212, 91, 61, 233, 139, 46, 155 ));
@@ -6051,6 +6154,7 @@ package Windows.Media.Capture is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IScreenCaptureStatics : aliased constant Windows.IID := (3365454768, 51365, 4578, (139, 139, 8, 0, 32, 12, 154, 102 ));
@@ -6063,9 +6167,11 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IScreenCapture
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IRandomAccessStreamWithContentType_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    
    type IContentTypeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -6076,6 +6182,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IRandomAccessStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -6144,6 +6251,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IOutputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -6162,6 +6270,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IInputStream_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -6175,6 +6284,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IMediaCaptureVideoProfileMediaDescription : aliased constant Windows.IID := (3018340239, 28940, 20774, (166, 201, 143, 72, 159, 99, 225, 94 ));
@@ -6209,6 +6319,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IMediaCaptureVideoProfileMediaDescription : aliased constant Windows.IID := (144041325, 65055, 21348, (171, 103, 197, 151, 216, 151, 11, 137 ));
@@ -6221,6 +6332,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IIterator_IMediaCaptureVideoProfileMediaDescription
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IMediaCaptureVideoProfileMediaDescription : aliased constant Windows.IID := (1919712396, 30878, 24523, (179, 31, 249, 217, 212, 163, 172, 66 ));
@@ -6259,6 +6371,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IMediaCaptureVideoProfile : aliased constant Windows.IID := (2847708664, 46528, 20744, (185, 237, 169, 2, 51, 147, 102, 233 ));
@@ -6293,6 +6406,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IMediaCaptureVideoProfile : aliased constant Windows.IID := (3688144241, 57467, 24081, (130, 74, 98, 172, 232, 189, 252, 62 ));
@@ -6305,6 +6419,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IIterator_IMediaCaptureVideoProfile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IMediaCaptureVideoProfile : aliased constant Windows.IID := (1969384697, 8089, 24080, (189, 3, 242, 150, 30, 133, 175, 31 ));
@@ -6343,6 +6458,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILowLagMediaRecording : aliased constant Windows.IID := (1340862412, 48832, 21555, (167, 186, 118, 3, 209, 237, 199, 185 ));
@@ -6369,6 +6485,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.ILowLagMediaRecording
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILowLagPhotoCapture : aliased constant Windows.IID := (2938388555, 32269, 24574, (187, 200, 170, 246, 255, 226, 8, 252 ));
@@ -6395,6 +6512,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.ILowLagPhotoCapture
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ILowLagPhotoSequenceCapture : aliased constant Windows.IID := (2896102496, 40212, 23280, (177, 123, 55, 234, 45, 118, 168, 13 ));
@@ -6421,6 +6539,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.ILowLagPhotoSequenceCapture
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IAdvancedPhotoCapture : aliased constant Windows.IID := (2393986777, 11492, 24269, (129, 244, 160, 135, 49, 251, 116, 207 ));
@@ -6447,6 +6566,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAdvancedPhotoCapture
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IMediaCapturePauseResult : aliased constant Windows.IID := (539633176, 21624, 24250, (155, 211, 157, 131, 244, 98, 116, 126 ));
@@ -6473,6 +6593,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IMediaCapturePauseResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IMediaCaptureStopResult : aliased constant Windows.IID := (3950610471, 42153, 21306, (158, 131, 15, 176, 133, 178, 173, 54 ));
@@ -6499,6 +6620,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IMediaCaptureStopResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ICapturedPhoto : aliased constant Windows.IID := (2941400497, 18296, 21985, (180, 159, 96, 128, 72, 234, 155, 217 ));
@@ -6525,6 +6647,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.ICapturedPhoto
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IAdvancedCapturedPhoto : aliased constant Windows.IID := (2406593047, 25068, 22699, (166, 70, 238, 222, 1, 66, 213, 104 ));
@@ -6551,6 +6674,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IAdvancedCapturedPhoto
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IReference_WhiteBalanceGain : aliased constant Windows.IID := (2043118474, 14818, 21127, (172, 59, 177, 24, 219, 37, 16, 2 ));
@@ -6563,6 +6687,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.WhiteBalanceGain
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAppBroadcastPlugIn : aliased constant Windows.IID := (3479599898, 15289, 22478, (163, 139, 30, 129, 71, 31, 140, 248 ));
@@ -6597,6 +6722,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAppBroadcastPlugIn : aliased constant Windows.IID := (3308373424, 547, 23710, (168, 251, 32, 245, 46, 165, 141, 117 ));
@@ -6609,6 +6735,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.Media.Capture.IIterator_IAppBroadcastPlugIn
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAppBroadcastPlugIn : aliased constant Windows.IID := (95415812, 4456, 22135, (160, 94, 152, 84, 180, 107, 49, 155 ));
@@ -6647,6 +6774,7 @@ package Windows.Media.Capture is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -6656,7 +6784,6 @@ package Windows.Media.Capture is
    IID_MediaCaptureFailedEventHandler : aliased constant Windows.IID := (538243067, 23768, 20232, (163, 20, 13, 54, 13, 165, 159, 20 ));
    
    type MediaCaptureFailedEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; errorEventArgs : Windows.Media.Capture.IMediaCaptureFailedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_MediaCaptureFailedEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access MediaCaptureFailedEventHandler_Interface
@@ -6670,7 +6797,6 @@ package Windows.Media.Capture is
    IID_RecordLimitationExceededEventHandler : aliased constant Windows.IID := (1068404526, 20449, 20477, (170, 186, 225, 241, 51, 125, 78, 83 ));
    
    type RecordLimitationExceededEventHandler_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture)) is new Windows.IMulticastDelegate_Interface(IID_RecordLimitationExceededEventHandler'access) with null record;
-   
    function Invoke
    (
       This       : access RecordLimitationExceededEventHandler_Interface
@@ -6683,7 +6809,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppCapture_add_CapturingChanged : aliased constant Windows.IID := (4123731125, 65280, 22751, (180, 96, 23, 187, 242, 205, 100, 211 ));
    
    type TypedEventHandler_IAppCapture_add_CapturingChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppCapture_add_CapturingChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppCapture_add_CapturingChanged_Interface
@@ -6697,7 +6822,6 @@ package Windows.Media.Capture is
    IID_AsyncOperationCompletedHandler_ILowLagMediaRecording : aliased constant Windows.IID := (1688795148, 58950, 21179, (143, 75, 42, 29, 107, 11, 130, 25 ));
    
    type AsyncOperationCompletedHandler_ILowLagMediaRecording_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_ILowLagMediaRecording ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILowLagMediaRecording'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILowLagMediaRecording_Interface
@@ -6711,7 +6835,6 @@ package Windows.Media.Capture is
    IID_AsyncOperationCompletedHandler_ILowLagPhotoCapture : aliased constant Windows.IID := (1827386216, 20100, 20490, (154, 95, 123, 154, 26, 222, 31, 68 ));
    
    type AsyncOperationCompletedHandler_ILowLagPhotoCapture_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_ILowLagPhotoCapture ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILowLagPhotoCapture'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILowLagPhotoCapture_Interface
@@ -6725,7 +6848,6 @@ package Windows.Media.Capture is
    IID_AsyncOperationCompletedHandler_ILowLagPhotoSequenceCapture : aliased constant Windows.IID := (1987973084, 38243, 22317, (132, 225, 156, 170, 176, 222, 182, 63 ));
    
    type AsyncOperationCompletedHandler_ILowLagPhotoSequenceCapture_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_ILowLagPhotoSequenceCapture ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILowLagPhotoSequenceCapture'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ILowLagPhotoSequenceCapture_Interface
@@ -6739,7 +6861,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IMediaCapture3_add_FocusChanged : aliased constant Windows.IID := (90298856, 656, 21298, (177, 94, 176, 213, 26, 190, 115, 124 ));
    
    type TypedEventHandler_IMediaCapture3_add_FocusChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Media.Capture.IMediaCaptureFocusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaCapture3_add_FocusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaCapture3_add_FocusChanged_Interface
@@ -6753,7 +6874,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IMediaCapture3_add_PhotoConfirmationCaptured : aliased constant Windows.IID := (937179923, 45206, 24387, (129, 4, 240, 220, 67, 2, 226, 181 ));
    
    type TypedEventHandler_IMediaCapture3_add_PhotoConfirmationCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Media.Capture.IPhotoConfirmationCapturedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaCapture3_add_PhotoConfirmationCaptured'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaCapture3_add_PhotoConfirmationCaptured_Interface
@@ -6767,7 +6887,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IMediaCapture4_add_CameraStreamStateChanged : aliased constant Windows.IID := (1153796337, 7095, 24082, (132, 19, 60, 240, 55, 60, 11, 200 ));
    
    type TypedEventHandler_IMediaCapture4_add_CameraStreamStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaCapture4_add_CameraStreamStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaCapture4_add_CameraStreamStateChanged_Interface
@@ -6781,7 +6900,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IMediaCapture4_add_ThermalStatusChanged : aliased constant Windows.IID := (1153796337, 7095, 24082, (132, 19, 60, 240, 55, 60, 11, 200 ));
    
    type TypedEventHandler_IMediaCapture4_add_ThermalStatusChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaCapture4_add_ThermalStatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaCapture4_add_ThermalStatusChanged_Interface
@@ -6795,7 +6913,6 @@ package Windows.Media.Capture is
    IID_AsyncOperationCompletedHandler_IAdvancedPhotoCapture : aliased constant Windows.IID := (3521097416, 61139, 23779, (152, 50, 24, 52, 76, 152, 250, 113 ));
    
    type AsyncOperationCompletedHandler_IAdvancedPhotoCapture_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_IAdvancedPhotoCapture ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAdvancedPhotoCapture'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAdvancedPhotoCapture_Interface
@@ -6809,7 +6926,6 @@ package Windows.Media.Capture is
    IID_AsyncOperationCompletedHandler_IMediaCapturePauseResult : aliased constant Windows.IID := (4268909329, 9919, 20941, (189, 235, 244, 15, 143, 70, 157, 10 ));
    
    type AsyncOperationCompletedHandler_IMediaCapturePauseResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_IMediaCapturePauseResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMediaCapturePauseResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMediaCapturePauseResult_Interface
@@ -6823,7 +6939,6 @@ package Windows.Media.Capture is
    IID_AsyncOperationCompletedHandler_IMediaCaptureStopResult : aliased constant Windows.IID := (1565394548, 7668, 21286, (186, 120, 114, 246, 101, 93, 42, 118 ));
    
    type AsyncOperationCompletedHandler_IMediaCaptureStopResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_IMediaCaptureStopResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMediaCaptureStopResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMediaCaptureStopResult_Interface
@@ -6837,7 +6952,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged : aliased constant Windows.IID := (1553070266, 45945, 21503, (162, 136, 36, 231, 136, 59, 245, 146 ));
    
    type TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCapture ; args : Windows.Media.Capture.IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged_Interface
@@ -6851,7 +6965,6 @@ package Windows.Media.Capture is
    IID_AsyncOperationCompletedHandler_ICapturedPhoto : aliased constant Windows.IID := (4256213624, 1249, 22195, (182, 252, 244, 222, 121, 205, 65, 160 ));
    
    type AsyncOperationCompletedHandler_ICapturedPhoto_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_ICapturedPhoto ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICapturedPhoto'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ICapturedPhoto_Interface
@@ -6865,7 +6978,6 @@ package Windows.Media.Capture is
    IID_AsyncOperationCompletedHandler_IAdvancedCapturedPhoto : aliased constant Windows.IID := (3992143148, 55576, 23701, (142, 58, 36, 80, 68, 221, 112, 223 ));
    
    type AsyncOperationCompletedHandler_IAdvancedCapturedPhoto_Interface(Callback : access procedure (asyncInfo : Windows.Media.Capture.IAsyncOperation_IAdvancedCapturedPhoto ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAdvancedCapturedPhoto'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAdvancedCapturedPhoto_Interface
@@ -6879,7 +6991,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAdvancedPhotoCapture_add_OptionalReferencePhotoCaptured : aliased constant Windows.IID := (2218682810, 22274, 23959, (171, 129, 239, 7, 141, 227, 249, 177 ));
    
    type TypedEventHandler_IAdvancedPhotoCapture_add_OptionalReferencePhotoCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAdvancedPhotoCapture ; args : Windows.Media.Capture.IOptionalReferencePhotoCapturedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdvancedPhotoCapture_add_OptionalReferencePhotoCaptured'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdvancedPhotoCapture_add_OptionalReferencePhotoCaptured_Interface
@@ -6893,7 +7004,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAdvancedPhotoCapture_add_AllPhotosCaptured : aliased constant Windows.IID := (1555343759, 44017, 21784, (144, 148, 38, 219, 50, 106, 95, 78 ));
    
    type TypedEventHandler_IAdvancedPhotoCapture_add_AllPhotosCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAdvancedPhotoCapture ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAdvancedPhotoCapture_add_AllPhotosCaptured'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAdvancedPhotoCapture_add_AllPhotosCaptured_Interface
@@ -6907,7 +7017,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_ILowLagPhotoSequenceCapture_add_PhotoCaptured : aliased constant Windows.IID := (3112872762, 65152, 23335, (136, 195, 231, 127, 245, 133, 169, 107 ));
    
    type TypedEventHandler_ILowLagPhotoSequenceCapture_add_PhotoCaptured_Interface(Callback : access procedure (sender : Windows.Media.Capture.ILowLagPhotoSequenceCapture ; args : Windows.Media.Capture.IPhotoCapturedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILowLagPhotoSequenceCapture_add_PhotoCaptured'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ILowLagPhotoSequenceCapture_add_PhotoCaptured_Interface
@@ -6921,7 +7030,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo_add_SignInStateChanged : aliased constant Windows.IID := (3798412314, 41945, 22259, (138, 119, 32, 211, 8, 115, 206, 135 ));
    
    type TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo_add_SignInStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo ; args : Windows.Media.Capture.IAppBroadcastSignInStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo_add_SignInStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo_add_SignInStateChanged_Interface
@@ -6935,7 +7043,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo2_add_UserNameChanged : aliased constant Windows.IID := (4168176008, 61383, 22364, (173, 157, 105, 94, 178, 4, 69, 36 ));
    
    type TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo2_add_UserNameChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo2_add_UserNameChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastBackgroundServiceSignInInfo2_add_UserNameChanged_Interface
@@ -6949,7 +7056,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_StreamStateChanged : aliased constant Windows.IID := (202443960, 45194, 23559, (178, 149, 34, 144, 73, 164, 108, 34 ));
    
    type TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_StreamStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo ; args : Windows.Media.Capture.IAppBroadcastStreamStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_StreamStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_StreamStateChanged_Interface
@@ -6963,7 +7069,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingResolutionChanged : aliased constant Windows.IID := (1942547531, 61700, 21814, (184, 180, 77, 154, 173, 97, 201, 180 ));
    
    type TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingResolutionChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingResolutionChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingResolutionChanged_Interface
@@ -6977,7 +7082,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingBitrateChanged : aliased constant Windows.IID := (1942547531, 61700, 21814, (184, 180, 77, 154, 173, 97, 201, 180 ));
    
    type TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingBitrateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingBitrateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastBackgroundServiceStreamInfo_add_VideoEncodingBitrateChanged_Interface
@@ -6991,7 +7095,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastBackgroundService_add_HeartbeatRequested : aliased constant Windows.IID := (1664913866, 20446, 20832, (146, 9, 63, 211, 164, 3, 169, 23 ));
    
    type TypedEventHandler_IAppBroadcastBackgroundService_add_HeartbeatRequested_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundService ; args : Windows.Media.Capture.IAppBroadcastHeartbeatRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastBackgroundService_add_HeartbeatRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastBackgroundService_add_HeartbeatRequested_Interface
@@ -7005,7 +7108,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastTitleChanged : aliased constant Windows.IID := (1854017280, 57824, 23667, (175, 216, 164, 123, 155, 28, 27, 237 ));
    
    type TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastTitleChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundService ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastTitleChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastTitleChanged_Interface
@@ -7019,7 +7121,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastLanguageChanged : aliased constant Windows.IID := (1854017280, 57824, 23667, (175, 216, 164, 123, 155, 28, 27, 237 ));
    
    type TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastLanguageChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundService ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastLanguageChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastLanguageChanged_Interface
@@ -7033,7 +7134,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastChannelChanged : aliased constant Windows.IID := (1854017280, 57824, 23667, (175, 216, 164, 123, 155, 28, 27, 237 ));
    
    type TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastChannelChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastBackgroundService ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastChannelChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastBackgroundService2_add_BroadcastChannelChanged_Interface
@@ -7047,7 +7147,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastStreamReader_add_AudioFrameArrived : aliased constant Windows.IID := (1724987275, 3588, 22529, (139, 221, 254, 177, 8, 27, 190, 203 ));
    
    type TypedEventHandler_IAppBroadcastStreamReader_add_AudioFrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastStreamReader ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastStreamReader_add_AudioFrameArrived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastStreamReader_add_AudioFrameArrived_Interface
@@ -7061,7 +7160,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastStreamReader_add_VideoFrameArrived : aliased constant Windows.IID := (1724987275, 3588, 22529, (139, 221, 254, 177, 8, 27, 190, 203 ));
    
    type TypedEventHandler_IAppBroadcastStreamReader_add_VideoFrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastStreamReader ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastStreamReader_add_VideoFrameArrived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastStreamReader_add_VideoFrameArrived_Interface
@@ -7075,7 +7173,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastState_add_ViewerCountChanged : aliased constant Windows.IID := (379726375, 25026, 22210, (147, 229, 24, 214, 104, 28, 238, 180 ));
    
    type TypedEventHandler_IAppBroadcastState_add_ViewerCountChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastViewerCountChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastState_add_ViewerCountChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastState_add_ViewerCountChanged_Interface
@@ -7089,7 +7186,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastState_add_MicrophoneCaptureStateChanged : aliased constant Windows.IID := (4132280682, 14425, 20852, (151, 177, 227, 61, 86, 223, 202, 58 ));
    
    type TypedEventHandler_IAppBroadcastState_add_MicrophoneCaptureStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastMicrophoneCaptureStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastState_add_MicrophoneCaptureStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastState_add_MicrophoneCaptureStateChanged_Interface
@@ -7103,7 +7199,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastState_add_CameraCaptureStateChanged : aliased constant Windows.IID := (3046811285, 45860, 23363, (129, 91, 143, 253, 166, 1, 56, 22 ));
    
    type TypedEventHandler_IAppBroadcastState_add_CameraCaptureStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastCameraCaptureStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastState_add_CameraCaptureStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastState_add_CameraCaptureStateChanged_Interface
@@ -7117,7 +7212,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastState_add_PlugInStateChanged : aliased constant Windows.IID := (926778638, 1115, 21157, (146, 218, 194, 47, 146, 75, 121, 251 ));
    
    type TypedEventHandler_IAppBroadcastState_add_PlugInStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastPlugInStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastState_add_PlugInStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastState_add_PlugInStateChanged_Interface
@@ -7131,7 +7225,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastState_add_StreamStateChanged : aliased constant Windows.IID := (625343442, 16310, 20484, (164, 117, 86, 192, 89, 243, 215, 90 ));
    
    type TypedEventHandler_IAppBroadcastState_add_StreamStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Media.Capture.IAppBroadcastStreamStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastState_add_StreamStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastState_add_StreamStateChanged_Interface
@@ -7145,7 +7238,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastState_add_CaptureTargetClosed : aliased constant Windows.IID := (2846904636, 54840, 23647, (128, 81, 121, 29, 122, 162, 213, 102 ));
    
    type TypedEventHandler_IAppBroadcastState_add_CaptureTargetClosed_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastState ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastState_add_CaptureTargetClosed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastState_add_CaptureTargetClosed_Interface
@@ -7159,7 +7251,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastPreview_add_PreviewStateChanged : aliased constant Windows.IID := (1104722145, 56551, 24252, (148, 15, 222, 125, 210, 166, 42, 181 ));
    
    type TypedEventHandler_IAppBroadcastPreview_add_PreviewStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastPreview ; args : Windows.Media.Capture.IAppBroadcastPreviewStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastPreview_add_PreviewStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastPreview_add_PreviewStateChanged_Interface
@@ -7173,7 +7264,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppBroadcastPreviewStreamReader_add_VideoFrameArrived : aliased constant Windows.IID := (2031678252, 6271, 24335, (184, 14, 111, 202, 170, 94, 20, 185 ));
    
    type TypedEventHandler_IAppBroadcastPreviewStreamReader_add_VideoFrameArrived_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppBroadcastPreviewStreamReader ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppBroadcastPreviewStreamReader_add_VideoFrameArrived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastPreviewStreamReader_add_VideoFrameArrived_Interface
@@ -7187,7 +7277,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppCaptureState_add_MicrophoneCaptureStateChanged : aliased constant Windows.IID := (187212195, 14126, 20713, (166, 19, 55, 185, 124, 253, 122, 104 ));
    
    type TypedEventHandler_IAppCaptureState_add_MicrophoneCaptureStateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureState ; args : Windows.Media.Capture.IAppCaptureMicrophoneCaptureStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppCaptureState_add_MicrophoneCaptureStateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppCaptureState_add_MicrophoneCaptureStateChanged_Interface
@@ -7201,7 +7290,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppCaptureState_add_CaptureTargetClosed : aliased constant Windows.IID := (3075138689, 30587, 23497, (131, 218, 86, 45, 144, 90, 67, 241 ));
    
    type TypedEventHandler_IAppCaptureState_add_CaptureTargetClosed_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureState ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppCaptureState_add_CaptureTargetClosed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppCaptureState_add_CaptureTargetClosed_Interface
@@ -7215,7 +7303,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppCaptureRecordOperation_add_StateChanged : aliased constant Windows.IID := (578600706, 11771, 21541, (133, 177, 13, 98, 206, 93, 18, 67 ));
    
    type TypedEventHandler_IAppCaptureRecordOperation_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureRecordOperation ; args : Windows.Media.Capture.IAppCaptureRecordingStateChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppCaptureRecordOperation_add_StateChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppCaptureRecordOperation_add_StateChanged_Interface
@@ -7229,7 +7316,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppCaptureRecordOperation_add_DurationGenerated : aliased constant Windows.IID := (2875464117, 39191, 21109, (152, 118, 158, 70, 185, 171, 173, 167 ));
    
    type TypedEventHandler_IAppCaptureRecordOperation_add_DurationGenerated_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureRecordOperation ; args : Windows.Media.Capture.IAppCaptureDurationGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppCaptureRecordOperation_add_DurationGenerated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppCaptureRecordOperation_add_DurationGenerated_Interface
@@ -7243,7 +7329,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppCaptureRecordOperation_add_FileGenerated : aliased constant Windows.IID := (4027541989, 40678, 20761, (156, 57, 242, 121, 249, 255, 217, 8 ));
    
    type TypedEventHandler_IAppCaptureRecordOperation_add_FileGenerated_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureRecordOperation ; args : Windows.Media.Capture.IAppCaptureFileGeneratedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppCaptureRecordOperation_add_FileGenerated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppCaptureRecordOperation_add_FileGenerated_Interface
@@ -7257,7 +7342,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IAppCaptureMetadataWriter_add_MetadataPurged : aliased constant Windows.IID := (447666252, 60807, 24376, (169, 209, 53, 83, 18, 141, 74, 98 ));
    
    type TypedEventHandler_IAppCaptureMetadataWriter_add_MetadataPurged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IAppCaptureMetadataWriter ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppCaptureMetadataWriter_add_MetadataPurged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppCaptureMetadataWriter_add_MetadataPurged_Interface
@@ -7271,7 +7355,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IGameBarServicesManager_add_GameBarServicesCreated : aliased constant Windows.IID := (797292553, 32139, 23524, (154, 105, 129, 56, 109, 135, 76, 127 ));
    
    type TypedEventHandler_IGameBarServicesManager_add_GameBarServicesCreated_Interface(Callback : access procedure (sender : Windows.Media.Capture.IGameBarServicesManager ; args : Windows.Media.Capture.IGameBarServicesManagerGameBarServicesCreatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameBarServicesManager_add_GameBarServicesCreated'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGameBarServicesManager_add_GameBarServicesCreated_Interface
@@ -7285,7 +7368,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IGameBarServices_add_CommandReceived : aliased constant Windows.IID := (229330814, 49132, 23009, (130, 207, 235, 246, 75, 29, 180, 243 ));
    
    type TypedEventHandler_IGameBarServices_add_CommandReceived_Interface(Callback : access procedure (sender : Windows.Media.Capture.IGameBarServices ; args : Windows.Media.Capture.IGameBarServicesCommandEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameBarServices_add_CommandReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IGameBarServices_add_CommandReceived_Interface
@@ -7299,7 +7381,6 @@ package Windows.Media.Capture is
    IID_TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged : aliased constant Windows.IID := (2212238669, 47983, 22926, (168, 135, 65, 186, 24, 1, 240, 25 ));
    
    type TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IScreenCapture ; args : Windows.Media.Capture.ISourceSuspensionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged_Interface
@@ -7399,7 +7480,6 @@ package Windows.Media.Capture is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetForCurrentView
    return Windows.Media.Capture.IAppCapture;
    
@@ -7481,5 +7561,6 @@ package Windows.Media.Capture is
    
    function GetForCurrentView
    return Windows.Media.Capture.IScreenCapture;
+   
 
 end;

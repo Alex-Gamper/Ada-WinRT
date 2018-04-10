@@ -213,6 +213,7 @@ package Windows.Gaming.Input.ForceFeedback is
       This       : access IForceFeedbackEffect_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IConditionForceEffect : aliased constant Windows.IID := (852617832, 13973, 20073, (133, 192, 205, 25, 68, 24, 145, 64 ));
@@ -238,6 +239,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; bias : Windows.Single
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IConditionForceEffectFactory : aliased constant Windows.IID := (2443809380, 6160, 20150, (167, 115, 191, 211, 184, 205, 219, 171 ));
@@ -251,6 +253,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IConstantForceEffect : aliased constant Windows.IID := (2616852800, 62407, 16732, (176, 104, 15, 6, 135, 52, 188, 224 ));
@@ -279,6 +282,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; repeatCount : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPeriodicForceEffect : aliased constant Windows.IID := (1548826839, 64629, 19794, (154, 10, 239, 228, 202, 181, 254, 100 ));
@@ -320,6 +324,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; repeatCount : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPeriodicForceEffectFactory : aliased constant Windows.IID := (1868753690, 38993, 18299, (179, 24, 53, 236, 170, 21, 7, 15 ));
@@ -333,6 +338,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IRampForceEffect : aliased constant Windows.IID := (4059566681, 7334, 16512, (181, 109, 180, 63, 51, 84, 208, 82 ));
@@ -363,6 +369,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; repeatCount : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IForceFeedbackMotor : aliased constant Windows.IID := (2369601916, 42474, 17686, (128, 38, 43, 0, 247, 78, 246, 229 ));
@@ -458,6 +465,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_ForceFeedbackLoadEffectResult : aliased constant Windows.IID := (569914620, 59461, 23225, (191, 133, 149, 52, 226, 57, 119, 152 ));
@@ -484,6 +492,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IForceFeedbackMotor : aliased constant Windows.IID := (1691314656, 21604, 23410, (189, 75, 130, 247, 195, 208, 56, 109 ));
@@ -518,6 +527,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IForceFeedbackMotor : aliased constant Windows.IID := (3242475729, 65184, 20807, (174, 216, 155, 133, 35, 157, 168, 130 ));
@@ -530,6 +540,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.Gaming.Input.ForceFeedback.IIterator_IForceFeedbackMotor
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IForceFeedbackMotor : aliased constant Windows.IID := (1543262320, 4125, 24507, (141, 95, 206, 92, 35, 190, 205, 217 ));
@@ -568,6 +579,7 @@ package Windows.Gaming.Input.ForceFeedback is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -577,7 +589,6 @@ package Windows.Gaming.Input.ForceFeedback is
    IID_AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult : aliased constant Windows.IID := (4162980417, 63288, 20968, (137, 186, 118, 187, 214, 97, 88, 203 ));
    
    type AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.Input.ForceFeedback.IAsyncOperation_ForceFeedbackLoadEffectResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ForceFeedbackLoadEffectResult_Interface
@@ -591,20 +602,20 @@ package Windows.Gaming.Input.ForceFeedback is
    ------------------------------------------------------------------------
    
    subtype ConditionForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
-   
    function CreateInstance
    (
       effectKind : Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind
    )
    return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
-   subtype PeriodicForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
+   subtype PeriodicForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    function CreateInstance
    (
       effectKind : Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind
    )
    return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
+   
    
    subtype ConstantForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    

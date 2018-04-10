@@ -150,6 +150,7 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.II2cConnectionSettings
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_II2cConnectionSettings : aliased constant Windows.IID := (4074443527, 43887, 17977, (167, 103, 84, 83, 109, 195, 70, 15 ));
@@ -197,6 +198,7 @@ package Windows.Devices.I2c is
       ; value : Windows.Devices.I2c.I2cSharingMode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_II2cDeviceStatics : aliased constant Windows.IID := (2443394019, 29492, 17682, (150, 188, 251, 174, 148, 89, 245, 246 ));
@@ -226,6 +228,7 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.IAsyncOperation_II2cDevice -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_II2cController : aliased constant Windows.IID := (3297423794, 34720, 16742, (142, 62, 180, 184, 249, 124, 215, 41 ));
@@ -239,6 +242,7 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.II2cDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_II2cControllerStatics : aliased constant Windows.IID := (1090257765, 24325, 20094, (132, 189, 16, 13, 184, 224, 174, 197 ));
@@ -259,6 +263,7 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.IAsyncOperation_II2cController -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_II2cDevice : aliased constant Windows.IID := (2251735350, 47557, 20336, (148, 73, 204, 70, 220, 111, 87, 235 ));
@@ -325,6 +330,7 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.I2cTransferResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_II2cDevice : aliased constant Windows.IID := (512392408, 58395, 23105, (130, 177, 128, 5, 80, 18, 174, 0 ));
@@ -351,6 +357,7 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.II2cDevice
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_II2cController : aliased constant Windows.IID := (2767920596, 32969, 23137, (174, 141, 200, 167, 175, 192, 50, 117 ));
@@ -377,6 +384,7 @@ package Windows.Devices.I2c is
       ; RetVal : access Windows.Devices.I2c.II2cController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -386,7 +394,6 @@ package Windows.Devices.I2c is
    IID_AsyncOperationCompletedHandler_II2cDevice : aliased constant Windows.IID := (771079018, 24179, 23267, (160, 178, 34, 225, 201, 216, 239, 77 ));
    
    type AsyncOperationCompletedHandler_II2cDevice_Interface(Callback : access procedure (asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cDevice ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_II2cDevice'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_II2cDevice_Interface
@@ -400,7 +407,6 @@ package Windows.Devices.I2c is
    IID_AsyncOperationCompletedHandler_II2cController : aliased constant Windows.IID := (1878412146, 42410, 22918, (181, 99, 39, 97, 42, 251, 55, 60 ));
    
    type AsyncOperationCompletedHandler_II2cController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.I2c.IAsyncOperation_II2cController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_II2cController'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_II2cController_Interface
@@ -414,12 +420,12 @@ package Windows.Devices.I2c is
    ------------------------------------------------------------------------
    
    subtype I2cConnectionSettings is Windows.Devices.I2c.II2cConnectionSettings;
-   
    function Create
    (
       slaveAddress : Windows.Int32
    )
    return Windows.Devices.I2c.II2cConnectionSettings;
+   
    
    subtype I2cDevice is Windows.Devices.I2c.II2cDevice;
    subtype I2cController is Windows.Devices.I2c.II2cController;
@@ -427,7 +433,6 @@ package Windows.Devices.I2c is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String;
@@ -453,5 +458,6 @@ package Windows.Devices.I2c is
    
    function GetDefaultAsync
    return Windows.Devices.I2c.IAsyncOperation_II2cController;
+   
 
 end;

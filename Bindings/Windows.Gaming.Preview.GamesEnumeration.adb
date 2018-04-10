@@ -29,7 +29,6 @@ package body Windows.Gaming.Preview.GamesEnumeration is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access GameListChangedEventHandler_Interface
@@ -71,7 +70,6 @@ package body Windows.Gaming.Preview.GamesEnumeration is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -79,7 +77,6 @@ package body Windows.Gaming.Preview.GamesEnumeration is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDefault
    return Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration is
@@ -289,5 +286,6 @@ package body Windows.Gaming.Preview.GamesEnumeration is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

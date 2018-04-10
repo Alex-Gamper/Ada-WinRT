@@ -141,6 +141,7 @@ package Windows.Globalization.Fonts is
       ; RetVal : access Windows.Globalization.Fonts.ILanguageFont
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILanguageFontGroupFactory : aliased constant Windows.IID := (4239305831, 20087, 18887, (184, 86, 221, 233, 52, 252, 115, 91 ));
@@ -154,6 +155,7 @@ package Windows.Globalization.Fonts is
       ; RetVal : access Windows.Globalization.Fonts.ILanguageFontGroup
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ILanguageFont : aliased constant Windows.IID := (2972605498, 46957, 17819, (190, 235, 144, 17, 81, 205, 119, 209 ));
@@ -194,18 +196,19 @@ package Windows.Globalization.Fonts is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype LanguageFont is Windows.Globalization.Fonts.ILanguageFont;
    subtype LanguageFontGroup is Windows.Globalization.Fonts.ILanguageFontGroup;
-   
    function CreateLanguageFontGroup
    (
       languageTag : Windows.String
    )
    return Windows.Globalization.Fonts.ILanguageFontGroup;
+   
    
    
    ------------------------------------------------------------------------

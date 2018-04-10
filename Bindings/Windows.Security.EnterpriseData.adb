@@ -30,7 +30,6 @@ package body Windows.Security.EnterpriseData is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_ProtectionPolicyEvaluationResult_Interface
@@ -178,7 +177,6 @@ package body Windows.Security.EnterpriseData is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       audit : Windows.Boolean
@@ -250,7 +248,6 @@ package body Windows.Security.EnterpriseData is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RequestAccessWithAuditingInfoAsync
    (
@@ -1439,5 +1436,6 @@ package body Windows.Security.EnterpriseData is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

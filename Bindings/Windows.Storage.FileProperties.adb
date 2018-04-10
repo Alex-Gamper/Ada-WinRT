@@ -30,7 +30,6 @@ package body Windows.Storage.FileProperties is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMusicProperties_Interface
@@ -100,7 +99,6 @@ package body Windows.Storage.FileProperties is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -108,7 +106,6 @@ package body Windows.Storage.FileProperties is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetGeotagAsync
    (
@@ -171,5 +168,6 @@ package body Windows.Storage.FileProperties is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

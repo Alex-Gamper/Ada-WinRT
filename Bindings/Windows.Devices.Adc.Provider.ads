@@ -154,6 +154,7 @@ package Windows.Devices.Adc.Provider is
       ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdcProvider : aliased constant Windows.IID := (680867432, 37721, 19543, (188, 136, 226, 117, 232, 22, 56, 201 ));
@@ -166,6 +167,7 @@ package Windows.Devices.Adc.Provider is
       ; RetVal : access Windows.Devices.Adc.Provider.IVectorView_IAdcControllerProvider -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IAdcControllerProvider : aliased constant Windows.IID := (3023752981, 41546, 23296, (183, 16, 23, 55, 186, 85, 10, 24 ));
@@ -200,6 +202,7 @@ package Windows.Devices.Adc.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IAdcControllerProvider : aliased constant Windows.IID := (805597525, 8049, 21027, (132, 130, 229, 21, 157, 1, 55, 208 ));
@@ -212,6 +215,7 @@ package Windows.Devices.Adc.Provider is
       ; RetVal : access Windows.Devices.Adc.Provider.IIterator_IAdcControllerProvider
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IAdcControllerProvider : aliased constant Windows.IID := (2085063104, 33861, 22359, (170, 183, 101, 156, 191, 80, 170, 167 ));
@@ -250,6 +254,7 @@ package Windows.Devices.Adc.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

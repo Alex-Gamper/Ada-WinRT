@@ -576,6 +576,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Networking.Sockets.IStreamSocketListener
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocketActivityTriggerDetails : aliased constant Windows.IID := (1173620391, 64671, 20353, (172, 173, 53, 95, 239, 81, 230, 123 ));
@@ -595,6 +596,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Networking.Sockets.ISocketActivityInformation
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocketActivityInformationStatics : aliased constant Windows.IID := (2238755962, 32381, 18230, (128, 65, 19, 39, 166, 84, 60, 86 ));
@@ -607,6 +609,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocketActivityContext : aliased constant Windows.IID := (1135627620, 19589, 17302, (166, 55, 29, 151, 63, 110, 189, 73 ));
@@ -619,6 +622,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocketActivityContextFactory : aliased constant Windows.IID := (3114255299, 2188, 17288, (131, 174, 37, 37, 19, 142, 4, 154 ));
@@ -632,6 +636,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Networking.Sockets.ISocketActivityContext
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDatagramSocketMessageReceivedEventArgs : aliased constant Windows.IID := (2653805730, 5906, 19684, (177, 121, 140, 101, 44, 109, 16, 126 ));
@@ -672,6 +677,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Storage.Streams.IInputStream
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMessageWebSocketMessageReceivedEventArgs : aliased constant Windows.IID := (1200366252, 19531, 17133, (158, 215, 30, 249, 249, 79, 163, 213 ));
@@ -698,6 +704,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Storage.Streams.IInputStream
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMessageWebSocketMessageReceivedEventArgs2 : aliased constant Windows.IID := (2311980797, 56687, 18951, (135, 249, 249, 235, 77, 137, 216, 61 ));
@@ -710,6 +717,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebSocketClosedEventArgs : aliased constant Windows.IID := (3468135687, 53416, 18179, (160, 145, 200, 194, 192, 145, 91, 195 ));
@@ -729,6 +737,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDatagramSocketInformation : aliased constant Windows.IID := (1595561626, 22011, 18637, (151, 6, 122, 151, 79, 123, 21, 133 ));
@@ -762,6 +771,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDatagramSocketControl : aliased constant Windows.IID := (1387020078, 13466, 16693, (187, 88, 183, 155, 38, 71, 211, 144 ));
@@ -795,6 +805,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.UInt8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDatagramSocketControl2 : aliased constant Windows.IID := (871028162, 38812, 17429, (130, 161, 60, 250, 246, 70, 193, 146 ));
@@ -828,6 +839,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDatagramSocketControl3 : aliased constant Windows.IID := (3572204118, 8045, 17816, (155, 87, 212, 42, 0, 29, 243, 73 ));
@@ -847,6 +859,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDatagramSocketStatics : aliased constant Windows.IID := (3922078446, 5268, 18977, (187, 126, 133, 137, 252, 117, 29, 157 ));
@@ -871,6 +884,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDatagramSocket : aliased constant Windows.IID := (2145541051, 50108, 18039, (132, 70, 202, 40, 164, 101, 163, 175 ));
@@ -970,6 +984,7 @@ package Windows.Networking.Sockets is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDatagramSocket2 : aliased constant Windows.IID := (3627787092, 39581, 16773, (162, 10, 20, 36, 201, 194, 167, 205 ));
@@ -984,6 +999,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IDatagramSocket3 : aliased constant Windows.IID := (928272137, 43922, 17158, (154, 193, 12, 56, 18, 131, 217, 198 ));
@@ -1035,6 +1051,7 @@ package Windows.Networking.Sockets is
       ; keepAliveTime : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketInformation : aliased constant Windows.IID := (998288944, 24168, 16901, (136, 240, 220, 133, 210, 226, 93, 237 ));
@@ -1110,6 +1127,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketInformation2 : aliased constant Windows.IID := (314737746, 19420, 20196, (151, 106, 207, 19, 14, 157, 146, 227 ));
@@ -1143,6 +1161,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketControl : aliased constant Windows.IID := (4263882225, 37547, 19187, (153, 146, 15, 76, 133, 227, 108, 196 ));
@@ -1218,6 +1237,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.UInt8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketControl2 : aliased constant Windows.IID := (3268450902, 1551, 17601, (184, 226, 31, 191, 96, 189, 98, 197 ));
@@ -1230,6 +1250,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IVector_ChainValidationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketControl3 : aliased constant Windows.IID := (3312075852, 20084, 16446, (137, 76, 179, 28, 174, 92, 115, 66 ));
@@ -1263,6 +1284,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketControl4 : aliased constant Windows.IID := (2521705277, 60455, 18568, (179, 206, 199, 75, 65, 132, 35, 173 ));
@@ -1282,6 +1304,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.Networking.Sockets.SocketProtectionLevel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocket : aliased constant Windows.IID := (1772236019, 64635, 18519, (175, 56, 246, 231, 222, 106, 91, 73 ));
@@ -1360,6 +1383,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocket2 : aliased constant Windows.IID := (701556085, 62228, 19721, (173, 240, 15, 189, 150, 127, 189, 159 ));
@@ -1376,6 +1400,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocket3 : aliased constant Windows.IID := (1061358336, 40232, 18516, (186, 195, 35, 1, 148, 30, 194, 35 ));
@@ -1427,6 +1452,7 @@ package Windows.Networking.Sockets is
       ; keepAliveTime : Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketStatics : aliased constant Windows.IID := (2753608778, 28206, 19189, (181, 86, 53, 90, 224, 205, 79, 41 ));
@@ -1451,6 +1477,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketListenerControl : aliased constant Windows.IID := (551077238, 36234, 19898, (151, 34, 161, 108, 77, 152, 73, 128 ));
@@ -1470,6 +1497,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.Networking.Sockets.SocketQualityOfService
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketListenerControl2 : aliased constant Windows.IID := (2492184165, 11326, 16459, (184, 176, 142, 178, 73, 162, 176, 161 ));
@@ -1531,6 +1559,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.UInt8
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketListenerInformation : aliased constant Windows.IID := (3861620783, 42554, 17163, (191, 98, 41, 233, 62, 86, 51, 180 ));
@@ -1543,6 +1572,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketListenerConnectionReceivedEventArgs : aliased constant Windows.IID := (205991593, 14143, 17531, (133, 177, 221, 212, 84, 136, 3, 186 ));
@@ -1555,6 +1585,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Networking.Sockets.IStreamSocket
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketListener : aliased constant Windows.IID := (4283511863, 57247, 19952, (191, 130, 14, 197, 215, 179, 90, 174 ));
@@ -1606,6 +1637,7 @@ package Windows.Networking.Sockets is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketListener2 : aliased constant Windows.IID := (1703788862, 47934, 17496, (178, 50, 237, 16, 136, 105, 75, 152 ));
@@ -1630,6 +1662,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamSocketListener3 : aliased constant Windows.IID := (1201152028, 48632, 18713, (133, 66, 40, 212, 80, 231, 69, 7 ));
@@ -1672,6 +1705,7 @@ package Windows.Networking.Sockets is
       ; data : Windows.Networking.Sockets.ISocketActivityContext
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebSocketServerCustomValidationRequestedEventArgs : aliased constant Windows.IID := (4293918280, 554, 19127, (139, 54, 225, 10, 244, 100, 14, 107 ));
@@ -1718,6 +1752,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebSocketControl : aliased constant Windows.IID := (784645571, 55717, 17754, (152, 17, 222, 36, 212, 83, 55, 233 ));
@@ -1772,6 +1807,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebSocketControl2 : aliased constant Windows.IID := (2042871299, 62154, 17950, (175, 78, 150, 101, 188, 45, 6, 32 ));
@@ -1784,6 +1820,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IVector_ChainValidationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebSocketInformation : aliased constant Windows.IID := (1577181974, 51498, 18341, (178, 95, 7, 132, 118, 57, 209, 129 ));
@@ -1810,6 +1847,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebSocketInformation2 : aliased constant Windows.IID := (3458021838, 41399, 19779, (130, 105, 141, 91, 152, 27, 212, 122 ));
@@ -1843,6 +1881,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Security.Cryptography.Certificates.IVectorView_ICertificate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebSocket : aliased constant Windows.IID := (4168563055, 39345, 19992, (188, 8, 133, 12, 154, 223, 21, 110 ));
@@ -1894,6 +1933,7 @@ package Windows.Networking.Sockets is
       ; reason : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMessageWebSocketControl : aliased constant Windows.IID := (2165848202, 50729, 20234, (128, 251, 129, 252, 5, 83, 136, 98 ));
@@ -1927,6 +1967,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.Networking.Sockets.SocketMessageType
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMessageWebSocketControl2 : aliased constant Windows.IID := (3809466257, 2060, 16394, (167, 18, 39, 223, 169, 231, 68, 216 ));
@@ -1981,6 +2022,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMessageWebSocket : aliased constant Windows.IID := (863141128, 13525, 18246, (173, 123, 141, 222, 91, 194, 239, 136 ));
@@ -2015,6 +2057,7 @@ package Windows.Networking.Sockets is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMessageWebSocket2 : aliased constant Windows.IID := (3201355495, 63944, 17418, (154, 213, 115, 114, 129, 217, 116, 46 ));
@@ -2035,6 +2078,7 @@ package Windows.Networking.Sockets is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamWebSocketControl : aliased constant Windows.IID := (3035920561, 42074, 18651, (149, 58, 100, 91, 125, 150, 76, 7 ));
@@ -2054,6 +2098,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamWebSocketControl2 : aliased constant Windows.IID := (559783806, 64088, 16602, (159, 17, 164, 141, 175, 233, 80, 55 ));
@@ -2094,6 +2139,7 @@ package Windows.Networking.Sockets is
       ; value : Windows.Security.Cryptography.Certificates.ICertificate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamWebSocket : aliased constant Windows.IID := (3175762392, 45705, 17851, (151, 235, 199, 82, 82, 5, 168, 67 ));
@@ -2120,6 +2166,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Storage.Streams.IInputStream
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStreamWebSocket2 : aliased constant Windows.IID := (2857175243, 37877, 18040, (130, 54, 87, 204, 229, 65, 126, 213 ));
@@ -2140,6 +2187,7 @@ package Windows.Networking.Sockets is
       ; eventCookie : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISocketErrorStatics : aliased constant Windows.IID := (2189637620, 32086, 19854, (183, 180, 160, 125, 215, 193, 188, 169 ));
@@ -2153,6 +2201,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Networking.Sockets.SocketErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IWebSocketErrorStatics : aliased constant Windows.IID := (667808603, 8033, 18185, (142, 2, 97, 40, 58, 218, 78, 157 ));
@@ -2166,6 +2215,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Web.WebErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IControlChannelTrigger : aliased constant Windows.IID := (2098475431, 61078, 16616, (161, 153, 135, 3, 205, 150, 158, 195 ));
@@ -2246,6 +2296,7 @@ package Windows.Networking.Sockets is
       This       : access IControlChannelTrigger_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IControlChannelTriggerFactory : aliased constant Windows.IID := (3662380272, 36209, 17519, (136, 195, 185, 81, 132, 162, 214, 205 ));
@@ -2270,6 +2321,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Networking.Sockets.IControlChannelTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IControlChannelTriggerEventDetails : aliased constant Windows.IID := (456581191, 35259, 16950, (150, 172, 113, 208, 18, 187, 72, 105 ));
@@ -2282,6 +2334,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Networking.Sockets.IControlChannelTrigger
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IControlChannelTriggerResetEventDetails : aliased constant Windows.IID := (1750139790, 36548, 17150, (155, 178, 33, 233, 27, 123, 252, 177 ));
@@ -2308,6 +2361,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IControlChannelTrigger2 : aliased constant Windows.IID := (2936066615, 20926, 17684, (151, 37, 53, 86, 225, 135, 149, 128 ));
@@ -2320,6 +2374,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    type IBackgroundTask_Imported_Interface is interface and Windows.IInspectable_Interface;
@@ -2330,6 +2385,7 @@ package Windows.Networking.Sockets is
       ; taskInstance : Windows.ApplicationModel.Background.IBackgroundTaskInstance
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IStreamSocket : aliased constant Windows.IID := (4215160124, 28645, 24103, (161, 50, 144, 34, 71, 226, 169, 62 ));
@@ -2356,6 +2412,7 @@ package Windows.Networking.Sockets is
       ; RetVal : access Windows.Networking.Sockets.IStreamSocket
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2365,7 +2422,6 @@ package Windows.Networking.Sockets is
    IID_AsyncOperationCompletedHandler_IStreamSocket : aliased constant Windows.IID := (1907743134, 14420, 24218, (180, 220, 209, 181, 139, 241, 152, 252 ));
    
    type AsyncOperationCompletedHandler_IStreamSocket_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Sockets.IAsyncOperation_IStreamSocket ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStreamSocket'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IStreamSocket_Interface
@@ -2379,7 +2435,6 @@ package Windows.Networking.Sockets is
    IID_TypedEventHandler_IDatagramSocket_add_MessageReceived : aliased constant Windows.IID := (1149428123, 9097, 22375, (155, 11, 141, 122, 142, 245, 87, 67 ));
    
    type TypedEventHandler_IDatagramSocket_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IDatagramSocket ; args : Windows.Networking.Sockets.IDatagramSocketMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDatagramSocket_add_MessageReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IDatagramSocket_add_MessageReceived_Interface
@@ -2393,7 +2448,6 @@ package Windows.Networking.Sockets is
    IID_TypedEventHandler_IStreamSocketListener_add_ConnectionReceived : aliased constant Windows.IID := (869272897, 51535, 23137, (154, 183, 40, 13, 206, 250, 11, 8 ));
    
    type TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IStreamSocketListener ; args : Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStreamSocketListener_add_ConnectionReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStreamSocketListener_add_ConnectionReceived_Interface
@@ -2407,7 +2461,6 @@ package Windows.Networking.Sockets is
    IID_TypedEventHandler_IWebSocket_add_Closed : aliased constant Windows.IID := (63934352, 5737, 24397, (148, 4, 43, 120, 70, 120, 230, 221 ));
    
    type TypedEventHandler_IWebSocket_add_Closed_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IWebSocket ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebSocket_add_Closed'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IWebSocket_add_Closed_Interface
@@ -2421,7 +2474,6 @@ package Windows.Networking.Sockets is
    IID_TypedEventHandler_IMessageWebSocket_add_MessageReceived : aliased constant Windows.IID := (3734504760, 28109, 21168, (128, 47, 75, 108, 245, 154, 1, 171 ));
    
    type TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IMessageWebSocket ; args : Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMessageWebSocket_add_MessageReceived'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMessageWebSocket_add_MessageReceived_Interface
@@ -2435,7 +2487,6 @@ package Windows.Networking.Sockets is
    IID_TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested : aliased constant Windows.IID := (741655941, 40182, 22215, (141, 209, 93, 162, 110, 50, 32, 120 ));
    
    type TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IMessageWebSocket ; args : Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMessageWebSocket2_add_ServerCustomValidationRequested_Interface
@@ -2449,7 +2500,6 @@ package Windows.Networking.Sockets is
    IID_TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested : aliased constant Windows.IID := (414270419, 35198, 22878, (172, 193, 239, 53, 97, 75, 76, 236 ));
    
    type TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface(Callback : access procedure (sender : Windows.Networking.Sockets.IStreamWebSocket ; args : Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStreamWebSocket2_add_ServerCustomValidationRequested_Interface
@@ -2463,12 +2513,12 @@ package Windows.Networking.Sockets is
    ------------------------------------------------------------------------
    
    subtype SocketActivityContext is Windows.Networking.Sockets.ISocketActivityContext;
-   
    function Create
    (
       data : Windows.Storage.Streams.IBuffer
    )
    return Windows.Networking.Sockets.ISocketActivityContext;
+   
    
    subtype DatagramSocket is Windows.Networking.Sockets.IDatagramSocket;
    
@@ -2512,7 +2562,6 @@ package Windows.Networking.Sockets is
    
    subtype SocketActivityTriggerDetails is Windows.Networking.Sockets.ISocketActivityTriggerDetails;
    subtype ControlChannelTrigger is Windows.Networking.Sockets.IControlChannelTrigger;
-   
    function CreateControlChannelTrigger
    (
       channelId : Windows.String
@@ -2529,10 +2578,10 @@ package Windows.Networking.Sockets is
    return Windows.Networking.Sockets.IControlChannelTrigger;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetEndpointPairsAsync
    (
@@ -2578,5 +2627,6 @@ package Windows.Networking.Sockets is
       hresult : Windows.Int32
    )
    return Windows.Web.WebErrorStatus;
+   
 
 end;

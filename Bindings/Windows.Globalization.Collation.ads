@@ -83,6 +83,7 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICharacterGroupingsFactory : aliased constant Windows.IID := (2582290393, 34925, 17409, (159, 152, 105, 200, 45, 76, 47, 120 ));
@@ -96,6 +97,7 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.Globalization.Collation.ICharacterGroupings
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_CharacterGrouping : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -134,6 +136,7 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_CharacterGrouping : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -146,6 +149,7 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.Globalization.Collation.ICharacterGrouping
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICharacterGroupings : aliased constant Windows.IID := (3100772981, 54479, 16469, (128, 229, 206, 22, 156, 34, 100, 150 ));
@@ -159,18 +163,19 @@ package Windows.Globalization.Collation is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype CharacterGrouping is Windows.Globalization.Collation.ICharacterGrouping;
    subtype CharacterGroupings is Windows.Globalization.Collation.ICharacterGroupings;
-   
    function Create
    (
       language : Windows.String
    )
    return Windows.Globalization.Collation.ICharacterGroupings;
+   
    
    
    ------------------------------------------------------------------------

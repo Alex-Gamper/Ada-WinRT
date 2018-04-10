@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.UserDataTasks.DataProvider is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IUserDataTaskDataProviderConnection_add_CreateOrUpdateTaskRequested_Interface
@@ -97,7 +96,6 @@ package body Windows.ApplicationModel.UserDataTasks.DataProvider is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    ------------------------------------------------------------------------
    -- Override Implementations

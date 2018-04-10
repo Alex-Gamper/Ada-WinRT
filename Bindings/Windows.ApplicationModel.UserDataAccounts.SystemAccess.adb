@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IDeviceAccountConfiguration_Interface
@@ -45,7 +44,6 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateDeviceAccountConfiguration return Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration is
       Hr            : Windows.HResult := S_OK;
@@ -71,7 +69,6 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function AddAndShowDeviceAccountsAsync
    (
@@ -172,5 +169,6 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

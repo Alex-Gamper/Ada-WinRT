@@ -78,6 +78,7 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceLoader2 : aliased constant Windows.IID := (283864774, 33080, 18625, (188, 101, 225, 241, 66, 7, 54, 124 ));
@@ -91,6 +92,7 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceLoaderStatics : aliased constant Windows.IID := (3212279009, 6600, 18882, (149, 60, 71, 233, 34, 123, 51, 78 ));
@@ -104,6 +106,7 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceLoaderStatics2 : aliased constant Windows.IID := (213926209, 25702, 18825, (148, 148, 11, 130, 223, 197, 63, 31 ));
@@ -139,6 +142,7 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.ApplicationModel.Resources.IResourceLoader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceLoaderFactory : aliased constant Windows.IID := (3275372035, 27100, 17029, (160, 119, 213, 192, 228, 124, 203, 232 ));
@@ -152,12 +156,12 @@ package Windows.ApplicationModel.Resources is
       ; RetVal : access Windows.ApplicationModel.Resources.IResourceLoader
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype ResourceLoader is Windows.ApplicationModel.Resources.IResourceLoader;
-   
    function CreateResourceLoaderByName
    (
       name : Windows.String
@@ -165,10 +169,10 @@ package Windows.ApplicationModel.Resources is
    return Windows.ApplicationModel.Resources.IResourceLoader;
    
    
+   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetStringForReference
    (
@@ -193,5 +197,6 @@ package Windows.ApplicationModel.Resources is
       name : Windows.String
    )
    return Windows.ApplicationModel.Resources.IResourceLoader;
+   
 
 end;

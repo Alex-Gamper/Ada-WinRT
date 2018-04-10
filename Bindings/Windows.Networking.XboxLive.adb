@@ -29,7 +29,6 @@ package body Windows.Networking.XboxLive is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IXboxLiveDeviceAddress_add_SnapshotChanged_Interface
@@ -86,7 +85,6 @@ package body Windows.Networking.XboxLive is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateXboxLiveQualityOfServiceMeasurement return Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement");
@@ -111,7 +109,6 @@ package body Windows.Networking.XboxLive is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateFromSnapshotBase64
    (
@@ -477,5 +474,6 @@ package body Windows.Networking.XboxLive is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -46,7 +46,6 @@ package body Windows.UI.Xaml is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access ApplicationInitializationCallback_Interface
@@ -490,7 +489,6 @@ package body Windows.UI.Xaml is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateVisualStateChangedEventArgs return Windows.UI.Xaml.IVisualStateChangedEventArgs is
       Hr            : Windows.HResult := S_OK;
@@ -3635,7 +3633,6 @@ package body Windows.UI.Xaml is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateInstance
    (
@@ -6881,5 +6878,6 @@ package body Windows.UI.Xaml is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

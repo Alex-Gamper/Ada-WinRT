@@ -31,7 +31,6 @@ package body Windows.Storage.Search is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IStorageQueryResultBase_add_ContentsChanged_Interface
@@ -74,7 +73,6 @@ package body Windows.Storage.Search is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateValueAndLanguage return Windows.Storage.Search.IValueAndLanguage is
       Hr            : Windows.HResult := S_OK;
@@ -159,7 +157,6 @@ package body Windows.Storage.Search is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetIndexerWithName
    (
       indexName : Windows.String
@@ -196,5 +193,6 @@ package body Windows.Storage.Search is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

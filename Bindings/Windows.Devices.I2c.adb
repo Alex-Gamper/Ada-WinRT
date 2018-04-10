@@ -28,7 +28,6 @@ package body Windows.Devices.I2c is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_II2cDevice_Interface
@@ -59,7 +58,6 @@ package body Windows.Devices.I2c is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function Create
    (
       slaveAddress : Windows.Int32
@@ -87,7 +85,6 @@ package body Windows.Devices.I2c is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String is
@@ -183,5 +180,6 @@ package body Windows.Devices.I2c is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

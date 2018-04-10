@@ -169,6 +169,7 @@ package Windows.ApplicationModel.Calls.Background is
       ; RetVal : access Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhoneCallOriginDataRequestTriggerDetails : aliased constant Windows.IID := (1855675199, 50507, 20098, (76, 201, 227, 41, 164, 24, 69, 146 ));
@@ -188,6 +189,7 @@ package Windows.ApplicationModel.Calls.Background is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhoneNewVoicemailMessageTriggerDetails : aliased constant Windows.IID := (329826331, 47153, 18643, (139, 169, 141, 34, 166, 88, 13, 207 ));
@@ -214,6 +216,7 @@ package Windows.ApplicationModel.Calls.Background is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPhoneLineChangedTriggerDetails : aliased constant Windows.IID := (3335725543, 53533, 16600, (178, 183, 228, 10, 1, 214, 98, 73 ));
@@ -241,6 +244,7 @@ package Windows.ApplicationModel.Calls.Background is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------

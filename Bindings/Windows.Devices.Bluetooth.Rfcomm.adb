@@ -32,7 +32,6 @@ package body Windows.Devices.Bluetooth.Rfcomm is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IRfcommDeviceServicesResult_Interface
@@ -76,7 +75,6 @@ package body Windows.Devices.Bluetooth.Rfcomm is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -84,7 +82,6 @@ package body Windows.Devices.Bluetooth.Rfcomm is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function FromIdAsync
    (
@@ -371,5 +368,6 @@ package body Windows.Devices.Bluetooth.Rfcomm is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

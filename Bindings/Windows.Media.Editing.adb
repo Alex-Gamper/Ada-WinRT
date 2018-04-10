@@ -36,7 +36,6 @@ package body Windows.Media.Editing is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IMediaClip_Interface
@@ -79,7 +78,6 @@ package body Windows.Media.Editing is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function Create
    (
@@ -167,7 +165,6 @@ package body Windows.Media.Editing is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function CreateFromColor
    (
@@ -311,5 +308,6 @@ package body Windows.Media.Editing is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

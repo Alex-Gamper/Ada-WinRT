@@ -179,6 +179,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Data.Json.IJsonObject
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IJsonValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -273,6 +274,7 @@ package Windows.Data.Json is
       ; items : Windows.Data.Json.IJsonValue_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IJsonValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -285,6 +287,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Data.Json.IJsonValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_IJsonValue : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -342,6 +345,7 @@ package Windows.Data.Json is
       This       : access IMap_String_IJsonValue_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJsonValueStatics : aliased constant Windows.IID := (1600869450, 12115, 18657, (145, 163, 247, 139, 80, 166, 52, 92 ));
@@ -388,6 +392,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Data.Json.IJsonValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJsonValueStatics2 : aliased constant Windows.IID := (496946148, 16360, 17205, (131, 146, 147, 216, 227, 104, 101, 240 ));
@@ -400,6 +405,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Data.Json.IJsonValue
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJsonObject : aliased constant Windows.IID := (105784541, 10690, 20355, (154, 193, 158, 225, 21, 120, 190, 179 ));
@@ -461,6 +467,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJsonObjectWithDefaultValues : aliased constant Windows.IID := (3647001250, 47088, 20224, (142, 68, 216, 44, 244, 21, 234, 19 ));
@@ -520,6 +527,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJsonObjectStatics : aliased constant Windows.IID := (579465561, 21726, 17880, (171, 204, 34, 96, 63, 160, 102, 160 ));
@@ -542,6 +550,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJsonArray : aliased constant Windows.IID := (146922934, 3261, 19098, (181, 211, 47, 133, 45, 195, 126, 129 ));
@@ -587,6 +596,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJsonArrayStatics : aliased constant Windows.IID := (3675534505, 57700, 18847, (147, 226, 138, 143, 73, 187, 144, 186 ));
@@ -609,6 +619,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IJsonErrorStatics2 : aliased constant Windows.IID := (1077948634, 34768, 17260, (131, 171, 252, 123, 18, 192, 204, 38 ));
@@ -622,6 +633,7 @@ package Windows.Data.Json is
       ; RetVal : access Windows.Data.Json.JsonErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -639,7 +651,6 @@ package Windows.Data.Json is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function Parse
    (
@@ -706,5 +717,6 @@ package Windows.Data.Json is
       hresult : Windows.Int32
    )
    return Windows.Data.Json.JsonErrorStatus;
+   
 
 end;

@@ -79,6 +79,7 @@ package Windows.Management.Deployment.Preview is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IClassicAppManagerStatics : aliased constant Windows.IID := (3808089704, 34860, 20275, (176, 53, 13, 247, 185, 13, 103, 230 ));
@@ -92,6 +93,7 @@ package Windows.Management.Deployment.Preview is
       ; RetVal : access Windows.Management.Deployment.Preview.IInstalledClassicAppInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -102,11 +104,11 @@ package Windows.Management.Deployment.Preview is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FindInstalledApp
    (
       appUninstallKey : Windows.String
    )
    return Windows.Management.Deployment.Preview.IInstalledClassicAppInfo;
+   
 
 end;

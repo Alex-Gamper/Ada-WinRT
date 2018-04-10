@@ -236,6 +236,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; files : Windows.Storage.IIterable_IStorageFile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_String_NamedResource : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -272,6 +273,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; second : access Windows.ApplicationModel.Resources.Core.INamedResource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_NamedResource : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -284,6 +286,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceManager2 : aliased constant Windows.IID := (2640772716, 42199, 19491, (158, 133, 103, 95, 48, 76, 37, 45 ));
@@ -307,6 +310,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IVectorView_IResourceMap -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceManagerStatics : aliased constant Windows.IID := (482409980, 27118, 20035, (153, 1, 71, 241, 38, 135, 186, 247 ));
@@ -327,6 +331,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceQualifier : aliased constant Windows.IID := (2019403186, 19197, 17270, (168, 136, 197, 249, 166, 183, 160, 92 ));
@@ -367,6 +372,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceContext : aliased constant Windows.IID := (799158091, 28798, 19239, (173, 13, 208, 216, 205, 70, 143, 210 ));
@@ -420,6 +426,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; languages : Windows.Foundation.Collections.IVectorView_String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceContextStatics : aliased constant Windows.IID := (2562628972, 25400, 19249, (153, 223, 178, 180, 66, 241, 113, 73 ));
@@ -433,6 +440,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IResourceContext
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceContextStatics2 : aliased constant Windows.IID := (1106727663, 4783, 16825, (171, 54, 177, 235, 75, 81, 36, 96 ));
@@ -473,6 +481,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IResourceContext
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceContextStatics3 : aliased constant Windows.IID := (550455596, 44815, 17675, (157, 166, 16, 109, 208, 194, 154, 57 ));
@@ -487,6 +496,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; persistence : Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceCandidate : aliased constant Windows.IID := (2941388761, 50227, 18276, (179, 253, 143, 166, 191, 188, 186, 220 ));
@@ -542,6 +552,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceCandidate2 : aliased constant Windows.IID := (1776661608, 63228, 16403, (170, 162, 213, 63, 23, 87, 211, 181 ));
@@ -554,6 +565,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStream -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_INamedResource : aliased constant Windows.IID := (479773209, 2835, 16960, (137, 165, 212, 149, 220, 24, 154, 0 ));
@@ -603,6 +615,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IVectorView_IResourceCandidate -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IResourceMap : aliased constant Windows.IID := (1915242532, 56204, 17144, (176, 140, 83, 255, 53, 125, 173, 130 ));
@@ -640,6 +653,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IResourceMap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_NamedResource : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -674,6 +688,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_String_ResourceMap : aliased constant Windows.IID := (3560217310, 37809, 21285, (186, 92, 5, 243, 94, 239, 252, 85 ));
@@ -710,6 +725,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; second : access Windows.ApplicationModel.Resources.Core.IResourceMap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ResourceMap : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -722,6 +738,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ResourceMap : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -756,6 +773,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IObservableMap_String_String : aliased constant Windows.IID := (503538294, 12128, 22006, (183, 243, 248, 96, 121, 230, 144, 11 ));
@@ -776,6 +794,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMap_String_String : aliased constant Windows.IID := (4140955392, 18882, 21166, (129, 84, 130, 111, 153, 8, 119, 60 ));
@@ -833,6 +852,7 @@ package Windows.ApplicationModel.Resources.Core is
       This       : access IMap_String_String_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
@@ -845,6 +865,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMapView_String_String : aliased constant Windows.IID := (2894014194, 65207, 23338, (138, 196, 52, 91, 198, 44, 174, 222 ));
@@ -881,6 +902,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; second : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ResourceQualifier : aliased constant Windows.IID := (3089914076, 7360, 21488, (176, 244, 102, 239, 57, 168, 28, 214 ));
@@ -919,6 +941,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ResourceQualifier : aliased constant Windows.IID := (787376354, 26748, 24442, (161, 78, 88, 140, 77, 48, 137, 225 ));
@@ -931,6 +954,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IResourceQualifier
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ResourceCandidate : aliased constant Windows.IID := (3800994544, 40955, 24231, (159, 201, 167, 59, 218, 71, 24, 134 ));
@@ -969,6 +993,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ResourceCandidate : aliased constant Windows.IID := (3634140312, 34921, 22520, (168, 131, 156, 45, 254, 236, 182, 198 ));
@@ -981,6 +1006,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IResourceCandidate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_String : aliased constant Windows.IID := (789823494, 41018, 24425, (176, 144, 117, 164, 62, 51, 66, 62 ));
@@ -1019,6 +1045,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_String : aliased constant Windows.IID := (3808217025, 15356, 23051, (178, 176, 114, 231, 105, 209, 203, 126 ));
@@ -1031,6 +1058,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_INamedResource : aliased constant Windows.IID := (207249503, 42993, 20528, (161, 121, 159, 211, 99, 202, 243, 181 ));
@@ -1065,6 +1093,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_INamedResource : aliased constant Windows.IID := (3893181853, 38601, 22430, (142, 66, 213, 80, 112, 13, 233, 37 ));
@@ -1077,6 +1106,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IIterator_INamedResource
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_INamedResource : aliased constant Windows.IID := (1724504598, 54085, 23515, (185, 83, 216, 109, 217, 234, 132, 9 ));
@@ -1115,6 +1145,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IResourceMap : aliased constant Windows.IID := (1038994150, 53320, 24234, (175, 162, 251, 74, 121, 112, 239, 104 ));
@@ -1149,6 +1180,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IResourceMap : aliased constant Windows.IID := (2344489300, 6570, 21479, (157, 110, 220, 125, 53, 133, 128, 244 ));
@@ -1161,6 +1193,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IIterator_IResourceMap
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IResourceMap : aliased constant Windows.IID := (4066733813, 64551, 23588, (168, 194, 22, 151, 224, 190, 115, 111 ));
@@ -1199,6 +1232,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IResourceQualifier : aliased constant Windows.IID := (4275795163, 59215, 22906, (185, 191, 112, 75, 13, 173, 202, 56 ));
@@ -1233,6 +1267,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IResourceQualifier : aliased constant Windows.IID := (787376354, 26748, 24442, (161, 78, 88, 140, 77, 48, 137, 225 ));
@@ -1245,6 +1280,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IIterator_IResourceQualifier
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IResourceQualifier : aliased constant Windows.IID := (3089914076, 7360, 21488, (176, 244, 102, 239, 57, 168, 28, 214 ));
@@ -1283,6 +1319,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IResourceCandidate : aliased constant Windows.IID := (3780230540, 41606, 22443, (188, 234, 121, 183, 188, 38, 135, 161 ));
@@ -1317,6 +1354,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IResourceCandidate : aliased constant Windows.IID := (3634140312, 34921, 22520, (168, 131, 156, 45, 254, 236, 182, 198 ));
@@ -1329,6 +1367,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.ApplicationModel.Resources.Core.IIterator_IResourceCandidate
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IResourceCandidate : aliased constant Windows.IID := (3800994544, 40955, 24231, (159, 201, 167, 59, 218, 71, 24, 134 ));
@@ -1367,6 +1406,7 @@ package Windows.ApplicationModel.Resources.Core is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -1392,7 +1432,6 @@ package Windows.ApplicationModel.Resources.Core is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    procedure SetGlobalQualifierValueWithPersistence
    (
@@ -1438,5 +1477,6 @@ package Windows.ApplicationModel.Resources.Core is
       resourceReference : Windows.String
    )
    return Windows.Boolean;
+   
 
 end;

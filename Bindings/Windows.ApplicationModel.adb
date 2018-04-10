@@ -31,7 +31,6 @@ package body Windows.ApplicationModel is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_StartupTaskState_Interface
@@ -218,7 +217,6 @@ package body Windows.ApplicationModel is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -226,7 +224,6 @@ package body Windows.ApplicationModel is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function LaunchFullTrustProcessForCurrentAppAsync
    return Windows.Foundation.IAsyncAction is
@@ -459,5 +456,6 @@ package body Windows.ApplicationModel is
       end if;
       Hr := WindowsDeleteString(m_hString);
    end;
+   
 
 end;

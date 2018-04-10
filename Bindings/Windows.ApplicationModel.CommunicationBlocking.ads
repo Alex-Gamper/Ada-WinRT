@@ -83,6 +83,7 @@ package Windows.ApplicationModel.CommunicationBlocking is
       This       : access ICommunicationBlockingAppManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommunicationBlockingAppManagerStatics2 : aliased constant Windows.IID := (346459869, 60808, 17786, (163, 100, 163, 99, 77, 111, 22, 109 ));
@@ -95,6 +96,7 @@ package Windows.ApplicationModel.CommunicationBlocking is
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICommunicationBlockingAccessManagerStatics : aliased constant Windows.IID := (479631768, 40234, 23991, (237, 213, 12, 228, 7, 252, 37, 149 ));
@@ -143,6 +145,7 @@ package Windows.ApplicationModel.CommunicationBlocking is
       This       : access ICommunicationBlockingAccessManagerStatics_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -151,7 +154,6 @@ package Windows.ApplicationModel.CommunicationBlocking is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    function RequestSetAsActiveBlockingAppAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
@@ -188,5 +190,6 @@ package Windows.ApplicationModel.CommunicationBlocking is
    
    procedure ShowBlockedMessagesUI
    ;
+   
 
 end;

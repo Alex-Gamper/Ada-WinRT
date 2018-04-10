@@ -69,11 +69,13 @@ package Windows.Management.Core is
       ; RetVal : access Windows.Storage.IApplicationData
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IApplicationDataManager : aliased constant Windows.IID := (1959855154, 11929, 16384, (154, 58, 100, 48, 126, 133, 129, 41 ));
    
    type IApplicationDataManager_Interface is interface and Windows.IInspectable_Interface;
+   
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
@@ -84,11 +86,11 @@ package Windows.Management.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateForPackageFamily
    (
       packageFamilyName : Windows.String
    )
    return Windows.Storage.IApplicationData;
+   
 
 end;

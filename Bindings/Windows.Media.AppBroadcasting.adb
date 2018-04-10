@@ -28,7 +28,6 @@ package body Windows.Media.AppBroadcasting is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IAppBroadcastingMonitor_add_IsCurrentAppBroadcastingChanged_Interface
@@ -45,7 +44,6 @@ package body Windows.Media.AppBroadcasting is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateAppBroadcastingMonitor return Windows.Media.AppBroadcasting.IAppBroadcastingMonitor is
       Hr            : Windows.HResult := S_OK;
@@ -71,7 +69,6 @@ package body Windows.Media.AppBroadcasting is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDefault
    return Windows.Media.AppBroadcasting.IAppBroadcastingUI is
@@ -109,5 +106,6 @@ package body Windows.Media.AppBroadcasting is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

@@ -138,6 +138,7 @@ package Windows.Media.Transcoding is
       ; RetVal : access Windows.Media.Transcoding.MediaVideoProcessingAlgorithm
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IMediaTranscoder : aliased constant Windows.IID := (420256210, 41130, 19764, (134, 188, 238, 209, 177, 44, 47, 91 ));
@@ -257,6 +258,7 @@ package Windows.Media.Transcoding is
       ; RetVal : access Windows.Media.Transcoding.IAsyncOperation_IPrepareTranscodeResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IPrepareTranscodeResult : aliased constant Windows.IID := (99769806, 39247, 18996, (157, 104, 151, 204, 206, 23, 48, 214 ));
@@ -283,6 +285,7 @@ package Windows.Media.Transcoding is
       ; RetVal : access Windows.Foundation.IAsyncActionWithProgress_Double -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_TranscodeFailureReason : aliased constant Windows.IID := (34809104, 14489, 21079, (190, 217, 164, 62, 81, 73, 210, 140 ));
@@ -309,6 +312,7 @@ package Windows.Media.Transcoding is
       ; RetVal : access Windows.Media.Transcoding.TranscodeFailureReason
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IPrepareTranscodeResult : aliased constant Windows.IID := (4126178323, 12359, 23467, (142, 183, 110, 93, 125, 20, 175, 174 ));
@@ -335,6 +339,7 @@ package Windows.Media.Transcoding is
       ; RetVal : access Windows.Media.Transcoding.IPrepareTranscodeResult
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -344,7 +349,6 @@ package Windows.Media.Transcoding is
    IID_AsyncOperationCompletedHandler_TranscodeFailureReason : aliased constant Windows.IID := (3291144895, 57748, 20857, (184, 173, 3, 181, 28, 4, 225, 218 ));
    
    type AsyncOperationCompletedHandler_TranscodeFailureReason_Interface(Callback : access procedure (asyncInfo : Windows.Media.Transcoding.IAsyncOperation_TranscodeFailureReason ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_TranscodeFailureReason'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_TranscodeFailureReason_Interface
@@ -358,7 +362,6 @@ package Windows.Media.Transcoding is
    IID_AsyncOperationCompletedHandler_IPrepareTranscodeResult : aliased constant Windows.IID := (2756541703, 36724, 21230, (159, 2, 194, 178, 68, 180, 255, 42 ));
    
    type AsyncOperationCompletedHandler_IPrepareTranscodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Transcoding.IAsyncOperation_IPrepareTranscodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPrepareTranscodeResult'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IPrepareTranscodeResult_Interface

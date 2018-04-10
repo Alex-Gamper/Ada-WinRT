@@ -37,7 +37,6 @@ package body Windows.Media.Playback is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access TypedEventHandler_IMediaPlayer_add_MediaOpened_Interface
@@ -731,7 +730,6 @@ package body Windows.Media.Playback is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateFromTime
    (
       value : Windows.Foundation.TimeSpan
@@ -900,7 +898,6 @@ package body Windows.Media.Playback is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function FindFromMediaSource
    (
       source : Windows.Media.Core.IMediaSource2
@@ -920,5 +917,6 @@ package body Windows.Media.Playback is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

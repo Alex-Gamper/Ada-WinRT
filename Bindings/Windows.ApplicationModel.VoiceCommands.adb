@@ -31,7 +31,6 @@ package body Windows.ApplicationModel.VoiceCommands is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IVoiceCommand_Interface
@@ -88,7 +87,6 @@ package body Windows.ApplicationModel.VoiceCommands is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateVoiceCommandContentTile return Windows.ApplicationModel.VoiceCommands.IVoiceCommandContentTile is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile");
@@ -130,7 +128,6 @@ package body Windows.ApplicationModel.VoiceCommands is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function InstallCommandDefinitionsFromStorageFileAsync
    (
@@ -289,5 +286,6 @@ package body Windows.ApplicationModel.VoiceCommands is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

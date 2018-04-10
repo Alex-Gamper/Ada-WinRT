@@ -394,6 +394,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Storage.Provider.UIStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileUpdateRequestedEventArgs : aliased constant Windows.IID := (2064290626, 14597, 17293, (170, 239, 120, 174, 38, 95, 141, 210 ));
@@ -406,6 +407,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Storage.Provider.IFileUpdateRequest
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileUpdateRequest : aliased constant Windows.IID := (1086858550, 49662, 19859, (167, 146, 30, 115, 107, 199, 8, 55 ));
@@ -453,6 +455,7 @@ package Windows.Storage.Provider is
       ; value : Windows.Storage.IStorageFile
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileUpdateRequestDeferral : aliased constant Windows.IID := (4291746603, 35550, 17573, (187, 0, 22, 76, 78, 114, 241, 58 ));
@@ -464,6 +467,7 @@ package Windows.Storage.Provider is
       This       : access IFileUpdateRequestDeferral_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICachedFileUpdaterUI2 : aliased constant Windows.IID := (2287378972, 34457, 17216, (159, 73, 247, 202, 215, 254, 137, 145 ));
@@ -483,6 +487,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Storage.Provider.IFileUpdateRequestDeferral
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IFileUpdateRequest2 : aliased constant Windows.IID := (2185774664, 48574, 17531, (162, 238, 122, 254, 106, 3, 42, 148 ));
@@ -502,6 +507,7 @@ package Windows.Storage.Provider is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ICachedFileUpdaterStatics : aliased constant Windows.IID := (2680752416, 31695, 18568, (168, 30, 16, 45, 112, 52, 215, 206 ));
@@ -518,6 +524,7 @@ package Windows.Storage.Provider is
       ; options : Windows.Storage.Provider.CachedFileOptions
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageProviderPropertyCapabilities : aliased constant Windows.IID := (1703751438, 25527, 17767, (172, 249, 81, 171, 227, 1, 221, 165 ));
@@ -531,6 +538,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageProviderItemProperty : aliased constant Windows.IID := (1198306648, 29451, 16776, (183, 181, 99, 183, 22, 237, 71, 109 ));
@@ -578,6 +586,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageProviderItemPropertiesStatics : aliased constant Windows.IID := (757865623, 9988, 18217, (143, 169, 126, 107, 142, 21, 140, 47 ));
@@ -592,6 +601,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageProviderItemPropertySource : aliased constant Windows.IID := (2406456382, 63026, 19099, (141, 153, 210, 215, 161, 29, 245, 106 ));
@@ -605,6 +615,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Storage.Provider.IIterable_IStorageProviderItemProperty -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageProviderItemPropertyDefinition : aliased constant Windows.IID := (3316876219, 65311, 17048, (131, 30, 255, 28, 8, 8, 150, 144 ));
@@ -638,6 +649,7 @@ package Windows.Storage.Provider is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageProviderSyncRootInfo : aliased constant Windows.IID := (2081621444, 39417, 16812, (137, 4, 171, 5, 93, 101, 73, 38 ));
@@ -860,6 +872,7 @@ package Windows.Storage.Provider is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IStorageProviderSyncRootManagerStatics : aliased constant Windows.IID := (1050278847, 36835, 19264, (171, 199, 246, 252, 61, 116, 201, 142 ));
@@ -902,6 +915,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Storage.Provider.IVectorView_IStorageProviderSyncRootInfo -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_FileUpdateStatus : aliased constant Windows.IID := (2400142238, 34768, 21279, (133, 177, 84, 244, 82, 143, 41, 195 ));
@@ -928,6 +942,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Storage.Provider.FileUpdateStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStorageProviderItemProperty : aliased constant Windows.IID := (208526814, 6819, 21749, (177, 57, 228, 162, 55, 220, 28, 95 ));
@@ -962,6 +977,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStorageProviderItemProperty : aliased constant Windows.IID := (1166330729, 60966, 23008, (176, 93, 201, 167, 133, 26, 115, 23 ));
@@ -974,6 +990,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Storage.Provider.IIterator_IStorageProviderItemProperty
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStorageProviderItemPropertyDefinition : aliased constant Windows.IID := (1441100189, 11226, 21023, (140, 96, 105, 33, 217, 11, 11, 177 ));
@@ -1008,6 +1025,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStorageProviderItemPropertyDefinition : aliased constant Windows.IID := (1105693584, 6783, 23979, (161, 35, 125, 95, 80, 17, 223, 235 ));
@@ -1020,6 +1038,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Storage.Provider.IIterator_IStorageProviderItemPropertyDefinition
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IStorageProviderItemPropertyDefinition : aliased constant Windows.IID := (846546122, 17884, 23683, (176, 84, 10, 145, 229, 250, 10, 41 ));
@@ -1058,6 +1077,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_IStorageProviderItemPropertyDefinition : aliased constant Windows.IID := (4164549887, 34783, 21415, (148, 212, 181, 7, 16, 30, 126, 99 ));
@@ -1152,6 +1172,7 @@ package Windows.Storage.Provider is
       ; items : Windows.Storage.Provider.IStorageProviderItemPropertyDefinition_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_IStorageProviderSyncRootInfo : aliased constant Windows.IID := (4148130505, 27641, 24356, (149, 175, 114, 100, 229, 81, 100, 35 ));
@@ -1186,6 +1207,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_IStorageProviderSyncRootInfo : aliased constant Windows.IID := (1656383904, 63068, 20524, (151, 130, 180, 188, 37, 25, 77, 17 ));
@@ -1198,6 +1220,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.Storage.Provider.IIterator_IStorageProviderSyncRootInfo
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_IStorageProviderSyncRootInfo : aliased constant Windows.IID := (555033061, 8572, 24563, (191, 158, 141, 196, 214, 117, 23, 127 ));
@@ -1236,6 +1259,7 @@ package Windows.Storage.Provider is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -1245,7 +1269,6 @@ package Windows.Storage.Provider is
    IID_TypedEventHandler_ICachedFileUpdaterUI_add_FileUpdateRequested : aliased constant Windows.IID := (3981880178, 60371, 21192, (176, 172, 152, 125, 48, 9, 3, 81 ));
    
    type TypedEventHandler_ICachedFileUpdaterUI_add_FileUpdateRequested_Interface(Callback : access procedure (sender : Windows.Storage.Provider.ICachedFileUpdaterUI ; args : Windows.Storage.Provider.IFileUpdateRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICachedFileUpdaterUI_add_FileUpdateRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICachedFileUpdaterUI_add_FileUpdateRequested_Interface
@@ -1259,7 +1282,6 @@ package Windows.Storage.Provider is
    IID_TypedEventHandler_ICachedFileUpdaterUI_add_UIRequested : aliased constant Windows.IID := (1174262851, 49337, 22448, (168, 79, 125, 135, 110, 220, 49, 73 ));
    
    type TypedEventHandler_ICachedFileUpdaterUI_add_UIRequested_Interface(Callback : access procedure (sender : Windows.Storage.Provider.ICachedFileUpdaterUI ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICachedFileUpdaterUI_add_UIRequested'access) with null record;
-   
    function Invoke
    (
       This       : access TypedEventHandler_ICachedFileUpdaterUI_add_UIRequested_Interface
@@ -1273,7 +1295,6 @@ package Windows.Storage.Provider is
    IID_AsyncOperationCompletedHandler_FileUpdateStatus : aliased constant Windows.IID := (3138935303, 645, 24375, (156, 125, 47, 198, 163, 224, 230, 229 ));
    
    type AsyncOperationCompletedHandler_FileUpdateStatus_Interface(Callback : access procedure (asyncInfo : Windows.Storage.Provider.IAsyncOperation_FileUpdateStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_FileUpdateStatus'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_FileUpdateStatus_Interface
@@ -1306,7 +1327,6 @@ package Windows.Storage.Provider is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
    
    procedure SetUpdateInformation
    (
@@ -1351,5 +1371,6 @@ package Windows.Storage.Provider is
    
    function GetCurrentSyncRoots
    return Windows.Storage.Provider.IVectorView_IStorageProviderSyncRootInfo;
+   
 
 end;

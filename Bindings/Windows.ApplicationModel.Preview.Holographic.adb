@@ -28,7 +28,6 @@ package body Windows.ApplicationModel.Preview.Holographic is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -36,7 +35,6 @@ package body Windows.ApplicationModel.Preview.Holographic is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function IsCurrentViewPresentedOnHolographicDisplay
    return Windows.Boolean is
@@ -74,5 +72,6 @@ package body Windows.ApplicationModel.Preview.Holographic is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

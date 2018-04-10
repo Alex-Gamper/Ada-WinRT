@@ -327,6 +327,7 @@ package Windows.Web.Syndication is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationAttributeFactory : aliased constant Windows.IID := (1649350041, 60734, 16911, (190, 134, 100, 4, 20, 136, 110, 75 ));
@@ -342,6 +343,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationAttribute
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationNode : aliased constant Windows.IID := (1966927736, 20984, 17856, (169, 245, 241, 113, 157, 236, 63, 178 ));
@@ -439,6 +441,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationNodeFactory : aliased constant Windows.IID := (311435656, 19147, 18856, (183, 119, 165, 235, 146, 225, 138, 121 ));
@@ -454,6 +457,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationNode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationGenerator : aliased constant Windows.IID := (2540221305, 64299, 20333, (180, 28, 8, 138, 88, 104, 130, 92 ));
@@ -501,6 +505,7 @@ package Windows.Web.Syndication is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationGeneratorFactory : aliased constant Windows.IID := (2738914275, 7718, 19900, (186, 157, 26, 184, 75, 239, 249, 123 ));
@@ -514,6 +519,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationGenerator
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationText : aliased constant Windows.IID := (3117178496, 12602, 16529, (162, 166, 36, 62, 14, 233, 35, 249 ));
@@ -561,6 +567,7 @@ package Windows.Web.Syndication is
       ; value : Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationTextFactory : aliased constant Windows.IID := (4000531191, 4550, 19237, (171, 98, 229, 150, 189, 22, 41, 70 ));
@@ -583,6 +590,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationText
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationContent : aliased constant Windows.IID := (1178730238, 3669, 16592, (184, 208, 106, 44, 203, 169, 252, 124 ));
@@ -602,6 +610,7 @@ package Windows.Web.Syndication is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationContentFactory : aliased constant Windows.IID := (1026538387, 38176, 16755, (147, 136, 126, 45, 243, 36, 168, 160 ));
@@ -624,6 +633,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationContent
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationLink : aliased constant Windows.IID := (659897021, 41230, 16821, (134, 189, 151, 89, 8, 110, 176, 197 ));
@@ -713,6 +723,7 @@ package Windows.Web.Syndication is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationLinkFactory : aliased constant Windows.IID := (1591239636, 21813, 18604, (152, 212, 193, 144, 153, 80, 128, 179 ));
@@ -738,6 +749,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationLink
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationPerson : aliased constant Windows.IID := (4196328922, 42950, 17687, (160, 150, 1, 67, 250, 242, 147, 39 ));
@@ -785,6 +797,7 @@ package Windows.Web.Syndication is
       ; value : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationPersonFactory : aliased constant Windows.IID := (3707013229, 8861, 19288, (164, 155, 243, 210, 240, 245, 201, 159 ));
@@ -808,6 +821,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationPerson
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationCategory : aliased constant Windows.IID := (2266325615, 3258, 19071, (137, 255, 236, 181, 40, 20, 35, 182 ));
@@ -855,6 +869,7 @@ package Windows.Web.Syndication is
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationCategoryFactory : aliased constant Windows.IID := (2873262127, 18912, 17701, (138, 178, 171, 69, 192, 37, 40, 255 ));
@@ -878,6 +893,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationCategory
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationItem : aliased constant Windows.IID := (1418573955, 50052, 17857, (138, 232, 163, 120, 196, 236, 72, 108 ));
@@ -1079,6 +1095,7 @@ package Windows.Web.Syndication is
       ; itemDocument : Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationItemFactory : aliased constant Windows.IID := (622674767, 32184, 18554, (133, 228, 16, 209, 145, 230, 110, 187 ));
@@ -1094,6 +1111,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationFeed : aliased constant Windows.IID := (2147368146, 23398, 19810, (132, 3, 27, 193, 13, 145, 13, 107 ));
@@ -1295,6 +1313,7 @@ package Windows.Web.Syndication is
       ; feedDocument : Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationFeedFactory : aliased constant Windows.IID := (591864370, 35817, 18615, (137, 52, 98, 5, 19, 29, 147, 87 ));
@@ -1310,6 +1329,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationFeed
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationClient : aliased constant Windows.IID := (2652416439, 29257, 19269, (178, 41, 125, 248, 149, 165, 161, 245 ));
@@ -1401,6 +1421,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationClientFactory : aliased constant Windows.IID := (784642860, 42907, 16660, (178, 154, 5, 223, 251, 175, 185, 164 ));
@@ -1414,6 +1435,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.ISyndicationClient
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_ISyndicationErrorStatics : aliased constant Windows.IID := (532357985, 17863, 18483, (138, 160, 190, 95, 59, 88, 167, 244 ));
@@ -1427,6 +1449,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.SyndicationErrorStatus
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISyndicationAttribute : aliased constant Windows.IID := (2809122280, 63599, 23413, (170, 125, 87, 135, 70, 122, 49, 157 ));
@@ -1461,6 +1484,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISyndicationAttribute : aliased constant Windows.IID := (849259489, 61388, 21406, (150, 186, 246, 164, 79, 34, 29, 189 ));
@@ -1473,6 +1497,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.IIterator_ISyndicationAttribute
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISyndicationAttribute : aliased constant Windows.IID := (3252081100, 27086, 21638, (159, 53, 200, 126, 19, 17, 19, 135 ));
@@ -1511,6 +1536,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISyndicationAttribute : aliased constant Windows.IID := (803753595, 9040, 22849, (148, 181, 166, 70, 119, 181, 133, 209 ));
@@ -1605,6 +1631,7 @@ package Windows.Web.Syndication is
       ; items : Windows.Web.Syndication.ISyndicationAttribute_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISyndicationNode : aliased constant Windows.IID := (768137686, 3908, 22162, (147, 62, 248, 144, 42, 183, 251, 148 ));
@@ -1639,6 +1666,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISyndicationNode : aliased constant Windows.IID := (3028702874, 29363, 22442, (153, 80, 206, 160, 179, 228, 252, 88 ));
@@ -1651,6 +1679,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.IIterator_ISyndicationNode
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISyndicationNode : aliased constant Windows.IID := (1800131745, 46326, 21555, (175, 215, 189, 46, 80, 26, 16, 65 ));
@@ -1689,6 +1718,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISyndicationNode : aliased constant Windows.IID := (4098919162, 40706, 24248, (163, 137, 20, 187, 229, 25, 58, 192 ));
@@ -1783,6 +1813,7 @@ package Windows.Web.Syndication is
       ; items : Windows.Web.Syndication.ISyndicationNode_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISyndicationPerson : aliased constant Windows.IID := (390457351, 61961, 23974, (136, 85, 127, 153, 226, 94, 177, 252 ));
@@ -1817,6 +1848,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISyndicationPerson : aliased constant Windows.IID := (3851319364, 60212, 21124, (176, 158, 222, 103, 98, 213, 72, 202 ));
@@ -1829,6 +1861,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.IIterator_ISyndicationPerson
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISyndicationPerson : aliased constant Windows.IID := (239406397, 59216, 22407, (136, 91, 72, 138, 188, 114, 181, 185 ));
@@ -1867,6 +1900,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISyndicationPerson : aliased constant Windows.IID := (2876714198, 36071, 23993, (131, 172, 13, 185, 228, 74, 27, 12 ));
@@ -1961,6 +1995,7 @@ package Windows.Web.Syndication is
       ; items : Windows.Web.Syndication.ISyndicationPerson_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISyndicationCategory : aliased constant Windows.IID := (714221818, 45192, 22160, (187, 56, 183, 4, 78, 11, 80, 43 ));
@@ -1995,6 +2030,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISyndicationCategory : aliased constant Windows.IID := (3511810001, 60093, 21248, (181, 92, 20, 158, 178, 137, 204, 113 ));
@@ -2007,6 +2043,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.IIterator_ISyndicationCategory
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISyndicationCategory : aliased constant Windows.IID := (2712404092, 40340, 21806, (132, 14, 19, 159, 16, 154, 155, 136 ));
@@ -2045,6 +2082,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISyndicationCategory : aliased constant Windows.IID := (1927567076, 3666, 21195, (179, 99, 243, 88, 19, 39, 240, 51 ));
@@ -2139,6 +2177,7 @@ package Windows.Web.Syndication is
       ; items : Windows.Web.Syndication.ISyndicationCategory_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISyndicationLink : aliased constant Windows.IID := (2417377975, 27812, 23383, (184, 241, 115, 32, 131, 66, 186, 74 ));
@@ -2173,6 +2212,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISyndicationLink : aliased constant Windows.IID := (3331432298, 26329, 21866, (150, 50, 135, 211, 154, 241, 70, 56 ));
@@ -2185,6 +2225,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.IIterator_ISyndicationLink
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISyndicationLink : aliased constant Windows.IID := (3951788022, 64100, 22378, (139, 228, 160, 85, 247, 160, 74, 115 ));
@@ -2223,6 +2264,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISyndicationLink : aliased constant Windows.IID := (3103466917, 451, 20999, (129, 78, 137, 43, 43, 83, 67, 247 ));
@@ -2317,6 +2359,7 @@ package Windows.Web.Syndication is
       ; items : Windows.Web.Syndication.ISyndicationLink_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterator_ISyndicationItem : aliased constant Windows.IID := (3580439203, 55173, 23988, (172, 92, 179, 131, 32, 130, 230, 41 ));
@@ -2351,6 +2394,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IIterable_ISyndicationItem : aliased constant Windows.IID := (1430666991, 60600, 22989, (141, 107, 116, 218, 172, 190, 125, 25 ));
@@ -2363,6 +2407,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.Web.Syndication.IIterator_ISyndicationItem
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVectorView_ISyndicationItem : aliased constant Windows.IID := (2492868507, 22142, 22098, (185, 66, 246, 251, 112, 195, 65, 115 ));
@@ -2401,6 +2446,7 @@ package Windows.Web.Syndication is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IVector_ISyndicationItem : aliased constant Windows.IID := (2852197131, 17969, 20759, (140, 72, 220, 33, 176, 41, 80, 150 ));
@@ -2495,6 +2541,7 @@ package Windows.Web.Syndication is
       ; items : Windows.Web.Syndication.ISyndicationItem_Ptr
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncActionWithProgress_TransferProgress : aliased constant Windows.IID := (3085665269, 42822, 20722, (185, 31, 49, 128, 49, 97, 204, 199 ));
@@ -2534,6 +2581,7 @@ package Windows.Web.Syndication is
       This       : access IAsyncActionWithProgress_TransferProgress_Interface
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -2543,7 +2591,6 @@ package Windows.Web.Syndication is
    IID_AsyncActionProgressHandler_TransferProgress : aliased constant Windows.IID := (3244359813, 38096, 22278, (154, 198, 16, 23, 157, 125, 235, 146 ));
    
    type AsyncActionProgressHandler_TransferProgress_Interface(Callback : access procedure (asyncInfo : Windows.Web.Syndication.IAsyncActionWithProgress_TransferProgress ; progressInfo : Windows.Web.Syndication.TransferProgress)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionProgressHandler_TransferProgress'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncActionProgressHandler_TransferProgress_Interface
@@ -2557,7 +2604,6 @@ package Windows.Web.Syndication is
    IID_AsyncActionWithProgressCompletedHandler_TransferProgress : aliased constant Windows.IID := (4055904712, 37055, 23726, (173, 246, 21, 91, 74, 237, 251, 96 ));
    
    type AsyncActionWithProgressCompletedHandler_TransferProgress_Interface(Callback : access procedure (asyncInfo : Windows.Web.Syndication.IAsyncActionWithProgress_TransferProgress ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncActionWithProgressCompletedHandler_TransferProgress'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncActionWithProgressCompletedHandler_TransferProgress_Interface
@@ -2575,7 +2621,6 @@ package Windows.Web.Syndication is
    function CreateSyndicationAttribute return Windows.Web.Syndication.ISyndicationAttribute;
    
    subtype SyndicationNode is Windows.Web.Syndication.ISyndicationNode;
-   
    function CreateSyndicationNode
    (
       nodeName : Windows.String
@@ -2584,20 +2629,20 @@ package Windows.Web.Syndication is
    )
    return Windows.Web.Syndication.ISyndicationNode;
    
-   subtype SyndicationGenerator is Windows.Web.Syndication.ISyndicationGenerator;
    
+   subtype SyndicationGenerator is Windows.Web.Syndication.ISyndicationGenerator;
    function CreateSyndicationGenerator
    (
       text : Windows.String
    )
    return Windows.Web.Syndication.ISyndicationGenerator;
    
+   
    subtype SyndicationText is Windows.Web.Syndication.ISyndicationText;
    
    function CreateSyndicationText return Windows.Web.Syndication.ISyndicationText;
    
    subtype SyndicationContent is Windows.Web.Syndication.ISyndicationContent;
-   
    function CreateSyndicationContent
    (
       text : Windows.String
@@ -2611,12 +2656,12 @@ package Windows.Web.Syndication is
    )
    return Windows.Web.Syndication.ISyndicationContent;
    
+   
    subtype SyndicationLink is Windows.Web.Syndication.ISyndicationLink;
    
    function CreateSyndicationLink return Windows.Web.Syndication.ISyndicationLink;
    
    subtype SyndicationPerson is Windows.Web.Syndication.ISyndicationPerson;
-   
    function CreateSyndicationPerson
    (
       name : Windows.String
@@ -2631,8 +2676,8 @@ package Windows.Web.Syndication is
    )
    return Windows.Web.Syndication.ISyndicationPerson;
    
-   subtype SyndicationCategory is Windows.Web.Syndication.ISyndicationCategory;
    
+   subtype SyndicationCategory is Windows.Web.Syndication.ISyndicationCategory;
    function CreateSyndicationCategory
    (
       term : Windows.String
@@ -2647,12 +2692,12 @@ package Windows.Web.Syndication is
    )
    return Windows.Web.Syndication.ISyndicationCategory;
    
+   
    subtype SyndicationFeed is Windows.Web.Syndication.ISyndicationFeed;
    
    function CreateSyndicationFeed return Windows.Web.Syndication.ISyndicationFeed;
    
    subtype SyndicationItem is Windows.Web.Syndication.ISyndicationItem;
-   
    function CreateSyndicationItem
    (
       title : Windows.String
@@ -2660,6 +2705,7 @@ package Windows.Web.Syndication is
       ; uri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.Web.Syndication.ISyndicationItem;
+   
    
    subtype SyndicationClient is Windows.Web.Syndication.ISyndicationClient;
    
@@ -2670,11 +2716,11 @@ package Windows.Web.Syndication is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetStatus
    (
       hresult : Windows.Int32
    )
    return Windows.Web.Syndication.SyndicationErrorStatus;
+   
 
 end;

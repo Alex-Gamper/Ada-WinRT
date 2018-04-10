@@ -150,6 +150,7 @@ package Windows.Devices.Adc is
       ; RetVal : access Windows.Devices.Adc.IAdcChannel
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdcControllerStatics : aliased constant Windows.IID := (3437858316, 504, 18577, (188, 59, 190, 83, 239, 39, 156, 164 ));
@@ -163,6 +164,7 @@ package Windows.Devices.Adc is
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdcControllerStatics2 : aliased constant Windows.IID := (2730048285, 38779, 20314, (165, 254, 166, 171, 175, 254, 100, 132 ));
@@ -175,6 +177,7 @@ package Windows.Devices.Adc is
       ; RetVal : access Windows.Devices.Adc.IAsyncOperation_IAdcController -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAdcChannel : aliased constant Windows.IID := (67892244, 9608, 19030, (171, 239, 115, 162, 96, 172, 198, 10 ));
@@ -201,6 +204,7 @@ package Windows.Devices.Adc is
       ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    
    IID_IAsyncOperation_IAdcController : aliased constant Windows.IID := (1765933666, 13769, 22591, (164, 14, 194, 105, 69, 98, 201, 226 ));
@@ -227,6 +231,7 @@ package Windows.Devices.Adc is
       ; RetVal : access Windows.Devices.Adc.IAdcController
    )
    return Windows.HRESULT is abstract;
+   
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
@@ -236,7 +241,6 @@ package Windows.Devices.Adc is
    IID_AsyncOperationCompletedHandler_IAdcController : aliased constant Windows.IID := (3136709768, 8239, 23889, (176, 94, 24, 96, 108, 70, 184, 8 ));
    
    type AsyncOperationCompletedHandler_IAdcController_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Adc.IAsyncOperation_IAdcController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAdcController'access) with null record;
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IAdcController_Interface
@@ -256,7 +260,6 @@ package Windows.Devices.Adc is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   
    function GetDefaultAsync
    return Windows.Devices.Adc.IAsyncOperation_IAdcController;
    
@@ -265,5 +268,6 @@ package Windows.Devices.Adc is
       provider : Windows.Devices.Adc.Provider.IAdcProvider
    )
    return Windows.Address;
+   
 
 end;

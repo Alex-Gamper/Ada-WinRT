@@ -33,7 +33,6 @@ package body Windows.Devices.Bluetooth is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access AsyncOperationCompletedHandler_IBluetoothAdapter_Interface
@@ -155,7 +154,6 @@ package body Windows.Devices.Bluetooth is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   
    function CreateBluetoothSignalStrengthFilter return Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter");
@@ -180,7 +178,6 @@ package body Windows.Devices.Bluetooth is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
    
    function GetDeviceSelector
    return Windows.String is
@@ -1604,5 +1601,6 @@ package body Windows.Devices.Bluetooth is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;

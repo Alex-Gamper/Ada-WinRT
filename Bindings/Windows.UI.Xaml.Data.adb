@@ -29,7 +29,6 @@ package body Windows.UI.Xaml.Data is
    -- Delegates/Events
    ------------------------------------------------------------------------
    
-   
    function Invoke
    (
       This       : access CurrentChangingEventHandler_Interface
@@ -72,7 +71,6 @@ package body Windows.UI.Xaml.Data is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
-   
    
    function CreateCollectionViewSource return Windows.UI.Xaml.Data.ICollectionViewSource is
       Hr            : Windows.HResult := S_OK;
@@ -920,7 +918,6 @@ package body Windows.UI.Xaml.Data is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -1159,5 +1156,6 @@ package body Windows.UI.Xaml.Data is
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
+   
 
 end;
