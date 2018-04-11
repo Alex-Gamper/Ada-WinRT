@@ -269,14 +269,6 @@ package Windows.Web.Syndication is
    type IAsyncActionWithProgress_TransferProgress_Ptr is access all IAsyncActionWithProgress_TransferProgress;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2722,5 +2714,4 @@ package Windows.Web.Syndication is
    )
    return Windows.Web.Syndication.SyndicationErrorStatus;
    
-
 end;

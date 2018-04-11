@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.UI.Notifications.Management is
 
    pragma preelaborate;
@@ -43,10 +42,6 @@ package Windows.UI.Notifications.Management is
    for UserNotificationListenerAccessStatus'Size use 32;
    
    type UserNotificationListenerAccessStatus_Ptr is access UserNotificationListenerAccessStatus;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -72,14 +67,6 @@ package Windows.UI.Notifications.Management is
    type IAsyncOperation_UserNotificationListenerAccessStatus_Interface;
    type IAsyncOperation_UserNotificationListenerAccessStatus is access all IAsyncOperation_UserNotificationListenerAccessStatus_Interface'Class;
    type IAsyncOperation_UserNotificationListenerAccessStatus_Ptr is access all IAsyncOperation_UserNotificationListenerAccessStatus;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -232,5 +219,4 @@ package Windows.UI.Notifications.Management is
    function get_Current
    return Windows.UI.Notifications.Management.IUserNotificationListener;
    
-
 end;

@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Devices.Haptics is
 
    pragma preelaborate;
@@ -45,10 +44,6 @@ package Windows.Devices.Haptics is
    for VibrationAccessStatus'Size use 32;
    
    type VibrationAccessStatus_Ptr is access VibrationAccessStatus;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -104,14 +99,6 @@ package Windows.Devices.Haptics is
    type IVectorView_ISimpleHapticsController_Interface;
    type IVectorView_ISimpleHapticsController is access all IVectorView_ISimpleHapticsController_Interface'Class;
    type IVectorView_ISimpleHapticsController_Ptr is access all IVectorView_ISimpleHapticsController;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -631,5 +618,4 @@ package Windows.Devices.Haptics is
    function FindAllAsync
    return Windows.Address;
    
-
 end;

@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.Appointments.AppointmentsProvider is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -52,14 +43,6 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
    type IRemoveAppointmentOperation_Interface;
    type IRemoveAppointmentOperation is access all IRemoveAppointmentOperation_Interface'Class;
    type IRemoveAppointmentOperation_Ptr is access all IRemoveAppointmentOperation;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -297,5 +280,4 @@ package Windows.ApplicationModel.Appointments.AppointmentsProvider is
    function get_ShowAppointmentDetails
    return Windows.String;
    
-
 end;

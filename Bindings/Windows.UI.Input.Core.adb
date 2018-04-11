@@ -58,5 +58,4 @@ package body Windows.UI.Input.Core is
       return RetVal;
    end;
    
-
 end;

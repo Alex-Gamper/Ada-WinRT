@@ -741,5 +741,4 @@ package body Windows.UI.Core is
       return RetVal;
    end;
    
-
 end;

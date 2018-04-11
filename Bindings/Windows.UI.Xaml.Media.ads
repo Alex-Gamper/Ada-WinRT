@@ -839,14 +839,6 @@ package Windows.UI.Xaml.Media is
    type IVector_IBrush_Ptr is access all IVector_IBrush;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -7534,5 +7526,4 @@ package Windows.UI.Xaml.Media is
    function get_EndPointProperty_ILinearGradientBrush
    return Windows.UI.Xaml.IDependencyProperty;
    
-
 end;

@@ -77,14 +77,6 @@ package Windows.Media.Playlists is
    type IAsyncOperation_IPlaylist_Ptr is access all IAsyncOperation_IPlaylist;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -206,5 +198,4 @@ package Windows.Media.Playlists is
    )
    return Windows.Media.Playlists.IAsyncOperation_IPlaylist;
    
-
 end;

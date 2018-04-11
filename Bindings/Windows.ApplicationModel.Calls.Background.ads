@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows; use Windows;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.Calls.Background is
 
    pragma preelaborate;
@@ -130,14 +129,6 @@ package Windows.ApplicationModel.Calls.Background is
    type IPhoneLineChangedTriggerDetails_Interface;
    type IPhoneLineChangedTriggerDetails is access all IPhoneLineChangedTriggerDetails_Interface'Class;
    type IPhoneLineChangedTriggerDetails_Ptr is access all IPhoneLineChangedTriggerDetails;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -258,5 +249,4 @@ package Windows.ApplicationModel.Calls.Background is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

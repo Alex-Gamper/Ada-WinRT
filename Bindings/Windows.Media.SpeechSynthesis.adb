@@ -126,5 +126,4 @@ package body Windows.Media.SpeechSynthesis is
       return RetVal;
    end;
    
-
 end;

@@ -73,10 +73,6 @@ package Windows.UI.Composition.Interactions is
    type VisualInteractionSourceRedirectionMode_Ptr is access VisualInteractionSourceRedirectionMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -194,14 +190,6 @@ package Windows.UI.Composition.Interactions is
    type IIterable_IInteractionTrackerVector2InertiaModifier_Interface;
    type IIterable_IInteractionTrackerVector2InertiaModifier is access all IIterable_IInteractionTrackerVector2InertiaModifier_Interface'Class;
    type IIterable_IInteractionTrackerVector2InertiaModifier_Ptr is access all IIterable_IInteractionTrackerVector2InertiaModifier;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1486,5 +1474,4 @@ package Windows.UI.Composition.Interactions is
    )
    return Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion;
    
-
 end;

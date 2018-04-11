@@ -573,5 +573,4 @@ package body Windows.ApplicationModel.Store.Preview is
       return RetVal;
    end;
    
-
 end;

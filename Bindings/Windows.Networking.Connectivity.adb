@@ -371,5 +371,4 @@ package body Windows.Networking.Connectivity is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

@@ -76,5 +76,4 @@ package body Windows.Gaming.Input.Preview is
       return RetVal;
    end;
    
-
 end;

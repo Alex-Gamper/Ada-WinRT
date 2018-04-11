@@ -658,10 +658,6 @@ package Windows.Devices.PointOfService is
    type MagneticStripeReaderTrackErrorType_Ptr is access MagneticStripeReaderTrackErrorType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -1066,14 +1062,6 @@ package Windows.Devices.PointOfService is
    type IAsyncOperation_ILineDisplayStoredBitmap_Interface;
    type IAsyncOperation_ILineDisplayStoredBitmap is access all IAsyncOperation_ILineDisplayStoredBitmap_Interface'Class;
    type IAsyncOperation_ILineDisplayStoredBitmap_Ptr is access all IAsyncOperation_ILineDisplayStoredBitmap;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -7318,5 +7306,4 @@ package Windows.Devices.PointOfService is
    )
    return Windows.String;
    
-
 end;

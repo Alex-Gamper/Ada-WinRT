@@ -618,5 +618,4 @@ package body Windows.Devices.Enumeration is
       return RetVal;
    end;
    
-
 end;

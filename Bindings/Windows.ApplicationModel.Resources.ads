@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.Resources is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -52,14 +43,6 @@ package Windows.ApplicationModel.Resources is
    type IResourceLoaderFactory_Interface;
    type IResourceLoaderFactory is access all IResourceLoaderFactory_Interface'Class;
    type IResourceLoaderFactory_Ptr is access all IResourceLoaderFactory;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -198,5 +181,4 @@ package Windows.ApplicationModel.Resources is
    )
    return Windows.ApplicationModel.Resources.IResourceLoader;
    
-
 end;

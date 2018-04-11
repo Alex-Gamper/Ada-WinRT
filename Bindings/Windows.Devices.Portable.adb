@@ -113,5 +113,4 @@ package body Windows.Devices.Portable is
       return RetVal;
    end;
    
-
 end;

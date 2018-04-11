@@ -213,14 +213,6 @@ package Windows.Graphics.Holographic is
    type IVector_IHolographicQuadLayer_Ptr is access all IVector_IHolographicQuadLayer;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1406,5 +1398,4 @@ package Windows.Graphics.Holographic is
    function GetDefault
    return Windows.Graphics.Holographic.IHolographicDisplay;
    
-
 end;

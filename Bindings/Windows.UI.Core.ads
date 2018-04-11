@@ -543,14 +543,6 @@ package Windows.UI.Core is
    type ICoreWindowFlyoutFactory_Ptr is access all ICoreWindowFlyoutFactory;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2963,5 +2955,4 @@ package Windows.UI.Core is
    function GetForCurrentView
    return Windows.UI.Core.ICoreWindowResizeManager;
    
-
 end;

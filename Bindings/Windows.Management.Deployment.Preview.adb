@@ -55,5 +55,4 @@ package body Windows.Management.Deployment.Preview is
       return RetVal;
    end;
    
-
 end;

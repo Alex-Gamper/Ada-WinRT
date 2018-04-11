@@ -71,10 +71,6 @@ package Windows.Networking is
    type DomainNameType_Ptr is access DomainNameType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -114,14 +110,6 @@ package Windows.Networking is
    type IVector_IHostName_Interface;
    type IVector_IHostName is access all IVector_IHostName_Interface'Class;
    type IVector_IHostName_Ptr is access all IVector_IHostName;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -588,5 +576,4 @@ package Windows.Networking is
    )
    return Windows.Int32;
    
-
 end;

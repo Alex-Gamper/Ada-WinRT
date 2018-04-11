@@ -124,14 +124,6 @@ package Windows.System.Profile is
    type ISharedModeSettingsStatics2_Ptr is access all ISharedModeSettingsStatics2;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -647,5 +639,4 @@ package Windows.System.Profile is
    function get_ShouldAvoidLocalStorage
    return Windows.Boolean;
    
-
 end;

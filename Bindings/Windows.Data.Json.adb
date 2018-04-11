@@ -290,5 +290,4 @@ package body Windows.Data.Json is
       return RetVal;
    end;
    
-
 end;

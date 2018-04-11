@@ -227,5 +227,4 @@ package body Windows.Media.DialProtocol is
       return RetVal;
    end;
    
-
 end;

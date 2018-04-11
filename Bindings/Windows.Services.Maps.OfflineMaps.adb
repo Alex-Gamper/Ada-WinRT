@@ -139,5 +139,4 @@ package body Windows.Services.Maps.OfflineMaps is
       return RetVal;
    end;
    
-
 end;

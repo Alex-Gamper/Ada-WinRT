@@ -53,5 +53,4 @@ package body Windows.ApplicationModel.Preview.InkWorkspace is
       return RetVal;
    end;
    
-
 end;

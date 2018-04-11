@@ -945,14 +945,6 @@ package Windows.Networking.NetworkOperators is
    type IAsyncOperation_IUssdReply_Ptr is access all IAsyncOperation_IUssdReply;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -5385,5 +5377,4 @@ package Windows.Networking.NetworkOperators is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-
 end;

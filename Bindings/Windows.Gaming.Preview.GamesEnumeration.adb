@@ -287,5 +287,4 @@ package body Windows.Gaming.Preview.GamesEnumeration is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

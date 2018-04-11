@@ -112,10 +112,6 @@ package Windows.Globalization.PhoneNumberFormatting is
    type PhoneNumberMatchResult_Ptr is access PhoneNumberMatchResult;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -134,14 +130,6 @@ package Windows.Globalization.PhoneNumberFormatting is
    type IPhoneNumberFormatterStatics_Interface;
    type IPhoneNumberFormatterStatics is access all IPhoneNumberFormatterStatics_Interface'Class;
    type IPhoneNumberFormatterStatics_Ptr is access all IPhoneNumberFormatterStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -397,5 +385,4 @@ package Windows.Globalization.PhoneNumberFormatting is
    )
    return Windows.String;
    
-
 end;

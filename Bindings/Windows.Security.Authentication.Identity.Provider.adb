@@ -385,5 +385,4 @@ package body Windows.Security.Authentication.Identity.Provider is
       return RetVal;
    end;
    
-
 end;

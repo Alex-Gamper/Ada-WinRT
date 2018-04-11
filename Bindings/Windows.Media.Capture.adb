@@ -1041,5 +1041,4 @@ package body Windows.Media.Capture is
       return RetVal;
    end;
    
-
 end;

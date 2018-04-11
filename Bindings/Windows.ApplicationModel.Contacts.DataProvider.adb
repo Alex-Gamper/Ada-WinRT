@@ -92,5 +92,4 @@ package body Windows.ApplicationModel.Contacts.DataProvider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

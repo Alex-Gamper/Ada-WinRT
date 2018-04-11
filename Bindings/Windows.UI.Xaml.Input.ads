@@ -287,10 +287,6 @@ package Windows.UI.Xaml.Input is
    type XYFocusNavigationStrategyOverride_Ptr is access XYFocusNavigationStrategyOverride;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -512,14 +508,6 @@ package Windows.UI.Xaml.Input is
    type IVector_IInputScopeName_Interface;
    type IVector_IInputScopeName is access all IVector_IInputScopeName_Interface'Class;
    type IVector_IInputScopeName_Ptr is access all IVector_IInputScopeName;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3180,5 +3168,4 @@ package Windows.UI.Xaml.Input is
    function GetFocusedElement
    return Windows.Object;
    
-
 end;

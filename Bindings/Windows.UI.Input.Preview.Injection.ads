@@ -315,14 +315,6 @@ package Windows.UI.Input.Preview.Injection is
    type IIterable_IInjectedInputTouchInfo_Ptr is access all IIterable_IInjectedInputTouchInfo;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1046,5 +1038,4 @@ package Windows.UI.Input.Preview.Injection is
    function TryCreate
    return Windows.UI.Input.Preview.Injection.IInputInjector;
    
-
 end;

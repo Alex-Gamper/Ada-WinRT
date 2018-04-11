@@ -52,5 +52,4 @@ package body Windows.System.RemoteDesktop is
       return RetVal;
    end;
    
-
 end;

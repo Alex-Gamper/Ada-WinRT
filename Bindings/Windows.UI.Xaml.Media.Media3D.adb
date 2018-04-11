@@ -570,5 +570,4 @@ package body Windows.UI.Xaml.Media.Media3D is
       return RetVal;
    end;
    
-
 end;

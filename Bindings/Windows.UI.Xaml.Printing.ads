@@ -43,10 +43,6 @@ package Windows.UI.Xaml.Printing is
    type PreviewPageCountType_Ptr is access PreviewPageCountType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -82,14 +78,6 @@ package Windows.UI.Xaml.Printing is
    type IPrintDocumentFactory_Interface;
    type IPrintDocumentFactory is access all IPrintDocumentFactory_Interface'Class;
    type IPrintDocumentFactory_Ptr is access all IPrintDocumentFactory;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -478,5 +466,4 @@ package Windows.UI.Xaml.Printing is
    )
    return Windows.UI.Xaml.Printing.IPrintDocument;
    
-
 end;

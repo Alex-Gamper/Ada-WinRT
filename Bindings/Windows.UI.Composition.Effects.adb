@@ -53,5 +53,4 @@ package body Windows.UI.Composition.Effects is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

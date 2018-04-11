@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.System.Threading.Core is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -57,14 +48,6 @@ package Windows.System.Threading.Core is
    type ISignalNotifier_Interface;
    type ISignalNotifier is access all ISignalNotifier_Interface'Class;
    type ISignalNotifier_Ptr is access all ISignalNotifier;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -258,5 +241,4 @@ package Windows.System.Threading.Core is
    )
    return Windows.System.Threading.Core.ISignalNotifier;
    
-
 end;

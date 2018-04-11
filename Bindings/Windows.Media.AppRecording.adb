@@ -83,5 +83,4 @@ package body Windows.Media.AppRecording is
       return RetVal;
    end;
    
-
 end;

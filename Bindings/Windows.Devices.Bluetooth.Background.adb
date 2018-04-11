@@ -58,5 +58,4 @@ package body Windows.Devices.Bluetooth.Background is
       return RetVal;
    end;
    
-
 end;

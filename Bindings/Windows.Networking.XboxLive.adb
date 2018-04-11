@@ -475,5 +475,4 @@ package body Windows.Networking.XboxLive is
       return RetVal;
    end;
    
-
 end;

@@ -303,14 +303,6 @@ package Windows.ApplicationModel is
    type IAsyncOperation_IPackageCatalogRemoveOptionalPackagesResult_Ptr is access all IAsyncOperation_IPackageCatalogRemoveOptionalPackagesResult;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2046,5 +2038,4 @@ package Windows.ApplicationModel is
    procedure ShowInstalledApplicationsUI
    ;
    
-
 end;

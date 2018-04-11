@@ -19,7 +19,6 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.Foundation.Metadata is
 
    pragma preelaborate;
@@ -161,24 +160,12 @@ package Windows.Foundation.Metadata is
    type DeprecationType_Ptr is access DeprecationType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
    type IApiInformationStatics_Interface;
    type IApiInformationStatics is access all IApiInformationStatics_Interface'Class;
    type IApiInformationStatics_Ptr is access all IApiInformationStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -361,5 +348,4 @@ package Windows.Foundation.Metadata is
    )
    return Windows.Boolean;
    
-
 end;

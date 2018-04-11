@@ -42,10 +42,6 @@ package Windows.UI.Composition.Effects is
    type SceneLightingEffectReflectanceModel_Ptr is access SceneLightingEffectReflectanceModel;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -61,14 +57,6 @@ package Windows.UI.Composition.Effects is
    type IGraphicsEffectSource_Imported_Interface;
    type IGraphicsEffectSource_Imported is access all IGraphicsEffectSource_Imported_Interface'Class;
    type IGraphicsEffectSource_Imported_Ptr is access all IGraphicsEffectSource_Imported;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -205,5 +193,4 @@ package Windows.UI.Composition.Effects is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

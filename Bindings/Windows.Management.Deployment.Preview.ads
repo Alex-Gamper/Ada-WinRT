@@ -19,14 +19,9 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.Management.Deployment.Preview is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Record types
@@ -47,14 +42,6 @@ package Windows.Management.Deployment.Preview is
    type IClassicAppManagerStatics_Interface;
    type IClassicAppManagerStatics is access all IClassicAppManagerStatics_Interface'Class;
    type IClassicAppManagerStatics_Ptr is access all IClassicAppManagerStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -110,5 +97,4 @@ package Windows.Management.Deployment.Preview is
    )
    return Windows.Management.Deployment.Preview.IInstalledClassicAppInfo;
    
-
 end;

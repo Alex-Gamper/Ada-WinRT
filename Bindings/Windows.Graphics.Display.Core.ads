@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Graphics.Display.Core is
 
    pragma preelaborate;
@@ -128,14 +127,6 @@ package Windows.Graphics.Display.Core is
    type IVectorView_IHdmiDisplayMode_Interface;
    type IVectorView_IHdmiDisplayMode is access all IVectorView_IHdmiDisplayMode_Interface'Class;
    type IVectorView_IHdmiDisplayMode_Ptr is access all IVectorView_IHdmiDisplayMode;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -425,5 +416,4 @@ package Windows.Graphics.Display.Core is
    function GetForCurrentView
    return Windows.Graphics.Display.Core.IHdmiDisplayInformation;
    
-
 end;

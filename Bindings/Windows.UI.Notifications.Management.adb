@@ -83,5 +83,4 @@ package body Windows.UI.Notifications.Management is
       return RetVal;
    end;
    
-
 end;

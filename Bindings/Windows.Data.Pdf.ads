@@ -50,10 +50,6 @@ package Windows.Data.Pdf is
    type PdfPageRotation_Ptr is access PdfPageRotation;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -83,14 +79,6 @@ package Windows.Data.Pdf is
    type IAsyncOperation_IPdfDocument_Interface;
    type IAsyncOperation_IPdfDocument is access all IAsyncOperation_IPdfDocument_Interface'Class;
    type IAsyncOperation_IPdfDocument_Ptr is access all IAsyncOperation_IPdfDocument;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -446,5 +434,4 @@ package Windows.Data.Pdf is
    )
    return Windows.Data.Pdf.IAsyncOperation_IPdfDocument;
    
-
 end;

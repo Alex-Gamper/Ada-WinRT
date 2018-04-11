@@ -295,5 +295,4 @@ package body Windows.UI.Xaml.Resources is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

@@ -251,10 +251,6 @@ package Windows.UI.Composition is
    type CompositionStretch_Ptr is access CompositionStretch;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -623,14 +619,6 @@ package Windows.UI.Composition is
    type IGraphicsEffectSource_Imported_Interface;
    type IGraphicsEffectSource_Imported is access all IGraphicsEffectSource_Imported_Interface'Class;
    type IGraphicsEffectSource_Imported_Ptr is access all IGraphicsEffectSource_Imported;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -4929,5 +4917,4 @@ package Windows.UI.Composition is
    function GetForCurrentView
    return Windows.UI.Composition.ICompositionCapabilities;
    
-
 end;

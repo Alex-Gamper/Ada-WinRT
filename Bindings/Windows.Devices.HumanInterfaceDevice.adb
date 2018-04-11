@@ -158,5 +158,4 @@ package body Windows.Devices.HumanInterfaceDevice is
       return RetVal;
    end;
    
-
 end;

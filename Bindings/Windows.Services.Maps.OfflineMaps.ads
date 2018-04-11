@@ -80,10 +80,6 @@ package Windows.Services.Maps.OfflineMaps is
    type OfflineMapPackageStartDownloadStatus_Ptr is access OfflineMapPackageStartDownloadStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -128,14 +124,6 @@ package Windows.Services.Maps.OfflineMaps is
    type IAsyncOperation_IOfflineMapPackageQueryResult_Interface;
    type IAsyncOperation_IOfflineMapPackageQueryResult is access all IAsyncOperation_IOfflineMapPackageQueryResult_Interface'Class;
    type IAsyncOperation_IOfflineMapPackageQueryResult_Ptr is access all IAsyncOperation_IOfflineMapPackageQueryResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -474,5 +462,4 @@ package Windows.Services.Maps.OfflineMaps is
    )
    return Windows.Services.Maps.OfflineMaps.IAsyncOperation_IOfflineMapPackageQueryResult;
    
-
 end;

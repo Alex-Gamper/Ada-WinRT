@@ -66,5 +66,4 @@ package body Windows.Graphics.Printing.PrintTicket is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

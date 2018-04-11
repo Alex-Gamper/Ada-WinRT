@@ -52,10 +52,6 @@ package Windows.Management.Policies is
    type NamedPolicyKind_Ptr is access NamedPolicyKind;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -73,14 +69,6 @@ package Windows.Management.Policies is
    type INamedPolicyStatics_Interface;
    type INamedPolicyStatics is access all INamedPolicyStatics_Interface'Class;
    type INamedPolicyStatics_Ptr is access all INamedPolicyStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -251,5 +239,4 @@ package Windows.Management.Policies is
    )
    return Windows.Management.Policies.INamedPolicyData;
    
-
 end;

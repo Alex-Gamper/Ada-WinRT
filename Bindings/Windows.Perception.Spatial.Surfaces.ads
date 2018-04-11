@@ -31,14 +31,6 @@ package Windows.Perception.Spatial.Surfaces is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -80,14 +72,6 @@ package Windows.Perception.Spatial.Surfaces is
    type IAsyncOperation_ISpatialSurfaceMesh_Interface;
    type IAsyncOperation_ISpatialSurfaceMesh is access all IAsyncOperation_ISpatialSurfaceMesh_Interface'Class;
    type IAsyncOperation_ISpatialSurfaceMesh_Ptr is access all IAsyncOperation_ISpatialSurfaceMesh;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -469,5 +453,4 @@ package Windows.Perception.Spatial.Surfaces is
    function IsSupported
    return Windows.Boolean;
    
-
 end;

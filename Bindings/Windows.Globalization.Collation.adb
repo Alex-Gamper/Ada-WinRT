@@ -55,5 +55,4 @@ package body Windows.Globalization.Collation is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

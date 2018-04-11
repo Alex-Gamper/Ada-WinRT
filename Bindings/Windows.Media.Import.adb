@@ -171,5 +171,4 @@ package body Windows.Media.Import is
       return RetVal;
    end;
    
-
 end;

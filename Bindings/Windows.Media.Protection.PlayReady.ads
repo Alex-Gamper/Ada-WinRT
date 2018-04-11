@@ -246,10 +246,6 @@ package Windows.Media.Protection.PlayReady is
    type NDStartAsyncOptions_Ptr is access NDStartAsyncOptions;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -468,14 +464,6 @@ package Windows.Media.Protection.PlayReady is
    type IAsyncOperation_INDLicenseFetchResult_Interface;
    type IAsyncOperation_INDLicenseFetchResult is access all IAsyncOperation_INDLicenseFetchResult_Interface'Class;
    type IAsyncOperation_INDLicenseFetchResult_Ptr is access all IAsyncOperation_INDLicenseFetchResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2612,5 +2600,4 @@ package Windows.Media.Protection.PlayReady is
    function get_ProtectionSystemId
    return Windows.Guid;
    
-
 end;

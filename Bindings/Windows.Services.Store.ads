@@ -332,14 +332,6 @@ package Windows.Services.Store is
    type IVectorView_StorePackageUpdateStatus_Ptr is access all IVectorView_StorePackageUpdateStatus;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2438,5 +2430,4 @@ package Windows.Services.Store is
    )
    return Windows.Services.Store.IAsyncOperation_IStoreSendRequestResult;
    
-
 end;

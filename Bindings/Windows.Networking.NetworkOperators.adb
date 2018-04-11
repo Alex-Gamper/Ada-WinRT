@@ -910,5 +910,4 @@ package body Windows.Networking.NetworkOperators is
       return RetVal;
    end;
    
-
 end;

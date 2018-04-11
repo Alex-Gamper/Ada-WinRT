@@ -73,5 +73,4 @@ package body Windows.Web.Http.Filters is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

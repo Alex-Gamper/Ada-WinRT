@@ -164,10 +164,6 @@ package Windows.UI.Input.Inking is
    type InkPersistenceFormat_Ptr is access InkPersistenceFormat;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -377,14 +373,6 @@ package Windows.UI.Input.Inking is
    type IVectorView_IInkRecognizer_Interface;
    type IVectorView_IInkRecognizer is access all IVectorView_IInkRecognizer_Interface'Class;
    type IVectorView_IInkRecognizer_Ptr is access all IVectorView_IInkRecognizer;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2654,5 +2642,4 @@ package Windows.UI.Input.Inking is
    function CreateForPencil
    return Windows.UI.Input.Inking.IInkDrawingAttributes;
    
-
 end;

@@ -63,10 +63,6 @@ package Windows.Gaming.Preview.GamesEnumeration is
    type GameListEntryLaunchableState_Ptr is access GameListEntryLaunchableState;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -108,14 +104,6 @@ package Windows.Gaming.Preview.GamesEnumeration is
    type IAsyncOperation_IGameListEntry_Interface;
    type IAsyncOperation_IGameListEntry is access all IAsyncOperation_IGameListEntry_Interface'Class;
    type IAsyncOperation_IGameListEntry_Ptr is access all IAsyncOperation_IGameListEntry;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -624,5 +612,4 @@ package Windows.Gaming.Preview.GamesEnumeration is
    )
    ;
    
-
 end;

@@ -86,5 +86,4 @@ package body Windows.Graphics.Printing.OptionDetails is
       return RetVal;
    end;
    
-
 end;

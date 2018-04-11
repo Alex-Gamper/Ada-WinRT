@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.System.Threading is
 
    pragma preelaborate;
@@ -56,10 +55,6 @@ package Windows.System.Threading is
    type WorkItemOptions_Ptr is access WorkItemOptions;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -86,14 +81,6 @@ package Windows.System.Threading is
    type IThreadPoolTimerStatics_Interface;
    type IThreadPoolTimerStatics is access all IThreadPoolTimerStatics_Interface'Class;
    type IThreadPoolTimerStatics_Ptr is access all IThreadPoolTimerStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -303,5 +290,4 @@ package Windows.System.Threading is
    )
    return Windows.Foundation.IAsyncAction;
    
-
 end;

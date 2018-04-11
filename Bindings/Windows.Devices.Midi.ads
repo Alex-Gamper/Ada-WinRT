@@ -80,10 +80,6 @@ package Windows.Devices.Midi is
    type MidiMessageType_Ptr is access MidiMessageType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -200,14 +196,6 @@ package Windows.Devices.Midi is
    type IAsyncOperation_IMidiSynthesizer_Interface;
    type IAsyncOperation_IMidiSynthesizer is access all IAsyncOperation_IMidiSynthesizer_Interface'Class;
    type IAsyncOperation_IMidiSynthesizer_Ptr is access all IAsyncOperation_IMidiSynthesizer;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1097,5 +1085,4 @@ package Windows.Devices.Midi is
    )
    return Windows.Boolean;
    
-
 end;

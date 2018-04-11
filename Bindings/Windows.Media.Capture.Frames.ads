@@ -144,10 +144,6 @@ package Windows.Media.Capture.Frames is
    type MediaFrameReaderAcquisitionMode_Ptr is access MediaFrameReaderAcquisitionMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -300,14 +296,6 @@ package Windows.Media.Capture.Frames is
    type IAsyncOperation_MediaFrameSourceSetPropertyStatus_Interface;
    type IAsyncOperation_MediaFrameSourceSetPropertyStatus is access all IAsyncOperation_MediaFrameSourceSetPropertyStatus_Interface'Class;
    type IAsyncOperation_MediaFrameSourceSetPropertyStatus_Ptr is access all IAsyncOperation_MediaFrameSourceSetPropertyStatus;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1618,5 +1606,4 @@ package Windows.Media.Capture.Frames is
    function GetDeviceSelector
    return Windows.String;
    
-
 end;

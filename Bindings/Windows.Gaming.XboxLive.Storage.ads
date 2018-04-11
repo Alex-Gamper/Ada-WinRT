@@ -71,10 +71,6 @@ package Windows.Gaming.XboxLive.Storage is
    type GameSaveErrorStatus_Ptr is access GameSaveErrorStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -179,14 +175,6 @@ package Windows.Gaming.XboxLive.Storage is
    type IVectorView_IGameSaveBlobInfo_Interface;
    type IVectorView_IGameSaveBlobInfo is access all IVectorView_IGameSaveBlobInfo_Interface'Class;
    type IVectorView_IGameSaveBlobInfo_Ptr is access all IVectorView_IGameSaveBlobInfo;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1062,5 +1050,4 @@ package Windows.Gaming.XboxLive.Storage is
    )
    return Windows.Gaming.XboxLive.Storage.IAsyncOperation_IGameSaveProviderGetResult;
    
-
 end;

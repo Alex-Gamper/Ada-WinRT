@@ -52,10 +52,6 @@ package Windows.System.Diagnostics.DevicePortal is
    type DevicePortalConnectionClosedReason_Ptr is access DevicePortalConnectionClosedReason;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -82,14 +78,6 @@ package Windows.System.Diagnostics.DevicePortal is
    type IDevicePortalConnection_Interface;
    type IDevicePortalConnection is access all IDevicePortalConnection_Interface'Class;
    type IDevicePortalConnection_Ptr is access all IDevicePortalConnection;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -226,5 +214,4 @@ package Windows.System.Diagnostics.DevicePortal is
    )
    return Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection;
    
-
 end;

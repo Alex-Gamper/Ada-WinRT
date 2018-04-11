@@ -124,5 +124,4 @@ package body Windows.Management is
       return RetVal;
    end;
    
-
 end;

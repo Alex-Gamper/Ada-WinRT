@@ -4909,5 +4909,4 @@ package body Windows.UI.Xaml.Media.Animation is
       return RetVal;
    end;
    
-
 end;

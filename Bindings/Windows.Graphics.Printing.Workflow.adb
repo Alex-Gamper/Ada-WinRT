@@ -95,5 +95,4 @@ package body Windows.Graphics.Printing.Workflow is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

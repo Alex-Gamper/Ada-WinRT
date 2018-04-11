@@ -445,5 +445,4 @@ package body Windows.Networking.Sockets is
       return RetVal;
    end;
    
-
 end;

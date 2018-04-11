@@ -750,5 +750,4 @@ package body Windows.Graphics.Imaging is
       return RetVal;
    end;
    
-
 end;

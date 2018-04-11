@@ -575,5 +575,4 @@ package body Windows.Devices.Midi is
       return RetVal;
    end;
    
-
 end;

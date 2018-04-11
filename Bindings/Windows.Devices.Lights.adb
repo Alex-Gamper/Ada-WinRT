@@ -120,5 +120,4 @@ package body Windows.Devices.Lights is
       return RetVal;
    end;
    
-
 end;

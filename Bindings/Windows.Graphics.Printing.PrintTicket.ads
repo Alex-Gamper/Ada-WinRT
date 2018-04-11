@@ -72,10 +72,6 @@ package Windows.Graphics.Printing.PrintTicket is
    type PrintTicketValueType_Ptr is access PrintTicketValueType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -129,14 +125,6 @@ package Windows.Graphics.Printing.PrintTicket is
    type IAsyncOperation_IWorkflowPrintTicket_Interface;
    type IAsyncOperation_IWorkflowPrintTicket is access all IAsyncOperation_IWorkflowPrintTicket_Interface'Class;
    type IAsyncOperation_IWorkflowPrintTicket_Ptr is access all IAsyncOperation_IWorkflowPrintTicket;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -963,5 +951,4 @@ package Windows.Graphics.Printing.PrintTicket is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

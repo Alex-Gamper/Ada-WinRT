@@ -806,14 +806,6 @@ package Windows.Graphics.Printing is
    type IPrintManager_Ptr is access all IPrintManager;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1707,5 +1699,4 @@ package Windows.Graphics.Printing is
    function ShowPrintUIAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-
 end;

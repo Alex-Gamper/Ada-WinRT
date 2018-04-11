@@ -609,5 +609,4 @@ package body Windows.Security.Authentication.Web.Provider is
       return RetVal;
    end;
    
-
 end;

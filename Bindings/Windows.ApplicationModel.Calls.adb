@@ -680,5 +680,4 @@ package body Windows.ApplicationModel.Calls is
       return RetVal;
    end;
    
-
 end;

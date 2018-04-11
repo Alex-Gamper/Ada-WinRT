@@ -1820,5 +1820,4 @@ package body Windows.Storage is
       return RetVal;
    end;
    
-
 end;

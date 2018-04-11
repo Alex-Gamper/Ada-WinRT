@@ -437,10 +437,6 @@ package Windows.ApplicationModel.Contacts is
    type PinnedContactSurface_Ptr is access PinnedContactSurface;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -899,14 +895,6 @@ package Windows.ApplicationModel.Contacts is
    type IAsyncOperation_IPinnedContactIdsQueryResult_Interface;
    type IAsyncOperation_IPinnedContactIdsQueryResult is access all IAsyncOperation_IPinnedContactIdsQueryResult_Interface'Class;
    type IAsyncOperation_IPinnedContactIdsQueryResult_Ptr is access all IAsyncOperation_IPinnedContactIdsQueryResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -7384,5 +7372,4 @@ package Windows.ApplicationModel.Contacts is
    function IsSupported
    return Windows.Boolean;
    
-
 end;

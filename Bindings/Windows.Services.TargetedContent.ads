@@ -268,14 +268,6 @@ package Windows.Services.TargetedContent is
    type IVectorView_ITargetedContentAction_Ptr is access all IVectorView_ITargetedContentAction;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1346,5 +1338,4 @@ package Windows.Services.TargetedContent is
    )
    return Windows.Services.TargetedContent.IAsyncOperation_ITargetedContentContainer;
    
-
 end;

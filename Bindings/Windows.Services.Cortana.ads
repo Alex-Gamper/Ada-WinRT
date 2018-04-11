@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Services.Cortana is
 
    pragma preelaborate;
@@ -75,10 +74,6 @@ package Windows.Services.Cortana is
    type CortanaPermission_Ptr is access CortanaPermission;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -111,14 +106,6 @@ package Windows.Services.Cortana is
    type IAsyncOperation_CortanaPermissionsChangeResult_Interface;
    type IAsyncOperation_CortanaPermissionsChangeResult is access all IAsyncOperation_CortanaPermissionsChangeResult_Interface'Class;
    type IAsyncOperation_CortanaPermissionsChangeResult_Ptr is access all IAsyncOperation_CortanaPermissionsChangeResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -333,5 +320,4 @@ package Windows.Services.Cortana is
    function GetDefault
    return Windows.Services.Cortana.ICortanaSettings;
    
-
 end;

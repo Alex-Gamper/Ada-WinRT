@@ -240,5 +240,4 @@ package body Windows.Media.ClosedCaptioning is
       return RetVal;
    end;
    
-
 end;

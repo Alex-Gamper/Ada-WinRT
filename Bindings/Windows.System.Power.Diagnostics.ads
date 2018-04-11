@@ -19,18 +19,9 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.System.Power.Diagnostics is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -42,14 +33,6 @@ package Windows.System.Power.Diagnostics is
    type IForegroundEnergyDiagnosticsStatics_Interface;
    type IForegroundEnergyDiagnosticsStatics is access all IForegroundEnergyDiagnosticsStatics_Interface'Class;
    type IForegroundEnergyDiagnosticsStatics_Ptr is access all IForegroundEnergyDiagnosticsStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -134,5 +117,4 @@ package Windows.System.Power.Diagnostics is
    procedure ResetTotalEnergyUsage_ForegroundEnergyDiagnostics
    ;
    
-
 end;

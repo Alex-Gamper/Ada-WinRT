@@ -6879,5 +6879,4 @@ package body Windows.UI.Xaml is
       return RetVal;
    end;
    
-
 end;

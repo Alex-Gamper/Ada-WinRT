@@ -181,5 +181,4 @@ package body Windows.Devices.Gpio is
       return RetVal;
    end;
    
-
 end;

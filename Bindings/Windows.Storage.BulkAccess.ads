@@ -30,14 +30,6 @@ package Windows.Storage.BulkAccess is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -70,14 +62,6 @@ package Windows.Storage.BulkAccess is
    type IStorageFolderQueryOperations_Imported_Interface;
    type IStorageFolderQueryOperations_Imported is access all IStorageFolderQueryOperations_Imported_Interface'Class;
    type IStorageFolderQueryOperations_Imported_Ptr is access all IStorageFolderQueryOperations_Imported;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -524,5 +508,4 @@ package Windows.Storage.BulkAccess is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

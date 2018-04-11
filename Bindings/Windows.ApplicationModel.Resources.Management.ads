@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.Resources.Management is
 
    pragma preelaborate;
@@ -81,14 +80,6 @@ package Windows.ApplicationModel.Resources.Management is
    type IVectorView_IIndexedResourceQualifier_Interface;
    type IVectorView_IIndexedResourceQualifier is access all IVectorView_IIndexedResourceQualifier_Interface'Class;
    type IVectorView_IIndexedResourceQualifier_Ptr is access all IVectorView_IIndexedResourceQualifier;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -320,5 +311,4 @@ package Windows.ApplicationModel.Resources.Management is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

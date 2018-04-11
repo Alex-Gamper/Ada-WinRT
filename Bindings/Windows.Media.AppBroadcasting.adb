@@ -107,5 +107,4 @@ package body Windows.Media.AppBroadcasting is
       return RetVal;
    end;
    
-
 end;

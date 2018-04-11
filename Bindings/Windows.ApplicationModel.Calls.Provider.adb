@@ -121,5 +121,4 @@ package body Windows.ApplicationModel.Calls.Provider is
       return RetVal;
    end;
    
-
 end;

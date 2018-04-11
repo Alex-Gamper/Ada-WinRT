@@ -20,14 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.System.Profile.SystemManufacturers is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Record types
@@ -51,14 +46,6 @@ package Windows.System.Profile.SystemManufacturers is
    type ISmbiosInformationStatics_Interface;
    type ISmbiosInformationStatics is access all ISmbiosInformationStatics_Interface'Class;
    type ISmbiosInformationStatics_Ptr is access all ISmbiosInformationStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -143,5 +130,4 @@ package Windows.System.Profile.SystemManufacturers is
    function get_SerialNumber
    return Windows.String;
    
-
 end;

@@ -403,5 +403,4 @@ package body Windows.Security.Authentication.Web.Core is
       return RetVal;
    end;
    
-
 end;

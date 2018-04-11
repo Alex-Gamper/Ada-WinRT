@@ -169,5 +169,4 @@ package body Windows.Storage.FileProperties is
       return RetVal;
    end;
    
-
 end;

@@ -98,10 +98,6 @@ package Windows.UI.StartScreen is
    type ForegroundText_Ptr is access ForegroundText;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -197,14 +193,6 @@ package Windows.UI.StartScreen is
    type IVectorView_ISecondaryTileVisualElements_Interface;
    type IVectorView_ISecondaryTileVisualElements is access all IVectorView_ISecondaryTileVisualElements_Interface'Class;
    type IVectorView_ISecondaryTileVisualElements_Ptr is access all IVectorView_ISecondaryTileVisualElements;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1505,5 +1493,4 @@ package Windows.UI.StartScreen is
    )
    return Windows.UI.StartScreen.IStartScreenManager;
    
-
 end;

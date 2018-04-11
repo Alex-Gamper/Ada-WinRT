@@ -70,5 +70,4 @@ package body Windows.UI.Input.Inking.Analysis is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

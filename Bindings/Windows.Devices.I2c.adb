@@ -181,5 +181,4 @@ package body Windows.Devices.I2c is
       return RetVal;
    end;
    
-
 end;

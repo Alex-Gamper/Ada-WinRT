@@ -52,5 +52,4 @@ package body Windows.System.Display is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

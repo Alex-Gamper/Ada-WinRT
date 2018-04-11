@@ -4073,5 +4073,4 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
-
 end;

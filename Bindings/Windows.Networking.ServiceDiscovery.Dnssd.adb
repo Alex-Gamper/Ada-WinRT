@@ -133,5 +133,4 @@ package body Windows.Networking.ServiceDiscovery.Dnssd is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

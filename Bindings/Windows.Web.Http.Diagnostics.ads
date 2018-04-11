@@ -125,14 +125,6 @@ package Windows.Web.Http.Diagnostics is
    type IVectorView_IHttpDiagnosticSourceLocation_Ptr is access all IVectorView_IHttpDiagnosticSourceLocation;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -597,5 +589,4 @@ package Windows.Web.Http.Diagnostics is
    )
    return Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider;
    
-
 end;

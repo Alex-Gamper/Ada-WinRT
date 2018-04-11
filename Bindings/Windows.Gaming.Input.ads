@@ -660,14 +660,6 @@ package Windows.Gaming.Input is
    type IVectorView_IUINavigationController_Ptr is access all IVectorView_IUINavigationController;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2246,5 +2238,4 @@ package Windows.Gaming.Input is
    function get_UINavigationControllers
    return Windows.Gaming.Input.IVectorView_IUINavigationController;
    
-
 end;

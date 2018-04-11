@@ -148,5 +148,4 @@ package body Windows.Gaming.XboxLive.Storage is
       return RetVal;
    end;
    
-
 end;

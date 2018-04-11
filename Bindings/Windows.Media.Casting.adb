@@ -230,5 +230,4 @@ package body Windows.Media.Casting is
       return RetVal;
    end;
    
-
 end;

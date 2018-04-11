@@ -97,10 +97,6 @@ package Windows.Security.Cryptography.Core is
    type CryptographicPadding_Ptr is access CryptographicPadding;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -205,14 +201,6 @@ package Windows.Security.Cryptography.Core is
    type IAsyncOperation_ICryptographicKey_Interface;
    type IAsyncOperation_ICryptographicKey is access all IAsyncOperation_ICryptographicKey_Interface'Class;
    type IAsyncOperation_ICryptographicKey_Ptr is access all IAsyncOperation_ICryptographicKey;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2279,5 +2267,4 @@ package Windows.Security.Cryptography.Core is
    function get_Sp80056aConcatSha512
    return Windows.String;
    
-
 end;

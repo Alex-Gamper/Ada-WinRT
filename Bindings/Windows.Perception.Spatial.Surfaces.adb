@@ -187,5 +187,4 @@ package body Windows.Perception.Spatial.Surfaces is
       return RetVal;
    end;
    
-
 end;

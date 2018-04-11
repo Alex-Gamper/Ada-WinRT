@@ -43,10 +43,6 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    type CoreDragUIContentMode_Ptr is access CoreDragUIContentMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -85,14 +81,6 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    type ICoreDropOperationTargetRequestedEventArgs_Interface;
    type ICoreDropOperationTargetRequestedEventArgs is access all ICoreDropOperationTargetRequestedEventArgs_Interface'Class;
    type ICoreDropOperationTargetRequestedEventArgs_Ptr is access all ICoreDropOperationTargetRequestedEventArgs;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -435,5 +423,4 @@ package Windows.ApplicationModel.DataTransfer.DragDrop.Core is
    function GetForCurrentView
    return Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager;
    
-
 end;

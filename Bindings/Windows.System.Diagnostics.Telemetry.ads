@@ -19,7 +19,6 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.System.Diagnostics.Telemetry is
 
    pragma preelaborate;
@@ -43,10 +42,6 @@ package Windows.System.Diagnostics.Telemetry is
    type PlatformTelemetryRegistrationStatus_Ptr is access PlatformTelemetryRegistrationStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -59,14 +54,6 @@ package Windows.System.Diagnostics.Telemetry is
    type IPlatformTelemetryClientStatics_Interface;
    type IPlatformTelemetryClientStatics is access all IPlatformTelemetryClientStatics_Interface'Class;
    type IPlatformTelemetryClientStatics_Ptr is access all IPlatformTelemetryClientStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -169,5 +156,4 @@ package Windows.System.Diagnostics.Telemetry is
    )
    return Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationResult;
    
-
 end;

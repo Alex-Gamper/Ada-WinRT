@@ -545,5 +545,4 @@ package body Windows.ApplicationModel.Chat is
       return RetVal;
    end;
    
-
 end;

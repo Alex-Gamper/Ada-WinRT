@@ -140,10 +140,6 @@ package Windows.ApplicationModel.Store.Preview is
    type StoreLogOptions_Ptr is access StoreLogOptions;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -203,14 +199,6 @@ package Windows.ApplicationModel.Store.Preview is
    type IIterable_StoreSystemFeature_Interface;
    type IIterable_StoreSystemFeature is access all IIterable_StoreSystemFeature_Interface'Class;
    type IIterable_StoreSystemFeature_Ptr is access all IIterable_StoreSystemFeature;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -969,5 +957,4 @@ package Windows.ApplicationModel.Store.Preview is
    )
    return Windows.Security.Authentication.Web.Core.IAsyncOperation_IWebTokenRequestResult;
    
-
 end;

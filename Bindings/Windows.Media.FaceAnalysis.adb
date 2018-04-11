@@ -209,5 +209,4 @@ package body Windows.Media.FaceAnalysis is
       return RetVal;
    end;
    
-
 end;

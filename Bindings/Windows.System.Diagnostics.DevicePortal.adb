@@ -87,5 +87,4 @@ package body Windows.System.Diagnostics.DevicePortal is
       return RetVal;
    end;
    
-
 end;

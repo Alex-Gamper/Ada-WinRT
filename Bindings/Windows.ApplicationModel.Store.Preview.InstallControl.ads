@@ -115,10 +115,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    type AutoUpdateSetting_Ptr is access AutoUpdateSetting;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -196,14 +192,6 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    type IAsyncOperation_IGetEntitlementResult_Interface;
    type IAsyncOperation_IGetEntitlementResult is access all IAsyncOperation_IGetEntitlementResult_Interface'Class;
    type IAsyncOperation_IGetEntitlementResult_Ptr is access all IAsyncOperation_IGetEntitlementResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1056,5 +1044,4 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

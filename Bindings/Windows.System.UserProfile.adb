@@ -725,5 +725,4 @@ package body Windows.System.UserProfile is
       return RetVal;
    end;
    
-
 end;

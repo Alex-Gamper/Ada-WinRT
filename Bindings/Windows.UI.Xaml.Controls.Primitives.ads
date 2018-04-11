@@ -619,14 +619,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IVectorView_IPopup_Ptr is access all IVectorView_IPopup;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -8320,5 +8312,4 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItem;
    
-
 end;

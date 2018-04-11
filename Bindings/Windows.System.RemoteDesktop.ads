@@ -19,18 +19,9 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.System.RemoteDesktop is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -39,14 +30,6 @@ package Windows.System.RemoteDesktop is
    type IInteractiveSessionStatics_Interface;
    type IInteractiveSessionStatics is access all IInteractiveSessionStatics_Interface'Class;
    type IInteractiveSessionStatics_Ptr is access all IInteractiveSessionStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -77,5 +60,4 @@ package Windows.System.RemoteDesktop is
    function get_IsRemote
    return Windows.Boolean;
    
-
 end;

@@ -74,10 +74,6 @@ package Windows.Web.Http.Filters is
    type HttpCookieUsageBehavior_Ptr is access HttpCookieUsageBehavior;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -110,14 +106,6 @@ package Windows.Web.Http.Filters is
    type IHttpBaseProtocolFilter4_Interface;
    type IHttpBaseProtocolFilter4 is access all IHttpBaseProtocolFilter4_Interface'Class;
    type IHttpBaseProtocolFilter4_Ptr is access all IHttpBaseProtocolFilter4;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -463,5 +451,4 @@ package Windows.Web.Http.Filters is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

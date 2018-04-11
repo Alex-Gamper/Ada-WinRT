@@ -108,5 +108,4 @@ package body Windows.ApplicationModel.UserActivities is
       return RetVal;
    end;
    
-
 end;

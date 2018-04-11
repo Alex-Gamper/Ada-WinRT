@@ -105,10 +105,6 @@ package Windows.Devices.AllJoyn is
    type AllJoynSessionLostReason_Ptr is access AllJoynSessionLostReason;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -303,14 +299,6 @@ package Windows.Devices.AllJoyn is
    type IAsyncOperation_IAllJoynServiceInfo_Interface;
    type IAsyncOperation_IAllJoynServiceInfo is access all IAsyncOperation_IAllJoynServiceInfo_Interface'Class;
    type IAsyncOperation_IAllJoynServiceInfo_Ptr is access all IAsyncOperation_IAllJoynServiceInfo;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2387,5 +2375,4 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAsyncOperation_IAllJoynSession;
    
-
 end;

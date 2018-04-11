@@ -102,10 +102,6 @@ package Windows.Media.DialProtocol is
    type DialDeviceDisplayStatus_Ptr is access DialDeviceDisplayStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -180,14 +176,6 @@ package Windows.Media.DialProtocol is
    type IAsyncOperation_IDialDevice_Interface;
    type IAsyncOperation_IDialDevice is access all IAsyncOperation_IDialDevice_Interface'Class;
    type IAsyncOperation_IDialDevice_Ptr is access all IAsyncOperation_IDialDevice;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -747,5 +735,4 @@ package Windows.Media.DialProtocol is
    function get_Current
    return Windows.Media.DialProtocol.IDialReceiverApp;
    
-
 end;

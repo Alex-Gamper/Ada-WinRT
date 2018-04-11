@@ -205,5 +205,4 @@ package body Windows.System.Diagnostics.TraceReporting is
       return RetVal;
    end;
    
-
 end;

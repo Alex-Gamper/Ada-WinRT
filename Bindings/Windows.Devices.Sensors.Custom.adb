@@ -105,5 +105,4 @@ package body Windows.Devices.Sensors.Custom is
       return RetVal;
    end;
    
-
 end;

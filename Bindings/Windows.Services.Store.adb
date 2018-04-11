@@ -248,5 +248,4 @@ package body Windows.Services.Store is
       return RetVal;
    end;
    
-
 end;

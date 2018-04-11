@@ -2475,5 +2475,4 @@ package body Windows.UI is
       return RetVal;
    end;
    
-
 end;

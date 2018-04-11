@@ -173,10 +173,6 @@ package Windows.Devices.WiFi is
    type WiFiWpsConfigurationStatus_Ptr is access WiFiWpsConfigurationStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -251,14 +247,6 @@ package Windows.Devices.WiFi is
    type IVectorView_WiFiWpsKind_Interface;
    type IVectorView_WiFiWpsKind is access all IVectorView_WiFiWpsKind_Interface'Class;
    type IVectorView_WiFiWpsKind_Ptr is access all IVectorView_WiFiWpsKind;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -919,5 +907,4 @@ package Windows.Devices.WiFi is
    function RequestAccessAsync
    return Windows.Devices.WiFi.IAsyncOperation_WiFiAccessStatus;
    
-
 end;

@@ -532,14 +532,6 @@ package Windows.Graphics.Printing3D is
    type IAsyncOperation_IPrinting3DModel_Ptr is access all IAsyncOperation_IPrinting3DModel;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -4916,5 +4908,4 @@ package Windows.Graphics.Printing3D is
    )
    return Windows.Graphics.Printing3D.IAsyncOperation_IPrinting3D3MFPackage;
    
-
 end;

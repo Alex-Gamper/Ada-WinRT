@@ -27,14 +27,6 @@ package Windows.UI.Shell is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -50,14 +42,6 @@ package Windows.UI.Shell is
    type ITaskbarManagerStatics_Interface;
    type ITaskbarManagerStatics is access all ITaskbarManagerStatics_Interface'Class;
    type ITaskbarManagerStatics_Ptr is access all ITaskbarManagerStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -172,5 +156,4 @@ package Windows.UI.Shell is
    function GetDefault
    return Windows.UI.Shell.ITaskbarManager;
    
-
 end;

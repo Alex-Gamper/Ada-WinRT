@@ -570,5 +570,4 @@ package body Windows.Graphics.Printing3D is
       return RetVal;
    end;
    
-
 end;

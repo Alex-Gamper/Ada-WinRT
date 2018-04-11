@@ -161,10 +161,6 @@ package Windows.Media.MediaProperties is
    type MediaMirroringOptions_Ptr is access MediaMirroringOptions;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -290,14 +286,6 @@ package Windows.Media.MediaProperties is
    type IVectorView_IAudioEncodingProperties_Interface;
    type IVectorView_IAudioEncodingProperties is access all IVectorView_IAudioEncodingProperties_Interface'Class;
    type IVectorView_IAudioEncodingProperties_Ptr is access all IVectorView_IAudioEncodingProperties;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2197,5 +2185,4 @@ package Windows.Media.MediaProperties is
    )
    return Windows.Media.MediaProperties.IMediaEncodingProfile;
    
-
 end;

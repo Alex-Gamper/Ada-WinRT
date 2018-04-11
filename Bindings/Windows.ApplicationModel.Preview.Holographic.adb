@@ -73,5 +73,4 @@ package body Windows.ApplicationModel.Preview.Holographic is
       return RetVal;
    end;
    
-
 end;

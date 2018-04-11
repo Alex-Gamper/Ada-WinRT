@@ -113,10 +113,6 @@ package Windows.Media.Effects is
    type MediaEffectClosedReason_Ptr is access MediaEffectClosedReason;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -221,14 +217,6 @@ package Windows.Media.Effects is
    type IVectorView_IAudioEffect_Interface;
    type IVectorView_IAudioEffect is access all IVectorView_IAudioEffect_Interface'Class;
    type IVectorView_IAudioEffect_Ptr is access all IVectorView_IAudioEffect;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1416,5 +1404,4 @@ package Windows.Media.Effects is
    )
    return Windows.Media.Effects.IAudioCaptureEffectsManager;
    
-
 end;

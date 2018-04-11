@@ -19,18 +19,9 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.UI.Xaml.Resources is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -48,14 +39,6 @@ package Windows.UI.Xaml.Resources is
    type ICustomXamlResourceLoaderFactory_Interface;
    type ICustomXamlResourceLoaderFactory is access all ICustomXamlResourceLoaderFactory_Interface'Class;
    type ICustomXamlResourceLoaderFactory_Ptr is access all ICustomXamlResourceLoaderFactory;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -263,5 +246,4 @@ package Windows.UI.Xaml.Resources is
    )
    ;
    
-
 end;

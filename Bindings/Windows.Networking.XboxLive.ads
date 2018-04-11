@@ -311,14 +311,6 @@ package Windows.Networking.XboxLive is
    type IVectorView_IXboxLiveQualityOfServicePrivatePayloadResult_Ptr is access all IVectorView_IXboxLiveQualityOfServicePrivatePayloadResult;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1930,5 +1922,4 @@ package Windows.Networking.XboxLive is
    function get_MaxPrivatePayloadSize
    return Windows.UInt32;
    
-
 end;

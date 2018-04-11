@@ -30,10 +30,6 @@ package Windows.Devices is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
    
@@ -58,14 +54,6 @@ package Windows.Devices is
    type ILowLevelDevicesControllerStatics_Interface;
    type ILowLevelDevicesControllerStatics is access all ILowLevelDevicesControllerStatics_Interface'Class;
    type ILowLevelDevicesControllerStatics_Ptr is access all ILowLevelDevicesControllerStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -187,5 +175,4 @@ package Windows.Devices is
    )
    ;
    
-
 end;

@@ -118,5 +118,4 @@ package body Windows.ApplicationModel.Appointments.DataProvider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

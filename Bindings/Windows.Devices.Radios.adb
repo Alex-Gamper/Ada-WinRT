@@ -149,5 +149,4 @@ package body Windows.Devices.Radios is
       return RetVal;
    end;
    
-
 end;

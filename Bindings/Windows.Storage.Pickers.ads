@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Storage.Pickers is
 
    pragma preelaborate;
@@ -69,10 +68,6 @@ package Windows.Storage.Pickers is
    for PickerLocationId'Size use 32;
    
    type PickerLocationId_Ptr is access PickerLocationId;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -123,14 +118,6 @@ package Windows.Storage.Pickers is
    type IFolderPicker2_Interface;
    type IFolderPicker2 is access all IFolderPicker2_Interface'Class;
    type IFolderPicker2_Ptr is access all IFolderPicker2;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -767,5 +754,4 @@ package Windows.Storage.Pickers is
    function ResumePickSingleFileAsync
    return Windows.Storage.IAsyncOperation_IStorageFile;
    
-
 end;

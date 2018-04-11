@@ -69,5 +69,4 @@ package body Windows.UI.ViewManagement.Core is
       return RetVal;
    end;
    
-
 end;

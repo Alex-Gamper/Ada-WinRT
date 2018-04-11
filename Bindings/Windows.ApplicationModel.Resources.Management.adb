@@ -55,5 +55,4 @@ package body Windows.ApplicationModel.Resources.Management is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.UI.ViewManagement.Core is
 
    pragma preelaborate;
@@ -43,10 +42,6 @@ package Windows.UI.ViewManagement.Core is
    for CoreInputViewOcclusionKind'Size use 32;
    
    type CoreInputViewOcclusionKind_Ptr is access CoreInputViewOcclusionKind;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -81,14 +76,6 @@ package Windows.UI.ViewManagement.Core is
    type IVectorView_ICoreInputViewOcclusion_Interface;
    type IVectorView_ICoreInputViewOcclusion is access all IVectorView_ICoreInputViewOcclusion_Interface'Class;
    type IVectorView_ICoreInputViewOcclusion_Ptr is access all IVectorView_ICoreInputViewOcclusion;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -315,5 +302,4 @@ package Windows.UI.ViewManagement.Core is
    function GetForCurrentView
    return Windows.UI.ViewManagement.Core.ICoreInputView;
    
-
 end;

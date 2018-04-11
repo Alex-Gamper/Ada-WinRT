@@ -21,18 +21,9 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Security.Authentication.Identity is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -47,14 +38,6 @@ package Windows.Security.Authentication.Identity is
    type IEnterpriseKeyCredentialRegistrationManager_Interface;
    type IEnterpriseKeyCredentialRegistrationManager is access all IEnterpriseKeyCredentialRegistrationManager_Interface'Class;
    type IEnterpriseKeyCredentialRegistrationManager_Ptr is access all IEnterpriseKeyCredentialRegistrationManager;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -141,5 +124,4 @@ package Windows.Security.Authentication.Identity is
    function get_Current
    return Windows.Security.Authentication.Identity.IEnterpriseKeyCredentialRegistrationManager;
    
-
 end;

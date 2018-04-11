@@ -838,5 +838,4 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
-
 end;

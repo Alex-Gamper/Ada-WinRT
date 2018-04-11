@@ -90,5 +90,4 @@ package body Windows.Devices.Adc is
       return RetVal;
    end;
    
-
 end;

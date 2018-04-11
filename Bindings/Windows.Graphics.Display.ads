@@ -119,10 +119,6 @@ package Windows.Graphics.Display is
    type DisplayBrightnessOverrideOptions_Ptr is access DisplayBrightnessOverrideOptions;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -182,14 +178,6 @@ package Windows.Graphics.Display is
    type IBrightnessOverride_Interface;
    type IBrightnessOverride is access all IBrightnessOverride_Interface'Class;
    type IBrightnessOverride_Ptr is access all IBrightnessOverride;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -845,5 +833,4 @@ package Windows.Graphics.Display is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-
 end;

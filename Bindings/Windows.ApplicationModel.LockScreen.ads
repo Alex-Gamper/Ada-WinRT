@@ -28,14 +28,6 @@ package Windows.ApplicationModel.LockScreen is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -86,14 +78,6 @@ package Windows.ApplicationModel.LockScreen is
    type IVectorView_ILockScreenBadge_Interface;
    type IVectorView_ILockScreenBadge is access all IVectorView_ILockScreenBadge_Interface'Class;
    type IVectorView_ILockScreenBadge_Ptr is access all IVectorView_ILockScreenBadge;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -478,5 +462,4 @@ package Windows.ApplicationModel.LockScreen is
    function GetForCurrentView
    return Windows.ApplicationModel.LockScreen.ILockApplicationHost;
    
-
 end;

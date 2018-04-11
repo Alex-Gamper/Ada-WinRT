@@ -120,10 +120,6 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    type DeviceAccountIconId_Ptr is access DeviceAccountIconId;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -156,14 +152,6 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    type IAsyncOperation_IDeviceAccountConfiguration_Interface;
    type IAsyncOperation_IDeviceAccountConfiguration is access all IAsyncOperation_IDeviceAccountConfiguration_Interface'Class;
    type IAsyncOperation_IDeviceAccountConfiguration_Ptr is access all IAsyncOperation_IDeviceAccountConfiguration;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -984,5 +972,4 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    )
    return Windows.ApplicationModel.UserDataAccounts.SystemAccess.IAsyncOperation_IDeviceAccountConfiguration;
    
-
 end;

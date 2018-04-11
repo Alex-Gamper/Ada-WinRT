@@ -69,5 +69,4 @@ package body Windows.Graphics.Display.Core is
       return RetVal;
    end;
    
-
 end;

@@ -45,10 +45,6 @@ package Windows.Media.SpeechSynthesis is
    type VoiceGender_Ptr is access VoiceGender;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -114,14 +110,6 @@ package Windows.Media.SpeechSynthesis is
    type IAsyncOperation_ISpeechSynthesisStream_Interface;
    type IAsyncOperation_ISpeechSynthesisStream is access all IAsyncOperation_ISpeechSynthesisStream_Interface'Class;
    type IAsyncOperation_ISpeechSynthesisStream_Ptr is access all IAsyncOperation_ISpeechSynthesisStream;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -633,5 +621,4 @@ package Windows.Media.SpeechSynthesis is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-
 end;

@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.System.Power is
 
    pragma preelaborate;
@@ -74,10 +73,6 @@ package Windows.System.Power is
    type PowerSupplyStatus_Ptr is access PowerSupplyStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -90,14 +85,6 @@ package Windows.System.Power is
    type IForegroundEnergyManagerStatics_Interface;
    type IForegroundEnergyManagerStatics is access all IForegroundEnergyManagerStatics_Interface'Class;
    type IForegroundEnergyManagerStatics_Ptr is access all IForegroundEnergyManagerStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -563,5 +550,4 @@ package Windows.System.Power is
    )
    ;
    
-
 end;

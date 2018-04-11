@@ -79,5 +79,4 @@ package body Windows.Media.Capture.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

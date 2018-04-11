@@ -309,14 +309,6 @@ package Windows.Networking.BackgroundTransfer is
    type IVectorView_IUploadOperation_Ptr is access all IVectorView_IUploadOperation;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1968,5 +1960,4 @@ package Windows.Networking.BackgroundTransfer is
    function get_LastSuccessfulPrefetchTime
    return Windows.Foundation.IReference_DateTime;
    
-
 end;

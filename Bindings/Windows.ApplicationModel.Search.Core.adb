@@ -97,5 +97,4 @@ package body Windows.ApplicationModel.Search.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

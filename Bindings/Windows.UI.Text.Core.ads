@@ -359,14 +359,6 @@ package Windows.UI.Text.Core is
    type IVectorView_ICoreTextCompositionSegment_Ptr is access all IVectorView_ICoreTextCompositionSegment;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1375,5 +1367,4 @@ package Windows.UI.Text.Core is
    function get_HiddenCharacter
    return Windows.UInt8;
    
-
 end;

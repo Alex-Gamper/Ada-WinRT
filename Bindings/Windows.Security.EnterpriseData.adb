@@ -1437,5 +1437,4 @@ package body Windows.Security.EnterpriseData is
       return RetVal;
    end;
    
-
 end;

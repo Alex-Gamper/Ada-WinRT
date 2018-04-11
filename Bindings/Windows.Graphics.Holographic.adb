@@ -237,5 +237,4 @@ package body Windows.Graphics.Holographic is
       return RetVal;
    end;
    
-
 end;

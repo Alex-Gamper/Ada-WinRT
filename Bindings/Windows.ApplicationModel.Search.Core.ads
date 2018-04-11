@@ -101,14 +101,6 @@ package Windows.ApplicationModel.Search.Core is
    type IObservableVector_ISearchSuggestion_Ptr is access all IObservableVector_ISearchSuggestion;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -585,5 +577,4 @@ package Windows.ApplicationModel.Search.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

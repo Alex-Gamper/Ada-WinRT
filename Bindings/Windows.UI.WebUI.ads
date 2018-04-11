@@ -71,10 +71,6 @@ package Windows.UI.WebUI is
    type PrintContent_Ptr is access PrintContent;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -317,14 +313,6 @@ package Windows.UI.WebUI is
    type IPrintDocumentSource_Imported_Interface;
    type IPrintDocumentSource_Imported is access all IPrintDocumentSource_Imported_Interface'Class;
    type IPrintDocumentSource_Imported_Ptr is access all IPrintDocumentSource_Imported;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1834,5 +1822,4 @@ package Windows.UI.WebUI is
    )
    ;
    
-
 end;

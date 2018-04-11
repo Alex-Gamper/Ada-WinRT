@@ -143,10 +143,6 @@ package Windows.Storage.FileProperties is
    type VideoOrientation_Ptr is access VideoOrientation;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -227,14 +223,6 @@ package Windows.Storage.FileProperties is
    type IAsyncOperation_IBasicProperties_Interface;
    type IAsyncOperation_IBasicProperties is access all IAsyncOperation_IBasicProperties_Interface'Class;
    type IAsyncOperation_IBasicProperties_Ptr is access all IAsyncOperation_IBasicProperties;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1260,5 +1248,4 @@ package Windows.Storage.FileProperties is
    )
    return Windows.Foundation.IAsyncAction;
    
-
 end;

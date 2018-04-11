@@ -98,5 +98,4 @@ package body Windows.Devices.Printers.Extensions is
       return RetVal;
    end;
    
-
 end;

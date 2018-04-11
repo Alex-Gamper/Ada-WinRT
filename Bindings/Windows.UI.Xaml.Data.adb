@@ -1157,5 +1157,4 @@ package body Windows.UI.Xaml.Data is
       return RetVal;
    end;
    
-
 end;

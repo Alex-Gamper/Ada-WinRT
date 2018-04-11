@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.UI.WebUI.Core is
 
    pragma preelaborate;
@@ -131,14 +130,6 @@ package Windows.UI.WebUI.Core is
    type IObservableVector_IWebUICommandBarElement_Interface;
    type IObservableVector_IWebUICommandBarElement is access all IObservableVector_IWebUICommandBarElement_Interface'Class;
    type IObservableVector_IWebUICommandBarElement_Ptr is access all IObservableVector_IWebUICommandBarElement;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -856,5 +847,4 @@ package Windows.UI.WebUI.Core is
    function GetForCurrentView
    return Windows.UI.WebUI.Core.IWebUICommandBar;
    
-
 end;

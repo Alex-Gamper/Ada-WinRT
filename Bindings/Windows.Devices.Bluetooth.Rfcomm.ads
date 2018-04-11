@@ -32,14 +32,6 @@ package Windows.Devices.Bluetooth.Rfcomm is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -108,14 +100,6 @@ package Windows.Devices.Bluetooth.Rfcomm is
    type IAsyncOperation_IRfcommServiceProvider_Interface;
    type IAsyncOperation_IRfcommServiceProvider is access all IAsyncOperation_IRfcommServiceProvider_Interface'Class;
    type IAsyncOperation_IRfcommServiceProvider_Ptr is access all IAsyncOperation_IRfcommServiceProvider;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -746,5 +730,4 @@ package Windows.Devices.Bluetooth.Rfcomm is
    )
    return Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommServiceProvider;
    
-
 end;

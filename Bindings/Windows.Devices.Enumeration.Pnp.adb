@@ -239,5 +239,4 @@ package body Windows.Devices.Enumeration.Pnp is
       return RetVal;
    end;
    
-
 end;

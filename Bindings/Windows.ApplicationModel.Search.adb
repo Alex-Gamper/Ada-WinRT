@@ -145,5 +145,4 @@ package body Windows.ApplicationModel.Search is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

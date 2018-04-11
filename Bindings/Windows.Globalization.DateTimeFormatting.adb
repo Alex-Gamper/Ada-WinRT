@@ -270,5 +270,4 @@ package body Windows.Globalization.DateTimeFormatting is
       return RetVal;
    end;
    
-
 end;

@@ -946,5 +946,4 @@ package body Windows.Devices.AllJoyn is
       return RetVal;
    end;
    
-
 end;

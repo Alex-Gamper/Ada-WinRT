@@ -151,5 +151,4 @@ package body Windows.UI.Composition is
       return RetVal;
    end;
    
-
 end;

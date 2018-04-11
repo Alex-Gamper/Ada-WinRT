@@ -198,5 +198,4 @@ package body Windows.UI.Composition.Interactions is
       return RetVal;
    end;
    
-
 end;

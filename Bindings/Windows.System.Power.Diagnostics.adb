@@ -133,5 +133,4 @@ package body Windows.System.Power.Diagnostics is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

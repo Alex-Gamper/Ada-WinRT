@@ -503,5 +503,4 @@ package body Windows.Perception.Spatial is
       return RetVal;
    end;
    
-
 end;

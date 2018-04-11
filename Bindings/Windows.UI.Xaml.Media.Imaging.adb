@@ -1151,5 +1151,4 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-
 end;

@@ -834,5 +834,4 @@ package body Windows.Devices.SmartCards is
       return RetVal;
    end;
    
-
 end;

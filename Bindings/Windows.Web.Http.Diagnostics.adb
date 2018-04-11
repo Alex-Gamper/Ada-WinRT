@@ -100,5 +100,4 @@ package body Windows.Web.Http.Diagnostics is
       return RetVal;
    end;
    
-
 end;

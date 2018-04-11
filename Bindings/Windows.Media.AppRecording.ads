@@ -105,14 +105,6 @@ package Windows.Media.AppRecording is
    type IVectorView_IAppRecordingSavedScreenshotInfo_Ptr is access all IVectorView_IAppRecordingSavedScreenshotInfo;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -551,5 +543,4 @@ package Windows.Media.AppRecording is
    function GetDefault
    return Windows.Media.AppRecording.IAppRecordingManager;
    
-
 end;

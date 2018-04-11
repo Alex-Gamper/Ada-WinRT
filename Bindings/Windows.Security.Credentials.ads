@@ -114,10 +114,6 @@ package Windows.Security.Credentials is
    type WebAccountPictureSize_Ptr is access WebAccountPictureSize;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -231,14 +227,6 @@ package Windows.Security.Credentials is
    type IVectorView_IPasswordCredential_Interface;
    type IVectorView_IPasswordCredential is access all IVectorView_IPasswordCredential_Interface'Class;
    type IVectorView_IPasswordCredential_Ptr is access all IVectorView_IPasswordCredential;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1234,5 +1222,4 @@ package Windows.Security.Credentials is
    )
    return Windows.Foundation.IAsyncAction;
    
-
 end;

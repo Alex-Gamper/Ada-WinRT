@@ -239,5 +239,4 @@ package body Windows.Media.Streaming.Adaptive is
       return RetVal;
    end;
    
-
 end;

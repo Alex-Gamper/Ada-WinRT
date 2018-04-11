@@ -239,10 +239,6 @@ package Windows.Services.Maps.Guidance is
    type GuidanceLaneMarkers_Ptr is access GuidanceLaneMarkers;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -353,14 +349,6 @@ package Windows.Services.Maps.Guidance is
    type IVectorView_IGuidanceRoadSegment_Interface;
    type IVectorView_IGuidanceRoadSegment is access all IVectorView_IGuidanceRoadSegment_Interface'Class;
    type IVectorView_IGuidanceRoadSegment_Ptr is access all IVectorView_IGuidanceRoadSegment;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1606,5 +1594,4 @@ package Windows.Services.Maps.Guidance is
    function GetCurrent
    return Windows.Services.Maps.Guidance.IGuidanceTelemetryCollector;
    
-
 end;

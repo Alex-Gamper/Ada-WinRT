@@ -457,5 +457,4 @@ package body Windows.ApplicationModel is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

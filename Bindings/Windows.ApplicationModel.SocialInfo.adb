@@ -105,5 +105,4 @@ package body Windows.ApplicationModel.SocialInfo is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

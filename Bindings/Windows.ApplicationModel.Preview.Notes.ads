@@ -28,10 +28,6 @@ package Windows.ApplicationModel.Preview.Notes is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
    
@@ -76,14 +72,6 @@ package Windows.ApplicationModel.Preview.Notes is
    type INotesWindowManagerPreviewStatics_Interface;
    type INotesWindowManagerPreviewStatics is access all INotesWindowManagerPreviewStatics_Interface'Class;
    type INotesWindowManagerPreviewStatics_Ptr is access all INotesWindowManagerPreviewStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -374,5 +362,4 @@ package Windows.ApplicationModel.Preview.Notes is
    function GetForCurrentApp
    return Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview;
    
-
 end;

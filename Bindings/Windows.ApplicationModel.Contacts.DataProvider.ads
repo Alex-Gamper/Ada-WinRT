@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.Contacts.DataProvider is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -87,14 +78,6 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    type IContactListDeleteContactRequestEventArgs_Interface;
    type IContactListDeleteContactRequestEventArgs is access all IContactListDeleteContactRequestEventArgs_Interface'Class;
    type IContactListDeleteContactRequestEventArgs_Ptr is access all IContactListDeleteContactRequestEventArgs;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -499,5 +482,4 @@ package Windows.ApplicationModel.Contacts.DataProvider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

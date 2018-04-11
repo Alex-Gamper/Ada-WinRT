@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Numerics;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Gaming.Input.ForceFeedback is
 
    pragma preelaborate;
@@ -111,10 +110,6 @@ package Windows.Gaming.Input.ForceFeedback is
    type PeriodicForceEffectKind_Ptr is access PeriodicForceEffectKind;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -162,14 +157,6 @@ package Windows.Gaming.Input.ForceFeedback is
    type IVectorView_IForceFeedbackMotor_Interface;
    type IVectorView_IForceFeedbackMotor is access all IVectorView_IForceFeedbackMotor_Interface'Class;
    type IVectorView_IForceFeedbackMotor_Ptr is access all IVectorView_IForceFeedbackMotor;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -631,5 +618,4 @@ package Windows.Gaming.Input.ForceFeedback is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

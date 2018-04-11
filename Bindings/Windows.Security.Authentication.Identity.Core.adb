@@ -108,5 +108,4 @@ package body Windows.Security.Authentication.Identity.Core is
       return RetVal;
    end;
    
-
 end;

@@ -130,14 +130,6 @@ package Windows.Devices.Custom is
    type IAsyncOperation_ICustomDevice_Ptr is access all IAsyncOperation_ICustomDevice;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -358,5 +350,4 @@ package Windows.Devices.Custom is
    )
    return Windows.Devices.Custom.IAsyncOperation_ICustomDevice;
    
-
 end;

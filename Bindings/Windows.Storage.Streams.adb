@@ -553,5 +553,4 @@ package body Windows.Storage.Streams is
       return RetVal;
    end;
    
-
 end;

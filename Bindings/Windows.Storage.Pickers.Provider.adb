@@ -92,5 +92,4 @@ package body Windows.Storage.Pickers.Provider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

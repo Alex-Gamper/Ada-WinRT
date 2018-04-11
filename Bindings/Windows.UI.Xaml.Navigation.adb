@@ -146,5 +146,4 @@ package body Windows.UI.Xaml.Navigation is
       return RetVal;
    end;
    
-
 end;

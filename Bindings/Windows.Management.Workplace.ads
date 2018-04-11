@@ -19,7 +19,6 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.Management.Workplace is
 
    pragma preelaborate;
@@ -64,14 +63,6 @@ package Windows.Management.Workplace is
    type IWorkplaceSettingsStatics_Interface;
    type IWorkplaceSettingsStatics is access all IWorkplaceSettingsStatics_Interface'Class;
    type IWorkplaceSettingsStatics_Ptr is access all IWorkplaceSettingsStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -164,5 +155,4 @@ package Windows.Management.Workplace is
    function get_IsMicrosoftAccountOptional
    return Windows.Boolean;
    
-
 end;

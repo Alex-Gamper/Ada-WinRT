@@ -28,14 +28,6 @@ package Windows.ApplicationModel.DataTransfer.ShareTarget is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -51,14 +43,6 @@ package Windows.ApplicationModel.DataTransfer.ShareTarget is
    type IShareOperation3_Interface;
    type IShareOperation3 is access all IShareOperation3_Interface'Class;
    type IShareOperation3_Ptr is access all IShareOperation3;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -229,5 +213,4 @@ package Windows.ApplicationModel.DataTransfer.ShareTarget is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

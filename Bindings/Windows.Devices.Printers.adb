@@ -90,5 +90,4 @@ package body Windows.Devices.Printers is
       return RetVal;
    end;
    
-
 end;

@@ -246,5 +246,4 @@ package body Windows.Foundation.Metadata is
       return RetVal;
    end;
    
-
 end;

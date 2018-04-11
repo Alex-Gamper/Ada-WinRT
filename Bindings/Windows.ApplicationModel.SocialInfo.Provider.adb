@@ -66,5 +66,4 @@ package body Windows.ApplicationModel.SocialInfo.Provider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

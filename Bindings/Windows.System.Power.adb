@@ -700,5 +700,4 @@ package body Windows.System.Power is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

@@ -98,5 +98,4 @@ package body Windows.Storage.Compression is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

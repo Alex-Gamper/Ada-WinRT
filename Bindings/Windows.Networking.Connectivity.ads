@@ -434,14 +434,6 @@ package Windows.Networking.Connectivity is
    type IAsyncOperation_IConnectionSession_Ptr is access all IAsyncOperation_IConnectionSession;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1970,5 +1962,4 @@ package Windows.Networking.Connectivity is
    )
    ;
    
-
 end;

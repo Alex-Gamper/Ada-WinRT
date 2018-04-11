@@ -368,5 +368,4 @@ package body Windows.Media is
       return RetVal;
    end;
    
-
 end;

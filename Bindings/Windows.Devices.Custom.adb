@@ -135,5 +135,4 @@ package body Windows.Devices.Custom is
       return RetVal;
    end;
    
-
 end;

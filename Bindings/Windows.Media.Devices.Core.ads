@@ -48,10 +48,6 @@ package Windows.Media.Devices.Core is
    type FrameFlashMode_Ptr is access FrameFlashMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -124,14 +120,6 @@ package Windows.Media.Devices.Core is
    type IVector_IFrameController_Interface;
    type IVector_IFrameController is access all IVector_IFrameController_Interface'Class;
    type IVector_IFrameController_Ptr is access all IVector_IFrameController;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1045,5 +1033,4 @@ package Windows.Media.Devices.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

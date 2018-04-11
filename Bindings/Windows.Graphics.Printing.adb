@@ -424,5 +424,4 @@ package body Windows.Graphics.Printing is
       return RetVal;
    end;
    
-
 end;

@@ -78,5 +78,4 @@ package body Windows.ApplicationModel.UserActivities.Core is
       return RetVal;
    end;
    
-
 end;

@@ -1284,5 +1284,4 @@ package body Windows.Devices.Sensors is
       return RetVal;
    end;
    
-
 end;

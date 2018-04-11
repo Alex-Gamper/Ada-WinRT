@@ -499,5 +499,4 @@ package body Windows.Devices.Usb is
       return RetVal;
    end;
    
-
 end;

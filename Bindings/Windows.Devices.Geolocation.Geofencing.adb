@@ -177,5 +177,4 @@ package body Windows.Devices.Geolocation.Geofencing is
       return RetVal;
    end;
    
-
 end;

@@ -170,5 +170,4 @@ package body Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       return RetVal;
    end;
    
-
 end;

@@ -1749,5 +1749,4 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
-
 end;

@@ -792,5 +792,4 @@ package body Windows.UI.Xaml.Markup is
       return RetVal;
    end;
    
-
 end;

@@ -44,10 +44,6 @@ package Windows.ApplicationModel.UserActivities is
    type UserActivityState_Ptr is access UserActivityState;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -89,14 +85,6 @@ package Windows.ApplicationModel.UserActivities is
    type IAsyncOperation_IUserActivity_Interface;
    type IAsyncOperation_IUserActivity is access all IAsyncOperation_IUserActivity_Interface'Class;
    type IAsyncOperation_IUserActivity_Ptr is access all IAsyncOperation_IUserActivity;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -504,5 +492,4 @@ package Windows.ApplicationModel.UserActivities is
    function GetDefault
    return Windows.ApplicationModel.UserActivities.IUserActivityChannel;
    
-
 end;

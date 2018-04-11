@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Globalization.NumberFormatting is
 
    pragma preelaborate;
@@ -71,10 +70,6 @@ package Windows.Globalization.NumberFormatting is
    for CurrencyFormatterMode'Size use 32;
    
    type CurrencyFormatterMode_Ptr is access CurrencyFormatterMode;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -134,14 +129,6 @@ package Windows.Globalization.NumberFormatting is
    type INumeralSystemTranslator_Interface;
    type INumeralSystemTranslator is access all INumeralSystemTranslator_Interface'Class;
    type INumeralSystemTranslator_Ptr is access all INumeralSystemTranslator;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -759,5 +746,4 @@ package Windows.Globalization.NumberFormatting is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

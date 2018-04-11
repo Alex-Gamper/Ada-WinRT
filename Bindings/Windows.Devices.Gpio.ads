@@ -202,14 +202,6 @@ package Windows.Devices.Gpio is
    type IVector_GpioChangeRecord_Ptr is access all IVector_GpioChangeRecord;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -864,5 +856,4 @@ package Windows.Devices.Gpio is
    function GetDefault
    return Windows.Devices.Gpio.IGpioController;
    
-
 end;

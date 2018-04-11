@@ -162,5 +162,4 @@ package body Windows.Networking.PushNotifications is
       return RetVal;
    end;
    
-
 end;

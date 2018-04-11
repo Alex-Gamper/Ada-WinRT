@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows; use Windows;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.System.Diagnostics.TraceReporting is
 
    pragma preelaborate;
@@ -111,10 +110,6 @@ package Windows.System.Diagnostics.TraceReporting is
    type PlatformDiagnosticEventBufferLatencies_Ptr is access PlatformDiagnosticEventBufferLatencies;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -142,14 +137,6 @@ package Windows.System.Diagnostics.TraceReporting is
    type IVectorView_IPlatformDiagnosticTraceInfo_Interface;
    type IVectorView_IPlatformDiagnosticTraceInfo is access all IVectorView_IPlatformDiagnosticTraceInfo_Interface'Class;
    type IVectorView_IPlatformDiagnosticTraceInfo_Ptr is access all IVectorView_IPlatformDiagnosticTraceInfo;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -511,5 +498,4 @@ package Windows.System.Diagnostics.TraceReporting is
    )
    return Windows.System.Diagnostics.TraceReporting.IVectorView_IPlatformDiagnosticTraceInfo;
    
-
 end;

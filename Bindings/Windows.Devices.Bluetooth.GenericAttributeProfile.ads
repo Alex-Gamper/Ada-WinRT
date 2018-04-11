@@ -200,10 +200,6 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    type GattServiceProviderAdvertisementStatus_Ptr is access GattServiceProviderAdvertisementStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -587,14 +583,6 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    type IVectorView_IGattValueChangedEventArgs_Interface;
    type IVectorView_IGattValueChangedEventArgs is access all IVectorView_IGattValueChangedEventArgs_Interface'Class;
    type IVectorView_IGattValueChangedEventArgs_Ptr is access all IVectorView_IGattValueChangedEventArgs;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -5709,5 +5697,4 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    )
    return Windows.Devices.Bluetooth.GenericAttributeProfile.IAsyncOperation_IGattServiceProviderResult;
    
-
 end;

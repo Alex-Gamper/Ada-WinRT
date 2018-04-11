@@ -29,14 +29,6 @@ package Windows.Media.Ocr is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -84,14 +76,6 @@ package Windows.Media.Ocr is
    type IAsyncOperation_IOcrResult_Interface;
    type IAsyncOperation_IOcrResult is access all IAsyncOperation_IOcrResult_Interface'Class;
    type IAsyncOperation_IOcrResult_Ptr is access all IAsyncOperation_IOcrResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -480,5 +464,4 @@ package Windows.Media.Ocr is
    function TryCreateFromUserProfileLanguages
    return Windows.Media.Ocr.IOcrEngine;
    
-
 end;

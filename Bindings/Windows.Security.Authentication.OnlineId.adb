@@ -148,5 +148,4 @@ package body Windows.Security.Authentication.OnlineId is
       return RetVal;
    end;
    
-
 end;

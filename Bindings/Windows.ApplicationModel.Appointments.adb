@@ -947,5 +947,4 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
-
 end;

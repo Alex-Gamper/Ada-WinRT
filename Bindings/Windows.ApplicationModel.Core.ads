@@ -50,10 +50,6 @@ package Windows.ApplicationModel.Core is
    type AppRestartFailureReason_Ptr is access AppRestartFailureReason;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -158,14 +154,6 @@ package Windows.ApplicationModel.Core is
    type IVectorView_ICoreApplicationView_Interface;
    type IVectorView_ICoreApplicationView is access all IVectorView_ICoreApplicationView_Interface'Class;
    type IVectorView_ICoreApplicationView_Ptr is access all IVectorView_ICoreApplicationView;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1135,5 +1123,4 @@ package Windows.ApplicationModel.Core is
    )
    ;
    
-
 end;

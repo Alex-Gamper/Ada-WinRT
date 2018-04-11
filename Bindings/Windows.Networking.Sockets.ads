@@ -511,14 +511,6 @@ package Windows.Networking.Sockets is
    type IAsyncOperation_IStreamSocket_Ptr is access all IAsyncOperation_IStreamSocket;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2628,5 +2620,4 @@ package Windows.Networking.Sockets is
    )
    return Windows.Web.WebErrorStatus;
    
-
 end;

@@ -350,5 +350,4 @@ package body Windows.Devices.Sms is
       return RetVal;
    end;
    
-
 end;

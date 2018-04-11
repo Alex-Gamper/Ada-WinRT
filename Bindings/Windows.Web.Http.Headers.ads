@@ -30,14 +30,6 @@ package Windows.Web.Http.Headers is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -335,14 +327,6 @@ package Windows.Web.Http.Headers is
    type IVector_IHttpNameValueHeaderValue_Interface;
    type IVector_IHttpNameValueHeaderValue is access all IVector_IHttpNameValueHeaderValue_Interface'Class;
    type IVector_IHttpNameValueHeaderValue_Ptr is access all IVector_IHttpNameValueHeaderValue;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -4511,5 +4495,4 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Boolean;
    
-
 end;

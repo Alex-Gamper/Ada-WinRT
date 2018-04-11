@@ -512,14 +512,6 @@ package Windows.UI.Input is
    type IIterable_RadialControllerSystemMenuItemKind_Ptr is access all IIterable_RadialControllerSystemMenuItemKind;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -3396,5 +3388,4 @@ package Windows.UI.Input is
    function GetForCurrentView
    return Windows.UI.Input.IRadialControllerConfiguration;
    
-
 end;

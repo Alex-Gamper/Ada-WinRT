@@ -179,10 +179,6 @@ package Windows.Media.SpeechRecognition is
    type SpeechContinuousRecognitionMode_Ptr is access SpeechContinuousRecognitionMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -323,14 +319,6 @@ package Windows.Media.SpeechRecognition is
    type IAsyncOperation_ISpeechRecognitionResult_Interface;
    type IAsyncOperation_ISpeechRecognitionResult is access all IAsyncOperation_ISpeechRecognitionResult_Interface'Class;
    type IAsyncOperation_ISpeechRecognitionResult_Ptr is access all IAsyncOperation_ISpeechRecognitionResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1655,5 +1643,4 @@ package Windows.Media.SpeechRecognition is
    function get_InstalledCommandSets
    return Windows.Address;
    
-
 end;

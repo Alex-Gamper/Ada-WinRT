@@ -443,5 +443,4 @@ package body Windows.UI.WebUI is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

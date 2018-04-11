@@ -73,5 +73,4 @@ package body Windows.UI.Shell is
       return RetVal;
    end;
    
-
 end;

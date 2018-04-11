@@ -126,14 +126,6 @@ package Windows.Devices.I2c is
    type IAsyncOperation_II2cController_Ptr is access all IAsyncOperation_II2cController;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -459,5 +451,4 @@ package Windows.Devices.I2c is
    function GetDefaultAsync
    return Windows.Devices.I2c.IAsyncOperation_II2cController;
    
-
 end;

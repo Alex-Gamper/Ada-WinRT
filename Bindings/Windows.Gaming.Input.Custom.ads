@@ -165,14 +165,6 @@ package Windows.Gaming.Input.Custom is
    type IGameControllerFactoryManagerStatics2_Ptr is access all IGameControllerFactoryManagerStatics2;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -529,5 +521,4 @@ package Windows.Gaming.Input.Custom is
    )
    return Windows.Gaming.Input.IGameController;
    
-
 end;

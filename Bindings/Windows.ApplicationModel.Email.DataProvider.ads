@@ -28,14 +28,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -185,14 +177,6 @@ package Windows.ApplicationModel.Email.DataProvider is
    type IEmailMailboxServerSearchReadBatchRequestEventArgs_Interface;
    type IEmailMailboxServerSearchReadBatchRequestEventArgs is access all IEmailMailboxServerSearchReadBatchRequestEventArgs_Interface'Class;
    type IEmailMailboxServerSearchReadBatchRequestEventArgs_Ptr is access all IEmailMailboxServerSearchReadBatchRequestEventArgs;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1647,5 +1631,4 @@ package Windows.ApplicationModel.Email.DataProvider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

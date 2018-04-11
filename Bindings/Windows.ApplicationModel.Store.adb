@@ -753,5 +753,4 @@ package body Windows.ApplicationModel.Store is
       return RetVal;
    end;
    
-
 end;

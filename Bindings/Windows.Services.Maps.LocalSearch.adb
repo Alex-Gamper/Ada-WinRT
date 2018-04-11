@@ -234,5 +234,4 @@ package body Windows.Services.Maps.LocalSearch is
       return RetVal;
    end;
    
-
 end;

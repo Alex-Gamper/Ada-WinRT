@@ -2716,5 +2716,4 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-
 end;

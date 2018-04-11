@@ -157,5 +157,4 @@ package body Windows.Devices.SerialCommunication is
       return RetVal;
    end;
    
-
 end;

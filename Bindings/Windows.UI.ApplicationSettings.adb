@@ -293,5 +293,4 @@ package body Windows.UI.ApplicationSettings is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

@@ -68,10 +68,6 @@ package Windows.Media.ContentRestrictions is
    type ContentAccessRestrictionLevel_Ptr is access ContentAccessRestrictionLevel;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -107,14 +103,6 @@ package Windows.Media.ContentRestrictions is
    type IAsyncOperation_ContentAccessRestrictionLevel_Interface;
    type IAsyncOperation_ContentAccessRestrictionLevel is access all IAsyncOperation_ContentAccessRestrictionLevel_Interface'Class;
    type IAsyncOperation_ContentAccessRestrictionLevel_Ptr is access all IAsyncOperation_ContentAccessRestrictionLevel;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -409,5 +397,4 @@ package Windows.Media.ContentRestrictions is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

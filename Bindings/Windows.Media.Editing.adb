@@ -309,5 +309,4 @@ package body Windows.Media.Editing is
       return RetVal;
    end;
    
-
 end;

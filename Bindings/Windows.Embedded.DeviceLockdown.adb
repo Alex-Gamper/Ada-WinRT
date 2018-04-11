@@ -109,5 +109,4 @@ package body Windows.Embedded.DeviceLockdown is
       return RetVal;
    end;
    
-
 end;

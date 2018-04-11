@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows; use Windows;
 limited with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Foundation is
 
    pragma preelaborate;
@@ -498,14 +497,6 @@ package Windows.Foundation is
    type IReference_Point_Interface;
    type IReference_Point is access all IReference_Point_Interface'Class;
    type IReference_Point_Ptr is access all IReference_Point;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3302,5 +3293,4 @@ package Windows.Foundation is
    )
    return Windows.String;
    
-
 end;

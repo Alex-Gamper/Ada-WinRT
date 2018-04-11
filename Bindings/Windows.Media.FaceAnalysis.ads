@@ -28,14 +28,6 @@ package Windows.Media.FaceAnalysis is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -80,14 +72,6 @@ package Windows.Media.FaceAnalysis is
    type IVectorView_IDetectedFace_Interface;
    type IVectorView_IDetectedFace is access all IVectorView_IDetectedFace_Interface'Class;
    type IVectorView_IDetectedFace_Ptr is access all IVectorView_IDetectedFace;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -482,5 +466,4 @@ package Windows.Media.FaceAnalysis is
    function get_IsSupported_IFaceDetector
    return Windows.Boolean;
    
-
 end;

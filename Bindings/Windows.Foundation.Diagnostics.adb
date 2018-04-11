@@ -433,5 +433,4 @@ package body Windows.Foundation.Diagnostics is
       return RetVal;
    end;
    
-
 end;

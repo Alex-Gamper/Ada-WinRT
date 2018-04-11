@@ -87,5 +87,4 @@ package body Windows.Storage.AccessCache is
       return RetVal;
    end;
    
-
 end;

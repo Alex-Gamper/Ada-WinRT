@@ -238,5 +238,4 @@ package body Windows.Devices.Haptics is
       return RetVal;
    end;
    
-
 end;

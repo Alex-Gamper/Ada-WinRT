@@ -612,5 +612,4 @@ package body Windows.Devices.Geolocation is
       return RetVal;
    end;
    
-
 end;

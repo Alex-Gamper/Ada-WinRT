@@ -386,10 +386,6 @@ package Windows.UI.Notifications is
    type ToastNotificationPriority_Ptr is access ToastNotificationPriority;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -662,14 +658,6 @@ package Windows.UI.Notifications is
    type IVectorView_IToastNotification_Interface;
    type IVectorView_IToastNotification is access all IVectorView_IToastNotification_Interface'Class;
    type IVectorView_IToastNotification_Ptr is access all IVectorView_IToastNotification;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3760,5 +3748,4 @@ package Windows.UI.Notifications is
    function GetDefault
    return Windows.UI.Notifications.IToastNotificationManagerForUser;
    
-
 end;

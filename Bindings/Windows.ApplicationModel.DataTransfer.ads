@@ -65,10 +65,6 @@ package Windows.ApplicationModel.DataTransfer is
    type ShareUITheme_Ptr is access ShareUITheme;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -248,14 +244,6 @@ package Windows.ApplicationModel.DataTransfer is
    type IAsyncOperation_IDataPackage_Interface;
    type IAsyncOperation_IDataPackage is access all IAsyncOperation_IDataPackage_Interface'Class;
    type IAsyncOperation_IDataPackage_Ptr is access all IAsyncOperation_IDataPackage;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2100,5 +2088,4 @@ package Windows.ApplicationModel.DataTransfer is
    )
    ;
    
-
 end;

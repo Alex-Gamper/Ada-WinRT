@@ -378,5 +378,4 @@ package body Windows.UI.Input.Inking is
       return RetVal;
    end;
    
-
 end;

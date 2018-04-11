@@ -149,5 +149,4 @@ package body Windows.ApplicationModel.Resources is
       return RetVal;
    end;
    
-
 end;

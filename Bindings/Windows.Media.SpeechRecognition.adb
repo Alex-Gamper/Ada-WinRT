@@ -385,5 +385,4 @@ package body Windows.Media.SpeechRecognition is
       return RetVal;
    end;
    
-
 end;

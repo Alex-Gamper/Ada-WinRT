@@ -136,5 +136,4 @@ package body Windows.ApplicationModel.Store.Preview.InstallControl is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

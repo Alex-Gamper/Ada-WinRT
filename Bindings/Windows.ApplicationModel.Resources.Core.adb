@@ -217,5 +217,4 @@ package body Windows.ApplicationModel.Resources.Core is
       return RetVal;
    end;
    
-
 end;

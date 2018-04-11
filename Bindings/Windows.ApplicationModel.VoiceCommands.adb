@@ -287,5 +287,4 @@ package body Windows.ApplicationModel.VoiceCommands is
       return RetVal;
    end;
    
-
 end;

@@ -19,7 +19,6 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.Graphics.DirectX is
 
    pragma preelaborate;
@@ -291,10 +290,6 @@ package Windows.Graphics.DirectX is
    type DirectXPixelFormat_Ptr is access DirectXPixelFormat;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -307,14 +302,6 @@ package Windows.Graphics.DirectX is
    type IVectorView_DirectXPixelFormat_Interface;
    type IVectorView_DirectXPixelFormat is access all IVectorView_DirectXPixelFormat_Interface'Class;
    type IVectorView_DirectXPixelFormat_Ptr is access all IVectorView_DirectXPixelFormat;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -416,5 +403,4 @@ package Windows.Graphics.DirectX is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

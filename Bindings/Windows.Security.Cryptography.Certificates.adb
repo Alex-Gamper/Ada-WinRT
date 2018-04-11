@@ -916,5 +916,4 @@ package body Windows.Security.Cryptography.Certificates is
       return RetVal;
    end;
    
-
 end;

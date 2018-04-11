@@ -547,5 +547,4 @@ package body Windows.Data.Text is
       return RetVal;
    end;
    
-
 end;

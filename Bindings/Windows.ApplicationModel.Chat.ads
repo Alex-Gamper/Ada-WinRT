@@ -294,10 +294,6 @@ package Windows.ApplicationModel.Chat is
    type ChatRestoreHistorySpan_Ptr is access ChatRestoreHistorySpan;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -546,14 +542,6 @@ package Windows.ApplicationModel.Chat is
    type IVectorView_IRcsEndUserMessageAction_Interface;
    type IVectorView_IRcsEndUserMessageAction is access all IVectorView_IRcsEndUserMessageAction_Interface'Class;
    type IVectorView_IRcsEndUserMessageAction_Ptr is access all IVectorView_IRcsEndUserMessageAction;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3492,5 +3480,4 @@ package Windows.ApplicationModel.Chat is
    )
    return Windows.Foundation.IAsyncAction;
    
-
 end;

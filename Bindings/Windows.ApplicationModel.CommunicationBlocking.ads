@@ -21,14 +21,9 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.CommunicationBlocking is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Record types
@@ -52,14 +47,6 @@ package Windows.ApplicationModel.CommunicationBlocking is
    type ICommunicationBlockingAccessManagerStatics_Interface;
    type ICommunicationBlockingAccessManagerStatics is access all ICommunicationBlockingAccessManagerStatics_Interface'Class;
    type ICommunicationBlockingAccessManagerStatics_Ptr is access all ICommunicationBlockingAccessManagerStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -191,5 +178,4 @@ package Windows.ApplicationModel.CommunicationBlocking is
    procedure ShowBlockedMessagesUI
    ;
    
-
 end;

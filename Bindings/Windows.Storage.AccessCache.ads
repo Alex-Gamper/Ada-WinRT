@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Storage.AccessCache is
 
    pragma preelaborate;
@@ -104,14 +103,6 @@ package Windows.Storage.AccessCache is
    type IStorageApplicationPermissionsStatics_Interface;
    type IStorageApplicationPermissionsStatics is access all IStorageApplicationPermissionsStatics_Interface'Class;
    type IStorageApplicationPermissionsStatics_Ptr is access all IStorageApplicationPermissionsStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -419,5 +410,4 @@ package Windows.Storage.AccessCache is
    function get_MostRecentlyUsedList
    return Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList;
    
-
 end;

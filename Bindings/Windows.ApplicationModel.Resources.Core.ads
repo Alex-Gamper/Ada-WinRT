@@ -185,14 +185,6 @@ package Windows.ApplicationModel.Resources.Core is
    type IVectorView_IResourceCandidate_Ptr is access all IVectorView_IResourceCandidate;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1478,5 +1470,4 @@ package Windows.ApplicationModel.Resources.Core is
    )
    return Windows.Boolean;
    
-
 end;

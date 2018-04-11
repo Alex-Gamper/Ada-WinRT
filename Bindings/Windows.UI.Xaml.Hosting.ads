@@ -113,14 +113,6 @@ package Windows.UI.Xaml.Hosting is
    type IAsyncOperation_IDesignerAppView_Ptr is access all IAsyncOperation_IDesignerAppView;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -667,5 +659,4 @@ package Windows.UI.Xaml.Hosting is
    )
    return Windows.Foundation.Rect;
    
-
 end;

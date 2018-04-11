@@ -72,10 +72,6 @@ package Windows.Devices.Perception is
    type PerceptionFrameSourcePropertyChangeStatus_Ptr is access PerceptionFrameSourcePropertyChangeStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -351,14 +347,6 @@ package Windows.Devices.Perception is
    type IAsyncOperation_IPerceptionDepthCorrelatedCoordinateMapper_Interface;
    type IAsyncOperation_IPerceptionDepthCorrelatedCoordinateMapper is access all IAsyncOperation_IPerceptionDepthCorrelatedCoordinateMapper_Interface'Class;
    type IAsyncOperation_IPerceptionDepthCorrelatedCoordinateMapper_Ptr is access all IAsyncOperation_IPerceptionDepthCorrelatedCoordinateMapper;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3043,5 +3031,4 @@ package Windows.Devices.Perception is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

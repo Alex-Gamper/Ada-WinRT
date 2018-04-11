@@ -219,5 +219,4 @@ package body Windows.UI.Text.Core is
       return RetVal;
    end;
    
-
 end;

@@ -1292,14 +1292,6 @@ package Windows.Media.Capture is
    type IVectorView_IAppBroadcastPlugIn_Ptr is access all IVectorView_IAppBroadcastPlugIn;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -7562,5 +7554,4 @@ package Windows.Media.Capture is
    function GetForCurrentView
    return Windows.Media.Capture.IScreenCapture;
    
-
 end;

@@ -114,5 +114,4 @@ package body Windows.ApplicationModel.Store.LicenseManagement is
       return RetVal;
    end;
    
-
 end;

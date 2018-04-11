@@ -144,5 +144,4 @@ package body Windows.ApplicationModel.AppService is
       return RetVal;
    end;
    
-
 end;

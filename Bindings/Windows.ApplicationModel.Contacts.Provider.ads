@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.Contacts.Provider is
 
    pragma preelaborate;
@@ -45,10 +44,6 @@ package Windows.ApplicationModel.Contacts.Provider is
    type AddContactResult_Ptr is access AddContactResult;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -69,14 +64,6 @@ package Windows.ApplicationModel.Contacts.Provider is
    type IContactPickerUI2_Interface;
    type IContactPickerUI2 is access all IContactPickerUI2_Interface'Class;
    type IContactPickerUI2_Ptr is access all IContactPickerUI2;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -203,5 +190,4 @@ package Windows.ApplicationModel.Contacts.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

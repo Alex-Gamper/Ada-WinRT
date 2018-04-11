@@ -145,5 +145,4 @@ package body Windows.Media.Ocr is
       return RetVal;
    end;
    
-
 end;

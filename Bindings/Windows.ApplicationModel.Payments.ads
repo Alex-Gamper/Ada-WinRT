@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.Payments is
 
    pragma preelaborate;
@@ -119,10 +118,6 @@ package Windows.ApplicationModel.Payments is
    for PaymentCanMakePaymentResultStatus'Size use 32;
    
    type PaymentCanMakePaymentResultStatus_Ptr is access PaymentCanMakePaymentResultStatus;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -283,14 +278,6 @@ package Windows.ApplicationModel.Payments is
    type IAsyncOperation_IPaymentCanMakePaymentResult_Interface;
    type IAsyncOperation_IPaymentCanMakePaymentResult is access all IAsyncOperation_IPaymentCanMakePaymentResult_Interface'Class;
    type IAsyncOperation_IPaymentCanMakePaymentResult_Ptr is access all IAsyncOperation_IPaymentCanMakePaymentResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2061,5 +2048,4 @@ package Windows.ApplicationModel.Payments is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

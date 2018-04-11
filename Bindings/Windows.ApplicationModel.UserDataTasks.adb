@@ -210,5 +210,4 @@ package body Windows.ApplicationModel.UserDataTasks is
       return RetVal;
    end;
    
-
 end;

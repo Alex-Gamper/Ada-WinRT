@@ -297,5 +297,4 @@ package body Windows.Security.Credentials is
       return RetVal;
    end;
    
-
 end;

@@ -93,10 +93,6 @@ package Windows.ApplicationModel.AppService is
    type AppServiceResponseStatus_Ptr is access AppServiceResponseStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -162,14 +158,6 @@ package Windows.ApplicationModel.AppService is
    type IAsyncOperation_AppServiceResponseStatus_Interface;
    type IAsyncOperation_AppServiceResponseStatus is access all IAsyncOperation_AppServiceResponseStatus_Interface'Class;
    type IAsyncOperation_AppServiceResponseStatus_Ptr is access all IAsyncOperation_AppServiceResponseStatus;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -611,5 +599,4 @@ package Windows.ApplicationModel.AppService is
    )
    return Windows.Address;
    
-
 end;

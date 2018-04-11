@@ -244,10 +244,6 @@ package Windows.Security.Authentication.Identity.Provider is
    type SecondaryAuthenticationFactorDevicePresenceMonitoringMode_Ptr is access SecondaryAuthenticationFactorDevicePresenceMonitoringMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -322,14 +318,6 @@ package Windows.Security.Authentication.Identity.Provider is
    type IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface;
    type IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus is access all IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Interface'Class;
    type IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus_Ptr is access all IAsyncOperation_SecondaryAuthenticationFactorFinishAuthenticationStatus;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1004,5 +992,4 @@ package Windows.Security.Authentication.Identity.Provider is
    function GetAuthenticationStageInfoAsync
    return Windows.Security.Authentication.Identity.Provider.IAsyncOperation_ISecondaryAuthenticationFactorAuthenticationStageInfo;
    
-
 end;

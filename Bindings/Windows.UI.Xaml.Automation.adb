@@ -3275,5 +3275,4 @@ package body Windows.UI.Xaml.Automation is
       return RetVal;
    end;
    
-
 end;

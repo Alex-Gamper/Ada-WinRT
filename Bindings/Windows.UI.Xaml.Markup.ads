@@ -29,10 +29,6 @@ package Windows.UI.Xaml.Markup is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
    
@@ -108,14 +104,6 @@ package Windows.UI.Xaml.Markup is
    type IXamlReaderStatics_Interface;
    type IXamlReaderStatics is access all IXamlReaderStatics_Interface'Class;
    type IXamlReaderStatics_Ptr is access all IXamlReaderStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1047,5 +1035,4 @@ package Windows.UI.Xaml.Markup is
    )
    return Windows.Object;
    
-
 end;

@@ -55,5 +55,4 @@ package body Windows.ApplicationModel.DataTransfer.ShareTarget is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

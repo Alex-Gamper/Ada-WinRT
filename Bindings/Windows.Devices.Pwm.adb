@@ -147,5 +147,4 @@ package body Windows.Devices.Pwm is
       return RetVal;
    end;
    
-
 end;

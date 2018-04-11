@@ -165,5 +165,4 @@ package body Windows.Services.TargetedContent is
       return RetVal;
    end;
    
-
 end;

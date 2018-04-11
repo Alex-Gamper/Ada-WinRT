@@ -59,5 +59,4 @@ package body Windows.Web.AtomPub is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

@@ -56,5 +56,4 @@ package body Windows.Management.Core is
       return RetVal;
    end;
    
-
 end;

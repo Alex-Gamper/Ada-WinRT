@@ -69,10 +69,6 @@ package Windows.Data.Json is
    type JsonErrorStatus_Ptr is access JsonErrorStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -112,14 +108,6 @@ package Windows.Data.Json is
    type IJsonErrorStatics2_Interface;
    type IJsonErrorStatics2 is access all IJsonErrorStatics2_Interface'Class;
    type IJsonErrorStatics2_Ptr is access all IJsonErrorStatics2;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -718,5 +706,4 @@ package Windows.Data.Json is
    )
    return Windows.Data.Json.JsonErrorStatus;
    
-
 end;

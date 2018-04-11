@@ -348,14 +348,6 @@ package Windows.Media.Import is
    type IVectorView_IPhotoImportItem_Ptr is access all IVectorView_IPhotoImportItem;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1944,5 +1936,4 @@ package Windows.Media.Import is
    function GetPendingOperations
    return Windows.Media.Import.IVectorView_IPhotoImportOperation;
    
-
 end;

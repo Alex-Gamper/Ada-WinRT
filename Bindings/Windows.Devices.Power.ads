@@ -27,14 +27,6 @@ package Windows.Devices.Power is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -61,14 +53,6 @@ package Windows.Devices.Power is
    type IAsyncOperation_IBattery_Interface;
    type IAsyncOperation_IBattery is access all IAsyncOperation_IBattery_Interface'Class;
    type IAsyncOperation_IBattery_Ptr is access all IAsyncOperation_IBattery;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -258,5 +242,4 @@ package Windows.Devices.Power is
    function GetDeviceSelector
    return Windows.String;
    
-
 end;

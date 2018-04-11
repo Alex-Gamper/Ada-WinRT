@@ -270,5 +270,4 @@ package body Windows.UI.StartScreen is
       return RetVal;
    end;
    
-
 end;

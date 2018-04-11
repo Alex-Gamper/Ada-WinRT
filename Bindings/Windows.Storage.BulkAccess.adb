@@ -159,5 +159,4 @@ package body Windows.Storage.BulkAccess is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

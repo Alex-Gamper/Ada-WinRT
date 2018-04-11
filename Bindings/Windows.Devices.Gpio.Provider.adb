@@ -72,5 +72,4 @@ package body Windows.Devices.Gpio.Provider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

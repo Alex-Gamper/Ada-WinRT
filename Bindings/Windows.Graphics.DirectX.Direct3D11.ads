@@ -19,7 +19,6 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.Graphics.DirectX.Direct3D11 is
 
    pragma preelaborate;
@@ -113,14 +112,6 @@ package Windows.Graphics.DirectX.Direct3D11 is
    type IVectorView_IDirect3DSurface_Interface;
    type IVectorView_IDirect3DSurface is access all IVectorView_IDirect3DSurface_Interface'Class;
    type IVectorView_IDirect3DSurface_Ptr is access all IVectorView_IDirect3DSurface;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -247,5 +238,4 @@ package Windows.Graphics.DirectX.Direct3D11 is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

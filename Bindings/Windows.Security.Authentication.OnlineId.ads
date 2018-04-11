@@ -61,10 +61,6 @@ package Windows.Security.Authentication.OnlineId is
    type OnlineIdSystemTicketStatus_Ptr is access OnlineIdSystemTicketStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -124,14 +120,6 @@ package Windows.Security.Authentication.OnlineId is
    type IAsyncOperation_IOnlineIdSystemTicketResult_Interface;
    type IAsyncOperation_IOnlineIdSystemTicketResult is access all IAsyncOperation_IOnlineIdSystemTicketResult_Interface'Class;
    type IAsyncOperation_IOnlineIdSystemTicketResult_Ptr is access all IAsyncOperation_IOnlineIdSystemTicketResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -680,5 +668,4 @@ package Windows.Security.Authentication.OnlineId is
    )
    return Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorForUser;
    
-
 end;

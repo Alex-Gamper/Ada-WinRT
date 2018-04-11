@@ -301,5 +301,4 @@ package body Windows.Devices.WiFiDirect is
       return RetVal;
    end;
    
-
 end;

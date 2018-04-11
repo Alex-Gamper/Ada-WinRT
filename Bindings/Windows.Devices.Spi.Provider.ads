@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Devices.Spi.Provider is
 
    pragma preelaborate;
@@ -59,10 +58,6 @@ package Windows.Devices.Spi.Provider is
    type ProviderSpiSharingMode_Ptr is access ProviderSpiSharingMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -81,14 +76,6 @@ package Windows.Devices.Spi.Provider is
    type ISpiDeviceProvider_Interface;
    type ISpiDeviceProvider is access all ISpiDeviceProvider_Interface'Class;
    type ISpiDeviceProvider_Ptr is access all ISpiDeviceProvider;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -278,5 +265,4 @@ package Windows.Devices.Spi.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

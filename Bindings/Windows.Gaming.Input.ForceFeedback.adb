@@ -126,5 +126,4 @@ package body Windows.Gaming.Input.ForceFeedback is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

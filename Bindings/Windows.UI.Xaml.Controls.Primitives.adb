@@ -6402,5 +6402,4 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return RetVal;
    end;
    
-
 end;

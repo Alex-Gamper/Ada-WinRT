@@ -49,10 +49,6 @@ package Windows.Devices.Bluetooth.Background is
    type BluetoothEventTriggeringMode_Ptr is access BluetoothEventTriggeringMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -86,14 +82,6 @@ package Windows.Devices.Bluetooth.Background is
    type IBluetoothLEAdvertisementPublisherTriggerDetails_Interface;
    type IBluetoothLEAdvertisementPublisherTriggerDetails is access all IBluetoothLEAdvertisementPublisherTriggerDetails_Interface'Class;
    type IBluetoothLEAdvertisementPublisherTriggerDetails_Ptr is access all IBluetoothLEAdvertisementPublisherTriggerDetails;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -360,5 +348,4 @@ package Windows.Devices.Bluetooth.Background is
    function get_AllServices
    return Windows.Address;
    
-
 end;

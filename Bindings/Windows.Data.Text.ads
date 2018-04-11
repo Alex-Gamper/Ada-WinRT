@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Data.Text is
 
    pragma preelaborate;
@@ -249,14 +248,6 @@ package Windows.Data.Text is
    type IVectorView_ISelectableWordSegment_Interface;
    type IVectorView_ISelectableWordSegment is access all IVectorView_ISelectableWordSegment_Interface'Class;
    type IVectorView_ISelectableWordSegment_Ptr is access all IVectorView_ISelectableWordSegment;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1361,5 +1352,4 @@ package Windows.Data.Text is
    )
    return Windows.Data.Text.UnicodeGeneralCategory;
    
-
 end;

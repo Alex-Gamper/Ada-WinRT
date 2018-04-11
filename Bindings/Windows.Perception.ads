@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Perception is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -43,14 +34,6 @@ package Windows.Perception is
    type IPerceptionTimestampHelperStatics_Interface;
    type IPerceptionTimestampHelperStatics is access all IPerceptionTimestampHelperStatics_Interface'Class;
    type IPerceptionTimestampHelperStatics_Ptr is access all IPerceptionTimestampHelperStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -106,5 +89,4 @@ package Windows.Perception is
    )
    return Windows.Perception.IPerceptionTimestamp;
    
-
 end;

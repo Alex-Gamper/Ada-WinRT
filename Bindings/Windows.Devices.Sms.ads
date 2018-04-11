@@ -475,14 +475,6 @@ package Windows.Devices.Sms is
    type IVectorView_ISmsMessage_Ptr is access all IVectorView_ISmsMessage;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2784,5 +2776,4 @@ package Windows.Devices.Sms is
    )
    return Windows.Devices.Sms.ISmsMessageRegistration;
    
-
 end;

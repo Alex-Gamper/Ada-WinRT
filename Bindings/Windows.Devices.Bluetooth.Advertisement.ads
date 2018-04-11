@@ -121,10 +121,6 @@ package Windows.Devices.Bluetooth.Advertisement is
    type BluetoothLEAdvertisementPublisherStatus_Ptr is access BluetoothLEAdvertisementPublisherStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -238,14 +234,6 @@ package Windows.Devices.Bluetooth.Advertisement is
    type IVectorView_IBluetoothLEAdvertisementReceivedEventArgs_Interface;
    type IVectorView_IBluetoothLEAdvertisementReceivedEventArgs is access all IVectorView_IBluetoothLEAdvertisementReceivedEventArgs_Interface'Class;
    type IVectorView_IBluetoothLEAdvertisementReceivedEventArgs_Ptr is access all IVectorView_IBluetoothLEAdvertisementReceivedEventArgs;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1746,5 +1734,4 @@ package Windows.Devices.Bluetooth.Advertisement is
    function get_ManufacturerSpecificData
    return Windows.UInt8;
    
-
 end;

@@ -90,10 +90,6 @@ package Windows.Media.Casting is
    type CastingConnectionState_Ptr is access CastingConnectionState;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -168,14 +164,6 @@ package Windows.Media.Casting is
    type IVector_ICastingSource_Interface;
    type IVector_ICastingSource is access all IVector_ICastingSource_Interface'Class;
    type IVector_ICastingSource_Ptr is access all IVector_ICastingSource;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -919,5 +907,4 @@ package Windows.Media.Casting is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-
 end;

@@ -44,10 +44,6 @@ package Windows.ApplicationModel.Store.LicenseManagement is
    type LicenseRefreshOption_Ptr is access LicenseRefreshOption;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -74,14 +70,6 @@ package Windows.ApplicationModel.Store.LicenseManagement is
    type IAsyncOperation_ILicenseSatisfactionResult_Interface;
    type IAsyncOperation_ILicenseSatisfactionResult is access all IAsyncOperation_ILicenseSatisfactionResult_Interface'Class;
    type IAsyncOperation_ILicenseSatisfactionResult_Ptr is access all IAsyncOperation_ILicenseSatisfactionResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -273,5 +261,4 @@ package Windows.ApplicationModel.Store.LicenseManagement is
    )
    return Windows.ApplicationModel.Store.LicenseManagement.IAsyncOperation_ILicenseSatisfactionResult;
    
-
 end;

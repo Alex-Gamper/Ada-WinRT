@@ -195,10 +195,6 @@ package Windows.Foundation.Diagnostics is
    type LoggingFieldFormat_Ptr is access LoggingFieldFormat;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -291,14 +287,6 @@ package Windows.Foundation.Diagnostics is
    type IAsyncOperation_IErrorDetails_Interface;
    type IAsyncOperation_IErrorDetails is access all IAsyncOperation_IErrorDetails_Interface'Class;
    type IAsyncOperation_IErrorDetails_Ptr is access all IAsyncOperation_IErrorDetails;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2302,5 +2290,4 @@ package Windows.Foundation.Diagnostics is
    )
    return Windows.Foundation.Diagnostics.IAsyncOperation_IErrorDetails;
    
-
 end;

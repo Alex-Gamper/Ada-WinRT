@@ -52,10 +52,6 @@ package Windows.System.Diagnostics is
    type DiagnosticActionState_Ptr is access DiagnosticActionState;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -128,14 +124,6 @@ package Windows.System.Diagnostics is
    type IVector_IProcessDiagnosticInfo_Interface;
    type IVector_IProcessDiagnosticInfo is access all IVector_IProcessDiagnosticInfo_Interface'Class;
    type IVector_IProcessDiagnosticInfo_Ptr is access all IVector_IProcessDiagnosticInfo;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -854,5 +842,4 @@ package Windows.System.Diagnostics is
    function get_IsSupported
    return Windows.Boolean;
    
-
 end;

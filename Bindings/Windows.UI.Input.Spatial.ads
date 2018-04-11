@@ -129,10 +129,6 @@ package Windows.UI.Input.Spatial is
    type SpatialInteractionSourcePositionAccuracy_Ptr is access SpatialInteractionSourcePositionAccuracy;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -333,14 +329,6 @@ package Windows.UI.Input.Spatial is
    type IVectorView_ISpatialInteractionSourceState_Interface;
    type IVectorView_ISpatialInteractionSourceState is access all IVectorView_ISpatialInteractionSourceState_Interface'Class;
    type IVectorView_ISpatialInteractionSourceState_Ptr is access all IVectorView_ISpatialInteractionSourceState;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1966,5 +1954,4 @@ package Windows.UI.Input.Spatial is
    function GetForCurrentView
    return Windows.UI.Input.Spatial.ISpatialInteractionManager;
    
-
 end;

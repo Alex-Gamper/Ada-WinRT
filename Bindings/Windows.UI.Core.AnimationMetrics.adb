@@ -56,5 +56,4 @@ package body Windows.UI.Core.AnimationMetrics is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

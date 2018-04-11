@@ -535,5 +535,4 @@ package body Windows.Networking.Vpn is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

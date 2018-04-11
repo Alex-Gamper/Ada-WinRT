@@ -244,14 +244,6 @@ package Windows.Media.Protection is
    type IAsyncOperation_HdcpSetProtectionResult_Ptr is access all IAsyncOperation_HdcpSetProtectionResult;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -883,5 +875,4 @@ package Windows.Media.Protection is
    )
    return Windows.Address;
    
-
 end;

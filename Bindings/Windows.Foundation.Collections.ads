@@ -19,7 +19,6 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.Foundation.Collections is
 
    pragma preelaborate;
@@ -43,10 +42,6 @@ package Windows.Foundation.Collections is
    for CollectionChange'Size use 32;
    
    type CollectionChange_Ptr is access CollectionChange;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -276,14 +271,6 @@ package Windows.Foundation.Collections is
    type IAsyncOperation_IPropertySet_Interface;
    type IAsyncOperation_IPropertySet is access all IAsyncOperation_IPropertySet_Interface'Class;
    type IAsyncOperation_IPropertySet_Ptr is access all IAsyncOperation_IPropertySet;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3431,5 +3418,4 @@ package Windows.Foundation.Collections is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

@@ -395,14 +395,6 @@ package Windows.Graphics.Imaging is
    type IIterable_ISoftwareBitmap_Ptr is access all IIterable_ISoftwareBitmap;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2144,5 +2136,4 @@ package Windows.Graphics.Imaging is
    )
    return Windows.Graphics.Imaging.IAsyncOperation_ISoftwareBitmap;
    
-
 end;

@@ -73,10 +73,6 @@ package Windows.UI.Xaml.Media.Imaging is
    type SvgImageSourceLoadStatus_Ptr is access SvgImageSourceLoadStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -184,14 +180,6 @@ package Windows.UI.Xaml.Media.Imaging is
    type IAsyncOperation_SvgImageSourceLoadStatus_Interface;
    type IAsyncOperation_SvgImageSourceLoadStatus is access all IAsyncOperation_SvgImageSourceLoadStatus_Interface'Class;
    type IAsyncOperation_SvgImageSourceLoadStatus_Ptr is access all IAsyncOperation_SvgImageSourceLoadStatus;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1484,5 +1472,4 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
    
-
 end;

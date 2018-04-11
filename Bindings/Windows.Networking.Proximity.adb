@@ -659,5 +659,4 @@ package body Windows.Networking.Proximity is
       return RetVal;
    end;
    
-
 end;

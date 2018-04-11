@@ -260,10 +260,6 @@ package Windows.Networking.Vpn is
    type VpnManagementErrorStatus_Ptr is access VpnManagementErrorStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -521,14 +517,6 @@ package Windows.Networking.Vpn is
    type IAsyncOperation_VpnManagementErrorStatus_Interface;
    type IAsyncOperation_VpnManagementErrorStatus is access all IAsyncOperation_VpnManagementErrorStatus_Interface'Class;
    type IAsyncOperation_VpnManagementErrorStatus_Ptr is access all IAsyncOperation_VpnManagementErrorStatus;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3716,5 +3704,4 @@ package Windows.Networking.Vpn is
    )
    ;
    
-
 end;

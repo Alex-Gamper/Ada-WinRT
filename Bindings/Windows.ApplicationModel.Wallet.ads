@@ -231,14 +231,6 @@ package Windows.ApplicationModel.Wallet is
    type IAsyncOperation_IWalletItemStore_Ptr is access all IAsyncOperation_IWalletItemStore;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1203,5 +1195,4 @@ package Windows.ApplicationModel.Wallet is
    function RequestStoreAsync
    return Windows.ApplicationModel.Wallet.IAsyncOperation_IWalletItemStore;
    
-
 end;

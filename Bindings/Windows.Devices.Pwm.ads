@@ -44,10 +44,6 @@ package Windows.Devices.Pwm is
    type PwmPulsePolarity_Ptr is access PwmPulsePolarity;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -77,14 +73,6 @@ package Windows.Devices.Pwm is
    type IAsyncOperation_IPwmController_Interface;
    type IAsyncOperation_IPwmController is access all IAsyncOperation_IPwmController_Interface'Class;
    type IAsyncOperation_IPwmController_Ptr is access all IAsyncOperation_IPwmController;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -335,5 +323,4 @@ package Windows.Devices.Pwm is
    )
    return Windows.Address;
    
-
 end;

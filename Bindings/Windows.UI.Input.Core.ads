@@ -27,14 +27,6 @@ package Windows.UI.Input.Core is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -44,14 +36,6 @@ package Windows.UI.Input.Core is
    type IRadialControllerIndependentInputSource_Interface;
    type IRadialControllerIndependentInputSource is access all IRadialControllerIndependentInputSource_Interface'Class;
    type IRadialControllerIndependentInputSource_Ptr is access all IRadialControllerIndependentInputSource;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -107,5 +91,4 @@ package Windows.UI.Input.Core is
    )
    return Windows.UI.Input.Core.IRadialControllerIndependentInputSource;
    
-
 end;

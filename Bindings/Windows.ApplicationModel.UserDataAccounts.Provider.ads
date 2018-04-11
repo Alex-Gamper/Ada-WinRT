@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.UserDataAccounts.Provider is
 
    pragma preelaborate;
@@ -56,10 +55,6 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
    type UserDataAccountProviderPartnerAccountKind_Ptr is access UserDataAccountProviderPartnerAccountKind;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -87,14 +82,6 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
    type IVectorView_IUserDataAccountPartnerAccountInfo_Interface;
    type IVectorView_IUserDataAccountPartnerAccountInfo is access all IVectorView_IUserDataAccountPartnerAccountInfo_Interface'Class;
    type IVectorView_IUserDataAccountPartnerAccountInfo_Ptr is access all IVectorView_IUserDataAccountPartnerAccountInfo;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -305,5 +292,4 @@ package Windows.ApplicationModel.UserDataAccounts.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

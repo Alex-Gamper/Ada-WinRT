@@ -369,5 +369,4 @@ package body Windows.Devices.Bluetooth.Rfcomm is
       return RetVal;
    end;
    
-
 end;

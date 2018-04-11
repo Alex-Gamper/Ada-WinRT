@@ -121,5 +121,4 @@ package body Windows.ApplicationModel.Appointments.AppointmentsProvider is
       return RetVal;
    end;
    
-
 end;

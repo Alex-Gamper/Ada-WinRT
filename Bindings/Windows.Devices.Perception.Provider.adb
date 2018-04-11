@@ -191,5 +191,4 @@ package body Windows.Devices.Perception.Provider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

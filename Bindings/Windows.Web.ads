@@ -149,10 +149,6 @@ package Windows.Web is
    type WebErrorStatus_Ptr is access WebErrorStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -177,14 +173,6 @@ package Windows.Web is
    type IReference_WebErrorStatus_Interface;
    type IReference_WebErrorStatus is access all IReference_WebErrorStatus_Interface'Class;
    type IReference_WebErrorStatus_Ptr is access all IReference_WebErrorStatus;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -428,5 +416,4 @@ package Windows.Web is
    )
    return Windows.Web.WebErrorStatus;
    
-
 end;

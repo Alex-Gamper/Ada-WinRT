@@ -236,5 +236,4 @@ package body Windows.ApplicationModel.Email.DataProvider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

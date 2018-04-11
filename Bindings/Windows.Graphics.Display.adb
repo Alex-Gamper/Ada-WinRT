@@ -300,5 +300,4 @@ package body Windows.Graphics.Display is
       return RetVal;
    end;
    
-
 end;

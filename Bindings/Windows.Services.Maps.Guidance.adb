@@ -237,5 +237,4 @@ package body Windows.Services.Maps.Guidance is
       return RetVal;
    end;
    
-
 end;

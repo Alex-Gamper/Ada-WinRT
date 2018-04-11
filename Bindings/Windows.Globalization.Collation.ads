@@ -19,18 +19,9 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.Globalization.Collation is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -51,14 +42,6 @@ package Windows.Globalization.Collation is
    type ICharacterGroupings_Interface;
    type ICharacterGroupings is access all ICharacterGroupings_Interface'Class;
    type ICharacterGroupings_Ptr is access all ICharacterGroupings;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -182,5 +165,4 @@ package Windows.Globalization.Collation is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

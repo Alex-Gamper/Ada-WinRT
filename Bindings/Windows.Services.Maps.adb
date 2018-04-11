@@ -740,5 +740,4 @@ package body Windows.Services.Maps is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

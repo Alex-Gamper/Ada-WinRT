@@ -63,10 +63,6 @@ package Windows.Media.Transcoding is
    type TranscodeFailureReason_Ptr is access TranscodeFailureReason;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -96,14 +92,6 @@ package Windows.Media.Transcoding is
    type IAsyncOperation_IPrepareTranscodeResult_Interface;
    type IAsyncOperation_IPrepareTranscodeResult is access all IAsyncOperation_IPrepareTranscodeResult_Interface'Class;
    type IAsyncOperation_IPrepareTranscodeResult_Ptr is access all IAsyncOperation_IPrepareTranscodeResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -384,5 +372,4 @@ package Windows.Media.Transcoding is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

@@ -51,10 +51,6 @@ package Windows.Storage.Compression is
    type CompressAlgorithm_Ptr is access CompressAlgorithm;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -76,14 +72,6 @@ package Windows.Storage.Compression is
    type IInputStream_Imported_Interface;
    type IInputStream_Imported is access all IInputStream_Imported_Interface'Class;
    type IInputStream_Imported_Ptr is access all IInputStream_Imported;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -226,5 +214,4 @@ package Windows.Storage.Compression is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

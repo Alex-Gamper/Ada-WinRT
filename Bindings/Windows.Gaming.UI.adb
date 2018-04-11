@@ -227,5 +227,4 @@ package body Windows.Gaming.UI is
       return RetVal;
    end;
    
-
 end;

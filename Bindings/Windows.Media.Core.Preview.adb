@@ -91,5 +91,4 @@ package body Windows.Media.Core.Preview is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

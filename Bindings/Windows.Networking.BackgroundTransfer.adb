@@ -431,5 +431,4 @@ package body Windows.Networking.BackgroundTransfer is
       return RetVal;
    end;
    
-
 end;

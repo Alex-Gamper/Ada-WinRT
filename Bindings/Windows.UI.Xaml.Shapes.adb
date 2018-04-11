@@ -996,5 +996,4 @@ package body Windows.UI.Xaml.Shapes is
       return RetVal;
    end;
    
-
 end;

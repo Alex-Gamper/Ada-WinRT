@@ -81,10 +81,6 @@ package Windows.ApplicationModel.VoiceCommands is
    type VoiceCommandCompletionReason_Ptr is access VoiceCommandCompletionReason;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -162,14 +158,6 @@ package Windows.ApplicationModel.VoiceCommands is
    type IVector_IVoiceCommandContentTile_Interface;
    type IVector_IVoiceCommandContentTile is access all IVector_IVoiceCommandContentTile_Interface'Class;
    type IVector_IVoiceCommandContentTile_Ptr is access all IVector_IVoiceCommandContentTile;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1033,5 +1021,4 @@ package Windows.ApplicationModel.VoiceCommands is
    )
    return Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnection;
    
-
 end;

@@ -632,5 +632,4 @@ package body Windows.ApplicationModel.DataTransfer is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

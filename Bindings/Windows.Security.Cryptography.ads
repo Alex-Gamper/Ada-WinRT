@@ -44,24 +44,12 @@ package Windows.Security.Cryptography is
    type BinaryStringEncoding_Ptr is access BinaryStringEncoding;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
    type ICryptographicBufferStatics_Interface;
    type ICryptographicBufferStatics is access all ICryptographicBufferStatics_Interface'Class;
    type ICryptographicBufferStatics_Ptr is access all ICryptographicBufferStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -239,5 +227,4 @@ package Windows.Security.Cryptography is
    )
    return Windows.String;
    
-
 end;

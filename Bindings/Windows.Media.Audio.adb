@@ -427,5 +427,4 @@ package body Windows.Media.Audio is
       return RetVal;
    end;
    
-
 end;

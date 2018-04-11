@@ -670,5 +670,4 @@ package body Windows.ApplicationModel.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

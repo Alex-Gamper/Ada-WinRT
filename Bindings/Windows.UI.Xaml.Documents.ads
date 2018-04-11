@@ -281,14 +281,6 @@ package Windows.UI.Xaml.Documents is
    type IVector_ITextHighlighter_Ptr is access all IVector_ITextHighlighter;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -4819,5 +4811,4 @@ package Windows.UI.Xaml.Documents is
    function get_FillProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-
 end;

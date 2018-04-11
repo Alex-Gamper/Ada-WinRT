@@ -918,5 +918,4 @@ package body Windows.Media.Playback is
       return RetVal;
    end;
    
-
 end;

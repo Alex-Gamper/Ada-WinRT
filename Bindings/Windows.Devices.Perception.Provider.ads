@@ -30,14 +30,6 @@ package Windows.Devices.Perception.Provider is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -112,14 +104,6 @@ package Windows.Devices.Perception.Provider is
    type IVectorView_IPerceptionCorrelation_Interface;
    type IVectorView_IPerceptionCorrelation is access all IVectorView_IPerceptionCorrelation_Interface'Class;
    type IVectorView_IPerceptionCorrelation_Ptr is access all IVectorView_IPerceptionCorrelation;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -791,5 +775,4 @@ package Windows.Devices.Perception.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

@@ -26,28 +26,12 @@ package Windows.Gaming.Input.Preview is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
    type IGameControllerProviderInfoStatics_Interface;
    type IGameControllerProviderInfoStatics is access all IGameControllerProviderInfoStatics_Interface'Class;
    type IGameControllerProviderInfoStatics_Ptr is access all IGameControllerProviderInfoStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -96,5 +80,4 @@ package Windows.Gaming.Input.Preview is
    )
    return Windows.String;
    
-
 end;

@@ -2989,5 +2989,4 @@ package body Windows.UI.Xaml.Automation.Peers is
       return RetVal;
    end;
    
-
 end;

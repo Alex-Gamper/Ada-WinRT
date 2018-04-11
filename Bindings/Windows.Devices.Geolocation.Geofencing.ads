@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Devices.Geolocation.Geofencing is
 
    pragma preelaborate;
@@ -95,10 +94,6 @@ package Windows.Devices.Geolocation.Geofencing is
    type GeofenceRemovalReason_Ptr is access GeofenceRemovalReason;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -149,14 +144,6 @@ package Windows.Devices.Geolocation.Geofencing is
    type IVectorView_IGeofenceStateChangeReport_Interface;
    type IVectorView_IGeofenceStateChangeReport is access all IVectorView_IGeofenceStateChangeReport_Interface'Class;
    type IVectorView_IGeofenceStateChangeReport_Ptr is access all IVectorView_IGeofenceStateChangeReport;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -733,5 +720,4 @@ package Windows.Devices.Geolocation.Geofencing is
    function get_Current
    return Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor;
    
-
 end;

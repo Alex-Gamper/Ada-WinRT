@@ -1243,10 +1243,6 @@ package Windows.UI.Xaml.Controls is
    type PivotSlideInAnimationGroup_Ptr is access PivotSlideInAnimationGroup;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -3748,14 +3744,6 @@ package Windows.UI.Xaml.Controls is
    type IObservableVector_ICommandBarElement_Interface;
    type IObservableVector_ICommandBarElement is access all IObservableVector_ICommandBarElement_Interface'Class;
    type IObservableVector_ICommandBarElement_Ptr is access all IObservableVector_ICommandBarElement;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -52650,5 +52638,4 @@ package Windows.UI.Xaml.Controls is
    function get_MinuteIncrementProperty_ITimePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
-
 end;

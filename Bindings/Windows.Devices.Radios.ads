@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Devices.Radios is
 
    pragma preelaborate;
@@ -81,10 +80,6 @@ package Windows.Devices.Radios is
    type RadioAccessStatus_Ptr is access RadioAccessStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -114,14 +109,6 @@ package Windows.Devices.Radios is
    type IAsyncOperation_RadioAccessStatus_Interface;
    type IAsyncOperation_RadioAccessStatus is access all IAsyncOperation_RadioAccessStatus_Interface'Class;
    type IAsyncOperation_RadioAccessStatus_Ptr is access all IAsyncOperation_RadioAccessStatus;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -334,5 +321,4 @@ package Windows.Devices.Radios is
    function RequestAccessAsync
    return Windows.Devices.Radios.IAsyncOperation_RadioAccessStatus;
    
-
 end;

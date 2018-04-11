@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Devices.Geolocation is
 
    pragma preelaborate;
@@ -347,14 +346,6 @@ package Windows.Devices.Geolocation is
    type IVector_IGeopath_Interface;
    type IVector_IGeopath is access all IVector_IGeopath_Interface'Class;
    type IVector_IGeopath_Ptr is access all IVector_IGeopath;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1994,5 +1985,4 @@ package Windows.Devices.Geolocation is
    function GetLastReportAsync
    return Windows.Devices.Geolocation.IAsyncOperation_IGeovisit;
    
-
 end;

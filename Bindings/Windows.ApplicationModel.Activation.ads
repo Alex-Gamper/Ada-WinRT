@@ -382,14 +382,6 @@ package Windows.ApplicationModel.Activation is
    type IVoiceCommandActivatedEventArgs_Ptr is access all IVoiceCommandActivatedEventArgs;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1503,5 +1495,4 @@ package Windows.ApplicationModel.Activation is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

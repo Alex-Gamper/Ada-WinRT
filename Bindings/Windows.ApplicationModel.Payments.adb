@@ -539,5 +539,4 @@ package body Windows.ApplicationModel.Payments is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

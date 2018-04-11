@@ -53,5 +53,4 @@ package body Windows.ApplicationModel.Contacts.Provider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

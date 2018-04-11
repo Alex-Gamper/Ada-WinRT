@@ -471,10 +471,6 @@ package Windows.UI.Xaml.Automation is
    type AutomationTextDecorationLineStyle_Ptr is access AutomationTextDecorationLineStyle;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -670,14 +666,6 @@ package Windows.UI.Xaml.Automation is
    type IVector_IAutomationAnnotation_Interface;
    type IVector_IAutomationAnnotation is access all IVector_IAutomationAnnotation_Interface'Class;
    type IVector_IAutomationAnnotation_Ptr is access all IVector_IAutomationAnnotation;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3337,5 +3325,4 @@ package Windows.UI.Xaml.Automation is
    function get_ElementProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-
 end;

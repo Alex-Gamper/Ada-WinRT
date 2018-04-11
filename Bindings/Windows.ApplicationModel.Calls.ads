@@ -537,14 +537,6 @@ package Windows.ApplicationModel.Calls is
    type IAsyncOperation_IPhoneCallHistoryStore_Ptr is access all IAsyncOperation_IPhoneCallHistoryStore;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2698,5 +2690,4 @@ package Windows.ApplicationModel.Calls is
    )
    return Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser;
    
-
 end;

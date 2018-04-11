@@ -115,10 +115,6 @@ package Windows.Devices.SerialCommunication is
    type SerialPinChange_Ptr is access SerialPinChange;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -151,14 +147,6 @@ package Windows.Devices.SerialCommunication is
    type IAsyncOperation_ISerialDevice_Interface;
    type IAsyncOperation_ISerialDevice is access all IAsyncOperation_ISerialDevice_Interface'Class;
    type IAsyncOperation_ISerialDevice_Ptr is access all IAsyncOperation_ISerialDevice;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -571,5 +559,4 @@ package Windows.Devices.SerialCommunication is
    )
    return Windows.Devices.SerialCommunication.IAsyncOperation_ISerialDevice;
    
-
 end;

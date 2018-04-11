@@ -120,5 +120,4 @@ package body Windows.Devices.Power is
       return RetVal;
    end;
    
-
 end;

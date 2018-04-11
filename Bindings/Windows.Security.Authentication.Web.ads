@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Security.Authentication.Web is
 
    pragma preelaborate;
@@ -77,10 +76,6 @@ package Windows.Security.Authentication.Web is
    type WebAuthenticationOptions_Ptr is access WebAuthenticationOptions;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -104,14 +99,6 @@ package Windows.Security.Authentication.Web is
    type IAsyncOperation_IWebAuthenticationResult_Interface;
    type IAsyncOperation_IWebAuthenticationResult is access all IAsyncOperation_IWebAuthenticationResult_Interface'Class;
    type IAsyncOperation_IWebAuthenticationResult_Ptr is access all IAsyncOperation_IWebAuthenticationResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -331,5 +318,4 @@ package Windows.Security.Authentication.Web is
    )
    return Windows.Security.Authentication.Web.IAsyncOperation_IWebAuthenticationResult;
    
-
 end;

@@ -104,5 +104,4 @@ package body Windows.Storage.Pickers is
       return RetVal;
    end;
    
-
 end;

@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Devices.Enumeration.Pnp is
 
    pragma preelaborate;
@@ -53,10 +52,6 @@ package Windows.Devices.Enumeration.Pnp is
    for PnpObjectType'Size use 32;
    
    type PnpObjectType_Ptr is access PnpObjectType;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -112,14 +107,6 @@ package Windows.Devices.Enumeration.Pnp is
    type IAsyncOperation_IVectorView_PnpObject_Interface;
    type IAsyncOperation_IVectorView_PnpObject is access all IAsyncOperation_IVectorView_PnpObject_Interface'Class;
    type IAsyncOperation_IVectorView_PnpObject_Ptr is access all IAsyncOperation_IVectorView_PnpObject;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -592,5 +579,4 @@ package Windows.Devices.Enumeration.Pnp is
    )
    return Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher;
    
-
 end;

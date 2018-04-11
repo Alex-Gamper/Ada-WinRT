@@ -1334,5 +1334,4 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
-
 end;

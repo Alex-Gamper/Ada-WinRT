@@ -53,5 +53,4 @@ package body Windows.Security.Cryptography.DataProtection is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

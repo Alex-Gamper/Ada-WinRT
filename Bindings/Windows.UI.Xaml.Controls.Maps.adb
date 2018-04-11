@@ -5908,5 +5908,4 @@ package body Windows.UI.Xaml.Controls.Maps is
       return RetVal;
    end;
    
-
 end;

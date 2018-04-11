@@ -137,5 +137,4 @@ package body Windows.Management.Workplace is
       return RetVal;
    end;
    
-
 end;

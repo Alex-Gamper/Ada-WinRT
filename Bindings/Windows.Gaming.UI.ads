@@ -142,14 +142,6 @@ package Windows.Gaming.UI is
    type IAsyncOperation_GameMonitoringPermission_Ptr is access all IAsyncOperation_GameMonitoringPermission;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -495,5 +487,4 @@ package Windows.Gaming.UI is
    function GetDefault
    return Windows.Gaming.UI.IGameMonitor;
    
-
 end;

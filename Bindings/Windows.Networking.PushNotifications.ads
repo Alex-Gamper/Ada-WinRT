@@ -52,10 +52,6 @@ package Windows.Networking.PushNotifications is
    type PushNotificationType_Ptr is access PushNotificationType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -100,14 +96,6 @@ package Windows.Networking.PushNotifications is
    type IAsyncOperation_IPushNotificationChannel_Interface;
    type IAsyncOperation_IPushNotificationChannel is access all IAsyncOperation_IPushNotificationChannel_Interface'Class;
    type IAsyncOperation_IPushNotificationChannel_Ptr is access all IAsyncOperation_IPushNotificationChannel;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -453,5 +441,4 @@ package Windows.Networking.PushNotifications is
    function GetDefault
    return Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser;
    
-
 end;

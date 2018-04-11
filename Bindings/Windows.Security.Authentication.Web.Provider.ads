@@ -95,10 +95,6 @@ package Windows.Security.Authentication.Web.Provider is
    type WebAccountScope_Ptr is access WebAccountScope;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -228,14 +224,6 @@ package Windows.Security.Authentication.Web.Provider is
    type IVector_IWebProviderTokenResponse_Interface;
    type IVector_IWebProviderTokenResponse is access all IVector_IWebProviderTokenResponse_Interface'Class;
    type IVector_IWebProviderTokenResponse_Ptr is access all IVector_IWebProviderTokenResponse;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1612,5 +1600,4 @@ package Windows.Security.Authentication.Web.Provider is
    )
    return Windows.Foundation.IAsyncAction;
    
-
 end;

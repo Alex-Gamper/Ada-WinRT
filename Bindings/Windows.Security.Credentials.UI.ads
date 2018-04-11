@@ -107,10 +107,6 @@ package Windows.Security.Credentials.UI is
    type UserConsentVerificationResult_Ptr is access UserConsentVerificationResult;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -149,14 +145,6 @@ package Windows.Security.Credentials.UI is
    type IAsyncOperation_UserConsentVerificationResult_Interface;
    type IAsyncOperation_UserConsentVerificationResult is access all IAsyncOperation_UserConsentVerificationResult_Interface'Class;
    type IAsyncOperation_UserConsentVerificationResult_Ptr is access all IAsyncOperation_UserConsentVerificationResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -585,5 +573,4 @@ package Windows.Security.Credentials.UI is
    )
    return Windows.Security.Credentials.UI.IAsyncOperation_UserConsentVerificationResult;
    
-
 end;

@@ -362,5 +362,4 @@ package body Windows.UI.Input.Spatial is
       return RetVal;
    end;
    
-
 end;

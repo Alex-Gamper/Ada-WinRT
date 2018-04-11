@@ -553,10 +553,6 @@ package Windows.ApplicationModel.Email is
    type EmailMailboxDeleteFolderStatus_Ptr is access EmailMailboxDeleteFolderStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -883,14 +879,6 @@ package Windows.ApplicationModel.Email is
    type IIterable_EmailCertificateValidationStatus_Interface;
    type IIterable_EmailCertificateValidationStatus is access all IIterable_EmailCertificateValidationStatus_Interface'Class;
    type IIterable_EmailCertificateValidationStatus_Ptr is access all IIterable_EmailCertificateValidationStatus;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -5402,5 +5390,4 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.Foundation.IAsyncAction;
    
-
 end;

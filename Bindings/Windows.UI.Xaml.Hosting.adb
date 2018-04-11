@@ -362,5 +362,4 @@ package body Windows.UI.Xaml.Hosting is
       return RetVal;
    end;
    
-
 end;

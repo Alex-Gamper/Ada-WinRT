@@ -28,14 +28,6 @@ package Windows.ApplicationModel.Calls.Provider is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -54,14 +46,6 @@ package Windows.ApplicationModel.Calls.Provider is
    type IPhoneCallOriginManagerStatics2_Interface;
    type IPhoneCallOriginManagerStatics2 is access all IPhoneCallOriginManagerStatics2_Interface'Class;
    type IPhoneCallOriginManagerStatics2_Ptr is access all IPhoneCallOriginManagerStatics2;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -224,5 +208,4 @@ package Windows.ApplicationModel.Calls.Provider is
    function RequestSetAsActiveCallOriginAppAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-
 end;

@@ -103,5 +103,4 @@ package body Windows.Services.Cortana is
       return RetVal;
    end;
    
-
 end;

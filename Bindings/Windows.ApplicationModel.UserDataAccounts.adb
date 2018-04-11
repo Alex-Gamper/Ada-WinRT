@@ -184,5 +184,4 @@ package body Windows.ApplicationModel.UserDataAccounts is
       return RetVal;
    end;
    
-
 end;

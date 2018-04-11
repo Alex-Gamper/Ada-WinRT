@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Devices.Adc.Provider is
 
    pragma preelaborate;
@@ -42,10 +41,6 @@ package Windows.Devices.Adc.Provider is
    type ProviderAdcChannelMode_Ptr is access ProviderAdcChannelMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -64,14 +59,6 @@ package Windows.Devices.Adc.Provider is
    type IVectorView_IAdcControllerProvider_Interface;
    type IVectorView_IAdcControllerProvider is access all IVectorView_IAdcControllerProvider_Interface'Class;
    type IVectorView_IAdcControllerProvider_Ptr is access all IVectorView_IAdcControllerProvider;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -264,5 +251,4 @@ package Windows.Devices.Adc.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

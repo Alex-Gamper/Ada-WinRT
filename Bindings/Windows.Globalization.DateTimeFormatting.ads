@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Globalization.DateTimeFormatting is
 
    pragma preelaborate;
@@ -129,10 +128,6 @@ package Windows.Globalization.DateTimeFormatting is
    type SecondFormat_Ptr is access SecondFormat;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -148,14 +143,6 @@ package Windows.Globalization.DateTimeFormatting is
    type IDateTimeFormatter2_Interface;
    type IDateTimeFormatter2 is access all IDateTimeFormatter2_Interface'Class;
    type IDateTimeFormatter2_Ptr is access all IDateTimeFormatter2;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -524,5 +511,4 @@ package Windows.Globalization.DateTimeFormatting is
    function get_ShortTime
    return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter;
    
-
 end;

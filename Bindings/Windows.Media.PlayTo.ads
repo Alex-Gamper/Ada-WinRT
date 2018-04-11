@@ -64,10 +64,6 @@ package Windows.Media.PlayTo is
    type PlayToConnectionError_Ptr is access PlayToConnectionError;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -172,14 +168,6 @@ package Windows.Media.PlayTo is
    type IPlayToManagerStatics_Interface;
    type IPlayToManagerStatics is access all IPlayToManagerStatics_Interface'Class;
    type IPlayToManagerStatics_Ptr is access all IPlayToManagerStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1162,5 +1150,4 @@ package Windows.Media.PlayTo is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

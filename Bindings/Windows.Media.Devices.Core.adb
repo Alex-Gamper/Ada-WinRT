@@ -54,5 +54,4 @@ package body Windows.Media.Devices.Core is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

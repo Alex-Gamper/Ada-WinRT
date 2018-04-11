@@ -1030,14 +1030,6 @@ package Windows.UI.Xaml.Automation.Peers is
    type IVector_IAutomationPeerAnnotation_Ptr is access all IVector_IAutomationPeerAnnotation;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -6038,5 +6030,4 @@ package Windows.UI.Xaml.Automation.Peers is
    )
    return Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeer;
    
-
 end;

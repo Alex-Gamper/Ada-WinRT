@@ -29,10 +29,6 @@ package Windows.ApplicationModel.Search is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
    
@@ -119,14 +115,6 @@ package Windows.ApplicationModel.Search is
    type ISearchSuggestionsRequest_Interface;
    type ISearchSuggestionsRequest is access all ISearchSuggestionsRequest_Interface'Class;
    type ISearchSuggestionsRequest_Ptr is access all ISearchSuggestionsRequest;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -787,5 +775,4 @@ package Windows.ApplicationModel.Search is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

@@ -21,18 +21,9 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.SocialInfo.Provider is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -64,14 +55,6 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    type IAsyncOperation_ISocialDashboardItemUpdater_Interface;
    type IAsyncOperation_ISocialDashboardItemUpdater is access all IAsyncOperation_ISocialDashboardItemUpdater_Interface'Class;
    type IAsyncOperation_ISocialDashboardItemUpdater_Ptr is access all IAsyncOperation_ISocialDashboardItemUpdater;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -329,5 +312,4 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

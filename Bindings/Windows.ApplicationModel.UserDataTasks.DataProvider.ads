@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.UserDataTasks.DataProvider is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -93,14 +84,6 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    type IUserDataTaskListDeleteTaskRequestEventArgs_Interface;
    type IUserDataTaskListDeleteTaskRequestEventArgs is access all IUserDataTaskListDeleteTaskRequestEventArgs_Interface'Class;
    type IUserDataTaskListDeleteTaskRequestEventArgs_Ptr is access all IUserDataTaskListDeleteTaskRequestEventArgs;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -561,5 +544,4 @@ package Windows.ApplicationModel.UserDataTasks.DataProvider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

@@ -117,5 +117,4 @@ package body Windows.Gaming.Input.Custom is
       return RetVal;
    end;
    
-
 end;

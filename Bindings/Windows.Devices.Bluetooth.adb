@@ -1602,5 +1602,4 @@ package body Windows.Devices.Bluetooth is
       return RetVal;
    end;
    
-
 end;

@@ -27,10 +27,6 @@ package Windows.Media.AppBroadcasting is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
    
@@ -66,14 +62,6 @@ package Windows.Media.AppBroadcasting is
    type IAppBroadcastingStatusDetails_Interface;
    type IAppBroadcastingStatusDetails is access all IAppBroadcastingStatusDetails_Interface'Class;
    type IAppBroadcastingStatusDetails_Ptr is access all IAppBroadcastingStatusDetails;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -271,5 +259,4 @@ package Windows.Media.AppBroadcasting is
    )
    return Windows.Media.AppBroadcasting.IAppBroadcastingUI;
    
-
 end;

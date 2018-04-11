@@ -191,5 +191,4 @@ package body Windows.Globalization.NumberFormatting is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

@@ -27,10 +27,6 @@ package Windows.ApplicationModel.Preview.InkWorkspace is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
    
@@ -49,14 +45,6 @@ package Windows.ApplicationModel.Preview.InkWorkspace is
    type IInkWorkspaceHostedAppManagerStatics_Interface;
    type IInkWorkspaceHostedAppManagerStatics is access all IInkWorkspaceHostedAppManagerStatics_Interface'Class;
    type IInkWorkspaceHostedAppManagerStatics_Ptr is access all IInkWorkspaceHostedAppManagerStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -102,5 +90,4 @@ package Windows.ApplicationModel.Preview.InkWorkspace is
    function GetForCurrentApp
    return Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManager;
    
-
 end;

@@ -93,5 +93,4 @@ package body Windows.System.Diagnostics.Telemetry is
       return RetVal;
    end;
    
-
 end;

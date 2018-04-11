@@ -462,5 +462,4 @@ package body Windows.Web.Http is
       return RetVal;
    end;
    
-
 end;

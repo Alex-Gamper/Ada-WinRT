@@ -21,18 +21,9 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.Appointments.DataProvider is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -103,14 +94,6 @@ package Windows.ApplicationModel.Appointments.DataProvider is
    type IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Interface;
    type IAppointmentCalendarUpdateMeetingResponseRequestEventArgs is access all IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Interface'Class;
    type IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Ptr is access all IAppointmentCalendarUpdateMeetingResponseRequestEventArgs;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -801,5 +784,4 @@ package Windows.ApplicationModel.Appointments.DataProvider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

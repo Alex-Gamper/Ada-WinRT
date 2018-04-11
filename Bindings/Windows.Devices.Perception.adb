@@ -537,5 +537,4 @@ package body Windows.Devices.Perception is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

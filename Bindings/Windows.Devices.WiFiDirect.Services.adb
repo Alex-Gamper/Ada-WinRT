@@ -241,5 +241,4 @@ package body Windows.Devices.WiFiDirect.Services is
       return RetVal;
    end;
    
-
 end;

@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.ExtendedExecution is
 
    pragma preelaborate;
@@ -68,10 +67,6 @@ package Windows.ApplicationModel.ExtendedExecution is
    type ExtendedExecutionRevokedReason_Ptr is access ExtendedExecutionRevokedReason;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -95,14 +90,6 @@ package Windows.ApplicationModel.ExtendedExecution is
    type IAsyncOperation_ExtendedExecutionResult_Interface;
    type IAsyncOperation_ExtendedExecutionResult is access all IAsyncOperation_ExtendedExecutionResult_Interface'Class;
    type IAsyncOperation_ExtendedExecutionResult_Ptr is access all IAsyncOperation_ExtendedExecutionResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -262,5 +249,4 @@ package Windows.ApplicationModel.ExtendedExecution is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

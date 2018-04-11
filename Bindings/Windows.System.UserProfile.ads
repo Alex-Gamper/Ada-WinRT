@@ -166,14 +166,6 @@ package Windows.System.UserProfile is
    type IAsyncOperation_SetImageFeedResult_Ptr is access all IAsyncOperation_SetImageFeedResult;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -875,5 +867,4 @@ package Windows.System.UserProfile is
    )
    return Windows.Foundation.IAsyncAction;
    
-
 end;

@@ -201,5 +201,4 @@ package body Windows.Devices.Spi is
       return RetVal;
    end;
    
-
 end;

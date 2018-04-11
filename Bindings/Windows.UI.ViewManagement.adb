@@ -966,5 +966,4 @@ package body Windows.UI.ViewManagement is
       return RetVal;
    end;
    
-
 end;

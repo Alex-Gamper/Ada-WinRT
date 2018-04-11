@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Devices.Printers.Extensions is
 
    pragma preelaborate;
@@ -126,14 +125,6 @@ package Windows.Devices.Printers.Extensions is
    type IPrint3DWorkflow2_Interface;
    type IPrint3DWorkflow2 is access all IPrint3DWorkflow2_Interface'Class;
    type IPrint3DWorkflow2_Ptr is access all IPrint3DWorkflow2;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -449,5 +440,4 @@ package Windows.Devices.Printers.Extensions is
    )
    return Windows.Object;
    
-
 end;

@@ -320,14 +320,6 @@ package Windows.Storage.Provider is
    type IVectorView_IStorageProviderSyncRootInfo_Ptr is access all IVectorView_IStorageProviderSyncRootInfo;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1372,5 +1364,4 @@ package Windows.Storage.Provider is
    function GetCurrentSyncRoots
    return Windows.Storage.Provider.IVectorView_IStorageProviderSyncRootInfo;
    
-
 end;

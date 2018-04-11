@@ -19,14 +19,9 @@
 --    along with this program.If not, see < http://www.gnu.org/licenses/>.    --
 --                                                                            --
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 package Windows.UI.Xaml.Media.Media3D is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Record types
@@ -82,14 +77,6 @@ package Windows.UI.Xaml.Media.Media3D is
    type IPerspectiveTransform3DStatics_Interface;
    type IPerspectiveTransform3DStatics is access all IPerspectiveTransform3DStatics_Interface'Class;
    type IPerspectiveTransform3DStatics_Ptr is access all IPerspectiveTransform3DStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -704,5 +691,4 @@ package Windows.UI.Xaml.Media.Media3D is
    function get_OffsetYProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-
 end;

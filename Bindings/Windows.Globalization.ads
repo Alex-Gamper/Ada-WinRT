@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Globalization is
 
    pragma preelaborate;
@@ -152,14 +151,6 @@ package Windows.Globalization is
    type IVectorView_IJapanesePhoneme_Interface;
    type IVectorView_IJapanesePhoneme is access all IVectorView_IJapanesePhoneme_Interface'Class;
    type IVectorView_IJapanesePhoneme_Ptr is access all IVectorView_IJapanesePhoneme;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3744,5 +3735,4 @@ package Windows.Globalization is
    )
    return Windows.Globalization.IVectorView_IJapanesePhoneme;
    
-
 end;

@@ -191,5 +191,4 @@ package body Windows.ApplicationModel.CommunicationBlocking is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

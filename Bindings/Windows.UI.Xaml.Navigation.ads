@@ -62,10 +62,6 @@ package Windows.UI.Xaml.Navigation is
    type NavigationMode_Ptr is access NavigationMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -125,14 +121,6 @@ package Windows.UI.Xaml.Navigation is
    type IVector_IPageStackEntry_Interface;
    type IVector_IPageStackEntry is access all IVector_IPageStackEntry_Interface'Class;
    type IVector_IPageStackEntry_Ptr is access all IVector_IPageStackEntry;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -619,5 +607,4 @@ package Windows.UI.Xaml.Navigation is
    function get_SourcePageTypeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-
 end;

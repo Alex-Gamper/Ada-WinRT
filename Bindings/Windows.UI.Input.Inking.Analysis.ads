@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.UI.Input.Inking.Analysis is
 
    pragma preelaborate;
@@ -121,10 +120,6 @@ package Windows.UI.Input.Inking.Analysis is
    type InkAnalysisStrokeKind_Ptr is access InkAnalysisStrokeKind;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -184,14 +179,6 @@ package Windows.UI.Input.Inking.Analysis is
    type IVectorView_IInkAnalysisNode_Interface;
    type IVectorView_IInkAnalysisNode is access all IVectorView_IInkAnalysisNode_Interface'Class;
    type IVectorView_IInkAnalysisNode_Ptr is access all IVectorView_IInkAnalysisNode;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -648,5 +635,4 @@ package Windows.UI.Input.Inking.Analysis is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

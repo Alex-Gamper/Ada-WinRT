@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Graphics.Printing.OptionDetails is
 
    pragma preelaborate;
@@ -59,10 +58,6 @@ package Windows.Graphics.Printing.OptionDetails is
    for PrintOptionType'Size use 32;
    
    type PrintOptionType_Ptr is access PrintOptionType;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -112,14 +107,6 @@ package Windows.Graphics.Printing.OptionDetails is
    type IPrintTaskOptionDetailsStatic_Interface;
    type IPrintTaskOptionDetailsStatic is access all IPrintTaskOptionDetailsStatic_Interface'Class;
    type IPrintTaskOptionDetailsStatic_Ptr is access all IPrintTaskOptionDetailsStatic;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -465,5 +452,4 @@ package Windows.Graphics.Printing.OptionDetails is
    )
    return Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails;
    
-
 end;

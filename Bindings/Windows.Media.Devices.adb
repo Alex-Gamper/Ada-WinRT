@@ -438,5 +438,4 @@ package body Windows.Media.Devices is
       return RetVal;
    end;
    
-
 end;

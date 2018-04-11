@@ -601,14 +601,6 @@ package Windows.ApplicationModel.Background is
    type IAsyncOperation_IGattServiceProviderTriggerResult_Ptr is access all IAsyncOperation_IGattServiceProviderTriggerResult;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2993,5 +2985,4 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IAsyncOperation_IGattServiceProviderTriggerResult;
    
-
 end;

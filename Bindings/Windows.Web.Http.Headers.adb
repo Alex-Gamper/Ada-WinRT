@@ -1326,5 +1326,4 @@ package body Windows.Web.Http.Headers is
       return RetVal;
    end;
    
-
 end;

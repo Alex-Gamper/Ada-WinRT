@@ -66,10 +66,6 @@ package Windows.Data.Xml.Dom is
    type NodeType_Ptr is access NodeType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -159,14 +155,6 @@ package Windows.Data.Xml.Dom is
    type IAsyncOperation_IXmlDocument_Interface;
    type IAsyncOperation_IXmlDocument is access all IAsyncOperation_IXmlDocument_Interface'Class;
    type IAsyncOperation_IXmlDocument_Ptr is access all IAsyncOperation_IXmlDocument;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1331,5 +1319,4 @@ package Windows.Data.Xml.Dom is
    )
    return Windows.Data.Xml.Dom.IAsyncOperation_IXmlDocument;
    
-
 end;

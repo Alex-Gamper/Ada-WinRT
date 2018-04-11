@@ -2000,5 +2000,4 @@ package body Windows.System is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

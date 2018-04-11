@@ -99,5 +99,4 @@ package body Windows.Devices is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

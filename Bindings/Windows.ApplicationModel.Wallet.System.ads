@@ -46,10 +46,6 @@ package Windows.ApplicationModel.Wallet.System is
    type WalletItemAppAssociation_Ptr is access WalletItemAppAssociation;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -76,14 +72,6 @@ package Windows.ApplicationModel.Wallet.System is
    type IAsyncOperation_IWalletItemSystemStore_Interface;
    type IAsyncOperation_IWalletItemSystemStore is access all IAsyncOperation_IWalletItemSystemStore_Interface'Class;
    type IAsyncOperation_IWalletItemSystemStore_Ptr is access all IAsyncOperation_IWalletItemSystemStore;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -238,5 +226,4 @@ package Windows.ApplicationModel.Wallet.System is
    function RequestStoreAsync
    return Windows.ApplicationModel.Wallet.System.IAsyncOperation_IWalletItemSystemStore;
    
-
 end;

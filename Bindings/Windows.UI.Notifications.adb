@@ -1205,5 +1205,4 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-
 end;

@@ -97,5 +97,4 @@ package body Windows.Management.Policies is
       return RetVal;
    end;
    
-
 end;

@@ -233,5 +233,4 @@ package body Windows.Media.Capture.Frames is
       return RetVal;
    end;
    
-
 end;

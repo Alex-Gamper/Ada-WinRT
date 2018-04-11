@@ -578,5 +578,4 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return RetVal;
    end;
    
-
 end;

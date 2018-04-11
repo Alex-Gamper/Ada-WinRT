@@ -726,5 +726,4 @@ package body Windows.UI.Input is
       return RetVal;
    end;
    
-
 end;

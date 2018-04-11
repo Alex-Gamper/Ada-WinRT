@@ -90,10 +90,6 @@ package Windows.Storage.Streams is
    type FileOpenDisposition_Ptr is access FileOpenDisposition;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -228,14 +224,6 @@ package Windows.Storage.Streams is
    type IVectorView_IRandomAccessStreamReference_Interface;
    type IVectorView_IRandomAccessStreamReference is access all IVectorView_IRandomAccessStreamReference_Interface'Class;
    type IVectorView_IRandomAccessStreamReference_Ptr is access all IVectorView_IRandomAccessStreamReference;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1925,5 +1913,4 @@ package Windows.Storage.Streams is
    )
    return Windows.Storage.IAsyncOperation_IStorageStreamTransaction;
    
-
 end;

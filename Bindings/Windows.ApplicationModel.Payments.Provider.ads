@@ -21,18 +21,9 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.Payments.Provider is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -73,14 +64,6 @@ package Windows.ApplicationModel.Payments.Provider is
    type IAsyncOperation_IPaymentTransaction_Interface;
    type IAsyncOperation_IPaymentTransaction is access all IAsyncOperation_IPaymentTransaction_Interface'Class;
    type IAsyncOperation_IPaymentTransaction_Ptr is access all IAsyncOperation_IPaymentTransaction;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -358,5 +341,4 @@ package Windows.ApplicationModel.Payments.Provider is
    )
    return Windows.ApplicationModel.Payments.Provider.IAsyncOperation_IPaymentTransaction;
    
-
 end;

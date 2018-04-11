@@ -175,10 +175,6 @@ package Windows.Security.Cryptography.Certificates is
    type SignatureValidationResult_Ptr is access SignatureValidationResult;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -373,14 +369,6 @@ package Windows.Security.Cryptography.Certificates is
    type IVector_ChainValidationResult_Interface;
    type IVector_ChainValidationResult is access all IVector_ChainValidationResult_Interface'Class;
    type IVector_ChainValidationResult_Ptr is access all IVector_ChainValidationResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3114,5 +3102,4 @@ package Windows.Security.Cryptography.Certificates is
    )
    return Windows.Storage.Streams.IAsyncOperation_IBuffer;
    
-
 end;

@@ -145,10 +145,6 @@ package Windows.Devices.WiFiDirect.Services is
    type WiFiDirectServiceIPProtocol_Ptr is access WiFiDirectServiceIPProtocol;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -238,14 +234,6 @@ package Windows.Devices.WiFiDirect.Services is
    type IAsyncOperation_IWiFiDirectServiceProvisioningInfo_Interface;
    type IAsyncOperation_IWiFiDirectServiceProvisioningInfo is access all IAsyncOperation_IWiFiDirectServiceProvisioningInfo_Interface'Class;
    type IAsyncOperation_IWiFiDirectServiceProvisioningInfo_Ptr is access all IAsyncOperation_IWiFiDirectServiceProvisioningInfo;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1237,5 +1225,4 @@ package Windows.Devices.WiFiDirect.Services is
    )
    return Windows.Devices.WiFiDirect.Services.IAsyncOperation_IWiFiDirectService;
    
-
 end;

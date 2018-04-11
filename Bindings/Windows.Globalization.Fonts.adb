@@ -56,5 +56,4 @@ package body Windows.Globalization.Fonts is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

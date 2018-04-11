@@ -169,10 +169,6 @@ package Windows.Media.Audio is
    type SpatialAudioModel_Ptr is access SpatialAudioModel;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -379,14 +375,6 @@ package Windows.Media.Audio is
    type IVectorView_IEqualizerBand_Interface;
    type IVectorView_IEqualizerBand is access all IVectorView_IEqualizerBand_Interface'Class;
    type IVectorView_IEqualizerBand_Ptr is access all IVectorView_IEqualizerBand;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2804,5 +2792,4 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IAudioNodeEmitterDecayModel;
    
-
 end;

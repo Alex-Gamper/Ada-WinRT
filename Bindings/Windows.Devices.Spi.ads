@@ -60,10 +60,6 @@ package Windows.Devices.Spi is
    type SpiSharingMode_Ptr is access SpiSharingMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -105,14 +101,6 @@ package Windows.Devices.Spi is
    type IAsyncOperation_ISpiController_Interface;
    type IAsyncOperation_ISpiController is access all IAsyncOperation_ISpiController_Interface'Class;
    type IAsyncOperation_ISpiController_Ptr is access all IAsyncOperation_ISpiController;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -500,5 +488,4 @@ package Windows.Devices.Spi is
    )
    return Windows.Address;
    
-
 end;

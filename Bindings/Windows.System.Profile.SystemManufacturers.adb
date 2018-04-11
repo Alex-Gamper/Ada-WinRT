@@ -86,5 +86,4 @@ package body Windows.System.Profile.SystemManufacturers is
       return RetVal;
    end;
    
-
 end;

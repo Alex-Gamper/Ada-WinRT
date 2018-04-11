@@ -235,5 +235,4 @@ package body Windows.ApplicationModel.Wallet is
       return RetVal;
    end;
    
-
 end;

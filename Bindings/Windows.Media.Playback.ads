@@ -271,10 +271,6 @@ package Windows.Media.Playback is
    type AutoLoadedDisplayPropertyKind_Ptr is access AutoLoadedDisplayPropertyKind;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -676,14 +672,6 @@ package Windows.Media.Playback is
    type IObservableVector_IMediaPlaybackItem_Interface;
    type IObservableVector_IMediaPlaybackItem is access all IObservableVector_IMediaPlaybackItem_Interface'Class;
    type IObservableVector_IMediaPlaybackItem_Ptr is access all IObservableVector_IMediaPlaybackItem;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -4981,5 +4969,4 @@ package Windows.Media.Playback is
    )
    return Windows.Media.Playback.IMediaPlaybackItem;
    
-
 end;

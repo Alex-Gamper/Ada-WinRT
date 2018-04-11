@@ -48,10 +48,6 @@ package Windows.UI.Input.Inking.Core is
    type CoreWetStrokeDisposition_Ptr is access CoreWetStrokeDisposition;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -120,14 +116,6 @@ package Windows.UI.Input.Inking.Core is
    type ICoreIncrementalInkStrokeFactory_Interface;
    type ICoreIncrementalInkStrokeFactory is access all ICoreIncrementalInkStrokeFactory_Interface'Class;
    type ICoreIncrementalInkStrokeFactory_Ptr is access all ICoreIncrementalInkStrokeFactory;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -682,5 +670,4 @@ package Windows.UI.Input.Inking.Core is
    )
    return Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource;
    
-
 end;

@@ -1274,5 +1274,4 @@ package body Windows.ApplicationModel.Contacts is
       return RetVal;
    end;
    
-
 end;

@@ -154,5 +154,4 @@ package body Windows.Data.Pdf is
       return RetVal;
    end;
    
-
 end;

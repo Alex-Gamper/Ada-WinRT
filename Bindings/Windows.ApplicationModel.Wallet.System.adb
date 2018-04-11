@@ -84,5 +84,4 @@ package body Windows.ApplicationModel.Wallet.System is
       return RetVal;
    end;
    
-
 end;

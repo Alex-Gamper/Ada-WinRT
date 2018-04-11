@@ -264,10 +264,6 @@ package Windows.Storage is
    type ApplicationDataCreateDisposition_Ptr is access ApplicationDataCreateDisposition;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -567,14 +563,6 @@ package Windows.Storage is
    type IVector_IStorageFile_Interface;
    type IVector_IStorageFile is access all IVector_IStorageFile_Interface'Class;
    type IVector_IStorageFile_Ptr is access all IVector_IStorageFile;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -4565,5 +4553,4 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IApplicationData;
    
-
 end;

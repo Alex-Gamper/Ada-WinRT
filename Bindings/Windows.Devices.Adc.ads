@@ -44,10 +44,6 @@ package Windows.Devices.Adc is
    type AdcChannelMode_Ptr is access AdcChannelMode;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -74,14 +70,6 @@ package Windows.Devices.Adc is
    type IAsyncOperation_IAdcController_Interface;
    type IAsyncOperation_IAdcController is access all IAsyncOperation_IAdcController_Interface'Class;
    type IAsyncOperation_IAdcController_Ptr is access all IAsyncOperation_IAdcController;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -269,5 +257,4 @@ package Windows.Devices.Adc is
    )
    return Windows.Address;
    
-
 end;

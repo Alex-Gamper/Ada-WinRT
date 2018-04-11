@@ -26,14 +26,6 @@ package Windows.Management.Core is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -43,14 +35,6 @@ package Windows.Management.Core is
    type IApplicationDataManager_Interface;
    type IApplicationDataManager is access all IApplicationDataManager_Interface'Class;
    type IApplicationDataManager_Ptr is access all IApplicationDataManager;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -92,5 +76,4 @@ package Windows.Management.Core is
    )
    return Windows.Storage.IApplicationData;
    
-
 end;

@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Devices.I2c.Provider is
 
    pragma preelaborate;
@@ -96,14 +95,6 @@ package Windows.Devices.I2c.Provider is
    type II2cDeviceProvider_Interface;
    type II2cDeviceProvider is access all II2cDeviceProvider_Interface'Class;
    type II2cDeviceProvider_Ptr is access all II2cDeviceProvider;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -254,5 +245,4 @@ package Windows.Devices.I2c.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

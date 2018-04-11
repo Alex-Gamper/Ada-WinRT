@@ -316,14 +316,6 @@ package Windows.Security.EnterpriseData is
    type IAsyncOperation_IDataProtectionInfo_Ptr is access all IAsyncOperation_IDataProtectionInfo;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -2088,5 +2080,4 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_IDataProtectionInfo;
    
-
 end;

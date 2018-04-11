@@ -122,5 +122,4 @@ package body Windows.ApplicationModel.LockScreen is
       return RetVal;
    end;
    
-
 end;

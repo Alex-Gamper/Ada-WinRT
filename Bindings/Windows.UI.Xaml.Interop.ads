@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.UI.Xaml.Interop is
 
    pragma preelaborate;
@@ -112,14 +111,6 @@ package Windows.UI.Xaml.Interop is
    type INotifyCollectionChangedEventArgsFactory_Interface;
    type INotifyCollectionChangedEventArgsFactory is access all INotifyCollectionChangedEventArgsFactory_Interface'Class;
    type INotifyCollectionChangedEventArgsFactory_Ptr is access all INotifyCollectionChangedEventArgsFactory;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -430,5 +421,4 @@ package Windows.UI.Xaml.Interop is
    )
    return Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs;
    
-
 end;

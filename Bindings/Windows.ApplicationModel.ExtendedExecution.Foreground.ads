@@ -20,7 +20,6 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.ExtendedExecution.Foreground is
 
    pragma preelaborate;
@@ -70,10 +69,6 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    type ExtendedExecutionForegroundReason_Ptr is access ExtendedExecutionForegroundReason;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -97,14 +92,6 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    type IAsyncOperation_ExtendedExecutionForegroundResult_Interface;
    type IAsyncOperation_ExtendedExecutionForegroundResult is access all IAsyncOperation_ExtendedExecutionForegroundResult_Interface'Class;
    type IAsyncOperation_ExtendedExecutionForegroundResult_Ptr is access all IAsyncOperation_ExtendedExecutionForegroundResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -250,5 +237,4 @@ package Windows.ApplicationModel.ExtendedExecution.Foreground is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

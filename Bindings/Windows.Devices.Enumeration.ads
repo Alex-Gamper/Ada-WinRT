@@ -270,10 +270,6 @@ package Windows.Devices.Enumeration is
    type DeviceAccessStatus_Ptr is access DeviceAccessStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -480,14 +476,6 @@ package Windows.Devices.Enumeration is
    type IVectorView_IDeviceWatcherEvent_Interface;
    type IVectorView_IDeviceWatcherEvent is access all IVectorView_IDeviceWatcherEvent_Interface'Class;
    type IVectorView_IDeviceWatcherEvent_Ptr is access all IVectorView_IDeviceWatcherEvent;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2489,5 +2477,4 @@ package Windows.Devices.Enumeration is
    )
    return Windows.Devices.Enumeration.IDeviceAccessInformation;
    
-
 end;

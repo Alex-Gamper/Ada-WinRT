@@ -177,5 +177,4 @@ package body Windows.Devices.WiFi is
       return RetVal;
    end;
    
-
 end;

@@ -103,5 +103,4 @@ package body Windows.Foundation.Collections is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

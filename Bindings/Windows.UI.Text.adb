@@ -360,5 +360,4 @@ package body Windows.UI.Text is
       return RetVal;
    end;
    
-
 end;

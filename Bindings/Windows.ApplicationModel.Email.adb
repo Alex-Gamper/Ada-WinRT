@@ -471,5 +471,4 @@ package body Windows.ApplicationModel.Email is
       return RetVal;
    end;
    
-
 end;

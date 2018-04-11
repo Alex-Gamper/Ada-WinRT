@@ -211,14 +211,6 @@ package Windows.UI.Xaml.Data is
    type IVectorView_IItemIndexRange_Ptr is access all IVectorView_IItemIndexRange;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1878,5 +1870,4 @@ package Windows.UI.Xaml.Data is
    function get_ItemsPathProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-
 end;

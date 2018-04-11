@@ -602,14 +602,6 @@ package Windows.UI.Xaml.Media.Animation is
    type ISuppressNavigationTransitionInfo_Ptr is access all ISuppressNavigationTransitionInfo;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -6533,5 +6525,4 @@ package Windows.UI.Xaml.Media.Animation is
    function get_DefaultNavigationTransitionInfoProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-
 end;

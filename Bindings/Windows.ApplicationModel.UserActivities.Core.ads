@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.ApplicationModel.UserActivities.Core is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -40,14 +31,6 @@ package Windows.ApplicationModel.UserActivities.Core is
    type ICoreUserActivityManagerStatics_Interface;
    type ICoreUserActivityManagerStatics is access all ICoreUserActivityManagerStatics_Interface'Class;
    type ICoreUserActivityManagerStatics_Ptr is access all ICoreUserActivityManagerStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -100,5 +83,4 @@ package Windows.ApplicationModel.UserActivities.Core is
    )
    return Windows.Foundation.IAsyncAction;
    
-
 end;

@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Devices.Input is
 
    pragma preelaborate;
@@ -127,14 +126,6 @@ package Windows.Devices.Input is
    type IVectorView_PointerDeviceUsage_Interface;
    type IVectorView_PointerDeviceUsage is access all IVectorView_PointerDeviceUsage_Interface'Class;
    type IVectorView_PointerDeviceUsage_Ptr is access all IVectorView_PointerDeviceUsage;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -570,5 +561,4 @@ package Windows.Devices.Input is
    function GetForCurrentView
    return Windows.Devices.Input.IMouseDevice;
    
-
 end;

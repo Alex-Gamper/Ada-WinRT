@@ -77,10 +77,6 @@ package Windows.ApplicationModel.UserDataAccounts is
    type UserDataAccountContentKinds_Ptr is access UserDataAccountContentKinds;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -137,14 +133,6 @@ package Windows.ApplicationModel.UserDataAccounts is
    type IAsyncOperation_IUserDataAccountStore_Interface;
    type IAsyncOperation_IUserDataAccountStore is access all IAsyncOperation_IUserDataAccountStore_Interface'Class;
    type IAsyncOperation_IUserDataAccountStore_Ptr is access all IAsyncOperation_IUserDataAccountStore;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -664,5 +652,4 @@ package Windows.ApplicationModel.UserDataAccounts is
    )
    return Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerForUser;
    
-
 end;

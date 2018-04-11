@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Media.Capture.Core is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -63,14 +54,6 @@ package Windows.Media.Capture.Core is
    type IAsyncOperation_IVariablePhotoSequenceCapture_Interface;
    type IAsyncOperation_IVariablePhotoSequenceCapture is access all IAsyncOperation_IVariablePhotoSequenceCapture_Interface'Class;
    type IAsyncOperation_IVariablePhotoSequenceCapture_Ptr is access all IAsyncOperation_IVariablePhotoSequenceCapture;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -261,5 +244,4 @@ package Windows.Media.Capture.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

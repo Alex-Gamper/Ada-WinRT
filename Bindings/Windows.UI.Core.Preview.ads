@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.UI.Core.Preview is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -54,14 +45,6 @@ package Windows.UI.Core.Preview is
    type ISystemNavigationCloseRequestedPreviewEventArgs_Interface;
    type ISystemNavigationCloseRequestedPreviewEventArgs is access all ISystemNavigationCloseRequestedPreviewEventArgs_Interface'Class;
    type ISystemNavigationCloseRequestedPreviewEventArgs_Ptr is access all ISystemNavigationCloseRequestedPreviewEventArgs;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -159,5 +142,4 @@ package Windows.UI.Core.Preview is
    function GetForCurrentView
    return Windows.UI.Core.Preview.ISystemNavigationManagerPreview;
    
-
 end;

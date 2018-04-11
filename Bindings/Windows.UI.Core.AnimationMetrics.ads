@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.UI.Core.AnimationMetrics is
 
    pragma preelaborate;
@@ -209,14 +208,6 @@ package Windows.UI.Core.AnimationMetrics is
    type IVectorView_IPropertyAnimation_Interface;
    type IVectorView_IPropertyAnimation is access all IVectorView_IPropertyAnimation_Interface'Class;
    type IVectorView_IPropertyAnimation_Ptr is access all IVectorView_IPropertyAnimation;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -489,5 +480,4 @@ package Windows.UI.Core.AnimationMetrics is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

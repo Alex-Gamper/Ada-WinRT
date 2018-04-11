@@ -20,18 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Devices.Pwm.Provider is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -52,14 +43,6 @@ package Windows.Devices.Pwm.Provider is
    type IVectorView_IPwmControllerProvider_Interface;
    type IVectorView_IPwmControllerProvider is access all IVectorView_IPwmControllerProvider_Interface'Class;
    type IVectorView_IPwmControllerProvider_Ptr is access all IVectorView_IPwmControllerProvider;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -253,5 +236,4 @@ package Windows.Devices.Pwm.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

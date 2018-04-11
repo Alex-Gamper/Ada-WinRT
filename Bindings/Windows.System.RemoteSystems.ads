@@ -202,10 +202,6 @@ package Windows.System.RemoteSystems is
    type RemoteSystemSessionMessageChannelReliability_Ptr is access RemoteSystemSessionMessageChannelReliability;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -433,14 +429,6 @@ package Windows.System.RemoteSystems is
    type IIterable_IRemoteSystemSessionParticipant_Interface;
    type IIterable_IRemoteSystemSessionParticipant is access all IIterable_IRemoteSystemSessionParticipant_Interface'Class;
    type IIterable_IRemoteSystemSessionParticipant_Ptr is access all IIterable_IRemoteSystemSessionParticipant;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2173,5 +2161,4 @@ package Windows.System.RemoteSystems is
    function CreateWatcher
    return Windows.System.RemoteSystems.IRemoteSystemSessionWatcher;
    
-
 end;

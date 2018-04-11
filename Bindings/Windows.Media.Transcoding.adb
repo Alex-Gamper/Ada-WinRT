@@ -86,5 +86,4 @@ package body Windows.Media.Transcoding is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

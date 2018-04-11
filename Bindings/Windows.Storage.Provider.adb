@@ -267,5 +267,4 @@ package body Windows.Storage.Provider is
       return RetVal;
    end;
    
-
 end;

@@ -276,5 +276,4 @@ package body Windows.UI.Input.Inking.Core is
       return RetVal;
    end;
    
-
 end;

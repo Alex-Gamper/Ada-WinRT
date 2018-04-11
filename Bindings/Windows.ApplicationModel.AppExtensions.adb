@@ -126,5 +126,4 @@ package body Windows.ApplicationModel.AppExtensions is
       return RetVal;
    end;
    
-
 end;

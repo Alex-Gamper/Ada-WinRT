@@ -27,14 +27,6 @@ package Windows.Security.Cryptography.DataProtection is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -44,14 +36,6 @@ package Windows.Security.Cryptography.DataProtection is
    type IDataProtectionProviderFactory_Interface;
    type IDataProtectionProviderFactory is access all IDataProtectionProviderFactory_Interface'Class;
    type IDataProtectionProviderFactory_Ptr is access all IDataProtectionProviderFactory;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -124,5 +108,4 @@ package Windows.Security.Cryptography.DataProtection is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

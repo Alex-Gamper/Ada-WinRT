@@ -69,10 +69,6 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    type DnssdServiceWatcherStatus_Ptr is access DnssdServiceWatcherStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -114,14 +110,6 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    type IAsyncOperation_IDnssdRegistrationResult_Interface;
    type IAsyncOperation_IDnssdRegistrationResult is access all IAsyncOperation_IDnssdRegistrationResult_Interface'Class;
    type IAsyncOperation_IDnssdRegistrationResult_Ptr is access all IAsyncOperation_IDnssdRegistrationResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -517,5 +505,4 @@ package Windows.Networking.ServiceDiscovery.Dnssd is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

@@ -194,5 +194,4 @@ package body Windows.Storage.Search is
       return RetVal;
    end;
    
-
 end;

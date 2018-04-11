@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Devices.Gpio.Provider is
 
    pragma preelaborate;
@@ -91,10 +90,6 @@ package Windows.Devices.Gpio.Provider is
    type ProviderGpioPinEdge_Ptr is access ProviderGpioPinEdge;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -130,14 +125,6 @@ package Windows.Devices.Gpio.Provider is
    type IVectorView_IGpioControllerProvider_Interface;
    type IVectorView_IGpioControllerProvider is access all IVectorView_IGpioControllerProvider_Interface'Class;
    type IVectorView_IGpioControllerProvider_Ptr is access all IVectorView_IGpioControllerProvider;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -411,5 +398,4 @@ package Windows.Devices.Gpio.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

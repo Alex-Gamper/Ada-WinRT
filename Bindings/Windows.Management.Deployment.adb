@@ -70,5 +70,4 @@ package body Windows.Management.Deployment is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

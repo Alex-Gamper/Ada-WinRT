@@ -69,5 +69,4 @@ package body Windows.UI.Core.Preview is
       return RetVal;
    end;
    
-
 end;

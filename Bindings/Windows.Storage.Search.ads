@@ -240,14 +240,6 @@ package Windows.Storage.Search is
    type IAsyncOperation_IndexedState_Ptr is access all IAsyncOperation_IndexedState;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1297,5 +1289,4 @@ package Windows.Storage.Search is
    function GetIndexer
    return Windows.Storage.Search.IContentIndexer;
    
-
 end;

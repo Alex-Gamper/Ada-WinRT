@@ -64,10 +64,6 @@ package Windows.Graphics.Printing.Workflow is
    type PrintWorkflowSubmittedStatus_Ptr is access PrintWorkflowSubmittedStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -142,14 +138,6 @@ package Windows.Graphics.Printing.Workflow is
    type IActivatedEventArgs_Imported_Interface;
    type IActivatedEventArgs_Imported is access all IActivatedEventArgs_Imported_Interface'Class;
    type IActivatedEventArgs_Imported_Ptr is access all IActivatedEventArgs_Imported;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -643,5 +631,4 @@ package Windows.Graphics.Printing.Workflow is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

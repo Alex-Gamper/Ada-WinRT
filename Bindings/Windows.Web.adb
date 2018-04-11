@@ -56,5 +56,4 @@ package body Windows.Web is
       return RetVal;
    end;
    
-
 end;

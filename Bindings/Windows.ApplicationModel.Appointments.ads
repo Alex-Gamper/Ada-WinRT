@@ -310,10 +310,6 @@ package Windows.ApplicationModel.Appointments is
    type AppointmentStoreChangeType_Ptr is access AppointmentStoreChangeType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -463,14 +459,6 @@ package Windows.ApplicationModel.Appointments is
    type IAsyncOperation_IAppointmentConflictResult_Interface;
    type IAsyncOperation_IAppointmentConflictResult is access all IAsyncOperation_IAppointmentConflictResult_Interface'Class;
    type IAsyncOperation_IAppointmentConflictResult_Ptr is access all IAsyncOperation_IAppointmentConflictResult;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3103,5 +3091,4 @@ package Windows.ApplicationModel.Appointments is
    function get_DetailsKind
    return Windows.String;
    
-
 end;

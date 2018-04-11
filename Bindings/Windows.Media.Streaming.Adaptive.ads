@@ -122,10 +122,6 @@ package Windows.Media.Streaming.Adaptive is
    type AdaptiveMediaSourceDiagnosticType_Ptr is access AdaptiveMediaSourceDiagnosticType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -236,14 +232,6 @@ package Windows.Media.Streaming.Adaptive is
    type IReference_AdaptiveMediaSourceResourceType_Interface;
    type IReference_AdaptiveMediaSourceResourceType is access all IReference_AdaptiveMediaSourceResourceType_Interface'Class;
    type IReference_AdaptiveMediaSourceResourceType_Ptr is access all IReference_AdaptiveMediaSourceResourceType;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1398,5 +1386,4 @@ package Windows.Media.Streaming.Adaptive is
    )
    return Windows.Media.Streaming.Adaptive.IAsyncOperation_IAdaptiveMediaSourceCreationResult;
    
-
 end;

@@ -1294,5 +1294,4 @@ package body Windows.Foundation is
       return RetVal;
    end;
    
-
 end;

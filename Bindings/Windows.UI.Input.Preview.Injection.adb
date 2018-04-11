@@ -155,5 +155,4 @@ package body Windows.UI.Input.Preview.Injection is
       return RetVal;
    end;
    
-
 end;

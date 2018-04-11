@@ -81,10 +81,6 @@ package Windows.ApplicationModel.Store is
    type FulfillmentResult_Ptr is access FulfillmentResult;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -180,14 +176,6 @@ package Windows.ApplicationModel.Store is
    type IAsyncOperation_IPurchaseResults_Interface;
    type IAsyncOperation_IPurchaseResults is access all IAsyncOperation_IPurchaseResults_Interface'Class;
    type IAsyncOperation_IPurchaseResults_Ptr is access all IAsyncOperation_IPurchaseResults;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1249,5 +1237,4 @@ package Windows.ApplicationModel.Store is
    )
    return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
    
-
 end;

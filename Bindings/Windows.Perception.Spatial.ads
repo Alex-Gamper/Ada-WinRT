@@ -295,14 +295,6 @@ package Windows.Perception.Spatial is
    type IAsyncOperation_ISpatialStageFrameOfReference_Ptr is access all IAsyncOperation_ISpatialStageFrameOfReference;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -1537,5 +1529,4 @@ package Windows.Perception.Spatial is
    )
    return Windows.Perception.Spatial.ISpatialEntityStore;
    
-
 end;

@@ -317,5 +317,4 @@ package body Windows.Media.Effects is
       return RetVal;
    end;
    
-
 end;

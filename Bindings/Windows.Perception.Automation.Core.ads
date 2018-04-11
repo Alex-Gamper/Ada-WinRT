@@ -20,14 +20,9 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Perception.Automation.Core is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Record types
@@ -45,14 +40,6 @@ package Windows.Perception.Automation.Core is
    type ICorePerceptionAutomationStatics_Interface;
    type ICorePerceptionAutomationStatics is access all ICorePerceptionAutomationStatics_Interface'Class;
    type ICorePerceptionAutomationStatics_Ptr is access all ICorePerceptionAutomationStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -86,5 +73,4 @@ package Windows.Perception.Automation.Core is
    )
    ;
    
-
 end;

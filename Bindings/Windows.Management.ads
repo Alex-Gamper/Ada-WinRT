@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Management is
 
    pragma preelaborate;
@@ -87,10 +86,6 @@ package Windows.Management is
    type MdmSessionState_Ptr is access MdmSessionState;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -112,14 +107,6 @@ package Windows.Management is
    type IVectorView_IMdmAlert_Interface;
    type IVectorView_IMdmAlert is access all IVectorView_IMdmAlert_Interface'Class;
    type IVectorView_IMdmAlert_Ptr is access all IVectorView_IMdmAlert;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -438,5 +425,4 @@ package Windows.Management is
    )
    return Windows.Management.IMdmSession;
    
-
 end;

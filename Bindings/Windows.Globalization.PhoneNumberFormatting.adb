@@ -196,5 +196,4 @@ package body Windows.Globalization.PhoneNumberFormatting is
       return RetVal;
    end;
    
-
 end;

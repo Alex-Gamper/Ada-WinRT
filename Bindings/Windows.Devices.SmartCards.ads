@@ -801,14 +801,6 @@ package Windows.Devices.SmartCards is
    type IAsyncOperation_ISmartCardConnection_Ptr is access all IAsyncOperation_ISmartCardConnection;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -4171,5 +4163,4 @@ package Windows.Devices.SmartCards is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-
 end;

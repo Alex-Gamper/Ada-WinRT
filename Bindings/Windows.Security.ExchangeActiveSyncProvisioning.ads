@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows; use Windows;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Security.ExchangeActiveSyncProvisioning is
 
    pragma preelaborate;
@@ -289,14 +288,6 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    type IAsyncOperation_IEasComplianceResults_Interface;
    type IAsyncOperation_IEasComplianceResults is access all IAsyncOperation_IEasComplianceResults_Interface'Class;
    type IAsyncOperation_IEasComplianceResults_Ptr is access all IAsyncOperation_IEasComplianceResults;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -646,5 +637,4 @@ package Windows.Security.ExchangeActiveSyncProvisioning is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

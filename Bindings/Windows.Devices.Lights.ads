@@ -27,14 +27,6 @@ package Windows.Devices.Lights is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -61,14 +53,6 @@ package Windows.Devices.Lights is
    type IAsyncOperation_ILamp_Interface;
    type IAsyncOperation_ILamp is access all IAsyncOperation_ILamp_Interface'Class;
    type IAsyncOperation_ILamp_Ptr is access all IAsyncOperation_ILamp;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -272,5 +256,4 @@ package Windows.Devices.Lights is
    function GetDefaultAsync
    return Windows.Devices.Lights.IAsyncOperation_ILamp;
    
-
 end;

@@ -129,10 +129,6 @@ package Windows.Devices.WiFiDirect is
    type WiFiDirectPairingProcedure_Ptr is access WiFiDirectPairingProcedure;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -231,14 +227,6 @@ package Windows.Devices.WiFiDirect is
    type IVector_WiFiDirectConfigurationMethod_Interface;
    type IVector_WiFiDirectConfigurationMethod is access all IVector_WiFiDirectConfigurationMethod_Interface'Class;
    type IVector_WiFiDirectConfigurationMethod_Ptr is access all IVector_WiFiDirectConfigurationMethod;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1213,5 +1201,4 @@ package Windows.Devices.WiFiDirect is
    )
    return Windows.Devices.WiFiDirect.IVector_IWiFiDirectInformationElement;
    
-
 end;

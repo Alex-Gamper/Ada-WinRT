@@ -136,24 +136,12 @@ package Windows.Media.ClosedCaptioning is
    type ClosedCaptionSize_Ptr is access ClosedCaptionSize;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
    type IClosedCaptionPropertiesStatics_Interface;
    type IClosedCaptionPropertiesStatics is access all IClosedCaptionPropertiesStatics_Interface'Class;
    type IClosedCaptionPropertiesStatics_Ptr is access all IClosedCaptionPropertiesStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -294,5 +282,4 @@ package Windows.Media.ClosedCaptioning is
    function get_RegionOpacity
    return Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;
    
-
 end;

@@ -192,10 +192,6 @@ package Windows.Devices.Sensors is
    type PedometerStepKind_Ptr is access PedometerStepKind;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -690,14 +686,6 @@ package Windows.Devices.Sensors is
    type IVectorView_IProximitySensorReading_Interface;
    type IVectorView_IProximitySensorReading is access all IVectorView_IProximitySensorReading_Interface'Class;
    type IVectorView_IProximitySensorReading_Ptr is access all IVectorView_IProximitySensorReading;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -4726,5 +4714,4 @@ package Windows.Devices.Sensors is
    function GetDefault
    return Windows.Devices.Sensors.IAltimeter;
    
-
 end;

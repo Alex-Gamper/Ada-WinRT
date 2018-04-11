@@ -105,5 +105,4 @@ package body Windows.Devices.Scanners is
       return RetVal;
    end;
    
-
 end;

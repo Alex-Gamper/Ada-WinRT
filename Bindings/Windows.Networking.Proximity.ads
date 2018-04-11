@@ -101,10 +101,6 @@ package Windows.Networking.Proximity is
    type PeerRole_Ptr is access PeerRole;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -179,14 +175,6 @@ package Windows.Networking.Proximity is
    type IPeerFinderStatics2_Interface;
    type IPeerFinderStatics2 is access all IPeerFinderStatics2_Interface'Class;
    type IPeerFinderStatics2_Ptr is access all IPeerFinderStatics2;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1043,5 +1031,4 @@ package Windows.Networking.Proximity is
    )
    return Windows.Networking.Sockets.IAsyncOperation_IStreamSocket;
    
-
 end;

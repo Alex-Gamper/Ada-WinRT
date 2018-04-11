@@ -103,5 +103,4 @@ package body Windows.ApplicationModel.Payments.Provider is
       return RetVal;
    end;
    
-
 end;

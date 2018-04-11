@@ -157,5 +157,4 @@ package body Windows.Devices.Input is
       return RetVal;
    end;
    
-
 end;

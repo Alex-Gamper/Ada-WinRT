@@ -196,5 +196,4 @@ package body Windows.Security.Credentials.UI is
       return RetVal;
    end;
    
-
 end;

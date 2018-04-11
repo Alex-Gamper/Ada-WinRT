@@ -198,5 +198,4 @@ package body Windows.UI.WebUI.Core is
       return RetVal;
    end;
    
-
 end;

@@ -165,10 +165,6 @@ package Windows.Devices.Bluetooth is
    type BluetoothAddressType_Ptr is access BluetoothAddressType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -285,14 +281,6 @@ package Windows.Devices.Bluetooth is
    type IAsyncOperation_IBluetoothLEDevice_Interface;
    type IAsyncOperation_IBluetoothLEDevice is access all IAsyncOperation_IBluetoothLEDevice_Interface'Class;
    type IAsyncOperation_IBluetoothLEDevice_Ptr is access all IAsyncOperation_IBluetoothLEDevice;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2068,5 +2056,4 @@ package Windows.Devices.Bluetooth is
    )
    return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothLEDevice;
    
-
 end;

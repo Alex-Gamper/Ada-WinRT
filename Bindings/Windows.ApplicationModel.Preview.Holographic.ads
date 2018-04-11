@@ -26,28 +26,12 @@ package Windows.ApplicationModel.Preview.Holographic is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
    type IHolographicApplicationPreviewStatics_Interface;
    type IHolographicApplicationPreviewStatics is access all IHolographicApplicationPreviewStatics_Interface'Class;
    type IHolographicApplicationPreviewStatics_Ptr is access all IHolographicApplicationPreviewStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -92,5 +76,4 @@ package Windows.ApplicationModel.Preview.Holographic is
    )
    return Windows.Boolean;
    
-
 end;

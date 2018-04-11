@@ -2242,5 +2242,4 @@ package body Windows.Media.Core is
       return RetVal;
    end;
    
-
 end;

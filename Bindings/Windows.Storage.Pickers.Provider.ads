@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Storage.Pickers.Provider is
 
    pragma preelaborate;
@@ -73,10 +72,6 @@ package Windows.Storage.Pickers.Provider is
    type SetFileNameResult_Ptr is access SetFileNameResult;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -124,14 +119,6 @@ package Windows.Storage.Pickers.Provider is
    type ITargetFileRequestDeferral_Interface;
    type ITargetFileRequestDeferral is access all ITargetFileRequestDeferral_Interface'Class;
    type ITargetFileRequestDeferral_Ptr is access all ITargetFileRequestDeferral;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -510,5 +497,4 @@ package Windows.Storage.Pickers.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

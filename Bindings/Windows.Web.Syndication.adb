@@ -361,5 +361,4 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
-
 end;

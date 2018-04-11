@@ -89,5 +89,4 @@ package body Windows.ApplicationModel.DataTransfer.DragDrop.Core is
       return RetVal;
    end;
    
-
 end;

@@ -3381,5 +3381,4 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return RetVal;
    end;
    
-
 end;

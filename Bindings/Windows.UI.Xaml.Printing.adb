@@ -395,5 +395,4 @@ package body Windows.UI.Xaml.Printing is
       return RetVal;
    end;
    
-
 end;

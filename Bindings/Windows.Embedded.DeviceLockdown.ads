@@ -22,14 +22,9 @@
 with Windows.Foundation.Collections;
 with Windows; use Windows;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.Embedded.DeviceLockdown is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Record types
@@ -50,14 +45,6 @@ package Windows.Embedded.DeviceLockdown is
    type IDeviceLockdownProfileStatics_Interface;
    type IDeviceLockdownProfileStatics is access all IDeviceLockdownProfileStatics_Interface'Class;
    type IDeviceLockdownProfileStatics_Ptr is access all IDeviceLockdownProfileStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -140,5 +127,4 @@ package Windows.Embedded.DeviceLockdown is
    )
    return Windows.Embedded.DeviceLockdown.IDeviceLockdownProfileInformation;
    
-
 end;

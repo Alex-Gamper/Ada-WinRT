@@ -82,5 +82,4 @@ package body Windows.ApplicationModel.ExtendedExecution is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

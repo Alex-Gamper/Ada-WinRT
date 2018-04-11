@@ -114,5 +114,4 @@ package body Windows.ApplicationModel.Preview.Notes is
       return RetVal;
    end;
    
-
 end;

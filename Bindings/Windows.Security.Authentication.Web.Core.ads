@@ -65,10 +65,6 @@ package Windows.Security.Authentication.Web.Core is
    type WebTokenRequestStatus_Ptr is access WebTokenRequestStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -143,14 +139,6 @@ package Windows.Security.Authentication.Web.Core is
    type IVectorView_IWebTokenResponse_Interface;
    type IVectorView_IWebTokenResponse is access all IVectorView_IWebTokenResponse_Interface'Class;
    type IVectorView_IWebTokenResponse_Ptr is access all IVectorView_IWebTokenResponse;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -864,5 +852,4 @@ package Windows.Security.Authentication.Web.Core is
    )
    return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
    
-
 end;

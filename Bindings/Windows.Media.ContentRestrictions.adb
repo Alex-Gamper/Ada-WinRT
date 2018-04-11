@@ -108,5 +108,4 @@ package body Windows.Media.ContentRestrictions is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

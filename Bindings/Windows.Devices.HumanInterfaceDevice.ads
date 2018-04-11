@@ -71,10 +71,6 @@ package Windows.Devices.HumanInterfaceDevice is
    type HidCollectionType_Ptr is access HidCollectionType;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -176,14 +172,6 @@ package Windows.Devices.HumanInterfaceDevice is
    type IVectorView_IHidBooleanControl_Interface;
    type IVectorView_IHidBooleanControl is access all IVectorView_IHidBooleanControl_Interface'Class;
    type IVectorView_IHidBooleanControl_Ptr is access all IVectorView_IHidBooleanControl;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1436,5 +1424,4 @@ package Windows.Devices.HumanInterfaceDevice is
    )
    return Windows.Devices.HumanInterfaceDevice.IAsyncOperation_IHidDevice;
    
-
 end;

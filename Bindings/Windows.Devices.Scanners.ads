@@ -162,14 +162,6 @@ package Windows.Devices.Scanners is
    type IAsyncOperation_IImageScanner_Ptr is access all IAsyncOperation_IImageScanner;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -783,5 +775,4 @@ package Windows.Devices.Scanners is
    function GetDeviceSelector
    return Windows.String;
    
-
 end;

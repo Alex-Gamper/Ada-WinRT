@@ -22,18 +22,9 @@
 with Windows; use Windows;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Devices.Sensors.Custom is
 
    pragma preelaborate;
-   
-   ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -71,14 +62,6 @@ package Windows.Devices.Sensors.Custom is
    type IAsyncOperation_ICustomSensor_Interface;
    type IAsyncOperation_ICustomSensor is access all IAsyncOperation_ICustomSensor_Interface'Class;
    type IAsyncOperation_ICustomSensor_Ptr is access all IAsyncOperation_ICustomSensor;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -316,5 +299,4 @@ package Windows.Devices.Sensors.Custom is
    )
    return Windows.Devices.Sensors.Custom.IAsyncOperation_ICustomSensor;
    
-
 end;

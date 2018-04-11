@@ -244,10 +244,6 @@ package Windows.ApplicationModel.UserDataTasks is
    type UserDataTaskListSyncStatus_Ptr is access UserDataTaskListSyncStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -334,14 +330,6 @@ package Windows.ApplicationModel.UserDataTasks is
    type IReference_UserDataTaskWeekOfMonth_Interface;
    type IReference_UserDataTaskWeekOfMonth is access all IReference_UserDataTaskWeekOfMonth_Interface'Class;
    type IReference_UserDataTaskWeekOfMonth_Ptr is access all IReference_UserDataTaskWeekOfMonth;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1444,5 +1432,4 @@ package Windows.ApplicationModel.UserDataTasks is
    )
    return Windows.ApplicationModel.UserDataTasks.IUserDataTaskManager;
    
-
 end;

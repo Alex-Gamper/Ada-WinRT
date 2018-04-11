@@ -27,14 +27,6 @@ package Windows.UI.Xaml.Shapes is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
@@ -86,14 +78,6 @@ package Windows.UI.Xaml.Shapes is
    type IRectangleStatics_Interface;
    type IRectangleStatics is access all IRectangleStatics_Interface'Class;
    type IRectangleStatics_Ptr is access all IRectangleStatics;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1083,5 +1067,4 @@ package Windows.UI.Xaml.Shapes is
    function get_RadiusYProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-
 end;

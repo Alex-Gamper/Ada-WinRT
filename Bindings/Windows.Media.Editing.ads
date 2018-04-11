@@ -63,10 +63,6 @@ package Windows.Media.Editing is
    type MediaTrimmingPreference_Ptr is access MediaTrimmingPreference;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -189,14 +185,6 @@ package Windows.Media.Editing is
    type IVector_IMediaOverlay_Interface;
    type IVector_IMediaOverlay is access all IVector_IMediaOverlay_Interface'Class;
    type IVector_IMediaOverlay_Ptr is access all IVector_IMediaOverlay;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1841,5 +1829,4 @@ package Windows.Media.Editing is
    )
    return Windows.Media.Editing.IAsyncOperation_IMediaComposition;
    
-
 end;

@@ -28,14 +28,6 @@ package Windows.ApplicationModel.AppExtensions is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -92,14 +84,6 @@ package Windows.ApplicationModel.AppExtensions is
    type IVectorView_IAppExtension_Interface;
    type IVectorView_IAppExtension is access all IVectorView_IAppExtension_Interface'Class;
    type IVectorView_IAppExtension_Ptr is access all IVectorView_IAppExtension;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -562,5 +546,4 @@ package Windows.ApplicationModel.AppExtensions is
    )
    return Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog;
    
-
 end;

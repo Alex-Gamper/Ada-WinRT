@@ -86,5 +86,4 @@ package body Windows.ApplicationModel.Activation is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

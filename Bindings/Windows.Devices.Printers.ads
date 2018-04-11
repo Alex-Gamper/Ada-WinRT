@@ -27,10 +27,6 @@ package Windows.Devices.Printers is
    pragma preelaborate;
    
    ------------------------------------------------------------------------
-   -- Enums
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
    
@@ -63,14 +59,6 @@ package Windows.Devices.Printers is
    type IAsyncOperation_IPrint3DDevice_Interface;
    type IAsyncOperation_IPrint3DDevice is access all IAsyncOperation_IPrint3DDevice_Interface'Class;
    type IAsyncOperation_IPrint3DDevice_Ptr is access all IAsyncOperation_IPrint3DDevice;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -203,5 +191,4 @@ package Windows.Devices.Printers is
    function GetDeviceSelector
    return Windows.String;
    
-
 end;

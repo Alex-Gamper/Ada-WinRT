@@ -91,5 +91,4 @@ package body Windows.UI.Xaml.Interop is
       return RetVal;
    end;
    
-
 end;

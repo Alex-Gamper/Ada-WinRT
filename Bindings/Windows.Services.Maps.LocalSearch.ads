@@ -57,10 +57,6 @@ package Windows.Services.Maps.LocalSearch is
    type LocalLocationFinderStatus_Ptr is access LocalLocationFinderStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -117,14 +113,6 @@ package Windows.Services.Maps.LocalSearch is
    type IVectorView_ILocalLocationHoursOfOperationItem_Interface;
    type IVectorView_ILocalLocationHoursOfOperationItem is access all IVectorView_ILocalLocationHoursOfOperationItem_Interface'Class;
    type IVectorView_ILocalLocationHoursOfOperationItem_Ptr is access all IVectorView_ILocalLocationHoursOfOperationItem;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -649,5 +637,4 @@ package Windows.Services.Maps.LocalSearch is
    )
    return Windows.Services.Maps.IPlaceInfo;
    
-
 end;

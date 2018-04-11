@@ -55,5 +55,4 @@ package body Windows.Devices.Spi.Provider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

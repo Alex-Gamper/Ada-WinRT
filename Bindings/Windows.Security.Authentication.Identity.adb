@@ -52,5 +52,4 @@ package body Windows.Security.Authentication.Identity is
       return RetVal;
    end;
    
-
 end;

@@ -125,10 +125,6 @@ package Windows.Devices.Usb is
    type UsbWriteOptions_Ptr is access UsbWriteOptions;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -329,14 +325,6 @@ package Windows.Devices.Usb is
    type IVectorView_IUsbInterruptOutEndpointDescriptor_Interface;
    type IVectorView_IUsbInterruptOutEndpointDescriptor is access all IVectorView_IUsbInterruptOutEndpointDescriptor_Interface'Class;
    type IVectorView_IUsbInterruptOutEndpointDescriptor_Ptr is access all IVectorView_IUsbInterruptOutEndpointDescriptor;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2608,5 +2596,4 @@ package Windows.Devices.Usb is
    )
    return Windows.Devices.Usb.IUsbEndpointDescriptor;
    
-
 end;

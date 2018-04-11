@@ -754,14 +754,6 @@ package Windows.Media.Devices is
    type IVectorView_OpticalImageStabilizationMode_Ptr is access all IVectorView_OpticalImageStabilizationMode;
    
    ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
    
@@ -4374,5 +4366,4 @@ package Windows.Media.Devices is
    )
    return Windows.Media.Devices.ICallControl;
    
-
 end;

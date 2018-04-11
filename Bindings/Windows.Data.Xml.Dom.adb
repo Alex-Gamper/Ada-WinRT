@@ -170,5 +170,4 @@ package body Windows.Data.Xml.Dom is
       return RetVal;
    end;
    
-
 end;

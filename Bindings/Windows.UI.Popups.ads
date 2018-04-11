@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
---------------------------------------------------------------------------------
 package Windows.UI.Popups is
 
    pragma preelaborate;
@@ -59,10 +58,6 @@ package Windows.UI.Popups is
    for Placement'Size use 32;
    
    type Placement_Ptr is access Placement;
-   
-   ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -109,14 +104,6 @@ package Windows.UI.Popups is
    type IAsyncOperation_IUICommand_Interface;
    type IAsyncOperation_IUICommand is access all IAsyncOperation_IUICommand_Interface'Class;
    type IAsyncOperation_IUICommand_Ptr is access all IAsyncOperation_IUICommand;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -628,5 +615,4 @@ package Windows.UI.Popups is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

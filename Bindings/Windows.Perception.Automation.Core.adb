@@ -53,5 +53,4 @@ package body Windows.Perception.Automation.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-
 end;

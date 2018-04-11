@@ -21,7 +21,6 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
---------------------------------------------------------------------------------
 package Windows.Security.Authentication.Identity.Core is
 
    pragma preelaborate;
@@ -121,10 +120,6 @@ package Windows.Security.Authentication.Identity.Core is
    type MicrosoftAccountMultiFactorSessionApprovalStatus_Ptr is access MicrosoftAccountMultiFactorSessionApprovalStatus;
    
    ------------------------------------------------------------------------
-   -- Record types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -184,14 +179,6 @@ package Windows.Security.Authentication.Identity.Core is
    type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface;
    type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo is access all IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Interface'Class;
    type IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Ptr is access all IAsyncOperation_IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;
-   
-   ------------------------------------------------------------------------
-   -- generic packages/types
-   ------------------------------------------------------------------------
-   
-   ------------------------------------------------------------------------
-   -- generic instantiations
-   ------------------------------------------------------------------------
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -710,5 +697,4 @@ package Windows.Security.Authentication.Identity.Core is
    function get_Current
    return Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticationManager;
    
-
 end;

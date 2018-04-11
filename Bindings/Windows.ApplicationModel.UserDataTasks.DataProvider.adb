@@ -105,5 +105,4 @@ package body Windows.ApplicationModel.UserDataTasks.DataProvider is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;

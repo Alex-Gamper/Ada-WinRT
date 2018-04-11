@@ -56,5 +56,4 @@ package body Windows.Data.Xml.Xsl is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-
 end;
