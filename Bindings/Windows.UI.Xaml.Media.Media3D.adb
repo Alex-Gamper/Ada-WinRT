@@ -157,6 +157,7 @@ package body Windows.UI.Xaml.Media.Media3D is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

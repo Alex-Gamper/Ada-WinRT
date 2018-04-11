@@ -555,6 +555,7 @@ package body Windows.UI.Xaml.Automation.Peers is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -673,6 +674,7 @@ package body Windows.UI.Xaml.Automation.Peers is
    begin
       return Hr;
    end;
+   
    
    ------------------------------------------------------------------------
    function QueryInterface
@@ -850,6 +852,7 @@ package body Windows.UI.Xaml.Automation.Peers is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1306,6 +1309,7 @@ package body Windows.UI.Xaml.Automation.Peers is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

@@ -1365,6 +1365,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1500,6 +1501,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1657,6 +1659,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1748,6 +1751,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1839,6 +1843,7 @@ package body Windows.UI.Xaml.Controls.Maps is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2172,6 +2177,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2286,6 +2292,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2455,6 +2462,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2591,6 +2599,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

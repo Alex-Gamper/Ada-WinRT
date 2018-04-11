@@ -712,6 +712,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1287,6 +1288,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1862,6 +1864,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2196,6 +2199,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2309,6 +2313,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    
    ------------------------------------------------------------------------
    function QueryInterface
@@ -2443,6 +2448,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2667,6 +2673,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2780,6 +2787,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2983,6 +2991,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3090,6 +3099,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3295,6 +3305,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3403,6 +3414,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3607,6 +3619,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3725,6 +3738,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3816,6 +3830,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3907,6 +3922,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

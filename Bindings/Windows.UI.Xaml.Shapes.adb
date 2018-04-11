@@ -463,6 +463,7 @@ package body Windows.UI.Xaml.Shapes is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -576,6 +577,7 @@ package body Windows.UI.Xaml.Shapes is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

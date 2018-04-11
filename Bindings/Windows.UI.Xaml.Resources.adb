@@ -144,6 +144,7 @@ package body Windows.UI.Xaml.Resources is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -235,6 +236,7 @@ package body Windows.UI.Xaml.Resources is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

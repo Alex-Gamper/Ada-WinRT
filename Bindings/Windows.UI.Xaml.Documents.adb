@@ -390,6 +390,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -569,6 +570,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -660,6 +662,7 @@ package body Windows.UI.Xaml.Documents is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -773,6 +776,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

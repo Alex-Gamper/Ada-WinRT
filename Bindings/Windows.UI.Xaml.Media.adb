@@ -925,6 +925,7 @@ package body Windows.UI.Xaml.Media is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1016,6 +1017,7 @@ package body Windows.UI.Xaml.Media is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    
    ------------------------------------------------------------------------
    function QueryInterface
@@ -1150,6 +1152,7 @@ package body Windows.UI.Xaml.Media is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1289,6 +1292,7 @@ package body Windows.UI.Xaml.Media is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1380,6 +1384,7 @@ package body Windows.UI.Xaml.Media is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    
    ------------------------------------------------------------------------
    function QueryInterface
@@ -1511,6 +1516,7 @@ package body Windows.UI.Xaml.Media is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1602,6 +1608,7 @@ package body Windows.UI.Xaml.Media is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1781,6 +1788,7 @@ package body Windows.UI.Xaml.Media is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1939,6 +1947,7 @@ package body Windows.UI.Xaml.Media is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2056,6 +2065,7 @@ package body Windows.UI.Xaml.Media is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2169,6 +2179,7 @@ package body Windows.UI.Xaml.Media is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2370,6 +2381,7 @@ package body Windows.UI.Xaml.Media is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2527,6 +2539,7 @@ package body Windows.UI.Xaml.Media is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2618,6 +2631,7 @@ package body Windows.UI.Xaml.Media is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2709,6 +2723,7 @@ package body Windows.UI.Xaml.Media is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

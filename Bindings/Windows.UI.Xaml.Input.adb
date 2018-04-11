@@ -686,6 +686,7 @@ package body Windows.UI.Xaml.Input is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -853,6 +854,7 @@ package body Windows.UI.Xaml.Input is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

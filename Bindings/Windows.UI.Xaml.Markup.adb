@@ -143,6 +143,7 @@ package body Windows.UI.Xaml.Markup is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -234,6 +235,7 @@ package body Windows.UI.Xaml.Markup is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

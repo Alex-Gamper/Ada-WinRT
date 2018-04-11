@@ -905,6 +905,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1066,6 +1067,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1168,6 +1170,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1281,6 +1284,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1372,6 +1376,7 @@ package body Windows.UI.Xaml is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1474,6 +1479,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1609,6 +1615,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1700,6 +1707,7 @@ package body Windows.UI.Xaml is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -1901,6 +1909,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2037,6 +2046,7 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2169,6 +2179,7 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2279,6 +2290,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -2894,6 +2906,7 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3091,6 +3104,7 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3199,6 +3213,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3425,6 +3440,7 @@ package body Windows.UI.Xaml is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3539,6 +3555,7 @@ package body Windows.UI.Xaml is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -3630,6 +3647,7 @@ package body Windows.UI.Xaml is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

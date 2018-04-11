@@ -346,6 +346,7 @@ package body Windows.UI.Xaml.Media.Imaging is
       return Hr;
    end;
    
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -454,6 +455,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -545,6 +547,7 @@ package body Windows.UI.Xaml.Media.Imaging is
       trustLevel.all := FullTrust;
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    function QueryInterface
    (
@@ -760,6 +763,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------

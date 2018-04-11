@@ -353,6 +353,7 @@ package body Windows.UI.Xaml.Printing is
    begin
       return Hr;
    end;
+   
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
