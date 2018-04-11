@@ -2642,9 +2642,7 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IPhoneTrigger;
    
-   
    subtype CommunicationBlockingAppSetAsActiveTrigger is Windows.ApplicationModel.Background.ICommunicationBlockingAppSetAsActiveTrigger;
-   
    function CreateCommunicationBlockingAppSetAsActiveTrigger return Windows.ApplicationModel.Background.ICommunicationBlockingAppSetAsActiveTrigger;
    
    subtype SmartCardTrigger is Windows.ApplicationModel.Background.ISmartCardTrigger;
@@ -2654,22 +2652,17 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.ISmartCardTrigger;
    
-   
    subtype ApplicationTrigger is Windows.ApplicationModel.Background.IApplicationTrigger;
-   
    function CreateApplicationTrigger return Windows.ApplicationModel.Background.IApplicationTrigger;
    
    subtype ApplicationTriggerDetails is Windows.ApplicationModel.Background.IApplicationTriggerDetails;
    subtype MediaProcessingTrigger is Windows.ApplicationModel.Background.IMediaProcessingTrigger;
-   
    function CreateMediaProcessingTrigger return Windows.ApplicationModel.Background.IMediaProcessingTrigger;
    
    subtype ContentPrefetchTrigger is Windows.ApplicationModel.Background.IContentPrefetchTrigger;
-   
    function CreateContentPrefetchTrigger return Windows.ApplicationModel.Background.IContentPrefetchTrigger;
    
    subtype SecondaryAuthenticationFactorAuthenticationTrigger is Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger;
-   
    function CreateSecondaryAuthenticationFactorAuthenticationTrigger return Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger;
    
    subtype SystemTrigger is Windows.ApplicationModel.Background.ISystemTrigger;
@@ -2680,7 +2673,6 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.ISystemTrigger;
    
-   
    subtype SystemCondition is Windows.ApplicationModel.Background.ISystemCondition;
    function Create
    (
@@ -2688,14 +2680,12 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.ISystemCondition;
    
-   
    subtype NetworkOperatorNotificationTrigger is Windows.ApplicationModel.Background.INetworkOperatorNotificationTrigger;
    function Create
    (
       networkAccountId : Windows.String
    )
    return Windows.ApplicationModel.Background.INetworkOperatorNotificationTrigger;
-   
    
    subtype DeviceManufacturerNotificationTrigger is Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTrigger;
    function Create
@@ -2705,10 +2695,8 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTrigger;
    
-   
    subtype CachedFileUpdaterTriggerDetails is Windows.ApplicationModel.Background.ICachedFileUpdaterTriggerDetails;
    subtype CachedFileUpdaterTrigger is Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger;
-   
    function CreateCachedFileUpdaterTrigger return Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger;
    
    subtype TimeTrigger is Windows.ApplicationModel.Background.ITimeTrigger;
@@ -2719,7 +2707,6 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.ITimeTrigger;
    
-   
    subtype MaintenanceTrigger is Windows.ApplicationModel.Background.IMaintenanceTrigger;
    function Create
    (
@@ -2728,9 +2715,7 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IMaintenanceTrigger;
    
-   
    subtype AppointmentStoreNotificationTrigger is Windows.ApplicationModel.Background.IAppointmentStoreNotificationTrigger;
-   
    function CreateAppointmentStoreNotificationTrigger return Windows.ApplicationModel.Background.IAppointmentStoreNotificationTrigger;
    
    subtype BackgroundTaskRegistration is Windows.ApplicationModel.Background.IBackgroundTaskRegistration;
@@ -2751,45 +2736,34 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroup;
    
-   
    subtype BackgroundTaskBuilder is Windows.ApplicationModel.Background.IBackgroundTaskBuilder;
-   
    function CreateBackgroundTaskBuilder return Windows.ApplicationModel.Background.IBackgroundTaskBuilder;
    
    subtype ChatMessageNotificationTrigger is Windows.ApplicationModel.Background.IChatMessageNotificationTrigger;
-   
    function CreateChatMessageNotificationTrigger return Windows.ApplicationModel.Background.IChatMessageNotificationTrigger;
    
    subtype ChatMessageReceivedNotificationTrigger is Windows.ApplicationModel.Background.IChatMessageReceivedNotificationTrigger;
-   
    function CreateChatMessageReceivedNotificationTrigger return Windows.ApplicationModel.Background.IChatMessageReceivedNotificationTrigger;
    
    subtype RcsEndUserMessageAvailableTrigger is Windows.ApplicationModel.Background.IRcsEndUserMessageAvailableTrigger;
-   
    function CreateRcsEndUserMessageAvailableTrigger return Windows.ApplicationModel.Background.IRcsEndUserMessageAvailableTrigger;
    
    subtype ContactStoreNotificationTrigger is Windows.ApplicationModel.Background.IContactStoreNotificationTrigger;
-   
    function CreateContactStoreNotificationTrigger return Windows.ApplicationModel.Background.IContactStoreNotificationTrigger;
    
    subtype EmailStoreNotificationTrigger is Windows.ApplicationModel.Background.IEmailStoreNotificationTrigger;
-   
    function CreateEmailStoreNotificationTrigger return Windows.ApplicationModel.Background.IEmailStoreNotificationTrigger;
    
    subtype MobileBroadbandRegistrationStateChangeTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function CreateMobileBroadbandRegistrationStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype MobileBroadbandRadioStateChangeTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function CreateMobileBroadbandRadioStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype MobileBroadbandPinLockStateChangeTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function CreateMobileBroadbandPinLockStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype MobileBroadbandDeviceServiceNotificationTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function CreateMobileBroadbandDeviceServiceNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype SmsMessageReceivedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
@@ -2799,22 +2773,17 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
-   
    subtype StorageLibraryContentChangedTrigger is Windows.ApplicationModel.Background.IStorageLibraryContentChangedTrigger;
    subtype PaymentAppCanMakePaymentTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function CreatePaymentAppCanMakePaymentTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype DeviceUseTrigger is Windows.ApplicationModel.Background.IDeviceUseTrigger;
-   
    function CreateDeviceUseTrigger return Windows.ApplicationModel.Background.IDeviceUseTrigger;
    
    subtype DeviceServicingTrigger is Windows.ApplicationModel.Background.IDeviceServicingTrigger;
-   
    function CreateDeviceServicingTrigger return Windows.ApplicationModel.Background.IDeviceServicingTrigger;
    
    subtype RfcommConnectionTrigger is Windows.ApplicationModel.Background.IRfcommConnectionTrigger;
-   
    function CreateRfcommConnectionTrigger return Windows.ApplicationModel.Background.IRfcommConnectionTrigger;
    
    subtype DeviceConnectionChangeTrigger is Windows.ApplicationModel.Background.IDeviceConnectionChangeTrigger;
@@ -2826,15 +2795,12 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger;
    
-   
    subtype GattServiceProviderTrigger is Windows.ApplicationModel.Background.IGattServiceProviderTrigger;
    subtype GattServiceProviderTriggerResult is Windows.ApplicationModel.Background.IGattServiceProviderTriggerResult;
    subtype BluetoothLEAdvertisementWatcherTrigger is Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger;
-   
    function CreateBluetoothLEAdvertisementWatcherTrigger return Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger;
    
    subtype BluetoothLEAdvertisementPublisherTrigger is Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger;
-   
    function CreateBluetoothLEAdvertisementPublisherTrigger return Windows.ApplicationModel.Background.IBluetoothLEAdvertisementPublisherTrigger;
    
    subtype DeviceWatcherTrigger is Windows.ApplicationModel.Background.IDeviceWatcherTrigger;
@@ -2845,9 +2811,7 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.ILocationTrigger;
    
-   
    subtype GeovisitTrigger is Windows.ApplicationModel.Background.IGeovisitTrigger;
-   
    function CreateGeovisitTrigger return Windows.ApplicationModel.Background.IGeovisitTrigger;
    
    subtype ActivitySensorTrigger is Windows.ApplicationModel.Background.IActivitySensorTrigger;
@@ -2857,7 +2821,6 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IActivitySensorTrigger;
    
-   
    subtype SensorDataThresholdTrigger is Windows.ApplicationModel.Background.ISensorDataThresholdTrigger;
    function Create
    (
@@ -2865,17 +2828,13 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.ISensorDataThresholdTrigger;
    
-   
    subtype NetworkOperatorHotspotAuthenticationTrigger is Windows.ApplicationModel.Background.INetworkOperatorHotspotAuthenticationTrigger;
-   
    function CreateNetworkOperatorHotspotAuthenticationTrigger return Windows.ApplicationModel.Background.INetworkOperatorHotspotAuthenticationTrigger;
    
    subtype SocketActivityTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function CreateSocketActivityTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype PushNotificationTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function CreatePushNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype ToastNotificationHistoryChangedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
@@ -2885,9 +2844,7 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
-   
    subtype ToastNotificationActionTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
    function CreateToastNotificationActionTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype UserNotificationChangedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
@@ -2897,7 +2854,6 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
-   
    subtype AppBroadcastTriggerProviderInfo is Windows.ApplicationModel.Background.IAppBroadcastTriggerProviderInfo;
    subtype AppBroadcastTrigger is Windows.ApplicationModel.Background.IAppBroadcastTrigger;
    function CreateAppBroadcastTrigger
@@ -2905,7 +2861,6 @@ package Windows.ApplicationModel.Background is
       providerKey : Windows.String
    )
    return Windows.ApplicationModel.Background.IAppBroadcastTrigger;
-   
    
    
    ------------------------------------------------------------------------

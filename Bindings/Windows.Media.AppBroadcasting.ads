@@ -241,7 +241,6 @@ package Windows.Media.AppBroadcasting is
    subtype AppBroadcastingStatus is Windows.Media.AppBroadcasting.IAppBroadcastingStatus;
    subtype AppBroadcastingUI is Windows.Media.AppBroadcasting.IAppBroadcastingUI;
    subtype AppBroadcastingMonitor is Windows.Media.AppBroadcasting.IAppBroadcastingMonitor;
-   
    function CreateAppBroadcastingMonitor return Windows.Media.AppBroadcasting.IAppBroadcastingMonitor;
    
    subtype AppBroadcastingStatusDetails is Windows.Media.AppBroadcasting.IAppBroadcastingStatusDetails;

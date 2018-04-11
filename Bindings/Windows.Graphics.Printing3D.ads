@@ -4790,27 +4790,21 @@ package Windows.Graphics.Printing3D is
    subtype Print3DManager is Windows.Graphics.Printing3D.IPrint3DManager;
    subtype Printing3DMeshVerificationResult is Windows.Graphics.Printing3D.IPrinting3DMeshVerificationResult;
    subtype Printing3DTextureResource is Windows.Graphics.Printing3D.IPrinting3DTextureResource;
-   
    function CreatePrinting3DTextureResource return Windows.Graphics.Printing3D.IPrinting3DTextureResource;
    
    subtype Printing3DComponent is Windows.Graphics.Printing3D.IPrinting3DComponent;
-   
    function CreatePrinting3DComponent return Windows.Graphics.Printing3D.IPrinting3DComponent;
    
    subtype Printing3DMesh is Windows.Graphics.Printing3D.IPrinting3DMesh;
-   
    function CreatePrinting3DMesh return Windows.Graphics.Printing3D.IPrinting3DMesh;
    
    subtype Printing3DComponentWithMatrix is Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix;
-   
    function CreatePrinting3DComponentWithMatrix return Windows.Graphics.Printing3D.IPrinting3DComponentWithMatrix;
    
    subtype Printing3DColorMaterial is Windows.Graphics.Printing3D.IPrinting3DColorMaterial;
-   
    function CreatePrinting3DColorMaterial return Windows.Graphics.Printing3D.IPrinting3DColorMaterial;
    
    subtype Printing3DModelTexture is Windows.Graphics.Printing3D.IPrinting3DModelTexture;
-   
    function CreatePrinting3DModelTexture return Windows.Graphics.Printing3D.IPrinting3DModelTexture;
    
    subtype Printing3DBaseMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DBaseMaterialGroup;
@@ -4820,9 +4814,7 @@ package Windows.Graphics.Printing3D is
    )
    return Windows.Graphics.Printing3D.IPrinting3DBaseMaterialGroup;
    
-   
    subtype Printing3DBaseMaterial is Windows.Graphics.Printing3D.IPrinting3DBaseMaterial;
-   
    function CreatePrinting3DBaseMaterial return Windows.Graphics.Printing3D.IPrinting3DBaseMaterial;
    
    subtype Printing3DColorMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DColorMaterialGroup;
@@ -4832,7 +4824,6 @@ package Windows.Graphics.Printing3D is
    )
    return Windows.Graphics.Printing3D.IPrinting3DColorMaterialGroup;
    
-   
    subtype Printing3DTexture2CoordMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup;
    function Create
    (
@@ -4840,9 +4831,7 @@ package Windows.Graphics.Printing3D is
    )
    return Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterialGroup;
    
-   
    subtype Printing3DTexture2CoordMaterial is Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterial;
-   
    function CreatePrinting3DTexture2CoordMaterial return Windows.Graphics.Printing3D.IPrinting3DTexture2CoordMaterial;
    
    subtype Printing3DCompositeMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup;
@@ -4852,9 +4841,7 @@ package Windows.Graphics.Printing3D is
    )
    return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterialGroup;
    
-   
    subtype Printing3DCompositeMaterial is Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial;
-   
    function CreatePrinting3DCompositeMaterial return Windows.Graphics.Printing3D.IPrinting3DCompositeMaterial;
    
    subtype Printing3DMultiplePropertyMaterialGroup is Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup;
@@ -4864,25 +4851,19 @@ package Windows.Graphics.Printing3D is
    )
    return Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterialGroup;
    
-   
    subtype Printing3DMultiplePropertyMaterial is Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial;
-   
    function CreatePrinting3DMultiplePropertyMaterial return Windows.Graphics.Printing3D.IPrinting3DMultiplePropertyMaterial;
    
    subtype Printing3DMaterial is Windows.Graphics.Printing3D.IPrinting3DMaterial;
-   
    function CreatePrinting3DMaterial return Windows.Graphics.Printing3D.IPrinting3DMaterial;
    
    subtype Printing3DModel is Windows.Graphics.Printing3D.IPrinting3DModel;
-   
    function CreatePrinting3DModel return Windows.Graphics.Printing3D.IPrinting3DModel;
    
    subtype Printing3DFaceReductionOptions is Windows.Graphics.Printing3D.IPrinting3DFaceReductionOptions;
-   
    function CreatePrinting3DFaceReductionOptions return Windows.Graphics.Printing3D.IPrinting3DFaceReductionOptions;
    
    subtype Printing3D3MFPackage is Windows.Graphics.Printing3D.IPrinting3D3MFPackage;
-   
    function CreatePrinting3D3MFPackage return Windows.Graphics.Printing3D.IPrinting3D3MFPackage;
    
    

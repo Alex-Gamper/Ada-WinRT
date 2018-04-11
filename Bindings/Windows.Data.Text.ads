@@ -1197,7 +1197,6 @@ package Windows.Data.Text is
    )
    return Windows.Data.Text.ISemanticTextQuery;
    
-   
    subtype AlternateWordForm is Windows.Data.Text.IAlternateWordForm;
    subtype WordSegment is Windows.Data.Text.IWordSegment;
    subtype WordsSegmenter is Windows.Data.Text.IWordsSegmenter;
@@ -1207,7 +1206,6 @@ package Windows.Data.Text is
    )
    return Windows.Data.Text.IWordsSegmenter;
    
-   
    subtype SelectableWordSegment is Windows.Data.Text.ISelectableWordSegment;
    subtype SelectableWordsSegmenter is Windows.Data.Text.ISelectableWordsSegmenter;
    function CreateWithLanguage
@@ -1216,14 +1214,12 @@ package Windows.Data.Text is
    )
    return Windows.Data.Text.ISelectableWordsSegmenter;
    
-   
    subtype TextPredictionGenerator is Windows.Data.Text.ITextPredictionGenerator;
    function Create
    (
       languageTag : Windows.String
    )
    return Windows.Data.Text.ITextPredictionGenerator;
-   
    
    subtype TextConversionGenerator is Windows.Data.Text.ITextConversionGenerator;
    function Create
@@ -1232,14 +1228,12 @@ package Windows.Data.Text is
    )
    return Windows.Data.Text.ITextConversionGenerator;
    
-   
    subtype TextReverseConversionGenerator is Windows.Data.Text.ITextReverseConversionGenerator;
    function Create
    (
       languageTag : Windows.String
    )
    return Windows.Data.Text.ITextReverseConversionGenerator;
-   
    
    subtype TextPhoneme is Windows.Data.Text.ITextPhoneme;
    

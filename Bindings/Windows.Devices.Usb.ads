@@ -2458,7 +2458,6 @@ package Windows.Devices.Usb is
    ------------------------------------------------------------------------
    
    subtype UsbControlRequestType is Windows.Devices.Usb.IUsbControlRequestType;
-   
    function CreateUsbControlRequestType return Windows.Devices.Usb.IUsbControlRequestType;
    
    subtype UsbSetupPacket is Windows.Devices.Usb.IUsbSetupPacket;
@@ -2468,9 +2467,7 @@ package Windows.Devices.Usb is
    )
    return Windows.Devices.Usb.IUsbSetupPacket;
    
-   
    subtype UsbDeviceClass is Windows.Devices.Usb.IUsbDeviceClass;
-   
    function CreateUsbDeviceClass return Windows.Devices.Usb.IUsbDeviceClass;
    
    subtype UsbDeviceClasses is Windows.Devices.Usb.IUsbDeviceClasses;

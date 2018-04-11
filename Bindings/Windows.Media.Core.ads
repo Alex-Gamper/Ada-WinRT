@@ -6714,44 +6714,34 @@ package Windows.Media.Core is
    ------------------------------------------------------------------------
    
    subtype TimedTextRegion is Windows.Media.Core.ITimedTextRegion;
-   
    function CreateTimedTextRegion return Windows.Media.Core.ITimedTextRegion;
    
    subtype TimedTextStyle is Windows.Media.Core.ITimedTextStyle;
-   
    function CreateTimedTextStyle return Windows.Media.Core.ITimedTextStyle;
    
    subtype TimedTextLine is Windows.Media.Core.ITimedTextLine;
-   
    function CreateTimedTextLine return Windows.Media.Core.ITimedTextLine;
    
    subtype TimedTextSubformat is Windows.Media.Core.ITimedTextSubformat;
-   
    function CreateTimedTextSubformat return Windows.Media.Core.ITimedTextSubformat;
    
    subtype TimedTextCue is Windows.Media.Core.ITimedTextCue;
-   
    function CreateTimedTextCue return Windows.Media.Core.ITimedTextCue;
    
    subtype DataCue is Windows.Media.Core.IDataCue;
-   
    function CreateDataCue return Windows.Media.Core.IDataCue;
    
    subtype ChapterCue is Windows.Media.Core.IChapterCue;
-   
    function CreateChapterCue return Windows.Media.Core.IChapterCue;
    
    subtype ImageCue is Windows.Media.Core.IImageCue;
-   
    function CreateImageCue return Windows.Media.Core.IImageCue;
    
    subtype SpeechCue is Windows.Media.Core.ISpeechCue;
-   
    function CreateSpeechCue return Windows.Media.Core.ISpeechCue;
    
    subtype CodecInfo is Windows.Media.Core.ICodecInfo;
    subtype CodecQuery is Windows.Media.Core.ICodecQuery;
-   
    function CreateCodecQuery return Windows.Media.Core.ICodecQuery;
    
    subtype LowLightFusionResult is Windows.Media.Core.ILowLightFusionResult;
@@ -6762,14 +6752,12 @@ package Windows.Media.Core is
    )
    return Windows.Media.Core.IAudioStreamDescriptor;
    
-   
    subtype VideoStreamDescriptor is Windows.Media.Core.IVideoStreamDescriptor;
    function Create
    (
       encodingProperties : Windows.Media.MediaProperties.IVideoEncodingProperties
    )
    return Windows.Media.Core.IVideoStreamDescriptor;
-   
    
    subtype MediaStreamSource is Windows.Media.Core.IMediaStreamSource;
    function CreateFromDescriptor
@@ -6784,7 +6772,6 @@ package Windows.Media.Core is
       ; descriptor2 : Windows.Media.Core.IMediaStreamDescriptor
    )
    return Windows.Media.Core.IMediaStreamSource;
-   
    
    subtype MediaStreamSourceClosedEventArgs is Windows.Media.Core.IMediaStreamSourceClosedEventArgs;
    subtype MediaStreamSourceStartingEventArgs is Windows.Media.Core.IMediaStreamSourceStartingEventArgs;
@@ -6802,7 +6789,6 @@ package Windows.Media.Core is
    subtype MediaStreamSourceSwitchStreamsRequestDeferral is Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestDeferral;
    subtype MediaStreamSourceSwitchStreamsRequest is Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequest;
    subtype MseStreamSource is Windows.Media.Core.IMseStreamSource;
-   
    function CreateMseStreamSource return Windows.Media.Core.IMseStreamSource;
    
    subtype MseSourceBufferList is Windows.Media.Core.IMseSourceBufferList;
@@ -6814,7 +6800,6 @@ package Windows.Media.Core is
    )
    return Windows.Media.Core.IMediaSourceAppServiceConnection;
    
-   
    subtype InitializeMediaStreamSourceRequestedEventArgs is Windows.Media.Core.IInitializeMediaStreamSourceRequestedEventArgs;
    subtype HighDynamicRangeControl is Windows.Media.Core.IHighDynamicRangeControl;
    subtype SceneAnalysisEffect is Windows.Media.Core.ISceneAnalysisEffect;
@@ -6822,26 +6807,22 @@ package Windows.Media.Core is
    subtype HighDynamicRangeOutput is Windows.Media.Core.IHighDynamicRangeOutput;
    subtype SceneAnalysisEffectFrame is Windows.Media.Core.ISceneAnalysisEffectFrame;
    subtype SceneAnalysisEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
-   
    function CreateSceneAnalysisEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition;
    
    subtype FaceDetectionEffectFrame is Windows.Media.Core.IFaceDetectionEffectFrame;
    subtype FaceDetectedEventArgs is Windows.Media.Core.IFaceDetectedEventArgs;
    subtype FaceDetectionEffect is Windows.Media.Core.IFaceDetectionEffect;
    subtype FaceDetectionEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
-   
    function CreateFaceDetectionEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition;
    
    subtype VideoStabilizationEffectEnabledChangedEventArgs is Windows.Media.Core.IVideoStabilizationEffectEnabledChangedEventArgs;
    subtype VideoStabilizationEffect is Windows.Media.Core.IVideoStabilizationEffect;
    subtype VideoStabilizationEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
-   
    function CreateVideoStabilizationEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition;
    
    subtype MediaSourceError is Windows.Media.Core.IMediaSourceError;
    subtype MediaSource is Windows.Media.Core.IMediaSource2;
    subtype MediaBinder is Windows.Media.Core.IMediaBinder;
-   
    function CreateMediaBinder return Windows.Media.Core.IMediaBinder;
    
    subtype MediaBindingEventArgs is Windows.Media.Core.IMediaBindingEventArgs;
@@ -6855,7 +6836,6 @@ package Windows.Media.Core is
       ; kind : Windows.Media.Core.TimedMetadataKind
    )
    return Windows.Media.Core.ITimedMetadataTrack;
-   
    
    subtype MediaSourceStateChangedEventArgs is Windows.Media.Core.IMediaSourceStateChangedEventArgs;
    subtype TimedMetadataTrackError is Windows.Media.Core.ITimedMetadataTrackError;

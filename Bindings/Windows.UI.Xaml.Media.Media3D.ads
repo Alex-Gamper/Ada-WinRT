@@ -530,7 +530,6 @@ package Windows.UI.Xaml.Media.Media3D is
       m_Inner    : aliased ITransform3D := null;
       m_ITransform3D : ITransform3D := null;
    end record;
-   
    type ITransform3D_Impl is access all ITransform3D_Interface_Impl'Class;
    type ITransform3D_Impl_Ptr is access all ITransform3D_Impl;
    
@@ -576,13 +575,10 @@ package Windows.UI.Xaml.Media.Media3D is
    )
    return Windows.HRESULT;
    
-   
    subtype CompositeTransform3D is Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D;
-   
    function CreateCompositeTransform3D return Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D;
    
    subtype PerspectiveTransform3D is Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3D;
-   
    function CreatePerspectiveTransform3D return Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3D;
    
    

@@ -159,7 +159,6 @@ package Windows.Devices is
    )
    return Windows.Devices.ILowLevelDevicesAggregateProvider;
    
-   
    subtype LowLevelDevicesController is Windows.Devices.ILowLevelDevicesController;
    
    ------------------------------------------------------------------------

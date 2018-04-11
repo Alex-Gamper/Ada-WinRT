@@ -2152,7 +2152,6 @@ package Windows.Devices.AllJoyn is
    
    subtype AllJoynAboutData is Windows.Devices.AllJoyn.IAllJoynAboutData;
    subtype AllJoynBusAttachment is Windows.Devices.AllJoyn.IAllJoynBusAttachment;
-   
    function CreateAllJoynBusAttachment return Windows.Devices.AllJoyn.IAllJoynBusAttachment;
    
    subtype AllJoynBusAttachmentStateChangedEventArgs is Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs;
@@ -2168,7 +2167,6 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynServiceInfo;
    
-   
    subtype AllJoynAboutDataView is Windows.Devices.AllJoyn.IAllJoynAboutDataView;
    subtype AllJoynAcceptSessionJoinerEventArgs is Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs;
    function Create
@@ -2181,14 +2179,12 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs;
    
-   
    subtype AllJoynSessionJoinedEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs;
    function Create
    (
       session : Windows.Devices.AllJoyn.IAllJoynSession
    )
    return Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs;
-   
    
    subtype AllJoynCredentials is Windows.Devices.AllJoyn.IAllJoynCredentials;
    subtype AllJoynSession is Windows.Devices.AllJoyn.IAllJoynSession;
@@ -2199,7 +2195,6 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs;
    
-   
    subtype AllJoynSessionMemberRemovedEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs;
    function Create
    (
@@ -2207,14 +2202,12 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs;
    
-   
    subtype AllJoynSessionLostEventArgs is Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs;
    function Create
    (
       reason : Windows.Devices.AllJoyn.AllJoynSessionLostReason
    )
    return Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs;
-   
    
    subtype AllJoynBusObject is Windows.Devices.AllJoyn.IAllJoynBusObject;
    function Create
@@ -2230,14 +2223,12 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynBusObject;
    
-   
    subtype AllJoynBusObjectStoppedEventArgs is Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs;
    function Create
    (
       status : Windows.Int32
    )
    return Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs;
-   
    
    subtype AllJoynProducerStoppedEventArgs is Windows.Devices.AllJoyn.IAllJoynProducerStoppedEventArgs;
    function Create
@@ -2246,14 +2237,12 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynProducerStoppedEventArgs;
    
-   
    subtype AllJoynWatcherStoppedEventArgs is Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs;
    function Create
    (
       status : Windows.Int32
    )
    return Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs;
-   
    
    subtype AllJoynServiceInfoRemovedEventArgs is Windows.Devices.AllJoyn.IAllJoynServiceInfoRemovedEventArgs;
    function Create
@@ -2262,14 +2251,12 @@ package Windows.Devices.AllJoyn is
    )
    return Windows.Devices.AllJoyn.IAllJoynServiceInfoRemovedEventArgs;
    
-   
    subtype AllJoynMessageInfo is Windows.Devices.AllJoyn.IAllJoynMessageInfo;
    function Create
    (
       senderUniqueName : Windows.String
    )
    return Windows.Devices.AllJoyn.IAllJoynMessageInfo;
-   
    
    
    ------------------------------------------------------------------------

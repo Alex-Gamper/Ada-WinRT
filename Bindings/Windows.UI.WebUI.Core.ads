@@ -822,19 +822,15 @@ package Windows.UI.WebUI.Core is
    
    subtype WebUICommandBarItemInvokedEventArgs is Windows.UI.WebUI.Core.IWebUICommandBarItemInvokedEventArgs;
    subtype WebUICommandBarIconButton is Windows.UI.WebUI.Core.IWebUICommandBarIconButton;
-   
    function CreateWebUICommandBarIconButton return Windows.UI.WebUI.Core.IWebUICommandBarIconButton;
    
    subtype WebUICommandBarConfirmationButton is Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton;
-   
    function CreateWebUICommandBarConfirmationButton return Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton;
    
    subtype WebUICommandBarBitmapIcon is Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon;
-   
    function CreateWebUICommandBarBitmapIcon return Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon;
    
    subtype WebUICommandBarSymbolIcon is Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon;
-   
    function CreateWebUICommandBarSymbolIcon return Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon;
    
    subtype WebUICommandBarSizeChangedEventArgs is Windows.UI.WebUI.Core.IWebUICommandBarSizeChangedEventArgs;

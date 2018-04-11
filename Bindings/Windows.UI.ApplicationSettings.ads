@@ -1248,7 +1248,6 @@ package Windows.UI.ApplicationSettings is
    )
    return Windows.UI.Popups.IUICommand;
    
-   
    subtype WebAccountProviderCommand is Windows.UI.ApplicationSettings.IWebAccountProviderCommand;
    function CreateWebAccountProviderCommand
    (
@@ -1256,7 +1255,6 @@ package Windows.UI.ApplicationSettings is
       ; invoked : Windows.UI.ApplicationSettings.WebAccountProviderCommandInvokedHandler
    )
    return Windows.UI.ApplicationSettings.IWebAccountProviderCommand;
-   
    
    subtype WebAccountCommand is Windows.UI.ApplicationSettings.IWebAccountCommand;
    function CreateWebAccountCommand
@@ -1266,7 +1264,6 @@ package Windows.UI.ApplicationSettings is
       ; actions : Windows.UI.ApplicationSettings.SupportedWebAccountActions
    )
    return Windows.UI.ApplicationSettings.IWebAccountCommand;
-   
    
    subtype WebAccountInvokedArgs is Windows.UI.ApplicationSettings.IWebAccountInvokedArgs;
    subtype CredentialCommand is Windows.UI.ApplicationSettings.ICredentialCommand;
@@ -1282,7 +1279,6 @@ package Windows.UI.ApplicationSettings is
       ; deleted : Windows.UI.ApplicationSettings.CredentialCommandCredentialDeletedHandler
    )
    return Windows.UI.ApplicationSettings.ICredentialCommand;
-   
    
    subtype AccountsSettingsPaneEventDeferral is Windows.UI.ApplicationSettings.IAccountsSettingsPaneEventDeferral;
    subtype AccountsSettingsPaneCommandsRequestedEventArgs is Windows.UI.ApplicationSettings.IAccountsSettingsPaneCommandsRequestedEventArgs;

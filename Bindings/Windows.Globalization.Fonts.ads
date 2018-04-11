@@ -194,7 +194,6 @@ package Windows.Globalization.Fonts is
    return Windows.Globalization.Fonts.ILanguageFontGroup;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

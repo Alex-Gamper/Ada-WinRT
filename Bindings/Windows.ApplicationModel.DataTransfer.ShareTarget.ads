@@ -204,7 +204,6 @@ package Windows.ApplicationModel.DataTransfer.ShareTarget is
    ------------------------------------------------------------------------
    
    subtype QuickLink is Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink;
-   
    function CreateQuickLink return Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink;
    
    subtype ShareOperation is Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation;

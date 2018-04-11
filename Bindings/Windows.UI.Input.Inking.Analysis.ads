@@ -619,7 +619,6 @@ package Windows.UI.Input.Inking.Analysis is
    subtype InkAnalysisRoot is Windows.UI.Input.Inking.Analysis.IInkAnalysisRoot;
    subtype InkAnalysisResult is Windows.UI.Input.Inking.Analysis.IInkAnalysisResult;
    subtype InkAnalyzer is Windows.UI.Input.Inking.Analysis.IInkAnalyzer;
-   
    function CreateInkAnalyzer return Windows.UI.Input.Inking.Analysis.IInkAnalyzer;
    
    subtype InkAnalysisNode is Windows.UI.Input.Inking.Analysis.IInkAnalysisNode;

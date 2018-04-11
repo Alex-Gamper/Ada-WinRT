@@ -418,7 +418,6 @@ package Windows.Devices.I2c is
    )
    return Windows.Devices.I2c.II2cConnectionSettings;
    
-   
    subtype I2cDevice is Windows.Devices.I2c.II2cDevice;
    subtype I2cController is Windows.Devices.I2c.II2cController;
    

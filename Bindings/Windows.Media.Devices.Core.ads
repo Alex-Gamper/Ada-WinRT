@@ -1023,7 +1023,6 @@ package Windows.Media.Devices.Core is
    subtype FrameFocusControl is Windows.Media.Devices.Core.IFrameFocusControl;
    subtype FrameFlashControl is Windows.Media.Devices.Core.IFrameFlashControl;
    subtype FrameController is Windows.Media.Devices.Core.IFrameController;
-   
    function CreateFrameController return Windows.Media.Devices.Core.IFrameController;
    
    subtype CameraIntrinsics is Windows.Media.Devices.Core.ICameraIntrinsics;

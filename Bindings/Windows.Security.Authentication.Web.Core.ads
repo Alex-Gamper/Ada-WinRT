@@ -770,7 +770,6 @@ package Windows.Security.Authentication.Web.Core is
    )
    return Windows.Security.Authentication.Web.Core.IWebTokenRequest;
    
-   
    subtype WebAccountEventArgs is Windows.Security.Authentication.Web.Core.IWebAccountEventArgs;
    subtype WebAccountMonitor is Windows.Security.Authentication.Web.Core.IWebAccountMonitor;
    subtype WebProviderError is Windows.Security.Authentication.Web.Core.IWebProviderError;
@@ -781,9 +780,7 @@ package Windows.Security.Authentication.Web.Core is
    )
    return Windows.Security.Authentication.Web.Core.IWebProviderError;
    
-   
    subtype WebTokenResponse is Windows.Security.Authentication.Web.Core.IWebTokenResponse;
-   
    function CreateWebTokenResponse return Windows.Security.Authentication.Web.Core.IWebTokenResponse;
    
    subtype WebTokenRequestResult is Windows.Security.Authentication.Web.Core.IWebTokenRequestResult;

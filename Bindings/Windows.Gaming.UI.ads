@@ -441,7 +441,6 @@ package Windows.Gaming.UI is
    subtype GameChatOverlay is Windows.Gaming.UI.IGameChatOverlay;
    subtype GameMonitor is Windows.Gaming.UI.IGameMonitor;
    subtype GameChatOverlayMessageSource is Windows.Gaming.UI.IGameChatOverlayMessageSource;
-   
    function CreateGameChatOverlayMessageSource return Windows.Gaming.UI.IGameChatOverlayMessageSource;
    
    subtype GameChatMessageReceivedEventArgs is Windows.Gaming.UI.IGameChatMessageReceivedEventArgs;

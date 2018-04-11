@@ -595,7 +595,6 @@ package Windows.Gaming.Input.ForceFeedback is
    )
    return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
-   
    subtype PeriodicForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    function CreateInstance
    (
@@ -603,13 +602,10 @@ package Windows.Gaming.Input.ForceFeedback is
    )
    return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
-   
    subtype ConstantForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
-   
    function CreateConstantForceEffect return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
    subtype RampForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
-   
    function CreateRampForceEffect return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
    subtype ForceFeedbackMotor is Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor;

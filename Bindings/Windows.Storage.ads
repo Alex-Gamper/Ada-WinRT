@@ -4087,7 +4087,6 @@ package Windows.Storage is
    subtype SetVersionDeferral is Windows.Storage.ISetVersionDeferral;
    subtype ApplicationDataContainerSettings is Windows.Foundation.Collections.IPropertySet;
    subtype ApplicationDataCompositeValue is Windows.Foundation.Collections.IPropertySet;
-   
    function CreateApplicationDataCompositeValue return Windows.Foundation.Collections.IPropertySet;
    
    

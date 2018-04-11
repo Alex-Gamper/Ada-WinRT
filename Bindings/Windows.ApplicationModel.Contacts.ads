@@ -7046,16 +7046,13 @@ package Windows.ApplicationModel.Contacts is
    subtype ContactStore is Windows.ApplicationModel.Contacts.IContactStore;
    subtype ContactAnnotationStore is Windows.ApplicationModel.Contacts.IContactAnnotationStore;
    subtype ContactCardOptions is Windows.ApplicationModel.Contacts.IContactCardOptions;
-   
    function CreateContactCardOptions return Windows.ApplicationModel.Contacts.IContactCardOptions;
    
    subtype FullContactCardOptions is Windows.ApplicationModel.Contacts.IFullContactCardOptions;
-   
    function CreateFullContactCardOptions return Windows.ApplicationModel.Contacts.IFullContactCardOptions;
    
    subtype ContactManagerForUser is Windows.ApplicationModel.Contacts.IContactManagerForUser;
    subtype ContactAnnotation is Windows.ApplicationModel.Contacts.IContactAnnotation;
-   
    function CreateContactAnnotation return Windows.ApplicationModel.Contacts.IContactAnnotation;
    
    subtype ContactAnnotationList is Windows.ApplicationModel.Contacts.IContactAnnotationList;
@@ -7065,7 +7062,6 @@ package Windows.ApplicationModel.Contacts is
    subtype ContactList is Windows.ApplicationModel.Contacts.IContactList;
    subtype ContactReader is Windows.ApplicationModel.Contacts.IContactReader;
    subtype ContactQueryOptions is Windows.ApplicationModel.Contacts.IContactQueryOptions;
-   
    function CreateContactQueryOptions return Windows.ApplicationModel.Contacts.IContactQueryOptions;
    
    subtype ContactListSyncManager is Windows.ApplicationModel.Contacts.IContactListSyncManager;
@@ -7080,43 +7076,33 @@ package Windows.ApplicationModel.Contacts is
    subtype ContactStoreNotificationTriggerDetails is Windows.ApplicationModel.Contacts.IContactStoreNotificationTriggerDetails;
    subtype ContactGroup is Windows.ApplicationModel.Contacts.IContactGroup;
    subtype ContactPicker is Windows.ApplicationModel.Contacts.IContactPicker;
-   
    function CreateContactPicker return Windows.ApplicationModel.Contacts.IContactPicker;
    
    subtype ContactPhone is Windows.ApplicationModel.Contacts.IContactPhone;
-   
    function CreateContactPhone return Windows.ApplicationModel.Contacts.IContactPhone;
    
    subtype ContactEmail is Windows.ApplicationModel.Contacts.IContactEmail;
-   
    function CreateContactEmail return Windows.ApplicationModel.Contacts.IContactEmail;
    
    subtype ContactAddress is Windows.ApplicationModel.Contacts.IContactAddress;
-   
    function CreateContactAddress return Windows.ApplicationModel.Contacts.IContactAddress;
    
    subtype ContactConnectedServiceAccount is Windows.ApplicationModel.Contacts.IContactConnectedServiceAccount;
-   
    function CreateContactConnectedServiceAccount return Windows.ApplicationModel.Contacts.IContactConnectedServiceAccount;
    
    subtype ContactDate is Windows.ApplicationModel.Contacts.IContactDate;
-   
    function CreateContactDate return Windows.ApplicationModel.Contacts.IContactDate;
    
    subtype ContactJobInfo is Windows.ApplicationModel.Contacts.IContactJobInfo;
-   
    function CreateContactJobInfo return Windows.ApplicationModel.Contacts.IContactJobInfo;
    
    subtype ContactSignificantOther is Windows.ApplicationModel.Contacts.IContactSignificantOther;
-   
    function CreateContactSignificantOther return Windows.ApplicationModel.Contacts.IContactSignificantOther;
    
    subtype ContactWebsite is Windows.ApplicationModel.Contacts.IContactWebsite;
-   
    function CreateContactWebsite return Windows.ApplicationModel.Contacts.IContactWebsite;
    
    subtype Contact is Windows.ApplicationModel.Contacts.IContact;
-   
    function CreateContact return Windows.ApplicationModel.Contacts.IContact;
    
    subtype ContactField is Windows.ApplicationModel.Contacts.IContactField;
@@ -7144,7 +7130,6 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.ApplicationModel.Contacts.IContactField;
    
-   
    subtype ContactLocationField is Windows.ApplicationModel.Contacts.IContactLocationField;
    function CreateLocation_Default
    (
@@ -7171,7 +7156,6 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.ApplicationModel.Contacts.IContactLocationField;
    
-   
    subtype ContactInstantMessageField is Windows.ApplicationModel.Contacts.IContactInstantMessageField;
    function CreateInstantMessage_Default
    (
@@ -7196,10 +7180,8 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.ApplicationModel.Contacts.IContactInstantMessageField;
    
-   
    subtype ContactInformation is Windows.ApplicationModel.Contacts.IContactInformation;
    subtype ContactFieldFactory is Windows.ApplicationModel.Contacts.IContactFieldFactory;
-   
    function CreateContactFieldFactory return Windows.ApplicationModel.Contacts.IContactFieldFactory;
    
    subtype PinnedContactIdsQueryResult is Windows.ApplicationModel.Contacts.IPinnedContactIdsQueryResult;

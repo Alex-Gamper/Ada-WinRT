@@ -1948,7 +1948,6 @@ package Windows.Graphics.Imaging is
    ------------------------------------------------------------------------
    
    subtype BitmapTransform is Windows.Graphics.Imaging.IBitmapTransform;
-   
    function CreateBitmapTransform return Windows.Graphics.Imaging.IBitmapTransform;
    
    subtype BitmapTypedValue is Windows.Graphics.Imaging.IBitmapTypedValue;
@@ -1959,9 +1958,7 @@ package Windows.Graphics.Imaging is
    )
    return Windows.Graphics.Imaging.IBitmapTypedValue;
    
-   
    subtype BitmapPropertySet is Windows.Graphics.Imaging.IMap_String_BitmapTypedValue;
-   
    function CreateBitmapPropertySet return Windows.Graphics.Imaging.IMap_String_BitmapTypedValue;
    
    subtype BitmapPropertiesView is Windows.Graphics.Imaging.IBitmapPropertiesView;
@@ -1990,7 +1987,6 @@ package Windows.Graphics.Imaging is
       ; alpha : Windows.Graphics.Imaging.BitmapAlphaMode
    )
    return Windows.Graphics.Imaging.ISoftwareBitmap;
-   
    
    
    ------------------------------------------------------------------------

@@ -260,7 +260,6 @@ package Windows.Devices.Spi.Provider is
    return Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

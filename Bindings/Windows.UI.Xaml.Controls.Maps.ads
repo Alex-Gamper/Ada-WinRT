@@ -6721,79 +6721,60 @@ package Windows.UI.Xaml.Controls.Maps is
    ------------------------------------------------------------------------
    
    subtype MapActualCameraChangedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs;
-   
    function CreateMapActualCameraChangedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangedEventArgs;
    
    subtype MapActualCameraChangingEventArgs is Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs;
-   
    function CreateMapActualCameraChangingEventArgs return Windows.UI.Xaml.Controls.Maps.IMapActualCameraChangingEventArgs;
    
    subtype MapContextRequestedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs;
-   
    function CreateMapContextRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapContextRequestedEventArgs;
    
    subtype MapCustomExperienceChangedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs;
-   
    function CreateMapCustomExperienceChangedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceChangedEventArgs;
    
    subtype MapElementClickEventArgs is Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs;
-   
    function CreateMapElementClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementClickEventArgs;
    
    subtype MapElementPointerEnteredEventArgs is Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs;
-   
    function CreateMapElementPointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementPointerEnteredEventArgs;
    
    subtype MapElementPointerExitedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs;
-   
    function CreateMapElementPointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementPointerExitedEventArgs;
    
    subtype MapElementsLayerClickEventArgs is Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs;
-   
    function CreateMapElementsLayerClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerClickEventArgs;
    
    subtype MapElementsLayerContextRequestedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs;
-   
    function CreateMapElementsLayerContextRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerContextRequestedEventArgs;
    
    subtype MapElementsLayerPointerEnteredEventArgs is Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs;
-   
    function CreateMapElementsLayerPointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerEnteredEventArgs;
    
    subtype MapElementsLayerPointerExitedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs;
-   
    function CreateMapElementsLayerPointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapElementsLayerPointerExitedEventArgs;
    
    subtype MapRightTappedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs;
-   
    function CreateMapRightTappedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapRightTappedEventArgs;
    
    subtype MapTargetCameraChangedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs;
-   
    function CreateMapTargetCameraChangedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapTargetCameraChangedEventArgs;
    
    subtype MapTileBitmapRequestDeferral is Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestDeferral;
-   
    function CreateMapTileBitmapRequestDeferral return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestDeferral;
    
    subtype MapTileBitmapRequest is Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequest;
-   
    function CreateMapTileBitmapRequest return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequest;
    
    subtype MapTileBitmapRequestedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs;
-   
    function CreateMapTileBitmapRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapTileBitmapRequestedEventArgs;
    
    subtype MapTileUriRequestDeferral is Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestDeferral;
-   
    function CreateMapTileUriRequestDeferral return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestDeferral;
    
    subtype MapTileUriRequest is Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest;
-   
    function CreateMapTileUriRequest return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest;
    
    subtype MapTileUriRequestedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs;
-   
    function CreateMapTileUriRequestedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapTileUriRequestedEventArgs;
    
    subtype MapCamera is Windows.UI.Xaml.Controls.Maps.IMapCamera;
@@ -6828,7 +6809,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IMapCamera;
    
-   
    subtype MapCustomExperience is Windows.UI.Xaml.Controls.Maps.IMapCustomExperience;
    
    type IMapCustomExperience_Interface_Impl is new IMapCustomExperience_Interface with record
@@ -6837,7 +6817,6 @@ package Windows.UI.Xaml.Controls.Maps is
       m_Inner    : aliased IMapCustomExperience := null;
       m_IMapCustomExperience : IMapCustomExperience := null;
    end record;
-   
    type IMapCustomExperience_Impl is access all IMapCustomExperience_Interface_Impl'Class;
    type IMapCustomExperience_Impl_Ptr is access all IMapCustomExperience_Impl;
    
@@ -6883,7 +6862,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   
    subtype MapElement is Windows.UI.Xaml.Controls.Maps.IMapElement;
    
    type IMapElement_Interface_Impl is new IMapElement_Interface with record
@@ -6892,7 +6870,6 @@ package Windows.UI.Xaml.Controls.Maps is
       m_Inner    : aliased IMapElement := null;
       m_IMapElement : IMapElement := null;
    end record;
-   
    type IMapElement_Impl is access all IMapElement_Interface_Impl'Class;
    type IMapElement_Impl_Ptr is access all IMapElement_Impl;
    
@@ -6966,13 +6943,10 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   
    subtype MapInputEventArgs is Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs;
-   
    function CreateMapInputEventArgs return Windows.UI.Xaml.Controls.Maps.IMapInputEventArgs;
    
    subtype MapItemsControl is Windows.UI.Xaml.Controls.Maps.IMapItemsControl;
-   
    function CreateMapItemsControl return Windows.UI.Xaml.Controls.Maps.IMapItemsControl;
    
    subtype MapLayer is Windows.UI.Xaml.Controls.Maps.IMapLayer;
@@ -6983,7 +6957,6 @@ package Windows.UI.Xaml.Controls.Maps is
       m_Inner    : aliased IMapLayer := null;
       m_IMapLayer : IMapLayer := null;
    end record;
-   
    type IMapLayer_Impl is access all IMapLayer_Interface_Impl'Class;
    type IMapLayer_Impl_Ptr is access all IMapLayer_Impl;
    
@@ -7071,7 +7044,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   
    subtype MapModel3D is Windows.UI.Xaml.Controls.Maps.IMapModel3D;
    
    type IMapModel3D_Interface_Impl is new IMapModel3D_Interface with record
@@ -7080,7 +7052,6 @@ package Windows.UI.Xaml.Controls.Maps is
       m_Inner    : aliased IMapModel3D := null;
       m_IMapModel3D : IMapModel3D := null;
    end record;
-   
    type IMapModel3D_Impl is access all IMapModel3D_Interface_Impl'Class;
    type IMapModel3D_Impl_Ptr is access all IMapModel3D_Impl;
    
@@ -7126,9 +7097,7 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   
    subtype MapRouteView is Windows.UI.Xaml.Controls.Maps.IMapRouteView;
-   
    subtype MapScene is Windows.UI.Xaml.Controls.Maps.IMapScene;
    subtype MapStyleSheet is Windows.UI.Xaml.Controls.Maps.IMapStyleSheet;
    subtype MapTileDataSource is Windows.UI.Xaml.Controls.Maps.IMapTileDataSource;
@@ -7139,7 +7108,6 @@ package Windows.UI.Xaml.Controls.Maps is
       m_Inner    : aliased IMapTileDataSource := null;
       m_IMapTileDataSource : IMapTileDataSource := null;
    end record;
-   
    type IMapTileDataSource_Impl is access all IMapTileDataSource_Interface_Impl'Class;
    type IMapTileDataSource_Impl_Ptr is access all IMapTileDataSource_Impl;
    
@@ -7185,7 +7153,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   
    subtype MapTileSource is Windows.UI.Xaml.Controls.Maps.IMapTileSource;
    
    type IMapTileSource_Interface_Impl is new IMapTileSource_Interface with record
@@ -7194,7 +7161,6 @@ package Windows.UI.Xaml.Controls.Maps is
       m_Inner    : aliased IMapTileSource := null;
       m_IMapTileSource : IMapTileSource := null;
    end record;
-   
    type IMapTileSource_Impl is access all IMapTileSource_Interface_Impl'Class;
    type IMapTileSource_Impl_Ptr is access all IMapTileSource_Impl;
    
@@ -7394,7 +7360,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   
    subtype StreetsidePanorama is Windows.UI.Xaml.Controls.Maps.IStreetsidePanorama;
    subtype CustomMapTileDataSource is Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSource;
    
@@ -7404,7 +7369,6 @@ package Windows.UI.Xaml.Controls.Maps is
       m_Inner    : aliased ICustomMapTileDataSource := null;
       m_ICustomMapTileDataSource : ICustomMapTileDataSource := null;
    end record;
-   
    type ICustomMapTileDataSource_Impl is access all ICustomMapTileDataSource_Interface_Impl'Class;
    type ICustomMapTileDataSource_Impl_Ptr is access all ICustomMapTileDataSource_Impl;
    
@@ -7465,7 +7429,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   
    subtype HttpMapTileDataSource is Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource;
    
    type IHttpMapTileDataSource_Interface_Impl is new IHttpMapTileDataSource_Interface with record
@@ -7474,7 +7437,6 @@ package Windows.UI.Xaml.Controls.Maps is
       m_Inner    : aliased IHttpMapTileDataSource := null;
       m_IHttpMapTileDataSource : IHttpMapTileDataSource := null;
    end record;
-   
    type IHttpMapTileDataSource_Impl is access all IHttpMapTileDataSource_Interface_Impl'Class;
    type IHttpMapTileDataSource_Impl_Ptr is access all IHttpMapTileDataSource_Impl;
    
@@ -7570,7 +7532,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   
    subtype LocalMapTileDataSource is Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource;
    
    type ILocalMapTileDataSource_Interface_Impl is new ILocalMapTileDataSource_Interface with record
@@ -7579,7 +7540,6 @@ package Windows.UI.Xaml.Controls.Maps is
       m_Inner    : aliased ILocalMapTileDataSource := null;
       m_ILocalMapTileDataSource : ILocalMapTileDataSource := null;
    end record;
-   
    type ILocalMapTileDataSource_Impl is access all ILocalMapTileDataSource_Interface_Impl'Class;
    type ILocalMapTileDataSource_Impl_Ptr is access all ILocalMapTileDataSource_Impl;
    
@@ -7654,7 +7614,6 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.HRESULT;
    
-   
    subtype MapBillboard is Windows.UI.Xaml.Controls.Maps.IMapBillboard;
    function CreateInstanceFromCamera
    (
@@ -7662,25 +7621,19 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IMapBillboard;
    
-   
    subtype MapElement3D is Windows.UI.Xaml.Controls.Maps.IMapElement3D;
-   
    function CreateMapElement3D return Windows.UI.Xaml.Controls.Maps.IMapElement3D;
    
    subtype MapElementsLayer is Windows.UI.Xaml.Controls.Maps.IMapElementsLayer;
-   
    function CreateMapElementsLayer return Windows.UI.Xaml.Controls.Maps.IMapElementsLayer;
    
    subtype MapIcon is Windows.UI.Xaml.Controls.Maps.IMapIcon;
-   
    function CreateMapIcon return Windows.UI.Xaml.Controls.Maps.IMapIcon;
    
    subtype MapPolygon is Windows.UI.Xaml.Controls.Maps.IMapPolygon;
-   
    function CreateMapPolygon return Windows.UI.Xaml.Controls.Maps.IMapPolygon;
    
    subtype MapPolyline is Windows.UI.Xaml.Controls.Maps.IMapPolyline;
-   
    function CreateMapPolyline return Windows.UI.Xaml.Controls.Maps.IMapPolyline;
    
    subtype StreetsideExperience is Windows.UI.Xaml.Controls.Maps.IStreetsideExperience;
@@ -7699,41 +7652,31 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IStreetsideExperience;
    
-   
    subtype MapControl is Windows.UI.Xaml.Controls.Maps.IMapControl;
-   
    function CreateMapControl return Windows.UI.Xaml.Controls.Maps.IMapControl;
    
    subtype MapControlBusinessLandmarkClickEventArgs is Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs;
-   
    function CreateMapControlBusinessLandmarkClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkClickEventArgs;
    
    subtype MapControlTransitFeatureClickEventArgs is Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs;
-   
    function CreateMapControlTransitFeatureClickEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureClickEventArgs;
    
    subtype MapControlBusinessLandmarkRightTappedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs;
-   
    function CreateMapControlBusinessLandmarkRightTappedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkRightTappedEventArgs;
    
    subtype MapControlTransitFeatureRightTappedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs;
-   
    function CreateMapControlTransitFeatureRightTappedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeatureRightTappedEventArgs;
    
    subtype MapControlBusinessLandmarkPointerEnteredEventArgs is Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs;
-   
    function CreateMapControlBusinessLandmarkPointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerEnteredEventArgs;
    
    subtype MapControlTransitFeaturePointerEnteredEventArgs is Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs;
-   
    function CreateMapControlTransitFeaturePointerEnteredEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerEnteredEventArgs;
    
    subtype MapControlBusinessLandmarkPointerExitedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs;
-   
    function CreateMapControlBusinessLandmarkPointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlBusinessLandmarkPointerExitedEventArgs;
    
    subtype MapControlTransitFeaturePointerExitedEventArgs is Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs;
-   
    function CreateMapControlTransitFeaturePointerExitedEventArgs return Windows.UI.Xaml.Controls.Maps.IMapControlTransitFeaturePointerExitedEventArgs;
    
    subtype MapControlDataHelper is Windows.UI.Xaml.Controls.Maps.IMapControlDataHelper;
@@ -7742,7 +7685,6 @@ package Windows.UI.Xaml.Controls.Maps is
       map : Windows.UI.Xaml.Controls.Maps.IMapControl
    )
    return Windows.UI.Xaml.Controls.Maps.IMapControlDataHelper;
-   
    
    
    ------------------------------------------------------------------------

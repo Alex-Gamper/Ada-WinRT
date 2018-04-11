@@ -2902,7 +2902,6 @@ package Windows.UI.Core is
    )
    return Windows.UI.Core.ICoreCursor;
    
-   
    subtype CoreWindow is Windows.UI.Core.ICoreWindow;
    subtype WindowActivatedEventArgs is Windows.UI.Core.IWindowActivatedEventArgs;
    subtype AutomationProviderRequestedEventArgs is Windows.UI.Core.IAutomationProviderRequestedEventArgs;
@@ -2923,7 +2922,6 @@ package Windows.UI.Core is
    subtype CoreIndependentInputSource is Windows.UI.Core.ICoreInputSourceBase;
    subtype CoreWindowPopupShowingEventArgs is Windows.UI.Core.ICoreWindowPopupShowingEventArgs;
    subtype CoreWindowDialog is Windows.UI.Core.ICoreWindowDialog;
-   
    function CreateCoreWindowDialog return Windows.UI.Core.ICoreWindowDialog;
    
    subtype CoreWindowFlyout is Windows.UI.Core.ICoreWindowFlyout;
@@ -2939,7 +2937,6 @@ package Windows.UI.Core is
       ; title : Windows.String
    )
    return Windows.UI.Core.ICoreWindowFlyout;
-   
    
    
    ------------------------------------------------------------------------

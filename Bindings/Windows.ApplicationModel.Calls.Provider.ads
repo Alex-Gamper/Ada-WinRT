@@ -184,7 +184,6 @@ package Windows.ApplicationModel.Calls.Provider is
    ------------------------------------------------------------------------
    
    subtype PhoneCallOrigin is Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin;
-   
    function CreatePhoneCallOrigin return Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin;
    
    

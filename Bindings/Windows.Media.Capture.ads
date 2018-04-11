@@ -7389,18 +7389,15 @@ package Windows.Media.Capture is
    subtype CameraCaptureUIPhotoCaptureSettings is Windows.Media.Capture.ICameraCaptureUIPhotoCaptureSettings;
    subtype CameraCaptureUIVideoCaptureSettings is Windows.Media.Capture.ICameraCaptureUIVideoCaptureSettings;
    subtype CameraCaptureUI is Windows.Media.Capture.ICameraCaptureUI;
-   
    function CreateCameraCaptureUI return Windows.Media.Capture.ICameraCaptureUI;
    
    subtype MediaCaptureFailedEventArgs is Windows.Media.Capture.IMediaCaptureFailedEventArgs;
    subtype MediaCapture is Windows.Media.Capture.IMediaCapture;
-   
    function CreateMediaCapture return Windows.Media.Capture.IMediaCapture;
    
    subtype MediaCaptureVideoProfileMediaDescription is Windows.Media.Capture.IMediaCaptureVideoProfileMediaDescription;
    subtype MediaCaptureVideoProfile is Windows.Media.Capture.IMediaCaptureVideoProfile;
    subtype MediaCaptureInitializationSettings is Windows.Media.Capture.IMediaCaptureInitializationSettings;
-   
    function CreateMediaCaptureInitializationSettings return Windows.Media.Capture.IMediaCaptureInitializationSettings;
    
    subtype MediaCaptureSettings is Windows.Media.Capture.IMediaCaptureSettings;
@@ -7457,7 +7454,6 @@ package Windows.Media.Capture is
    subtype AppCaptureFileGeneratedEventArgs is Windows.Media.Capture.IAppCaptureFileGeneratedEventArgs;
    subtype AppCaptureServices is Windows.Media.Capture.IAppCaptureServices;
    subtype AppCaptureMetadataWriter is Windows.Media.Capture.IAppCaptureMetadataWriter;
-   
    function CreateAppCaptureMetadataWriter return Windows.Media.Capture.IAppCaptureMetadataWriter;
    
    subtype GameBarServicesManager is Windows.Media.Capture.IGameBarServicesManager;

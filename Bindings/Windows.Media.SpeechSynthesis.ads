@@ -601,7 +601,6 @@ package Windows.Media.SpeechSynthesis is
    subtype SpeechSynthesisStream is Windows.Media.SpeechSynthesis.ISpeechSynthesisStream;
    subtype SpeechSynthesizerOptions is Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions;
    subtype SpeechSynthesizer is Windows.Media.SpeechSynthesis.ISpeechSynthesizer;
-   
    function CreateSpeechSynthesizer return Windows.Media.SpeechSynthesis.ISpeechSynthesizer;
    
    

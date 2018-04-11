@@ -3012,7 +3012,6 @@ package Windows.Foundation is
    )
    return Windows.Foundation.IDeferral;
    
-   
    subtype MemoryBuffer is Windows.Foundation.IMemoryBuffer;
    function Create
    (
@@ -3020,14 +3019,12 @@ package Windows.Foundation is
    )
    return Windows.Foundation.IMemoryBuffer;
    
-   
    subtype WwwFormUrlDecoder is Windows.Foundation.IWwwFormUrlDecoderRuntimeClass;
    function CreateWwwFormUrlDecoder
    (
       query : Windows.String
    )
    return Windows.Foundation.IWwwFormUrlDecoderRuntimeClass;
-   
    
    subtype Uri is Windows.Foundation.IUriRuntimeClass;
    function CreateUri
@@ -3042,7 +3039,6 @@ package Windows.Foundation is
       ; relativeUri : Windows.String
    )
    return Windows.Foundation.IUriRuntimeClass;
-   
    
    subtype WwwFormUrlDecoderEntry is Windows.Foundation.IWwwFormUrlDecoderEntry;
    

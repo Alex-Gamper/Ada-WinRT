@@ -1875,7 +1875,6 @@ package Windows.Networking.Connectivity is
    subtype LanIdentifier is Windows.Networking.Connectivity.ILanIdentifier;
    subtype ProxyConfiguration is Windows.Networking.Connectivity.IProxyConfiguration;
    subtype ConnectionProfileFilter is Windows.Networking.Connectivity.IConnectionProfileFilter;
-   
    function CreateConnectionProfileFilter return Windows.Networking.Connectivity.IConnectionProfileFilter;
    
    subtype NetworkItem is Windows.Networking.Connectivity.INetworkItem;
@@ -1888,9 +1887,7 @@ package Windows.Networking.Connectivity is
    )
    return Windows.Networking.Connectivity.IRoutePolicy;
    
-   
    subtype CellularApnContext is Windows.Networking.Connectivity.ICellularApnContext;
-   
    function CreateCellularApnContext return Windows.Networking.Connectivity.ICellularApnContext;
    
    subtype ConnectionSession is Windows.Networking.Connectivity.IConnectionSession;

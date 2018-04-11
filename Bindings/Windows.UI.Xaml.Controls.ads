@@ -36113,39 +36113,31 @@ package Windows.UI.Xaml.Controls is
    subtype NavigationViewDisplayModeChangedEventArgs is Windows.UI.Xaml.Controls.INavigationViewDisplayModeChangedEventArgs;
    subtype NavigationViewSelectionChangedEventArgs is Windows.UI.Xaml.Controls.INavigationViewSelectionChangedEventArgs;
    subtype NavigationViewItemInvokedEventArgs is Windows.UI.Xaml.Controls.INavigationViewItemInvokedEventArgs;
-   
    function CreateNavigationViewItemInvokedEventArgs return Windows.UI.Xaml.Controls.INavigationViewItemInvokedEventArgs;
    
    subtype SwipeItemInvokedEventArgs is Windows.UI.Xaml.Controls.ISwipeItemInvokedEventArgs;
    subtype BackClickEventArgs is Windows.UI.Xaml.Controls.IBackClickEventArgs;
-   
    function CreateBackClickEventArgs return Windows.UI.Xaml.Controls.IBackClickEventArgs;
    
    subtype DragItemsStartingEventArgs is Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs;
-   
    function CreateDragItemsStartingEventArgs return Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs;
    
    subtype NotifyEventArgs is Windows.UI.Xaml.Controls.INotifyEventArgs;
    subtype SemanticZoomViewChangedEventArgs is Windows.UI.Xaml.Controls.ISemanticZoomViewChangedEventArgs;
-   
    function CreateSemanticZoomViewChangedEventArgs return Windows.UI.Xaml.Controls.ISemanticZoomViewChangedEventArgs;
    
    subtype TextControlPasteEventArgs is Windows.UI.Xaml.Controls.ITextControlPasteEventArgs;
    subtype ContainerContentChangingEventArgs is Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs;
-   
    function CreateContainerContentChangingEventArgs return Windows.UI.Xaml.Controls.IContainerContentChangingEventArgs;
    
    subtype SemanticZoomLocation is Windows.UI.Xaml.Controls.ISemanticZoomLocation;
-   
    function CreateSemanticZoomLocation return Windows.UI.Xaml.Controls.ISemanticZoomLocation;
    
    subtype CandidateWindowBoundsChangedEventArgs is Windows.UI.Xaml.Controls.ICandidateWindowBoundsChangedEventArgs;
    subtype ChoosingGroupHeaderContainerEventArgs is Windows.UI.Xaml.Controls.IChoosingGroupHeaderContainerEventArgs;
-   
    function CreateChoosingGroupHeaderContainerEventArgs return Windows.UI.Xaml.Controls.IChoosingGroupHeaderContainerEventArgs;
    
    subtype ChoosingItemContainerEventArgs is Windows.UI.Xaml.Controls.IChoosingItemContainerEventArgs;
-   
    function CreateChoosingItemContainerEventArgs return Windows.UI.Xaml.Controls.IChoosingItemContainerEventArgs;
    
    subtype ColumnDefinitionCollection is Windows.UI.Xaml.Controls.IVector_ColumnDefinition;
@@ -36157,7 +36149,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IDataTemplateSelectorOverrides := null;
       m_IDataTemplateSelector : IDataTemplateSelector := null;
    end record;
-   
    type IDataTemplateSelectorOverrides_Impl is access all IDataTemplateSelectorOverrides_Interface_Impl'Class;
    type IDataTemplateSelectorOverrides_Impl_Ptr is access all IDataTemplateSelectorOverrides_Impl;
    
@@ -36219,7 +36210,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IDataTemplateSelectorOverrides2 := null;
       m_IDataTemplateSelector : IDataTemplateSelector := null;
    end record;
-   
    type IDataTemplateSelectorOverrides2_Impl is access all IDataTemplateSelectorOverrides2_Interface_Impl'Class;
    type IDataTemplateSelectorOverrides2_Impl_Ptr is access all IDataTemplateSelectorOverrides2_Impl;
    
@@ -36280,7 +36270,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IDataTemplateSelector := null;
       m_IDataTemplateSelector : IDataTemplateSelector := null;
    end record;
-   
    type IDataTemplateSelector_Impl is access all IDataTemplateSelector_Interface_Impl'Class;
    type IDataTemplateSelector_Impl_Ptr is access all IDataTemplateSelector_Impl;
    
@@ -36335,7 +36324,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype DragItemsCompletedEventArgs is Windows.UI.Xaml.Controls.IDragItemsCompletedEventArgs;
    subtype StyleSelector is Windows.UI.Xaml.Controls.IStyleSelector;
    
@@ -36345,7 +36333,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IStyleSelectorOverrides := null;
       m_IStyleSelector : IStyleSelector := null;
    end record;
-   
    type IStyleSelectorOverrides_Impl is access all IStyleSelectorOverrides_Interface_Impl'Class;
    type IStyleSelectorOverrides_Impl_Ptr is access all IStyleSelectorOverrides_Impl;
    
@@ -36407,7 +36394,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IStyleSelector := null;
       m_IStyleSelector : IStyleSelector := null;
    end record;
-   
    type IStyleSelector_Impl is access all IStyleSelector_Interface_Impl'Class;
    type IStyleSelector_Impl_Ptr is access all IStyleSelector_Impl;
    
@@ -36462,9 +36448,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype GroupStyle is Windows.UI.Xaml.Controls.IGroupStyle;
-   
    subtype GroupStyleSelector is Windows.UI.Xaml.Controls.IGroupStyleSelector;
    
    type IGroupStyleSelectorOverrides_Interface_Impl is new IGroupStyleSelectorOverrides_Interface with record
@@ -36473,7 +36457,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IGroupStyleSelectorOverrides := null;
       m_IGroupStyleSelector : IGroupStyleSelector := null;
    end record;
-   
    type IGroupStyleSelectorOverrides_Impl is access all IGroupStyleSelectorOverrides_Interface_Impl'Class;
    type IGroupStyleSelectorOverrides_Impl_Ptr is access all IGroupStyleSelectorOverrides_Impl;
    
@@ -36535,7 +36518,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IGroupStyleSelector := null;
       m_IGroupStyleSelector : IGroupStyleSelector := null;
    end record;
-   
    type IGroupStyleSelector_Impl is access all IGroupStyleSelector_Interface_Impl'Class;
    type IGroupStyleSelector_Impl_Ptr is access all IGroupStyleSelector_Impl;
    
@@ -36590,7 +36572,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype IsTextTrimmedChangedEventArgs is Windows.UI.Xaml.Controls.IIsTextTrimmedChangedEventArgs;
    subtype ItemCollection is Windows.UI.Xaml.Controls.IObservableVector_Object;
    subtype ItemContainerGenerator is Windows.UI.Xaml.Controls.IItemContainerGenerator;
@@ -36608,11 +36589,9 @@ package Windows.UI.Xaml.Controls is
    subtype UIElementCollection is Windows.UI.Xaml.Controls.IVector_UIElement;
    subtype CalendarViewDayItemChangingEventArgs is Windows.UI.Xaml.Controls.ICalendarViewDayItemChangingEventArgs;
    subtype HubSectionHeaderClickEventArgs is Windows.UI.Xaml.Controls.IHubSectionHeaderClickEventArgs;
-   
    function CreateHubSectionHeaderClickEventArgs return Windows.UI.Xaml.Controls.IHubSectionHeaderClickEventArgs;
    
    subtype SectionsInViewChangedEventArgs is Windows.UI.Xaml.Controls.ISectionsInViewChangedEventArgs;
-   
    subtype WebViewNavigationFailedEventArgs is Windows.UI.Xaml.Controls.IWebViewNavigationFailedEventArgs;
    subtype CalendarDatePickerDateChangedEventArgs is Windows.UI.Xaml.Controls.ICalendarDatePickerDateChangedEventArgs;
    subtype CalendarViewSelectedDatesChangedEventArgs is Windows.UI.Xaml.Controls.ICalendarViewSelectedDatesChangedEventArgs;
@@ -36624,7 +36603,6 @@ package Windows.UI.Xaml.Controls is
    subtype ContentDialogOpenedEventArgs is Windows.UI.Xaml.Controls.IContentDialogOpenedEventArgs;
    subtype DatePickerValueChangedEventArgs is Windows.UI.Xaml.Controls.IDatePickerValueChangedEventArgs;
    subtype DynamicOverflowItemsChangingEventArgs is Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs;
-   
    function CreateDynamicOverflowItemsChangingEventArgs return Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs;
    
    subtype HubSectionCollection is Windows.UI.Xaml.Controls.IVector_HubSection;
@@ -36632,14 +36610,12 @@ package Windows.UI.Xaml.Controls is
    subtype RichEditBoxTextChangingEventArgs is Windows.UI.Xaml.Controls.IRichEditBoxTextChangingEventArgs;
    subtype ScrollViewerView is Windows.UI.Xaml.Controls.IScrollViewerView;
    subtype ScrollViewerViewChangedEventArgs is Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs;
-   
    function CreateScrollViewerViewChangedEventArgs return Windows.UI.Xaml.Controls.IScrollViewerViewChangedEventArgs;
    
    subtype ScrollViewerViewChangingEventArgs is Windows.UI.Xaml.Controls.IScrollViewerViewChangingEventArgs;
    subtype SearchBoxQueryChangedEventArgs is Windows.UI.Xaml.Controls.ISearchBoxQueryChangedEventArgs;
    subtype SearchBoxQuerySubmittedEventArgs is Windows.UI.Xaml.Controls.ISearchBoxQuerySubmittedEventArgs;
    subtype SearchBoxResultSuggestionChosenEventArgs is Windows.UI.Xaml.Controls.ISearchBoxResultSuggestionChosenEventArgs;
-   
    function CreateSearchBoxResultSuggestionChosenEventArgs return Windows.UI.Xaml.Controls.ISearchBoxResultSuggestionChosenEventArgs;
    
    subtype SearchBoxSuggestionsRequestedEventArgs is Windows.UI.Xaml.Controls.ISearchBoxSuggestionsRequestedEventArgs;
@@ -36658,7 +36634,6 @@ package Windows.UI.Xaml.Controls is
    subtype WebViewUnsupportedUriSchemeIdentifiedEventArgs is Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs;
    subtype WebViewUnviewableContentIdentifiedEventArgs is Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs;
    subtype IconSource is Windows.UI.Xaml.Controls.IIconSource;
-   
    subtype SymbolIconSource is Windows.UI.Xaml.Controls.ISymbolIconSource;
    
    type ISymbolIconSource_Interface_Impl is new ISymbolIconSource_Interface with record
@@ -36667,7 +36642,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ISymbolIconSource := null;
       m_ISymbolIconSource : ISymbolIconSource := null;
    end record;
-   
    type ISymbolIconSource_Impl is access all ISymbolIconSource_Interface_Impl'Class;
    type ISymbolIconSource_Impl_Ptr is access all ISymbolIconSource_Impl;
    
@@ -36727,7 +36701,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype FontIconSource is Windows.UI.Xaml.Controls.IFontIconSource;
    
    type IFontIconSource_Interface_Impl is new IFontIconSource_Interface with record
@@ -36736,7 +36709,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IFontIconSource := null;
       m_IFontIconSource : IFontIconSource := null;
    end record;
-   
    type IFontIconSource_Impl is access all IFontIconSource_Interface_Impl'Class;
    type IFontIconSource_Impl_Ptr is access all IFontIconSource_Impl;
    
@@ -36880,7 +36852,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype BitmapIconSource is Windows.UI.Xaml.Controls.IBitmapIconSource;
    
    type IBitmapIconSource_Interface_Impl is new IBitmapIconSource_Interface with record
@@ -36889,7 +36860,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IBitmapIconSource := null;
       m_IBitmapIconSource : IBitmapIconSource := null;
    end record;
-   
    type IBitmapIconSource_Impl is access all IBitmapIconSource_Interface_Impl'Class;
    type IBitmapIconSource_Impl_Ptr is access all IBitmapIconSource_Impl;
    
@@ -36963,7 +36933,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype PathIconSource is Windows.UI.Xaml.Controls.IPathIconSource;
    
    type IPathIconSource_Interface_Impl is new IPathIconSource_Interface with record
@@ -36972,7 +36941,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IPathIconSource := null;
       m_IPathIconSource : IPathIconSource := null;
    end record;
-   
    type IPathIconSource_Impl is access all IPathIconSource_Interface_Impl'Class;
    type IPathIconSource_Impl_Ptr is access all IPathIconSource_Impl;
    
@@ -37032,7 +37000,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype RatingItemInfo is Windows.UI.Xaml.Controls.IRatingItemInfo;
    
    type IRatingItemInfo_Interface_Impl is new IRatingItemInfo_Interface with record
@@ -37041,7 +37008,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IRatingItemInfo := null;
       m_IRatingItemInfo : IRatingItemInfo := null;
    end record;
-   
    type IRatingItemInfo_Impl is access all IRatingItemInfo_Interface_Impl'Class;
    type IRatingItemInfo_Impl_Ptr is access all IRatingItemInfo_Impl;
    
@@ -37087,7 +37053,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype RatingItemFontInfo is Windows.UI.Xaml.Controls.IRatingItemFontInfo;
    
    type IRatingItemFontInfo_Interface_Impl is new IRatingItemFontInfo_Interface with record
@@ -37096,7 +37061,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IRatingItemFontInfo := null;
       m_IRatingItemFontInfo : IRatingItemFontInfo := null;
    end record;
-   
    type IRatingItemFontInfo_Impl is access all IRatingItemFontInfo_Interface_Impl'Class;
    type IRatingItemFontInfo_Impl_Ptr is access all IRatingItemFontInfo_Impl;
    
@@ -37226,7 +37190,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype RatingItemImageInfo is Windows.UI.Xaml.Controls.IRatingItemImageInfo;
    
    type IRatingItemImageInfo_Interface_Impl is new IRatingItemImageInfo_Interface with record
@@ -37235,7 +37198,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IRatingItemImageInfo := null;
       m_IRatingItemImageInfo : IRatingItemImageInfo := null;
    end record;
-   
    type IRatingItemImageInfo_Impl is access all IRatingItemImageInfo_Interface_Impl'Class;
    type IRatingItemImageInfo_Impl_Ptr is access all IRatingItemImageInfo_Impl;
    
@@ -37365,7 +37327,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype SwipeItem is Windows.UI.Xaml.Controls.ISwipeItem;
    
    type ISwipeItem_Interface_Impl is new ISwipeItem_Interface with record
@@ -37374,7 +37335,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ISwipeItem := null;
       m_ISwipeItem : ISwipeItem := null;
    end record;
-   
    type ISwipeItem_Impl is access all ISwipeItem_Interface_Impl'Class;
    type ISwipeItem_Impl_Ptr is access all ISwipeItem_Impl;
    
@@ -37533,7 +37493,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype SwipeItems is Windows.UI.Xaml.Controls.ISwipeItems;
    
    type ISwipeItems_Interface_Impl is new ISwipeItems_Interface with record
@@ -37542,7 +37501,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ISwipeItems := null;
       m_ISwipeItems : ISwipeItems := null;
    end record;
-   
    type ISwipeItems_Impl is access all ISwipeItems_Interface_Impl'Class;
    type ISwipeItems_Impl_Ptr is access all ISwipeItems_Impl;
    
@@ -37602,38 +37560,29 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ColumnDefinition is Windows.UI.Xaml.Controls.IColumnDefinition;
-   
    function CreateColumnDefinition return Windows.UI.Xaml.Controls.IColumnDefinition;
    
    subtype RowDefinition is Windows.UI.Xaml.Controls.IRowDefinition;
-   
    function CreateRowDefinition return Windows.UI.Xaml.Controls.IRowDefinition;
    
    subtype AutoSuggestBoxQuerySubmittedEventArgs is Windows.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs;
-   
    function CreateAutoSuggestBoxQuerySubmittedEventArgs return Windows.UI.Xaml.Controls.IAutoSuggestBoxQuerySubmittedEventArgs;
    
    subtype AutoSuggestBoxSuggestionChosenEventArgs is Windows.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs;
-   
    function CreateAutoSuggestBoxSuggestionChosenEventArgs return Windows.UI.Xaml.Controls.IAutoSuggestBoxSuggestionChosenEventArgs;
    
    subtype AutoSuggestBoxTextChangedEventArgs is Windows.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs;
-   
    function CreateAutoSuggestBoxTextChangedEventArgs return Windows.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgs;
    
    subtype CleanUpVirtualizedItemEventArgs is Windows.UI.Xaml.Controls.ICleanUpVirtualizedItemEventArgs;
    subtype ContextMenuEventArgs is Windows.UI.Xaml.Controls.IContextMenuEventArgs;
    subtype ItemClickEventArgs is Windows.UI.Xaml.Controls.IItemClickEventArgs;
-   
    function CreateItemClickEventArgs return Windows.UI.Xaml.Controls.IItemClickEventArgs;
    
    subtype SelectionChangedEventArgs is Windows.UI.Xaml.Controls.ISelectionChangedEventArgs;
-   
    subtype TextChangedEventArgs is Windows.UI.Xaml.Controls.ITextChangedEventArgs;
    subtype ItemsPanelTemplate is Windows.UI.Xaml.Controls.IItemsPanelTemplate;
-   
    function CreateItemsPanelTemplate return Windows.UI.Xaml.Controls.IItemsPanelTemplate;
    
    subtype ParallaxView is Windows.UI.Xaml.Controls.IParallaxView;
@@ -37644,7 +37593,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IParallaxView := null;
       m_IParallaxView : IParallaxView := null;
    end record;
-   
    type IParallaxView_Impl is access all IParallaxView_Interface_Impl'Class;
    type IParallaxView_Impl_Ptr is access all IParallaxView_Impl;
    
@@ -37898,7 +37846,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype Panel is Windows.UI.Xaml.Controls.IPanel;
    
    type IPanel_Interface_Impl is new IPanel_Interface with record
@@ -37907,7 +37854,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IPanel := null;
       m_IPanel : IPanel := null;
    end record;
-   
    type IPanel_Impl is access all IPanel_Interface_Impl'Class;
    type IPanel_Impl_Ptr is access all IPanel_Impl;
    
@@ -37995,13 +37941,10 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype Border is Windows.UI.Xaml.Controls.IBorder;
-   
    function CreateBorder return Windows.UI.Xaml.Controls.IBorder;
    
    subtype CaptureElement is Windows.UI.Xaml.Controls.ICaptureElement;
-   
    function CreateCaptureElement return Windows.UI.Xaml.Controls.ICaptureElement;
    
    subtype ContentPresenter is Windows.UI.Xaml.Controls.IContentPresenter;
@@ -38012,7 +37955,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IContentPresenterOverrides := null;
       m_IContentPresenter : IContentPresenter := null;
    end record;
-   
    type IContentPresenterOverrides_Impl is access all IContentPresenterOverrides_Interface_Impl'Class;
    type IContentPresenterOverrides_Impl_Ptr is access all IContentPresenterOverrides_Impl;
    
@@ -38081,7 +38023,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IContentPresenter := null;
       m_IContentPresenter : IContentPresenter := null;
    end record;
-   
    type IContentPresenter_Impl is access all IContentPresenter_Interface_Impl'Class;
    type IContentPresenter_Impl_Ptr is access all IContentPresenter_Impl;
    
@@ -38281,29 +38222,22 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype Image is Windows.UI.Xaml.Controls.IImage;
-   
    function CreateImage return Windows.UI.Xaml.Controls.IImage;
    
    subtype ItemsPresenter is Windows.UI.Xaml.Controls.IItemsPresenter;
-   
    function CreateItemsPresenter return Windows.UI.Xaml.Controls.IItemsPresenter;
    
    subtype RichTextBlockOverflow is Windows.UI.Xaml.Controls.IRichTextBlockOverflow;
-   
    function CreateRichTextBlockOverflow return Windows.UI.Xaml.Controls.IRichTextBlockOverflow;
    
    subtype RichTextBlock is Windows.UI.Xaml.Controls.IRichTextBlock;
-   
    function CreateRichTextBlock return Windows.UI.Xaml.Controls.IRichTextBlock;
    
    subtype TextBlock is Windows.UI.Xaml.Controls.ITextBlock;
-   
    function CreateTextBlock return Windows.UI.Xaml.Controls.ITextBlock;
    
    subtype Viewbox is Windows.UI.Xaml.Controls.IViewbox;
-   
    function CreateViewbox return Windows.UI.Xaml.Controls.IViewbox;
    
    subtype Canvas is Windows.UI.Xaml.Controls.ICanvas;
@@ -38314,7 +38248,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ICanvas := null;
       m_ICanvas : ICanvas := null;
    end record;
-   
    type ICanvas_Impl is access all ICanvas_Interface_Impl'Class;
    type ICanvas_Impl_Ptr is access all ICanvas_Impl;
    
@@ -38360,7 +38293,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype Grid is Windows.UI.Xaml.Controls.IGrid;
    
    type IGrid_Interface_Impl is new IGrid_Interface with record
@@ -38369,7 +38301,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IGrid := null;
       m_IGrid : IGrid := null;
    end record;
-   
    type IGrid_Impl is access all IGrid_Interface_Impl'Class;
    type IGrid_Impl_Ptr is access all IGrid_Impl;
    
@@ -38429,7 +38360,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype RelativePanel is Windows.UI.Xaml.Controls.IRelativePanel;
    
    type IRelativePanel_Interface_Impl is new IRelativePanel_Interface with record
@@ -38438,7 +38368,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IRelativePanel := null;
       m_IRelativePanel : IRelativePanel := null;
    end record;
-   
    type IRelativePanel_Impl is access all IRelativePanel_Interface_Impl'Class;
    type IRelativePanel_Impl_Ptr is access all IRelativePanel_Impl;
    
@@ -38540,21 +38469,15 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype StackPanel is Windows.UI.Xaml.Controls.IStackPanel;
-   
    subtype VariableSizedWrapGrid is Windows.UI.Xaml.Controls.IVariableSizedWrapGrid;
-   
    function CreateVariableSizedWrapGrid return Windows.UI.Xaml.Controls.IVariableSizedWrapGrid;
    
    subtype VirtualizingPanel is Windows.UI.Xaml.Controls.IVirtualizingPanel;
-   
    subtype VirtualizingStackPanel is Windows.UI.Xaml.Controls.IVirtualizingStackPanel;
-   
    function CreateVirtualizingStackPanel return Windows.UI.Xaml.Controls.IVirtualizingStackPanel;
    
    subtype IconElement is Windows.UI.Xaml.Controls.IIconElement;
-   
    subtype InkCanvas is Windows.UI.Xaml.Controls.IInkCanvas;
    
    type IInkCanvas_Interface_Impl is new IInkCanvas_Interface with record
@@ -38563,7 +38486,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkCanvas := null;
       m_IInkCanvas : IInkCanvas := null;
    end record;
-   
    type IInkCanvas_Impl is access all IInkCanvas_Interface_Impl'Class;
    type IInkCanvas_Impl_Ptr is access all IInkCanvas_Impl;
    
@@ -38616,9 +38538,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype MediaElement is Windows.UI.Xaml.Controls.IMediaElement;
-   
    function CreateMediaElement return Windows.UI.Xaml.Controls.IMediaElement;
    
    subtype MediaPlayerPresenter is Windows.UI.Xaml.Controls.IMediaPlayerPresenter;
@@ -38629,7 +38549,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IMediaPlayerPresenter := null;
       m_IMediaPlayerPresenter : IMediaPlayerPresenter := null;
    end record;
-   
    type IMediaPlayerPresenter_Impl is access all IMediaPlayerPresenter_Interface_Impl'Class;
    type IMediaPlayerPresenter_Impl_Ptr is access all IMediaPlayerPresenter_Impl;
    
@@ -38717,14 +38636,12 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype WebView is Windows.UI.Xaml.Controls.IWebView;
    function CreateInstanceWithExecutionMode
    (
       executionMode : Windows.UI.Xaml.Controls.WebViewExecutionMode
    )
    return Windows.UI.Xaml.Controls.IWebView;
-   
    
    subtype BitmapIcon is Windows.UI.Xaml.Controls.IBitmapIcon;
    
@@ -38734,7 +38651,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IBitmapIcon := null;
       m_IBitmapIcon : IBitmapIcon := null;
    end record;
-   
    type IBitmapIcon_Impl is access all IBitmapIcon_Interface_Impl'Class;
    type IBitmapIcon_Impl_Ptr is access all IBitmapIcon_Impl;
    
@@ -38794,7 +38710,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype FontIcon is Windows.UI.Xaml.Controls.IFontIcon;
    
    type IFontIcon_Interface_Impl is new IFontIcon_Interface with record
@@ -38803,7 +38718,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IFontIcon := null;
       m_IFontIcon : IFontIcon := null;
    end record;
-   
    type IFontIcon_Impl is access all IFontIcon_Interface_Impl'Class;
    type IFontIcon_Impl_Ptr is access all IFontIcon_Impl;
    
@@ -38919,13 +38833,10 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ItemsStackPanel is Windows.UI.Xaml.Controls.IItemsStackPanel;
-   
    function CreateItemsStackPanel return Windows.UI.Xaml.Controls.IItemsStackPanel;
    
    subtype ItemsWrapGrid is Windows.UI.Xaml.Controls.IItemsWrapGrid;
-   
    function CreateItemsWrapGrid return Windows.UI.Xaml.Controls.IItemsWrapGrid;
    
    subtype PathIcon is Windows.UI.Xaml.Controls.IPathIcon;
@@ -38936,7 +38847,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IPathIcon := null;
       m_IPathIcon : IPathIcon := null;
    end record;
-   
    type IPathIcon_Impl is access all IPathIcon_Interface_Impl'Class;
    type IPathIcon_Impl_Ptr is access all IPathIcon_Impl;
    
@@ -38996,13 +38906,10 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ScrollContentPresenter is Windows.UI.Xaml.Controls.IScrollContentPresenter;
-   
    function CreateScrollContentPresenter return Windows.UI.Xaml.Controls.IScrollContentPresenter;
    
    subtype SymbolIcon is Windows.UI.Xaml.Controls.ISymbolIcon;
-   
    function CreateSymbolIcon return Windows.UI.Xaml.Controls.ISymbolIcon;
    
    subtype SwapChainBackgroundPanel is Windows.UI.Xaml.Controls.ISwapChainBackgroundPanel;
@@ -39013,7 +38920,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ISwapChainBackgroundPanel := null;
       m_ISwapChainBackgroundPanel : ISwapChainBackgroundPanel := null;
    end record;
-   
    type ISwapChainBackgroundPanel_Impl is access all ISwapChainBackgroundPanel_Interface_Impl'Class;
    type ISwapChainBackgroundPanel_Impl_Ptr is access all ISwapChainBackgroundPanel_Impl;
    
@@ -39059,7 +38965,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype SwapChainPanel is Windows.UI.Xaml.Controls.ISwapChainPanel;
    
    type ISwapChainPanel_Interface_Impl is new ISwapChainPanel_Interface with record
@@ -39068,7 +38973,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ISwapChainPanel := null;
       m_ISwapChainPanel : ISwapChainPanel := null;
    end record;
-   
    type ISwapChainPanel_Impl is access all ISwapChainPanel_Interface_Impl'Class;
    type ISwapChainPanel_Impl_Ptr is access all ISwapChainPanel_Impl;
    
@@ -39151,15 +39055,12 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype WrapGrid is Windows.UI.Xaml.Controls.IWrapGrid;
-   
    function CreateWrapGrid return Windows.UI.Xaml.Controls.IWrapGrid;
    
    subtype FocusDisengagedEventArgs is Windows.UI.Xaml.Controls.IFocusDisengagedEventArgs;
    subtype FocusEngagedEventArgs is Windows.UI.Xaml.Controls.IFocusEngagedEventArgs;
    subtype ControlTemplate is Windows.UI.Xaml.Controls.IControlTemplate;
-   
    function CreateControlTemplate return Windows.UI.Xaml.Controls.IControlTemplate;
    
    subtype Control is Windows.UI.Xaml.Controls.IControl;
@@ -39170,7 +39071,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IControlOverrides := null;
       m_IControl : IControl := null;
    end record;
-   
    type IControlOverrides_Impl is access all IControlOverrides_Interface_Impl'Class;
    type IControlOverrides_Impl_Ptr is access all IControlOverrides_Impl;
    
@@ -39398,7 +39298,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IControl := null;
       m_IControl : IControl := null;
    end record;
-   
    type IControl_Impl is access all IControl_Interface_Impl'Class;
    type IControl_Impl_Ptr is access all IControl_Impl;
    
@@ -39733,7 +39632,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ColorPicker is Windows.UI.Xaml.Controls.IColorPicker;
    
    type IColorPicker_Interface_Impl is new IColorPicker_Interface with record
@@ -39742,7 +39640,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IColorPicker := null;
       m_IColorPicker : IColorPicker := null;
    end record;
-   
    type IColorPicker_Impl is access all IColorPicker_Interface_Impl'Class;
    type IColorPicker_Impl_Ptr is access all IColorPicker_Impl;
    
@@ -40069,7 +39966,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype PersonPicture is Windows.UI.Xaml.Controls.IPersonPicture;
    
    type IPersonPicture_Interface_Impl is new IPersonPicture_Interface with record
@@ -40078,7 +39974,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IPersonPicture := null;
       m_IPersonPicture : IPersonPicture := null;
    end record;
-   
    type IPersonPicture_Impl is access all IPersonPicture_Interface_Impl'Class;
    type IPersonPicture_Impl_Ptr is access all IPersonPicture_Impl;
    
@@ -40264,7 +40159,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype RatingControl is Windows.UI.Xaml.Controls.IRatingControl;
    
    type IRatingControl_Interface_Impl is new IRatingControl_Interface with record
@@ -40273,7 +40167,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IRatingControl := null;
       m_IRatingControl : IRatingControl := null;
    end record;
-   
    type IRatingControl_Impl is access all IRatingControl_Interface_Impl'Class;
    type IRatingControl_Impl_Ptr is access all IRatingControl_Impl;
    
@@ -40446,9 +40339,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype SemanticZoom is Windows.UI.Xaml.Controls.ISemanticZoom;
-   
    function CreateSemanticZoom return Windows.UI.Xaml.Controls.ISemanticZoom;
    
    subtype ContentControl is Windows.UI.Xaml.Controls.IContentControl;
@@ -40459,7 +40350,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IContentControlOverrides := null;
       m_IContentControl : IContentControl := null;
    end record;
-   
    type IContentControlOverrides_Impl is access all IContentControlOverrides_Interface_Impl'Class;
    type IContentControlOverrides_Impl_Ptr is access all IContentControlOverrides_Impl;
    
@@ -40536,7 +40426,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IContentControl := null;
       m_IContentControl : IContentControl := null;
    end record;
-   
    type IContentControl_Impl is access all IContentControl_Interface_Impl'Class;
    type IContentControl_Impl_Ptr is access all IContentControl_Impl;
    
@@ -40638,7 +40527,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype NavigationView is Windows.UI.Xaml.Controls.INavigationView;
    
    type INavigationView_Interface_Impl is new INavigationView_Interface with record
@@ -40647,7 +40535,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased INavigationView := null;
       m_INavigationView : INavigationView := null;
    end record;
-   
    type INavigationView_Impl is access all INavigationView_Interface_Impl'Class;
    type INavigationView_Impl_Ptr is access all INavigationView_Impl;
    
@@ -41041,7 +40928,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype SwipeControl is Windows.UI.Xaml.Controls.ISwipeControl;
    
    type ISwipeControl_Interface_Impl is new ISwipeControl_Interface with record
@@ -41050,7 +40936,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ISwipeControl := null;
       m_ISwipeControl : ISwipeControl := null;
    end record;
-   
    type ISwipeControl_Impl is access all ISwipeControl_Interface_Impl'Class;
    type ISwipeControl_Impl_Ptr is access all ISwipeControl_Impl;
    
@@ -41158,9 +41043,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ListViewBaseHeaderItem is Windows.UI.Xaml.Controls.IListViewBaseHeaderItem;
-   
    subtype ItemsControl is Windows.UI.Xaml.Controls.IItemsControl;
    
    type IItemsControlOverrides_Interface_Impl is new IItemsControlOverrides_Interface with record
@@ -41169,7 +41052,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IItemsControlOverrides := null;
       m_IItemsControl : IItemsControl := null;
    end record;
-   
    type IItemsControlOverrides_Impl is access all IItemsControlOverrides_Interface_Impl'Class;
    type IItemsControlOverrides_Impl_Ptr is access all IItemsControlOverrides_Impl;
    
@@ -41300,7 +41182,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IItemsControl := null;
       m_IItemsControl : IItemsControl := null;
    end record;
-   
    type IItemsControl_Impl is access all IItemsControl_Interface_Impl'Class;
    type IItemsControl_Impl_Ptr is access all IItemsControl_Impl;
    
@@ -41500,7 +41381,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype MediaTransportControls is Windows.UI.Xaml.Controls.IMediaTransportControls;
    
    type IMediaTransportControls_Interface_Impl is new IMediaTransportControls_Interface with record
@@ -41509,7 +41389,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IMediaTransportControls := null;
       m_IMediaTransportControls : IMediaTransportControls := null;
    end record;
-   
    type IMediaTransportControls_Impl is access all IMediaTransportControls_Interface_Impl'Class;
    type IMediaTransportControls_Impl_Ptr is access all IMediaTransportControls_Impl;
    
@@ -41793,13 +41672,10 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype PasswordBox is Windows.UI.Xaml.Controls.IPasswordBox;
-   
    function CreatePasswordBox return Windows.UI.Xaml.Controls.IPasswordBox;
    
    subtype ProgressRing is Windows.UI.Xaml.Controls.IProgressRing;
-   
    function CreateProgressRing return Windows.UI.Xaml.Controls.IProgressRing;
    
    subtype TextBox is Windows.UI.Xaml.Controls.ITextBox;
@@ -41810,7 +41686,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ITextBox := null;
       m_ITextBox : ITextBox := null;
    end record;
-   
    type ITextBox_Impl is access all ITextBox_Interface_Impl'Class;
    type ITextBox_Impl_Ptr is access all ITextBox_Impl;
    
@@ -42092,9 +41967,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ToggleSwitch is Windows.UI.Xaml.Controls.IToggleSwitch;
-   
    function CreateToggleSwitch return Windows.UI.Xaml.Controls.IToggleSwitch;
    
    subtype UserControl is Windows.UI.Xaml.Controls.IUserControl;
@@ -42105,7 +41978,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IUserControl := null;
       m_IUserControl : IUserControl := null;
    end record;
-   
    type IUserControl_Impl is access all IUserControl_Interface_Impl'Class;
    type IUserControl_Impl_Ptr is access all IUserControl_Impl;
    
@@ -42165,7 +42037,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype GroupItem is Windows.UI.Xaml.Controls.IGroupItem;
    
    type IGroupItem_Interface_Impl is new IGroupItem_Interface with record
@@ -42174,7 +42045,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IGroupItem := null;
       m_IGroupItem : IGroupItem := null;
    end record;
-   
    type IGroupItem_Impl is access all IGroupItem_Interface_Impl'Class;
    type IGroupItem_Impl_Ptr is access all IGroupItem_Impl;
    
@@ -42220,7 +42090,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype SettingsFlyout is Windows.UI.Xaml.Controls.ISettingsFlyout;
    
    type ISettingsFlyout_Interface_Impl is new ISettingsFlyout_Interface with record
@@ -42229,7 +42098,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ISettingsFlyout := null;
       m_ISettingsFlyout : ISettingsFlyout := null;
    end record;
-   
    type ISettingsFlyout_Impl is access all ISettingsFlyout_Interface_Impl'Class;
    type ISettingsFlyout_Impl_Ptr is access all ISettingsFlyout_Impl;
    
@@ -42371,7 +42239,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ToolTip is Windows.UI.Xaml.Controls.IToolTip;
    
    type IToolTip_Interface_Impl is new IToolTip_Interface with record
@@ -42380,7 +42247,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IToolTip := null;
       m_IToolTip : IToolTip := null;
    end record;
-   
    type IToolTip_Impl is access all IToolTip_Interface_Impl'Class;
    type IToolTip_Impl_Ptr is access all IToolTip_Impl;
    
@@ -42533,33 +42399,19 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ComboBoxItem is Windows.UI.Xaml.Controls.IComboBoxItem;
-   
    subtype FlipViewItem is Windows.UI.Xaml.Controls.IFlipViewItem;
-   
    subtype ListBoxItem is Windows.UI.Xaml.Controls.IListBoxItem;
-   
    subtype ProgressBar is Windows.UI.Xaml.Controls.IProgressBar;
-   
    subtype Slider is Windows.UI.Xaml.Controls.ISlider;
-   
    subtype Button is Windows.UI.Xaml.Controls.IButton;
-   
    subtype HyperlinkButton is Windows.UI.Xaml.Controls.IHyperlinkButton;
-   
    subtype ListViewBase is Windows.UI.Xaml.Controls.IListViewBase;
-   
    subtype ComboBox is Windows.UI.Xaml.Controls.IComboBox;
-   
    subtype FlipView is Windows.UI.Xaml.Controls.IFlipView;
-   
    subtype ListBox is Windows.UI.Xaml.Controls.IListBox;
-   
    subtype CheckBox is Windows.UI.Xaml.Controls.ICheckBox;
-   
    subtype RadioButton is Windows.UI.Xaml.Controls.IRadioButton;
-   
    subtype CalendarView is Windows.UI.Xaml.Controls.ICalendarView;
    
    type ICalendarView_Interface_Impl is new ICalendarView_Interface with record
@@ -42568,7 +42420,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ICalendarView := null;
       m_ICalendarView : ICalendarView := null;
    end record;
-   
    type ICalendarView_Impl is access all ICalendarView_Interface_Impl'Class;
    type ICalendarView_Impl_Ptr is access all ICalendarView_Impl;
    
@@ -43359,7 +43210,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype CalendarViewDayItem is Windows.UI.Xaml.Controls.ICalendarViewDayItem;
    
    type ICalendarViewDayItem_Interface_Impl is new ICalendarViewDayItem_Interface with record
@@ -43368,7 +43218,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ICalendarViewDayItem := null;
       m_ICalendarViewDayItem : ICalendarViewDayItem := null;
    end record;
-   
    type ICalendarViewDayItem_Impl is access all ICalendarViewDayItem_Interface_Impl'Class;
    type ICalendarViewDayItem_Impl_Ptr is access all ICalendarViewDayItem_Impl;
    
@@ -43442,7 +43291,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype HubSection is Windows.UI.Xaml.Controls.IHubSection;
    
    type IHubSection_Interface_Impl is new IHubSection_Interface with record
@@ -43451,7 +43299,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IHubSection := null;
       m_IHubSection : IHubSection := null;
    end record;
-   
    type IHubSection_Impl is access all IHubSection_Interface_Impl'Class;
    type IHubSection_Impl_Ptr is access all IHubSection_Impl;
    
@@ -43553,9 +43400,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype MenuFlyoutItemBase is Windows.UI.Xaml.Controls.IMenuFlyoutItemBase;
-   
    subtype AppBarSeparator is Windows.UI.Xaml.Controls.IAppBarSeparator;
    
    type IAppBarSeparator_Interface_Impl is new IAppBarSeparator_Interface with record
@@ -43564,7 +43409,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IAppBarSeparator := null;
       m_IAppBarSeparator : IAppBarSeparator := null;
    end record;
-   
    type IAppBarSeparator_Impl is access all IAppBarSeparator_Interface_Impl'Class;
    type IAppBarSeparator_Impl_Ptr is access all IAppBarSeparator_Impl;
    
@@ -43610,7 +43454,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype CalendarDatePicker is Windows.UI.Xaml.Controls.ICalendarDatePicker;
    
    type ICalendarDatePicker_Interface_Impl is new ICalendarDatePicker_Interface with record
@@ -43619,7 +43462,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ICalendarDatePicker := null;
       m_ICalendarDatePicker : ICalendarDatePicker := null;
    end record;
-   
    type ICalendarDatePicker_Impl is access all ICalendarDatePicker_Interface_Impl'Class;
    type ICalendarDatePicker_Impl_Ptr is access all ICalendarDatePicker_Impl;
    
@@ -43964,7 +43806,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype DatePicker is Windows.UI.Xaml.Controls.IDatePicker;
    
    type IDatePicker_Interface_Impl is new IDatePicker_Interface with record
@@ -43973,7 +43814,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IDatePicker := null;
       m_IDatePicker : IDatePicker := null;
    end record;
-   
    type IDatePicker_Impl is access all IDatePicker_Interface_Impl'Class;
    type IDatePicker_Impl_Ptr is access all IDatePicker_Impl;
    
@@ -44216,7 +44056,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype Hub is Windows.UI.Xaml.Controls.IHub;
    
    type IHub_Interface_Impl is new IHub_Interface with record
@@ -44225,7 +44064,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IHub := null;
       m_IHub : IHub := null;
    end record;
-   
    type IHub_Impl is access all IHub_Interface_Impl'Class;
    type IHub_Impl_Ptr is access all IHub_Impl;
    
@@ -44385,7 +44223,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype MediaPlayerElement is Windows.UI.Xaml.Controls.IMediaPlayerElement;
    
    type IMediaPlayerElement_Interface_Impl is new IMediaPlayerElement_Interface with record
@@ -44394,7 +44231,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IMediaPlayerElement := null;
       m_IMediaPlayerElement : IMediaPlayerElement := null;
    end record;
-   
    type IMediaPlayerElement_Impl is access all IMediaPlayerElement_Interface_Impl'Class;
    type IMediaPlayerElement_Impl_Ptr is access all IMediaPlayerElement_Impl;
    
@@ -44552,7 +44388,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype RichEditBox is Windows.UI.Xaml.Controls.IRichEditBox;
    
    type IRichEditBox_Interface_Impl is new IRichEditBox_Interface with record
@@ -44561,7 +44396,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IRichEditBox := null;
       m_IRichEditBox : IRichEditBox := null;
    end record;
-   
    type IRichEditBox_Impl is access all IRichEditBox_Interface_Impl'Class;
    type IRichEditBox_Impl_Ptr is access all IRichEditBox_Impl;
    
@@ -44757,7 +44591,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype SearchBox is Windows.UI.Xaml.Controls.ISearchBox;
    
    type ISearchBox_Interface_Impl is new ISearchBox_Interface with record
@@ -44766,7 +44599,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ISearchBox := null;
       m_ISearchBox : ISearchBox := null;
    end record;
-   
    type ISearchBox_Impl is access all ISearchBox_Interface_Impl'Class;
    type ISearchBox_Impl_Ptr is access all ISearchBox_Impl;
    
@@ -44978,7 +44810,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype SplitView is Windows.UI.Xaml.Controls.ISplitView;
    
    type ISplitView_Interface_Impl is new ISplitView_Interface with record
@@ -44987,7 +44818,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ISplitView := null;
       m_ISplitView : ISplitView := null;
    end record;
-   
    type ISplitView_Impl is access all ISplitView_Interface_Impl'Class;
    type ISplitView_Impl_Ptr is access all ISplitView_Impl;
    
@@ -45182,7 +45012,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype TimePicker is Windows.UI.Xaml.Controls.ITimePicker;
    
    type ITimePicker_Interface_Impl is new ITimePicker_Interface with record
@@ -45191,7 +45020,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ITimePicker := null;
       m_ITimePicker : ITimePicker := null;
    end record;
-   
    type ITimePicker_Impl is access all ITimePicker_Interface_Impl'Class;
    type ITimePicker_Impl_Ptr is access all ITimePicker_Impl;
    
@@ -45322,7 +45150,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype AppBar is Windows.UI.Xaml.Controls.IAppBar;
    
    type IAppBarOverrides_Interface_Impl is new IAppBarOverrides_Interface with record
@@ -45331,7 +45158,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IAppBarOverrides := null;
       m_IAppBar : IAppBar := null;
    end record;
-   
    type IAppBarOverrides_Impl is access all IAppBarOverrides_Interface_Impl'Class;
    type IAppBarOverrides_Impl_Ptr is access all IAppBarOverrides_Impl;
    
@@ -45398,7 +45224,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IAppBarOverrides3 := null;
       m_IAppBar : IAppBar := null;
    end record;
-   
    type IAppBarOverrides3_Impl is access all IAppBarOverrides3_Interface_Impl'Class;
    type IAppBarOverrides3_Impl_Ptr is access all IAppBarOverrides3_Impl;
    
@@ -45465,7 +45290,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IAppBar := null;
       m_IAppBar : IAppBar := null;
    end record;
-   
    type IAppBar_Impl is access all IAppBar_Interface_Impl'Class;
    type IAppBar_Impl_Ptr is access all IAppBar_Impl;
    
@@ -45569,9 +45393,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype AutoSuggestBox is Windows.UI.Xaml.Controls.IAutoSuggestBox;
-   
    function CreateAutoSuggestBox return Windows.UI.Xaml.Controls.IAutoSuggestBox;
    
    subtype CommandBarOverflowPresenter is Windows.UI.Xaml.Controls.ICommandBarOverflowPresenter;
@@ -45582,7 +45404,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ICommandBarOverflowPresenter := null;
       m_ICommandBarOverflowPresenter : ICommandBarOverflowPresenter := null;
    end record;
-   
    type ICommandBarOverflowPresenter_Impl is access all ICommandBarOverflowPresenter_Interface_Impl'Class;
    type ICommandBarOverflowPresenter_Impl_Ptr is access all ICommandBarOverflowPresenter_Impl;
    
@@ -45628,7 +45449,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ContentDialog is Windows.UI.Xaml.Controls.IContentDialog;
    
    type IContentDialog_Interface_Impl is new IContentDialog_Interface with record
@@ -45637,7 +45457,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IContentDialog := null;
       m_IContentDialog : IContentDialog := null;
    end record;
-   
    type IContentDialog_Impl is access all IContentDialog_Interface_Impl'Class;
    type IContentDialog_Impl_Ptr is access all IContentDialog_Impl;
    
@@ -45925,7 +45744,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype FlyoutPresenter is Windows.UI.Xaml.Controls.IFlyoutPresenter;
    
    type IFlyoutPresenter_Interface_Impl is new IFlyoutPresenter_Interface with record
@@ -45934,7 +45752,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IFlyoutPresenter := null;
       m_IFlyoutPresenter : IFlyoutPresenter := null;
    end record;
-   
    type IFlyoutPresenter_Impl is access all IFlyoutPresenter_Interface_Impl'Class;
    type IFlyoutPresenter_Impl_Ptr is access all IFlyoutPresenter_Impl;
    
@@ -45980,7 +45797,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype Frame is Windows.UI.Xaml.Controls.IFrame;
    
    type IFrame_Interface_Impl is new IFrame_Interface with record
@@ -45989,7 +45805,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IFrame := null;
       m_IFrame : IFrame := null;
    end record;
-   
    type IFrame_Impl is access all IFrame_Interface_Impl'Class;
    type IFrame_Impl_Ptr is access all IFrame_Impl;
    
@@ -46186,7 +46001,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype MenuFlyoutItem is Windows.UI.Xaml.Controls.IMenuFlyoutItem;
    
    type IMenuFlyoutItem_Interface_Impl is new IMenuFlyoutItem_Interface with record
@@ -46195,7 +46009,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IMenuFlyoutItem := null;
       m_IMenuFlyoutItem : IMenuFlyoutItem := null;
    end record;
-   
    type IMenuFlyoutItem_Impl is access all IMenuFlyoutItem_Interface_Impl'Class;
    type IMenuFlyoutItem_Impl_Ptr is access all IMenuFlyoutItem_Impl;
    
@@ -46298,7 +46111,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype MenuFlyoutPresenter is Windows.UI.Xaml.Controls.IMenuFlyoutPresenter;
    
    type IMenuFlyoutPresenter_Interface_Impl is new IMenuFlyoutPresenter_Interface with record
@@ -46307,7 +46119,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IMenuFlyoutPresenter := null;
       m_IMenuFlyoutPresenter : IMenuFlyoutPresenter := null;
    end record;
-   
    type IMenuFlyoutPresenter_Impl is access all IMenuFlyoutPresenter_Interface_Impl'Class;
    type IMenuFlyoutPresenter_Impl_Ptr is access all IMenuFlyoutPresenter_Impl;
    
@@ -46353,7 +46164,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype MenuFlyoutSeparator is Windows.UI.Xaml.Controls.IMenuFlyoutSeparator;
    
    type IMenuFlyoutSeparator_Interface_Impl is new IMenuFlyoutSeparator_Interface with record
@@ -46362,7 +46172,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IMenuFlyoutSeparator := null;
       m_IMenuFlyoutSeparator : IMenuFlyoutSeparator := null;
    end record;
-   
    type IMenuFlyoutSeparator_Impl is access all IMenuFlyoutSeparator_Interface_Impl'Class;
    type IMenuFlyoutSeparator_Impl_Ptr is access all IMenuFlyoutSeparator_Impl;
    
@@ -46408,9 +46217,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype MenuFlyoutSubItem is Windows.UI.Xaml.Controls.IMenuFlyoutSubItem;
-   
    function CreateMenuFlyoutSubItem return Windows.UI.Xaml.Controls.IMenuFlyoutSubItem;
    
    subtype Page is Windows.UI.Xaml.Controls.IPage;
@@ -46421,7 +46228,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IPageOverrides := null;
       m_IPage : IPage := null;
    end record;
-   
    type IPageOverrides_Impl is access all IPageOverrides_Interface_Impl'Class;
    type IPageOverrides_Impl_Ptr is access all IPageOverrides_Impl;
    
@@ -46495,7 +46301,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IPage := null;
       m_IPage : IPage := null;
    end record;
-   
    type IPage_Impl is access all IPage_Interface_Impl'Class;
    type IPage_Impl_Ptr is access all IPage_Impl;
    
@@ -46590,9 +46395,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ScrollViewer is Windows.UI.Xaml.Controls.IScrollViewer;
-   
    function CreateScrollViewer return Windows.UI.Xaml.Controls.IScrollViewer;
    
    subtype CommandBar is Windows.UI.Xaml.Controls.ICommandBar;
@@ -46603,7 +46406,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased ICommandBar := null;
       m_ICommandBar : ICommandBar := null;
    end record;
-   
    type ICommandBar_Impl is access all ICommandBar_Interface_Impl'Class;
    type ICommandBar_Impl_Ptr is access all ICommandBar_Impl;
    
@@ -46663,7 +46465,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype GridViewHeaderItem is Windows.UI.Xaml.Controls.IGridViewHeaderItem;
    
    type IGridViewHeaderItem_Interface_Impl is new IGridViewHeaderItem_Interface with record
@@ -46672,7 +46473,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IGridViewHeaderItem := null;
       m_IGridViewHeaderItem : IGridViewHeaderItem := null;
    end record;
-   
    type IGridViewHeaderItem_Impl is access all IGridViewHeaderItem_Interface_Impl'Class;
    type IGridViewHeaderItem_Impl_Ptr is access all IGridViewHeaderItem_Impl;
    
@@ -46718,9 +46518,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype GridViewItem is Windows.UI.Xaml.Controls.IGridViewItem;
-   
    subtype ListViewHeaderItem is Windows.UI.Xaml.Controls.IListViewHeaderItem;
    
    type IListViewHeaderItem_Interface_Impl is new IListViewHeaderItem_Interface with record
@@ -46729,7 +46527,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IListViewHeaderItem := null;
       m_IListViewHeaderItem : IListViewHeaderItem := null;
    end record;
-   
    type IListViewHeaderItem_Impl is access all IListViewHeaderItem_Interface_Impl'Class;
    type IListViewHeaderItem_Impl_Ptr is access all IListViewHeaderItem_Impl;
    
@@ -46775,11 +46572,8 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ListViewItem is Windows.UI.Xaml.Controls.IListViewItem;
-   
    subtype NavigationViewItemBase is Windows.UI.Xaml.Controls.INavigationViewItemBase;
-   
    subtype NavigationViewItem is Windows.UI.Xaml.Controls.INavigationViewItem;
    
    type INavigationViewItem_Interface_Impl is new INavigationViewItem_Interface with record
@@ -46788,7 +46582,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased INavigationViewItem := null;
       m_INavigationViewItem : INavigationViewItem := null;
    end record;
-   
    type INavigationViewItem_Impl is access all INavigationViewItem_Interface_Impl'Class;
    type INavigationViewItem_Impl_Ptr is access all INavigationViewItem_Impl;
    
@@ -46855,7 +46648,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype NavigationViewItemSeparator is Windows.UI.Xaml.Controls.INavigationViewItemSeparator;
    
    type INavigationViewItemSeparator_Interface_Impl is new INavigationViewItemSeparator_Interface with record
@@ -46864,7 +46656,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased INavigationViewItemSeparator := null;
       m_INavigationViewItemSeparator : INavigationViewItemSeparator := null;
    end record;
-   
    type INavigationViewItemSeparator_Impl is access all INavigationViewItemSeparator_Interface_Impl'Class;
    type INavigationViewItemSeparator_Impl_Ptr is access all INavigationViewItemSeparator_Impl;
    
@@ -46910,7 +46701,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype NavigationViewItemHeader is Windows.UI.Xaml.Controls.INavigationViewItemHeader;
    
    type INavigationViewItemHeader_Interface_Impl is new INavigationViewItemHeader_Interface with record
@@ -46919,7 +46709,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased INavigationViewItemHeader := null;
       m_INavigationViewItemHeader : INavigationViewItemHeader := null;
    end record;
-   
    type INavigationViewItemHeader_Impl is access all INavigationViewItemHeader_Interface_Impl'Class;
    type INavigationViewItemHeader_Impl_Ptr is access all INavigationViewItemHeader_Impl;
    
@@ -46965,7 +46754,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ToggleMenuFlyoutItem is Windows.UI.Xaml.Controls.IToggleMenuFlyoutItem;
    
    type IToggleMenuFlyoutItem_Interface_Impl is new IToggleMenuFlyoutItem_Interface with record
@@ -46974,7 +46762,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IToggleMenuFlyoutItem := null;
       m_IToggleMenuFlyoutItem : IToggleMenuFlyoutItem := null;
    end record;
-   
    type IToggleMenuFlyoutItem_Impl is access all IToggleMenuFlyoutItem_Interface_Impl'Class;
    type IToggleMenuFlyoutItem_Impl_Ptr is access all IToggleMenuFlyoutItem_Impl;
    
@@ -47034,7 +46821,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype AppBarButton is Windows.UI.Xaml.Controls.IAppBarButton;
    
    type IAppBarButton_Interface_Impl is new IAppBarButton_Interface with record
@@ -47043,7 +46829,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IAppBarButton := null;
       m_IAppBarButton : IAppBarButton := null;
    end record;
-   
    type IAppBarButton_Impl is access all IAppBarButton_Interface_Impl'Class;
    type IAppBarButton_Impl_Ptr is access all IAppBarButton_Impl;
    
@@ -47117,9 +46902,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype AppBarToggleButton is Windows.UI.Xaml.Controls.IAppBarToggleButton;
-   
    subtype GridView is Windows.UI.Xaml.Controls.IGridView;
    
    type IGridView_Interface_Impl is new IGridView_Interface with record
@@ -47128,7 +46911,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IGridView := null;
       m_IGridView : IGridView := null;
    end record;
-   
    type IGridView_Impl is access all IGridView_Interface_Impl'Class;
    type IGridView_Impl_Ptr is access all IGridView_Impl;
    
@@ -47174,7 +46956,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype ListView is Windows.UI.Xaml.Controls.IListView;
    
    type IListView_Interface_Impl is new IListView_Interface with record
@@ -47183,7 +46964,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IListView := null;
       m_IListView : IListView := null;
    end record;
-   
    type IListView_Impl is access all IListView_Interface_Impl'Class;
    type IListView_Impl_Ptr is access all IListView_Impl;
    
@@ -47229,7 +47009,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype NavigationViewList is Windows.UI.Xaml.Controls.INavigationViewList;
    
    type INavigationViewList_Interface_Impl is new INavigationViewList_Interface with record
@@ -47238,7 +47017,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased INavigationViewList := null;
       m_INavigationViewList : INavigationViewList := null;
    end record;
-   
    type INavigationViewList_Impl is access all INavigationViewList_Interface_Impl'Class;
    type INavigationViewList_Impl_Ptr is access all INavigationViewList_Impl;
    
@@ -47284,17 +47062,12 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype Flyout is Windows.UI.Xaml.Controls.IFlyout;
-   
    subtype MenuFlyout is Windows.UI.Xaml.Controls.IMenuFlyout;
-   
    subtype WebViewBrush is Windows.UI.Xaml.Controls.IWebViewBrush;
-   
    function CreateWebViewBrush return Windows.UI.Xaml.Controls.IWebViewBrush;
    
    subtype InkToolbarIsStencilButtonCheckedChangedEventArgs is Windows.UI.Xaml.Controls.IInkToolbarIsStencilButtonCheckedChangedEventArgs;
-   
    function CreateInkToolbarIsStencilButtonCheckedChangedEventArgs return Windows.UI.Xaml.Controls.IInkToolbarIsStencilButtonCheckedChangedEventArgs;
    
    subtype InkToolbarCustomPen is Windows.UI.Xaml.Controls.IInkToolbarCustomPen;
@@ -47305,7 +47078,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarCustomPenOverrides := null;
       m_IInkToolbarCustomPen : IInkToolbarCustomPen := null;
    end record;
-   
    type IInkToolbarCustomPenOverrides_Impl is access all IInkToolbarCustomPenOverrides_Interface_Impl'Class;
    type IInkToolbarCustomPenOverrides_Impl_Ptr is access all IInkToolbarCustomPenOverrides_Impl;
    
@@ -47367,7 +47139,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarCustomPen := null;
       m_IInkToolbarCustomPen : IInkToolbarCustomPen := null;
    end record;
-   
    type IInkToolbarCustomPen_Impl is access all IInkToolbarCustomPen_Interface_Impl'Class;
    type IInkToolbarCustomPen_Impl_Ptr is access all IInkToolbarCustomPen_Impl;
    
@@ -47422,7 +47193,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbar is Windows.UI.Xaml.Controls.IInkToolbar;
    
    type IInkToolbar_Interface_Impl is new IInkToolbar_Interface with record
@@ -47431,7 +47201,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbar := null;
       m_IInkToolbar : IInkToolbar := null;
    end record;
-   
    type IInkToolbar_Impl is access all IInkToolbar_Interface_Impl'Class;
    type IInkToolbar_Impl_Ptr is access all IInkToolbar_Impl;
    
@@ -47623,7 +47392,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarPenConfigurationControl is Windows.UI.Xaml.Controls.IInkToolbarPenConfigurationControl;
    
    type IInkToolbarPenConfigurationControl_Interface_Impl is new IInkToolbarPenConfigurationControl_Interface with record
@@ -47632,7 +47400,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarPenConfigurationControl := null;
       m_IInkToolbarPenConfigurationControl : IInkToolbarPenConfigurationControl := null;
    end record;
-   
    type IInkToolbarPenConfigurationControl_Impl is access all IInkToolbarPenConfigurationControl_Interface_Impl'Class;
    type IInkToolbarPenConfigurationControl_Impl_Ptr is access all IInkToolbarPenConfigurationControl_Impl;
    
@@ -47685,11 +47452,8 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarFlyoutItem is Windows.UI.Xaml.Controls.IInkToolbarFlyoutItem;
-   
    subtype InkToolbarMenuButton is Windows.UI.Xaml.Controls.IInkToolbarMenuButton;
-   
    subtype InkToolbarStencilButton is Windows.UI.Xaml.Controls.IInkToolbarStencilButton;
    
    type IInkToolbarStencilButton_Interface_Impl is new IInkToolbarStencilButton_Interface with record
@@ -47698,7 +47462,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarStencilButton := null;
       m_IInkToolbarStencilButton : IInkToolbarStencilButton := null;
    end record;
-   
    type IInkToolbarStencilButton_Impl is access all IInkToolbarStencilButton_Interface_Impl'Class;
    type IInkToolbarStencilButton_Impl_Ptr is access all IInkToolbarStencilButton_Impl;
    
@@ -47800,11 +47563,8 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarToggleButton is Windows.UI.Xaml.Controls.IInkToolbarToggleButton;
-   
    subtype InkToolbarToolButton is Windows.UI.Xaml.Controls.IInkToolbarToolButton;
-   
    subtype InkToolbarCustomToggleButton is Windows.UI.Xaml.Controls.IInkToolbarCustomToggleButton;
    
    type IInkToolbarCustomToggleButton_Interface_Impl is new IInkToolbarCustomToggleButton_Interface with record
@@ -47813,7 +47573,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarCustomToggleButton := null;
       m_IInkToolbarCustomToggleButton : IInkToolbarCustomToggleButton := null;
    end record;
-   
    type IInkToolbarCustomToggleButton_Impl is access all IInkToolbarCustomToggleButton_Interface_Impl'Class;
    type IInkToolbarCustomToggleButton_Impl_Ptr is access all IInkToolbarCustomToggleButton_Impl;
    
@@ -47859,7 +47618,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarCustomToolButton is Windows.UI.Xaml.Controls.IInkToolbarCustomToolButton;
    
    type IInkToolbarCustomToolButton_Interface_Impl is new IInkToolbarCustomToolButton_Interface with record
@@ -47868,7 +47626,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarCustomToolButton := null;
       m_IInkToolbarCustomToolButton : IInkToolbarCustomToolButton := null;
    end record;
-   
    type IInkToolbarCustomToolButton_Impl is access all IInkToolbarCustomToolButton_Interface_Impl'Class;
    type IInkToolbarCustomToolButton_Impl_Ptr is access all IInkToolbarCustomToolButton_Impl;
    
@@ -47928,7 +47685,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarEraserButton is Windows.UI.Xaml.Controls.IInkToolbarEraserButton;
    
    type IInkToolbarEraserButton_Interface_Impl is new IInkToolbarEraserButton_Interface with record
@@ -47937,7 +47693,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarEraserButton := null;
       m_IInkToolbarEraserButton : IInkToolbarEraserButton := null;
    end record;
-   
    type IInkToolbarEraserButton_Impl is access all IInkToolbarEraserButton_Interface_Impl'Class;
    type IInkToolbarEraserButton_Impl_Ptr is access all IInkToolbarEraserButton_Impl;
    
@@ -47983,9 +47738,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarPenButton is Windows.UI.Xaml.Controls.IInkToolbarPenButton;
-   
    subtype InkToolbarRulerButton is Windows.UI.Xaml.Controls.IInkToolbarRulerButton;
    
    type IInkToolbarRulerButton_Interface_Impl is new IInkToolbarRulerButton_Interface with record
@@ -47994,7 +47747,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarRulerButton := null;
       m_IInkToolbarRulerButton : IInkToolbarRulerButton := null;
    end record;
-   
    type IInkToolbarRulerButton_Impl is access all IInkToolbarRulerButton_Interface_Impl'Class;
    type IInkToolbarRulerButton_Impl_Ptr is access all IInkToolbarRulerButton_Impl;
    
@@ -48047,7 +47799,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarBallpointPenButton is Windows.UI.Xaml.Controls.IInkToolbarBallpointPenButton;
    
    type IInkToolbarBallpointPenButton_Interface_Impl is new IInkToolbarBallpointPenButton_Interface with record
@@ -48056,7 +47807,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarBallpointPenButton := null;
       m_IInkToolbarBallpointPenButton : IInkToolbarBallpointPenButton := null;
    end record;
-   
    type IInkToolbarBallpointPenButton_Impl is access all IInkToolbarBallpointPenButton_Interface_Impl'Class;
    type IInkToolbarBallpointPenButton_Impl_Ptr is access all IInkToolbarBallpointPenButton_Impl;
    
@@ -48102,7 +47852,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarCustomPenButton is Windows.UI.Xaml.Controls.IInkToolbarCustomPenButton;
    
    type IInkToolbarCustomPenButton_Interface_Impl is new IInkToolbarCustomPenButton_Interface with record
@@ -48111,7 +47860,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarCustomPenButton := null;
       m_IInkToolbarCustomPenButton : IInkToolbarCustomPenButton := null;
    end record;
-   
    type IInkToolbarCustomPenButton_Impl is access all IInkToolbarCustomPenButton_Interface_Impl'Class;
    type IInkToolbarCustomPenButton_Impl_Ptr is access all IInkToolbarCustomPenButton_Impl;
    
@@ -48185,7 +47933,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarHighlighterButton is Windows.UI.Xaml.Controls.IInkToolbarHighlighterButton;
    
    type IInkToolbarHighlighterButton_Interface_Impl is new IInkToolbarHighlighterButton_Interface with record
@@ -48194,7 +47941,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarHighlighterButton := null;
       m_IInkToolbarHighlighterButton : IInkToolbarHighlighterButton := null;
    end record;
-   
    type IInkToolbarHighlighterButton_Impl is access all IInkToolbarHighlighterButton_Interface_Impl'Class;
    type IInkToolbarHighlighterButton_Impl_Ptr is access all IInkToolbarHighlighterButton_Impl;
    
@@ -48240,7 +47986,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype InkToolbarPencilButton is Windows.UI.Xaml.Controls.IInkToolbarPencilButton;
    
    type IInkToolbarPencilButton_Interface_Impl is new IInkToolbarPencilButton_Interface with record
@@ -48249,7 +47994,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IInkToolbarPencilButton := null;
       m_IInkToolbarPencilButton : IInkToolbarPencilButton := null;
    end record;
-   
    type IInkToolbarPencilButton_Impl is access all IInkToolbarPencilButton_Interface_Impl'Class;
    type IInkToolbarPencilButton_Impl_Ptr is access all IInkToolbarPencilButton_Impl;
    
@@ -48295,26 +48039,20 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype PivotItemEventArgs is Windows.UI.Xaml.Controls.IPivotItemEventArgs;
-   
    function CreatePivotItemEventArgs return Windows.UI.Xaml.Controls.IPivotItemEventArgs;
    
    subtype DatePickedEventArgs is Windows.UI.Xaml.Controls.IDatePickedEventArgs;
-   
    function CreateDatePickedEventArgs return Windows.UI.Xaml.Controls.IDatePickedEventArgs;
    
    subtype DatePickerFlyoutItem is Windows.UI.Xaml.Controls.IDatePickerFlyoutItem;
    subtype ItemsPickedEventArgs is Windows.UI.Xaml.Controls.IItemsPickedEventArgs;
-   
    function CreateItemsPickedEventArgs return Windows.UI.Xaml.Controls.IItemsPickedEventArgs;
    
    subtype PickerConfirmedEventArgs is Windows.UI.Xaml.Controls.IPickerConfirmedEventArgs;
-   
    function CreatePickerConfirmedEventArgs return Windows.UI.Xaml.Controls.IPickerConfirmedEventArgs;
    
    subtype TimePickedEventArgs is Windows.UI.Xaml.Controls.ITimePickedEventArgs;
-   
    function CreateTimePickedEventArgs return Windows.UI.Xaml.Controls.ITimePickedEventArgs;
    
    subtype DatePickerFlyoutPresenter is Windows.UI.Xaml.Controls.IDatePickerFlyoutPresenter;
@@ -48329,7 +48067,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IPivot := null;
       m_IPivot : IPivot := null;
    end record;
-   
    type IPivot_Impl is access all IPivot_Interface_Impl'Class;
    type IPivot_Impl_Ptr is access all IPivot_Impl;
    
@@ -48534,7 +48271,6 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype PivotItem is Windows.UI.Xaml.Controls.IPivotItem;
    
    type IPivotItem_Interface_Impl is new IPivotItem_Interface with record
@@ -48543,7 +48279,6 @@ package Windows.UI.Xaml.Controls is
       m_Inner    : aliased IPivotItem := null;
       m_IPivotItem : IPivotItem := null;
    end record;
-   
    type IPivotItem_Impl is access all IPivotItem_Interface_Impl'Class;
    type IPivotItem_Impl_Ptr is access all IPivotItem_Impl;
    
@@ -48603,21 +48338,16 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   
    subtype DatePickerFlyout is Windows.UI.Xaml.Controls.IDatePickerFlyout;
-   
    function CreateDatePickerFlyout return Windows.UI.Xaml.Controls.IDatePickerFlyout;
    
    subtype ListPickerFlyout is Windows.UI.Xaml.Controls.IListPickerFlyout;
-   
    function CreateListPickerFlyout return Windows.UI.Xaml.Controls.IListPickerFlyout;
    
    subtype PickerFlyout is Windows.UI.Xaml.Controls.IPickerFlyout;
-   
    function CreatePickerFlyout return Windows.UI.Xaml.Controls.IPickerFlyout;
    
    subtype TimePickerFlyout is Windows.UI.Xaml.Controls.ITimePickerFlyout;
-   
    function CreateTimePickerFlyout return Windows.UI.Xaml.Controls.ITimePickerFlyout;
    
    

@@ -500,7 +500,6 @@ package Windows.Storage.BulkAccess is
    )
    return Windows.Storage.BulkAccess.IFileInformationFactory;
    
-   
    subtype FileInformation is Windows.Storage.BulkAccess.IStorageItemInformation;
    subtype FolderInformation is Windows.Storage.BulkAccess.IStorageItemInformation;
    

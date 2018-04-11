@@ -1834,7 +1834,6 @@ package Windows.Devices.Geolocation is
    )
    return Windows.Devices.Geolocation.IGeopoint;
    
-   
    subtype Geopath is Windows.Devices.Geolocation.IGeopath;
    function Create
    (
@@ -1856,7 +1855,6 @@ package Windows.Devices.Geolocation is
       ; spatialReferenceId : Windows.UInt32
    )
    return Windows.Devices.Geolocation.IGeopath;
-   
    
    subtype GeoboundingBox is Windows.Devices.Geolocation.IGeoboundingBox;
    function Create
@@ -1883,7 +1881,6 @@ package Windows.Devices.Geolocation is
    )
    return Windows.Devices.Geolocation.IGeoboundingBox;
    
-   
    subtype GeocoordinateSatelliteData is Windows.Devices.Geolocation.IGeocoordinateSatelliteData;
    subtype VenueData is Windows.Devices.Geolocation.IVenueData;
    subtype Geocoordinate is Windows.Devices.Geolocation.IGeocoordinate;
@@ -1892,7 +1889,6 @@ package Windows.Devices.Geolocation is
    subtype PositionChangedEventArgs is Windows.Devices.Geolocation.IPositionChangedEventArgs;
    subtype StatusChangedEventArgs is Windows.Devices.Geolocation.IStatusChangedEventArgs;
    subtype Geolocator is Windows.Devices.Geolocation.IGeolocator;
-   
    function CreateGeolocator return Windows.Devices.Geolocation.IGeolocator;
    
    subtype Geocircle is Windows.Devices.Geolocation.IGeocircle;
@@ -1920,11 +1916,9 @@ package Windows.Devices.Geolocation is
    )
    return Windows.Devices.Geolocation.IGeocircle;
    
-   
    subtype Geovisit is Windows.Devices.Geolocation.IGeovisit;
    subtype GeovisitStateChangedEventArgs is Windows.Devices.Geolocation.IGeovisitStateChangedEventArgs;
    subtype GeovisitMonitor is Windows.Devices.Geolocation.IGeovisitMonitor;
-   
    function CreateGeovisitMonitor return Windows.Devices.Geolocation.IGeovisitMonitor;
    
    subtype GeovisitTriggerDetails is Windows.Devices.Geolocation.IGeovisitTriggerDetails;

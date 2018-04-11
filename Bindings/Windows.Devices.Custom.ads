@@ -326,7 +326,6 @@ package Windows.Devices.Custom is
    )
    return Windows.Devices.Custom.IIOControlCode;
    
-   
    subtype CustomDevice is Windows.Devices.Custom.ICustomDevice;
    
    ------------------------------------------------------------------------

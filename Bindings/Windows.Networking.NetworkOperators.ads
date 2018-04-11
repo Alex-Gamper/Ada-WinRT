@@ -5183,7 +5183,6 @@ package Windows.Networking.NetworkOperators is
    subtype MobileBroadbandUiccApp is Windows.Networking.NetworkOperators.IMobileBroadbandUiccApp;
    subtype MobileBroadbandCellsInfo is Windows.Networking.NetworkOperators.IMobileBroadbandCellsInfo;
    subtype NetworkOperatorTetheringAccessPointConfiguration is Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration;
-   
    function CreateNetworkOperatorTetheringAccessPointConfiguration return Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration;
    
    subtype NetworkOperatorTetheringOperationResult is Windows.Networking.NetworkOperators.INetworkOperatorTetheringOperationResult;
@@ -5192,7 +5191,6 @@ package Windows.Networking.NetworkOperators is
    subtype MobileBroadbandAccountEventArgs is Windows.Networking.NetworkOperators.IMobileBroadbandAccountEventArgs;
    subtype MobileBroadbandAccountUpdatedEventArgs is Windows.Networking.NetworkOperators.IMobileBroadbandAccountUpdatedEventArgs;
    subtype MobileBroadbandAccountWatcher is Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher;
-   
    function CreateMobileBroadbandAccountWatcher return Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher;
    
    subtype MobileBroadbandModem is Windows.Networking.NetworkOperators.IMobileBroadbandModem;
@@ -5230,7 +5228,6 @@ package Windows.Networking.NetworkOperators is
    subtype ProvisionFromXmlDocumentResults is Windows.Networking.NetworkOperators.IProvisionFromXmlDocumentResults;
    subtype ProvisionedProfile is Windows.Networking.NetworkOperators.IProvisionedProfile;
    subtype ProvisioningAgent is Windows.Networking.NetworkOperators.IProvisioningAgent;
-   
    function CreateProvisioningAgent return Windows.Networking.NetworkOperators.IProvisioningAgent;
    
    subtype UssdMessage is Windows.Networking.NetworkOperators.IUssdMessage;
@@ -5239,7 +5236,6 @@ package Windows.Networking.NetworkOperators is
       messageText : Windows.String
    )
    return Windows.Networking.NetworkOperators.IUssdMessage;
-   
    
    subtype UssdReply is Windows.Networking.NetworkOperators.IUssdReply;
    subtype UssdSession is Windows.Networking.NetworkOperators.IUssdSession;

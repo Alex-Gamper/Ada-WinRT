@@ -135,7 +135,6 @@ package Windows.System.Diagnostics.Telemetry is
    
    subtype PlatformTelemetryRegistrationResult is Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationResult;
    subtype PlatformTelemetryRegistrationSettings is Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings;
-   
    function CreatePlatformTelemetryRegistrationSettings return Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings;
    
    

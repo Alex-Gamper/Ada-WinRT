@@ -5595,33 +5595,26 @@ package Windows.UI.Xaml.Media is
    
    subtype VisualTreeHelper is Windows.UI.Xaml.Media.IVisualTreeHelper;
    subtype PartialMediaFailureDetectedEventArgs is Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs;
-   
    function CreatePartialMediaFailureDetectedEventArgs return Windows.UI.Xaml.Media.IPartialMediaFailureDetectedEventArgs;
    
    subtype MatrixHelper is Windows.UI.Xaml.Media.IMatrixHelper;
    subtype BrushCollection is Windows.UI.Xaml.Media.IVector_Brush;
-   
    function CreateBrushCollection return Windows.UI.Xaml.Media.IVector_Brush;
    
    subtype CompositionTarget is Windows.UI.Xaml.Media.ICompositionTarget;
    subtype DoubleCollection is Windows.UI.Xaml.Media.IVector_Double;
-   
    function CreateDoubleCollection return Windows.UI.Xaml.Media.IVector_Double;
    
    subtype FontFamily is Windows.UI.Xaml.Media.IFontFamily;
-   
    subtype MediaTransportControlsThumbnailRequestedEventArgs is Windows.UI.Xaml.Media.IMediaTransportControlsThumbnailRequestedEventArgs;
    subtype PointCollection is Windows.UI.Xaml.Media.IVector_Point;
-   
    function CreatePointCollection return Windows.UI.Xaml.Media.IVector_Point;
    
    subtype RenderingEventArgs is Windows.UI.Xaml.Media.IRenderingEventArgs;
    subtype TimelineMarkerCollection is Windows.UI.Xaml.Media.IVector_TimelineMarker;
-   
    function CreateTimelineMarkerCollection return Windows.UI.Xaml.Media.IVector_TimelineMarker;
    
    subtype TransformCollection is Windows.UI.Xaml.Media.IVector_Transform;
-   
    function CreateTransformCollection return Windows.UI.Xaml.Media.IVector_Transform;
    
    subtype Brush is Windows.UI.Xaml.Media.IBrush;
@@ -5632,7 +5625,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IBrush := null;
       m_IBrush : IBrush := null;
    end record;
-   
    type IBrush_Impl is access all IBrush_Interface_Impl'Class;
    type IBrush_Impl_Ptr is access all IBrush_Impl;
    
@@ -5720,7 +5712,6 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype CacheMode is Windows.UI.Xaml.Media.ICacheMode;
    
    type ICacheMode_Interface_Impl is new ICacheMode_Interface with record
@@ -5729,7 +5720,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased ICacheMode := null;
       m_ICacheMode : ICacheMode := null;
    end record;
-   
    type ICacheMode_Impl is access all ICacheMode_Interface_Impl'Class;
    type ICacheMode_Impl_Ptr is access all ICacheMode_Impl;
    
@@ -5775,7 +5765,6 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype GeneralTransform is Windows.UI.Xaml.Media.IGeneralTransform;
    
    type IGeneralTransformOverrides_Interface_Impl is new IGeneralTransformOverrides_Interface with record
@@ -5784,7 +5773,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IGeneralTransformOverrides := null;
       m_IGeneralTransform : IGeneralTransform := null;
    end record;
-   
    type IGeneralTransformOverrides_Impl is access all IGeneralTransformOverrides_Interface_Impl'Class;
    type IGeneralTransformOverrides_Impl_Ptr is access all IGeneralTransformOverrides_Impl;
    
@@ -5861,7 +5849,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IGeneralTransform := null;
       m_IGeneralTransform : IGeneralTransform := null;
    end record;
-   
    type IGeneralTransform_Impl is access all IGeneralTransform_Interface_Impl'Class;
    type IGeneralTransform_Impl_Ptr is access all IGeneralTransform_Impl;
    
@@ -5939,13 +5926,9 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype Geometry is Windows.UI.Xaml.Media.IGeometry;
-   
    subtype ImageSource is Windows.UI.Xaml.Media.IImageSource;
-   
    subtype PathSegment is Windows.UI.Xaml.Media.IPathSegment;
-   
    subtype Projection is Windows.UI.Xaml.Media.IProjection;
    
    type IProjection_Interface_Impl is new IProjection_Interface with record
@@ -5954,7 +5937,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IProjection := null;
       m_IProjection : IProjection := null;
    end record;
-   
    type IProjection_Impl is access all IProjection_Interface_Impl'Class;
    type IProjection_Impl_Ptr is access all IProjection_Impl;
    
@@ -6000,17 +5982,13 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype RateChangedRoutedEventArgs is Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs;
-   
    function CreateRateChangedRoutedEventArgs return Windows.UI.Xaml.Media.IRateChangedRoutedEventArgs;
    
    subtype TimelineMarker is Windows.UI.Xaml.Media.ITimelineMarker;
-   
    function CreateTimelineMarker return Windows.UI.Xaml.Media.ITimelineMarker;
    
    subtype TimelineMarkerRoutedEventArgs is Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs;
-   
    function CreateTimelineMarkerRoutedEventArgs return Windows.UI.Xaml.Media.ITimelineMarkerRoutedEventArgs;
    
    subtype XamlLight is Windows.UI.Xaml.Media.IXamlLight;
@@ -6021,7 +5999,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IXamlLightOverrides := null;
       m_IXamlLight : IXamlLight := null;
    end record;
-   
    type IXamlLightOverrides_Impl is access all IXamlLightOverrides_Interface_Impl'Class;
    type IXamlLightOverrides_Impl_Ptr is access all IXamlLightOverrides_Impl;
    
@@ -6095,7 +6072,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IXamlLight := null;
       m_IXamlLight : IXamlLight := null;
    end record;
-   
    type IXamlLight_Impl is access all IXamlLight_Interface_Impl'Class;
    type IXamlLight_Impl_Ptr is access all IXamlLight_Impl;
    
@@ -6141,21 +6117,16 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype BitmapCache is Windows.UI.Xaml.Media.IBitmapCache;
-   
    function CreateBitmapCache return Windows.UI.Xaml.Media.IBitmapCache;
    
    subtype Matrix3DProjection is Windows.UI.Xaml.Media.IMatrix3DProjection;
-   
    function CreateMatrix3DProjection return Windows.UI.Xaml.Media.IMatrix3DProjection;
    
    subtype PlaneProjection is Windows.UI.Xaml.Media.IPlaneProjection;
-   
    function CreatePlaneProjection return Windows.UI.Xaml.Media.IPlaneProjection;
    
    subtype RectangleGeometry is Windows.UI.Xaml.Media.IRectangleGeometry;
-   
    function CreateRectangleGeometry return Windows.UI.Xaml.Media.IRectangleGeometry;
    
    subtype SolidColorBrush is Windows.UI.Xaml.Media.ISolidColorBrush;
@@ -6165,77 +6136,58 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.UI.Xaml.Media.ISolidColorBrush;
    
-   
    subtype Transform is Windows.UI.Xaml.Media.ITransform;
-   
    subtype CompositeTransform is Windows.UI.Xaml.Media.ICompositeTransform;
-   
    function CreateCompositeTransform return Windows.UI.Xaml.Media.ICompositeTransform;
    
    subtype MatrixTransform is Windows.UI.Xaml.Media.IMatrixTransform;
-   
    function CreateMatrixTransform return Windows.UI.Xaml.Media.IMatrixTransform;
    
    subtype RotateTransform is Windows.UI.Xaml.Media.IRotateTransform;
-   
    function CreateRotateTransform return Windows.UI.Xaml.Media.IRotateTransform;
    
    subtype ScaleTransform is Windows.UI.Xaml.Media.IScaleTransform;
-   
    function CreateScaleTransform return Windows.UI.Xaml.Media.IScaleTransform;
    
    subtype SkewTransform is Windows.UI.Xaml.Media.ISkewTransform;
-   
    function CreateSkewTransform return Windows.UI.Xaml.Media.ISkewTransform;
    
    subtype TransformGroup is Windows.UI.Xaml.Media.ITransformGroup;
-   
    function CreateTransformGroup return Windows.UI.Xaml.Media.ITransformGroup;
    
    subtype TranslateTransform is Windows.UI.Xaml.Media.ITranslateTransform;
-   
    function CreateTranslateTransform return Windows.UI.Xaml.Media.ITranslateTransform;
    
    subtype GeometryCollection is Windows.UI.Xaml.Media.IVector_Geometry;
-   
    function CreateGeometryCollection return Windows.UI.Xaml.Media.IVector_Geometry;
    
    subtype GradientStopCollection is Windows.UI.Xaml.Media.IVector_GradientStop;
-   
    function CreateGradientStopCollection return Windows.UI.Xaml.Media.IVector_GradientStop;
    
    subtype LoadedImageSourceLoadCompletedEventArgs is Windows.UI.Xaml.Media.ILoadedImageSourceLoadCompletedEventArgs;
    subtype LoadedImageSurface is Windows.UI.Xaml.Media.ILoadedImageSurface;
    subtype PathFigureCollection is Windows.UI.Xaml.Media.IVector_PathFigure;
-   
    function CreatePathFigureCollection return Windows.UI.Xaml.Media.IVector_PathFigure;
    
    subtype PathSegmentCollection is Windows.UI.Xaml.Media.IVector_PathSegment;
-   
    function CreatePathSegmentCollection return Windows.UI.Xaml.Media.IVector_PathSegment;
    
    subtype GradientStop is Windows.UI.Xaml.Media.IGradientStop;
-   
    function CreateGradientStop return Windows.UI.Xaml.Media.IGradientStop;
    
    subtype PathFigure is Windows.UI.Xaml.Media.IPathFigure;
-   
    function CreatePathFigure return Windows.UI.Xaml.Media.IPathFigure;
    
    subtype ArcSegment is Windows.UI.Xaml.Media.IArcSegment;
-   
    function CreateArcSegment return Windows.UI.Xaml.Media.IArcSegment;
    
    subtype BezierSegment is Windows.UI.Xaml.Media.IBezierSegment;
-   
    function CreateBezierSegment return Windows.UI.Xaml.Media.IBezierSegment;
    
    subtype EllipseGeometry is Windows.UI.Xaml.Media.IEllipseGeometry;
-   
    function CreateEllipseGeometry return Windows.UI.Xaml.Media.IEllipseGeometry;
    
    subtype GeometryGroup is Windows.UI.Xaml.Media.IGeometryGroup;
-   
    function CreateGeometryGroup return Windows.UI.Xaml.Media.IGeometryGroup;
    
    subtype GradientBrush is Windows.UI.Xaml.Media.IGradientBrush;
@@ -6246,7 +6198,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IGradientBrush := null;
       m_IGradientBrush : IGradientBrush := null;
    end record;
-   
    type IGradientBrush_Impl is access all IGradientBrush_Interface_Impl'Class;
    type IGradientBrush_Impl_Ptr is access all IGradientBrush_Impl;
    
@@ -6348,33 +6299,25 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype LineGeometry is Windows.UI.Xaml.Media.ILineGeometry;
-   
    function CreateLineGeometry return Windows.UI.Xaml.Media.ILineGeometry;
    
    subtype LineSegment is Windows.UI.Xaml.Media.ILineSegment;
-   
    function CreateLineSegment return Windows.UI.Xaml.Media.ILineSegment;
    
    subtype PathGeometry is Windows.UI.Xaml.Media.IPathGeometry;
-   
    function CreatePathGeometry return Windows.UI.Xaml.Media.IPathGeometry;
    
    subtype PolyBezierSegment is Windows.UI.Xaml.Media.IPolyBezierSegment;
-   
    function CreatePolyBezierSegment return Windows.UI.Xaml.Media.IPolyBezierSegment;
    
    subtype PolyLineSegment is Windows.UI.Xaml.Media.IPolyLineSegment;
-   
    function CreatePolyLineSegment return Windows.UI.Xaml.Media.IPolyLineSegment;
    
    subtype PolyQuadraticBezierSegment is Windows.UI.Xaml.Media.IPolyQuadraticBezierSegment;
-   
    function CreatePolyQuadraticBezierSegment return Windows.UI.Xaml.Media.IPolyQuadraticBezierSegment;
    
    subtype QuadraticBezierSegment is Windows.UI.Xaml.Media.IQuadraticBezierSegment;
-   
    function CreateQuadraticBezierSegment return Windows.UI.Xaml.Media.IQuadraticBezierSegment;
    
    subtype TileBrush is Windows.UI.Xaml.Media.ITileBrush;
@@ -6385,7 +6328,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased ITileBrush := null;
       m_ITileBrush : ITileBrush := null;
    end record;
-   
    type ITileBrush_Impl is access all ITileBrush_Interface_Impl'Class;
    type ITileBrush_Impl_Ptr is access all ITileBrush_Impl;
    
@@ -6473,7 +6415,6 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype XamlCompositionBrushBase is Windows.UI.Xaml.Media.IXamlCompositionBrushBase;
    
    type IXamlCompositionBrushBaseOverrides_Interface_Impl is new IXamlCompositionBrushBaseOverrides_Interface with record
@@ -6482,7 +6423,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IXamlCompositionBrushBaseOverrides := null;
       m_IXamlCompositionBrushBase : IXamlCompositionBrushBase := null;
    end record;
-   
    type IXamlCompositionBrushBaseOverrides_Impl is access all IXamlCompositionBrushBaseOverrides_Interface_Impl'Class;
    type IXamlCompositionBrushBaseOverrides_Impl_Ptr is access all IXamlCompositionBrushBaseOverrides_Impl;
    
@@ -6547,7 +6487,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IXamlCompositionBrushBase := null;
       m_IXamlCompositionBrushBase : IXamlCompositionBrushBase := null;
    end record;
-   
    type IXamlCompositionBrushBase_Impl is access all IXamlCompositionBrushBase_Interface_Impl'Class;
    type IXamlCompositionBrushBase_Impl_Ptr is access all IXamlCompositionBrushBase_Impl;
    
@@ -6607,7 +6546,6 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype AcrylicBrush is Windows.UI.Xaml.Media.IAcrylicBrush;
    
    type IAcrylicBrush_Interface_Impl is new IAcrylicBrush_Interface with record
@@ -6616,7 +6554,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IAcrylicBrush := null;
       m_IAcrylicBrush : IAcrylicBrush := null;
    end record;
-   
    type IAcrylicBrush_Impl is access all IAcrylicBrush_Interface_Impl'Class;
    type IAcrylicBrush_Impl_Ptr is access all IAcrylicBrush_Impl;
    
@@ -6732,7 +6669,6 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype RevealBrush is Windows.UI.Xaml.Media.IRevealBrush;
    
    type IRevealBrush_Interface_Impl is new IRevealBrush_Interface with record
@@ -6741,7 +6677,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IRevealBrush := null;
       m_IRevealBrush : IRevealBrush := null;
    end record;
-   
    type IRevealBrush_Impl is access all IRevealBrush_Interface_Impl'Class;
    type IRevealBrush_Impl_Ptr is access all IRevealBrush_Impl;
    
@@ -6829,7 +6764,6 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype RevealBorderBrush is Windows.UI.Xaml.Media.IRevealBorderBrush;
    
    type IRevealBorderBrush_Interface_Impl is new IRevealBorderBrush_Interface with record
@@ -6838,7 +6772,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IRevealBorderBrush := null;
       m_IRevealBorderBrush : IRevealBorderBrush := null;
    end record;
-   
    type IRevealBorderBrush_Impl is access all IRevealBorderBrush_Interface_Impl'Class;
    type IRevealBorderBrush_Impl_Ptr is access all IRevealBorderBrush_Impl;
    
@@ -6884,7 +6817,6 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype RevealBackgroundBrush is Windows.UI.Xaml.Media.IRevealBackgroundBrush;
    
    type IRevealBackgroundBrush_Interface_Impl is new IRevealBackgroundBrush_Interface with record
@@ -6893,7 +6825,6 @@ package Windows.UI.Xaml.Media is
       m_Inner    : aliased IRevealBackgroundBrush := null;
       m_IRevealBackgroundBrush : IRevealBackgroundBrush := null;
    end record;
-   
    type IRevealBackgroundBrush_Impl is access all IRevealBackgroundBrush_Interface_Impl'Class;
    type IRevealBackgroundBrush_Impl_Ptr is access all IRevealBackgroundBrush_Impl;
    
@@ -6939,9 +6870,7 @@ package Windows.UI.Xaml.Media is
    )
    return Windows.HRESULT;
    
-   
    subtype ImageBrush is Windows.UI.Xaml.Media.IImageBrush;
-   
    function CreateImageBrush return Windows.UI.Xaml.Media.IImageBrush;
    
    subtype LinearGradientBrush is Windows.UI.Xaml.Media.ILinearGradientBrush;
@@ -6951,7 +6880,6 @@ package Windows.UI.Xaml.Media is
       ; angle : Windows.Double
    )
    return Windows.UI.Xaml.Media.ILinearGradientBrush;
-   
    
    
    ------------------------------------------------------------------------

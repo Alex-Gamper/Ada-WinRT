@@ -755,7 +755,6 @@ package Windows.ApplicationModel.Search is
    subtype SearchPaneQueryLinguisticDetails is Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails;
    subtype SearchSuggestionCollection is Windows.ApplicationModel.Search.ISearchSuggestionCollection;
    subtype LocalContentSuggestionSettings is Windows.ApplicationModel.Search.ILocalContentSuggestionSettings;
-   
    function CreateLocalContentSuggestionSettings return Windows.ApplicationModel.Search.ILocalContentSuggestionSettings;
    
    subtype SearchQueryLinguisticDetails is Windows.ApplicationModel.Search.ISearchQueryLinguisticDetails;
@@ -766,7 +765,6 @@ package Windows.ApplicationModel.Search is
       ; queryTextCompositionLength : Windows.UInt32
    )
    return Windows.ApplicationModel.Search.ISearchQueryLinguisticDetails;
-   
    
    subtype SearchSuggestionsRequestDeferral is Windows.ApplicationModel.Search.ISearchSuggestionsRequestDeferral;
    subtype SearchSuggestionsRequest is Windows.ApplicationModel.Search.ISearchSuggestionsRequest;

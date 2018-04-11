@@ -1731,7 +1731,6 @@ package Windows.Devices.Bluetooth is
    subtype BluetoothLEAppearance is Windows.Devices.Bluetooth.IBluetoothLEAppearance;
    subtype BluetoothLEDevice is Windows.Devices.Bluetooth.IBluetoothLEDevice;
    subtype BluetoothSignalStrengthFilter is Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter;
-   
    function CreateBluetoothSignalStrengthFilter return Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter;
    
    

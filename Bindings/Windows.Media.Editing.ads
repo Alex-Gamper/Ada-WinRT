@@ -1763,12 +1763,10 @@ package Windows.Media.Editing is
    )
    return Windows.Media.Editing.IMediaOverlay;
    
-   
    subtype MediaClip is Windows.Media.Editing.IMediaClip;
    subtype EmbeddedAudioTrack is Windows.Media.Editing.IEmbeddedAudioTrack;
    subtype BackgroundAudioTrack is Windows.Media.Editing.IBackgroundAudioTrack;
    subtype MediaComposition is Windows.Media.Editing.IMediaComposition;
-   
    function CreateMediaComposition return Windows.Media.Editing.IMediaComposition;
    
    subtype MediaOverlayLayer is Windows.Media.Editing.IMediaOverlayLayer;
@@ -1777,7 +1775,6 @@ package Windows.Media.Editing is
       compositorDefinition : Windows.Media.Effects.IVideoCompositorDefinition
    )
    return Windows.Media.Editing.IMediaOverlayLayer;
-   
    
    
    ------------------------------------------------------------------------

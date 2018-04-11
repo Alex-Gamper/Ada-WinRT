@@ -1169,7 +1169,6 @@ package Windows.Security.Credentials is
    )
    return Windows.Security.Credentials.IWebAccountProvider;
    
-   
    subtype WebAccount is Windows.Security.Credentials.IWebAccount;
    function CreateWebAccount
    (
@@ -1179,17 +1178,13 @@ package Windows.Security.Credentials is
    )
    return Windows.Security.Credentials.IWebAccount;
    
-   
    subtype PasswordCredential is Windows.Security.Credentials.IPasswordCredential;
-   
    function CreatePasswordCredential return Windows.Security.Credentials.IPasswordCredential;
    
    subtype PasswordVault is Windows.Security.Credentials.IPasswordVault;
-   
    function CreatePasswordVault return Windows.Security.Credentials.IPasswordVault;
    
    subtype PasswordCredentialPropertyStore is Windows.Foundation.Collections.IPropertySet;
-   
    function CreatePasswordCredentialPropertyStore return Windows.Foundation.Collections.IPropertySet;
    
    

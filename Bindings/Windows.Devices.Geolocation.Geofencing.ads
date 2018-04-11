@@ -709,7 +709,6 @@ package Windows.Devices.Geolocation.Geofencing is
    )
    return Windows.Devices.Geolocation.Geofencing.IGeofence;
    
-   
    subtype GeofenceMonitor is Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor;
    subtype GeofenceStateChangeReport is Windows.Devices.Geolocation.Geofencing.IGeofenceStateChangeReport;
    

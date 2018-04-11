@@ -1401,7 +1401,6 @@ package Windows.Security.Authentication.Web.Provider is
    )
    return Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse;
    
-   
    subtype WebAccountClientView is Windows.Security.Authentication.Web.Provider.IWebAccountClientView;
    function Create
    (
@@ -1417,7 +1416,6 @@ package Windows.Security.Authentication.Web.Provider is
       ; accountPairwiseId : Windows.String
    )
    return Windows.Security.Authentication.Web.Provider.IWebAccountClientView;
-   
    
    subtype WebAccountProviderRequestTokenOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation;
    subtype WebAccountProviderGetTokenSilentOperation is Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation;

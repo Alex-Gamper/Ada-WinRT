@@ -200,14 +200,12 @@ package Windows.Storage.Compression is
    )
    return Windows.Storage.Compression.ICompressor;
    
-   
    subtype Decompressor is Windows.Storage.Compression.IDecompressor;
    function CreateDecompressor
    (
       underlyingStream : Windows.Storage.Streams.IInputStream
    )
    return Windows.Storage.Compression.IDecompressor;
-   
    
    
    ------------------------------------------------------------------------

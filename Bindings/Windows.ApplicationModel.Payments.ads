@@ -1878,11 +1878,9 @@ package Windows.ApplicationModel.Payments is
    ------------------------------------------------------------------------
    
    subtype PaymentMerchantInfo is Windows.ApplicationModel.Payments.IPaymentMerchantInfo;
-   
    function CreatePaymentMerchantInfo return Windows.ApplicationModel.Payments.IPaymentMerchantInfo;
    
    subtype PaymentDetails is Windows.ApplicationModel.Payments.IPaymentDetails;
-   
    function CreatePaymentDetails return Windows.ApplicationModel.Payments.IPaymentDetails;
    
    subtype PaymentMethodData is Windows.ApplicationModel.Payments.IPaymentMethodData;
@@ -1899,9 +1897,7 @@ package Windows.ApplicationModel.Payments is
    )
    return Windows.ApplicationModel.Payments.IPaymentMethodData;
    
-   
    subtype PaymentOptions is Windows.ApplicationModel.Payments.IPaymentOptions;
-   
    function CreatePaymentOptions return Windows.ApplicationModel.Payments.IPaymentOptions;
    
    subtype PaymentRequest is Windows.ApplicationModel.Payments.IPaymentRequest;
@@ -1914,7 +1910,6 @@ package Windows.ApplicationModel.Payments is
       ; id : Windows.String
    )
    return Windows.ApplicationModel.Payments.IPaymentRequest;
-   
    
    subtype PaymentToken is Windows.ApplicationModel.Payments.IPaymentToken;
    function Create
@@ -1929,7 +1924,6 @@ package Windows.ApplicationModel.Payments is
       ; jsonDetails : Windows.String
    )
    return Windows.ApplicationModel.Payments.IPaymentToken;
-   
    
    subtype PaymentShippingOption is Windows.ApplicationModel.Payments.IPaymentShippingOption;
    function Create
@@ -1956,9 +1950,7 @@ package Windows.ApplicationModel.Payments is
    )
    return Windows.ApplicationModel.Payments.IPaymentShippingOption;
    
-   
    subtype PaymentAddress is Windows.ApplicationModel.Payments.IPaymentAddress;
-   
    function CreatePaymentAddress return Windows.ApplicationModel.Payments.IPaymentAddress;
    
    subtype PaymentItem is Windows.ApplicationModel.Payments.IPaymentItem;
@@ -1968,7 +1960,6 @@ package Windows.ApplicationModel.Payments is
       ; amount : Windows.ApplicationModel.Payments.IPaymentCurrencyAmount
    )
    return Windows.ApplicationModel.Payments.IPaymentItem;
-   
    
    subtype PaymentDetailsModifier is Windows.ApplicationModel.Payments.IPaymentDetailsModifier;
    function Create
@@ -1995,7 +1986,6 @@ package Windows.ApplicationModel.Payments is
    )
    return Windows.ApplicationModel.Payments.IPaymentDetailsModifier;
    
-   
    subtype PaymentCurrencyAmount is Windows.ApplicationModel.Payments.IPaymentCurrencyAmount;
    function Create
    (
@@ -2012,7 +2002,6 @@ package Windows.ApplicationModel.Payments is
    )
    return Windows.ApplicationModel.Payments.IPaymentCurrencyAmount;
    
-   
    subtype PaymentRequestChangedResult is Windows.ApplicationModel.Payments.IPaymentRequestChangedResult;
    function Create
    (
@@ -2027,7 +2016,6 @@ package Windows.ApplicationModel.Payments is
    )
    return Windows.ApplicationModel.Payments.IPaymentRequestChangedResult;
    
-   
    subtype PaymentRequestChangedArgs is Windows.ApplicationModel.Payments.IPaymentRequestChangedArgs;
    subtype PaymentRequestSubmitResult is Windows.ApplicationModel.Payments.IPaymentRequestSubmitResult;
    subtype PaymentCanMakePaymentResult is Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult;
@@ -2037,10 +2025,8 @@ package Windows.ApplicationModel.Payments is
    )
    return Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult;
    
-   
    subtype PaymentResponse is Windows.ApplicationModel.Payments.IPaymentResponse;
    subtype PaymentMediator is Windows.ApplicationModel.Payments.IPaymentMediator;
-   
    function CreatePaymentMediator return Windows.ApplicationModel.Payments.IPaymentMediator;
    
    

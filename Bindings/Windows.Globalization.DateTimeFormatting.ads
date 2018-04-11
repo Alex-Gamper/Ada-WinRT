@@ -494,7 +494,6 @@ package Windows.Globalization.DateTimeFormatting is
    return Windows.Globalization.DateTimeFormatting.IDateTimeFormatter;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

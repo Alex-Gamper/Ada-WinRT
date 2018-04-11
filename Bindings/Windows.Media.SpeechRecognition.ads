@@ -1563,7 +1563,6 @@ package Windows.Media.SpeechRecognition is
    )
    return Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraint;
    
-   
    subtype SpeechRecognitionListConstraint is Windows.Media.SpeechRecognition.ISpeechRecognitionListConstraint;
    function Create
    (
@@ -1577,7 +1576,6 @@ package Windows.Media.SpeechRecognition is
       ; tag : Windows.String
    )
    return Windows.Media.SpeechRecognition.ISpeechRecognitionListConstraint;
-   
    
    subtype SpeechRecognitionGrammarFileConstraint is Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint;
    function Create
@@ -1593,7 +1591,6 @@ package Windows.Media.SpeechRecognition is
    )
    return Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraint;
    
-   
    subtype SpeechRecognizerTimeouts is Windows.Media.SpeechRecognition.ISpeechRecognizerTimeouts;
    subtype SpeechRecognizerUIOptions is Windows.Media.SpeechRecognition.ISpeechRecognizerUIOptions;
    subtype SpeechRecognitionCompilationResult is Windows.Media.SpeechRecognition.ISpeechRecognitionCompilationResult;
@@ -1603,7 +1600,6 @@ package Windows.Media.SpeechRecognition is
       language : Windows.Globalization.ILanguage
    )
    return Windows.Media.SpeechRecognition.ISpeechRecognizer;
-   
    
    subtype SpeechRecognitionQualityDegradingEventArgs is Windows.Media.SpeechRecognition.ISpeechRecognitionQualityDegradingEventArgs;
    subtype SpeechRecognizerStateChangedEventArgs is Windows.Media.SpeechRecognition.ISpeechRecognizerStateChangedEventArgs;

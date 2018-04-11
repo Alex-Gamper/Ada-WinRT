@@ -560,7 +560,6 @@ package Windows.UI.Xaml.Hosting is
    )
    return Windows.UI.Xaml.Hosting.IDesignerAppManager;
    
-   
    subtype DesignerAppView is Windows.UI.Xaml.Hosting.IDesignerAppView;
    subtype XamlUIPresenter is Windows.UI.Xaml.Hosting.IXamlUIPresenter;
    

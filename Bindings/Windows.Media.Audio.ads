@@ -2692,7 +2692,6 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IAudioGraphSettings;
    
-   
    subtype AudioDeviceInputNode is Windows.Media.Audio.IAudioDeviceInputNode;
    subtype CreateAudioDeviceInputNodeResult is Windows.Media.Audio.ICreateAudioDeviceInputNodeResult;
    subtype AudioDeviceOutputNode is Windows.Media.Audio.IAudioDeviceOutputNode;
@@ -2707,11 +2706,9 @@ package Windows.Media.Audio is
    subtype AudioFrameOutputNode is Windows.Media.Audio.IAudioFrameOutputNode;
    subtype AudioSubmixNode is Windows.Media.Audio.IAudioInputNode;
    subtype AudioNodeEmitter is Windows.Media.Audio.IAudioNodeEmitter;
-   
    function CreateAudioNodeEmitter return Windows.Media.Audio.IAudioNodeEmitter;
    
    subtype AudioNodeListener is Windows.Media.Audio.IAudioNodeListener;
-   
    function CreateAudioNodeListener return Windows.Media.Audio.IAudioNodeListener;
    
    subtype AudioGraphConnection is Windows.Media.Audio.IAudioGraphConnection;
@@ -2725,14 +2722,12 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IEqualizerEffectDefinition;
    
-   
    subtype ReverbEffectDefinition is Windows.Media.Audio.IReverbEffectDefinition;
    function Create
    (
       audioGraph : Windows.Media.Audio.IAudioGraph
    )
    return Windows.Media.Audio.IReverbEffectDefinition;
-   
    
    subtype EchoEffectDefinition is Windows.Media.Audio.IEchoEffectDefinition;
    function Create
@@ -2741,14 +2736,12 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IEchoEffectDefinition;
    
-   
    subtype LimiterEffectDefinition is Windows.Media.Audio.ILimiterEffectDefinition;
    function Create
    (
       audioGraph : Windows.Media.Audio.IAudioGraph
    )
    return Windows.Media.Audio.ILimiterEffectDefinition;
-   
    
    subtype AudioNodeEmitterConeProperties is Windows.Media.Audio.IAudioNodeEmitterConeProperties;
    subtype AudioNodeEmitterShape is Windows.Media.Audio.IAudioNodeEmitterShape;

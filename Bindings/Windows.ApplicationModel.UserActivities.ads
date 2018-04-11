@@ -470,7 +470,6 @@ package Windows.ApplicationModel.UserActivities is
    ------------------------------------------------------------------------
    
    subtype UserActivityAttribution is Windows.ApplicationModel.UserActivities.IUserActivityAttribution;
-   
    function CreateUserActivityAttribution return Windows.ApplicationModel.UserActivities.IUserActivityAttribution;
    
    subtype UserActivityContentInfo is Windows.ApplicationModel.UserActivities.IUserActivityContentInfo;

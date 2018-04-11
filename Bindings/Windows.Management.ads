@@ -398,7 +398,6 @@ package Windows.Management is
    ------------------------------------------------------------------------
    
    subtype MdmAlert is Windows.Management.IMdmAlert;
-   
    function CreateMdmAlert return Windows.Management.IMdmAlert;
    
    subtype MdmSession is Windows.Management.IMdmSession;

@@ -206,7 +206,6 @@ package Windows.System.Threading.Core is
    return Windows.System.Threading.Core.IPreallocatedWorkItem;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

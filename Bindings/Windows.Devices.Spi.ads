@@ -448,7 +448,6 @@ package Windows.Devices.Spi is
    )
    return Windows.Devices.Spi.ISpiConnectionSettings;
    
-   
    subtype SpiBusInfo is Windows.Devices.Spi.ISpiBusInfo;
    subtype SpiDevice is Windows.Devices.Spi.ISpiDevice;
    subtype SpiController is Windows.Devices.Spi.ISpiController;

@@ -1999,7 +1999,6 @@ package Windows.System.RemoteSystems is
    )
    return Windows.System.RemoteSystems.IRemoteSystemAuthorizationKindFilter;
    
-   
    subtype RemoteSystemAddedEventArgs is Windows.System.RemoteSystems.IRemoteSystemAddedEventArgs;
    subtype RemoteSystemUpdatedEventArgs is Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs;
    subtype RemoteSystemRemovedEventArgs is Windows.System.RemoteSystems.IRemoteSystemRemovedEventArgs;
@@ -2010,14 +2009,12 @@ package Windows.System.RemoteSystems is
    )
    return Windows.System.RemoteSystems.IRemoteSystemConnectionRequest;
    
-   
    subtype RemoteSystemKindFilter is Windows.System.RemoteSystems.IRemoteSystemKindFilter;
    function Create
    (
       remoteSystemKinds : Windows.Foundation.Collections.IIterable_String
    )
    return Windows.System.RemoteSystems.IRemoteSystemKindFilter;
-   
    
    subtype RemoteSystemDiscoveryTypeFilter is Windows.System.RemoteSystems.IRemoteSystemDiscoveryTypeFilter;
    function Create
@@ -2026,14 +2023,12 @@ package Windows.System.RemoteSystems is
    )
    return Windows.System.RemoteSystems.IRemoteSystemDiscoveryTypeFilter;
    
-   
    subtype RemoteSystemStatusTypeFilter is Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilter;
    function Create
    (
       remoteSystemStatusType : Windows.System.RemoteSystems.RemoteSystemStatusType
    )
    return Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilter;
-   
    
    subtype RemoteSystemSession is Windows.System.RemoteSystems.IRemoteSystemSession;
    subtype RemoteSystemSessionJoinResult is Windows.System.RemoteSystems.IRemoteSystemSessionJoinResult;
@@ -2045,7 +2040,6 @@ package Windows.System.RemoteSystems is
    subtype RemoteSystemSessionInvitation is Windows.System.RemoteSystems.IRemoteSystemSessionInvitation;
    subtype RemoteSystemSessionInvitationReceivedEventArgs is Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs;
    subtype RemoteSystemSessionInvitationListener is Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener;
-   
    function CreateRemoteSystemSessionInvitationListener return Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener;
    
    subtype RemoteSystemSessionParticipant is Windows.System.RemoteSystems.IRemoteSystemSessionParticipant;
@@ -2056,7 +2050,6 @@ package Windows.System.RemoteSystems is
    subtype RemoteSystemSessionJoinRequestedEventArgs is Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs;
    subtype RemoteSystemSessionCreationResult is Windows.System.RemoteSystems.IRemoteSystemSessionCreationResult;
    subtype RemoteSystemSessionOptions is Windows.System.RemoteSystems.IRemoteSystemSessionOptions;
-   
    function CreateRemoteSystemSessionOptions return Windows.System.RemoteSystems.IRemoteSystemSessionOptions;
    
    subtype RemoteSystemSessionController is Windows.System.RemoteSystems.IRemoteSystemSessionController;
@@ -2072,7 +2065,6 @@ package Windows.System.RemoteSystems is
       ; options : Windows.System.RemoteSystems.IRemoteSystemSessionOptions
    )
    return Windows.System.RemoteSystems.IRemoteSystemSessionController;
-   
    
    subtype RemoteSystemSessionDisconnectedEventArgs is Windows.System.RemoteSystems.IRemoteSystemSessionDisconnectedEventArgs;
    subtype RemoteSystemSessionValueSetReceivedEventArgs is Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs;
@@ -2091,7 +2083,6 @@ package Windows.System.RemoteSystems is
       ; reliability : Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability
    )
    return Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel;
-   
    
    
    ------------------------------------------------------------------------

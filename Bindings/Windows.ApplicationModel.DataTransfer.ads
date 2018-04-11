@@ -1969,16 +1969,13 @@ package Windows.ApplicationModel.DataTransfer is
    )
    return Windows.ApplicationModel.DataTransfer.IShareProvider;
    
-   
    subtype DataPackageView is Windows.ApplicationModel.DataTransfer.IDataPackageView;
    subtype ShareTargetInfo is Windows.ApplicationModel.DataTransfer.IShareTargetInfo;
    subtype ShareCompletedEventArgs is Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs;
    subtype DataPackage is Windows.ApplicationModel.DataTransfer.IDataPackage;
-   
    function CreateDataPackage return Windows.ApplicationModel.DataTransfer.IDataPackage;
    
    subtype ShareUIOptions is Windows.ApplicationModel.DataTransfer.IShareUIOptions;
-   
    function CreateShareUIOptions return Windows.ApplicationModel.DataTransfer.IShareUIOptions;
    
    subtype DataRequestDeferral is Windows.ApplicationModel.DataTransfer.IDataRequestDeferral;

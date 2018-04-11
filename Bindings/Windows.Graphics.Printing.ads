@@ -1630,7 +1630,6 @@ package Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    
    subtype PrintPageInfo is Windows.Graphics.Printing.IPrintPageInfo;
-   
    function CreatePrintPageInfo return Windows.Graphics.Printing.IPrintPageInfo;
    
    subtype PrintTaskOptions is Windows.Graphics.Printing.IPrintTaskOptionsCore;

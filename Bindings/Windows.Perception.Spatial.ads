@@ -1436,7 +1436,6 @@ package Windows.Perception.Spatial is
    )
    return Windows.Perception.Spatial.ISpatialEntity;
    
-   
    subtype SpatialEntityAddedEventArgs is Windows.Perception.Spatial.ISpatialEntityAddedEventArgs;
    subtype SpatialEntityUpdatedEventArgs is Windows.Perception.Spatial.ISpatialEntityUpdatedEventArgs;
    subtype SpatialEntityRemovedEventArgs is Windows.Perception.Spatial.ISpatialEntityRemovedEventArgs;

@@ -718,7 +718,6 @@ package Windows.Devices.Perception.Provider is
    ------------------------------------------------------------------------
    
    subtype PerceptionFrameProviderInfo is Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo;
-   
    function CreatePerceptionFrameProviderInfo return Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo;
    
    subtype PerceptionPropertyChangeRequest is Windows.Devices.Perception.Provider.IPerceptionPropertyChangeRequest;
@@ -731,7 +730,6 @@ package Windows.Devices.Perception.Provider is
    )
    return Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup;
    
-   
    subtype PerceptionControlGroup is Windows.Devices.Perception.Provider.IPerceptionControlGroup;
    function Create
    (
@@ -739,14 +737,12 @@ package Windows.Devices.Perception.Provider is
    )
    return Windows.Devices.Perception.Provider.IPerceptionControlGroup;
    
-   
    subtype PerceptionCorrelationGroup is Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup;
    function Create
    (
       relativeLocations : Windows.Devices.Perception.Provider.IIterable_IPerceptionCorrelation
    )
    return Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup;
-   
    
    subtype PerceptionFrame is Windows.Devices.Perception.Provider.IPerceptionFrame;
    subtype PerceptionCorrelation is Windows.Devices.Perception.Provider.IPerceptionCorrelation;
@@ -758,7 +754,6 @@ package Windows.Devices.Perception.Provider is
    )
    return Windows.Devices.Perception.Provider.IPerceptionCorrelation;
    
-   
    subtype PerceptionVideoFrameAllocator is Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocator;
    function Create
    (
@@ -768,7 +763,6 @@ package Windows.Devices.Perception.Provider is
       ; alpha : Windows.Graphics.Imaging.BitmapAlphaMode
    )
    return Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocator;
-   
    
    
    ------------------------------------------------------------------------

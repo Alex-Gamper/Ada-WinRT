@@ -404,7 +404,6 @@ package Windows.UI.Xaml.Interop is
    
    subtype NotifyCollectionChangedEventArgs is Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs;
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

@@ -840,7 +840,6 @@ package Windows.Media.Protection is
    ------------------------------------------------------------------------
    
    subtype MediaProtectionManager is Windows.Media.Protection.IMediaProtectionManager;
-   
    function CreateMediaProtectionManager return Windows.Media.Protection.IMediaProtectionManager;
    
    subtype ServiceRequestedEventArgs is Windows.Media.Protection.IServiceRequestedEventArgs;
@@ -855,13 +854,10 @@ package Windows.Media.Protection is
    )
    return Windows.Media.Protection.IMediaProtectionPMPServer;
    
-   
    subtype ProtectionCapabilities is Windows.Media.Protection.IProtectionCapabilities;
-   
    function CreateProtectionCapabilities return Windows.Media.Protection.IProtectionCapabilities;
    
    subtype HdcpSession is Windows.Media.Protection.IHdcpSession;
-   
    function CreateHdcpSession return Windows.Media.Protection.IHdcpSession;
    
    

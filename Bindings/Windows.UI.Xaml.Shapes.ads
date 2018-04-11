@@ -685,7 +685,6 @@ package Windows.UI.Xaml.Shapes is
       m_Inner    : aliased IShape := null;
       m_IShape : IShape := null;
    end record;
-   
    type IShape_Impl is access all IShape_Interface_Impl'Class;
    type IShape_Impl_Ptr is access all IShape_Impl;
    
@@ -892,13 +891,10 @@ package Windows.UI.Xaml.Shapes is
    )
    return Windows.HRESULT;
    
-   
    subtype Ellipse is Windows.UI.Xaml.Shapes.IEllipse;
-   
    function CreateEllipse return Windows.UI.Xaml.Shapes.IEllipse;
    
    subtype Line is Windows.UI.Xaml.Shapes.ILine;
-   
    function CreateLine return Windows.UI.Xaml.Shapes.ILine;
    
    subtype Path is Windows.UI.Xaml.Shapes.IPath;
@@ -909,7 +905,6 @@ package Windows.UI.Xaml.Shapes is
       m_Inner    : aliased IPath := null;
       m_IPath : IPath := null;
    end record;
-   
    type IPath_Impl is access all IPath_Interface_Impl'Class;
    type IPath_Impl_Ptr is access all IPath_Impl;
    
@@ -969,17 +964,13 @@ package Windows.UI.Xaml.Shapes is
    )
    return Windows.HRESULT;
    
-   
    subtype Polygon is Windows.UI.Xaml.Shapes.IPolygon;
-   
    function CreatePolygon return Windows.UI.Xaml.Shapes.IPolygon;
    
    subtype Polyline is Windows.UI.Xaml.Shapes.IPolyline;
-   
    function CreatePolyline return Windows.UI.Xaml.Shapes.IPolyline;
    
    subtype Rectangle is Windows.UI.Xaml.Shapes.IRectangle;
-   
    function CreateRectangle return Windows.UI.Xaml.Shapes.IRectangle;
    
    

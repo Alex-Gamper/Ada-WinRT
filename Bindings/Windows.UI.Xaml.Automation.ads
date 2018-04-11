@@ -2615,7 +2615,6 @@ package Windows.UI.Xaml.Automation is
    return Windows.UI.Xaml.Automation.IAutomationAnnotation;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

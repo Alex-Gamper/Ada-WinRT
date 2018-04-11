@@ -1395,13 +1395,10 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpRequestMessage;
    
-   
    subtype HttpResponseMessage is Windows.Web.Http.IHttpResponseMessage;
-   
    function CreateHttpResponseMessage return Windows.Web.Http.IHttpResponseMessage;
    
    subtype HttpClient is Windows.Web.Http.IHttpClient;
-   
    function CreateHttpClient return Windows.Web.Http.IHttpClient;
    
    subtype HttpCookie is Windows.Web.Http.IHttpCookie;
@@ -1413,7 +1410,6 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpCookie;
    
-   
    subtype HttpCookieCollection is Windows.Web.Http.IVectorView_HttpCookie;
    subtype HttpMethod is Windows.Web.Http.IHttpMethod;
    function Create
@@ -1421,7 +1417,6 @@ package Windows.Web.Http is
       method : Windows.String
    )
    return Windows.Web.Http.IHttpMethod;
-   
    
    subtype HttpTransportInformation is Windows.Web.Http.IHttpTransportInformation;
    subtype HttpStringContent is Windows.Web.Http.IHttpContent;
@@ -1446,7 +1441,6 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpContent;
    
-   
    subtype HttpBufferContent is Windows.Web.Http.IHttpContent;
    function CreateFromBuffer
    (
@@ -1462,7 +1456,6 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpContent;
    
-   
    subtype HttpStreamContent is Windows.Web.Http.IHttpContent;
    function CreateFromInputStream
    (
@@ -1470,14 +1463,12 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpContent;
    
-   
    subtype HttpFormUrlEncodedContent is Windows.Web.Http.IHttpContent;
    function Create
    (
       content : Windows.Address
    )
    return Windows.Web.Http.IHttpContent;
-   
    
    subtype HttpMultipartContent is Windows.Web.Http.IHttpContent;
    function CreateWithSubtype
@@ -1493,14 +1484,12 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpContent;
    
-   
    subtype HttpMultipartFormDataContent is Windows.Web.Http.IHttpContent;
    function CreateWithBoundary
    (
       boundary : Windows.String
    )
    return Windows.Web.Http.IHttpContent;
-   
    
    subtype HttpCookieManager is Windows.Web.Http.IHttpCookieManager;
    

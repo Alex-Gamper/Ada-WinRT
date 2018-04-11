@@ -9142,7 +9142,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IDispatcherTimer := null;
       m_IDispatcherTimer : IDispatcherTimer := null;
    end record;
-   
    type IDispatcherTimer_Impl is access all IDispatcherTimer_Interface_Impl'Class;
    type IDispatcherTimer_Impl_Ptr is access all IDispatcherTimer_Impl;
    
@@ -9236,7 +9235,6 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype CornerRadiusHelper is Windows.UI.Xaml.ICornerRadiusHelper;
    subtype DurationHelper is Windows.UI.Xaml.IDurationHelper;
    subtype ThicknessHelper is Windows.UI.Xaml.IThicknessHelper;
@@ -9249,7 +9247,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IDependencyObject := null;
       m_IDependencyObject : IDependencyObject := null;
    end record;
-   
    type IDependencyObject_Impl is access all IDependencyObject_Interface_Impl'Class;
    type IDependencyObject_Impl_Ptr is access all IDependencyObject_Impl;
    
@@ -9341,7 +9338,6 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype DependencyProperty is Windows.UI.Xaml.IDependencyProperty;
    subtype DependencyPropertyChangedEventArgs is Windows.UI.Xaml.IDependencyPropertyChangedEventArgs;
    subtype RoutedEventArgs is Windows.UI.Xaml.IRoutedEventArgs;
@@ -9352,7 +9348,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IRoutedEventArgs := null;
       m_IRoutedEventArgs : IRoutedEventArgs := null;
    end record;
-   
    type IRoutedEventArgs_Impl is access all IRoutedEventArgs_Interface_Impl'Class;
    type IRoutedEventArgs_Impl_Ptr is access all IRoutedEventArgs_Impl;
    
@@ -9405,14 +9400,11 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype UnhandledExceptionEventArgs is Windows.UI.Xaml.IUnhandledExceptionEventArgs;
    subtype VisualStateChangedEventArgs is Windows.UI.Xaml.IVisualStateChangedEventArgs;
-   
    function CreateVisualStateChangedEventArgs return Windows.UI.Xaml.IVisualStateChangedEventArgs;
    
    subtype BringIntoViewOptions is Windows.UI.Xaml.IBringIntoViewOptions;
-   
    function CreateBringIntoViewOptions return Windows.UI.Xaml.IBringIntoViewOptions;
    
    subtype DataContextChangedEventArgs is Windows.UI.Xaml.IDataContextChangedEventArgs;
@@ -9424,7 +9416,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IDataTemplateKey := null;
       m_IDataTemplateKey : IDataTemplateKey := null;
    end record;
-   
    type IDataTemplateKey_Impl is access all IDataTemplateKey_Interface_Impl'Class;
    type IDataTemplateKey_Impl_Ptr is access all IDataTemplateKey_Impl;
    
@@ -9484,37 +9475,29 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype PropertyMetadata is Windows.UI.Xaml.IPropertyMetadata;
-   
    subtype DragOperationDeferral is Windows.UI.Xaml.IDragOperationDeferral;
    subtype DragUI is Windows.UI.Xaml.IDragUI;
    subtype DragUIOverride is Windows.UI.Xaml.IDragUIOverride;
    subtype FrameworkView is Windows.UI.Xaml.IFrameworkView;
-   
    function CreateFrameworkView return Windows.UI.Xaml.IFrameworkView;
    
    subtype RoutedEvent is Windows.UI.Xaml.IRoutedEvent;
    subtype SetterBaseCollection is Windows.UI.Xaml.ISetterBaseCollection;
-   
    function CreateSetterBaseCollection return Windows.UI.Xaml.ISetterBaseCollection;
    
    subtype TargetPropertyPath is Windows.UI.Xaml.ITargetPropertyPath;
-   
    function CreateTargetPropertyPath return Windows.UI.Xaml.ITargetPropertyPath;
    
    subtype TriggerActionCollection is Windows.UI.Xaml.IVector_TriggerAction;
-   
    function CreateTriggerActionCollection return Windows.UI.Xaml.IVector_TriggerAction;
    
    subtype TriggerCollection is Windows.UI.Xaml.IVector_TriggerBase;
    subtype DependencyObjectCollection is Windows.UI.Xaml.IObservableVector_DependencyObject;
-   
    subtype DragEventArgs is Windows.UI.Xaml.IDragEventArgs;
    subtype DragStartingEventArgs is Windows.UI.Xaml.IDragStartingEventArgs;
    subtype DropCompletedEventArgs is Windows.UI.Xaml.IDropCompletedEventArgs;
    subtype ExceptionRoutedEventArgs is Windows.UI.Xaml.IExceptionRoutedEventArgs;
-   
    subtype FrameworkTemplate is Windows.UI.Xaml.IFrameworkTemplate;
    
    type IFrameworkTemplate_Interface_Impl is new IFrameworkTemplate_Interface with record
@@ -9523,7 +9506,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IFrameworkTemplate := null;
       m_IFrameworkTemplate : IFrameworkTemplate := null;
    end record;
-   
    type IFrameworkTemplate_Impl is access all IFrameworkTemplate_Interface_Impl'Class;
    type IFrameworkTemplate_Impl_Ptr is access all IFrameworkTemplate_Impl;
    
@@ -9569,7 +9551,6 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype DataTemplate is Windows.UI.Xaml.IDataTemplate;
    
    type IDataTemplate_Interface_Impl is new IDataTemplate_Interface with record
@@ -9578,7 +9559,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IDataTemplate := null;
       m_IDataTemplate : IDataTemplate := null;
    end record;
-   
    type IDataTemplate_Impl is access all IDataTemplate_Interface_Impl'Class;
    type IDataTemplate_Impl_Ptr is access all IDataTemplate_Impl;
    
@@ -9631,14 +9611,12 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype PropertyPath is Windows.UI.Xaml.IPropertyPath;
    function CreateInstance
    (
       path : Windows.String
    )
    return Windows.UI.Xaml.IPropertyPath;
-   
    
    subtype ResourceDictionary is Windows.UI.Xaml.IResourceDictionary;
    
@@ -9648,7 +9626,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IResourceDictionary := null;
       m_IResourceDictionary : IResourceDictionary := null;
    end record;
-   
    type IResourceDictionary_Impl is access all IResourceDictionary_Interface_Impl'Class;
    type IResourceDictionary_Impl_Ptr is access all IResourceDictionary_Impl;
    
@@ -9722,9 +9699,7 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype SetterBase is Windows.UI.Xaml.ISetterBase;
-   
    subtype SizeChangedEventArgs is Windows.UI.Xaml.ISizeChangedEventArgs;
    subtype StateTriggerBase is Windows.UI.Xaml.IStateTriggerBase;
    
@@ -9734,7 +9709,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IStateTriggerBase := null;
       m_IStateTriggerBase : IStateTriggerBase := null;
    end record;
-   
    type IStateTriggerBase_Impl is access all IStateTriggerBase_Interface_Impl'Class;
    type IStateTriggerBase_Impl_Ptr is access all IStateTriggerBase_Impl;
    
@@ -9780,7 +9754,6 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype Style is Windows.UI.Xaml.IStyle;
    function CreateInstance
    (
@@ -9788,19 +9761,13 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IStyle;
    
-   
    subtype TriggerAction is Windows.UI.Xaml.ITriggerAction;
-   
    subtype TriggerBase is Windows.UI.Xaml.ITriggerBase;
-   
    subtype UIElement is Windows.UI.Xaml.IUIElement;
-   
    subtype VisualState is Windows.UI.Xaml.IVisualState;
-   
    function CreateVisualState return Windows.UI.Xaml.IVisualState;
    
    subtype VisualStateGroup is Windows.UI.Xaml.IVisualStateGroup;
-   
    function CreateVisualStateGroup return Windows.UI.Xaml.IVisualStateGroup;
    
    subtype VisualTransition is Windows.UI.Xaml.IVisualTransition;
@@ -9811,7 +9778,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IVisualTransition := null;
       m_IVisualTransition : IVisualTransition := null;
    end record;
-   
    type IVisualTransition_Impl is access all IVisualTransition_Interface_Impl'Class;
    type IVisualTransition_Impl_Ptr is access all IVisualTransition_Impl;
    
@@ -9927,7 +9893,6 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype AdaptiveTrigger is Windows.UI.Xaml.IAdaptiveTrigger;
    
    type IAdaptiveTrigger_Interface_Impl is new IAdaptiveTrigger_Interface with record
@@ -9936,7 +9901,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IAdaptiveTrigger := null;
       m_IAdaptiveTrigger : IAdaptiveTrigger := null;
    end record;
-   
    type IAdaptiveTrigger_Impl is access all IAdaptiveTrigger_Interface_Impl'Class;
    type IAdaptiveTrigger_Impl_Ptr is access all IAdaptiveTrigger_Impl;
    
@@ -10010,9 +9974,7 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype EventTrigger is Windows.UI.Xaml.IEventTrigger;
-   
    function CreateEventTrigger return Windows.UI.Xaml.IEventTrigger;
    
    subtype FrameworkElement is Windows.UI.Xaml.IFrameworkElement;
@@ -10023,7 +9985,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IFrameworkElementOverrides := null;
       m_IFrameworkElement : IFrameworkElement := null;
    end record;
-   
    type IFrameworkElementOverrides_Impl is access all IFrameworkElementOverrides_Interface_Impl'Class;
    type IFrameworkElementOverrides_Impl_Ptr is access all IFrameworkElementOverrides_Impl;
    
@@ -10098,7 +10059,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IFrameworkElementOverrides2 := null;
       m_IFrameworkElement : IFrameworkElement := null;
    end record;
-   
    type IFrameworkElementOverrides2_Impl is access all IFrameworkElementOverrides2_Interface_Impl'Class;
    type IFrameworkElementOverrides2_Impl_Ptr is access all IFrameworkElementOverrides2_Impl;
    
@@ -10160,7 +10120,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IFrameworkElement := null;
       m_IFrameworkElement : IFrameworkElement := null;
    end record;
-   
    type IFrameworkElement_Impl is access all IFrameworkElement_Interface_Impl'Class;
    type IFrameworkElement_Impl_Ptr is access all IFrameworkElement_Impl;
    
@@ -10541,14 +10500,11 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype MediaFailedRoutedEventArgs is Windows.UI.Xaml.IMediaFailedRoutedEventArgs;
    subtype Setter is Windows.UI.Xaml.ISetter;
-   
    function CreateSetter return Windows.UI.Xaml.ISetter;
    
    subtype StateTrigger is Windows.UI.Xaml.IStateTrigger;
-   
    function CreateStateTrigger return Windows.UI.Xaml.IStateTrigger;
    
    subtype GridLengthHelper is Windows.UI.Xaml.IGridLengthHelper;
@@ -10564,7 +10520,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IApplicationOverrides := null;
       m_IApplication : IApplication := null;
    end record;
-   
    type IApplicationOverrides_Impl is access all IApplicationOverrides_Interface_Impl'Class;
    type IApplicationOverrides_Impl_Ptr is access all IApplicationOverrides_Impl;
    
@@ -10680,7 +10635,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IApplicationOverrides2 := null;
       m_IApplication : IApplication := null;
    end record;
-   
    type IApplicationOverrides2_Impl is access all IApplicationOverrides2_Interface_Impl'Class;
    type IApplicationOverrides2_Impl_Ptr is access all IApplicationOverrides2_Impl;
    
@@ -10740,7 +10694,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IApplication := null;
       m_IApplication : IApplication := null;
    end record;
-   
    type IApplication_Impl is access all IApplication_Interface_Impl'Class;
    type IApplication_Impl_Ptr is access all IApplication_Impl;
    
@@ -10872,9 +10825,7 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
-   
    subtype FrameworkViewSource is Windows.UI.Xaml.IFrameworkViewSource;
-   
    function CreateFrameworkViewSource return Windows.UI.Xaml.IFrameworkViewSource;
    
    subtype PointHelper is Windows.UI.Xaml.IPointHelper;
@@ -10889,7 +10840,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IVisualStateManagerOverrides := null;
       m_IVisualStateManager : IVisualStateManager := null;
    end record;
-   
    type IVisualStateManagerOverrides_Impl is access all IVisualStateManagerOverrides_Interface_Impl'Class;
    type IVisualStateManagerOverrides_Impl_Ptr is access all IVisualStateManagerOverrides_Impl;
    
@@ -10955,7 +10905,6 @@ package Windows.UI.Xaml is
       m_Inner    : aliased IVisualStateManager := null;
       m_IVisualStateManager : IVisualStateManager := null;
    end record;
-   
    type IVisualStateManager_Impl is access all IVisualStateManager_Interface_Impl'Class;
    type IVisualStateManager_Impl_Ptr is access all IVisualStateManager_Impl;
    
@@ -11000,7 +10949,6 @@ package Windows.UI.Xaml is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    
    ------------------------------------------------------------------------

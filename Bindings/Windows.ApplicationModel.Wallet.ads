@@ -1151,13 +1151,10 @@ package Windows.ApplicationModel.Wallet is
    )
    return Windows.ApplicationModel.Wallet.IWalletBarcode;
    
-   
    subtype WalletTransaction is Windows.ApplicationModel.Wallet.IWalletTransaction;
-   
    function CreateWalletTransaction return Windows.ApplicationModel.Wallet.IWalletTransaction;
    
    subtype WalletRelevantLocation is Windows.ApplicationModel.Wallet.IWalletRelevantLocation;
-   
    function CreateWalletRelevantLocation return Windows.ApplicationModel.Wallet.IWalletRelevantLocation;
    
    subtype WalletItemCustomProperty is Windows.ApplicationModel.Wallet.IWalletItemCustomProperty;
@@ -1168,14 +1165,12 @@ package Windows.ApplicationModel.Wallet is
    )
    return Windows.ApplicationModel.Wallet.IWalletItemCustomProperty;
    
-   
    subtype WalletVerb is Windows.ApplicationModel.Wallet.IWalletVerb;
    function CreateWalletVerb
    (
       name : Windows.String
    )
    return Windows.ApplicationModel.Wallet.IWalletVerb;
-   
    
    subtype WalletItem is Windows.ApplicationModel.Wallet.IWalletItem;
    function CreateWalletItem
@@ -1184,7 +1179,6 @@ package Windows.ApplicationModel.Wallet is
       ; displayName : Windows.String
    )
    return Windows.ApplicationModel.Wallet.IWalletItem;
-   
    
    subtype WalletItemStore is Windows.ApplicationModel.Wallet.IWalletItemStore;
    

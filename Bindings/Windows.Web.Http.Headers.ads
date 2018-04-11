@@ -4037,7 +4037,6 @@ package Windows.Web.Http.Headers is
    ------------------------------------------------------------------------
    
    subtype HttpContentHeaderCollection is Windows.Web.Http.Headers.IHttpContentHeaderCollection;
-   
    function CreateHttpContentHeaderCollection return Windows.Web.Http.Headers.IHttpContentHeaderCollection;
    
    subtype HttpRequestHeaderCollection is Windows.Web.Http.Headers.IHttpRequestHeaderCollection;
@@ -4048,7 +4047,6 @@ package Windows.Web.Http.Headers is
       dispositionType : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpContentDispositionHeaderValue;
-   
    
    subtype HttpContentCodingHeaderValueCollection is Windows.Web.Http.Headers.IHttpContentCodingHeaderValueCollection;
    subtype HttpLanguageHeaderValueCollection is Windows.Web.Http.Headers.IHttpLanguageHeaderValueCollection;
@@ -4074,14 +4072,12 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpContentRangeHeaderValue;
    
-   
    subtype HttpMediaTypeHeaderValue is Windows.Web.Http.Headers.IHttpMediaTypeHeaderValue;
    function Create
    (
       mediaType : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpMediaTypeHeaderValue;
-   
    
    subtype HttpMediaTypeWithQualityHeaderValueCollection is Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValueCollection;
    subtype HttpContentCodingWithQualityHeaderValueCollection is Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValueCollection;
@@ -4099,7 +4095,6 @@ package Windows.Web.Http.Headers is
       ; token : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpCredentialsHeaderValue;
-   
    
    subtype HttpCacheDirectiveHeaderValueCollection is Windows.Web.Http.Headers.IHttpCacheDirectiveHeaderValueCollection;
    subtype HttpConnectionOptionHeaderValueCollection is Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValueCollection;
@@ -4124,7 +4119,6 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpNameValueHeaderValue;
    
-   
    subtype HttpChallengeHeaderValue is Windows.Web.Http.Headers.IHttpChallengeHeaderValue;
    function CreateFromScheme
    (
@@ -4139,7 +4133,6 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpChallengeHeaderValue;
    
-   
    subtype HttpConnectionOptionHeaderValue is Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue;
    function Create
    (
@@ -4147,14 +4140,12 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue;
    
-   
    subtype HttpContentCodingHeaderValue is Windows.Web.Http.Headers.IHttpContentCodingHeaderValue;
    function Create
    (
       contentCoding : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpContentCodingHeaderValue;
-   
    
    subtype HttpCookiePairHeaderValue is Windows.Web.Http.Headers.IHttpCookiePairHeaderValue;
    function CreateFromName
@@ -4170,7 +4161,6 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpCookiePairHeaderValue;
    
-   
    subtype HttpExpectationHeaderValue is Windows.Web.Http.Headers.IHttpExpectationHeaderValue;
    function CreateFromName
    (
@@ -4184,7 +4174,6 @@ package Windows.Web.Http.Headers is
       ; value : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpExpectationHeaderValue;
-   
    
    subtype HttpLanguageRangeWithQualityHeaderValue is Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue;
    function CreateFromLanguageRange
@@ -4200,7 +4189,6 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue;
    
-   
    subtype HttpMediaTypeWithQualityHeaderValue is Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue;
    function CreateFromMediaType
    (
@@ -4214,7 +4202,6 @@ package Windows.Web.Http.Headers is
       ; quality : Windows.Double
    )
    return Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue;
-   
    
    subtype HttpProductHeaderValue is Windows.Web.Http.Headers.IHttpProductHeaderValue;
    function CreateFromName
@@ -4230,7 +4217,6 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpProductHeaderValue;
    
-   
    subtype HttpProductInfoHeaderValue is Windows.Web.Http.Headers.IHttpProductInfoHeaderValue;
    function CreateFromComment
    (
@@ -4244,7 +4230,6 @@ package Windows.Web.Http.Headers is
       ; productVersion : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpProductInfoHeaderValue;
-   
    
    subtype HttpContentCodingWithQualityHeaderValue is Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue;
    function CreateFromValue
@@ -4260,14 +4245,12 @@ package Windows.Web.Http.Headers is
    )
    return Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue;
    
-   
    subtype HttpTransferCodingHeaderValue is Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue;
    function Create
    (
       input : Windows.String
    )
    return Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue;
-   
    
    
    ------------------------------------------------------------------------

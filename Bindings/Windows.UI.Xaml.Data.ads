@@ -1286,7 +1286,6 @@ package Windows.UI.Xaml.Data is
       m_Inner    : aliased ICurrentChangingEventArgs := null;
       m_ICurrentChangingEventArgs : ICurrentChangingEventArgs := null;
    end record;
-   
    type ICurrentChangingEventArgs_Impl is access all ICurrentChangingEventArgs_Interface_Impl'Class;
    type ICurrentChangingEventArgs_Impl_Ptr is access all ICurrentChangingEventArgs_Impl;
    
@@ -1353,7 +1352,6 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    subtype PropertyChangedEventArgs is Windows.UI.Xaml.Data.IPropertyChangedEventArgs;
    
    type IPropertyChangedEventArgs_Interface_Impl is new IPropertyChangedEventArgs_Interface with record
@@ -1362,7 +1360,6 @@ package Windows.UI.Xaml.Data is
       m_Inner    : aliased IPropertyChangedEventArgs := null;
       m_IPropertyChangedEventArgs : IPropertyChangedEventArgs := null;
    end record;
-   
    type IPropertyChangedEventArgs_Impl is access all IPropertyChangedEventArgs_Interface_Impl'Class;
    type IPropertyChangedEventArgs_Impl_Ptr is access all IPropertyChangedEventArgs_Impl;
    
@@ -1415,9 +1412,7 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    subtype BindingExpressionBase is Windows.UI.Xaml.Data.IBindingExpressionBase;
-   
    subtype BindingOperations is Windows.UI.Xaml.Data.IBindingOperations;
    subtype BindingBase is Windows.UI.Xaml.Data.IBindingBase;
    
@@ -1427,7 +1422,6 @@ package Windows.UI.Xaml.Data is
       m_Inner    : aliased IBindingBase := null;
       m_IBindingBase : IBindingBase := null;
    end record;
-   
    type IBindingBase_Impl is access all IBindingBase_Interface_Impl'Class;
    type IBindingBase_Impl_Ptr is access all IBindingBase_Impl;
    
@@ -1473,9 +1467,7 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    subtype BindingExpression is Windows.UI.Xaml.Data.IBindingExpression;
-   
    subtype RelativeSource is Windows.UI.Xaml.Data.IRelativeSource;
    
    type IRelativeSource_Interface_Impl is new IRelativeSource_Interface with record
@@ -1484,7 +1476,6 @@ package Windows.UI.Xaml.Data is
       m_Inner    : aliased IRelativeSource := null;
       m_IRelativeSource : IRelativeSource := null;
    end record;
-   
    type IRelativeSource_Impl is access all IRelativeSource_Interface_Impl'Class;
    type IRelativeSource_Impl_Ptr is access all IRelativeSource_Impl;
    
@@ -1544,7 +1535,6 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    subtype Binding is Windows.UI.Xaml.Data.IBinding;
    
    type IBinding_Interface_Impl is new IBinding_Interface with record
@@ -1553,7 +1543,6 @@ package Windows.UI.Xaml.Data is
       m_Inner    : aliased IBinding := null;
       m_IBinding : IBinding := null;
    end record;
-   
    type IBinding_Impl is access all IBinding_Interface_Impl'Class;
    type IBinding_Impl_Ptr is access all IBinding_Impl;
    
@@ -1711,7 +1700,6 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    subtype ItemIndexRange is Windows.UI.Xaml.Data.IItemIndexRange;
    
    type IItemIndexRange_Interface_Impl is new IItemIndexRange_Interface with record
@@ -1720,7 +1708,6 @@ package Windows.UI.Xaml.Data is
       m_Inner    : aliased IItemIndexRange := null;
       m_IItemIndexRange : IItemIndexRange := null;
    end record;
-   
    type IItemIndexRange_Impl is access all IItemIndexRange_Interface_Impl'Class;
    type IItemIndexRange_Impl_Ptr is access all IItemIndexRange_Impl;
    
@@ -1787,9 +1774,7 @@ package Windows.UI.Xaml.Data is
    )
    return Windows.HRESULT;
    
-   
    subtype CollectionViewSource is Windows.UI.Xaml.Data.ICollectionViewSource;
-   
    function CreateCollectionViewSource return Windows.UI.Xaml.Data.ICollectionViewSource;
    
    

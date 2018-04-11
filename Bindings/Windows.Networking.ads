@@ -552,7 +552,6 @@ package Windows.Networking is
    )
    return Windows.Networking.IHostName;
    
-   
    subtype EndpointPair is Windows.Networking.IEndpointPair;
    function CreateEndpointPair
    (
@@ -562,7 +561,6 @@ package Windows.Networking is
       ; remoteServiceName : Windows.String
    )
    return Windows.Networking.IEndpointPair;
-   
    
    
    ------------------------------------------------------------------------

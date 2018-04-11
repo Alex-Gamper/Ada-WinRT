@@ -4262,7 +4262,6 @@ package Windows.Media.Devices is
    )
    return Windows.Media.Devices.IAudioDeviceModulesManager;
    
-   
    subtype AudioDeviceModuleNotificationEventArgs is Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs;
    subtype AudioDeviceModule is Windows.Media.Devices.IAudioDeviceModule;
    subtype SceneModeControl is Windows.Media.Devices.ISceneModeControl;
@@ -4273,24 +4272,20 @@ package Windows.Media.Devices is
    subtype WhiteBalanceControl is Windows.Media.Devices.IWhiteBalanceControl;
    subtype ExposureControl is Windows.Media.Devices.IExposureControl;
    subtype ZoomSettings is Windows.Media.Devices.IZoomSettings;
-   
    function CreateZoomSettings return Windows.Media.Devices.IZoomSettings;
    
    subtype ZoomControl is Windows.Media.Devices.IZoomControl;
    subtype FocusSettings is Windows.Media.Devices.IFocusSettings;
-   
    function CreateFocusSettings return Windows.Media.Devices.IFocusSettings;
    
    subtype FocusControl is Windows.Media.Devices.IFocusControl;
    subtype RegionOfInterest is Windows.Media.Devices.IRegionOfInterest;
-   
    function CreateRegionOfInterest return Windows.Media.Devices.IRegionOfInterest;
    
    subtype RegionsOfInterestControl is Windows.Media.Devices.IRegionsOfInterestControl;
    subtype ExposurePriorityVideoControl is Windows.Media.Devices.IExposurePriorityVideoControl;
    subtype HdrVideoControl is Windows.Media.Devices.IHdrVideoControl;
    subtype AdvancedPhotoCaptureSettings is Windows.Media.Devices.IAdvancedPhotoCaptureSettings;
-   
    function CreateAdvancedPhotoCaptureSettings return Windows.Media.Devices.IAdvancedPhotoCaptureSettings;
    
    subtype AdvancedPhotoControl is Windows.Media.Devices.IAdvancedPhotoControl;

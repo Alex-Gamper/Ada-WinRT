@@ -5287,7 +5287,6 @@ package Windows.ApplicationModel.Email is
    ------------------------------------------------------------------------
    
    subtype EmailMessage is Windows.ApplicationModel.Email.IEmailMessage;
-   
    function CreateEmailMessage return Windows.ApplicationModel.Email.IEmailMessage;
    
    subtype EmailStore is Windows.ApplicationModel.Email.IEmailStore;
@@ -5295,7 +5294,6 @@ package Windows.ApplicationModel.Email is
    subtype EmailMailbox is Windows.ApplicationModel.Email.IEmailMailbox;
    subtype EmailConversationReader is Windows.ApplicationModel.Email.IEmailConversationReader;
    subtype EmailQueryOptions is Windows.ApplicationModel.Email.IEmailQueryOptions;
-   
    function CreateEmailQueryOptions return Windows.ApplicationModel.Email.IEmailQueryOptions;
    
    subtype EmailMessageReader is Windows.ApplicationModel.Email.IEmailMessageReader;
@@ -5315,9 +5313,7 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.ApplicationModel.Email.IEmailRecipient;
    
-   
    subtype EmailIrmTemplate is Windows.ApplicationModel.Email.IEmailIrmTemplate;
-   
    function CreateEmailIrmTemplate return Windows.ApplicationModel.Email.IEmailIrmTemplate;
    
    subtype EmailIrmInfo is Windows.ApplicationModel.Email.IEmailIrmInfo;
@@ -5328,7 +5324,6 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.ApplicationModel.Email.IEmailIrmInfo;
    
-   
    subtype EmailAttachment is Windows.ApplicationModel.Email.IEmailAttachment;
    function Create
    (
@@ -5338,9 +5333,7 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.ApplicationModel.Email.IEmailAttachment;
    
-   
    subtype EmailMeetingInfo is Windows.ApplicationModel.Email.IEmailMeetingInfo;
-   
    function CreateEmailMeetingInfo return Windows.ApplicationModel.Email.IEmailMeetingInfo;
    
    subtype EmailMailboxChangedDeferral is Windows.ApplicationModel.Email.IEmailMailboxChangedDeferral;
@@ -5350,11 +5343,9 @@ package Windows.ApplicationModel.Email is
    subtype EmailMailboxSyncManager is Windows.ApplicationModel.Email.IEmailMailboxSyncManager;
    subtype EmailMailboxChangedEventArgs is Windows.ApplicationModel.Email.IEmailMailboxChangedEventArgs;
    subtype EmailMailboxAutoReplySettings is Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings;
-   
    function CreateEmailMailboxAutoReplySettings return Windows.ApplicationModel.Email.IEmailMailboxAutoReplySettings;
    
    subtype EmailRecipientResolutionResult is Windows.ApplicationModel.Email.IEmailRecipientResolutionResult;
-   
    function CreateEmailRecipientResolutionResult return Windows.ApplicationModel.Email.IEmailRecipientResolutionResult;
    
    subtype EmailMailboxCreateFolderResult is Windows.ApplicationModel.Email.IEmailMailboxCreateFolderResult;

@@ -3447,12 +3447,10 @@ package Windows.UI.Notifications is
    
    subtype ShownTileNotification is Windows.UI.Notifications.IShownTileNotification;
    subtype Notification is Windows.UI.Notifications.INotification;
-   
    function CreateNotification return Windows.UI.Notifications.INotification;
    
    subtype NotificationBinding is Windows.UI.Notifications.INotificationBinding;
    subtype AdaptiveNotificationText is Windows.UI.Notifications.IAdaptiveNotificationText;
-   
    function CreateAdaptiveNotificationText return Windows.UI.Notifications.IAdaptiveNotificationText;
    
    subtype TileUpdater is Windows.UI.Notifications.ITileUpdater;
@@ -3464,7 +3462,6 @@ package Windows.UI.Notifications is
    )
    return Windows.UI.Notifications.ITileNotification;
    
-   
    subtype ScheduledTileNotification is Windows.UI.Notifications.IScheduledTileNotification;
    function CreateScheduledTileNotification
    (
@@ -3473,7 +3470,6 @@ package Windows.UI.Notifications is
    )
    return Windows.UI.Notifications.IScheduledTileNotification;
    
-   
    subtype TileFlyoutUpdater is Windows.UI.Notifications.ITileFlyoutUpdater;
    subtype TileFlyoutNotification is Windows.UI.Notifications.ITileFlyoutNotification;
    function CreateTileFlyoutNotification
@@ -3481,7 +3477,6 @@ package Windows.UI.Notifications is
       content : Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.UI.Notifications.ITileFlyoutNotification;
-   
    
    subtype BadgeUpdater is Windows.UI.Notifications.IBadgeUpdater;
    subtype BadgeUpdateManagerForUser is Windows.UI.Notifications.IBadgeUpdateManagerForUser;
@@ -3492,7 +3487,6 @@ package Windows.UI.Notifications is
    )
    return Windows.UI.Notifications.IBadgeNotification;
    
-   
    subtype ToastNotifier is Windows.UI.Notifications.IToastNotifier;
    subtype ToastNotification is Windows.UI.Notifications.IToastNotification;
    function CreateToastNotification
@@ -3500,7 +3494,6 @@ package Windows.UI.Notifications is
       content : Windows.Data.Xml.Dom.IXmlDocument
    )
    return Windows.UI.Notifications.IToastNotification;
-   
    
    subtype ScheduledToastNotification is Windows.UI.Notifications.IScheduledToastNotification;
    function CreateScheduledToastNotification
@@ -3519,7 +3512,6 @@ package Windows.UI.Notifications is
    )
    return Windows.UI.Notifications.IScheduledToastNotification;
    
-   
    subtype NotificationData is Windows.UI.Notifications.INotificationData;
    function CreateNotificationDataWithValuesAndSequenceNumber
    (
@@ -3534,7 +3526,6 @@ package Windows.UI.Notifications is
    )
    return Windows.UI.Notifications.INotificationData;
    
-   
    subtype ToastCollection is Windows.UI.Notifications.IToastCollection;
    function CreateInstance
    (
@@ -3544,7 +3535,6 @@ package Windows.UI.Notifications is
       ; iconUri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.UI.Notifications.IToastCollection;
-   
    
    subtype ToastDismissedEventArgs is Windows.UI.Notifications.IToastDismissedEventArgs;
    subtype ToastFailedEventArgs is Windows.UI.Notifications.IToastFailedEventArgs;

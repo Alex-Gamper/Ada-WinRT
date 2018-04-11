@@ -3402,15 +3402,12 @@ package Windows.Foundation.Collections is
    ------------------------------------------------------------------------
    
    subtype PropertySet is Windows.Foundation.Collections.IPropertySet;
-   
    function CreatePropertySet return Windows.Foundation.Collections.IPropertySet;
    
    subtype ValueSet is Windows.Foundation.Collections.IPropertySet;
-   
    function CreateValueSet return Windows.Foundation.Collections.IPropertySet;
    
    subtype StringMap is Windows.Foundation.Collections.IMap_String_String;
-   
    function CreateStringMap return Windows.Foundation.Collections.IMap_String_String;
    
    

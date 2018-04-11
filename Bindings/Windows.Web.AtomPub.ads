@@ -634,7 +634,6 @@ package Windows.Web.AtomPub is
    return Windows.Web.AtomPub.IAtomPubClient;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

@@ -1912,7 +1912,6 @@ package Windows.UI.Input.Spatial is
    )
    return Windows.UI.Input.Spatial.ISpatialGestureRecognizer;
    
-   
    subtype SpatialRecognitionStartedEventArgs is Windows.UI.Input.Spatial.ISpatialRecognitionStartedEventArgs;
    subtype SpatialRecognitionEndedEventArgs is Windows.UI.Input.Spatial.ISpatialRecognitionEndedEventArgs;
    subtype SpatialTappedEventArgs is Windows.UI.Input.Spatial.ISpatialTappedEventArgs;

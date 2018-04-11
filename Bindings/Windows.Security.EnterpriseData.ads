@@ -1659,7 +1659,6 @@ package Windows.Security.EnterpriseData is
    )
    return Windows.Security.EnterpriseData.IFileUnprotectOptions;
    
-   
    subtype BufferProtectUnprotectResult is Windows.Security.EnterpriseData.IBufferProtectUnprotectResult;
    subtype DataProtectionInfo is Windows.Security.EnterpriseData.IDataProtectionInfo;
    subtype ProtectionPolicyAuditInfo is Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo;
@@ -1678,7 +1677,6 @@ package Windows.Security.EnterpriseData is
       ; dataDescription : Windows.String
    )
    return Windows.Security.EnterpriseData.IProtectionPolicyAuditInfo;
-   
    
    subtype ThreadNetworkContext is Windows.Security.EnterpriseData.IThreadNetworkContext;
    subtype ProtectionPolicyManager is Windows.Security.EnterpriseData.IProtectionPolicyManager;

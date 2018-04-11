@@ -1132,7 +1132,6 @@ package Windows.Media.PlayTo is
    subtype MuteChangeRequestedEventArgs is Windows.Media.PlayTo.IMuteChangeRequestedEventArgs;
    subtype VolumeChangeRequestedEventArgs is Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs;
    subtype PlayToReceiver is Windows.Media.PlayTo.IPlayToReceiver;
-   
    function CreatePlayToReceiver return Windows.Media.PlayTo.IPlayToReceiver;
    
    subtype PlayToConnection is Windows.Media.PlayTo.IPlayToConnection;

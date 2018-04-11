@@ -1405,7 +1405,6 @@ package Windows.ApplicationModel.Resources.Core is
    
    subtype ResourceMap is Windows.ApplicationModel.Resources.Core.IResourceMap;
    subtype ResourceContext is Windows.ApplicationModel.Resources.Core.IResourceContext;
-   
    function CreateResourceContext return Windows.ApplicationModel.Resources.Core.IResourceContext;
    
    subtype NamedResource is Windows.ApplicationModel.Resources.Core.INamedResource;

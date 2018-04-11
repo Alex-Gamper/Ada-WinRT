@@ -334,9 +334,7 @@ package Windows.Globalization.PhoneNumberFormatting is
    )
    return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo;
    
-   
    subtype PhoneNumberFormatter is Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter;
-   
    function CreatePhoneNumberFormatter return Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter;
    
    

@@ -304,7 +304,6 @@ package Windows.ApplicationModel.Resources.Management is
    )
    return Windows.ApplicationModel.Resources.Management.IResourceIndexer;
    
-   
    subtype IndexedResourceQualifier is Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier;
    
    ------------------------------------------------------------------------

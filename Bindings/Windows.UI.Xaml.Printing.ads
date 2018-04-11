@@ -298,15 +298,12 @@ package Windows.UI.Xaml.Printing is
    ------------------------------------------------------------------------
    
    subtype AddPagesEventArgs is Windows.UI.Xaml.Printing.IAddPagesEventArgs;
-   
    function CreateAddPagesEventArgs return Windows.UI.Xaml.Printing.IAddPagesEventArgs;
    
    subtype GetPreviewPageEventArgs is Windows.UI.Xaml.Printing.IGetPreviewPageEventArgs;
-   
    function CreateGetPreviewPageEventArgs return Windows.UI.Xaml.Printing.IGetPreviewPageEventArgs;
    
    subtype PaginateEventArgs is Windows.UI.Xaml.Printing.IPaginateEventArgs;
-   
    function CreatePaginateEventArgs return Windows.UI.Xaml.Printing.IPaginateEventArgs;
    
    subtype PrintDocument is Windows.UI.Xaml.Printing.IPrintDocument;
@@ -317,7 +314,6 @@ package Windows.UI.Xaml.Printing is
       m_Inner    : aliased IPrintDocument := null;
       m_IPrintDocument : IPrintDocument := null;
    end record;
-   
    type IPrintDocument_Impl is access all IPrintDocument_Interface_Impl'Class;
    type IPrintDocument_Impl_Ptr is access all IPrintDocument_Impl;
    
@@ -449,7 +445,6 @@ package Windows.UI.Xaml.Printing is
       This       : access IPrintDocument_Interface_Impl
    )
    return Windows.HRESULT;
-   
    
    
    ------------------------------------------------------------------------

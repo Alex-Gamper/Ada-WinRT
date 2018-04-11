@@ -924,7 +924,6 @@ package Windows.Devices.Midi is
    )
    return Windows.Devices.Midi.IMidiNoteOffMessage;
    
-   
    subtype MidiNoteOnMessage is Windows.Devices.Midi.IMidiNoteOnMessage;
    function CreateMidiNoteOnMessage
    (
@@ -933,7 +932,6 @@ package Windows.Devices.Midi is
       ; velocity : Windows.UInt8
    )
    return Windows.Devices.Midi.IMidiNoteOnMessage;
-   
    
    subtype MidiPolyphonicKeyPressureMessage is Windows.Devices.Midi.IMidiPolyphonicKeyPressureMessage;
    function CreateMidiPolyphonicKeyPressureMessage
@@ -944,7 +942,6 @@ package Windows.Devices.Midi is
    )
    return Windows.Devices.Midi.IMidiPolyphonicKeyPressureMessage;
    
-   
    subtype MidiControlChangeMessage is Windows.Devices.Midi.IMidiControlChangeMessage;
    function CreateMidiControlChangeMessage
    (
@@ -954,7 +951,6 @@ package Windows.Devices.Midi is
    )
    return Windows.Devices.Midi.IMidiControlChangeMessage;
    
-   
    subtype MidiProgramChangeMessage is Windows.Devices.Midi.IMidiProgramChangeMessage;
    function CreateMidiProgramChangeMessage
    (
@@ -962,7 +958,6 @@ package Windows.Devices.Midi is
       ; program : Windows.UInt8
    )
    return Windows.Devices.Midi.IMidiProgramChangeMessage;
-   
    
    subtype MidiChannelPressureMessage is Windows.Devices.Midi.IMidiChannelPressureMessage;
    function CreateMidiChannelPressureMessage
@@ -972,7 +967,6 @@ package Windows.Devices.Midi is
    )
    return Windows.Devices.Midi.IMidiChannelPressureMessage;
    
-   
    subtype MidiPitchBendChangeMessage is Windows.Devices.Midi.IMidiPitchBendChangeMessage;
    function CreateMidiPitchBendChangeMessage
    (
@@ -981,14 +975,12 @@ package Windows.Devices.Midi is
    )
    return Windows.Devices.Midi.IMidiPitchBendChangeMessage;
    
-   
    subtype MidiSystemExclusiveMessage is Windows.Devices.Midi.IMidiMessage;
    function CreateMidiSystemExclusiveMessage
    (
       rawData : Windows.Storage.Streams.IBuffer
    )
    return Windows.Devices.Midi.IMidiMessage;
-   
    
    subtype MidiTimeCodeMessage is Windows.Devices.Midi.IMidiTimeCodeMessage;
    function CreateMidiTimeCodeMessage
@@ -998,14 +990,12 @@ package Windows.Devices.Midi is
    )
    return Windows.Devices.Midi.IMidiTimeCodeMessage;
    
-   
    subtype MidiSongPositionPointerMessage is Windows.Devices.Midi.IMidiSongPositionPointerMessage;
    function CreateMidiSongPositionPointerMessage
    (
       beats : Windows.UInt16
    )
    return Windows.Devices.Midi.IMidiSongPositionPointerMessage;
-   
    
    subtype MidiSongSelectMessage is Windows.Devices.Midi.IMidiSongSelectMessage;
    function CreateMidiSongSelectMessage
@@ -1014,33 +1004,25 @@ package Windows.Devices.Midi is
    )
    return Windows.Devices.Midi.IMidiSongSelectMessage;
    
-   
    subtype MidiTuneRequestMessage is Windows.Devices.Midi.IMidiMessage;
-   
    function CreateMidiTuneRequestMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiTimingClockMessage is Windows.Devices.Midi.IMidiMessage;
-   
    function CreateMidiTimingClockMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiStartMessage is Windows.Devices.Midi.IMidiMessage;
-   
    function CreateMidiStartMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiContinueMessage is Windows.Devices.Midi.IMidiMessage;
-   
    function CreateMidiContinueMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiStopMessage is Windows.Devices.Midi.IMidiMessage;
-   
    function CreateMidiStopMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiActiveSensingMessage is Windows.Devices.Midi.IMidiMessage;
-   
    function CreateMidiActiveSensingMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiSystemResetMessage is Windows.Devices.Midi.IMidiMessage;
-   
    function CreateMidiSystemResetMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiMessageReceivedEventArgs is Windows.Devices.Midi.IMidiMessageReceivedEventArgs;

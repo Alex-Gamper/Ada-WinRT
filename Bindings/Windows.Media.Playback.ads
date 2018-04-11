@@ -4881,14 +4881,12 @@ package Windows.Media.Playback is
    )
    return Windows.Media.Playback.IPlaybackMediaMarker;
    
-   
    subtype PlaybackMediaMarkerSequence is Windows.Media.Playback.IPlaybackMediaMarkerSequence;
    subtype MediaPlayerFailedEventArgs is Windows.Media.Playback.IMediaPlayerFailedEventArgs;
    subtype MediaPlayerRateChangedEventArgs is Windows.Media.Playback.IMediaPlayerRateChangedEventArgs;
    subtype PlaybackMediaMarkerReachedEventArgs is Windows.Media.Playback.IPlaybackMediaMarkerReachedEventArgs;
    subtype MediaPlayerDataReceivedEventArgs is Windows.Media.Playback.IMediaPlayerDataReceivedEventArgs;
    subtype MediaPlayer is Windows.Media.Playback.IMediaPlayer;
-   
    function CreateMediaPlayer return Windows.Media.Playback.IMediaPlayer;
    
    subtype MediaBreakManager is Windows.Media.Playback.IMediaBreakManager;
@@ -4928,7 +4926,6 @@ package Windows.Media.Playback is
    )
    return Windows.Media.Playback.IMediaPlaybackItem;
    
-   
    subtype MediaPlaybackAudioTrackList is Windows.Media.Playback.IVectorView_AudioTrack;
    subtype MediaPlaybackVideoTrackList is Windows.Media.Playback.IVectorView_VideoTrack;
    subtype MediaPlaybackTimedMetadataTrackList is Windows.Media.Playback.IVectorView_TimedMetadataTrack;
@@ -4948,9 +4945,7 @@ package Windows.Media.Playback is
    )
    return Windows.Media.Playback.IMediaBreak;
    
-   
    subtype MediaPlaybackList is Windows.Media.Playback.IMediaPlaybackList;
-   
    function CreateMediaPlaybackList return Windows.Media.Playback.IMediaPlaybackList;
    
    subtype MediaPlaybackItemError is Windows.Media.Playback.IMediaPlaybackItemError;

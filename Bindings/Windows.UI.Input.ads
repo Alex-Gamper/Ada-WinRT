@@ -3261,7 +3261,6 @@ package Windows.UI.Input is
    subtype KeyboardDeliveryInterceptor is Windows.UI.Input.IKeyboardDeliveryInterceptor;
    subtype MouseWheelParameters is Windows.UI.Input.IMouseWheelParameters;
    subtype GestureRecognizer is Windows.UI.Input.IGestureRecognizer;
-   
    function CreateGestureRecognizer return Windows.UI.Input.IGestureRecognizer;
    
    subtype TappedEventArgs is Windows.UI.Input.ITappedEventArgs;

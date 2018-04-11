@@ -114,7 +114,6 @@ package Windows.UI.Xaml.Resources is
       m_Inner    : aliased ICustomXamlResourceLoaderOverrides := null;
       m_ICustomXamlResourceLoader : ICustomXamlResourceLoader := null;
    end record;
-   
    type ICustomXamlResourceLoaderOverrides_Impl is access all ICustomXamlResourceLoaderOverrides_Interface_Impl'Class;
    type ICustomXamlResourceLoaderOverrides_Impl_Ptr is access all ICustomXamlResourceLoaderOverrides_Impl;
    
@@ -178,7 +177,6 @@ package Windows.UI.Xaml.Resources is
       m_Inner    : aliased ICustomXamlResourceLoader := null;
       m_ICustomXamlResourceLoader : ICustomXamlResourceLoader := null;
    end record;
-   
    type ICustomXamlResourceLoader_Impl is access all ICustomXamlResourceLoader_Interface_Impl'Class;
    type ICustomXamlResourceLoader_Impl_Ptr is access all ICustomXamlResourceLoader_Impl;
    
@@ -223,7 +221,6 @@ package Windows.UI.Xaml.Resources is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    
    ------------------------------------------------------------------------

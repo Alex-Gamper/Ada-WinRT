@@ -2989,7 +2989,6 @@ package Windows.Globalization is
    ------------------------------------------------------------------------
    
    subtype GeographicRegion is Windows.Globalization.IGeographicRegion;
-   
    function CreateGeographicRegion return Windows.Globalization.IGeographicRegion;
    
    subtype Language is Windows.Globalization.ILanguage;
@@ -2998,7 +2997,6 @@ package Windows.Globalization is
       languageTag : Windows.String
    )
    return Windows.Globalization.ILanguage;
-   
    
    subtype Calendar is Windows.Globalization.ICalendar;
    function CreateCalendarWithTimeZone
@@ -3009,7 +3007,6 @@ package Windows.Globalization is
       ; timeZoneId : Windows.String
    )
    return Windows.Globalization.ICalendar;
-   
    
    subtype JapanesePhoneme is Windows.Globalization.IJapanesePhoneme;
    

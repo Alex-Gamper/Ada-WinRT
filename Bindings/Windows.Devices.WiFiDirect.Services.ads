@@ -1199,7 +1199,6 @@ package Windows.Devices.WiFiDirect.Services is
    )
    return Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser;
    
-   
    subtype WiFiDirectService is Windows.Devices.WiFiDirect.Services.IWiFiDirectService;
    
    ------------------------------------------------------------------------

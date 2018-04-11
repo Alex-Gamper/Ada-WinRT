@@ -5525,22 +5525,16 @@ package Windows.UI.Xaml.Controls.Primitives is
    subtype AppBarTemplateSettings is Windows.UI.Xaml.Controls.Primitives.IAppBarTemplateSettings;
    subtype CommandBarTemplateSettings is Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings;
    subtype DragCompletedEventArgs is Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs;
-   
    subtype DragDeltaEventArgs is Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs;
-   
    subtype DragStartedEventArgs is Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs;
-   
    subtype RangeBaseValueChangedEventArgs is Windows.UI.Xaml.Controls.Primitives.IRangeBaseValueChangedEventArgs;
    subtype ScrollEventArgs is Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs;
-   
    function CreateScrollEventArgs return Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs;
    
    subtype Popup is Windows.UI.Xaml.Controls.Primitives.IPopup;
-   
    function CreatePopup return Windows.UI.Xaml.Controls.Primitives.IPopup;
    
    subtype TickBar is Windows.UI.Xaml.Controls.Primitives.ITickBar;
-   
    function CreateTickBar return Windows.UI.Xaml.Controls.Primitives.ITickBar;
    
    subtype CarouselPanel is Windows.UI.Xaml.Controls.Primitives.ICarouselPanel;
@@ -5551,7 +5545,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased ICarouselPanel := null;
       m_ICarouselPanel : ICarouselPanel := null;
    end record;
-   
    type ICarouselPanel_Impl is access all ICarouselPanel_Interface_Impl'Class;
    type ICarouselPanel_Impl_Ptr is access all ICarouselPanel_Impl;
    
@@ -5776,11 +5769,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype OrientedVirtualizingPanel is Windows.UI.Xaml.Controls.Primitives.IOrientedVirtualizingPanel;
-   
    subtype CalendarPanel is Windows.UI.Xaml.Controls.Primitives.ICalendarPanel;
-   
    function CreateCalendarPanel return Windows.UI.Xaml.Controls.Primitives.ICalendarPanel;
    
    subtype GridViewItemPresenter is Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter;
@@ -5791,7 +5781,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IGridViewItemPresenter := null;
       m_IGridViewItemPresenter : IGridViewItemPresenter := null;
    end record;
-   
    type IGridViewItemPresenter_Impl is access all IGridViewItemPresenter_Interface_Impl'Class;
    type IGridViewItemPresenter_Impl_Ptr is access all IGridViewItemPresenter_Impl;
    
@@ -6145,7 +6134,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype ListViewItemPresenter is Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter;
    
    type IListViewItemPresenter_Interface_Impl is new IListViewItemPresenter_Interface with record
@@ -6154,7 +6142,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IListViewItemPresenter := null;
       m_IListViewItemPresenter : IListViewItemPresenter := null;
    end record;
-   
    type IListViewItemPresenter_Impl is access all IListViewItemPresenter_Interface_Impl'Class;
    type IListViewItemPresenter_Impl_Ptr is access all IListViewItemPresenter_Impl;
    
@@ -6508,7 +6495,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype ColorSpectrum is Windows.UI.Xaml.Controls.Primitives.IColorSpectrum;
    
    type IColorSpectrum_Interface_Impl is new IColorSpectrum_Interface with record
@@ -6517,7 +6503,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IColorSpectrum := null;
       m_IColorSpectrum : IColorSpectrum := null;
    end record;
-   
    type IColorSpectrum_Impl is access all IColorSpectrum_Interface_Impl'Class;
    type IColorSpectrum_Impl_Ptr is access all IColorSpectrum_Impl;
    
@@ -6718,7 +6703,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype SelectorItem is Windows.UI.Xaml.Controls.Primitives.ISelectorItem;
    
    type ISelectorItem_Interface_Impl is new ISelectorItem_Interface with record
@@ -6727,7 +6711,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased ISelectorItem := null;
       m_ISelectorItem : ISelectorItem := null;
    end record;
-   
    type ISelectorItem_Impl is access all ISelectorItem_Interface_Impl'Class;
    type ISelectorItem_Impl_Ptr is access all ISelectorItem_Impl;
    
@@ -6787,7 +6770,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype RangeBase is Windows.UI.Xaml.Controls.Primitives.IRangeBase;
    
    type IRangeBaseOverrides_Interface_Impl is new IRangeBaseOverrides_Interface with record
@@ -6796,7 +6778,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IRangeBaseOverrides := null;
       m_IRangeBase : IRangeBase := null;
    end record;
-   
    type IRangeBaseOverrides_Impl is access all IRangeBaseOverrides_Interface_Impl'Class;
    type IRangeBaseOverrides_Impl_Ptr is access all IRangeBaseOverrides_Impl;
    
@@ -6873,7 +6854,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IRangeBase := null;
       m_IRangeBase : IRangeBase := null;
    end record;
-   
    type IRangeBase_Impl is access all IRangeBase_Interface_Impl'Class;
    type IRangeBase_Impl_Ptr is access all IRangeBase_Impl;
    
@@ -7004,7 +6984,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype ColorPickerSlider is Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider;
    
    type IColorPickerSlider_Interface_Impl is new IColorPickerSlider_Interface with record
@@ -7013,7 +6992,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IColorPickerSlider := null;
       m_IColorPickerSlider : IColorPickerSlider := null;
    end record;
-   
    type IColorPickerSlider_Impl is access all IColorPickerSlider_Interface_Impl'Class;
    type IColorPickerSlider_Impl_Ptr is access all IColorPickerSlider_Impl;
    
@@ -7073,9 +7051,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype Thumb is Windows.UI.Xaml.Controls.Primitives.IThumb;
-   
    function CreateThumb return Windows.UI.Xaml.Controls.Primitives.IThumb;
    
    subtype ButtonBase is Windows.UI.Xaml.Controls.Primitives.IButtonBase;
@@ -7086,7 +7062,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IButtonBase := null;
       m_IButtonBase : IButtonBase := null;
    end record;
-   
    type IButtonBase_Impl is access all IButtonBase_Interface_Impl'Class;
    type IButtonBase_Impl_Ptr is access all IButtonBase_Impl;
    
@@ -7203,15 +7178,11 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype ScrollBar is Windows.UI.Xaml.Controls.Primitives.IScrollBar;
-   
    function CreateScrollBar return Windows.UI.Xaml.Controls.Primitives.IScrollBar;
    
    subtype Selector is Windows.UI.Xaml.Controls.Primitives.ISelector;
-   
    subtype RepeatButton is Windows.UI.Xaml.Controls.Primitives.IRepeatButton;
-   
    function CreateRepeatButton return Windows.UI.Xaml.Controls.Primitives.IRepeatButton;
    
    subtype ToggleButton is Windows.UI.Xaml.Controls.Primitives.IToggleButton;
@@ -7222,7 +7193,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IToggleButtonOverrides := null;
       m_IToggleButton : IToggleButton := null;
    end record;
-   
    type IToggleButtonOverrides_Impl is access all IToggleButtonOverrides_Interface_Impl'Class;
    type IToggleButtonOverrides_Impl_Ptr is access all IToggleButtonOverrides_Impl;
    
@@ -7281,7 +7251,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IToggleButton := null;
       m_IToggleButton : IToggleButton := null;
    end record;
-   
    type IToggleButton_Impl is access all IToggleButton_Interface_Impl'Class;
    type IToggleButton_Impl_Ptr is access all IToggleButton_Impl;
    
@@ -7400,7 +7369,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype FlyoutBaseClosingEventArgs is Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseClosingEventArgs;
    subtype FlyoutBase is Windows.UI.Xaml.Controls.Primitives.IFlyoutBase;
    
@@ -7410,7 +7378,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IFlyoutBaseOverrides := null;
       m_IFlyoutBase : IFlyoutBase := null;
    end record;
-   
    type IFlyoutBaseOverrides_Impl is access all IFlyoutBaseOverrides_Interface_Impl'Class;
    type IFlyoutBaseOverrides_Impl_Ptr is access all IFlyoutBaseOverrides_Impl;
    
@@ -7470,7 +7437,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IFlyoutBase := null;
       m_IFlyoutBase : IFlyoutBase := null;
    end record;
-   
    type IFlyoutBase_Impl is access all IFlyoutBase_Interface_Impl'Class;
    type IFlyoutBase_Impl_Ptr is access all IFlyoutBase_Impl;
    
@@ -7588,13 +7554,10 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype JumpListItemBackgroundConverter is Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter;
-   
    function CreateJumpListItemBackgroundConverter return Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter;
    
    subtype JumpListItemForegroundConverter is Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter;
-   
    function CreateJumpListItemForegroundConverter return Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter;
    
    subtype PickerFlyoutBase is Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase;
@@ -7605,7 +7568,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IPickerFlyoutBaseOverrides := null;
       m_IPickerFlyoutBase : IPickerFlyoutBase := null;
    end record;
-   
    type IPickerFlyoutBaseOverrides_Impl is access all IPickerFlyoutBaseOverrides_Interface_Impl'Class;
    type IPickerFlyoutBaseOverrides_Impl_Ptr is access all IPickerFlyoutBaseOverrides_Impl;
    
@@ -7671,7 +7633,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IPickerFlyoutBase := null;
       m_IPickerFlyoutBase : IPickerFlyoutBase := null;
    end record;
-   
    type IPickerFlyoutBase_Impl is access all IPickerFlyoutBase_Interface_Impl'Class;
    type IPickerFlyoutBase_Impl_Ptr is access all IPickerFlyoutBase_Impl;
    
@@ -7717,10 +7678,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype LoopingSelector is Windows.UI.Xaml.Controls.Primitives.ILoopingSelector;
    subtype PivotPanel is Windows.UI.Xaml.Controls.Primitives.IPivotPanel;
-   
    function CreatePivotPanel return Windows.UI.Xaml.Controls.Primitives.IPivotPanel;
    
    subtype LoopingSelectorItem is Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorItem;
@@ -7733,7 +7692,6 @@ package Windows.UI.Xaml.Controls.Primitives is
       m_Inner    : aliased IPivotHeaderItem := null;
       m_IPivotHeaderItem : IPivotHeaderItem := null;
    end record;
-   
    type IPivotHeaderItem_Impl is access all IPivotHeaderItem_Interface_Impl'Class;
    type IPivotHeaderItem_Impl_Ptr is access all IPivotHeaderItem_Impl;
    
@@ -7779,9 +7737,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.HRESULT;
    
-   
    subtype PivotHeaderPanel is Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel;
-   
    function CreatePivotHeaderPanel return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel;
    
    

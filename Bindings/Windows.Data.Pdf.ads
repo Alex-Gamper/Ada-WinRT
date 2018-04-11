@@ -397,7 +397,6 @@ package Windows.Data.Pdf is
    ------------------------------------------------------------------------
    
    subtype PdfPageRenderOptions is Windows.Data.Pdf.IPdfPageRenderOptions;
-   
    function CreatePdfPageRenderOptions return Windows.Data.Pdf.IPdfPageRenderOptions;
    
    subtype PdfPageDimensions is Windows.Data.Pdf.IPdfPageDimensions;

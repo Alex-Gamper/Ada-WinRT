@@ -2386,7 +2386,6 @@ package Windows.Services.Store is
    subtype StoreProduct is Windows.Services.Store.IStoreProduct;
    subtype StoreProductPagedQueryResult is Windows.Services.Store.IStoreProductPagedQueryResult;
    subtype StorePurchaseProperties is Windows.Services.Store.IStorePurchaseProperties;
-   
    function CreateStorePurchaseProperties return Windows.Services.Store.IStorePurchaseProperties;
    
    subtype StoreLicense is Windows.Services.Store.IStoreLicense;

@@ -642,13 +642,11 @@ package Windows.Security.Authentication.OnlineId is
    )
    return Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequest;
    
-   
    subtype OnlineIdServiceTicket is Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicket;
    subtype UserAuthenticationOperation is Windows.Security.Authentication.OnlineId.IAsyncOperation_UserIdentity;
    subtype SignOutUserOperation is Windows.Foundation.IAsyncAction;
    subtype UserIdentity is Windows.Security.Authentication.OnlineId.IUserIdentity;
    subtype OnlineIdAuthenticator is Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator;
-   
    function CreateOnlineIdAuthenticator return Windows.Security.Authentication.OnlineId.IOnlineIdAuthenticator;
    
    subtype OnlineIdSystemIdentity is Windows.Security.Authentication.OnlineId.IOnlineIdSystemIdentity;

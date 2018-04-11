@@ -152,7 +152,6 @@ package Windows.ApplicationModel.Resources is
    return Windows.ApplicationModel.Resources.IResourceLoader;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

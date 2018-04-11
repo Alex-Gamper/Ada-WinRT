@@ -599,7 +599,6 @@ package Windows.UI.Xaml.Navigation is
    return Windows.UI.Xaml.Navigation.IPageStackEntry;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

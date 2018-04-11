@@ -2156,7 +2156,6 @@ package Windows.Foundation.Diagnostics is
    
    subtype TracingStatusChangedEventArgs is Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs;
    subtype RuntimeBrokerErrorSettings is Windows.Foundation.Diagnostics.IErrorReportingSettings;
-   
    function CreateRuntimeBrokerErrorSettings return Windows.Foundation.Diagnostics.IErrorReportingSettings;
    
    subtype ErrorDetails is Windows.Foundation.Diagnostics.IErrorDetails;
@@ -2167,13 +2166,10 @@ package Windows.Foundation.Diagnostics is
    )
    return Windows.Foundation.Diagnostics.ILoggingOptions;
    
-   
    subtype LoggingChannelOptions is Windows.Foundation.Diagnostics.ILoggingChannelOptions;
-   
    function CreateLoggingChannelOptions return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
    
    subtype LoggingFields is Windows.Foundation.Diagnostics.ILoggingFields;
-   
    function CreateLoggingFields return Windows.Foundation.Diagnostics.ILoggingFields;
    
    subtype LoggingActivity is Windows.Foundation.Diagnostics.ILoggingActivity;
@@ -2192,14 +2188,12 @@ package Windows.Foundation.Diagnostics is
    )
    return Windows.Foundation.Diagnostics.ILoggingActivity;
    
-   
    subtype LoggingChannel is Windows.Foundation.Diagnostics.ILoggingChannel;
    function Create
    (
       name : Windows.String
    )
    return Windows.Foundation.Diagnostics.ILoggingChannel;
-   
    
    subtype LoggingSession is Windows.Foundation.Diagnostics.ILoggingSession;
    function Create
@@ -2208,7 +2202,6 @@ package Windows.Foundation.Diagnostics is
    )
    return Windows.Foundation.Diagnostics.ILoggingSession;
    
-   
    subtype LogFileGeneratedEventArgs is Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs;
    subtype FileLoggingSession is Windows.Foundation.Diagnostics.IFileLoggingSession;
    function Create
@@ -2216,7 +2209,6 @@ package Windows.Foundation.Diagnostics is
       name : Windows.String
    )
    return Windows.Foundation.Diagnostics.IFileLoggingSession;
-   
    
    
    ------------------------------------------------------------------------

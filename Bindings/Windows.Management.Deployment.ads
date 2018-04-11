@@ -1200,7 +1200,6 @@ package Windows.Management.Deployment is
    subtype PackageVolume is Windows.Management.Deployment.IPackageVolume;
    subtype PackageManagerDebugSettings is Windows.Management.Deployment.IPackageManagerDebugSettings;
    subtype PackageManager is Windows.Management.Deployment.IPackageManager;
-   
    function CreatePackageManager return Windows.Management.Deployment.IPackageManager;
    
    

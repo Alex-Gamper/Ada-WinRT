@@ -830,14 +830,12 @@ package Windows.Devices.Gpio is
    )
    return Windows.Devices.Gpio.IGpioChangeReader;
    
-   
    subtype GpioChangeCounter is Windows.Devices.Gpio.IGpioChangeCounter;
    function Create
    (
       pin : Windows.Devices.Gpio.IGpioPin
    )
    return Windows.Devices.Gpio.IGpioChangeCounter;
-   
    
    
    ------------------------------------------------------------------------

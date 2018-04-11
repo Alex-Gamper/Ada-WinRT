@@ -567,7 +567,6 @@ package Windows.ApplicationModel.Search.Core is
    
    subtype SearchSuggestion is Windows.ApplicationModel.Search.Core.ISearchSuggestion;
    subtype SearchSuggestionManager is Windows.ApplicationModel.Search.Core.ISearchSuggestionManager;
-   
    function CreateSearchSuggestionManager return Windows.ApplicationModel.Search.Core.ISearchSuggestionManager;
    
    subtype SearchSuggestionsRequestedEventArgs is Windows.ApplicationModel.Search.Core.ISearchSuggestionsRequestedEventArgs;

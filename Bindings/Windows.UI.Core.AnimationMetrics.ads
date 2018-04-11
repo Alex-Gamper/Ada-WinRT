@@ -470,7 +470,6 @@ package Windows.UI.Core.AnimationMetrics is
    )
    return Windows.UI.Core.AnimationMetrics.IAnimationDescription;
    
-   
    subtype PropertyAnimation is Windows.UI.Core.AnimationMetrics.IPropertyAnimation;
    subtype ScaleAnimation is Windows.UI.Core.AnimationMetrics.IScaleAnimation;
    subtype TranslationAnimation is Windows.UI.Core.AnimationMetrics.IPropertyAnimation;

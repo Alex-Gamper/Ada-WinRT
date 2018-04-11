@@ -1359,7 +1359,6 @@ package Windows.Graphics.Holographic is
    )
    return Windows.Graphics.Holographic.IHolographicQuadLayer;
    
-   
    subtype HolographicQuadLayerUpdateParameters is Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters;
    subtype HolographicCameraViewportParameters is Windows.Graphics.Holographic.IHolographicCameraViewportParameters;
    subtype HolographicDisplay is Windows.Graphics.Holographic.IHolographicDisplay;

@@ -1411,14 +1411,11 @@ package Windows.UI.Composition.Interactions is
    subtype CompositionInteractionSourceCollection is Windows.UI.Composition.Interactions.ICompositionInteractionSourceCollection;
    subtype InteractionTracker is Windows.UI.Composition.Interactions.IInteractionTracker;
    subtype InteractionTrackerInertiaModifier is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifier;
-   
    subtype InteractionTrackerVector2InertiaModifier is Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifier;
-   
    subtype InteractionTrackerInertiaNaturalMotion is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotion;
    subtype InteractionTrackerInertiaRestingValue is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaRestingValue;
    subtype InteractionTrackerInertiaMotion is Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion;
    subtype VisualInteractionSource is Windows.UI.Composition.Interactions.IVisualInteractionSource;
-   
    subtype InteractionTrackerVector2InertiaNaturalMotion is Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion;
    
    ------------------------------------------------------------------------

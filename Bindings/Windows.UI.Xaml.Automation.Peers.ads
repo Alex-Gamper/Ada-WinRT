@@ -4534,7 +4534,6 @@ package Windows.UI.Xaml.Automation.Peers is
       m_Inner    : aliased IAutomationPeerOverrides := null;
       m_IAutomationPeer : IAutomationPeer := null;
    end record;
-   
    type IAutomationPeerOverrides_Impl is access all IAutomationPeerOverrides_Interface_Impl'Class;
    type IAutomationPeerOverrides_Impl_Ptr is access all IAutomationPeerOverrides_Impl;
    
@@ -4777,7 +4776,6 @@ package Windows.UI.Xaml.Automation.Peers is
       m_Inner    : aliased IAutomationPeerOverrides2 := null;
       m_IAutomationPeer : IAutomationPeer := null;
    end record;
-   
    type IAutomationPeerOverrides2_Impl is access all IAutomationPeerOverrides2_Interface_Impl'Class;
    type IAutomationPeerOverrides2_Impl_Ptr is access all IAutomationPeerOverrides2_Impl;
    
@@ -4843,7 +4841,6 @@ package Windows.UI.Xaml.Automation.Peers is
       m_Inner    : aliased IAutomationPeerOverrides3 := null;
       m_IAutomationPeer : IAutomationPeer := null;
    end record;
-   
    type IAutomationPeerOverrides3_Impl is access all IAutomationPeerOverrides3_Interface_Impl'Class;
    type IAutomationPeerOverrides3_Impl_Ptr is access all IAutomationPeerOverrides3_Impl;
    
@@ -4947,7 +4944,6 @@ package Windows.UI.Xaml.Automation.Peers is
       m_Inner    : aliased IAutomationPeer := null;
       m_IAutomationPeer : IAutomationPeer := null;
    end record;
-   
    type IAutomationPeer_Impl is access all IAutomationPeer_Interface_Impl'Class;
    type IAutomationPeer_Impl_Ptr is access all IAutomationPeer_Impl;
    
@@ -5226,7 +5222,6 @@ package Windows.UI.Xaml.Automation.Peers is
    )
    return Windows.HRESULT;
    
-   
    subtype AutomationPeerAnnotation is Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation;
    function CreateInstance
    (
@@ -5241,47 +5236,26 @@ package Windows.UI.Xaml.Automation.Peers is
    )
    return Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation;
    
-   
    subtype FrameworkElementAutomationPeer is Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer;
-   
    subtype ColorSpectrumAutomationPeer is Windows.UI.Xaml.Automation.Peers.IColorSpectrumAutomationPeer;
-   
    subtype PersonPictureAutomationPeer is Windows.UI.Xaml.Automation.Peers.IPersonPictureAutomationPeer;
-   
    subtype RatingControlAutomationPeer is Windows.UI.Xaml.Automation.Peers.IRatingControlAutomationPeer;
-   
    subtype ButtonBaseAutomationPeer is Windows.UI.Xaml.Automation.Peers.IButtonBaseAutomationPeer;
-   
    subtype CaptureElementAutomationPeer is Windows.UI.Xaml.Automation.Peers.ICaptureElementAutomationPeer;
-   
    subtype ComboBoxItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IComboBoxItemAutomationPeer;
-   
    subtype FlipViewItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IFlipViewItemAutomationPeer;
-   
    subtype GroupItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IGroupItemAutomationPeer;
-   
    subtype ImageAutomationPeer is Windows.UI.Xaml.Automation.Peers.IImageAutomationPeer;
-   
    subtype ListBoxItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListBoxItemAutomationPeer;
-   
    subtype MediaTransportControlsAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMediaTransportControlsAutomationPeer;
-   
    subtype PasswordBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.IPasswordBoxAutomationPeer;
-   
    subtype ProgressRingAutomationPeer is Windows.UI.Xaml.Automation.Peers.IProgressRingAutomationPeer;
-   
    subtype RichTextBlockAutomationPeer is Windows.UI.Xaml.Automation.Peers.IRichTextBlockAutomationPeer;
-   
    subtype RichTextBlockOverflowAutomationPeer is Windows.UI.Xaml.Automation.Peers.IRichTextBlockOverflowAutomationPeer;
-   
    subtype SettingsFlyoutAutomationPeer is Windows.UI.Xaml.Automation.Peers.ISettingsFlyoutAutomationPeer;
-   
    subtype TextBlockAutomationPeer is Windows.UI.Xaml.Automation.Peers.ITextBlockAutomationPeer;
-   
    subtype TextBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.ITextBoxAutomationPeer;
-   
    subtype ThumbAutomationPeer is Windows.UI.Xaml.Automation.Peers.IThumbAutomationPeer;
-   
    subtype AutoSuggestBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer;
    function CreateInstanceWithOwner
    (
@@ -5289,107 +5263,56 @@ package Windows.UI.Xaml.Automation.Peers is
    )
    return Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer;
    
-   
    subtype DatePickerAutomationPeer is Windows.UI.Xaml.Automation.Peers.IDatePickerAutomationPeer;
-   
    subtype FlyoutPresenterAutomationPeer is Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeer;
-   
    subtype GridViewItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IGridViewItemAutomationPeer;
-   
    subtype HubAutomationPeer is Windows.UI.Xaml.Automation.Peers.IHubAutomationPeer;
-   
    subtype ListViewBaseHeaderItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListViewBaseHeaderItemAutomationPeer;
-   
    subtype ListViewItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListViewItemAutomationPeer;
-   
    subtype NavigationViewItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.INavigationViewItemAutomationPeer;
-   
    subtype MediaElementAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMediaElementAutomationPeer;
-   
    subtype MediaPlayerElementAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMediaPlayerElementAutomationPeer;
-   
    subtype RichEditBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.IRichEditBoxAutomationPeer;
-   
    subtype SearchBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.ISearchBoxAutomationPeer;
-   
    subtype TimePickerAutomationPeer is Windows.UI.Xaml.Automation.Peers.ITimePickerAutomationPeer;
-   
    subtype GridViewHeaderItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IGridViewHeaderItemAutomationPeer;
-   
    subtype ListViewHeaderItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListViewHeaderItemAutomationPeer;
-   
    subtype ButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IButtonAutomationPeer;
-   
    subtype HyperlinkButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IHyperlinkButtonAutomationPeer;
-   
    subtype RepeatButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IRepeatButtonAutomationPeer;
-   
    subtype MenuFlyoutItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeer;
-   
    subtype AppBarButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IAppBarButtonAutomationPeer;
-   
    subtype ItemsControlAutomationPeer is Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer;
-   
    subtype MenuFlyoutPresenterAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMenuFlyoutPresenterAutomationPeer;
-   
    subtype RangeBaseAutomationPeer is Windows.UI.Xaml.Automation.Peers.IRangeBaseAutomationPeer;
-   
    subtype ProgressBarAutomationPeer is Windows.UI.Xaml.Automation.Peers.IProgressBarAutomationPeer;
-   
    subtype ScrollBarAutomationPeer is Windows.UI.Xaml.Automation.Peers.IScrollBarAutomationPeer;
-   
    subtype SliderAutomationPeer is Windows.UI.Xaml.Automation.Peers.ISliderAutomationPeer;
-   
    subtype ColorPickerSliderAutomationPeer is Windows.UI.Xaml.Automation.Peers.IColorPickerSliderAutomationPeer;
-   
    subtype HubSectionAutomationPeer is Windows.UI.Xaml.Automation.Peers.IHubSectionAutomationPeer;
-   
    subtype ScrollViewerAutomationPeer is Windows.UI.Xaml.Automation.Peers.IScrollViewerAutomationPeer;
-   
    subtype SelectorAutomationPeer is Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeer;
-   
    subtype FlipViewAutomationPeer is Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeer;
-   
    subtype ListBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeer;
-   
    subtype ListViewBaseAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeer;
-   
    subtype GridViewAutomationPeer is Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeer;
-   
    subtype ListViewAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListViewAutomationPeer;
-   
    subtype SemanticZoomAutomationPeer is Windows.UI.Xaml.Automation.Peers.ISemanticZoomAutomationPeer;
-   
    subtype ToggleSwitchAutomationPeer is Windows.UI.Xaml.Automation.Peers.IToggleSwitchAutomationPeer;
-   
    subtype ToggleButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IToggleButtonAutomationPeer;
-   
    subtype CheckBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.ICheckBoxAutomationPeer;
-   
    subtype RadioButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IRadioButtonAutomationPeer;
-   
    subtype ToggleMenuFlyoutItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IToggleMenuFlyoutItemAutomationPeer;
-   
    subtype AppBarToggleButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeer;
-   
    subtype ItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IItemAutomationPeer;
-   
    subtype SelectorItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.ISelectorItemAutomationPeer;
-   
    subtype ComboBoxItemDataAutomationPeer is Windows.UI.Xaml.Automation.Peers.IComboBoxItemDataAutomationPeer;
-   
    subtype FlipViewItemDataAutomationPeer is Windows.UI.Xaml.Automation.Peers.IFlipViewItemDataAutomationPeer;
-   
    subtype ListBoxItemDataAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListBoxItemDataAutomationPeer;
-   
    subtype GridViewItemDataAutomationPeer is Windows.UI.Xaml.Automation.Peers.IGridViewItemDataAutomationPeer;
-   
    subtype ListViewItemDataAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListViewItemDataAutomationPeer;
-   
    subtype ComboBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeer;
-   
    subtype AppBarAutomationPeer is Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeer;
-   
    subtype InkToolbarAutomationPeer is Windows.UI.Xaml.Automation.Peers.IInkToolbarAutomationPeer;
    subtype MapControlAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMapControlAutomationPeer;
    subtype LoopingSelectorItemDataAutomationPeer is Windows.UI.Xaml.Automation.Peers.ILoopingSelectorItemDataAutomationPeer;
@@ -5405,7 +5328,6 @@ package Windows.UI.Xaml.Automation.Peers is
    )
    return Windows.UI.Xaml.Automation.Peers.IPivotItemAutomationPeer;
    
-   
    subtype PivotItemDataAutomationPeer is Windows.UI.Xaml.Automation.Peers.IPivotItemDataAutomationPeer;
    function CreateInstanceWithParentAndItem
    (
@@ -5414,7 +5336,6 @@ package Windows.UI.Xaml.Automation.Peers is
    )
    return Windows.UI.Xaml.Automation.Peers.IPivotItemDataAutomationPeer;
    
-   
    subtype TimePickerFlyoutPresenterAutomationPeer is Windows.UI.Xaml.Automation.Peers.ITimePickerFlyoutPresenterAutomationPeer;
    subtype PivotAutomationPeer is Windows.UI.Xaml.Automation.Peers.IPivotAutomationPeer;
    function CreateInstanceWithOwner
@@ -5422,7 +5343,6 @@ package Windows.UI.Xaml.Automation.Peers is
       owner : Windows.UI.Xaml.Controls.IPivot
    )
    return Windows.UI.Xaml.Automation.Peers.IPivotAutomationPeer;
-   
    
    
    ------------------------------------------------------------------------

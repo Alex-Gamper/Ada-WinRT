@@ -957,11 +957,9 @@ package Windows.ApplicationModel.VoiceCommands is
    
    subtype VoiceCommandDefinition is Windows.ApplicationModel.VoiceCommands.IVoiceCommandDefinition;
    subtype VoiceCommandContentTile is Windows.ApplicationModel.VoiceCommands.IVoiceCommandContentTile;
-   
    function CreateVoiceCommandContentTile return Windows.ApplicationModel.VoiceCommands.IVoiceCommandContentTile;
    
    subtype VoiceCommandUserMessage is Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage;
-   
    function CreateVoiceCommandUserMessage return Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage;
    
    subtype VoiceCommand is Windows.ApplicationModel.VoiceCommands.IVoiceCommand;

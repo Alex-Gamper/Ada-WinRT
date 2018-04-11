@@ -2397,7 +2397,6 @@ package Windows.Media is
    )
    return Windows.Media.IVideoFrame;
    
-   
    subtype AudioBuffer is Windows.Media.IAudioBuffer;
    subtype AudioFrame is Windows.Media.IAudioFrame;
    function Create
@@ -2406,9 +2405,7 @@ package Windows.Media is
    )
    return Windows.Media.IAudioFrame;
    
-   
    subtype SystemMediaTransportControlsTimelineProperties is Windows.Media.ISystemMediaTransportControlsTimelineProperties;
-   
    function CreateSystemMediaTransportControlsTimelineProperties return Windows.Media.ISystemMediaTransportControlsTimelineProperties;
    
    subtype MusicDisplayProperties is Windows.Media.IMusicDisplayProperties;
@@ -2423,12 +2420,10 @@ package Windows.Media is
    subtype AutoRepeatModeChangeRequestedEventArgs is Windows.Media.IAutoRepeatModeChangeRequestedEventArgs;
    subtype SystemMediaTransportControls is Windows.Media.ISystemMediaTransportControls;
    subtype MediaTimelineController is Windows.Media.IMediaTimelineController;
-   
    function CreateMediaTimelineController return Windows.Media.IMediaTimelineController;
    
    subtype MediaTimelineControllerFailedEventArgs is Windows.Media.IMediaTimelineControllerFailedEventArgs;
    subtype MediaExtensionManager is Windows.Media.IMediaExtensionManager;
-   
    function CreateMediaExtensionManager return Windows.Media.IMediaExtensionManager;
    
    

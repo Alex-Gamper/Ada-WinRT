@@ -2107,16 +2107,13 @@ package Windows.Services.Maps is
    )
    return Windows.Services.Maps.IEnhancedWaypoint;
    
-   
    subtype MapLocationFinderResult is Windows.Services.Maps.IMapLocationFinderResult;
    subtype MapRouteFinderResult is Windows.Services.Maps.IMapRouteFinderResult;
    subtype MapRouteDrivingOptions is Windows.Services.Maps.IMapRouteDrivingOptions;
-   
    function CreateMapRouteDrivingOptions return Windows.Services.Maps.IMapRouteDrivingOptions;
    
    subtype PlaceInfo is Windows.Services.Maps.IPlaceInfo;
    subtype PlaceInfoCreateOptions is Windows.Services.Maps.IPlaceInfoCreateOptions;
-   
    function CreatePlaceInfoCreateOptions return Windows.Services.Maps.IPlaceInfoCreateOptions;
    
    

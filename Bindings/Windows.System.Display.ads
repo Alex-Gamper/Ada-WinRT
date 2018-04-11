@@ -58,7 +58,6 @@ package Windows.System.Display is
    ------------------------------------------------------------------------
    
    subtype DisplayRequest is Windows.System.Display.IDisplayRequest;
-   
    function CreateDisplayRequest return Windows.System.Display.IDisplayRequest;
    
    

@@ -5107,19 +5107,15 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    subtype GattDescriptorsResult is Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptorsResult;
    subtype GattWriteResult is Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteResult;
    subtype GattReliableWriteTransaction is Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction;
-   
    function CreateGattReliableWriteTransaction return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction;
    
    subtype GattServiceProviderAdvertisingParameters is Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters;
-   
    function CreateGattServiceProviderAdvertisingParameters return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters;
    
    subtype GattLocalCharacteristicParameters is Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicParameters;
-   
    function CreateGattLocalCharacteristicParameters return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicParameters;
    
    subtype GattLocalDescriptorParameters is Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptorParameters;
-   
    function CreateGattLocalDescriptorParameters return Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptorParameters;
    
    subtype GattServiceProviderResult is Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderResult;

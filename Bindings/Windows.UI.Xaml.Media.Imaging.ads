@@ -1002,7 +1002,6 @@ package Windows.UI.Xaml.Media.Imaging is
       m_Inner    : aliased IBitmapSource := null;
       m_IBitmapSource : IBitmapSource := null;
    end record;
-   
    type IBitmapSource_Impl is access all IBitmapSource_Interface_Impl'Class;
    type IBitmapSource_Impl_Ptr is access all IBitmapSource_Impl;
    
@@ -1077,20 +1076,16 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.HRESULT;
    
-   
    subtype RenderTargetBitmap is Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap;
-   
    function CreateRenderTargetBitmap return Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap;
    
    subtype SurfaceImageSource is Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
-   
    subtype BitmapImage is Windows.UI.Xaml.Media.Imaging.IBitmapImage;
    function CreateInstanceWithUriSource
    (
       uriSource : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.UI.Xaml.Media.Imaging.IBitmapImage;
-   
    
    subtype VirtualSurfaceImageSource is Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSource;
    function CreateInstanceWithDimensions
@@ -1108,7 +1103,6 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSource;
    
-   
    subtype WriteableBitmap is Windows.UI.Xaml.Media.Imaging.IWriteableBitmap;
    function CreateInstanceWithDimensions
    (
@@ -1116,7 +1110,6 @@ package Windows.UI.Xaml.Media.Imaging is
       ; pixelHeight : Windows.Int32
    )
    return Windows.UI.Xaml.Media.Imaging.IWriteableBitmap;
-   
    
    subtype SvgImageSourceFailedEventArgs is Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFailedEventArgs;
    subtype SvgImageSourceOpenedEventArgs is Windows.UI.Xaml.Media.Imaging.ISvgImageSourceOpenedEventArgs;
@@ -1128,7 +1121,6 @@ package Windows.UI.Xaml.Media.Imaging is
       m_Inner    : aliased IXamlRenderingBackgroundTaskOverrides := null;
       m_IXamlRenderingBackgroundTask : IXamlRenderingBackgroundTask := null;
    end record;
-   
    type IXamlRenderingBackgroundTaskOverrides_Impl is access all IXamlRenderingBackgroundTaskOverrides_Interface_Impl'Class;
    type IXamlRenderingBackgroundTaskOverrides_Impl_Ptr is access all IXamlRenderingBackgroundTaskOverrides_Impl;
    
@@ -1188,7 +1180,6 @@ package Windows.UI.Xaml.Media.Imaging is
       m_Inner    : aliased IXamlRenderingBackgroundTask := null;
       m_IXamlRenderingBackgroundTask : IXamlRenderingBackgroundTask := null;
    end record;
-   
    type IXamlRenderingBackgroundTask_Impl is access all IXamlRenderingBackgroundTask_Interface_Impl'Class;
    type IXamlRenderingBackgroundTask_Impl_Ptr is access all IXamlRenderingBackgroundTask_Impl;
    
@@ -1234,9 +1225,7 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.HRESULT;
    
-   
    subtype SoftwareBitmapSource is Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource;
-   
    function CreateSoftwareBitmapSource return Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource;
    
    subtype SvgImageSource is Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
@@ -1247,7 +1236,6 @@ package Windows.UI.Xaml.Media.Imaging is
       m_Inner    : aliased ISvgImageSource := null;
       m_ISvgImageSource : ISvgImageSource := null;
    end record;
-   
    type ISvgImageSource_Impl is access all ISvgImageSource_Interface_Impl'Class;
    type ISvgImageSource_Impl_Ptr is access all ISvgImageSource_Impl;
    
@@ -1372,7 +1360,6 @@ package Windows.UI.Xaml.Media.Imaging is
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.IAsyncOperation_SvgImageSourceLoadStatus -- Generic Parameter Type
    )
    return Windows.HRESULT;
-   
    
    
    ------------------------------------------------------------------------

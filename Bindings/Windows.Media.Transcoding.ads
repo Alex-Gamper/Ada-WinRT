@@ -364,7 +364,6 @@ package Windows.Media.Transcoding is
    
    subtype PrepareTranscodeResult is Windows.Media.Transcoding.IPrepareTranscodeResult;
    subtype MediaTranscoder is Windows.Media.Transcoding.IMediaTranscoder;
-   
    function CreateMediaTranscoder return Windows.Media.Transcoding.IMediaTranscoder;
    
    

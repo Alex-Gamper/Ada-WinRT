@@ -393,7 +393,6 @@ package Windows.Devices.Gpio.Provider is
    return Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

@@ -426,11 +426,9 @@ package Windows.Perception.Spatial.Surfaces is
    subtype SpatialSurfaceMeshBuffer is Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshBuffer;
    subtype SpatialSurfaceMesh is Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMesh;
    subtype SpatialSurfaceMeshOptions is Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptions;
-   
    function CreateSpatialSurfaceMeshOptions return Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptions;
    
    subtype SpatialSurfaceObserver is Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver;
-   
    function CreateSpatialSurfaceObserver return Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver;
    
    

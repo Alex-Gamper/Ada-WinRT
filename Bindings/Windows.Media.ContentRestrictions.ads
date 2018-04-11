@@ -382,7 +382,6 @@ package Windows.Media.ContentRestrictions is
    )
    return Windows.Media.ContentRestrictions.IRatedContentDescription;
    
-   
    subtype ContentRestrictionsBrowsePolicy is Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy;
    subtype RatedContentRestrictions is Windows.Media.ContentRestrictions.IRatedContentRestrictions;
    function CreateWithMaxAgeRating
@@ -390,7 +389,6 @@ package Windows.Media.ContentRestrictions is
       maxAgeRating : Windows.UInt32
    )
    return Windows.Media.ContentRestrictions.IRatedContentRestrictions;
-   
    
    
    ------------------------------------------------------------------------

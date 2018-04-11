@@ -715,7 +715,6 @@ package Windows.UI.Xaml.Markup is
       m_Inner    : aliased IMarkupExtensionOverrides := null;
       m_IMarkupExtension : IMarkupExtension := null;
    end record;
-   
    type IMarkupExtensionOverrides_Impl is access all IMarkupExtensionOverrides_Interface_Impl'Class;
    type IMarkupExtensionOverrides_Impl_Ptr is access all IMarkupExtensionOverrides_Impl;
    
@@ -775,7 +774,6 @@ package Windows.UI.Xaml.Markup is
       m_Inner    : aliased IMarkupExtension := null;
       m_IMarkupExtension : IMarkupExtension := null;
    end record;
-   
    type IMarkupExtension_Impl is access all IMarkupExtension_Interface_Impl'Class;
    type IMarkupExtension_Impl_Ptr is access all IMarkupExtension_Impl;
    
@@ -820,7 +818,6 @@ package Windows.UI.Xaml.Markup is
       trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
-   
    
    subtype XamlBinaryWriter is Windows.UI.Xaml.Markup.IXamlBinaryWriter;
    subtype XamlBindingHelper is Windows.UI.Xaml.Markup.IXamlBindingHelper;

@@ -4473,7 +4473,6 @@ package Windows.Devices.Sensors is
    )
    return Windows.Devices.Sensors.ISensorDataThreshold;
    
-   
    subtype ProximitySensor is Windows.Devices.Sensors.IProximitySensor;
    subtype ProximitySensorReading is Windows.Devices.Sensors.IProximitySensorReading;
    subtype ProximitySensorReadingChangedEventArgs is Windows.Devices.Sensors.IProximitySensorReadingChangedEventArgs;
@@ -4484,7 +4483,6 @@ package Windows.Devices.Sensors is
       sensor : Windows.Devices.Sensors.IProximitySensor
    )
    return Windows.Devices.Sensors.ISensorDataThreshold;
-   
    
    subtype Altimeter is Windows.Devices.Sensors.IAltimeter;
    subtype AltimeterReading is Windows.Devices.Sensors.IAltimeterReading;

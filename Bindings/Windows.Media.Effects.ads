@@ -1324,7 +1324,6 @@ package Windows.Media.Effects is
    )
    return Windows.Media.Effects.IVideoCompositorDefinition;
    
-   
    subtype CompositeVideoFrameContext is Windows.Media.Effects.ICompositeVideoFrameContext;
    subtype AudioEffect is Windows.Media.Effects.IAudioEffect;
    subtype AudioRenderEffectsManager is Windows.Media.Effects.IAudioRenderEffectsManager;
@@ -1343,7 +1342,6 @@ package Windows.Media.Effects is
    )
    return Windows.Media.Effects.IVideoEffectDefinition;
    
-   
    subtype AudioEffectDefinition is Windows.Media.Effects.IAudioEffectDefinition;
    function Create
    (
@@ -1358,15 +1356,12 @@ package Windows.Media.Effects is
    )
    return Windows.Media.Effects.IAudioEffectDefinition;
    
-   
    subtype ProcessVideoFrameContext is Windows.Media.Effects.IProcessVideoFrameContext;
    subtype ProcessAudioFrameContext is Windows.Media.Effects.IProcessAudioFrameContext;
    subtype VideoTransformEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
-   
    function CreateVideoTransformEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition;
    
    subtype SlowMotionEffectDefinition is Windows.Media.Effects.ISlowMotionEffectDefinition;
-   
    function CreateSlowMotionEffectDefinition return Windows.Media.Effects.ISlowMotionEffectDefinition;
    
    

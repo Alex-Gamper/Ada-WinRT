@@ -1136,24 +1136,20 @@ package Windows.Devices.WiFiDirect is
    
    subtype WiFiDirectDevice is Windows.Devices.WiFiDirect.IWiFiDirectDevice;
    subtype WiFiDirectConnectionParameters is Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters;
-   
    function CreateWiFiDirectConnectionParameters return Windows.Devices.WiFiDirect.IWiFiDirectConnectionParameters;
    
    subtype WiFiDirectInformationElement is Windows.Devices.WiFiDirect.IWiFiDirectInformationElement;
-   
    function CreateWiFiDirectInformationElement return Windows.Devices.WiFiDirect.IWiFiDirectInformationElement;
    
    subtype WiFiDirectLegacySettings is Windows.Devices.WiFiDirect.IWiFiDirectLegacySettings;
    subtype WiFiDirectAdvertisement is Windows.Devices.WiFiDirect.IWiFiDirectAdvertisement;
    subtype WiFiDirectAdvertisementPublisherStatusChangedEventArgs is Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisherStatusChangedEventArgs;
    subtype WiFiDirectAdvertisementPublisher is Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisher;
-   
    function CreateWiFiDirectAdvertisementPublisher return Windows.Devices.WiFiDirect.IWiFiDirectAdvertisementPublisher;
    
    subtype WiFiDirectConnectionRequest is Windows.Devices.WiFiDirect.IWiFiDirectConnectionRequest;
    subtype WiFiDirectConnectionRequestedEventArgs is Windows.Devices.WiFiDirect.IWiFiDirectConnectionRequestedEventArgs;
    subtype WiFiDirectConnectionListener is Windows.Devices.WiFiDirect.IWiFiDirectConnectionListener;
-   
    function CreateWiFiDirectConnectionListener return Windows.Devices.WiFiDirect.IWiFiDirectConnectionListener;
    
    

@@ -2043,18 +2043,15 @@ package Windows.UI.ViewManagement is
    subtype ApplicationViewTitleBar is Windows.UI.ViewManagement.IApplicationViewTitleBar;
    subtype ActivationViewSwitcher is Windows.UI.ViewManagement.IActivationViewSwitcher;
    subtype ApplicationViewTransferContext is Windows.UI.ViewManagement.IApplicationViewTransferContext;
-   
    function CreateApplicationViewTransferContext return Windows.UI.ViewManagement.IApplicationViewTransferContext;
    
    subtype InputPaneVisibilityEventArgs is Windows.UI.ViewManagement.IInputPaneVisibilityEventArgs;
    subtype InputPane is Windows.UI.ViewManagement.IInputPane;
    subtype UIViewSettings is Windows.UI.ViewManagement.IUIViewSettings;
    subtype AccessibilitySettings is Windows.UI.ViewManagement.IAccessibilitySettings;
-   
    function CreateAccessibilitySettings return Windows.UI.ViewManagement.IAccessibilitySettings;
    
    subtype UISettings is Windows.UI.ViewManagement.IUISettings;
-   
    function CreateUISettings return Windows.UI.ViewManagement.IUISettings;
    
    subtype StatusBar is Windows.UI.ViewManagement.IStatusBar;

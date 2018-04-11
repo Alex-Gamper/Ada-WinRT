@@ -100,7 +100,6 @@ package Windows.Security.Cryptography.DataProtection is
    ------------------------------------------------------------------------
    
    subtype DataProtectionProvider is Windows.Security.Cryptography.DataProtection.IDataProtectionProvider;
-   
    function CreateDataProtectionProvider return Windows.Security.Cryptography.DataProtection.IDataProtectionProvider;
    
    

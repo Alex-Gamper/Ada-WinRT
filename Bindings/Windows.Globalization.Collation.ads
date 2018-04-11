@@ -160,7 +160,6 @@ package Windows.Globalization.Collation is
    return Windows.Globalization.Collation.ICharacterGroupings;
    
    
-   
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------

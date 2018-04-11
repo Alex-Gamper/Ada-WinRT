@@ -3577,7 +3577,6 @@ package Windows.UI.Xaml.Documents is
       m_Inner    : aliased ITextHighlighter := null;
       m_ITextHighlighter : ITextHighlighter := null;
    end record;
-   
    type ITextHighlighter_Impl is access all ITextHighlighter_Interface_Impl'Class;
    type ITextHighlighter_Impl_Ptr is access all ITextHighlighter_Impl;
    
@@ -3658,13 +3657,10 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.HRESULT;
    
-   
    subtype TextPointer is Windows.UI.Xaml.Documents.ITextPointer;
    subtype Typography is Windows.UI.Xaml.Documents.ITypography;
    subtype TextElement is Windows.UI.Xaml.Documents.ITextElement;
-   
    subtype TextHighlighterBase is Windows.UI.Xaml.Documents.ITextHighlighterBase;
-   
    subtype Block is Windows.UI.Xaml.Documents.IBlock;
    
    type IBlock_Interface_Impl is new IBlock_Interface with record
@@ -3673,7 +3669,6 @@ package Windows.UI.Xaml.Documents is
       m_Inner    : aliased IBlock := null;
       m_IBlock : IBlock := null;
    end record;
-   
    type IBlock_Impl is access all IBlock_Interface_Impl'Class;
    type IBlock_Impl_Ptr is access all IBlock_Impl;
    
@@ -3775,7 +3770,6 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.HRESULT;
    
-   
    subtype Inline is Windows.UI.Xaml.Documents.IInline;
    
    type IInline_Interface_Impl is new IInline_Interface with record
@@ -3784,7 +3778,6 @@ package Windows.UI.Xaml.Documents is
       m_Inner    : aliased IInline := null;
       m_IInline : IInline := null;
    end record;
-   
    type IInline_Impl is access all IInline_Interface_Impl'Class;
    type IInline_Impl_Ptr is access all IInline_Impl;
    
@@ -3830,21 +3823,16 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.HRESULT;
    
-   
    subtype InlineUIContainer is Windows.UI.Xaml.Documents.IInlineUIContainer;
-   
    function CreateInlineUIContainer return Windows.UI.Xaml.Documents.IInlineUIContainer;
    
    subtype LineBreak is Windows.UI.Xaml.Documents.ILineBreak;
-   
    function CreateLineBreak return Windows.UI.Xaml.Documents.ILineBreak;
    
    subtype Paragraph is Windows.UI.Xaml.Documents.IParagraph;
-   
    function CreateParagraph return Windows.UI.Xaml.Documents.IParagraph;
    
    subtype Run is Windows.UI.Xaml.Documents.IRun;
-   
    function CreateRun return Windows.UI.Xaml.Documents.IRun;
    
    subtype Span is Windows.UI.Xaml.Documents.ISpan;
@@ -3855,7 +3843,6 @@ package Windows.UI.Xaml.Documents is
       m_Inner    : aliased ISpan := null;
       m_ISpan : ISpan := null;
    end record;
-   
    type ISpan_Impl is access all ISpan_Interface_Impl'Class;
    type ISpan_Impl_Ptr is access all ISpan_Impl;
    
@@ -3915,26 +3902,20 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.HRESULT;
    
-   
    subtype Bold is Windows.UI.Xaml.Documents.IBold;
-   
    function CreateBold return Windows.UI.Xaml.Documents.IBold;
    
    subtype Italic is Windows.UI.Xaml.Documents.IItalic;
-   
    function CreateItalic return Windows.UI.Xaml.Documents.IItalic;
    
    subtype Underline is Windows.UI.Xaml.Documents.IUnderline;
-   
    function CreateUnderline return Windows.UI.Xaml.Documents.IUnderline;
    
    subtype Hyperlink is Windows.UI.Xaml.Documents.IHyperlink;
-   
    function CreateHyperlink return Windows.UI.Xaml.Documents.IHyperlink;
    
    subtype HyperlinkClickEventArgs is Windows.UI.Xaml.Documents.IHyperlinkClickEventArgs;
    subtype Glyphs is Windows.UI.Xaml.Documents.IGlyphs;
-   
    function CreateGlyphs return Windows.UI.Xaml.Documents.IGlyphs;
    
    

@@ -627,11 +627,9 @@ package Windows.Data.Json is
    ------------------------------------------------------------------------
    
    subtype JsonArray is Windows.Data.Json.IJsonArray;
-   
    function CreateJsonArray return Windows.Data.Json.IJsonArray;
    
    subtype JsonObject is Windows.Data.Json.IJsonObject;
-   
    function CreateJsonObject return Windows.Data.Json.IJsonObject;
    
    subtype JsonValue is Windows.Data.Json.IJsonValue;

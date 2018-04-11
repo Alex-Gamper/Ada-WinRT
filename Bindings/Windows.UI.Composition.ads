@@ -4819,15 +4819,12 @@ package Windows.UI.Composition is
    ------------------------------------------------------------------------
    
    subtype CompositionObject is Windows.UI.Composition.ICompositionObject;
-   
    subtype InitialValueExpressionCollection is Windows.UI.Composition.IMap_String_String;
    subtype CompositionCapabilities is Windows.UI.Composition.ICompositionCapabilities;
    subtype CompositionColorGradientStop is Windows.UI.Composition.ICompositionColorGradientStop;
    subtype CompositionBatchCompletedEventArgs is Windows.UI.Composition.ICompositionBatchCompletedEventArgs;
    subtype CompositionEasingFunction is Windows.UI.Composition.ICompositionEasingFunction;
-   
    subtype CompositionBrush is Windows.UI.Composition.ICompositionBrush;
-   
    subtype CompositionEffectBrush is Windows.UI.Composition.ICompositionEffectBrush;
    subtype CompositionEffectSourceParameter is Windows.UI.Composition.ICompositionEffectSourceParameter;
    function Create
@@ -4836,24 +4833,19 @@ package Windows.UI.Composition is
    )
    return Windows.UI.Composition.ICompositionEffectSourceParameter;
    
-   
    subtype CompositionColorGradientStopCollection is Windows.UI.Composition.ICompositionColorGradientStopCollection;
    subtype CompositionGraphicsDevice is Windows.UI.Composition.ICompositionGraphicsDevice;
    subtype Compositor is Windows.UI.Composition.ICompositor;
-   
    function CreateCompositor return Windows.UI.Composition.ICompositor;
    
    subtype CompositionPropertySet is Windows.UI.Composition.ICompositionPropertySet;
    subtype CompositionDrawingSurface is Windows.UI.Composition.ICompositionDrawingSurface;
-   
    subtype CompositionVirtualDrawingSurface is Windows.UI.Composition.ICompositionVirtualDrawingSurface;
-   
    subtype CompositionColorBrush is Windows.UI.Composition.ICompositionColorBrush;
    subtype CompositionEffectFactory is Windows.UI.Composition.ICompositionEffectFactory;
    subtype CompositionScopedBatch is Windows.UI.Composition.ICompositionScopedBatch;
    subtype CompositionSurfaceBrush is Windows.UI.Composition.ICompositionSurfaceBrush;
    subtype CompositionTarget is Windows.UI.Composition.ICompositionTarget;
-   
    subtype CompositionCommitBatch is Windows.UI.Composition.ICompositionCommitBatch;
    subtype CompositionAnimationGroup is Windows.UI.Composition.ICompositionAnimationGroup;
    subtype CompositionBackdropBrush is Windows.UI.Composition.ICompositionBackdropBrush;
@@ -4862,36 +4854,28 @@ package Windows.UI.Composition is
    subtype CubicBezierEasingFunction is Windows.UI.Composition.ICubicBezierEasingFunction;
    subtype ImplicitAnimationCollection is Windows.UI.Composition.IImplicitAnimationCollection;
    subtype CompositionShadow is Windows.UI.Composition.ICompositionShadow;
-   
    subtype DropShadow is Windows.UI.Composition.IDropShadow;
    subtype LinearEasingFunction is Windows.UI.Composition.ILinearEasingFunction;
    subtype RenderingDeviceReplacedEventArgs is Windows.UI.Composition.IRenderingDeviceReplacedEventArgs;
    subtype StepEasingFunction is Windows.UI.Composition.IStepEasingFunction;
    subtype CompositionClip is Windows.UI.Composition.ICompositionClip;
-   
    subtype InsetClip is Windows.UI.Composition.IInsetClip;
    subtype VisualCollection is Windows.UI.Composition.IVisualCollection;
    subtype VisualUnorderedCollection is Windows.UI.Composition.IVisualUnorderedCollection;
    subtype CompositionAnimation is Windows.UI.Composition.ICompositionAnimation;
-   
    subtype ExpressionAnimation is Windows.UI.Composition.IExpressionAnimation;
    subtype Visual is Windows.UI.Composition.IVisual;
-   
    subtype ContainerVisual is Windows.UI.Composition.IContainerVisual;
-   
    subtype SpriteVisual is Windows.UI.Composition.ISpriteVisual;
    subtype LayerVisual is Windows.UI.Composition.ILayerVisual;
    subtype CompositionGradientBrush is Windows.UI.Composition.ICompositionGradientBrush;
-   
    subtype CompositionLinearGradientBrush is Windows.UI.Composition.ICompositionLinearGradientBrush;
    subtype CompositionLight is Windows.UI.Composition.ICompositionLight;
-   
    subtype AmbientLight is Windows.UI.Composition.IAmbientLight;
    subtype DistantLight is Windows.UI.Composition.IDistantLight;
    subtype PointLight is Windows.UI.Composition.IPointLight;
    subtype SpotLight is Windows.UI.Composition.ISpotLight;
    subtype KeyFrameAnimation is Windows.UI.Composition.IKeyFrameAnimation;
-   
    subtype ColorKeyFrameAnimation is Windows.UI.Composition.IColorKeyFrameAnimation;
    subtype QuaternionKeyFrameAnimation is Windows.UI.Composition.IQuaternionKeyFrameAnimation;
    subtype ScalarKeyFrameAnimation is Windows.UI.Composition.IScalarKeyFrameAnimation;
@@ -4899,15 +4883,11 @@ package Windows.UI.Composition is
    subtype Vector3KeyFrameAnimation is Windows.UI.Composition.IVector3KeyFrameAnimation;
    subtype Vector4KeyFrameAnimation is Windows.UI.Composition.IVector4KeyFrameAnimation;
    subtype NaturalMotionAnimation is Windows.UI.Composition.INaturalMotionAnimation;
-   
    subtype ScalarNaturalMotionAnimation is Windows.UI.Composition.IScalarNaturalMotionAnimation;
-   
    subtype SpringScalarNaturalMotionAnimation is Windows.UI.Composition.ISpringScalarNaturalMotionAnimation;
    subtype Vector2NaturalMotionAnimation is Windows.UI.Composition.IVector2NaturalMotionAnimation;
-   
    subtype SpringVector2NaturalMotionAnimation is Windows.UI.Composition.ISpringVector2NaturalMotionAnimation;
    subtype Vector3NaturalMotionAnimation is Windows.UI.Composition.IVector3NaturalMotionAnimation;
-   
    subtype SpringVector3NaturalMotionAnimation is Windows.UI.Composition.ISpringVector3NaturalMotionAnimation;
    
    ------------------------------------------------------------------------
