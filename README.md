@@ -13,8 +13,9 @@ Microsoft Windows 10 SDK *1803 (build 10.0.17134)*
 
 You will need a working gcc/gnat **x64** Windows build environment. This release has **NOT** yet been
 tested against 32 bit environments. So you may need to build gcc/gnat **x64** from source if required.
-Details/scripts on how to do this can be found on the mingw64 website. Alternatively you can use the
-Linux shell scripts in Ada-Mingw repository to build a native toolchain on Ubuntu
+Details/scripts on how to do this can be found on the mingw64 website.
+
+#### Alternatively you can use the Linux shell scripts in Ada-Mingw64 repository to build a native toolchain
 
 ### Build instructions
 
