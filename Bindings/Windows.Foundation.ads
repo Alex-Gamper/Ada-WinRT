@@ -464,6 +464,12 @@ package Windows.Foundation is
    type IReference_Rect_Interface;
    type IReference_Rect is access all IReference_Rect_Interface'Class;
    type IReference_Rect_Ptr is access all IReference_Rect;
+   type IReference_Size_Interface;
+   type IReference_Size is access all IReference_Size_Interface'Class;
+   type IReference_Size_Ptr is access all IReference_Size;
+   type IReference_Point_Interface;
+   type IReference_Point is access all IReference_Point_Interface'Class;
+   type IReference_Point_Ptr is access all IReference_Point;
    type IIterator_Size_Interface;
    type IIterator_Size is access all IIterator_Size_Interface'Class;
    type IIterator_Size_Ptr is access all IIterator_Size;
@@ -494,9 +500,6 @@ package Windows.Foundation is
    type IObservableVector_Object_Interface;
    type IObservableVector_Object is access all IObservableVector_Object_Interface'Class;
    type IObservableVector_Object_Ptr is access all IObservableVector_Object;
-   type IReference_Point_Interface;
-   type IReference_Point is access all IReference_Point_Interface'Class;
-   type IReference_Point_Ptr is access all IReference_Point;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2280,6 +2283,32 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
+   IID_IReference_Size : aliased constant Windows.IID := (1634873478, 36435, 21110, (159, 54, 42, 75, 185, 62, 43, 117 ));
+   
+   type IReference_Size_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Size_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_Point : aliased constant Windows.IID := (2230406178, 40970, 21106, (141, 61, 130, 17, 46, 102, 223, 0 ));
+   
+   type IReference_Point_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_Point_Interface
+      ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_Size : aliased constant Windows.IID := (2739965664, 13607, 20804, (137, 77, 66, 46, 173, 239, 67, 215 ));
    
    type IIterator_Size_Interface is interface and Windows.IInspectable_Interface;
@@ -2645,19 +2674,6 @@ package Windows.Foundation is
    (
       This       : access IObservableVector_Object_Interface
       ; token : Windows.Foundation.EventRegistrationToken
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IReference_Point : aliased constant Windows.IID := (2230406178, 40970, 21106, (141, 61, 130, 17, 46, 102, 223, 0 ));
-   
-   type IReference_Point_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Value
-   (
-      This       : access IReference_Point_Interface
-      ; RetVal : access Windows.Foundation.Point
    )
    return Windows.HRESULT is abstract;
    

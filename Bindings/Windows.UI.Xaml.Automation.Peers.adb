@@ -1314,26 +1314,6 @@ package body Windows.UI.Xaml.Automation.Peers is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function ListenerExists
-   (
-      eventId : Windows.UI.Xaml.Automation.Peers.AutomationEvents
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.AutomationPeer");
-      m_Factory     : IAutomationPeerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPeerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ListenerExists(eventId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -1366,6 +1346,26 @@ package body Windows.UI.Xaml.Automation.Peers is
       Hr := RoGetActivationFactory(m_hString, IID_IAutomationPeerStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GenerateRawElementProviderRuntimeId(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ListenerExists
+   (
+      eventId : Windows.UI.Xaml.Automation.Peers.AutomationEvents
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.AutomationPeer");
+      m_Factory     : IAutomationPeerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPeerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ListenerExists(eventId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1406,28 +1406,6 @@ package body Windows.UI.Xaml.Automation.Peers is
       return RetVal;
    end;
    
-   function CreateInstanceWithOwner
-   (
-      owner : Windows.UI.Xaml.IFrameworkElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer");
-      m_Factory     : IFrameworkElementAutomationPeerFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementAutomationPeerFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithOwner(owner, outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromElement
    (
       element : Windows.UI.Xaml.IUIElement
@@ -1462,6 +1440,28 @@ package body Windows.UI.Xaml.Automation.Peers is
       Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementAutomationPeerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreatePeerForElement(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstanceWithOwner
+   (
+      owner : Windows.UI.Xaml.IFrameworkElement
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer");
+      m_Factory     : IFrameworkElementAutomationPeerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementAutomationPeerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithOwner(owner, outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2196,6 +2196,28 @@ package body Windows.UI.Xaml.Automation.Peers is
    
    function CreateInstanceWithOwner
    (
+      owner : Windows.UI.Xaml.Controls.ITreeViewItem
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.TreeViewItemAutomationPeer");
+      m_Factory     : ITreeViewItemAutomationPeerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITreeViewItemAutomationPeerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithOwner(owner, outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstanceWithOwner
+   (
       owner : Windows.UI.Xaml.Controls.IButton
       ; outer : Windows.Object
       ; inner : access Windows.Object
@@ -2526,6 +2548,28 @@ package body Windows.UI.Xaml.Automation.Peers is
    
    function CreateInstanceWithOwner
    (
+      owner : Windows.UI.Xaml.Controls.ITreeViewList
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.TreeViewListAutomationPeer");
+      m_Factory     : ITreeViewListAutomationPeerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITreeViewListAutomationPeerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithOwner(owner, outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstanceWithOwner
+   (
       owner : Windows.UI.Xaml.Controls.IFlipView
       ; outer : Windows.Object
       ; inner : access Windows.Object
@@ -2780,6 +2824,28 @@ package body Windows.UI.Xaml.Automation.Peers is
       RetVal        : aliased Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeer;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAppBarToggleButtonAutomationPeerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithOwner(owner, outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstanceWithOwner
+   (
+      owner : Windows.UI.Xaml.Controls.ICalendarDatePicker
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.Peers.CalendarDatePickerAutomationPeer");
+      m_Factory     : ICalendarDatePickerAutomationPeerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICalendarDatePickerAutomationPeerFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstanceWithOwner(owner, outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;

@@ -413,6 +413,9 @@ package Windows.Storage is
    type IStorageFolder2_Interface;
    type IStorageFolder2 is access all IStorageFolder2_Interface'Class;
    type IStorageFolder2_Ptr is access all IStorageFolder2;
+   type IStorageFolder3_Interface;
+   type IStorageFolder3 is access all IStorageFolder3_Interface'Class;
+   type IStorageFolder3_Ptr is access all IStorageFolder3;
    type IStorageStreamTransaction_Interface;
    type IStorageStreamTransaction is access all IStorageStreamTransaction_Interface'Class;
    type IStorageStreamTransaction_Ptr is access all IStorageStreamTransaction;
@@ -1907,6 +1910,19 @@ package Windows.Storage is
       This       : access IStorageFolder2_Interface
       ; name : Windows.String
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageItem -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageFolder3 : aliased constant Windows.IID := (2673965209, 48609, 16676, (174, 179, 176, 106, 217, 111, 152, 212 ));
+   
+   type IStorageFolder3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryGetChangeTracker
+   (
+      This       : access IStorageFolder3_Interface
+      ; RetVal : access Windows.Storage.IStorageLibraryChangeTracker
    )
    return Windows.HRESULT is abstract;
    
@@ -4113,6 +4129,12 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IStorageFolder;
    
+   function get_Playlists
+   return Windows.Storage.IStorageFolder;
+   
+   function get_SavedPictures
+   return Windows.Storage.IStorageFolder;
+   
    function get_Objects3D
    return Windows.Storage.IStorageFolder;
    
@@ -4120,6 +4142,9 @@ package Windows.Storage is
    return Windows.Storage.IStorageFolder;
    
    function get_RecordedCalls
+   return Windows.Storage.IStorageFolder;
+   
+   function get_CameraRoll
    return Windows.Storage.IStorageFolder;
    
    function get_MusicLibrary
@@ -4143,21 +4168,12 @@ package Windows.Storage is
    function get_MediaServerDevices
    return Windows.Storage.IStorageFolder;
    
-   function get_CameraRoll
-   return Windows.Storage.IStorageFolder;
-   
-   function get_SavedPictures
-   return Windows.Storage.IStorageFolder;
-   
    function GetFolderForUserAsync
    (
       user : Windows.System.IUser
       ; folderId : Windows.Storage.KnownFolderId
    )
    return Windows.Storage.IAsyncOperation_IStorageFolder;
-   
-   function get_Playlists
-   return Windows.Storage.IStorageFolder;
    
    function GetForUser
    (
@@ -4224,6 +4240,32 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IStorageFile;
    
+   function CreateFileAsync
+   (
+      desiredName : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile;
+   
+   function CreateFolderAsync
+   (
+      desiredName : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder;
+   
+   function CreateFileWithCollisionOptionAsync
+   (
+      desiredName : Windows.String
+      ; option : Windows.Storage.CreationCollisionOption
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile;
+   
+   function CreateFolderWithCollisionOptionAsync
+   (
+      desiredName : Windows.String
+      ; option : Windows.Storage.CreationCollisionOption
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder;
+   
    function CreateFileForUserAsync
    (
       user : Windows.System.IUser
@@ -4250,32 +4292,6 @@ package Windows.Storage is
    (
       user : Windows.System.IUser
       ; desiredName : Windows.String
-      ; option : Windows.Storage.CreationCollisionOption
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFolder;
-   
-   function CreateFileAsync
-   (
-      desiredName : Windows.String
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile;
-   
-   function CreateFolderAsync
-   (
-      desiredName : Windows.String
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFolder;
-   
-   function CreateFileWithCollisionOptionAsync
-   (
-      desiredName : Windows.String
-      ; option : Windows.Storage.CreationCollisionOption
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile;
-   
-   function CreateFolderWithCollisionOptionAsync
-   (
-      desiredName : Windows.String
       ; option : Windows.Storage.CreationCollisionOption
    )
    return Windows.Storage.IAsyncOperation_IStorageFolder;

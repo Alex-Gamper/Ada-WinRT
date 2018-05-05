@@ -160,6 +160,26 @@ package body Windows.Gaming.Input is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function FromGameController
+   (
+      gameController : Windows.Gaming.Input.IGameController
+   )
+   return Windows.Gaming.Input.IArcadeStick is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ArcadeStick");
+      m_Factory     : IArcadeStickStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IArcadeStick;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IArcadeStickStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromGameController(gameController, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function add_ArcadeStickAdded
    (
       value : Windows.Gaming.Input.EventHandler_IArcadeStick
@@ -247,26 +267,6 @@ package body Windows.Gaming.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IArcadeStickStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ArcadeSticks(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FromGameController
-   (
-      gameController : Windows.Gaming.Input.IGameController
-   )
-   return Windows.Gaming.Input.IArcadeStick is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.ArcadeStick");
-      m_Factory     : IArcadeStickStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IArcadeStick;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IArcadeStickStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromGameController(gameController, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -499,26 +499,6 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
-   function FromGameController
-   (
-      gameController : Windows.Gaming.Input.IGameController
-   )
-   return Windows.Gaming.Input.IRacingWheel is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RacingWheel");
-      m_Factory     : IRacingWheelStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IRacingWheel;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRacingWheelStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromGameController(gameController, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function add_RacingWheelAdded
    (
       value : Windows.Gaming.Input.EventHandler_IRacingWheel
@@ -606,6 +586,26 @@ package body Windows.Gaming.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IRacingWheelStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_RacingWheels(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromGameController
+   (
+      gameController : Windows.Gaming.Input.IGameController
+   )
+   return Windows.Gaming.Input.IRacingWheel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.RacingWheel");
+      m_Factory     : IRacingWheelStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IRacingWheel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRacingWheelStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromGameController(gameController, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -725,26 +725,6 @@ package body Windows.Gaming.Input is
       return RetVal;
    end;
    
-   function FromGameController
-   (
-      gameController : Windows.Gaming.Input.IGameController
-   )
-   return Windows.Gaming.Input.IUINavigationController is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.Input.UINavigationController");
-      m_Factory     : IUINavigationControllerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.Input.IUINavigationController;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUINavigationControllerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FromGameController(gameController, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function add_UINavigationControllerAdded
    (
       value : Windows.Gaming.Input.EventHandler_IUINavigationController
@@ -832,6 +812,26 @@ package body Windows.Gaming.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IUINavigationControllerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_UINavigationControllers(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromGameController
+   (
+      gameController : Windows.Gaming.Input.IGameController
+   )
+   return Windows.Gaming.Input.IUINavigationController is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Gaming.Input.UINavigationController");
+      m_Factory     : IUINavigationControllerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Gaming.Input.IUINavigationController;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUINavigationControllerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromGameController(gameController, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

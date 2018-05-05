@@ -768,6 +768,27 @@ package body Windows.UI.Xaml.Media.Imaging is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Imaging.IBitmapSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
+      m_Factory     : IBitmapSourceFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.IBitmapSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_PixelWidthProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -796,27 +817,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_PixelHeightProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Imaging.IBitmapSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapSource");
-      m_Factory     : IBitmapSourceFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.IBitmapSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -898,6 +898,23 @@ package body Windows.UI.Xaml.Media.Imaging is
       Hr := RoGetActivationFactory(m_hString, IID_ISurfaceImageSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DecodePixelTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapImage");
+      m_Factory     : IBitmapImageStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapImageStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DecodePixelTypeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1023,23 +1040,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       return RetVal;
    end;
    
-   function get_DecodePixelTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapImage");
-      m_Factory     : IBitmapImageStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBitmapImageStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DecodePixelTypeProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -1055,6 +1055,49 @@ package body Windows.UI.Xaml.Media.Imaging is
       Hr := RoGetActivationFactory(m_hString, IID_IXamlRenderingBackgroundTaskFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Imaging.ISvgImageSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SvgImageSource");
+      m_Factory     : ISvgImageSourceFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstanceWithUriSource
+   (
+      uriSource : Windows.Foundation.IUriRuntimeClass
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Imaging.ISvgImageSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SvgImageSource");
+      m_Factory     : ISvgImageSourceFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithUriSource(uriSource, outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1106,49 +1149,6 @@ package body Windows.UI.Xaml.Media.Imaging is
       Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_RasterizePixelHeightProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Imaging.ISvgImageSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SvgImageSource");
-      m_Factory     : ISvgImageSourceFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstanceWithUriSource
-   (
-      uriSource : Windows.Foundation.IUriRuntimeClass
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.Imaging.ISvgImageSource is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.SvgImageSource");
-      m_Factory     : ISvgImageSourceFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithUriSource(uriSource, outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

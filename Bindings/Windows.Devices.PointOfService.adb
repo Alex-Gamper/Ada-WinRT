@@ -476,6 +476,51 @@ package body Windows.Devices.PointOfService is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function CreateInstance
+   (
+      message : Windows.String
+      ; severity : Windows.Devices.PointOfService.UnifiedPosErrorSeverity
+      ; reason : Windows.Devices.PointOfService.UnifiedPosErrorReason
+      ; extendedReason : Windows.UInt32
+   )
+   return Windows.Devices.PointOfService.IUnifiedPosErrorData is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.UnifiedPosErrorData");
+      m_Factory     : Windows.Devices.PointOfService.IUnifiedPosErrorDataFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IUnifiedPosErrorData := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUnifiedPosErrorDataFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(message, severity, reason, extendedReason, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      scanDataType : Windows.UInt32
+      ; scanData : Windows.Storage.Streams.IBuffer
+      ; scanDataLabel : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Devices.PointOfService.IBarcodeScannerReport is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeScannerReport");
+      m_Factory     : Windows.Devices.PointOfService.IBarcodeScannerReportFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.IBarcodeScannerReport := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeScannerReportFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(scanDataType, scanData, scanDataLabel, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -483,23 +528,6 @@ package body Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function get_Gs1DWCode
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
-      m_Factory     : IBarcodeSymbologiesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Gs1DWCode(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function get_Unknown
    return Windows.UInt32 is
@@ -2102,6 +2130,23 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
+   function get_Gs1DWCode
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.BarcodeSymbologies");
+      m_Factory     : IBarcodeSymbologiesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBarcodeSymbologiesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Gs1DWCode(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDefaultAsync
    return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner is
       Hr            : Windows.HRESULT := S_OK;
@@ -2295,6 +2340,26 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
+   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
+   (
+      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
+      m_Factory     : IMagneticStripeReaderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDefaultAsync
    return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader is
       Hr            : Windows.HRESULT := S_OK;
@@ -2343,26 +2408,6 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
-   (
-      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.MagneticStripeReader");
-      m_Factory     : IMagneticStripeReaderStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMagneticStripeReaderStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2568,23 +2613,6 @@ package body Windows.Devices.PointOfService is
       return RetVal;
    end;
    
-   function get_StatisticsCategorySelector
-   return Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.LineDisplay");
-      m_Factory     : ILineDisplayStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILineDisplayStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_StatisticsCategorySelector(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -2653,6 +2681,23 @@ package body Windows.Devices.PointOfService is
       Hr := RoGetActivationFactory(m_hString, IID_ILineDisplayStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelectorWithConnectionTypes(connectionTypes, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_StatisticsCategorySelector
+   return Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.PointOfService.LineDisplay");
+      m_Factory     : ILineDisplayStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILineDisplayStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_StatisticsCategorySelector(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

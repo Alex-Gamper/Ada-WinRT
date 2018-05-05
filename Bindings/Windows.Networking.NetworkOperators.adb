@@ -151,6 +151,32 @@ package body Windows.Networking.NetworkOperators is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IMobileBroadbandPco_Interface
+      ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandPco
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged_Interface
+      ; sender : Windows.Networking.NetworkOperators.IMobileBroadbandModem
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.NetworkOperators.IMobileBroadbandModem(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Interface
       ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandPinOperationResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -242,6 +268,123 @@ package body Windows.Networking.NetworkOperators is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IESimOperationResult_Interface
+      ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Interface
+      ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimDownloadProfileMetadataResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESim_add_ProfileChanged_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESim
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.NetworkOperators.IESim(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimProfileMetadata_add_StateChanged_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimProfileMetadata
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.NetworkOperators.IESimProfileMetadata(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_Added_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Networking.NetworkOperators.IESimAddedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.NetworkOperators.IESimWatcher(sender), Windows.Networking.NetworkOperators.IESimAddedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_EnumerationCompleted_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.NetworkOperators.IESimWatcher(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_Removed_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Networking.NetworkOperators.IESimRemovedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.NetworkOperators.IESimWatcher(sender), Windows.Networking.NetworkOperators.IESimRemovedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_Stopped_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.NetworkOperators.IESimWatcher(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_Updated_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Networking.NetworkOperators.IESimUpdatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.NetworkOperators.IESimWatcher(sender), Windows.Networking.NetworkOperators.IESimUpdatedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Interface
       ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IHotspotCredentialsAuthenticationResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -315,6 +458,48 @@ package body Windows.Networking.NetworkOperators is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      modemDeviceId : Windows.String
+      ; ruleGroupId : Windows.String
+   )
+   return Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation");
+      m_Factory     : Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolation := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMobileBroadbandModemIsolationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(modemDeviceId, ruleGroupId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithIndex
+   (
+      antennaIndex : Windows.Int32
+      ; sarBackoffIndex : Windows.Int32
+   )
+   return Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSar is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar");
+      m_Factory     : Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSarFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSar := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMobileBroadbandAntennaSarFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithIndex(antennaIndex, sarBackoffIndex, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function CreateProvisioningAgent return Windows.Networking.NetworkOperators.IProvisioningAgent is
@@ -420,46 +605,6 @@ package body Windows.Networking.NetworkOperators is
       return RetVal;
    end;
    
-   function GetTetheringCapability
-   (
-      networkAccountId : Windows.String
-   )
-   return Windows.Networking.NetworkOperators.TetheringCapability is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager");
-      m_Factory     : INetworkOperatorTetheringManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.NetworkOperators.TetheringCapability;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetTetheringCapability(networkAccountId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromNetworkAccountId
-   (
-      networkAccountId : Windows.String
-   )
-   return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager");
-      m_Factory     : INetworkOperatorTetheringManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromNetworkAccountId(networkAccountId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetTetheringCapabilityFromConnectionProfile
    (
       profile : Windows.Networking.Connectivity.IConnectionProfile
@@ -494,6 +639,46 @@ package body Windows.Networking.NetworkOperators is
       Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromConnectionProfile(profile, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetTetheringCapability
+   (
+      networkAccountId : Windows.String
+   )
+   return Windows.Networking.NetworkOperators.TetheringCapability is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager");
+      m_Factory     : INetworkOperatorTetheringManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.NetworkOperators.TetheringCapability;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetTetheringCapability(networkAccountId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromNetworkAccountId
+   (
+      networkAccountId : Windows.String
+   )
+   return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager");
+      m_Factory     : INetworkOperatorTetheringManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INetworkOperatorTetheringManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromNetworkAccountId(networkAccountId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -807,6 +992,78 @@ package body Windows.Networking.NetworkOperators is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function get_ServiceInfo
+   return Windows.Networking.NetworkOperators.IESimServiceInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.ESimManager");
+      m_Factory     : IESimManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.NetworkOperators.IESimServiceInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IESimManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ServiceInfo(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryCreateESimWatcher
+   return Windows.Networking.NetworkOperators.IESimWatcher is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.ESimManager");
+      m_Factory     : IESimManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.NetworkOperators.IESimWatcher;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IESimManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreateESimWatcher(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_ServiceInfoChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.ESimManager");
+      m_Factory     : IESimManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IESimManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_ServiceInfoChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_ServiceInfoChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.NetworkOperators.ESimManager");
+      m_Factory     : IESimManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IESimManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_ServiceInfoChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function TryGetAuthenticationContext

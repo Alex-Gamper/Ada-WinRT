@@ -110,6 +110,47 @@ package body Windows.Graphics.Printing is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function Create
+   (
+      firstPage : Windows.Int32
+      ; lastPage : Windows.Int32
+   )
+   return Windows.Graphics.Printing.IPrintPageRange is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintPageRange");
+      m_Factory     : Windows.Graphics.Printing.IPrintPageRangeFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Printing.IPrintPageRange := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPrintPageRangeFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(firstPage, lastPage, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithSinglePage
+   (
+      page : Windows.Int32
+   )
+   return Windows.Graphics.Printing.IPrintPageRange is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintPageRange");
+      m_Factory     : Windows.Graphics.Printing.IPrintPageRangeFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Printing.IPrintPageRange := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPrintPageRangeFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithSinglePage(page, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreatePrintPageInfo return Windows.Graphics.Printing.IPrintPageInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Graphics.Printing.PrintPageInfo");
@@ -134,23 +175,6 @@ package body Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
-   
-   function get_Bordering
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
-      m_Factory     : IStandardPrintTaskOptionsStatic2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Bordering(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
    
    function get_MediaSize
    return Windows.String is
@@ -367,6 +391,40 @@ package body Windows.Graphics.Printing is
       Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_InputBin(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Bordering
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Bordering(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CustomPageRanges
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Printing.StandardPrintTaskOptions");
+      m_Factory     : IStandardPrintTaskOptionsStatic3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStandardPrintTaskOptionsStatic3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CustomPageRanges(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -255,6 +255,92 @@ package body Windows.Devices.Enumeration is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetAqsFilterFromDeviceClass
+   (
+      deviceClass : Windows.Devices.Enumeration.DeviceClass
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceInformation");
+      m_Factory     : IDeviceInformationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetAqsFilterFromDeviceClass(deviceClass, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromIdAsyncWithKindAndAdditionalProperties
+   (
+      deviceId : Windows.String
+      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
+      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
+   )
+   return Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceInformation");
+      m_Factory     : IDeviceInformationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromIdAsyncWithKindAndAdditionalProperties(deviceId, additionalProperties, kind, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindAllAsyncWithKindAqsFilterAndAdditionalProperties
+   (
+      aqsFilter : Windows.String
+      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
+      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
+   )
+   return Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceInformation");
+      m_Factory     : IDeviceInformationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindAllAsyncWithKindAqsFilterAndAdditionalProperties(aqsFilter, additionalProperties, kind, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWatcherWithKindAqsFilterAndAdditionalProperties
+   (
+      aqsFilter : Windows.String
+      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
+      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
+   )
+   return Windows.Devices.Enumeration.IDeviceWatcher is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceInformation");
+      m_Factory     : IDeviceInformationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Enumeration.IDeviceWatcher;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWatcherWithKindAqsFilterAndAdditionalProperties(aqsFilter, additionalProperties, kind, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateFromIdAsync
    (
       deviceId : Windows.String
@@ -446,92 +532,6 @@ package body Windows.Devices.Enumeration is
       Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWatcherAqsFilterAndAdditionalProperties(aqsFilter, additionalProperties, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetAqsFilterFromDeviceClass
-   (
-      deviceClass : Windows.Devices.Enumeration.DeviceClass
-   )
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceInformation");
-      m_Factory     : IDeviceInformationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetAqsFilterFromDeviceClass(deviceClass, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFromIdAsyncWithKindAndAdditionalProperties
-   (
-      deviceId : Windows.String
-      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
-      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
-   )
-   return Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceInformation");
-      m_Factory     : IDeviceInformationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.IAsyncOperation_IDeviceInformation;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFromIdAsyncWithKindAndAdditionalProperties(deviceId, additionalProperties, kind, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function FindAllAsyncWithKindAqsFilterAndAdditionalProperties
-   (
-      aqsFilter : Windows.String
-      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
-      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
-   )
-   return Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceInformation");
-      m_Factory     : IDeviceInformationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.IAsyncOperation_IVectorView_DeviceInformation;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindAllAsyncWithKindAqsFilterAndAdditionalProperties(aqsFilter, additionalProperties, kind, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWatcherWithKindAqsFilterAndAdditionalProperties
-   (
-      aqsFilter : Windows.String
-      ; additionalProperties : Windows.Foundation.Collections.IIterable_String
-      ; kind : Windows.Devices.Enumeration.DeviceInformationKind
-   )
-   return Windows.Devices.Enumeration.IDeviceWatcher is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceInformation");
-      m_Factory     : IDeviceInformationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Enumeration.IDeviceWatcher;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWatcherWithKindAqsFilterAndAdditionalProperties(aqsFilter, additionalProperties, kind, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

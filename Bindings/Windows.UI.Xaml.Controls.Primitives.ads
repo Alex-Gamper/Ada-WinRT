@@ -467,9 +467,15 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IToggleButtonFactory_Interface;
    type IToggleButtonFactory is access all IToggleButtonFactory_Interface'Class;
    type IToggleButtonFactory_Ptr is access all IToggleButtonFactory;
+   type IAppBarButtonTemplateSettings_Interface;
+   type IAppBarButtonTemplateSettings is access all IAppBarButtonTemplateSettings_Interface'Class;
+   type IAppBarButtonTemplateSettings_Ptr is access all IAppBarButtonTemplateSettings;
    type IAppBarTemplateSettings_Interface;
    type IAppBarTemplateSettings is access all IAppBarTemplateSettings_Interface'Class;
    type IAppBarTemplateSettings_Ptr is access all IAppBarTemplateSettings;
+   type IAppBarToggleButtonTemplateSettings_Interface;
+   type IAppBarToggleButtonTemplateSettings is access all IAppBarToggleButtonTemplateSettings_Interface'Class;
+   type IAppBarToggleButtonTemplateSettings_Ptr is access all IAppBarToggleButtonTemplateSettings;
    type ICalendarViewTemplateSettings_Interface;
    type ICalendarViewTemplateSettings is access all ICalendarViewTemplateSettings_Interface'Class;
    type ICalendarViewTemplateSettings_Ptr is access all ICalendarViewTemplateSettings;
@@ -482,6 +488,9 @@ package Windows.UI.Xaml.Controls.Primitives is
    type ICommandBarTemplateSettings3_Interface;
    type ICommandBarTemplateSettings3 is access all ICommandBarTemplateSettings3_Interface'Class;
    type ICommandBarTemplateSettings3_Ptr is access all ICommandBarTemplateSettings3;
+   type IMenuFlyoutItemTemplateSettings_Interface;
+   type IMenuFlyoutItemTemplateSettings is access all IMenuFlyoutItemTemplateSettings_Interface'Class;
+   type IMenuFlyoutItemTemplateSettings_Ptr is access all IMenuFlyoutItemTemplateSettings;
    type ISplitViewTemplateSettings_Interface;
    type ISplitViewTemplateSettings is access all ISplitViewTemplateSettings_Interface'Class;
    type ISplitViewTemplateSettings_Ptr is access all ISplitViewTemplateSettings;
@@ -3009,6 +3018,19 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    ------------------------------------------------------------------------
    
+   IID_IAppBarButtonTemplateSettings : aliased constant Windows.IID := (3418993565, 3221, 18769, (191, 242, 19, 150, 54, 145, 195, 102 ));
+   
+   type IAppBarButtonTemplateSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyboardAcceleratorTextMinWidth
+   (
+      This       : access IAppBarButtonTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAppBarTemplateSettings : aliased constant Windows.IID := (3166873699, 60213, 16956, (131, 137, 215, 130, 123, 227, 191, 103 ));
    
    type IAppBarTemplateSettings_Interface is interface and Windows.IInspectable_Interface;
@@ -3059,6 +3081,19 @@ package Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IAppBarTemplateSettings_Interface
       ; RetVal : access Windows.UI.Xaml.Thickness
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppBarToggleButtonTemplateSettings : aliased constant Windows.IID := (2868485192, 55540, 16601, (159, 163, 58, 100, 240, 254, 197, 216 ));
+   
+   type IAppBarToggleButtonTemplateSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyboardAcceleratorTextMinWidth
+   (
+      This       : access IAppBarToggleButtonTemplateSettings_Interface
+      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -3251,6 +3286,19 @@ package Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access ICommandBarTemplateSettings3_Interface
       ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuFlyoutItemTemplateSettings : aliased constant Windows.IID := (1454184457, 14870, 16711, (129, 203, 208, 179, 92, 131, 78, 15 ));
+   
+   type IMenuFlyoutItemTemplateSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyboardAcceleratorTextMinWidth
+   (
+      This       : access IMenuFlyoutItemTemplateSettings_Interface
+      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -5523,7 +5571,10 @@ package Windows.UI.Xaml.Controls.Primitives is
    subtype CalendarViewTemplateSettings is Windows.UI.Xaml.Controls.Primitives.ICalendarViewTemplateSettings;
    subtype SplitViewTemplateSettings is Windows.UI.Xaml.Controls.Primitives.ISplitViewTemplateSettings;
    subtype AppBarTemplateSettings is Windows.UI.Xaml.Controls.Primitives.IAppBarTemplateSettings;
+   subtype MenuFlyoutItemTemplateSettings is Windows.UI.Xaml.Controls.Primitives.IMenuFlyoutItemTemplateSettings;
    subtype CommandBarTemplateSettings is Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings;
+   subtype AppBarButtonTemplateSettings is Windows.UI.Xaml.Controls.Primitives.IAppBarButtonTemplateSettings;
+   subtype AppBarToggleButtonTemplateSettings is Windows.UI.Xaml.Controls.Primitives.IAppBarToggleButtonTemplateSettings;
    subtype DragCompletedEventArgs is Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs;
    subtype DragDeltaEventArgs is Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs;
    subtype DragStartedEventArgs is Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs;
@@ -7829,13 +7880,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.UI.Xaml.Controls.Primitives.ICarouselPanel;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter;
-   
    function get_SelectionCheckMarkVisualEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -7907,7 +7951,7 @@ package Windows.UI.Xaml.Controls.Primitives is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter;
+   return Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter;
    
    function get_SelectedPressedBackgroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7925,18 +7969,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PointerOverForegroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RevealBackgroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RevealBorderBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RevealBorderThicknessProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RevealBackgroundShowsAboveContentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_SelectionCheckMarkVisualEnabledProperty_IListViewItemPresenter
@@ -8005,6 +8037,32 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_ContentMarginProperty_IListViewItemPresenter
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_RevealBackgroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RevealBorderBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RevealBorderThicknessProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RevealBackgroundShowsAboveContentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IColorSpectrum;
+   
    function get_ColorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -8040,24 +8098,10 @@ package Windows.UI.Xaml.Controls.Primitives is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.Primitives.IColorSpectrum;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
    return Windows.UI.Xaml.Controls.Primitives.ISelectorItem;
    
    function get_IsSelectedProperty
    return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IRangeBase;
    
    function get_MinimumProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -8074,6 +8118,13 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_ValueProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IRangeBase;
+   
    function get_ColorChannelProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -8086,6 +8137,13 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function get_IsDraggingProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IButtonBase;
    
    function get_ClickModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -8101,13 +8159,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function get_CommandParameterProperty
    return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IButtonBase;
    
    function get_OrientationProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -8158,6 +8209,28 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    return Windows.UI.Xaml.Controls.Primitives.IToggleButton;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IFlyoutBase;
+   
+   function get_OverlayInputPassThroughElementProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AllowFocusOnInteractionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LightDismissOverlayModeProperty_IFlyoutBase
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AllowFocusWhenDisabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ElementSoundModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_PlacementProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -8183,28 +8256,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    )
    ;
    
-   function get_OverlayInputPassThroughElementProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowFocusOnInteractionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LightDismissOverlayModeProperty_IFlyoutBase
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowFocusWhenDisabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ElementSoundModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IFlyoutBase;
-   
    function get_EnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -8216,13 +8267,6 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function get_DisabledProperty_IJumpListItemForegroundConverter
    return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase;
    
    function get_TitleProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -8239,6 +8283,13 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; value : Windows.String
    )
    ;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase;
    
    function get_ShouldLoopProperty
    return Windows.UI.Xaml.IDependencyProperty;

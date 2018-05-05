@@ -383,6 +383,26 @@ package body Windows.UI.ViewManagement is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function GetApplicationViewIdForWindow
+   (
+      window : Windows.UI.Core.ICoreWindow
+   )
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
+      m_Factory     : IApplicationViewInteropStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewInteropStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetApplicationViewIdForWindow(window, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Value
    return Windows.UI.ViewManagement.ApplicationViewState is
       Hr            : Windows.HRESULT := S_OK;
@@ -411,69 +431,6 @@ package body Windows.UI.ViewManagement is
       Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryUnsnap(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetApplicationViewIdForWindow
-   (
-      window : Windows.UI.Core.ICoreWindow
-   )
-   return Windows.Int32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
-      m_Factory     : IApplicationViewInteropStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Int32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewInteropStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetApplicationViewIdForWindow(window, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryShowAsViewModeAsync
-   (
-      viewId : Windows.Int32
-      ; viewMode : Windows.UI.ViewManagement.ApplicationViewMode
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewSwitcher");
-      m_Factory     : IApplicationViewSwitcherStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryShowAsViewModeAsync(viewId, viewMode, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryShowAsViewModeWithPreferencesAsync
-   (
-      viewId : Windows.Int32
-      ; viewMode : Windows.UI.ViewManagement.ApplicationViewMode
-      ; viewModePreferences : Windows.UI.ViewManagement.IViewModePreferences
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewSwitcher");
-      m_Factory     : IApplicationViewSwitcherStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryShowAsViewModeWithPreferencesAsync(viewId, viewMode, viewModePreferences, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -657,6 +614,49 @@ package body Windows.UI.ViewManagement is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function TryShowAsViewModeAsync
+   (
+      viewId : Windows.Int32
+      ; viewMode : Windows.UI.ViewManagement.ApplicationViewMode
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewSwitcher");
+      m_Factory     : IApplicationViewSwitcherStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryShowAsViewModeAsync(viewId, viewMode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryShowAsViewModeWithPreferencesAsync
+   (
+      viewId : Windows.Int32
+      ; viewMode : Windows.UI.ViewManagement.ApplicationViewMode
+      ; viewModePreferences : Windows.UI.ViewManagement.IViewModePreferences
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationViewSwitcher");
+      m_Factory     : IApplicationViewSwitcherStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewSwitcherStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryShowAsViewModeWithPreferencesAsync(viewId, viewMode, viewModePreferences, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function get_DataPackageFormatId

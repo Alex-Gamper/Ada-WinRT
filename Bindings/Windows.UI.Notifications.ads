@@ -556,6 +556,9 @@ package Windows.UI.Notifications is
    type IScheduledToastNotification3_Interface;
    type IScheduledToastNotification3 is access all IScheduledToastNotification3_Interface'Class;
    type IScheduledToastNotification3_Ptr is access all IScheduledToastNotification3;
+   type IScheduledToastNotification4_Interface;
+   type IScheduledToastNotification4 is access all IScheduledToastNotification4_Interface'Class;
+   type IScheduledToastNotification4_Ptr is access all IScheduledToastNotification4;
    type IScheduledTileNotificationFactory_Interface;
    type IScheduledTileNotificationFactory is access all IScheduledTileNotificationFactory_Interface'Class;
    type IScheduledTileNotificationFactory_Ptr is access all IScheduledTileNotificationFactory;
@@ -2342,6 +2345,26 @@ package Windows.UI.Notifications is
    
    ------------------------------------------------------------------------
    
+   IID_IScheduledToastNotification4 : aliased constant Windows.IID := (491217405, 48623, 20042, (150, 190, 1, 1, 54, 155, 88, 210 ));
+   
+   type IScheduledToastNotification4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExpirationTime
+   (
+      This       : access IScheduledToastNotification4_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExpirationTime
+   (
+      This       : access IScheduledToastNotification4_Interface
+      ; value : Windows.Foundation.IReference_DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IScheduledTileNotificationFactory : aliased constant Windows.IID := (864228234, 39104, 19515, (187, 214, 74, 99, 60, 124, 252, 41 ));
    
    type IScheduledTileNotificationFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -3513,18 +3536,7 @@ package Windows.UI.Notifications is
    return Windows.UI.Notifications.IScheduledToastNotification;
    
    subtype NotificationData is Windows.UI.Notifications.INotificationData;
-   function CreateNotificationDataWithValuesAndSequenceNumber
-   (
-      initialValues : Windows.Address
-      ; sequenceNumber : Windows.UInt32
-   )
-   return Windows.UI.Notifications.INotificationData;
-   
-   function CreateNotificationDataWithValues
-   (
-      initialValues : Windows.Address
-   )
-   return Windows.UI.Notifications.INotificationData;
+   function CreateNotificationData return Windows.UI.Notifications.INotificationData;
    
    subtype ToastCollection is Windows.UI.Notifications.IToastCollection;
    function CreateInstance
@@ -3705,6 +3717,9 @@ package Windows.UI.Notifications is
    )
    return Windows.Data.Xml.Dom.IXmlDocument;
    
+   function GetDefault
+   return Windows.UI.Notifications.IToastNotificationManagerForUser;
+   
    function GetForUser
    (
       user : Windows.System.IUser
@@ -3716,9 +3731,6 @@ package Windows.UI.Notifications is
       value : Windows.UI.Notifications.NotificationMirroring
    )
    ;
-   
-   function get_History
-   return Windows.UI.Notifications.IToastNotificationHistory;
    
    function CreateToastNotifier
    return Windows.UI.Notifications.IToastNotifier;
@@ -3735,7 +3747,7 @@ package Windows.UI.Notifications is
    )
    return Windows.Data.Xml.Dom.IXmlDocument;
    
-   function GetDefault
-   return Windows.UI.Notifications.IToastNotificationManagerForUser;
+   function get_History
+   return Windows.UI.Notifications.IToastNotificationHistory;
    
 end;

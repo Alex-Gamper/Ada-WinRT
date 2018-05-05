@@ -85,7 +85,8 @@ package Windows.ApplicationModel.Store.Preview is
       VideoMemory2GB,
       VideoMemory4GB,
       VideoMemory6GB,
-      VideoMemory1GB
+      VideoMemory1GB,
+      ArchitectureArm64
    );
    for StoreSystemFeature use (
       ArchitectureX86 => 0,
@@ -121,7 +122,8 @@ package Windows.ApplicationModel.Store.Preview is
       VideoMemory2GB => 30,
       VideoMemory4GB => 31,
       VideoMemory6GB => 32,
-      VideoMemory1GB => 33
+      VideoMemory1GB => 33,
+      ArchitectureArm64 => 34
    );
    for StoreSystemFeature'Size use 32;
    
@@ -813,48 +815,6 @@ package Windows.ApplicationModel.Store.Preview is
    function LoadAddOnProductInfosAsync
    return Windows.Address;
    
-   function HasStoreWebAccount
-   return Windows.Boolean;
-   
-   function HasStoreWebAccountForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Boolean;
-   
-   function GetStoreLogDataAsync
-   (
-      options : Windows.ApplicationModel.Store.Preview.StoreLogOptions
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference;
-   
-   procedure SetStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-   )
-   ;
-   
-   function IsStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function GetPurchasePromptingPolicyForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Foundation.IReference_UInt32;
-   
-   procedure SetPurchasePromptingPolicyForUser
-   (
-      user : Windows.System.IUser
-      ; value : Windows.Foundation.IReference_UInt32
-   )
-   ;
-   
    function GetStoreWebAccountId
    return Windows.String;
    
@@ -939,6 +899,48 @@ package Windows.ApplicationModel.Store.Preview is
    procedure put_PurchasePromptingPolicy
    (
       value : Windows.Foundation.IReference_UInt32
+   )
+   ;
+   
+   function HasStoreWebAccount
+   return Windows.Boolean;
+   
+   function HasStoreWebAccountForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Boolean;
+   
+   function GetStoreLogDataAsync
+   (
+      options : Windows.ApplicationModel.Store.Preview.StoreLogOptions
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference;
+   
+   procedure SetStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+   )
+   ;
+   
+   function IsStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+   )
+   return Windows.Boolean;
+   
+   function GetPurchasePromptingPolicyForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.IReference_UInt32;
+   
+   procedure SetPurchasePromptingPolicyForUser
+   (
+      user : Windows.System.IUser
+      ; value : Windows.Foundation.IReference_UInt32
    )
    ;
    

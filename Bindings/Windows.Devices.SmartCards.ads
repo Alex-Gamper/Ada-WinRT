@@ -4077,20 +4077,20 @@ package Windows.Devices.SmartCards is
    function get_MaxAppletIdGroupRegistrations
    return Windows.UInt16;
    
-   function GetDefaultAsync
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator;
-   
    function IsSupported
    return Windows.Boolean;
+   
+   function GetDefaultAsync
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator;
    
    function get_MaxAppletIds
    return Windows.UInt16;
    
-   function GetSmartCardCryptogramGeneratorAsync
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator;
-   
    function IsSupported_ISmartCardCryptogramGenerator
    return Windows.Boolean;
+   
+   function GetSmartCardCryptogramGeneratorAsync
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator;
    
    function GetDeviceSelector
    return Windows.String;
@@ -4106,23 +4106,6 @@ package Windows.Devices.SmartCards is
       deviceId : Windows.String
    )
    return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardReader;
-   
-   function RequestAttestedVirtualSmartCardCreationAsync
-   (
-      friendlyName : Windows.String
-      ; administrativeKey : Windows.Storage.Streams.IBuffer
-      ; pinPolicy : Windows.Devices.SmartCards.ISmartCardPinPolicy
-   )
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning;
-   
-   function RequestAttestedVirtualSmartCardCreationAsyncWithCardId
-   (
-      friendlyName : Windows.String
-      ; administrativeKey : Windows.Storage.Streams.IBuffer
-      ; pinPolicy : Windows.Devices.SmartCards.ISmartCardPinPolicy
-      ; cardId : Windows.Guid
-   )
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning;
    
    function FromSmartCardAsync
    (
@@ -4152,5 +4135,22 @@ package Windows.Devices.SmartCards is
       card : Windows.Devices.SmartCards.ISmartCard
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function RequestAttestedVirtualSmartCardCreationAsync
+   (
+      friendlyName : Windows.String
+      ; administrativeKey : Windows.Storage.Streams.IBuffer
+      ; pinPolicy : Windows.Devices.SmartCards.ISmartCardPinPolicy
+   )
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning;
+   
+   function RequestAttestedVirtualSmartCardCreationAsyncWithCardId
+   (
+      friendlyName : Windows.String
+      ; administrativeKey : Windows.Storage.Streams.IBuffer
+      ; pinPolicy : Windows.Devices.SmartCards.ISmartCardPinPolicy
+      ; cardId : Windows.Guid
+   )
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning;
    
 end;

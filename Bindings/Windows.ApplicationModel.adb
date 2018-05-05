@@ -23,6 +23,7 @@ with Windows.Storage.Streams;
 with Windows.System;
 with Windows.Storage;
 with Windows.ApplicationModel.Core;
+with Windows.ApplicationModel.Activation;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel is
@@ -165,6 +166,19 @@ package body Windows.ApplicationModel is
    (
       This       : access AsyncOperationCompletedHandler_IPackageCatalogRemoveOptionalPackagesResult_Interface
       ; asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageCatalogRemoveOptionalPackagesResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -436,6 +450,92 @@ package body Windows.ApplicationModel is
       Hr := RoGetActivationFactory(m_hString, IID_IDesignModeStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_DesignMode2Enabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RecommendedInstance
+   return Windows.ApplicationModel.IAppInstance is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInstance");
+      m_Factory     : IAppInstanceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.IAppInstance;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppInstanceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RecommendedInstance(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetActivatedEventArgs
+   return Windows.ApplicationModel.Activation.IActivatedEventArgs is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInstance");
+      m_Factory     : IAppInstanceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Activation.IActivatedEventArgs;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppInstanceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetActivatedEventArgs(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FindOrRegisterInstanceForKey
+   (
+      key : Windows.String
+   )
+   return Windows.ApplicationModel.IAppInstance is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInstance");
+      m_Factory     : IAppInstanceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.IAppInstance;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppInstanceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindOrRegisterInstanceForKey(key, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure Unregister
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInstance");
+      m_Factory     : IAppInstanceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppInstanceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Unregister;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetInstances
+   return Windows.ApplicationModel.IVector_IAppInstance is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInstance");
+      m_Factory     : IAppInstanceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.IVector_IAppInstance;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppInstanceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetInstances(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

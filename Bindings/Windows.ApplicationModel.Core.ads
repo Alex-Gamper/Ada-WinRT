@@ -20,10 +20,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
+limited with Windows.System;
 limited with Windows.UI.Core;
 limited with Windows.ApplicationModel.Activation;
 with Windows.Foundation.Collections;
-limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Core is
 
@@ -82,6 +82,9 @@ package Windows.ApplicationModel.Core is
    type IAppListEntry2_Interface;
    type IAppListEntry2 is access all IAppListEntry2_Interface'Class;
    type IAppListEntry2_Ptr is access all IAppListEntry2;
+   type IAppListEntry3_Interface;
+   type IAppListEntry3 is access all IAppListEntry3_Interface'Class;
+   type IAppListEntry3_Ptr is access all IAppListEntry3;
    type IFrameworkView_Interface;
    type IFrameworkView is access all IFrameworkView_Interface'Class;
    type IFrameworkView_Ptr is access all IFrameworkView;
@@ -189,6 +192,20 @@ package Windows.ApplicationModel.Core is
    (
       This       : access IAppListEntry2_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppListEntry3 : aliased constant Windows.IID := (1620701837, 64562, 18186, (188, 105, 75, 6, 26, 118, 239, 46 ));
+   
+   type IAppListEntry3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function LaunchForUserAsync
+   (
+      This       : access IAppListEntry3_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -968,67 +985,56 @@ package Windows.ApplicationModel.Core is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function CreateNewViewFromMainView
+   function get_Id
+   return Windows.String;
+   
+   function add_Suspending
+   (
+      handler : Windows.ApplicationModel.EventHandler_ISuspendingEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_Suspending
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_Resuming
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_Resuming
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function get_Properties
+   return Windows.Foundation.Collections.IPropertySet;
+   
+   function GetCurrentView
    return Windows.ApplicationModel.Core.ICoreApplicationView;
+   
+   procedure Run
+   (
+      viewSource : Windows.ApplicationModel.Core.IFrameworkViewSource
+   )
+   ;
+   
+   procedure RunWithActivationFactories
+   (
+      activationFactoryCallback : Windows.Foundation.IGetActivationFactory
+   )
+   ;
    
    procedure IncrementApplicationUseCount
    ;
    
    procedure DecrementApplicationUseCount
    ;
-   
-   procedure Exit_x
-   ;
-   
-   function add_Exiting
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_Exiting
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_Views
-   return Windows.ApplicationModel.Core.IVectorView_ICoreApplicationView;
-   
-   function CreateNewView
-   (
-      runtimeType : Windows.String
-      ; entryPoint : Windows.String
-   )
-   return Windows.ApplicationModel.Core.ICoreApplicationView;
-   
-   function get_MainView
-   return Windows.ApplicationModel.Core.ICoreApplicationView;
-   
-   function add_UnhandledErrorDetected
-   (
-      handler : Windows.ApplicationModel.Core.EventHandler_IUnhandledErrorDetectedEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_UnhandledErrorDetected
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function RequestRestartAsync
-   (
-      launchArguments : Windows.String
-   )
-   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
-   
-   function RequestRestartForUserAsync
-   (
-      user : Windows.System.IUser
-      ; launchArguments : Windows.String
-   )
-   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
    
    function add_BackgroundActivated
    (
@@ -1078,49 +1084,60 @@ package Windows.ApplicationModel.Core is
    )
    return Windows.ApplicationModel.Core.ICoreApplicationView;
    
-   function get_Id
-   return Windows.String;
-   
-   function add_Suspending
-   (
-      handler : Windows.ApplicationModel.EventHandler_ISuspendingEventArgs
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_Suspending
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
+   procedure Exit_x
    ;
    
-   function add_Resuming
+   function add_Exiting
    (
       handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
    
-   procedure remove_Resuming
+   procedure remove_Exiting
    (
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   function get_Properties
-   return Windows.Foundation.Collections.IPropertySet;
-   
-   function GetCurrentView
+   function CreateNewViewFromMainView
    return Windows.ApplicationModel.Core.ICoreApplicationView;
    
-   procedure Run
+   function add_UnhandledErrorDetected
    (
-      viewSource : Windows.ApplicationModel.Core.IFrameworkViewSource
+      handler : Windows.ApplicationModel.Core.EventHandler_IUnhandledErrorDetectedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_UnhandledErrorDetected
+   (
+      token : Windows.Foundation.EventRegistrationToken
    )
    ;
    
-   procedure RunWithActivationFactories
+   function get_Views
+   return Windows.ApplicationModel.Core.IVectorView_ICoreApplicationView;
+   
+   function CreateNewView
    (
-      activationFactoryCallback : Windows.Foundation.IGetActivationFactory
+      runtimeType : Windows.String
+      ; entryPoint : Windows.String
    )
-   ;
+   return Windows.ApplicationModel.Core.ICoreApplicationView;
+   
+   function get_MainView
+   return Windows.ApplicationModel.Core.ICoreApplicationView;
+   
+   function RequestRestartAsync
+   (
+      launchArguments : Windows.String
+   )
+   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
+   
+   function RequestRestartForUserAsync
+   (
+      user : Windows.System.IUser
+      ; launchArguments : Windows.String
+   )
+   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
    
 end;

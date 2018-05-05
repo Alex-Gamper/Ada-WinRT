@@ -62,6 +62,19 @@ package body Windows.UI.Xaml.Media is
    
    function Invoke
    (
+      This       : access EventHandler_IRenderedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Xaml.Media.IRenderedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface
       ; sender : Windows.UI.Xaml.Media.ILoadedImageSurface
       ; args : Windows.UI.Xaml.Media.ILoadedImageSourceLoadCompletedEventArgs
@@ -298,24 +311,21 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
-   function CreateInstanceWithColor
-   (
-      color : Windows.UI.Color
-   )
-   return Windows.UI.Xaml.Media.ISolidColorBrush is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateSolidColorBrush return Windows.UI.Xaml.Media.ISolidColorBrush is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.SolidColorBrush");
-      m_Factory     : Windows.UI.Xaml.Media.ISolidColorBrushFactory := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.ISolidColorBrush := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.ISolidColorBrush) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISolidColorBrushFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithColor(color, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.IID_ISolidColorBrush'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateCompositeTransform return Windows.UI.Xaml.Media.ICompositeTransform is
@@ -2728,6 +2738,26 @@ package body Windows.UI.Xaml.Media is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetOpenPopups
+   (
+      window : Windows.UI.Xaml.IWindow
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.VisualTreeHelper");
+      m_Factory     : IVisualTreeHelperStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetOpenPopups(window, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FindElementsInHostCoordinatesPoint
    (
       intersectingPoint : Windows.Foundation.Point
@@ -2893,26 +2923,6 @@ package body Windows.UI.Xaml.Media is
       Hr := WindowsDeleteString(m_hString);
    end;
    
-   function GetOpenPopups
-   (
-      window : Windows.UI.Xaml.IWindow
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.VisualTreeHelper");
-      m_Factory     : IVisualTreeHelperStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IVisualTreeHelperStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetOpenPopups(window, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_Identity
    return Windows.UI.Xaml.Media.Matrix is
       Hr            : Windows.HRESULT := S_OK;
@@ -3067,6 +3077,44 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_ICompositionTargetStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.remove_SurfaceContentsLost(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_Rendered
+   (
+      value : Windows.UI.Xaml.Media.EventHandler_IRenderedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.CompositionTarget");
+      m_Factory     : ICompositionTargetStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositionTargetStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_Rendered(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_Rendered
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.CompositionTarget");
+      m_Factory     : ICompositionTargetStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositionTargetStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_Rendered(token);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3348,6 +3396,27 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IXamlLight is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.XamlLight");
+      m_Factory     : IXamlLightFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.IXamlLight;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IXamlLightFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    procedure AddTargetElement
    (
       lightId : Windows.String
@@ -3422,27 +3491,6 @@ package body Windows.UI.Xaml.Media is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IXamlLight is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.XamlLight");
-      m_Factory     : IXamlLightFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.IXamlLight;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IXamlLightFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function get_ProjectionMatrixProperty
@@ -4789,6 +4837,27 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.ITileBrush is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TileBrush");
+      m_Factory     : ITileBrushFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.ITileBrush;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITileBrushFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_AlignmentXProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4840,27 +4909,6 @@ package body Windows.UI.Xaml.Media is
       return RetVal;
    end;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.ITileBrush is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.TileBrush");
-      m_Factory     : ITileBrushFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.ITileBrush;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITileBrushFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_FallbackColorProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -4891,6 +4939,27 @@ package body Windows.UI.Xaml.Media is
       RetVal        : aliased Windows.UI.Xaml.Media.IXamlCompositionBrushBase;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IXamlCompositionBrushBaseFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IAcrylicBrush is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.AcrylicBrush");
+      m_Factory     : IAcrylicBrushFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.IAcrylicBrush;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAcrylicBrushFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -4978,27 +5047,6 @@ package body Windows.UI.Xaml.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IAcrylicBrushStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_AlwaysUseFallbackProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IAcrylicBrush is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.AcrylicBrush");
-      m_Factory     : IAcrylicBrushFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Media.IAcrylicBrush;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAcrylicBrushFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

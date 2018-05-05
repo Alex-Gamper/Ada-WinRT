@@ -5950,18 +5950,18 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo;
    
-   function get_ValueProperty_IObjectKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTimeProperty_IObjectKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Animation.IObjectKeyFrame;
+   
+   function get_ValueProperty_IObjectKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTimeProperty_IObjectKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_AllowDependentAnimations
    return Windows.Boolean;
@@ -6163,18 +6163,18 @@ package Windows.UI.Xaml.Media.Animation is
    )
    return Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
    
+   function get_ValueProperty_IPointKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTimeProperty_IPointKeyFrame
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
-   
-   function get_ValueProperty_IPointKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTimeProperty_IPointKeyFrame
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_EnableDependentAnimationProperty_IColorAnimationUsingKeyFrames
    return Windows.UI.Xaml.IDependencyProperty;

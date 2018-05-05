@@ -112,6 +112,9 @@ package Windows.System.Diagnostics is
    type IDiagnosticInvoker_Interface;
    type IDiagnosticInvoker is access all IDiagnosticInvoker_Interface'Class;
    type IDiagnosticInvoker_Ptr is access all IDiagnosticInvoker;
+   type IDiagnosticInvoker2_Interface;
+   type IDiagnosticInvoker2 is access all IDiagnosticInvoker2_Interface'Class;
+   type IDiagnosticInvoker2_Ptr is access all IDiagnosticInvoker2;
    type IIterator_IProcessDiagnosticInfo_Interface;
    type IIterator_IProcessDiagnosticInfo is access all IIterator_IProcessDiagnosticInfo_Interface'Class;
    type IIterator_IProcessDiagnosticInfo_Ptr is access all IIterator_IProcessDiagnosticInfo;
@@ -612,6 +615,20 @@ package Windows.System.Diagnostics is
    
    ------------------------------------------------------------------------
    
+   IID_IDiagnosticInvoker2 : aliased constant Windows.IID := (3820983388, 5466, 19282, (168, 236, 7, 12, 68, 249, 80, 0 ));
+   
+   type IDiagnosticInvoker2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RunDiagnosticActionFromStringAsync
+   (
+      This       : access IDiagnosticInvoker2_Interface
+      ; context : Windows.String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IProcessDiagnosticInfo : aliased constant Windows.IID := (2828747800, 19515, 24393, (185, 87, 120, 86, 151, 201, 154, 191 ));
    
    type IIterator_IProcessDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
@@ -815,16 +832,16 @@ package Windows.System.Diagnostics is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForProcesses
-   return Windows.System.Diagnostics.IVectorView_IProcessDiagnosticInfo;
-   
-   function GetForCurrentProcess
-   return Windows.System.Diagnostics.IProcessDiagnosticInfo;
-   
    function TryGetForProcessId
    (
       processId : Windows.UInt32
    )
+   return Windows.System.Diagnostics.IProcessDiagnosticInfo;
+   
+   function GetForProcesses
+   return Windows.System.Diagnostics.IVectorView_IProcessDiagnosticInfo;
+   
+   function GetForCurrentProcess
    return Windows.System.Diagnostics.IProcessDiagnosticInfo;
    
    function GetForCurrentSystem

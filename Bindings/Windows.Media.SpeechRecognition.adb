@@ -249,24 +249,21 @@ package body Windows.Media.SpeechRecognition is
       return RetVal;
    end;
    
-   function Create
-   (
-      language : Windows.Globalization.ILanguage
-   )
-   return Windows.Media.SpeechRecognition.ISpeechRecognizer is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateSpeechRecognizer return Windows.Media.SpeechRecognition.ISpeechRecognizer is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognizer");
-      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognizerFactory := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognizer := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.SpeechRecognition.ISpeechRecognizer) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognizerFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(language, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.Media.SpeechRecognition.IID_ISpeechRecognizer'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------
@@ -276,6 +273,26 @@ package body Windows.Media.SpeechRecognition is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function TrySetSystemSpeechLanguageAsync
+   (
+      speechLanguage : Windows.Globalization.ILanguage
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognizer");
+      m_Factory     : ISpeechRecognizerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognizerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TrySetSystemSpeechLanguageAsync(speechLanguage, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function get_SystemSpeechLanguage
    return Windows.Globalization.ILanguage is
@@ -322,26 +339,6 @@ package body Windows.Media.SpeechRecognition is
       Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognizerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_SupportedGrammarLanguages(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TrySetSystemSpeechLanguageAsync
-   (
-      speechLanguage : Windows.Globalization.ILanguage
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognizer");
-      m_Factory     : ISpeechRecognizerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognizerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TrySetSystemSpeechLanguageAsync(speechLanguage, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

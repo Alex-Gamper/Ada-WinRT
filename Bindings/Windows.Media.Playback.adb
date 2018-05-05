@@ -28,6 +28,7 @@ with Windows.Devices.Enumeration;
 with Windows.Media.Casting;
 with Windows.UI.Composition;
 with Windows.Graphics.DirectX.Direct3D11;
+with Windows.Media.Audio;
 with Windows.Media.MediaProperties;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
@@ -789,43 +790,20 @@ package body Windows.Media.Playback is
       return Convert(RetVal);
    end;
    
-   function CreateWithStartTime
+   function Create
    (
       source : Windows.Media.Core.IMediaSource2
-      ; startTime : Windows.Foundation.TimeSpan
    )
    return Windows.Media.Playback.IMediaPlaybackItem is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Playback.MediaPlaybackItem");
-      m_Factory     : Windows.Media.Playback.IMediaPlaybackItemFactory2 := null;
+      m_Factory     : Windows.Media.Playback.IMediaPlaybackItemFactory := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Media.Playback.IMediaPlaybackItem := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaPlaybackItemFactory2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaPlaybackItemFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithStartTime(source, startTime, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateWithStartTimeAndDurationLimit
-   (
-      source : Windows.Media.Core.IMediaSource2
-      ; startTime : Windows.Foundation.TimeSpan
-      ; durationLimit : Windows.Foundation.TimeSpan
-   )
-   return Windows.Media.Playback.IMediaPlaybackItem is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Playback.MediaPlaybackItem");
-      m_Factory     : Windows.Media.Playback.IMediaPlaybackItemFactory2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Playback.IMediaPlaybackItem := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaPlaybackItemFactory2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWithStartTimeAndDurationLimit(source, startTime, durationLimit, RetVal'Access);
+         Hr := m_Factory.Create(source, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -897,6 +875,167 @@ package body Windows.Media.Playback is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Current
+   return Windows.Media.Playback.IMediaPlayer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.BackgroundMediaPlayer");
+      m_Factory     : IBackgroundMediaPlayerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Playback.IMediaPlayer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundMediaPlayerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Current(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_MessageReceivedFromBackground
+   (
+      value : Windows.Media.Playback.EventHandler_IMediaPlayerDataReceivedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.BackgroundMediaPlayer");
+      m_Factory     : IBackgroundMediaPlayerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundMediaPlayerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_MessageReceivedFromBackground(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_MessageReceivedFromBackground
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.BackgroundMediaPlayer");
+      m_Factory     : IBackgroundMediaPlayerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundMediaPlayerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_MessageReceivedFromBackground(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_MessageReceivedFromForeground
+   (
+      value : Windows.Media.Playback.EventHandler_IMediaPlayerDataReceivedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.BackgroundMediaPlayer");
+      m_Factory     : IBackgroundMediaPlayerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundMediaPlayerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_MessageReceivedFromForeground(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_MessageReceivedFromForeground
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.BackgroundMediaPlayer");
+      m_Factory     : IBackgroundMediaPlayerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundMediaPlayerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_MessageReceivedFromForeground(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SendMessageToBackground
+   (
+      value : Windows.Foundation.Collections.IPropertySet
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.BackgroundMediaPlayer");
+      m_Factory     : IBackgroundMediaPlayerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundMediaPlayerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SendMessageToBackground(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure SendMessageToForeground
+   (
+      value : Windows.Foundation.Collections.IPropertySet
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.BackgroundMediaPlayer");
+      m_Factory     : IBackgroundMediaPlayerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundMediaPlayerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SendMessageToForeground(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function IsMediaPlaying
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.BackgroundMediaPlayer");
+      m_Factory     : IBackgroundMediaPlayerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundMediaPlayerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsMediaPlaying(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure Shutdown
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.BackgroundMediaPlayer");
+      m_Factory     : IBackgroundMediaPlayerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundMediaPlayerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Shutdown;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
    
    function FindFromMediaSource
    (

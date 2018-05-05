@@ -769,4 +769,83 @@ package Windows.Devices.Perception.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   procedure RegisterFrameProviderInfo
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
+   )
+   ;
+   
+   procedure UnregisterFrameProviderInfo
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; frameProviderInfo : Windows.Devices.Perception.Provider.IPerceptionFrameProviderInfo
+   )
+   ;
+   
+   procedure RegisterFaceAuthenticationGroup
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
+   )
+   ;
+   
+   procedure UnregisterFaceAuthenticationGroup
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; faceAuthenticationGroup : Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroup
+   )
+   ;
+   
+   procedure RegisterControlGroup
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; controlGroup : Windows.Devices.Perception.Provider.IPerceptionControlGroup
+   )
+   ;
+   
+   procedure UnregisterControlGroup
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; controlGroup : Windows.Devices.Perception.Provider.IPerceptionControlGroup
+   )
+   ;
+   
+   procedure RegisterCorrelationGroup
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; correlationGroup : Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup
+   )
+   ;
+   
+   procedure UnregisterCorrelationGroup
+   (
+      manager : Windows.Devices.Perception.Provider.IPerceptionFrameProviderManager
+      ; correlationGroup : Windows.Devices.Perception.Provider.IPerceptionCorrelationGroup
+   )
+   ;
+   
+   procedure UpdateAvailabilityForProvider
+   (
+      provider : Windows.Devices.Perception.Provider.IPerceptionFrameProvider
+      ; available : Windows.Boolean
+   )
+   ;
+   
+   procedure PublishFrameForProvider
+   (
+      provider : Windows.Devices.Perception.Provider.IPerceptionFrameProvider
+      ; frame : Windows.Devices.Perception.Provider.IPerceptionFrame
+   )
+   ;
+   
+   function get_Color
+   return Windows.String;
+   
+   function get_Depth
+   return Windows.String;
+   
+   function get_Infrared
+   return Windows.String;
+   
 end;

@@ -95,6 +95,32 @@ package body Windows.System.RemoteSystems is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemEnumerationCompletedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemEnumerationCompletedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemWatcherErrorOccurredEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.System.RemoteSystems.IRemoteSystemWatcher(sender), Windows.System.RemoteSystems.IRemoteSystemWatcherErrorOccurredEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface
       ; asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionJoinResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -479,26 +505,6 @@ package body Windows.System.RemoteSystems is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function IsAuthorizationKindEnabled
-   (
-      kind : Windows.System.RemoteSystems.RemoteSystemAuthorizationKind
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystem");
-      m_Factory     : IRemoteSystemStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsAuthorizationKindEnabled(kind, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function FindByHostNameAsync
    (
       hostName : Windows.Networking.IHostName
@@ -573,6 +579,26 @@ package body Windows.System.RemoteSystems is
       return RetVal;
    end;
    
+   function IsAuthorizationKindEnabled
+   (
+      kind : Windows.System.RemoteSystems.RemoteSystemAuthorizationKind
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystem");
+      m_Factory     : IRemoteSystemStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsAuthorizationKindEnabled(kind, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_AppService
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -635,57 +661,6 @@ package body Windows.System.RemoteSystems is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownRemoteSystemCapabilitiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_SpatialEntity(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Iot
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemKinds");
-      m_Factory     : IRemoteSystemKindStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemKindStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Iot(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Tablet
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemKinds");
-      m_Factory     : IRemoteSystemKindStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemKindStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Tablet(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Laptop
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemKinds");
-      m_Factory     : IRemoteSystemKindStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemKindStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Laptop(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -771,6 +746,57 @@ package body Windows.System.RemoteSystems is
       Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemKindStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Xbox(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Iot
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemKinds");
+      m_Factory     : IRemoteSystemKindStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemKindStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Iot(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Tablet
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemKinds");
+      m_Factory     : IRemoteSystemKindStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemKindStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Tablet(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Laptop
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemKinds");
+      m_Factory     : IRemoteSystemKindStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemKindStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Laptop(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

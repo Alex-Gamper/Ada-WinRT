@@ -1432,6 +1432,12 @@ package Windows.ApplicationModel.Resources.Core is
    )
    ;
    
+   function CreateMatchingContext
+   (
+      result : Windows.ApplicationModel.Resources.Core.IIterable_IResourceQualifier
+   )
+   return Windows.ApplicationModel.Resources.Core.IResourceContext;
+   
    function GetForCurrentView
    return Windows.ApplicationModel.Resources.Core.IResourceContext;
    
@@ -1452,12 +1458,6 @@ package Windows.ApplicationModel.Resources.Core is
    ;
    
    function GetForViewIndependentUse
-   return Windows.ApplicationModel.Resources.Core.IResourceContext;
-   
-   function CreateMatchingContext
-   (
-      result : Windows.ApplicationModel.Resources.Core.IIterable_IResourceQualifier
-   )
    return Windows.ApplicationModel.Resources.Core.IResourceContext;
    
    function get_Current

@@ -3426,6 +3426,9 @@ package Windows.ApplicationModel.Chat is
    procedure ShowSmsSettings
    ;
    
+   function RequestSyncManagerAsync
+   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager;
+   
    function RegisterTransportAsync
    return Windows.Foundation.IAsyncOperation_String;
    
@@ -3434,9 +3437,6 @@ package Windows.ApplicationModel.Chat is
       transportId : Windows.String
    )
    return Windows.ApplicationModel.Chat.IAsyncOperation_IChatMessageTransport;
-   
-   function RequestSyncManagerAsync
-   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager;
    
    function MarkMessageAsBlockedAsync
    (

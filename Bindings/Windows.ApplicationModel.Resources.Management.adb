@@ -27,20 +27,21 @@ package body Windows.ApplicationModel.Resources.Management is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateResourceIndexer
+   function CreateResourceIndexerWithExtension
    (
       projectRoot : Windows.Foundation.IUriRuntimeClass
+      ; extensionDllPath : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.ApplicationModel.Resources.Management.IResourceIndexer is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Management.ResourceIndexer");
-      m_Factory     : Windows.ApplicationModel.Resources.Management.IResourceIndexerFactory := null;
+      m_Factory     : Windows.ApplicationModel.Resources.Management.IResourceIndexerFactory2 := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.ApplicationModel.Resources.Management.IResourceIndexer := null;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IResourceIndexerFactory'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IResourceIndexerFactory2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateResourceIndexer(projectRoot, RetVal'Access);
+         Hr := m_Factory.CreateResourceIndexerWithExtension(projectRoot, extensionDllPath, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

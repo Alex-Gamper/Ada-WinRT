@@ -189,6 +189,24 @@ package Windows.System is
    
    type AppDiagnosticInfoWatcherStatus_Ptr is access AppDiagnosticInfoWatcherStatus;
    
+   type AppResourceGroupExecutionState is (
+      Unknown,
+      Running,
+      Suspending,
+      Suspended,
+      NotRunning
+   );
+   for AppResourceGroupExecutionState use (
+      Unknown => 0,
+      Running => 1,
+      Suspending => 2,
+      Suspended => 3,
+      NotRunning => 4
+   );
+   for AppResourceGroupExecutionState'Size use 32;
+   
+   type AppResourceGroupExecutionState_Ptr is access AppResourceGroupExecutionState;
+   
    type AppResourceGroupInfoWatcherStatus is (
       Created,
       Started,
@@ -208,24 +226,6 @@ package Windows.System is
    for AppResourceGroupInfoWatcherStatus'Size use 32;
    
    type AppResourceGroupInfoWatcherStatus_Ptr is access AppResourceGroupInfoWatcherStatus;
-   
-   type AppResourceGroupExecutionState is (
-      Unknown,
-      Running,
-      Suspending,
-      Suspended,
-      NotRunning
-   );
-   for AppResourceGroupExecutionState use (
-      Unknown => 0,
-      Running => 1,
-      Suspending => 2,
-      Suspended => 3,
-      NotRunning => 4
-   );
-   for AppResourceGroupExecutionState'Size use 32;
-   
-   type AppResourceGroupExecutionState_Ptr is access AppResourceGroupExecutionState;
    
    type AppResourceGroupEnergyQuotaState is (
       Unknown,
@@ -376,6 +376,20 @@ package Windows.System is
    
    type PowerState_Ptr is access PowerState;
    
+   type AutoUpdateTimeZoneStatus is (
+      Attempted,
+      TimedOut,
+      Failed
+   );
+   for AutoUpdateTimeZoneStatus use (
+      Attempted => 0,
+      TimedOut => 1,
+      Failed => 2
+   );
+   for AutoUpdateTimeZoneStatus'Size use 32;
+   
+   type AutoUpdateTimeZoneStatus_Ptr is access AutoUpdateTimeZoneStatus;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -434,6 +448,9 @@ package Windows.System is
    type AsyncOperationCompletedHandler_DiagnosticAccessStatus_Interface;
    type AsyncOperationCompletedHandler_DiagnosticAccessStatus is access all AsyncOperationCompletedHandler_DiagnosticAccessStatus_Interface'Class;
    type AsyncOperationCompletedHandler_DiagnosticAccessStatus_Ptr is access all AsyncOperationCompletedHandler_DiagnosticAccessStatus;
+   type AsyncOperationCompletedHandler_IAppActivationResult_Interface;
+   type AsyncOperationCompletedHandler_IAppActivationResult is access all AsyncOperationCompletedHandler_IAppActivationResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IAppActivationResult_Ptr is access all AsyncOperationCompletedHandler_IAppActivationResult;
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface;
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added is access all TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface'Class;
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Ptr is access all TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added;
@@ -446,6 +463,9 @@ package Windows.System is
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface;
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped is access all TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface'Class;
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Ptr is access all TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped;
+   type AsyncOperationCompletedHandler_IAppExecutionStateChangeResult_Interface;
+   type AsyncOperationCompletedHandler_IAppExecutionStateChangeResult is access all AsyncOperationCompletedHandler_IAppExecutionStateChangeResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IAppExecutionStateChangeResult_Ptr is access all AsyncOperationCompletedHandler_IAppExecutionStateChangeResult;
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Interface;
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added is access all TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Interface'Class;
    type TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added_Ptr is access all TypedEventHandler_IAppResourceGroupInfoWatcher_add_Added;
@@ -476,6 +496,9 @@ package Windows.System is
    type AsyncOperationCompletedHandler_IProcessLauncherResult_Interface;
    type AsyncOperationCompletedHandler_IProcessLauncherResult is access all AsyncOperationCompletedHandler_IProcessLauncherResult_Interface'Class;
    type AsyncOperationCompletedHandler_IProcessLauncherResult_Ptr is access all AsyncOperationCompletedHandler_IProcessLauncherResult;
+   type AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus_Interface;
+   type AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus is access all AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus_Interface'Class;
+   type AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus_Ptr is access all AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -565,18 +588,27 @@ package Windows.System is
    type IAppDiagnosticInfoStatics2_Interface;
    type IAppDiagnosticInfoStatics2 is access all IAppDiagnosticInfoStatics2_Interface'Class;
    type IAppDiagnosticInfoStatics2_Ptr is access all IAppDiagnosticInfoStatics2;
+   type IAppActivationResult_Interface;
+   type IAppActivationResult is access all IAppActivationResult_Interface'Class;
+   type IAppActivationResult_Ptr is access all IAppActivationResult;
    type IAppDiagnosticInfo_Interface;
    type IAppDiagnosticInfo is access all IAppDiagnosticInfo_Interface'Class;
    type IAppDiagnosticInfo_Ptr is access all IAppDiagnosticInfo;
    type IAppDiagnosticInfo2_Interface;
    type IAppDiagnosticInfo2 is access all IAppDiagnosticInfo2_Interface'Class;
    type IAppDiagnosticInfo2_Ptr is access all IAppDiagnosticInfo2;
+   type IAppDiagnosticInfo3_Interface;
+   type IAppDiagnosticInfo3 is access all IAppDiagnosticInfo3_Interface'Class;
+   type IAppDiagnosticInfo3_Ptr is access all IAppDiagnosticInfo3;
    type IAppDiagnosticInfoWatcherEventArgs_Interface;
    type IAppDiagnosticInfoWatcherEventArgs is access all IAppDiagnosticInfoWatcherEventArgs_Interface'Class;
    type IAppDiagnosticInfoWatcherEventArgs_Ptr is access all IAppDiagnosticInfoWatcherEventArgs;
    type IAppDiagnosticInfoWatcher_Interface;
    type IAppDiagnosticInfoWatcher is access all IAppDiagnosticInfoWatcher_Interface'Class;
    type IAppDiagnosticInfoWatcher_Ptr is access all IAppDiagnosticInfoWatcher;
+   type IAppExecutionStateChangeResult_Interface;
+   type IAppExecutionStateChangeResult is access all IAppExecutionStateChangeResult_Interface'Class;
+   type IAppExecutionStateChangeResult_Ptr is access all IAppExecutionStateChangeResult;
    type IAppResourceGroupBackgroundTaskReport_Interface;
    type IAppResourceGroupBackgroundTaskReport is access all IAppResourceGroupBackgroundTaskReport_Interface'Class;
    type IAppResourceGroupBackgroundTaskReport_Ptr is access all IAppResourceGroupBackgroundTaskReport;
@@ -586,6 +618,9 @@ package Windows.System is
    type IAppResourceGroupInfo_Interface;
    type IAppResourceGroupInfo is access all IAppResourceGroupInfo_Interface'Class;
    type IAppResourceGroupInfo_Ptr is access all IAppResourceGroupInfo;
+   type IAppResourceGroupInfo2_Interface;
+   type IAppResourceGroupInfo2 is access all IAppResourceGroupInfo2_Interface'Class;
+   type IAppResourceGroupInfo2_Ptr is access all IAppResourceGroupInfo2;
    type IAppResourceGroupInfoWatcherEventArgs_Interface;
    type IAppResourceGroupInfoWatcherEventArgs is access all IAppResourceGroupInfoWatcherEventArgs_Interface'Class;
    type IAppResourceGroupInfoWatcherEventArgs_Ptr is access all IAppResourceGroupInfoWatcherEventArgs;
@@ -661,6 +696,9 @@ package Windows.System is
    type ITimeZoneSettingsStatics_Interface;
    type ITimeZoneSettingsStatics is access all ITimeZoneSettingsStatics_Interface'Class;
    type ITimeZoneSettingsStatics_Ptr is access all ITimeZoneSettingsStatics;
+   type ITimeZoneSettingsStatics2_Interface;
+   type ITimeZoneSettingsStatics2 is access all ITimeZoneSettingsStatics2_Interface'Class;
+   type ITimeZoneSettingsStatics2_Ptr is access all ITimeZoneSettingsStatics2;
    type IAsyncOperation_IUser_Interface;
    type IAsyncOperation_IUser is access all IAsyncOperation_IUser_Interface'Class;
    type IAsyncOperation_IUser_Ptr is access all IAsyncOperation_IUser;
@@ -691,6 +729,9 @@ package Windows.System is
    type IVector_IAppResourceGroupInfo_Interface;
    type IVector_IAppResourceGroupInfo is access all IVector_IAppResourceGroupInfo_Interface'Class;
    type IVector_IAppResourceGroupInfo_Ptr is access all IVector_IAppResourceGroupInfo;
+   type IAsyncOperation_IAppActivationResult_Interface;
+   type IAsyncOperation_IAppActivationResult is access all IAsyncOperation_IAppActivationResult_Interface'Class;
+   type IAsyncOperation_IAppActivationResult_Ptr is access all IAsyncOperation_IAppActivationResult;
    type IIterator_IAppResourceGroupBackgroundTaskReport_Interface;
    type IIterator_IAppResourceGroupBackgroundTaskReport is access all IIterator_IAppResourceGroupBackgroundTaskReport_Interface'Class;
    type IIterator_IAppResourceGroupBackgroundTaskReport_Ptr is access all IIterator_IAppResourceGroupBackgroundTaskReport;
@@ -703,6 +744,9 @@ package Windows.System is
    type IVector_IAppResourceGroupBackgroundTaskReport_Interface;
    type IVector_IAppResourceGroupBackgroundTaskReport is access all IVector_IAppResourceGroupBackgroundTaskReport_Interface'Class;
    type IVector_IAppResourceGroupBackgroundTaskReport_Ptr is access all IVector_IAppResourceGroupBackgroundTaskReport;
+   type IAsyncOperation_IAppExecutionStateChangeResult_Interface;
+   type IAsyncOperation_IAppExecutionStateChangeResult is access all IAsyncOperation_IAppExecutionStateChangeResult_Interface'Class;
+   type IAsyncOperation_IAppExecutionStateChangeResult_Ptr is access all IAsyncOperation_IAppExecutionStateChangeResult;
    type IAsyncOperation_ILaunchUriResult_Interface;
    type IAsyncOperation_ILaunchUriResult is access all IAsyncOperation_ILaunchUriResult_Interface'Class;
    type IAsyncOperation_ILaunchUriResult_Ptr is access all IAsyncOperation_ILaunchUriResult;
@@ -718,6 +762,9 @@ package Windows.System is
    type IAsyncOperation_IProcessLauncherResult_Interface;
    type IAsyncOperation_IProcessLauncherResult is access all IAsyncOperation_IProcessLauncherResult_Interface'Class;
    type IAsyncOperation_IProcessLauncherResult_Ptr is access all IAsyncOperation_IProcessLauncherResult;
+   type IAsyncOperation_AutoUpdateTimeZoneStatus_Interface;
+   type IAsyncOperation_AutoUpdateTimeZoneStatus is access all IAsyncOperation_AutoUpdateTimeZoneStatus_Interface'Class;
+   type IAsyncOperation_AutoUpdateTimeZoneStatus_Ptr is access all IAsyncOperation_AutoUpdateTimeZoneStatus;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1651,6 +1698,26 @@ package Windows.System is
    
    ------------------------------------------------------------------------
    
+   IID_IAppActivationResult : aliased constant Windows.IID := (1800571136, 62574, 20144, (170, 108, 56, 175, 85, 124, 249, 237 ));
+   
+   type IAppActivationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IAppActivationResult_Interface
+      ; RetVal : access Windows.Foundation.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AppResourceGroupInfo
+   (
+      This       : access IAppActivationResult_Interface
+      ; RetVal : access Windows.System.IAppResourceGroupInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAppDiagnosticInfo : aliased constant Windows.IID := (3813189274, 34953, 19619, (190, 7, 213, 255, 255, 95, 8, 4 ));
    
    type IAppDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
@@ -1679,6 +1746,19 @@ package Windows.System is
    (
       This       : access IAppDiagnosticInfo2_Interface
       ; RetVal : access Windows.System.IAppResourceGroupInfoWatcher
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppDiagnosticInfo3 : aliased constant Windows.IID := (3365258813, 56673, 19557, (186, 189, 129, 161, 11, 79, 152, 21 ));
+   
+   type IAppDiagnosticInfo3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function LaunchAsync
+   (
+      This       : access IAppDiagnosticInfo3_Interface
+      ; RetVal : access Windows.System.IAsyncOperation_IAppActivationResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1777,6 +1857,19 @@ package Windows.System is
    function Stop
    (
       This       : access IAppDiagnosticInfoWatcher_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppExecutionStateChangeResult : aliased constant Windows.IID := (1862507504, 63771, 19960, (174, 119, 48, 51, 204, 182, 145, 20 ));
+   
+   type IAppExecutionStateChangeResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IAppExecutionStateChangeResult_Interface
+      ; RetVal : access Windows.Foundation.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1893,6 +1986,33 @@ package Windows.System is
    (
       This       : access IAppResourceGroupInfo_Interface
       ; RetVal : access Windows.System.IAppResourceGroupStateReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppResourceGroupInfo2 : aliased constant Windows.IID := (4003144557, 54021, 19819, (146, 247, 106, 253, 173, 114, 222, 220 ));
+   
+   type IAppResourceGroupInfo2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function StartSuspendAsync
+   (
+      This       : access IAppResourceGroupInfo2_Interface
+      ; RetVal : access Windows.System.IAsyncOperation_IAppExecutionStateChangeResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartResumeAsync
+   (
+      This       : access IAppResourceGroupInfo2_Interface
+      ; RetVal : access Windows.System.IAsyncOperation_IAppExecutionStateChangeResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartTerminateAsync
+   (
+      This       : access IAppResourceGroupInfo2_Interface
+      ; RetVal : access Windows.System.IAsyncOperation_IAppExecutionStateChangeResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -2830,6 +2950,20 @@ package Windows.System is
    
    ------------------------------------------------------------------------
    
+   IID_ITimeZoneSettingsStatics2 : aliased constant Windows.IID := (1432096184, 14760, 18938, (180, 246, 162, 199, 252, 40, 66, 236 ));
+   
+   type ITimeZoneSettingsStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AutoUpdateTimeZoneAsync
+   (
+      This       : access ITimeZoneSettingsStatics2_Interface
+      ; timeout : Windows.Foundation.TimeSpan
+      ; RetVal : access Windows.System.IAsyncOperation_AutoUpdateTimeZoneStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_IUser : aliased constant Windows.IID := (2828391161, 9113, 20740, (165, 50, 91, 164, 74, 180, 177, 101 ));
    
    type IAsyncOperation_IUser_Interface is interface and Windows.IInspectable_Interface;
@@ -3248,6 +3382,33 @@ package Windows.System is
    
    ------------------------------------------------------------------------
    
+   IID_IAsyncOperation_IAppActivationResult : aliased constant Windows.IID := (3069408184, 48461, 20671, (130, 180, 91, 29, 69, 42, 95, 131 ));
+   
+   type IAsyncOperation_IAppActivationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IAppActivationResult_Interface
+      ; handler : Windows.System.AsyncOperationCompletedHandler_IAppActivationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IAppActivationResult_Interface
+      ; RetVal : access Windows.System.AsyncOperationCompletedHandler_IAppActivationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IAppActivationResult_Interface
+      ; RetVal : access Windows.System.IAppActivationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IAppResourceGroupBackgroundTaskReport : aliased constant Windows.IID := (12720138, 2277, 24301, (160, 141, 86, 163, 86, 204, 0, 79 ));
    
    type IIterator_IAppResourceGroupBackgroundTaskReport_Interface is interface and Windows.IInspectable_Interface;
@@ -3430,6 +3591,33 @@ package Windows.System is
    
    ------------------------------------------------------------------------
    
+   IID_IAsyncOperation_IAppExecutionStateChangeResult : aliased constant Windows.IID := (3260140578, 43945, 22968, (191, 135, 32, 103, 127, 196, 146, 78 ));
+   
+   type IAsyncOperation_IAppExecutionStateChangeResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IAppExecutionStateChangeResult_Interface
+      ; handler : Windows.System.AsyncOperationCompletedHandler_IAppExecutionStateChangeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IAppExecutionStateChangeResult_Interface
+      ; RetVal : access Windows.System.AsyncOperationCompletedHandler_IAppExecutionStateChangeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IAppExecutionStateChangeResult_Interface
+      ; RetVal : access Windows.System.IAppExecutionStateChangeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_ILaunchUriResult : aliased constant Windows.IID := (2140666901, 7382, 21687, (162, 144, 172, 182, 13, 186, 129, 161 ));
    
    type IAsyncOperation_ILaunchUriResult_Interface is interface and Windows.IInspectable_Interface;
@@ -3560,6 +3748,33 @@ package Windows.System is
    (
       This       : access IAsyncOperation_IProcessLauncherResult_Interface
       ; RetVal : access Windows.System.IProcessLauncherResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_AutoUpdateTimeZoneStatus : aliased constant Windows.IID := (3063182764, 42452, 21463, (165, 58, 187, 1, 182, 150, 32, 250 ));
+   
+   type IAsyncOperation_AutoUpdateTimeZoneStatus_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_AutoUpdateTimeZoneStatus_Interface
+      ; handler : Windows.System.AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_AutoUpdateTimeZoneStatus_Interface
+      ; RetVal : access Windows.System.AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_AutoUpdateTimeZoneStatus_Interface
+      ; RetVal : access Windows.System.AutoUpdateTimeZoneStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -3762,6 +3977,19 @@ package Windows.System is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IAppActivationResult : aliased constant Windows.IID := (2523800327, 54569, 20714, (152, 114, 141, 251, 53, 207, 239, 253 ));
+   
+   type AsyncOperationCompletedHandler_IAppActivationResult_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_IAppActivationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppActivationResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IAppActivationResult_Interface
+      ; asyncInfo : Windows.System.IAsyncOperation_IAppActivationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added : aliased constant Windows.IID := (2089578399, 54975, 21862, (176, 19, 57, 193, 65, 224, 255, 140 ));
    
    type TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.System.IAppDiagnosticInfoWatcher ; args : Windows.System.IAppDiagnosticInfoWatcherEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppDiagnosticInfoWatcher_add_Added'access) with null record;
@@ -3809,6 +4037,19 @@ package Windows.System is
       This       : access TypedEventHandler_IAppDiagnosticInfoWatcher_add_Stopped_Interface
       ; sender : Windows.System.IAppDiagnosticInfoWatcher
       ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IAppExecutionStateChangeResult : aliased constant Windows.IID := (3244471706, 48594, 24141, (163, 9, 180, 118, 235, 151, 184, 35 ));
+   
+   type AsyncOperationCompletedHandler_IAppExecutionStateChangeResult_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_IAppExecutionStateChangeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAppExecutionStateChangeResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IAppExecutionStateChangeResult_Interface
+      ; asyncInfo : Windows.System.IAsyncOperation_IAppExecutionStateChangeResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
    
@@ -3943,6 +4184,19 @@ package Windows.System is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus : aliased constant Windows.IID := (3266798156, 40757, 20596, (128, 33, 6, 51, 24, 72, 153, 167 ));
+   
+   type AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus_Interface(Callback : access procedure (asyncInfo : Windows.System.IAsyncOperation_AutoUpdateTimeZoneStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_AutoUpdateTimeZoneStatus_Interface
+      ; asyncInfo : Windows.System.IAsyncOperation_AutoUpdateTimeZoneStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -3966,8 +4220,10 @@ package Windows.System is
    subtype AppDiagnosticInfo is Windows.System.IAppDiagnosticInfo;
    subtype AppDiagnosticInfoWatcher is Windows.System.IAppDiagnosticInfoWatcher;
    subtype AppResourceGroupInfo is Windows.System.IAppResourceGroupInfo;
+   subtype AppActivationResult is Windows.System.IAppActivationResult;
    subtype AppResourceGroupInfoWatcher is Windows.System.IAppResourceGroupInfoWatcher;
    subtype AppDiagnosticInfoWatcherEventArgs is Windows.System.IAppDiagnosticInfoWatcherEventArgs;
+   subtype AppExecutionStateChangeResult is Windows.System.IAppExecutionStateChangeResult;
    subtype AppResourceGroupBackgroundTaskReport is Windows.System.IAppResourceGroupBackgroundTaskReport;
    subtype AppResourceGroupMemoryReport is Windows.System.IAppResourceGroupMemoryReport;
    subtype AppResourceGroupStateReport is Windows.System.IAppResourceGroupStateReport;
@@ -4072,11 +4328,8 @@ package Windows.System is
    )
    ;
    
-   function GetAppMemoryReport
-   return Windows.System.IAppMemoryReport;
-   
-   function GetProcessMemoryReport
-   return Windows.System.IProcessMemoryReport;
+   function get_ExpectedAppMemoryUsageLimit
+   return Windows.UInt64;
    
    function get_AppMemoryUsage
    return Windows.UInt64;
@@ -4129,8 +4382,11 @@ package Windows.System is
    )
    return Windows.Boolean;
    
-   function get_ExpectedAppMemoryUsageLimit
-   return Windows.UInt64;
+   function GetAppMemoryReport
+   return Windows.System.IAppMemoryReport;
+   
+   function GetProcessMemoryReport
+   return Windows.System.IProcessMemoryReport;
    
    function RequestInfoAsync
    return Windows.Address;
@@ -4155,6 +4411,32 @@ package Windows.System is
       appUserModelId : Windows.String
    )
    return Windows.Address;
+   
+   function LaunchFileAsync
+   (
+      file : Windows.Storage.IStorageFile
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function LaunchFileWithOptionsAsync
+   (
+      file : Windows.Storage.IStorageFile
+      ; options : Windows.System.ILauncherOptions
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function LaunchUriAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function LaunchUriWithOptionsAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.System.ILauncherOptions
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function LaunchUriForResultsAsync
    (
@@ -4299,32 +4581,6 @@ package Windows.System is
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
    
-   function LaunchFileAsync
-   (
-      file : Windows.Storage.IStorageFile
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function LaunchFileWithOptionsAsync
-   (
-      file : Windows.Storage.IStorageFile
-      ; options : Windows.System.ILauncherOptions
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function LaunchUriAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function LaunchUriWithOptionsAsync
-   (
-      uri : Windows.Foundation.IUriRuntimeClass
-      ; options : Windows.System.ILauncherOptions
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
    function LaunchUriAsync
    (
       remoteSystemConnectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
@@ -4413,5 +4669,11 @@ package Windows.System is
       timeZoneDisplayName : Windows.String
    )
    ;
+   
+   function AutoUpdateTimeZoneAsync
+   (
+      timeout : Windows.Foundation.TimeSpan
+   )
+   return Windows.System.IAsyncOperation_AutoUpdateTimeZoneStatus;
    
 end;

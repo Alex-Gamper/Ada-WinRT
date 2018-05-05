@@ -1901,13 +1901,27 @@ package Windows.ApplicationModel.Payments is
    function CreatePaymentOptions return Windows.ApplicationModel.Payments.IPaymentOptions;
    
    subtype PaymentRequest is Windows.ApplicationModel.Payments.IPaymentRequest;
-   function CreateWithMerchantInfoOptionsAndId
+   function Create
+   (
+      details : Windows.ApplicationModel.Payments.IPaymentDetails
+      ; methodData : Windows.ApplicationModel.Payments.IIterable_IPaymentMethodData
+   )
+   return Windows.ApplicationModel.Payments.IPaymentRequest;
+   
+   function CreateWithMerchantInfo
+   (
+      details : Windows.ApplicationModel.Payments.IPaymentDetails
+      ; methodData : Windows.ApplicationModel.Payments.IIterable_IPaymentMethodData
+      ; merchantInfo : Windows.ApplicationModel.Payments.IPaymentMerchantInfo
+   )
+   return Windows.ApplicationModel.Payments.IPaymentRequest;
+   
+   function CreateWithMerchantInfoAndOptions
    (
       details : Windows.ApplicationModel.Payments.IPaymentDetails
       ; methodData : Windows.ApplicationModel.Payments.IIterable_IPaymentMethodData
       ; merchantInfo : Windows.ApplicationModel.Payments.IPaymentMerchantInfo
       ; options : Windows.ApplicationModel.Payments.IPaymentOptions
-      ; id : Windows.String
    )
    return Windows.ApplicationModel.Payments.IPaymentRequest;
    

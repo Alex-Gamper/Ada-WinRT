@@ -485,58 +485,6 @@ package body Windows.Devices.Geolocation is
       return RetVal;
    end;
    
-   function get_IsDefaultGeopositionRecommended
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Geolocation.Geolocator");
-      m_Factory     : IGeolocatorStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGeolocatorStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsDefaultGeopositionRecommended(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_DefaultGeoposition
-   (
-      value : Windows.Devices.Geolocation.IReference_BasicGeoposition
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Geolocation.Geolocator");
-      m_Factory     : IGeolocatorStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGeolocatorStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_DefaultGeoposition(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_DefaultGeoposition
-   return Windows.Devices.Geolocation.IReference_BasicGeoposition is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Geolocation.Geolocator");
-      m_Factory     : IGeolocatorStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Geolocation.IReference_BasicGeoposition;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGeolocatorStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DefaultGeoposition(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function RequestAccessAsync
    return Windows.Devices.Geolocation.IAsyncOperation_GeolocationAccessStatus is
       Hr            : Windows.HRESULT := S_OK;
@@ -589,6 +537,58 @@ package body Windows.Devices.Geolocation is
       Hr := RoGetActivationFactory(m_hString, IID_IGeolocatorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetGeopositionHistoryWithDurationAsync(startTime, duration, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsDefaultGeopositionRecommended
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Geolocation.Geolocator");
+      m_Factory     : IGeolocatorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGeolocatorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDefaultGeopositionRecommended(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_DefaultGeoposition
+   (
+      value : Windows.Devices.Geolocation.IReference_BasicGeoposition
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Geolocation.Geolocator");
+      m_Factory     : IGeolocatorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGeolocatorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_DefaultGeoposition(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_DefaultGeoposition
+   return Windows.Devices.Geolocation.IReference_BasicGeoposition is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Geolocation.Geolocator");
+      m_Factory     : IGeolocatorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Geolocation.IReference_BasicGeoposition;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGeolocatorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DefaultGeoposition(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

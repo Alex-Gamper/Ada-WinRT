@@ -164,6 +164,9 @@ package Windows.Media.DialProtocol is
    type IDialReceiverApp_Interface;
    type IDialReceiverApp is access all IDialReceiverApp_Interface'Class;
    type IDialReceiverApp_Ptr is access all IDialReceiverApp;
+   type IDialReceiverApp2_Interface;
+   type IDialReceiverApp2 is access all IDialReceiverApp2_Interface'Class;
+   type IDialReceiverApp2_Ptr is access all IDialReceiverApp2;
    type IAsyncOperation_DialAppLaunchResult_Interface;
    type IAsyncOperation_DialAppLaunchResult is access all IAsyncOperation_DialAppLaunchResult_Interface'Class;
    type IAsyncOperation_DialAppLaunchResult_Ptr is access all IAsyncOperation_DialAppLaunchResult;
@@ -488,6 +491,19 @@ package Windows.Media.DialProtocol is
       This       : access IDialReceiverApp_Interface
       ; additionalData : Windows.Address
       ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDialReceiverApp2 : aliased constant Windows.IID := (1393317893, 37168, 17068, (165, 4, 25, 119, 220, 178, 234, 138 ));
+   
+   type IDialReceiverApp2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetUniqueDeviceNameAsync
+   (
+      This       : access IDialReceiverApp2_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    

@@ -109,6 +109,9 @@ package Windows.ApplicationModel.DataTransfer is
    type IStandardDataFormatsStatics2_Interface;
    type IStandardDataFormatsStatics2 is access all IStandardDataFormatsStatics2_Interface'Class;
    type IStandardDataFormatsStatics2_Ptr is access all IStandardDataFormatsStatics2;
+   type IStandardDataFormatsStatics3_Interface;
+   type IStandardDataFormatsStatics3 is access all IStandardDataFormatsStatics3_Interface'Class;
+   type IStandardDataFormatsStatics3_Ptr is access all IStandardDataFormatsStatics3;
    type IDataPackagePropertySetView_Interface;
    type IDataPackagePropertySetView is access all IDataPackagePropertySetView_Interface'Class;
    type IDataPackagePropertySetView_Ptr is access all IDataPackagePropertySetView;
@@ -118,6 +121,9 @@ package Windows.ApplicationModel.DataTransfer is
    type IDataPackagePropertySetView3_Interface;
    type IDataPackagePropertySetView3 is access all IDataPackagePropertySetView3_Interface'Class;
    type IDataPackagePropertySetView3_Ptr is access all IDataPackagePropertySetView3;
+   type IDataPackagePropertySetView4_Interface;
+   type IDataPackagePropertySetView4 is access all IDataPackagePropertySetView4_Interface'Class;
+   type IDataPackagePropertySetView4_Ptr is access all IDataPackagePropertySetView4;
    type IDataPackagePropertySet_Interface;
    type IDataPackagePropertySet is access all IDataPackagePropertySet_Interface'Class;
    type IDataPackagePropertySet_Ptr is access all IDataPackagePropertySet;
@@ -127,6 +133,9 @@ package Windows.ApplicationModel.DataTransfer is
    type IDataPackagePropertySet3_Interface;
    type IDataPackagePropertySet3 is access all IDataPackagePropertySet3_Interface'Class;
    type IDataPackagePropertySet3_Ptr is access all IDataPackagePropertySet3;
+   type IDataPackagePropertySet4_Interface;
+   type IDataPackagePropertySet4 is access all IDataPackagePropertySet4_Interface'Class;
+   type IDataPackagePropertySet4_Ptr is access all IDataPackagePropertySet4;
    type IMapView_String_Object_Interface;
    type IMapView_String_Object is access all IMapView_String_Object_Interface'Class;
    type IMapView_String_Object_Ptr is access all IMapView_String_Object;
@@ -319,6 +328,19 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_IStandardDataFormatsStatics3 : aliased constant Windows.IID := (995602537, 468, 18252, (139, 95, 188, 142, 39, 243, 139, 33 ));
+   
+   type IStandardDataFormatsStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UserActivityJsonArray
+   (
+      This       : access IStandardDataFormatsStatics3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDataPackagePropertySetView : aliased constant Windows.IID := (3108826113, 3098, 19543, (190, 85, 117, 208, 18, 137, 115, 93 ));
    
    type IDataPackagePropertySetView_Interface is interface and Windows.IInspectable_Interface;
@@ -415,6 +437,19 @@ package Windows.ApplicationModel.DataTransfer is
    function get_EnterpriseId
    (
       This       : access IDataPackagePropertySetView3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDataPackagePropertySetView4 : aliased constant Windows.IID := (1148504077, 53615, 16558, (149, 128, 111, 133, 98, 185, 66, 53 ));
+   
+   type IDataPackagePropertySetView4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentSourceUserActivityJson
+   (
+      This       : access IDataPackagePropertySetView4_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
@@ -594,6 +629,26 @@ package Windows.ApplicationModel.DataTransfer is
    function put_EnterpriseId
    (
       This       : access IDataPackagePropertySet3_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDataPackagePropertySet4 : aliased constant Windows.IID := (1670441973, 5945, 19572, (178, 47, 134, 95, 171, 94, 133, 69 ));
+   
+   type IDataPackagePropertySet4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentSourceUserActivityJson
+   (
+      This       : access IDataPackagePropertySet4_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ContentSourceUserActivityJson
+   (
+      This       : access IDataPackagePropertySet4_Interface
       ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
@@ -1989,6 +2044,15 @@ package Windows.ApplicationModel.DataTransfer is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_UserActivityJsonArray
+   return Windows.String;
+   
+   function get_WebLink
+   return Windows.String;
+   
+   function get_ApplicationLink
+   return Windows.String;
+   
    function get_Text
    return Windows.String;
    
@@ -2005,12 +2069,6 @@ package Windows.ApplicationModel.DataTransfer is
    return Windows.String;
    
    function get_StorageItems
-   return Windows.String;
-   
-   function get_WebLink
-   return Windows.String;
-   
-   function get_ApplicationLink
    return Windows.String;
    
    function GetStaticFragment

@@ -385,6 +385,9 @@ package Windows.UI.Xaml.Media is
    type TimelineMarkerRoutedEventHandler_Interface;
    type TimelineMarkerRoutedEventHandler is access all TimelineMarkerRoutedEventHandler_Interface'Class;
    type TimelineMarkerRoutedEventHandler_Ptr is access all TimelineMarkerRoutedEventHandler;
+   type EventHandler_IRenderedEventArgs_Interface;
+   type EventHandler_IRenderedEventArgs is access all EventHandler_IRenderedEventArgs_Interface'Class;
+   type EventHandler_IRenderedEventArgs_Ptr is access all EventHandler_IRenderedEventArgs;
    type TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface;
    type TypedEventHandler_ILoadedImageSurface_add_LoadCompleted is access all TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface'Class;
    type TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Ptr is access all TypedEventHandler_ILoadedImageSurface_add_LoadCompleted;
@@ -456,6 +459,9 @@ package Windows.UI.Xaml.Media is
    type ICompositionTargetStatics_Interface;
    type ICompositionTargetStatics is access all ICompositionTargetStatics_Interface'Class;
    type ICompositionTargetStatics_Ptr is access all ICompositionTargetStatics;
+   type ICompositionTargetStatics3_Interface;
+   type ICompositionTargetStatics3 is access all ICompositionTargetStatics3_Interface'Class;
+   type ICompositionTargetStatics3_Ptr is access all ICompositionTargetStatics3;
    type IVector_Double_Interface;
    type IVector_Double is access all IVector_Double_Interface'Class;
    type IVector_Double_Ptr is access all IVector_Double;
@@ -480,6 +486,9 @@ package Windows.UI.Xaml.Media is
    type IIterable_Point_Interface;
    type IIterable_Point is access all IIterable_Point_Interface'Class;
    type IIterable_Point_Ptr is access all IIterable_Point;
+   type IRenderedEventArgs_Interface;
+   type IRenderedEventArgs is access all IRenderedEventArgs_Interface'Class;
+   type IRenderedEventArgs_Ptr is access all IRenderedEventArgs;
    type IRenderingEventArgs_Interface;
    type IRenderingEventArgs is access all IRenderingEventArgs_Interface'Class;
    type IRenderingEventArgs_Ptr is access all IRenderingEventArgs;
@@ -1452,6 +1461,27 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_ICompositionTargetStatics3 : aliased constant Windows.IID := (3154803929, 26448, 18184, (153, 76, 32, 40, 224, 49, 42, 200 ));
+   
+   type ICompositionTargetStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_Rendered
+   (
+      This       : access ICompositionTargetStatics3_Interface
+      ; value : Windows.UI.Xaml.Media.EventHandler_IRenderedEventArgs
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Rendered
+   (
+      This       : access ICompositionTargetStatics3_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVector_Double : aliased constant Windows.IID := (4099068476, 48901, 24382, (136, 231, 209, 122, 103, 22, 185, 17 ));
    
    type IVector_Double_Interface is interface and Windows.IInspectable_Interface;
@@ -1725,6 +1755,19 @@ package Windows.UI.Xaml.Media is
    (
       This       : access IIterable_Point_Interface
       ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRenderedEventArgs : aliased constant Windows.IID := (3813245309, 33223, 18744, (130, 140, 167, 226, 121, 123, 53, 166 ));
+   
+   type IRenderedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FrameDuration
+   (
+      This       : access IRenderedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
    
@@ -5578,6 +5621,19 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_EventHandler_IRenderedEventArgs : aliased constant Windows.IID := (3514304118, 35522, 23278, (171, 153, 16, 66, 45, 181, 28, 41 ));
+   
+   type EventHandler_IRenderedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Media.IRenderedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IRenderedEventArgs'access) with null record;
+   function Invoke
+   (
+      This       : access EventHandler_IRenderedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Xaml.Media.IRenderedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_ILoadedImageSurface_add_LoadCompleted : aliased constant Windows.IID := (178308206, 7606, 22608, (174, 23, 236, 49, 14, 163, 253, 45 ));
    
    type TypedEventHandler_ILoadedImageSurface_add_LoadCompleted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Media.ILoadedImageSurface ; args : Windows.UI.Xaml.Media.ILoadedImageSourceLoadCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILoadedImageSurface_add_LoadCompleted'access) with null record;
@@ -5601,6 +5657,7 @@ package Windows.UI.Xaml.Media is
    subtype BrushCollection is Windows.UI.Xaml.Media.IVector_Brush;
    function CreateBrushCollection return Windows.UI.Xaml.Media.IVector_Brush;
    
+   subtype RenderedEventArgs is Windows.UI.Xaml.Media.IRenderedEventArgs;
    subtype CompositionTarget is Windows.UI.Xaml.Media.ICompositionTarget;
    subtype DoubleCollection is Windows.UI.Xaml.Media.IVector_Double;
    function CreateDoubleCollection return Windows.UI.Xaml.Media.IVector_Double;
@@ -6130,11 +6187,7 @@ package Windows.UI.Xaml.Media is
    function CreateRectangleGeometry return Windows.UI.Xaml.Media.IRectangleGeometry;
    
    subtype SolidColorBrush is Windows.UI.Xaml.Media.ISolidColorBrush;
-   function CreateInstanceWithColor
-   (
-      color : Windows.UI.Color
-   )
-   return Windows.UI.Xaml.Media.ISolidColorBrush;
+   function CreateSolidColorBrush return Windows.UI.Xaml.Media.ISolidColorBrush;
    
    subtype Transform is Windows.UI.Xaml.Media.ITransform;
    subtype CompositeTransform is Windows.UI.Xaml.Media.ICompositeTransform;
@@ -6886,6 +6939,12 @@ package Windows.UI.Xaml.Media is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetOpenPopups
+   (
+      window : Windows.UI.Xaml.IWindow
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
+   
    function FindElementsInHostCoordinatesPoint
    (
       intersectingPoint : Windows.Foundation.Point
@@ -6941,12 +7000,6 @@ package Windows.UI.Xaml.Media is
    )
    ;
    
-   function GetOpenPopups
-   (
-      window : Windows.UI.Xaml.IWindow
-   )
-   return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
-   
    function get_Identity
    return Windows.UI.Xaml.Media.Matrix;
    
@@ -6993,6 +7046,18 @@ package Windows.UI.Xaml.Media is
    return Windows.Foundation.EventRegistrationToken;
    
    procedure remove_SurfaceContentsLost
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_Rendered
+   (
+      value : Windows.UI.Xaml.Media.EventHandler_IRenderedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_Rendered
    (
       token : Windows.Foundation.EventRegistrationToken
    )
@@ -7064,6 +7129,13 @@ package Windows.UI.Xaml.Media is
    function get_TextProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IXamlLight;
+   
    procedure AddTargetElement
    (
       lightId : Windows.String
@@ -7091,13 +7163,6 @@ package Windows.UI.Xaml.Media is
       ; brush : Windows.UI.Xaml.Media.IBrush
    )
    ;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IXamlLight;
    
    function get_ProjectionMatrixProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7351,6 +7416,13 @@ package Windows.UI.Xaml.Media is
    function get_Point2Property_IQuadraticBezierSegment
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.ITileBrush;
+   
    function get_AlignmentXProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -7359,13 +7431,6 @@ package Windows.UI.Xaml.Media is
    
    function get_StretchProperty
    return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.ITileBrush;
    
    function get_FallbackColorProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7376,6 +7441,13 @@ package Windows.UI.Xaml.Media is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IXamlCompositionBrushBase;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.IAcrylicBrush;
    
    function get_BackgroundSourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7391,13 +7463,6 @@ package Windows.UI.Xaml.Media is
    
    function get_AlwaysUseFallbackProperty
    return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Media.IAcrylicBrush;
    
    function get_ColorProperty_IRevealBrush
    return Windows.UI.Xaml.IDependencyProperty;

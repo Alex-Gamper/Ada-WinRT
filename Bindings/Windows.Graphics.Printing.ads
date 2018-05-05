@@ -741,6 +741,15 @@ package Windows.Graphics.Printing is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IPrintPageRange_Interface;
+   type IPrintPageRange is access all IPrintPageRange_Interface'Class;
+   type IPrintPageRange_Ptr is access all IPrintPageRange;
+   type IPrintPageRangeFactory_Interface;
+   type IPrintPageRangeFactory is access all IPrintPageRangeFactory_Interface'Class;
+   type IPrintPageRangeFactory_Ptr is access all IPrintPageRangeFactory;
+   type IPrintPageRangeOptions_Interface;
+   type IPrintPageRangeOptions is access all IPrintPageRangeOptions_Interface'Class;
+   type IPrintPageRangeOptions_Ptr is access all IPrintPageRangeOptions;
    type IPrintTaskOptionsCoreProperties_Interface;
    type IPrintTaskOptionsCoreProperties is access all IPrintTaskOptionsCoreProperties_Interface'Class;
    type IPrintTaskOptionsCoreProperties_Ptr is access all IPrintTaskOptionsCoreProperties;
@@ -750,6 +759,9 @@ package Windows.Graphics.Printing is
    type IPrintTaskOptions_Interface;
    type IPrintTaskOptions is access all IPrintTaskOptions_Interface'Class;
    type IPrintTaskOptions_Ptr is access all IPrintTaskOptions;
+   type IPrintTaskOptions2_Interface;
+   type IPrintTaskOptions2 is access all IPrintTaskOptions2_Interface'Class;
+   type IPrintTaskOptions2_Ptr is access all IPrintTaskOptions2;
    type IPrintTaskOptionsCoreUIConfiguration_Interface;
    type IPrintTaskOptionsCoreUIConfiguration is access all IPrintTaskOptionsCoreUIConfiguration_Interface'Class;
    type IPrintTaskOptionsCoreUIConfiguration_Ptr is access all IPrintTaskOptionsCoreUIConfiguration;
@@ -762,6 +774,9 @@ package Windows.Graphics.Printing is
    type IStandardPrintTaskOptionsStatic2_Interface;
    type IStandardPrintTaskOptionsStatic2 is access all IStandardPrintTaskOptionsStatic2_Interface'Class;
    type IStandardPrintTaskOptionsStatic2_Ptr is access all IStandardPrintTaskOptionsStatic2;
+   type IStandardPrintTaskOptionsStatic3_Interface;
+   type IStandardPrintTaskOptionsStatic3 is access all IStandardPrintTaskOptionsStatic3_Interface'Class;
+   type IStandardPrintTaskOptionsStatic3_Ptr is access all IStandardPrintTaskOptionsStatic3;
    type IPrintDocumentSource_Interface;
    type IPrintDocumentSource is access all IPrintDocumentSource_Interface'Class;
    type IPrintDocumentSource_Ptr is access all IPrintDocumentSource;
@@ -804,10 +819,113 @@ package Windows.Graphics.Printing is
    type IPrintManager_Interface;
    type IPrintManager is access all IPrintManager_Interface'Class;
    type IPrintManager_Ptr is access all IPrintManager;
+   type IIterator_IPrintPageRange_Interface;
+   type IIterator_IPrintPageRange is access all IIterator_IPrintPageRange_Interface'Class;
+   type IIterator_IPrintPageRange_Ptr is access all IIterator_IPrintPageRange;
+   type IIterable_IPrintPageRange_Interface;
+   type IIterable_IPrintPageRange is access all IIterable_IPrintPageRange_Interface'Class;
+   type IIterable_IPrintPageRange_Ptr is access all IIterable_IPrintPageRange;
+   type IVectorView_IPrintPageRange_Interface;
+   type IVectorView_IPrintPageRange is access all IVectorView_IPrintPageRange_Interface'Class;
+   type IVectorView_IPrintPageRange_Ptr is access all IVectorView_IPrintPageRange;
+   type IVector_IPrintPageRange_Interface;
+   type IVector_IPrintPageRange is access all IVector_IPrintPageRange_Interface'Class;
+   type IVector_IPrintPageRange_Ptr is access all IVector_IPrintPageRange;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintPageRange : aliased constant Windows.IID := (4171263060, 28284, 20933, (87, 253, 6, 96, 194, 215, 21, 19 ));
+   
+   type IPrintPageRange_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FirstPageNumber
+   (
+      This       : access IPrintPageRange_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LastPageNumber
+   (
+      This       : access IPrintPageRange_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintPageRangeFactory : aliased constant Windows.IID := (1083167839, 57415, 24453, (113, 41, 251, 8, 90, 79, 173, 20 ));
+   
+   type IPrintPageRangeFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IPrintPageRangeFactory_Interface
+      ; firstPage : Windows.Int32
+      ; lastPage : Windows.Int32
+      ; RetVal : access Windows.Graphics.Printing.IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithSinglePage
+   (
+      This       : access IPrintPageRangeFactory_Interface
+      ; page : Windows.Int32
+      ; RetVal : access Windows.Graphics.Printing.IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPrintPageRangeOptions : aliased constant Windows.IID := (3463296808, 4951, 18098, (169, 35, 121, 249, 149, 244, 72, 252 ));
+   
+   type IPrintPageRangeOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_AllowAllPages
+   (
+      This       : access IPrintPageRangeOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AllowAllPages
+   (
+      This       : access IPrintPageRangeOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowCurrentPage
+   (
+      This       : access IPrintPageRangeOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AllowCurrentPage
+   (
+      This       : access IPrintPageRangeOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowCustomSetOfPages
+   (
+      This       : access IPrintPageRangeOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AllowCustomSetOfPages
+   (
+      This       : access IPrintPageRangeOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -1089,6 +1207,26 @@ package Windows.Graphics.Printing is
    
    ------------------------------------------------------------------------
    
+   IID_IPrintTaskOptions2 : aliased constant Windows.IID := (3952809478, 39478, 19289, (134, 23, 178, 23, 132, 146, 98, 225 ));
+   
+   type IPrintTaskOptions2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PageRangeOptions
+   (
+      This       : access IPrintTaskOptions2_Interface
+      ; RetVal : access Windows.Graphics.Printing.IPrintPageRangeOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CustomPageRanges
+   (
+      This       : access IPrintTaskOptions2_Interface
+      ; RetVal : access Windows.Graphics.Printing.IVector_IPrintPageRange -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPrintTaskOptionsCoreUIConfiguration : aliased constant Windows.IID := (1659280931, 39454, 17206, (183, 79, 60, 199, 244, 207, 247, 9 ));
    
    type IPrintTaskOptionsCoreUIConfiguration_Interface is interface and Windows.IInspectable_Interface;
@@ -1220,6 +1358,19 @@ package Windows.Graphics.Printing is
    function get_Bordering
    (
       This       : access IStandardPrintTaskOptionsStatic2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStandardPrintTaskOptionsStatic3 : aliased constant Windows.IID := (3153497734, 14424, 16819, (167, 153, 85, 221, 152, 136, 212, 117 ));
+   
+   type IStandardPrintTaskOptionsStatic3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CustomPageRanges
+   (
+      This       : access IStandardPrintTaskOptionsStatic3_Interface
       ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
@@ -1545,6 +1696,188 @@ package Windows.Graphics.Printing is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IIterator_IPrintPageRange : aliased constant Windows.IID := (955733605, 64320, 21474, (169, 22, 21, 186, 117, 74, 106, 158 ));
+   
+   type IIterator_IPrintPageRange_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IPrintPageRange_Interface
+      ; RetVal : access Windows.Graphics.Printing.IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IPrintPageRange_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IPrintPageRange_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IPrintPageRange_Interface
+      ; items : Windows.Graphics.Printing.IPrintPageRange_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IPrintPageRange : aliased constant Windows.IID := (3983400760, 13519, 23087, (185, 172, 65, 61, 255, 206, 127, 129 ));
+   
+   type IIterable_IPrintPageRange_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IPrintPageRange_Interface
+      ; RetVal : access Windows.Graphics.Printing.IIterator_IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IPrintPageRange : aliased constant Windows.IID := (6533406, 8344, 24319, (150, 82, 8, 163, 81, 108, 153, 166 ));
+   
+   type IVectorView_IPrintPageRange_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IPrintPageRange_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Graphics.Printing.IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IPrintPageRange_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IPrintPageRange_Interface
+      ; value : Windows.Graphics.Printing.IPrintPageRange
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IPrintPageRange_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Graphics.Printing.IPrintPageRange_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_IPrintPageRange : aliased constant Windows.IID := (489769496, 10774, 21551, (169, 134, 27, 120, 65, 184, 120, 170 ));
+   
+   type IVector_IPrintPageRange_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Graphics.Printing.IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; RetVal : access Windows.Graphics.Printing.IVectorView_IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; value : Windows.Graphics.Printing.IPrintPageRange
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Graphics.Printing.IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Graphics.Printing.IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; value : Windows.Graphics.Printing.IPrintPageRange
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_IPrintPageRange_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_IPrintPageRange_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Graphics.Printing.IPrintPageRange_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_IPrintPageRange_Interface
+      ; items : Windows.Graphics.Printing.IPrintPageRange_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -1629,6 +1962,21 @@ package Windows.Graphics.Printing is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype PrintPageRange is Windows.Graphics.Printing.IPrintPageRange;
+   function Create
+   (
+      firstPage : Windows.Int32
+      ; lastPage : Windows.Int32
+   )
+   return Windows.Graphics.Printing.IPrintPageRange;
+   
+   function CreateWithSinglePage
+   (
+      page : Windows.Int32
+   )
+   return Windows.Graphics.Printing.IPrintPageRange;
+   
+   subtype PrintPageRangeOptions is Windows.Graphics.Printing.IPrintPageRangeOptions;
    subtype PrintPageInfo is Windows.Graphics.Printing.IPrintPageInfo;
    function CreatePrintPageInfo return Windows.Graphics.Printing.IPrintPageInfo;
    
@@ -1646,9 +1994,6 @@ package Windows.Graphics.Printing is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function get_Bordering
-   return Windows.String;
    
    function get_MediaSize
    return Windows.String;
@@ -1687,6 +2032,12 @@ package Windows.Graphics.Printing is
    return Windows.String;
    
    function get_InputBin
+   return Windows.String;
+   
+   function get_Bordering
+   return Windows.String;
+   
+   function get_CustomPageRanges
    return Windows.String;
    
    function IsSupported

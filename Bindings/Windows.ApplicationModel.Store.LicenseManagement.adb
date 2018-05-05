@@ -53,26 +53,6 @@ package body Windows.ApplicationModel.Store.LicenseManagement is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function RefreshLicensesAsync
-   (
-      refreshOption : Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.LicenseManagement.LicenseManager");
-      m_Factory     : ILicenseManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILicenseManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RefreshLicensesAsync(refreshOption, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function AddLicenseAsync
    (
       license : Windows.Storage.Streams.IBuffer
@@ -108,6 +88,26 @@ package body Windows.ApplicationModel.Store.LicenseManagement is
       Hr := RoGetActivationFactory(m_hString, IID_ILicenseManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetSatisfactionInfosAsync(contentIds, keyIds, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RefreshLicensesAsync
+   (
+      refreshOption : Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.LicenseManagement.LicenseManager");
+      m_Factory     : ILicenseManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILicenseManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RefreshLicensesAsync(refreshOption, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -1595,11 +1595,7 @@ package Windows.Media.SpeechRecognition is
    subtype SpeechRecognizerUIOptions is Windows.Media.SpeechRecognition.ISpeechRecognizerUIOptions;
    subtype SpeechRecognitionCompilationResult is Windows.Media.SpeechRecognition.ISpeechRecognitionCompilationResult;
    subtype SpeechRecognizer is Windows.Media.SpeechRecognition.ISpeechRecognizer;
-   function Create
-   (
-      language : Windows.Globalization.ILanguage
-   )
-   return Windows.Media.SpeechRecognition.ISpeechRecognizer;
+   function CreateSpeechRecognizer return Windows.Media.SpeechRecognition.ISpeechRecognizer;
    
    subtype SpeechRecognitionQualityDegradingEventArgs is Windows.Media.SpeechRecognition.ISpeechRecognitionQualityDegradingEventArgs;
    subtype SpeechRecognizerStateChangedEventArgs is Windows.Media.SpeechRecognition.ISpeechRecognizerStateChangedEventArgs;
@@ -1615,6 +1611,12 @@ package Windows.Media.SpeechRecognition is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function TrySetSystemSpeechLanguageAsync
+   (
+      speechLanguage : Windows.Globalization.ILanguage
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
    function get_SystemSpeechLanguage
    return Windows.Globalization.ILanguage;
    
@@ -1623,12 +1625,6 @@ package Windows.Media.SpeechRecognition is
    
    function get_SupportedGrammarLanguages
    return Windows.Globalization.IVectorView_ILanguage;
-   
-   function TrySetSystemSpeechLanguageAsync
-   (
-      speechLanguage : Windows.Globalization.ILanguage
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function InstallCommandSetsFromStorageFileAsync
    (

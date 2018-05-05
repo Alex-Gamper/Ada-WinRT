@@ -3366,6 +3366,9 @@ package Windows.UI.Input is
    )
    return Windows.UI.Input.IRadialControllerMenuItem;
    
+   function GetForCurrentView
+   return Windows.UI.Input.IRadialControllerConfiguration;
+   
    procedure put_AppController
    (
       value : Windows.UI.Input.IRadialController
@@ -3383,8 +3386,5 @@ package Windows.UI.Input is
    
    function get_IsAppControllerEnabled
    return Windows.Boolean;
-   
-   function GetForCurrentView
-   return Windows.UI.Input.IRadialControllerConfiguration;
    
 end;

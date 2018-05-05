@@ -21,6 +21,7 @@
 --------------------------------------------------------------------------------
 limited with Windows.ApplicationModel.Core;
 limited with Windows.UI.Core;
+limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.UI.Input.Core is
 
@@ -36,6 +37,9 @@ package Windows.UI.Input.Core is
    type IRadialControllerIndependentInputSource_Interface;
    type IRadialControllerIndependentInputSource is access all IRadialControllerIndependentInputSource_Interface'Class;
    type IRadialControllerIndependentInputSource_Ptr is access all IRadialControllerIndependentInputSource;
+   type IRadialControllerIndependentInputSource2_Interface;
+   type IRadialControllerIndependentInputSource2 is access all IRadialControllerIndependentInputSource2_Interface'Class;
+   type IRadialControllerIndependentInputSource2_Ptr is access all IRadialControllerIndependentInputSource2;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -72,6 +76,19 @@ package Windows.UI.Input.Core is
    (
       This       : access IRadialControllerIndependentInputSource_Interface
       ; RetVal : access Windows.UI.Core.ICoreDispatcher
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRadialControllerIndependentInputSource2 : aliased constant Windows.IID := (1886628568, 13811, 20203, (135, 81, 190, 77, 10, 102, 250, 244 ));
+   
+   type IRadialControllerIndependentInputSource2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DispatcherQueue
+   (
+      This       : access IRadialControllerIndependentInputSource2_Interface
+      ; RetVal : access Windows.System.IDispatcherQueue
    )
    return Windows.HRESULT is abstract;
    

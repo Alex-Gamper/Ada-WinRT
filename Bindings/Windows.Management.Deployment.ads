@@ -215,6 +215,9 @@ package Windows.Management.Deployment is
    type IPackageManager6_Interface;
    type IPackageManager6 is access all IPackageManager6_Interface'Class;
    type IPackageManager6_Ptr is access all IPackageManager6;
+   type IPackageManager7_Interface;
+   type IPackageManager7 is access all IPackageManager7_Interface'Class;
+   type IPackageManager7_Ptr is access all IPackageManager7;
    type IPackageVolume_Interface;
    type IPackageVolume is access all IPackageVolume_Interface'Class;
    type IPackageVolume_Ptr is access all IPackageVolume;
@@ -820,6 +823,26 @@ package Windows.Management.Deployment is
       ; targetVolume : Windows.Management.Deployment.IPackageVolume
       ; optionalPackageFamilyNames : Windows.Foundation.Collections.IIterable_String
       ; relatedPackageUris : Windows.Foundation.IIterable_IUriRuntimeClass
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPackageManager7 : aliased constant Windows.IID := (4068889844, 11175, 19328, (136, 214, 190, 21, 249, 162, 63, 186 ));
+   
+   type IPackageManager7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RequestAddPackageAndRelatedSetAsync
+   (
+      This       : access IPackageManager7_Interface
+      ; packageUri : Windows.Foundation.IUriRuntimeClass
+      ; dependencyPackageUris : Windows.Foundation.IIterable_IUriRuntimeClass
+      ; deploymentOptions : Windows.Management.Deployment.DeploymentOptions
+      ; targetVolume : Windows.Management.Deployment.IPackageVolume
+      ; optionalPackageFamilyNames : Windows.Foundation.Collections.IIterable_String
+      ; relatedPackageUris : Windows.Foundation.IIterable_IUriRuntimeClass
+      ; packageUrisToInstall : Windows.Foundation.IIterable_IUriRuntimeClass
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;

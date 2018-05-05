@@ -771,6 +771,9 @@ package Windows.Devices.PointOfService is
    type IUnifiedPosErrorData_Interface;
    type IUnifiedPosErrorData is access all IUnifiedPosErrorData_Interface'Class;
    type IUnifiedPosErrorData_Ptr is access all IUnifiedPosErrorData;
+   type IUnifiedPosErrorDataFactory_Interface;
+   type IUnifiedPosErrorDataFactory is access all IUnifiedPosErrorDataFactory_Interface'Class;
+   type IUnifiedPosErrorDataFactory_Ptr is access all IUnifiedPosErrorDataFactory;
    type IBarcodeScannerStatusUpdatedEventArgs_Interface;
    type IBarcodeScannerStatusUpdatedEventArgs is access all IBarcodeScannerStatusUpdatedEventArgs_Interface'Class;
    type IBarcodeScannerStatusUpdatedEventArgs_Ptr is access all IBarcodeScannerStatusUpdatedEventArgs;
@@ -789,6 +792,9 @@ package Windows.Devices.PointOfService is
    type IBarcodeScannerReport_Interface;
    type IBarcodeScannerReport is access all IBarcodeScannerReport_Interface'Class;
    type IBarcodeScannerReport_Ptr is access all IBarcodeScannerReport;
+   type IBarcodeScannerReportFactory_Interface;
+   type IBarcodeScannerReportFactory is access all IBarcodeScannerReportFactory_Interface'Class;
+   type IBarcodeScannerReportFactory_Ptr is access all IBarcodeScannerReportFactory;
    type IBarcodeScannerErrorOccurredEventArgs_Interface;
    type IBarcodeScannerErrorOccurredEventArgs is access all IBarcodeScannerErrorOccurredEventArgs_Interface'Class;
    type IBarcodeScannerErrorOccurredEventArgs_Ptr is access all IBarcodeScannerErrorOccurredEventArgs;
@@ -822,6 +828,9 @@ package Windows.Devices.PointOfService is
    type IClaimedBarcodeScanner2_Interface;
    type IClaimedBarcodeScanner2 is access all IClaimedBarcodeScanner2_Interface'Class;
    type IClaimedBarcodeScanner2_Ptr is access all IClaimedBarcodeScanner2;
+   type IClaimedBarcodeScanner3_Interface;
+   type IClaimedBarcodeScanner3 is access all IClaimedBarcodeScanner3_Interface'Class;
+   type IClaimedBarcodeScanner3_Ptr is access all IClaimedBarcodeScanner3;
    type IMagneticStripeReaderEncryptionAlgorithmsStatics_Interface;
    type IMagneticStripeReaderEncryptionAlgorithmsStatics is access all IMagneticStripeReaderEncryptionAlgorithmsStatics_Interface'Class;
    type IMagneticStripeReaderEncryptionAlgorithmsStatics_Ptr is access all IMagneticStripeReaderEncryptionAlgorithmsStatics;
@@ -1098,6 +1107,23 @@ package Windows.Devices.PointOfService is
    (
       This       : access IUnifiedPosErrorData_Interface
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUnifiedPosErrorDataFactory : aliased constant Windows.IID := (1268262225, 8190, 17691, (163, 104, 99, 224, 206, 70, 95, 90 ));
+   
+   type IUnifiedPosErrorDataFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IUnifiedPosErrorDataFactory_Interface
+      ; message : Windows.String
+      ; severity : Windows.Devices.PointOfService.UnifiedPosErrorSeverity
+      ; reason : Windows.Devices.PointOfService.UnifiedPosErrorReason
+      ; extendedReason : Windows.UInt32
+      ; RetVal : access Windows.Devices.PointOfService.IUnifiedPosErrorData
    )
    return Windows.HRESULT is abstract;
    
@@ -1938,6 +1964,22 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_IBarcodeScannerReportFactory : aliased constant Windows.IID := (2723443494, 8211, 17788, (137, 99, 73, 193, 93, 202, 120, 206 ));
+   
+   type IBarcodeScannerReportFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IBarcodeScannerReportFactory_Interface
+      ; scanDataType : Windows.UInt32
+      ; scanData : Windows.Storage.Streams.IBuffer
+      ; scanDataLabel : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Devices.PointOfService.IBarcodeScannerReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBarcodeScannerErrorOccurredEventArgs : aliased constant Windows.IID := (751984687, 53050, 16386, (167, 90, 197, 236, 70, 143, 10, 32 ));
    
    type IBarcodeScannerErrorOccurredEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -2396,6 +2438,39 @@ package Windows.Devices.PointOfService is
       ; barcodeSymbology : Windows.UInt32
       ; attributes : Windows.Devices.PointOfService.IBarcodeSymbologyAttributes
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClaimedBarcodeScanner3 : aliased constant Windows.IID := (3872306224, 28974, 17916, (139, 134, 205, 85, 245, 174, 247, 157 ));
+   
+   type IClaimedBarcodeScanner3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ShowVideoPreviewAsync
+   (
+      This       : access IClaimedBarcodeScanner3_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HideVideoPreview
+   (
+      This       : access IClaimedBarcodeScanner3_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsVideoPreviewShownOnEnable
+   (
+      This       : access IClaimedBarcodeScanner3_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsVideoPreviewShownOnEnable
+   (
+      This       : access IClaimedBarcodeScanner3_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -6820,9 +6895,26 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    
    subtype UnifiedPosErrorData is Windows.Devices.PointOfService.IUnifiedPosErrorData;
+   function CreateInstance
+   (
+      message : Windows.String
+      ; severity : Windows.Devices.PointOfService.UnifiedPosErrorSeverity
+      ; reason : Windows.Devices.PointOfService.UnifiedPosErrorReason
+      ; extendedReason : Windows.UInt32
+   )
+   return Windows.Devices.PointOfService.IUnifiedPosErrorData;
+   
    subtype BarcodeScannerStatusUpdatedEventArgs is Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs;
    subtype BarcodeSymbologyAttributes is Windows.Devices.PointOfService.IBarcodeSymbologyAttributes;
    subtype BarcodeScannerReport is Windows.Devices.PointOfService.IBarcodeScannerReport;
+   function CreateInstance
+   (
+      scanDataType : Windows.UInt32
+      ; scanData : Windows.Storage.Streams.IBuffer
+      ; scanDataLabel : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Devices.PointOfService.IBarcodeScannerReport;
+   
    subtype BarcodeScannerDataReceivedEventArgs is Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs;
    subtype BarcodeScannerErrorOccurredEventArgs is Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs;
    subtype BarcodeScannerImagePreviewReceivedEventArgs is Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs;
@@ -6879,9 +6971,6 @@ package Windows.Devices.PointOfService is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function get_Gs1DWCode
-   return Windows.UInt32;
    
    function get_Unknown
    return Windows.UInt32;
@@ -7168,6 +7257,9 @@ package Windows.Devices.PointOfService is
    )
    return Windows.String;
    
+   function get_Gs1DWCode
+   return Windows.UInt32;
+   
    function GetDefaultAsync
    return Windows.Devices.PointOfService.IAsyncOperation_IBarcodeScanner;
    
@@ -7207,6 +7299,12 @@ package Windows.Devices.PointOfService is
    function get_ExtendedBase_MagneticStripeReaderCardTypes
    return Windows.UInt32;
    
+   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
+   (
+      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
+   )
+   return Windows.String;
+   
    function GetDefaultAsync
    return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
    
@@ -7217,12 +7315,6 @@ package Windows.Devices.PointOfService is
    return Windows.Devices.PointOfService.IAsyncOperation_IMagneticStripeReader;
    
    function GetDeviceSelector_IMagneticStripeReader
-   return Windows.String;
-   
-   function GetDeviceSelectorWithConnectionTypes_IMagneticStripeReader
-   (
-      connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
-   )
    return Windows.String;
    
    function get_Utf16LE
@@ -7270,9 +7362,6 @@ package Windows.Devices.PointOfService is
    function GetDeviceSelector_ICashDrawer
    return Windows.String;
    
-   function get_StatisticsCategorySelector
-   return Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector;
-   
    function FromIdAsync
    (
       deviceId : Windows.String
@@ -7290,6 +7379,9 @@ package Windows.Devices.PointOfService is
       connectionTypes : Windows.Devices.PointOfService.PosConnectionTypes
    )
    return Windows.String;
+   
+   function get_StatisticsCategorySelector
+   return Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector;
    
    function FromIdAsync
    (

@@ -173,6 +173,9 @@ package Windows.Security.Credentials is
    type IWebAccountProvider3_Interface;
    type IWebAccountProvider3 is access all IWebAccountProvider3_Interface'Class;
    type IWebAccountProvider3_Ptr is access all IWebAccountProvider3;
+   type IWebAccountProvider4_Interface;
+   type IWebAccountProvider4 is access all IWebAccountProvider4_Interface'Class;
+   type IWebAccountProvider4_Ptr is access all IWebAccountProvider4;
    type IPasswordCredential_Interface;
    type IPasswordCredential is access all IPasswordCredential_Interface'Class;
    type IPasswordCredential_Ptr is access all IPasswordCredential;
@@ -203,12 +206,6 @@ package Windows.Security.Credentials is
    type IAsyncOperation_IKeyCredentialAttestationResult_Interface;
    type IAsyncOperation_IKeyCredentialAttestationResult is access all IAsyncOperation_IKeyCredentialAttestationResult_Interface'Class;
    type IAsyncOperation_IKeyCredentialAttestationResult_Ptr is access all IAsyncOperation_IKeyCredentialAttestationResult;
-   type IAsyncOperation_IWebAccount_Interface;
-   type IAsyncOperation_IWebAccount is access all IAsyncOperation_IWebAccount_Interface'Class;
-   type IAsyncOperation_IWebAccount_Ptr is access all IAsyncOperation_IWebAccount;
-   type IAsyncOperation_IWebAccountProvider_Interface;
-   type IAsyncOperation_IWebAccountProvider is access all IAsyncOperation_IWebAccountProvider_Interface'Class;
-   type IAsyncOperation_IWebAccountProvider_Ptr is access all IAsyncOperation_IWebAccountProvider;
    type IIterator_IWebAccount_Interface;
    type IIterator_IWebAccount is access all IIterator_IWebAccount_Interface'Class;
    type IIterator_IWebAccount_Ptr is access all IIterator_IWebAccount;
@@ -218,6 +215,12 @@ package Windows.Security.Credentials is
    type IVectorView_IWebAccount_Interface;
    type IVectorView_IWebAccount is access all IVectorView_IWebAccount_Interface'Class;
    type IVectorView_IWebAccount_Ptr is access all IVectorView_IWebAccount;
+   type IAsyncOperation_IWebAccount_Interface;
+   type IAsyncOperation_IWebAccount is access all IAsyncOperation_IWebAccount_Interface'Class;
+   type IAsyncOperation_IWebAccount_Ptr is access all IAsyncOperation_IWebAccount;
+   type IAsyncOperation_IWebAccountProvider_Interface;
+   type IAsyncOperation_IWebAccountProvider is access all IAsyncOperation_IWebAccountProvider_Interface'Class;
+   type IAsyncOperation_IWebAccountProvider_Ptr is access all IAsyncOperation_IWebAccountProvider;
    type IIterator_IPasswordCredential_Interface;
    type IIterator_IPasswordCredential is access all IIterator_IPasswordCredential_Interface'Class;
    type IIterator_IPasswordCredential_Ptr is access all IIterator_IPasswordCredential;
@@ -551,6 +554,19 @@ package Windows.Security.Credentials is
    
    ------------------------------------------------------------------------
    
+   IID_IWebAccountProvider4 : aliased constant Windows.IID := (1905252571, 59286, 16912, (183, 78, 132, 210, 152, 148, 176, 128 ));
+   
+   type IWebAccountProvider4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsSystemProvider
+   (
+      This       : access IWebAccountProvider4_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPasswordCredential : aliased constant Windows.IID := (1790019977, 50976, 16807, (166, 193, 254, 173, 179, 99, 41, 160 ));
    
    type IPasswordCredential_Interface is interface and Windows.IInspectable_Interface;
@@ -857,60 +873,6 @@ package Windows.Security.Credentials is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IWebAccount : aliased constant Windows.IID := (2899798868, 10623, 23064, (145, 67, 32, 163, 9, 226, 223, 211 ));
-   
-   type IAsyncOperation_IWebAccount_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IWebAccount_Interface
-      ; handler : Windows.Security.Credentials.AsyncOperationCompletedHandler_IWebAccount
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IWebAccount_Interface
-      ; RetVal : access Windows.Security.Credentials.AsyncOperationCompletedHandler_IWebAccount
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IWebAccount_Interface
-      ; RetVal : access Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_IWebAccountProvider : aliased constant Windows.IID := (2294702089, 4855, 22754, (141, 190, 110, 252, 98, 12, 133, 186 ));
-   
-   type IAsyncOperation_IWebAccountProvider_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_IWebAccountProvider_Interface
-      ; handler : Windows.Security.Credentials.AsyncOperationCompletedHandler_IWebAccountProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_IWebAccountProvider_Interface
-      ; RetVal : access Windows.Security.Credentials.AsyncOperationCompletedHandler_IWebAccountProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_IWebAccountProvider_Interface
-      ; RetVal : access Windows.Security.Credentials.IWebAccountProvider
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IIterator_IWebAccount : aliased constant Windows.IID := (3216518346, 44732, 22140, (149, 217, 235, 162, 92, 54, 95, 170 ));
    
    type IIterator_IWebAccount_Interface is interface and Windows.IInspectable_Interface;
@@ -993,6 +955,60 @@ package Windows.Security.Credentials is
       ; startIndex : Windows.UInt32
       ; items : Windows.Security.Credentials.IWebAccount_Ptr
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IWebAccount : aliased constant Windows.IID := (2899798868, 10623, 23064, (145, 67, 32, 163, 9, 226, 223, 211 ));
+   
+   type IAsyncOperation_IWebAccount_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IWebAccount_Interface
+      ; handler : Windows.Security.Credentials.AsyncOperationCompletedHandler_IWebAccount
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IWebAccount_Interface
+      ; RetVal : access Windows.Security.Credentials.AsyncOperationCompletedHandler_IWebAccount
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IWebAccount_Interface
+      ; RetVal : access Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IWebAccountProvider : aliased constant Windows.IID := (2294702089, 4855, 22754, (141, 190, 110, 252, 98, 12, 133, 186 ));
+   
+   type IAsyncOperation_IWebAccountProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IWebAccountProvider_Interface
+      ; handler : Windows.Security.Credentials.AsyncOperationCompletedHandler_IWebAccountProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IWebAccountProvider_Interface
+      ; RetVal : access Windows.Security.Credentials.AsyncOperationCompletedHandler_IWebAccountProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IWebAccountProvider_Interface
+      ; RetVal : access Windows.Security.Credentials.IWebAccountProvider
    )
    return Windows.HRESULT is abstract;
    
@@ -1179,7 +1195,13 @@ package Windows.Security.Credentials is
    return Windows.Security.Credentials.IWebAccount;
    
    subtype PasswordCredential is Windows.Security.Credentials.IPasswordCredential;
-   function CreatePasswordCredential return Windows.Security.Credentials.IPasswordCredential;
+   function CreatePasswordCredential
+   (
+      resource : Windows.String
+      ; userName : Windows.String
+      ; password : Windows.String
+   )
+   return Windows.Security.Credentials.IPasswordCredential;
    
    subtype PasswordVault is Windows.Security.Credentials.IPasswordVault;
    function CreatePasswordVault return Windows.Security.Credentials.IPasswordVault;

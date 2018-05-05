@@ -263,6 +263,40 @@ package body Windows.Storage is
       return RetVal;
    end;
    
+   function get_Playlists
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersPlaylistsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersPlaylistsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Playlists(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SavedPictures
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersSavedPicturesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersSavedPicturesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SavedPictures(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Objects3D
    return Windows.Storage.IStorageFolder is
       Hr            : Windows.HRESULT := S_OK;
@@ -308,6 +342,23 @@ package body Windows.Storage is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_RecordedCalls(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CameraRoll
+   return Windows.Storage.IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersCameraRollStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersCameraRollStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CameraRoll(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -433,40 +484,6 @@ package body Windows.Storage is
       return RetVal;
    end;
    
-   function get_CameraRoll
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersCameraRollStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersCameraRollStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CameraRoll(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SavedPictures
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersSavedPicturesStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersSavedPicturesStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SavedPictures(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetFolderForUserAsync
    (
       user : Windows.System.IUser
@@ -482,23 +499,6 @@ package body Windows.Storage is
       Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetFolderForUserAsync(user, folderId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Playlists
-   return Windows.Storage.IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
-      m_Factory     : IKnownFoldersPlaylistsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersPlaylistsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Playlists(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -724,6 +724,88 @@ package body Windows.Storage is
       return RetVal;
    end;
    
+   function CreateFileAsync
+   (
+      desiredName : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.DownloadsFolder");
+      m_Factory     : IDownloadsFolderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDownloadsFolderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFileAsync(desiredName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFolderAsync
+   (
+      desiredName : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.DownloadsFolder");
+      m_Factory     : IDownloadsFolderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDownloadsFolderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFolderAsync(desiredName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFileWithCollisionOptionAsync
+   (
+      desiredName : Windows.String
+      ; option : Windows.Storage.CreationCollisionOption
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.DownloadsFolder");
+      m_Factory     : IDownloadsFolderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDownloadsFolderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFileWithCollisionOptionAsync(desiredName, option, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFolderWithCollisionOptionAsync
+   (
+      desiredName : Windows.String
+      ; option : Windows.Storage.CreationCollisionOption
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.DownloadsFolder");
+      m_Factory     : IDownloadsFolderStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDownloadsFolderStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFolderWithCollisionOptionAsync(desiredName, option, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateFileForUserAsync
    (
       user : Windows.System.IUser
@@ -804,88 +886,6 @@ package body Windows.Storage is
       Hr := RoGetActivationFactory(m_hString, IID_IDownloadsFolderStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFolderForUserWithCollisionOptionAsync(user, desiredName, option, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFileAsync
-   (
-      desiredName : Windows.String
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.DownloadsFolder");
-      m_Factory     : IDownloadsFolderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDownloadsFolderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFileAsync(desiredName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFolderAsync
-   (
-      desiredName : Windows.String
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.DownloadsFolder");
-      m_Factory     : IDownloadsFolderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDownloadsFolderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFolderAsync(desiredName, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFileWithCollisionOptionAsync
-   (
-      desiredName : Windows.String
-      ; option : Windows.Storage.CreationCollisionOption
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFile is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.DownloadsFolder");
-      m_Factory     : IDownloadsFolderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDownloadsFolderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFileWithCollisionOptionAsync(desiredName, option, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateFolderWithCollisionOptionAsync
-   (
-      desiredName : Windows.String
-      ; option : Windows.Storage.CreationCollisionOption
-   )
-   return Windows.Storage.IAsyncOperation_IStorageFolder is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Storage.DownloadsFolder");
-      m_Factory     : IDownloadsFolderStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IDownloadsFolderStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateFolderWithCollisionOptionAsync(desiredName, option, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -28,10 +28,10 @@ with Windows.ApplicationModel.Search;
 with Windows.ApplicationModel.Wallet;
 with Windows.ApplicationModel.Appointments.AppointmentsProvider;
 with Windows.System;
+with Windows.ApplicationModel.DataTransfer.ShareTarget;
 with Windows.ApplicationModel.UserDataAccounts.Provider;
 with Windows.Devices.Enumeration;
 with Windows.Media.SpeechRecognition;
-with Windows.ApplicationModel.DataTransfer.ShareTarget;
 with Windows.Storage;
 with Windows.Storage.Search;
 with Windows.Storage.Pickers.Provider;
@@ -154,141 +154,6 @@ package body Windows.UI.WebUI is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   function RequestRestartAsync
-   (
-      launchArguments : Windows.String
-   )
-   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestRestartAsync(launchArguments, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestRestartForUserAsync
-   (
-      user : Windows.System.IUser
-      ; launchArguments : Windows.String
-   )
-   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestRestartForUserAsync(user, launchArguments, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function add_LeavingBackground
-   (
-      handler : Windows.UI.WebUI.LeavingBackgroundEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_LeavingBackground(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_LeavingBackground
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_LeavingBackground(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function add_EnteredBackground
-   (
-      handler : Windows.UI.WebUI.EnteredBackgroundEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.add_EnteredBackground(handler, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure remove_EnteredBackground
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.remove_EnteredBackground(token);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   procedure EnablePrelaunch
-   (
-      value : Windows.Boolean
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
-      m_Factory     : IWebUIActivationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.EnablePrelaunch(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function add_Activated
@@ -441,6 +306,141 @@ package body Windows.UI.WebUI is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_LeavingBackground
+   (
+      handler : Windows.UI.WebUI.LeavingBackgroundEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_LeavingBackground(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_LeavingBackground
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_LeavingBackground(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_EnteredBackground
+   (
+      handler : Windows.UI.WebUI.EnteredBackgroundEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_EnteredBackground(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_EnteredBackground
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_EnteredBackground(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure EnablePrelaunch
+   (
+      value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.EnablePrelaunch(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function RequestRestartAsync
+   (
+      launchArguments : Windows.String
+   )
+   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestRestartAsync(launchArguments, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestRestartForUserAsync
+   (
+      user : Windows.System.IUser
+      ; launchArguments : Windows.String
+   )
+   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestRestartForUserAsync(user, launchArguments, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
 end;

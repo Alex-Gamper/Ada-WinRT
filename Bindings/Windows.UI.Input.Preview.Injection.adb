@@ -121,23 +121,6 @@ package body Windows.UI.Input.Preview.Injection is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function TryCreateForAppBroadcastOnly
-   return Windows.UI.Input.Preview.Injection.IInputInjector is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InputInjector");
-      m_Factory     : IInputInjectorStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.Preview.Injection.IInputInjector;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IInputInjectorStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryCreateForAppBroadcastOnly(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function TryCreate
    return Windows.UI.Input.Preview.Injection.IInputInjector is
       Hr            : Windows.HRESULT := S_OK;
@@ -149,6 +132,23 @@ package body Windows.UI.Input.Preview.Injection is
       Hr := RoGetActivationFactory(m_hString, IID_IInputInjectorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.TryCreate(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryCreateForAppBroadcastOnly
+   return Windows.UI.Input.Preview.Injection.IInputInjector is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InputInjector");
+      m_Factory     : IInputInjectorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.Preview.Injection.IInputInjector;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInputInjectorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreateForAppBroadcastOnly(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

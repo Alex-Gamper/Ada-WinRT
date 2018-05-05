@@ -237,93 +237,6 @@ package body Windows.Networking.Proximity is
       return RetVal;
    end;
    
-   function get_Role
-   return Windows.Networking.Proximity.PeerRole is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
-      m_Factory     : IPeerFinderStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Proximity.PeerRole;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Role(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_Role
-   (
-      value : Windows.Networking.Proximity.PeerRole
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
-      m_Factory     : IPeerFinderStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_Role(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_DiscoveryData
-   return Windows.Storage.Streams.IBuffer is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
-      m_Factory     : IPeerFinderStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IBuffer;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DiscoveryData(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_DiscoveryData
-   (
-      value : Windows.Storage.Streams.IBuffer
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
-      m_Factory     : IPeerFinderStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_DiscoveryData(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function CreateWatcher
-   return Windows.Networking.Proximity.IPeerWatcher is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
-      m_Factory     : IPeerFinderStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.Proximity.IPeerWatcher;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateWatcher(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_AllowBluetooth
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -653,6 +566,93 @@ package body Windows.Networking.Proximity is
       Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ConnectAsync(peerInformation, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Role
+   return Windows.Networking.Proximity.PeerRole is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
+      m_Factory     : IPeerFinderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.Proximity.PeerRole;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Role(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_Role
+   (
+      value : Windows.Networking.Proximity.PeerRole
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
+      m_Factory     : IPeerFinderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_Role(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_DiscoveryData
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
+      m_Factory     : IPeerFinderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DiscoveryData(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_DiscoveryData
+   (
+      value : Windows.Storage.Streams.IBuffer
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
+      m_Factory     : IPeerFinderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_DiscoveryData(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function CreateWatcher
+   return Windows.Networking.Proximity.IPeerWatcher is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Proximity.PeerFinder");
+      m_Factory     : IPeerFinderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.Proximity.IPeerWatcher;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPeerFinderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWatcher(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

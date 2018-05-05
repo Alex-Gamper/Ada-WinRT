@@ -74,6 +74,26 @@ package body Windows.ApplicationModel.Resources.Core is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function CreateMatchingContext
+   (
+      result : Windows.ApplicationModel.Resources.Core.IIterable_IResourceQualifier
+   )
+   return Windows.ApplicationModel.Resources.Core.IResourceContext is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Core.ResourceContext");
+      m_Factory     : IResourceContextStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Resources.Core.IResourceContext;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IResourceContextStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateMatchingContext(result, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetForCurrentView
    return Windows.ApplicationModel.Resources.Core.IResourceContext is
       Hr            : Windows.HRESULT := S_OK;
@@ -154,26 +174,6 @@ package body Windows.ApplicationModel.Resources.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IResourceContextStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForViewIndependentUse(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateMatchingContext
-   (
-      result : Windows.ApplicationModel.Resources.Core.IIterable_IResourceQualifier
-   )
-   return Windows.ApplicationModel.Resources.Core.IResourceContext is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Core.ResourceContext");
-      m_Factory     : IResourceContextStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Resources.Core.IResourceContext;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IResourceContextStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateMatchingContext(result, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

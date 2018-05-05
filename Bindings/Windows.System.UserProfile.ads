@@ -137,6 +137,12 @@ package Windows.System.UserProfile is
    type IGlobalizationPreferencesStatics2_Interface;
    type IGlobalizationPreferencesStatics2 is access all IGlobalizationPreferencesStatics2_Interface'Class;
    type IGlobalizationPreferencesStatics2_Ptr is access all IGlobalizationPreferencesStatics2;
+   type IGlobalizationPreferencesStatics3_Interface;
+   type IGlobalizationPreferencesStatics3 is access all IGlobalizationPreferencesStatics3_Interface'Class;
+   type IGlobalizationPreferencesStatics3_Ptr is access all IGlobalizationPreferencesStatics3;
+   type IGlobalizationPreferencesForUser_Interface;
+   type IGlobalizationPreferencesForUser is access all IGlobalizationPreferencesForUser_Interface'Class;
+   type IGlobalizationPreferencesForUser_Ptr is access all IGlobalizationPreferencesForUser;
    type IFirstSignInSettings_Interface;
    type IFirstSignInSettings is access all IFirstSignInSettings_Interface'Class;
    type IFirstSignInSettings_Ptr is access all IFirstSignInSettings;
@@ -366,6 +372,75 @@ package Windows.System.UserProfile is
       This       : access IGlobalizationPreferencesStatics2_Interface
       ; languageTags : Windows.Foundation.Collections.IIterable_String
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGlobalizationPreferencesStatics3 : aliased constant Windows.IID := (503682867, 13813, 16600, (185, 232, 174, 243, 239, 133, 111, 206 ));
+   
+   type IGlobalizationPreferencesStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForUser
+   (
+      This       : access IGlobalizationPreferencesStatics3_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.System.UserProfile.IGlobalizationPreferencesForUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGlobalizationPreferencesForUser : aliased constant Windows.IID := (353306517, 20334, 16570, (160, 16, 226, 125, 129, 189, 167, 245 ));
+   
+   type IGlobalizationPreferencesForUser_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Calendars
+   (
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Clocks
+   (
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Currencies
+   (
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Languages
+   (
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HomeGeographicRegion
+   (
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WeekStartsOn
+   (
+      This       : access IGlobalizationPreferencesForUser_Interface
+      ; RetVal : access Windows.Globalization.DayOfWeek
    )
    return Windows.HRESULT is abstract;
    
@@ -707,20 +782,21 @@ package Windows.System.UserProfile is
    subtype AdvertisingManagerForUser is Windows.System.UserProfile.IAdvertisingManagerForUser;
    subtype DiagnosticsSettings is Windows.System.UserProfile.IDiagnosticsSettings;
    subtype UserProfilePersonalizationSettings is Windows.System.UserProfile.IUserProfilePersonalizationSettings;
+   subtype GlobalizationPreferencesForUser is Windows.System.UserProfile.IGlobalizationPreferencesForUser;
    subtype FirstSignInSettings is Windows.System.UserProfile.IFirstSignInSettings;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_AdvertisingId
+   return Windows.String;
+   
    function GetForUser
    (
       user : Windows.System.IUser
    )
    return Windows.System.UserProfile.IAdvertisingManagerForUser;
-   
-   function get_AdvertisingId
-   return Windows.String;
    
    function GetDefault
    return Windows.System.UserProfile.IDiagnosticsSettings;
@@ -735,6 +811,24 @@ package Windows.System.UserProfile is
    return Windows.System.UserProfile.IUserProfilePersonalizationSettings;
    
    function IsSupported
+   return Windows.Boolean;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.UserProfile.IGlobalizationPreferencesForUser;
+   
+   function TrySetHomeGeographicRegion
+   (
+      region : Windows.String
+   )
+   return Windows.Boolean;
+   
+   function TrySetLanguages
+   (
+      languageTags : Windows.Foundation.Collections.IIterable_String
+   )
    return Windows.Boolean;
    
    function get_Calendars
@@ -754,18 +848,6 @@ package Windows.System.UserProfile is
    
    function get_WeekStartsOn
    return Windows.Globalization.DayOfWeek;
-   
-   function TrySetHomeGeographicRegion
-   (
-      region : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function TrySetLanguages
-   (
-      languageTags : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Boolean;
    
    function GetDefault
    return Windows.System.UserProfile.IFirstSignInSettings;
@@ -840,15 +922,6 @@ package Windows.System.UserProfile is
    function GetDomainNameAsync
    return Windows.Foundation.IAsyncOperation_String;
    
-   function RequestSetImageFeedAsync
-   (
-      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
-   
-   function TryRemoveImageFeed
-   return Windows.Boolean;
-   
    function get_OriginalImageFile
    return Windows.Foundation.IUriRuntimeClass;
    
@@ -866,5 +939,14 @@ package Windows.System.UserProfile is
       value : Windows.Storage.Streams.IRandomAccessStream
    )
    return Windows.Foundation.IAsyncAction;
+   
+   function RequestSetImageFeedAsync
+   (
+      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
+   
+   function TryRemoveImageFeed
+   return Windows.Boolean;
    
 end;

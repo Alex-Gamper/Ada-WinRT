@@ -3031,4 +3031,145 @@ package Windows.Devices.Perception is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function CreateWatcher
+   return Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher;
+   
+   function FindAllAsync
+   return Windows.Address;
+   
+   function FromIdAsync
+   (
+      id : Windows.String
+   )
+   return Windows.Devices.Perception.IAsyncOperation_IPerceptionColorFrameSource;
+   
+   function RequestAccessAsync
+   return Windows.Devices.Perception.IAsyncOperation_PerceptionFrameSourceAccessStatus;
+   
+   function CreateWatcher
+   return Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher;
+   
+   function FindAllAsync_IPerceptionDepthFrameSource
+   return Windows.Address;
+   
+   function FromIdAsync
+   (
+      id : Windows.String
+   )
+   return Windows.Devices.Perception.IAsyncOperation_IPerceptionDepthFrameSource;
+   
+   function RequestAccessAsync_IPerceptionDepthFrameSource
+   return Windows.Devices.Perception.IAsyncOperation_PerceptionFrameSourceAccessStatus;
+   
+   function CreateWatcher
+   return Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher;
+   
+   function FindAllAsync_IPerceptionInfraredFrameSource
+   return Windows.Address;
+   
+   function FromIdAsync
+   (
+      id : Windows.String
+   )
+   return Windows.Devices.Perception.IAsyncOperation_IPerceptionInfraredFrameSource;
+   
+   function RequestAccessAsync_IPerceptionInfraredFrameSource
+   return Windows.Devices.Perception.IAsyncOperation_PerceptionFrameSourceAccessStatus;
+   
+   function get_Id
+   return Windows.String;
+   
+   function get_PhysicalDeviceIds
+   return Windows.String;
+   
+   function get_FrameKind
+   return Windows.String;
+   
+   function get_DeviceModelVersion
+   return Windows.String;
+   
+   function get_EnclosureLocation
+   return Windows.String;
+   
+   function get_DeviceId
+   return Windows.String;
+   
+   function get_VideoProfile
+   return Windows.String;
+   
+   function get_SupportedVideoProfiles
+   return Windows.String;
+   
+   function get_AvailableVideoProfiles
+   return Windows.String;
+   
+   function get_IsMirrored
+   return Windows.String;
+   
+   function get_CameraIntrinsics
+   return Windows.String;
+   
+   function get_Exposure
+   return Windows.String;
+   
+   function get_AutoExposureEnabled
+   return Windows.String;
+   
+   function get_ExposureCompensation
+   return Windows.String;
+   
+   function get_ActiveIlluminationEnabled
+   return Windows.String;
+   
+   function get_AmbientSubtractionEnabled
+   return Windows.String;
+   
+   function get_StructureLightPatternEnabled
+   return Windows.String;
+   
+   function get_InterleavedIlluminationEnabled
+   return Windows.String;
+   
+   function get_MinDepth
+   return Windows.String;
+   
+   function get_MaxDepth
+   return Windows.String;
+   
+   function get_Exposure_KnownPerceptionColorFrameSourceProperties
+   return Windows.String;
+   
+   function get_AutoExposureEnabled_KnownPerceptionColorFrameSourceProperties
+   return Windows.String;
+   
+   function get_ExposureCompensation_KnownPerceptionColorFrameSourceProperties
+   return Windows.String;
+   
+   function get_BitmapPixelFormat
+   return Windows.String;
+   
+   function get_BitmapAlphaMode
+   return Windows.String;
+   
+   function get_Width
+   return Windows.String;
+   
+   function get_Height
+   return Windows.String;
+   
+   function get_FrameDuration
+   return Windows.String;
+   
+   function get_FocalLength
+   return Windows.String;
+   
+   function get_PrincipalPoint
+   return Windows.String;
+   
+   function get_RadialDistortion
+   return Windows.String;
+   
+   function get_TangentialDistortion
+   return Windows.String;
+   
 end;

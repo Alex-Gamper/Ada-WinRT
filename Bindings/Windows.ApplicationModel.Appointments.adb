@@ -225,87 +225,6 @@ package body Windows.ApplicationModel.Appointments is
       return RetVal;
    end;
    
-   function ShowAppointmentDetailsAsync
-   (
-      appointmentId : Windows.String
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
-      m_Factory     : IAppointmentManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowAppointmentDetailsAsync(appointmentId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ShowAppointmentDetailsWithDateAsync
-   (
-      appointmentId : Windows.String
-      ; instanceStartDate : Windows.Foundation.DateTime
-   )
-   return Windows.Foundation.IAsyncAction is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
-      m_Factory     : IAppointmentManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowAppointmentDetailsWithDateAsync(appointmentId, instanceStartDate, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function ShowEditNewAppointmentAsync
-   (
-      appointment : Windows.ApplicationModel.Appointments.IAppointment
-   )
-   return Windows.Foundation.IAsyncOperation_String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
-      m_Factory     : IAppointmentManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowEditNewAppointmentAsync(appointment, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestStoreAsync
-   (
-      options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
-   )
-   return Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
-      m_Factory     : IAppointmentManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestStoreAsync(options, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function ShowAddAppointmentAsync
    (
       appointment : Windows.ApplicationModel.Appointments.IAppointment
@@ -499,6 +418,87 @@ package body Windows.ApplicationModel.Appointments is
       Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ShowTimeFrameAsync(timeToShow, duration, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ShowAppointmentDetailsAsync
+   (
+      appointmentId : Windows.String
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
+      m_Factory     : IAppointmentManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowAppointmentDetailsAsync(appointmentId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ShowAppointmentDetailsWithDateAsync
+   (
+      appointmentId : Windows.String
+      ; instanceStartDate : Windows.Foundation.DateTime
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
+      m_Factory     : IAppointmentManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowAppointmentDetailsWithDateAsync(appointmentId, instanceStartDate, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ShowEditNewAppointmentAsync
+   (
+      appointment : Windows.ApplicationModel.Appointments.IAppointment
+   )
+   return Windows.Foundation.IAsyncOperation_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
+      m_Factory     : IAppointmentManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowEditNewAppointmentAsync(appointment, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestStoreAsync
+   (
+      options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
+   )
+   return Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Appointments.AppointmentManager");
+      m_Factory     : IAppointmentManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppointmentManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestStoreAsync(options, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

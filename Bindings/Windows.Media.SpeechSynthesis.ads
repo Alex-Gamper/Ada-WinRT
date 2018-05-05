@@ -44,6 +44,30 @@ package Windows.Media.SpeechSynthesis is
    
    type VoiceGender_Ptr is access VoiceGender;
    
+   type SpeechAppendedSilence is (
+      Default,
+      Min
+   );
+   for SpeechAppendedSilence use (
+      Default => 0,
+      Min => 1
+   );
+   for SpeechAppendedSilence'Size use 32;
+   
+   type SpeechAppendedSilence_Ptr is access SpeechAppendedSilence;
+   
+   type SpeechPunctuationSilence is (
+      Default,
+      Min
+   );
+   for SpeechPunctuationSilence use (
+      Default => 0,
+      Min => 1
+   );
+   for SpeechPunctuationSilence'Size use 32;
+   
+   type SpeechPunctuationSilence_Ptr is access SpeechPunctuationSilence;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -80,6 +104,9 @@ package Windows.Media.SpeechSynthesis is
    type ISpeechSynthesizerOptions2_Interface;
    type ISpeechSynthesizerOptions2 is access all ISpeechSynthesizerOptions2_Interface'Class;
    type ISpeechSynthesizerOptions2_Ptr is access all ISpeechSynthesizerOptions2;
+   type ISpeechSynthesizerOptions3_Interface;
+   type ISpeechSynthesizerOptions3 is access all ISpeechSynthesizerOptions3_Interface'Class;
+   type ISpeechSynthesizerOptions3_Ptr is access all ISpeechSynthesizerOptions3;
    type IRandomAccessStreamWithContentType_Imported_Interface;
    type IRandomAccessStreamWithContentType_Imported is access all IRandomAccessStreamWithContentType_Imported_Interface'Class;
    type IRandomAccessStreamWithContentType_Imported_Ptr is access all IRandomAccessStreamWithContentType_Imported;
@@ -331,6 +358,40 @@ package Windows.Media.SpeechSynthesis is
    (
       This       : access ISpeechSynthesizerOptions2_Interface
       ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpeechSynthesizerOptions3 : aliased constant Windows.IID := (1075763319, 36908, 18452, (165, 130, 165, 208, 192, 118, 159, 168 ));
+   
+   type ISpeechSynthesizerOptions3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AppendedSilence
+   (
+      This       : access ISpeechSynthesizerOptions3_Interface
+      ; RetVal : access Windows.Media.SpeechSynthesis.SpeechAppendedSilence
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AppendedSilence
+   (
+      This       : access ISpeechSynthesizerOptions3_Interface
+      ; value : Windows.Media.SpeechSynthesis.SpeechAppendedSilence
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PunctuationSilence
+   (
+      This       : access ISpeechSynthesizerOptions3_Interface
+      ; RetVal : access Windows.Media.SpeechSynthesis.SpeechPunctuationSilence
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PunctuationSilence
+   (
+      This       : access ISpeechSynthesizerOptions3_Interface
+      ; value : Windows.Media.SpeechSynthesis.SpeechPunctuationSilence
    )
    return Windows.HRESULT is abstract;
    
@@ -608,16 +669,16 @@ package Windows.Media.SpeechSynthesis is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_AllVoices
-   return Windows.Media.SpeechSynthesis.IVectorView_IVoiceInformation;
-   
-   function get_DefaultVoice
-   return Windows.Media.SpeechSynthesis.IVoiceInformation;
-   
    function TrySetDefaultVoiceAsync
    (
       voice : Windows.Media.SpeechSynthesis.IVoiceInformation
    )
    return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function get_AllVoices
+   return Windows.Media.SpeechSynthesis.IVectorView_IVoiceInformation;
+   
+   function get_DefaultVoice
+   return Windows.Media.SpeechSynthesis.IVoiceInformation;
    
 end;

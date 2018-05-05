@@ -490,7 +490,8 @@ package Windows.UI.Text is
       Subscript,
       Superscript,
       FontBound,
-      LinkProtected
+      LinkProtected,
+      ContentLink
    );
    for TextRangeUnit use (
       Character => 0,
@@ -524,7 +525,8 @@ package Windows.UI.Text is
       Subscript => 28,
       Superscript => 29,
       FontBound => 30,
-      LinkProtected => 31
+      LinkProtected => 31,
+      ContentLink => 32
    );
    for TextRangeUnit'Size use 32;
    
@@ -820,6 +822,12 @@ package Windows.UI.Text is
    type ITextDocument2_Interface;
    type ITextDocument2 is access all ITextDocument2_Interface'Class;
    type ITextDocument2_Ptr is access all ITextDocument2;
+   type IRichEditTextRange_Interface;
+   type IRichEditTextRange is access all IRichEditTextRange_Interface'Class;
+   type IRichEditTextRange_Ptr is access all IRichEditTextRange;
+   type IContentLinkInfo_Interface;
+   type IContentLinkInfo is access all IContentLinkInfo_Interface'Class;
+   type IContentLinkInfo_Ptr is access all IContentLinkInfo;
    type IFontWeights_Interface;
    type IFontWeights is access all IFontWeights_Interface'Class;
    type IFontWeights_Ptr is access all IFontWeights;
@@ -2338,6 +2346,102 @@ package Windows.UI.Text is
    
    ------------------------------------------------------------------------
    
+   IID_IRichEditTextRange : aliased constant Windows.IID := (927872277, 47754, 19054, (140, 89, 13, 222, 61, 12, 245, 205 ));
+   
+   type IRichEditTextRange_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentLinkInfo
+   (
+      This       : access IRichEditTextRange_Interface
+      ; RetVal : access Windows.UI.Text.IContentLinkInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ContentLinkInfo
+   (
+      This       : access IRichEditTextRange_Interface
+      ; value : Windows.UI.Text.IContentLinkInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContentLinkInfo : aliased constant Windows.IID := (517285157, 7263, 18635, (179, 53, 120, 181, 10, 46, 230, 66 ));
+   
+   type IContentLinkInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Id
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayText
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DisplayText
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SecondaryText
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SecondaryText
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Uri
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Uri
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LinkContentKind
+   (
+      This       : access IContentLinkInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_LinkContentKind
+   (
+      This       : access IContentLinkInfo_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFontWeights : aliased constant Windows.IID := (2021696580, 427, 18839, (133, 23, 223, 130, 42, 12, 69, 241 ));
    
    type IFontWeights_Interface is interface and Windows.IInspectable_Interface;
@@ -2443,6 +2547,10 @@ package Windows.UI.Text is
    ------------------------------------------------------------------------
    
    subtype RichEditTextDocument is Windows.UI.Text.ITextDocument;
+   subtype RichEditTextRange is Windows.UI.Text.ITextRange;
+   subtype ContentLinkInfo is Windows.UI.Text.IContentLinkInfo;
+   function CreateContentLinkInfo return Windows.UI.Text.IContentLinkInfo;
+   
    subtype FontWeights is Windows.UI.Text.IFontWeights;
    
    ------------------------------------------------------------------------

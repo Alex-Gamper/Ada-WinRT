@@ -1948,18 +1948,6 @@ package Windows.Devices.Geolocation is
    )
    return Windows.Devices.Geolocation.IGeoboundingBox;
    
-   function get_IsDefaultGeopositionRecommended
-   return Windows.Boolean;
-   
-   procedure put_DefaultGeoposition
-   (
-      value : Windows.Devices.Geolocation.IReference_BasicGeoposition
-   )
-   ;
-   
-   function get_DefaultGeoposition
-   return Windows.Devices.Geolocation.IReference_BasicGeoposition;
-   
    function RequestAccessAsync
    return Windows.Devices.Geolocation.IAsyncOperation_GeolocationAccessStatus;
    
@@ -1975,6 +1963,18 @@ package Windows.Devices.Geolocation is
       ; duration : Windows.Foundation.TimeSpan
    )
    return Windows.Address;
+   
+   function get_IsDefaultGeopositionRecommended
+   return Windows.Boolean;
+   
+   procedure put_DefaultGeoposition
+   (
+      value : Windows.Devices.Geolocation.IReference_BasicGeoposition
+   )
+   ;
+   
+   function get_DefaultGeoposition
+   return Windows.Devices.Geolocation.IReference_BasicGeoposition;
    
    function GetLastReportAsync
    return Windows.Devices.Geolocation.IAsyncOperation_IGeovisit;

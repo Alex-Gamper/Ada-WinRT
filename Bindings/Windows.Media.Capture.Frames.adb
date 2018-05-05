@@ -19,10 +19,10 @@
 -- along with this program.If not, see < http://www.gnu.org/licenses/>.       --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Media.Devices.Core;
 with Windows.Media.Capture;
 with Windows.Devices.Enumeration;
 with Windows.Perception.Spatial;
+with Windows.Media.Devices.Core;
 with Windows.Media.Devices;
 with Windows.Media.MediaProperties;
 with Windows.Storage.Streams;

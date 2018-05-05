@@ -28,6 +28,7 @@ with Windows.Storage.Streams;
 with Windows.Media.MediaProperties;
 with Windows.UI;
 with Windows.Media.Transcoding;
+with Windows.Media.Playback;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.Effects is

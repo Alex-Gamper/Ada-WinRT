@@ -1366,18 +1366,18 @@ package Windows.UI.Xaml.Media.Imaging is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_PixelWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PixelHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.IBitmapSource;
+   
+   function get_PixelWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PixelHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PixelWidthProperty_IRenderTargetBitmap
    return Windows.UI.Xaml.IDependencyProperty;
@@ -1404,6 +1404,9 @@ package Windows.UI.Xaml.Media.Imaging is
    )
    return Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
    
+   function get_DecodePixelTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_IsAnimatedBitmapProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -1425,24 +1428,12 @@ package Windows.UI.Xaml.Media.Imaging is
    function get_DecodePixelHeightProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_DecodePixelTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask;
-   
-   function get_UriSourceProperty_ISvgImageSource
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RasterizePixelWidthProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RasterizePixelHeightProperty
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -1458,5 +1449,14 @@ package Windows.UI.Xaml.Media.Imaging is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
+   
+   function get_UriSourceProperty_ISvgImageSource
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RasterizePixelWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RasterizePixelHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
 end;

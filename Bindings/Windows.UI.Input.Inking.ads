@@ -223,6 +223,12 @@ package Windows.UI.Input.Inking is
    type IInkPresenter2_Interface;
    type IInkPresenter2 is access all IInkPresenter2_Interface'Class;
    type IInkPresenter2_Ptr is access all IInkPresenter2;
+   type IInkPresenter3_Interface;
+   type IInkPresenter3 is access all IInkPresenter3_Interface'Class;
+   type IInkPresenter3_Ptr is access all IInkPresenter3;
+   type IInkInputConfiguration_Interface;
+   type IInkInputConfiguration is access all IInkInputConfiguration_Interface'Class;
+   type IInkInputConfiguration_Ptr is access all IInkInputConfiguration;
    type IInkInputProcessingConfiguration_Interface;
    type IInkInputProcessingConfiguration is access all IInkInputProcessingConfiguration_Interface'Class;
    type IInkInputProcessingConfiguration_Ptr is access all IInkInputProcessingConfiguration;
@@ -283,6 +289,12 @@ package Windows.UI.Input.Inking is
    type IInkDrawingAttributesStatics_Interface;
    type IInkDrawingAttributesStatics is access all IInkDrawingAttributesStatics_Interface'Class;
    type IInkDrawingAttributesStatics_Ptr is access all IInkDrawingAttributesStatics;
+   type IInkModelerAttributes_Interface;
+   type IInkModelerAttributes is access all IInkModelerAttributes_Interface'Class;
+   type IInkModelerAttributes_Ptr is access all IInkModelerAttributes;
+   type IInkDrawingAttributes5_Interface;
+   type IInkDrawingAttributes5 is access all IInkDrawingAttributes5_Interface'Class;
+   type IInkDrawingAttributes5_Ptr is access all IInkDrawingAttributes5;
    type IInkStrokeRenderingSegment_Interface;
    type IInkStrokeRenderingSegment is access all IInkStrokeRenderingSegment_Interface'Class;
    type IInkStrokeRenderingSegment_Ptr is access all IInkStrokeRenderingSegment;
@@ -548,6 +560,53 @@ package Windows.UI.Input.Inking is
    (
       This       : access IInkPresenter2_Interface
       ; value : Windows.UI.Input.Inking.InkHighContrastAdjustment
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkPresenter3 : aliased constant Windows.IID := (1373752969, 54141, 19088, (131, 252, 127, 94, 157, 251, 242, 23 ));
+   
+   type IInkPresenter3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_InputConfiguration
+   (
+      This       : access IInkPresenter3_Interface
+      ; RetVal : access Windows.UI.Input.Inking.IInkInputConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkInputConfiguration : aliased constant Windows.IID := (2477166020, 2939, 18903, (179, 79, 153, 1, 229, 36, 220, 242 ));
+   
+   type IInkInputConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsPrimaryBarrelButtonInputEnabled
+   (
+      This       : access IInkInputConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsPrimaryBarrelButtonInputEnabled
+   (
+      This       : access IInkInputConfiguration_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsEraserInputEnabled
+   (
+      This       : access IInkInputConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsEraserInputEnabled
+   (
+      This       : access IInkInputConfiguration_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1324,6 +1383,53 @@ package Windows.UI.Input.Inking is
    (
       This       : access IInkDrawingAttributesStatics_Interface
       ; RetVal : access Windows.UI.Input.Inking.IInkDrawingAttributes
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkModelerAttributes : aliased constant Windows.IID := (3134398247, 3289, 19453, (182, 243, 158, 3, 186, 141, 116, 84 ));
+   
+   type IInkModelerAttributes_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PredictionTime
+   (
+      This       : access IInkModelerAttributes_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PredictionTime
+   (
+      This       : access IInkModelerAttributes_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScalingFactor
+   (
+      This       : access IInkModelerAttributes_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ScalingFactor
+   (
+      This       : access IInkModelerAttributes_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkDrawingAttributes5 : aliased constant Windows.IID := (3508183227, 1909, 18514, (174, 100, 65, 20, 58, 122, 230, 201 ));
+   
+   type IInkDrawingAttributes5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ModelerAttributes
+   (
+      This       : access IInkDrawingAttributes5_Interface
+      ; RetVal : access Windows.UI.Input.Inking.IInkModelerAttributes
    )
    return Windows.HRESULT is abstract;
    
@@ -2581,6 +2687,7 @@ package Windows.UI.Input.Inking is
    subtype InkPresenter is Windows.UI.Input.Inking.IInkPresenter;
    subtype InkStrokesCollectedEventArgs is Windows.UI.Input.Inking.IInkStrokesCollectedEventArgs;
    subtype InkStrokesErasedEventArgs is Windows.UI.Input.Inking.IInkStrokesErasedEventArgs;
+   subtype InkInputConfiguration is Windows.UI.Input.Inking.IInkInputConfiguration;
    subtype InkPresenterRuler is Windows.UI.Input.Inking.IInkPresenterRuler;
    function Create
    (
@@ -2610,6 +2717,7 @@ package Windows.UI.Input.Inking is
    subtype InkDrawingAttributes is Windows.UI.Input.Inking.IInkDrawingAttributes;
    function CreateInkDrawingAttributes return Windows.UI.Input.Inking.IInkDrawingAttributes;
    
+   subtype InkModelerAttributes is Windows.UI.Input.Inking.IInkModelerAttributes;
    subtype InkStrokeRenderingSegment is Windows.UI.Input.Inking.IInkStrokeRenderingSegment;
    subtype InkStroke is Windows.UI.Input.Inking.IInkStroke;
    subtype InkStrokeBuilder is Windows.UI.Input.Inking.IInkStrokeBuilder;

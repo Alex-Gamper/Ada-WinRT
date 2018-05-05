@@ -161,6 +161,18 @@ package Windows.ApplicationModel.Background is
    
    type SystemConditionType_Ptr is access SystemConditionType;
    
+   type CustomSystemEventTriggerRecurrence is (
+      Once,
+      Always
+   );
+   for CustomSystemEventTriggerRecurrence use (
+      Once => 0,
+      Always => 1
+   );
+   for CustomSystemEventTriggerRecurrence'Size use 32;
+   
+   type CustomSystemEventTriggerRecurrence_Ptr is access CustomSystemEventTriggerRecurrence;
+   
    type BackgroundAccessStatus is (
       Unspecified,
       AlwaysAllowed,
@@ -178,6 +190,18 @@ package Windows.ApplicationModel.Background is
    for BackgroundAccessStatus'Size use 32;
    
    type BackgroundAccessStatus_Ptr is access BackgroundAccessStatus;
+   
+   type BackgroundAccessRequestKind is (
+      AlwaysAllowed,
+      AllowedSubjectToSystemPolicy
+   );
+   for BackgroundAccessRequestKind use (
+      AlwaysAllowed => 0,
+      AllowedSubjectToSystemPolicy => 1
+   );
+   for BackgroundAccessRequestKind'Size use 32;
+   
+   type BackgroundAccessRequestKind_Ptr is access BackgroundAccessRequestKind;
    
    type BackgroundTaskCancellationReason is (
       Abort_x,
@@ -341,6 +365,12 @@ package Windows.ApplicationModel.Background is
    type IDeviceManufacturerNotificationTriggerFactory_Interface;
    type IDeviceManufacturerNotificationTriggerFactory is access all IDeviceManufacturerNotificationTriggerFactory_Interface'Class;
    type IDeviceManufacturerNotificationTriggerFactory_Ptr is access all IDeviceManufacturerNotificationTriggerFactory;
+   type ICustomSystemEventTrigger_Interface;
+   type ICustomSystemEventTrigger is access all ICustomSystemEventTrigger_Interface'Class;
+   type ICustomSystemEventTrigger_Ptr is access all ICustomSystemEventTrigger;
+   type ICustomSystemEventTriggerFactory_Interface;
+   type ICustomSystemEventTriggerFactory is access all ICustomSystemEventTriggerFactory_Interface'Class;
+   type ICustomSystemEventTriggerFactory_Ptr is access all ICustomSystemEventTriggerFactory;
    type ICachedFileUpdaterTriggerDetails_Interface;
    type ICachedFileUpdaterTriggerDetails is access all ICachedFileUpdaterTriggerDetails_Interface'Class;
    type ICachedFileUpdaterTriggerDetails_Ptr is access all ICachedFileUpdaterTriggerDetails;
@@ -353,6 +383,9 @@ package Windows.ApplicationModel.Background is
    type IBackgroundExecutionManagerStatics_Interface;
    type IBackgroundExecutionManagerStatics is access all IBackgroundExecutionManagerStatics_Interface'Class;
    type IBackgroundExecutionManagerStatics_Ptr is access all IBackgroundExecutionManagerStatics;
+   type IBackgroundExecutionManagerStatics2_Interface;
+   type IBackgroundExecutionManagerStatics2 is access all IBackgroundExecutionManagerStatics2_Interface'Class;
+   type IBackgroundExecutionManagerStatics2_Ptr is access all IBackgroundExecutionManagerStatics2;
    type IBackgroundTaskInstance_Interface;
    type IBackgroundTaskInstance is access all IBackgroundTaskInstance_Interface'Class;
    type IBackgroundTaskInstance_Ptr is access all IBackgroundTaskInstance;
@@ -485,6 +518,9 @@ package Windows.ApplicationModel.Background is
    type IStorageLibraryContentChangedTriggerStatics_Interface;
    type IStorageLibraryContentChangedTriggerStatics is access all IStorageLibraryContentChangedTriggerStatics_Interface'Class;
    type IStorageLibraryContentChangedTriggerStatics_Ptr is access all IStorageLibraryContentChangedTriggerStatics;
+   type IStorageLibraryChangeTrackerTriggerFactory_Interface;
+   type IStorageLibraryChangeTrackerTriggerFactory is access all IStorageLibraryChangeTrackerTriggerFactory_Interface'Class;
+   type IStorageLibraryChangeTrackerTriggerFactory_Ptr is access all IStorageLibraryChangeTrackerTriggerFactory;
    type IDeviceUseTrigger_Interface;
    type IDeviceUseTrigger is access all IDeviceUseTrigger_Interface'Class;
    type IDeviceUseTrigger_Ptr is access all IDeviceUseTrigger;
@@ -740,6 +776,41 @@ package Windows.ApplicationModel.Background is
    
    ------------------------------------------------------------------------
    
+   IID_ICustomSystemEventTrigger : aliased constant Windows.IID := (4082722712, 53099, 20212, (160, 202, 41, 207, 74, 39, 140, 135 ));
+   
+   type ICustomSystemEventTrigger_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TriggerId
+   (
+      This       : access ICustomSystemEventTrigger_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Recurrence
+   (
+      This       : access ICustomSystemEventTrigger_Interface
+      ; RetVal : access Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICustomSystemEventTriggerFactory : aliased constant Windows.IID := (1808471749, 62172, 16818, (158, 253, 185, 107, 220, 209, 60, 237 ));
+   
+   type ICustomSystemEventTriggerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ICustomSystemEventTriggerFactory_Interface
+      ; triggerId : Windows.String
+      ; recurrence : Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence
+      ; RetVal : access Windows.ApplicationModel.Background.ICustomSystemEventTrigger
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICachedFileUpdaterTriggerDetails : aliased constant Windows.IID := (1904446483, 4884, 18356, (149, 151, 220, 126, 36, 140, 23, 204 ));
    
    type ICachedFileUpdaterTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
@@ -841,6 +912,21 @@ package Windows.ApplicationModel.Background is
       This       : access IBackgroundExecutionManagerStatics_Interface
       ; applicationId : Windows.String
       ; RetVal : access Windows.ApplicationModel.Background.BackgroundAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBackgroundExecutionManagerStatics2 : aliased constant Windows.IID := (1184572655, 39867, 19992, (153, 154, 253, 101, 18, 147, 27, 233 ));
+   
+   type IBackgroundExecutionManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RequestAccessKindAsync
+   (
+      This       : access IBackgroundExecutionManagerStatics2_Interface
+      ; requestedAccess : Windows.ApplicationModel.Background.BackgroundAccessRequestKind
+      ; reason : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1614,6 +1700,20 @@ package Windows.ApplicationModel.Background is
       This       : access IStorageLibraryContentChangedTriggerStatics_Interface
       ; storageLibraries : Windows.Storage.IIterable_IStorageLibrary
       ; RetVal : access Windows.ApplicationModel.Background.IStorageLibraryContentChangedTrigger
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageLibraryChangeTrackerTriggerFactory : aliased constant Windows.IID := (514916304, 23173, 18846, (168, 136, 130, 70, 7, 18, 79, 80 ));
+   
+   type IStorageLibraryChangeTrackerTriggerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IStorageLibraryChangeTrackerTriggerFactory_Interface
+      ; tracker : Windows.Storage.IStorageLibraryChangeTracker
+      ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTrigger
    )
    return Windows.HRESULT is abstract;
    
@@ -2695,6 +2795,14 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTrigger;
    
+   subtype CustomSystemEventTrigger is Windows.ApplicationModel.Background.ICustomSystemEventTrigger;
+   function Create
+   (
+      triggerId : Windows.String
+      ; recurrence : Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence
+   )
+   return Windows.ApplicationModel.Background.ICustomSystemEventTrigger;
+   
    subtype CachedFileUpdaterTriggerDetails is Windows.ApplicationModel.Background.ICachedFileUpdaterTriggerDetails;
    subtype CachedFileUpdaterTrigger is Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger;
    function CreateCachedFileUpdaterTrigger return Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger;
@@ -2766,6 +2874,15 @@ package Windows.ApplicationModel.Background is
    subtype MobileBroadbandDeviceServiceNotificationTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
    function CreateMobileBroadbandDeviceServiceNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
+   subtype NetworkOperatorDataUsageTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateNetworkOperatorDataUsageTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
+   subtype TetheringEntitlementCheckTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateTetheringEntitlementCheckTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
+   subtype MobileBroadbandPcoDataChangeTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateMobileBroadbandPcoDataChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
    subtype SmsMessageReceivedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
    function Create
    (
@@ -2774,6 +2891,13 @@ package Windows.ApplicationModel.Background is
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype StorageLibraryContentChangedTrigger is Windows.ApplicationModel.Background.IStorageLibraryContentChangedTrigger;
+   subtype StorageLibraryChangeTrackerTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function Create
+   (
+      tracker : Windows.Storage.IStorageLibraryChangeTracker
+   )
+   return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
    subtype PaymentAppCanMakePaymentTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
    function CreatePaymentAppCanMakePaymentTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
@@ -2835,17 +2959,25 @@ package Windows.ApplicationModel.Background is
    function CreateSocketActivityTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype PushNotificationTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function CreatePushNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
-   
-   subtype ToastNotificationHistoryChangedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
    function Create
    (
       applicationId : Windows.String
    )
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
+   subtype ToastNotificationHistoryChangedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function Create1
+   (
+      applicationId : Windows.String
+   )
+   return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
    subtype ToastNotificationActionTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function CreateToastNotificationActionTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function Create2
+   (
+      applicationId : Windows.String
+   )
+   return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype UserNotificationChangedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
    function Create
@@ -2872,6 +3004,13 @@ package Windows.ApplicationModel.Background is
    
    function GetAccessStatus
    return Windows.ApplicationModel.Background.AlarmAccessStatus;
+   
+   function RequestAccessKindAsync
+   (
+      requestedAccess : Windows.ApplicationModel.Background.BackgroundAccessRequestKind
+      ; reason : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function RequestAccessAsync
    return Windows.ApplicationModel.Background.IAsyncOperation_BackgroundAccessStatus;

@@ -29,10 +29,10 @@ limited with Windows.ApplicationModel.Wallet;
 limited with Windows.ApplicationModel.Appointments.AppointmentsProvider;
 limited with Windows.System;
 with Windows.Foundation;
+limited with Windows.ApplicationModel.DataTransfer.ShareTarget;
 limited with Windows.ApplicationModel.UserDataAccounts.Provider;
 limited with Windows.Devices.Enumeration;
 limited with Windows.Media.SpeechRecognition;
-limited with Windows.ApplicationModel.DataTransfer.ShareTarget;
 with Windows.Foundation.Collections;
 limited with Windows.Storage;
 limited with Windows.Storage.Search;
@@ -208,6 +208,9 @@ package Windows.UI.WebUI is
    type IContactPanelActivatedEventArgs_Imported_Interface;
    type IContactPanelActivatedEventArgs_Imported is access all IContactPanelActivatedEventArgs_Imported_Interface'Class;
    type IContactPanelActivatedEventArgs_Imported_Ptr is access all IContactPanelActivatedEventArgs_Imported;
+   type IShareTargetActivatedEventArgs_Imported_Interface;
+   type IShareTargetActivatedEventArgs_Imported is access all IShareTargetActivatedEventArgs_Imported_Interface'Class;
+   type IShareTargetActivatedEventArgs_Imported_Ptr is access all IShareTargetActivatedEventArgs_Imported;
    type IUserDataAccountProviderActivatedEventArgs_Imported_Interface;
    type IUserDataAccountProviderActivatedEventArgs_Imported is access all IUserDataAccountProviderActivatedEventArgs_Imported_Interface'Class;
    type IUserDataAccountProviderActivatedEventArgs_Imported_Ptr is access all IUserDataAccountProviderActivatedEventArgs_Imported;
@@ -220,9 +223,9 @@ package Windows.UI.WebUI is
    type IPrelaunchActivatedEventArgs_Imported_Interface;
    type IPrelaunchActivatedEventArgs_Imported is access all IPrelaunchActivatedEventArgs_Imported_Interface'Class;
    type IPrelaunchActivatedEventArgs_Imported_Ptr is access all IPrelaunchActivatedEventArgs_Imported;
-   type IShareTargetActivatedEventArgs_Imported_Interface;
-   type IShareTargetActivatedEventArgs_Imported is access all IShareTargetActivatedEventArgs_Imported_Interface'Class;
-   type IShareTargetActivatedEventArgs_Imported_Ptr is access all IShareTargetActivatedEventArgs_Imported;
+   type ILaunchActivatedEventArgs2_Imported_Interface;
+   type ILaunchActivatedEventArgs2_Imported is access all ILaunchActivatedEventArgs2_Imported_Interface'Class;
+   type ILaunchActivatedEventArgs2_Imported_Ptr is access all ILaunchActivatedEventArgs2_Imported;
    type IFileActivatedEventArgs_Imported_Interface;
    type IFileActivatedEventArgs_Imported is access all IFileActivatedEventArgs_Imported_Interface'Class;
    type IFileActivatedEventArgs_Imported_Ptr is access all IFileActivatedEventArgs_Imported;
@@ -292,6 +295,9 @@ package Windows.UI.WebUI is
    type IStartupTaskActivatedEventArgs_Imported_Interface;
    type IStartupTaskActivatedEventArgs_Imported is access all IStartupTaskActivatedEventArgs_Imported_Interface'Class;
    type IStartupTaskActivatedEventArgs_Imported_Ptr is access all IStartupTaskActivatedEventArgs_Imported;
+   type IBarcodeScannerPreviewActivatedEventArgs_Imported_Interface;
+   type IBarcodeScannerPreviewActivatedEventArgs_Imported is access all IBarcodeScannerPreviewActivatedEventArgs_Imported_Interface'Class;
+   type IBarcodeScannerPreviewActivatedEventArgs_Imported_Ptr is access all IBarcodeScannerPreviewActivatedEventArgs_Imported;
    type ISuspendingDeferral_Imported_Interface;
    type ISuspendingDeferral_Imported is access all ISuspendingDeferral_Imported_Interface'Class;
    type ISuspendingDeferral_Imported_Ptr is access all ISuspendingDeferral_Imported;
@@ -1109,6 +1115,17 @@ package Windows.UI.WebUI is
    
    ------------------------------------------------------------------------
    
+   type IShareTargetActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShareOperation
+   (
+      This       : access IShareTargetActivatedEventArgs_Imported_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    type IUserDataAccountProviderActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_Operation
@@ -1153,12 +1170,12 @@ package Windows.UI.WebUI is
    
    ------------------------------------------------------------------------
    
-   type IShareTargetActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
+   type ILaunchActivatedEventArgs2_Imported_Interface is interface and Windows.IInspectable_Interface;
    
-   function get_ShareOperation
+   function get_TileActivatedInfo
    (
-      This       : access IShareTargetActivatedEventArgs_Imported_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation
+      This       : access ILaunchActivatedEventArgs2_Imported_Interface
+      ; RetVal : access Windows.ApplicationModel.Activation.ITileActivatedInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -1452,6 +1469,17 @@ package Windows.UI.WebUI is
    
    ------------------------------------------------------------------------
    
+   type IBarcodeScannerPreviewActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ConnectionId
+   (
+      This       : access IBarcodeScannerPreviewActivatedEventArgs_Imported_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    type ISuspendingDeferral_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function Complete
@@ -1686,13 +1714,13 @@ package Windows.UI.WebUI is
    subtype WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs is Windows.ApplicationModel.Activation.IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs;
    subtype WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs is Windows.ApplicationModel.Activation.IAppointmentsProviderShowTimeFrameActivatedEventArgs;
    subtype WebUIContactPanelActivatedEventArgs is Windows.ApplicationModel.Activation.IContactPanelActivatedEventArgs;
+   subtype WebUIShareTargetActivatedEventArgs is Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs;
    subtype WebUIUserDataAccountProviderActivatedEventArgs is Windows.ApplicationModel.Activation.IUserDataAccountProviderActivatedEventArgs;
    subtype WebUIDevicePairingActivatedEventArgs is Windows.ApplicationModel.Activation.IDevicePairingActivatedEventArgs;
    subtype WebUIVoiceCommandActivatedEventArgs is Windows.ApplicationModel.Activation.IVoiceCommandActivatedEventArgs;
    subtype ActivatedDeferral is Windows.UI.WebUI.IActivatedDeferral;
    subtype ActivatedOperation is Windows.UI.WebUI.IActivatedOperation;
    subtype WebUILaunchActivatedEventArgs is Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs;
-   subtype WebUIShareTargetActivatedEventArgs is Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs;
    subtype WebUIFileActivatedEventArgs is Windows.ApplicationModel.Activation.IFileActivatedEventArgs;
    subtype WebUIProtocolActivatedEventArgs is Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs;
    subtype WebUIProtocolForResultsActivatedEventArgs is Windows.ApplicationModel.Activation.IProtocolForResultsActivatedEventArgs;
@@ -1713,6 +1741,7 @@ package Windows.UI.WebUI is
    subtype WebUIPrintWorkflowForegroundTaskActivatedEventArgs is Windows.ApplicationModel.Activation.IActivatedEventArgs;
    subtype WebUICommandLineActivatedEventArgs is Windows.ApplicationModel.Activation.ICommandLineActivatedEventArgs;
    subtype WebUIStartupTaskActivatedEventArgs is Windows.ApplicationModel.Activation.IStartupTaskActivatedEventArgs;
+   subtype WebUIBarcodeScannerPreviewActivatedEventArgs is Windows.ApplicationModel.Activation.IBarcodeScannerPreviewActivatedEventArgs;
    subtype WebUINavigatedOperation is Windows.UI.WebUI.IWebUINavigatedOperation;
    subtype SuspendingDeferral is Windows.ApplicationModel.ISuspendingDeferral;
    subtype SuspendingOperation is Windows.ApplicationModel.ISuspendingOperation;
@@ -1730,49 +1759,6 @@ package Windows.UI.WebUI is
    
    function get_Current
    return Windows.UI.WebUI.IWebUIBackgroundTaskInstance;
-   
-   function RequestRestartAsync
-   (
-      launchArguments : Windows.String
-   )
-   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
-   
-   function RequestRestartForUserAsync
-   (
-      user : Windows.System.IUser
-      ; launchArguments : Windows.String
-   )
-   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
-   
-   function add_LeavingBackground
-   (
-      handler : Windows.UI.WebUI.LeavingBackgroundEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_LeavingBackground
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function add_EnteredBackground
-   (
-      handler : Windows.UI.WebUI.EnteredBackgroundEventHandler
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_EnteredBackground
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   procedure EnablePrelaunch
-   (
-      value : Windows.Boolean
-   )
-   ;
    
    function add_Activated
    (
@@ -1821,5 +1807,48 @@ package Windows.UI.WebUI is
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
+   
+   function add_LeavingBackground
+   (
+      handler : Windows.UI.WebUI.LeavingBackgroundEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_LeavingBackground
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_EnteredBackground
+   (
+      handler : Windows.UI.WebUI.EnteredBackgroundEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_EnteredBackground
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure EnablePrelaunch
+   (
+      value : Windows.Boolean
+   )
+   ;
+   
+   function RequestRestartAsync
+   (
+      launchArguments : Windows.String
+   )
+   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
+   
+   function RequestRestartForUserAsync
+   (
+      user : Windows.System.IUser
+      ; launchArguments : Windows.String
+   )
+   return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
    
 end;

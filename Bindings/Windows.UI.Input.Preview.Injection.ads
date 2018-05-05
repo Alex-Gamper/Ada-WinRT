@@ -1027,10 +1027,10 @@ package Windows.UI.Input.Preview.Injection is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function TryCreateForAppBroadcastOnly
+   function TryCreate
    return Windows.UI.Input.Preview.Injection.IInputInjector;
    
-   function TryCreate
+   function TryCreateForAppBroadcastOnly
    return Windows.UI.Input.Preview.Injection.IInputInjector;
    
 end;

@@ -95,6 +95,9 @@ package Windows.System.Profile is
    type IAnalyticsInfoStatics_Interface;
    type IAnalyticsInfoStatics is access all IAnalyticsInfoStatics_Interface'Class;
    type IAnalyticsInfoStatics_Ptr is access all IAnalyticsInfoStatics;
+   type IAnalyticsInfoStatics2_Interface;
+   type IAnalyticsInfoStatics2 is access all IAnalyticsInfoStatics2_Interface'Class;
+   type IAnalyticsInfoStatics2_Ptr is access all IAnalyticsInfoStatics2;
    type IAnalyticsVersionInfo_Interface;
    type IAnalyticsVersionInfo is access all IAnalyticsVersionInfo_Interface'Class;
    type IAnalyticsVersionInfo_Ptr is access all IAnalyticsVersionInfo;
@@ -185,6 +188,20 @@ package Windows.System.Profile is
    (
       This       : access IAnalyticsInfoStatics_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAnalyticsInfoStatics2 : aliased constant Windows.IID := (269944042, 43001, 18130, (171, 148, 1, 104, 101, 175, 219, 37 ));
+   
+   type IAnalyticsInfoStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetSystemPropertiesAsync
+   (
+      This       : access IAnalyticsInfoStatics2_Interface
+      ; attributeNames : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -525,6 +542,12 @@ package Windows.System.Profile is
    )
    return Windows.System.Profile.ISystemIdentificationInfo;
    
+   function GetSystemPropertiesAsync
+   (
+      attributeNames : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Address;
+   
    function get_VersionInfo
    return Windows.System.Profile.IAnalyticsVersionInfo;
    
@@ -633,10 +656,10 @@ package Windows.System.Profile is
    function get_WindowsEdition
    return Windows.String;
    
-   function get_IsEnabled
+   function get_ShouldAvoidLocalStorage
    return Windows.Boolean;
    
-   function get_ShouldAvoidLocalStorage
+   function get_IsEnabled
    return Windows.Boolean;
    
 end;

@@ -2910,31 +2910,6 @@ package Windows.ApplicationModel.Appointments is
    )
    return Windows.ApplicationModel.Appointments.IAppointmentManagerForUser;
    
-   function ShowAppointmentDetailsAsync
-   (
-      appointmentId : Windows.String
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function ShowAppointmentDetailsWithDateAsync
-   (
-      appointmentId : Windows.String
-      ; instanceStartDate : Windows.Foundation.DateTime
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function ShowEditNewAppointmentAsync
-   (
-      appointment : Windows.ApplicationModel.Appointments.IAppointment
-   )
-   return Windows.Foundation.IAsyncOperation_String;
-   
-   function RequestStoreAsync
-   (
-      options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
-   )
-   return Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore;
-   
    function ShowAddAppointmentAsync
    (
       appointment : Windows.ApplicationModel.Appointments.IAppointment
@@ -3007,6 +2982,31 @@ package Windows.ApplicationModel.Appointments is
       ; duration : Windows.Foundation.TimeSpan
    )
    return Windows.Foundation.IAsyncAction;
+   
+   function ShowAppointmentDetailsAsync
+   (
+      appointmentId : Windows.String
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function ShowAppointmentDetailsWithDateAsync
+   (
+      appointmentId : Windows.String
+      ; instanceStartDate : Windows.Foundation.DateTime
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function ShowEditNewAppointmentAsync
+   (
+      appointment : Windows.ApplicationModel.Appointments.IAppointment
+   )
+   return Windows.Foundation.IAsyncOperation_String;
+   
+   function RequestStoreAsync
+   (
+      options : Windows.ApplicationModel.Appointments.AppointmentStoreAccessType
+   )
+   return Windows.ApplicationModel.Appointments.IAsyncOperation_IAppointmentStore;
    
    function get_Subject
    return Windows.String;

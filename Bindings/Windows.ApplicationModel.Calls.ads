@@ -74,11 +74,13 @@ package Windows.ApplicationModel.Calls is
    
    type PhoneCallMedia is (
       Audio,
-      AudioAndVideo
+      AudioAndVideo,
+      AudioAndRealTimeText
    );
    for PhoneCallMedia use (
       Audio => 0,
-      AudioAndVideo => 1
+      AudioAndVideo => 1,
+      AudioAndRealTimeText => 2
    );
    for PhoneCallMedia'Size use 32;
    
@@ -463,6 +465,9 @@ package Windows.ApplicationModel.Calls is
    type IVoipPhoneCall2_Interface;
    type IVoipPhoneCall2 is access all IVoipPhoneCall2_Interface'Class;
    type IVoipPhoneCall2_Ptr is access all IVoipPhoneCall2;
+   type IVoipPhoneCall3_Interface;
+   type IVoipPhoneCall3 is access all IVoipPhoneCall3_Interface'Class;
+   type IVoipPhoneCall3_Ptr is access all IVoipPhoneCall3;
    type IMuteChangeEventArgs_Interface;
    type IMuteChangeEventArgs is access all IMuteChangeEventArgs_Interface'Class;
    type IMuteChangeEventArgs_Ptr is access all IMuteChangeEventArgs;
@@ -475,6 +480,9 @@ package Windows.ApplicationModel.Calls is
    type IVoipCallCoordinator2_Interface;
    type IVoipCallCoordinator2 is access all IVoipCallCoordinator2_Interface'Class;
    type IVoipCallCoordinator2_Ptr is access all IVoipCallCoordinator2;
+   type IVoipCallCoordinator3_Interface;
+   type IVoipCallCoordinator3 is access all IVoipCallCoordinator3_Interface'Class;
+   type IVoipCallCoordinator3_Ptr is access all IVoipCallCoordinator3;
    type ILockScreenCallEndCallDeferral_Interface;
    type ILockScreenCallEndCallDeferral is access all ILockScreenCallEndCallDeferral_Interface'Class;
    type ILockScreenCallEndCallDeferral_Ptr is access all ILockScreenCallEndCallDeferral;
@@ -1340,6 +1348,19 @@ package Windows.ApplicationModel.Calls is
    
    ------------------------------------------------------------------------
    
+   IID_IVoipPhoneCall3 : aliased constant Windows.IID := (227087650, 57944, 19113, (144, 122, 26, 164, 19, 194, 85, 35 ));
+   
+   type IVoipPhoneCall3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function NotifyCallAccepted
+   (
+      This       : access IVoipPhoneCall3_Interface
+      ; media : Windows.ApplicationModel.Calls.VoipPhoneCallMedia
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMuteChangeEventArgs : aliased constant Windows.IID := (2240143705, 3137, 17196, (129, 77, 197, 241, 253, 245, 48, 190 ));
    
    type IMuteChangeEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1488,6 +1509,42 @@ package Windows.ApplicationModel.Calls is
       ; contactNumber : Windows.String
       ; serviceName : Windows.String
       ; media : Windows.ApplicationModel.Calls.VoipPhoneCallMedia
+      ; RetVal : access Windows.ApplicationModel.Calls.IVoipPhoneCall
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVoipCallCoordinator3 : aliased constant Windows.IID := (864881855, 39765, 16417, (135, 202, 230, 75, 155, 214, 102, 199 ));
+   
+   type IVoipCallCoordinator3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RequestNewAppInitiatedCall
+   (
+      This       : access IVoipCallCoordinator3_Interface
+      ; context : Windows.String
+      ; contactName : Windows.String
+      ; contactNumber : Windows.String
+      ; serviceName : Windows.String
+      ; media : Windows.ApplicationModel.Calls.VoipPhoneCallMedia
+      ; RetVal : access Windows.ApplicationModel.Calls.IVoipPhoneCall
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestNewIncomingCallWithContactRemoteId
+   (
+      This       : access IVoipCallCoordinator3_Interface
+      ; context : Windows.String
+      ; contactName : Windows.String
+      ; contactNumber : Windows.String
+      ; contactImage : Windows.Foundation.IUriRuntimeClass
+      ; serviceName : Windows.String
+      ; brandingImage : Windows.Foundation.IUriRuntimeClass
+      ; callDetails : Windows.String
+      ; ringtone : Windows.Foundation.IUriRuntimeClass
+      ; media : Windows.ApplicationModel.Calls.VoipPhoneCallMedia
+      ; ringTimeout : Windows.Foundation.TimeSpan
+      ; contactRemoteId : Windows.String
       ; RetVal : access Windows.ApplicationModel.Calls.IVoipPhoneCall
    )
    return Windows.HRESULT is abstract;
@@ -2588,7 +2645,12 @@ package Windows.ApplicationModel.Calls is
    subtype LockScreenCallUI is Windows.ApplicationModel.Calls.ILockScreenCallUI;
    subtype LockScreenCallEndRequestedEventArgs is Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs;
    subtype PhoneCallHistoryEntryAddress is Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress;
-   function CreatePhoneCallHistoryEntryAddress return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress;
+   function Create
+   (
+      rawAddress : Windows.String
+      ; rawAddressKind : Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind
+   )
+   return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress;
    
    subtype PhoneCallHistoryEntry is Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry;
    function CreatePhoneCallHistoryEntry return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry;
@@ -2609,6 +2671,13 @@ package Windows.ApplicationModel.Calls is
       lineId : Windows.Guid
    )
    return Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine;
+   
+   procedure ShowPhoneCallUI
+   (
+      phoneNumber : Windows.String
+      ; displayName : Windows.String
+   )
+   ;
    
    function add_CallStateChanged
    (
@@ -2633,13 +2702,6 @@ package Windows.ApplicationModel.Calls is
    
    function RequestStoreAsync
    return Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneCallStore;
-   
-   procedure ShowPhoneCallUI
-   (
-      phoneNumber : Windows.String
-      ; displayName : Windows.String
-   )
-   ;
    
    function GetCapabilitiesAsync
    (

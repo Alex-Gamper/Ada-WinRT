@@ -75,24 +75,21 @@ package body Windows.Devices.Usb is
       return Convert(RetVal);
    end;
    
-   function CreateWithEightByteBuffer
-   (
-      eightByteBuffer : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Devices.Usb.IUsbSetupPacket is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateUsbSetupPacket return Windows.Devices.Usb.IUsbSetupPacket is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbSetupPacket");
-      m_Factory     : Windows.Devices.Usb.IUsbSetupPacketFactory := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Usb.IUsbSetupPacket := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Usb.IUsbSetupPacket) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IUsbSetupPacketFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithEightByteBuffer(eightByteBuffer, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.Devices.Usb.IID_IUsbSetupPacket'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateUsbDeviceClass return Windows.Devices.Usb.IUsbDeviceClass is

@@ -219,6 +219,20 @@ package Windows.Storage.Provider is
    
    type StorageProviderProtectionMode_Ptr is access StorageProviderProtectionMode;
    
+   type StorageProviderUriSourceStatus is (
+      Success,
+      NoSyncRoot,
+      FileNotFound
+   );
+   for StorageProviderUriSourceStatus use (
+      Success => 0,
+      NoSyncRoot => 1,
+      FileNotFound => 2
+   );
+   for StorageProviderUriSourceStatus'Size use 32;
+   
+   type StorageProviderUriSourceStatus_Ptr is access StorageProviderUriSourceStatus;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -285,6 +299,15 @@ package Windows.Storage.Provider is
    type IStorageProviderSyncRootInfo_Interface;
    type IStorageProviderSyncRootInfo is access all IStorageProviderSyncRootInfo_Interface'Class;
    type IStorageProviderSyncRootInfo_Ptr is access all IStorageProviderSyncRootInfo;
+   type IStorageProviderGetContentInfoForPathResult_Interface;
+   type IStorageProviderGetContentInfoForPathResult is access all IStorageProviderGetContentInfoForPathResult_Interface'Class;
+   type IStorageProviderGetContentInfoForPathResult_Ptr is access all IStorageProviderGetContentInfoForPathResult;
+   type IStorageProviderGetPathForContentUriResult_Interface;
+   type IStorageProviderGetPathForContentUriResult is access all IStorageProviderGetPathForContentUriResult_Interface'Class;
+   type IStorageProviderGetPathForContentUriResult_Ptr is access all IStorageProviderGetPathForContentUriResult;
+   type IStorageProviderUriSource_Interface;
+   type IStorageProviderUriSource is access all IStorageProviderUriSource_Interface'Class;
+   type IStorageProviderUriSource_Ptr is access all IStorageProviderUriSource;
    type IStorageProviderSyncRootManagerStatics_Interface;
    type IStorageProviderSyncRootManagerStatics is access all IStorageProviderSyncRootManagerStatics_Interface'Class;
    type IStorageProviderSyncRootManagerStatics_Ptr is access all IStorageProviderSyncRootManagerStatics;
@@ -867,6 +890,110 @@ package Windows.Storage.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IStorageProviderGetContentInfoForPathResult : aliased constant Windows.IID := (627339549, 43657, 19730, (130, 227, 247, 42, 146, 227, 57, 102 ));
+   
+   type IStorageProviderGetContentInfoForPathResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IStorageProviderGetContentInfoForPathResult_Interface
+      ; RetVal : access Windows.Storage.Provider.StorageProviderUriSourceStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Status
+   (
+      This       : access IStorageProviderGetContentInfoForPathResult_Interface
+      ; value : Windows.Storage.Provider.StorageProviderUriSourceStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContentUri
+   (
+      This       : access IStorageProviderGetContentInfoForPathResult_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ContentUri
+   (
+      This       : access IStorageProviderGetContentInfoForPathResult_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContentId
+   (
+      This       : access IStorageProviderGetContentInfoForPathResult_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ContentId
+   (
+      This       : access IStorageProviderGetContentInfoForPathResult_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageProviderGetPathForContentUriResult : aliased constant Windows.IID := (1668356765, 16664, 17830, (172, 182, 34, 196, 157, 1, 159, 64 ));
+   
+   type IStorageProviderGetPathForContentUriResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IStorageProviderGetPathForContentUriResult_Interface
+      ; RetVal : access Windows.Storage.Provider.StorageProviderUriSourceStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Status
+   (
+      This       : access IStorageProviderGetPathForContentUriResult_Interface
+      ; value : Windows.Storage.Provider.StorageProviderUriSourceStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Path
+   (
+      This       : access IStorageProviderGetPathForContentUriResult_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Path
+   (
+      This       : access IStorageProviderGetPathForContentUriResult_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageProviderUriSource : aliased constant Windows.IID := (2996307665, 35808, 18786, (139, 182, 13, 76, 46, 20, 212, 122 ));
+   
+   type IStorageProviderUriSource_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetPathForContentUri
+   (
+      This       : access IStorageProviderUriSource_Interface
+      ; contentUri : Windows.String
+      ; result : Windows.Storage.Provider.IStorageProviderGetPathForContentUriResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetContentInfoForPath
+   (
+      This       : access IStorageProviderUriSource_Interface
+      ; path : Windows.String
+      ; result : Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStorageProviderSyncRootManagerStatics : aliased constant Windows.IID := (1050278847, 36835, 19264, (171, 199, 246, 252, 61, 116, 201, 142 ));
    
    type IStorageProviderSyncRootManagerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1311,6 +1438,12 @@ package Windows.Storage.Provider is
    
    subtype StorageProviderSyncRootInfo is Windows.Storage.Provider.IStorageProviderSyncRootInfo;
    function CreateStorageProviderSyncRootInfo return Windows.Storage.Provider.IStorageProviderSyncRootInfo;
+   
+   subtype StorageProviderGetContentInfoForPathResult is Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult;
+   function CreateStorageProviderGetContentInfoForPathResult return Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult;
+   
+   subtype StorageProviderGetPathForContentUriResult is Windows.Storage.Provider.IStorageProviderGetPathForContentUriResult;
+   function CreateStorageProviderGetPathForContentUriResult return Windows.Storage.Provider.IStorageProviderGetPathForContentUriResult;
    
    
    ------------------------------------------------------------------------

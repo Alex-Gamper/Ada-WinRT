@@ -1508,159 +1508,6 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return RetVal;
    end;
    
-   function get_Battery
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Battery(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_BloodPressure
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_BloodPressure(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_CyclingSpeedAndCadence
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_CyclingSpeedAndCadence(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_GenericAccess
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_GenericAccess(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_GenericAttribute
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_GenericAttribute(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_Glucose
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_Glucose(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HealthThermometer
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HealthThermometer(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HeartRate
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HeartRate(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RunningSpeedAndCadence
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
-      m_Factory     : IGattServiceUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RunningSpeedAndCadence(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_AlertNotification
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
@@ -1882,357 +1729,153 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       return RetVal;
    end;
    
-   function get_BatteryLevel
+   function get_Battery
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_BatteryLevel(RetVal'Access);
+         Hr := m_Factory.get_Battery(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_BloodPressureFeature
+   function get_BloodPressure
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_BloodPressureFeature(RetVal'Access);
+         Hr := m_Factory.get_BloodPressure(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_BloodPressureMeasurement
+   function get_CyclingSpeedAndCadence
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_BloodPressureMeasurement(RetVal'Access);
+         Hr := m_Factory.get_CyclingSpeedAndCadence(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_BodySensorLocation
+   function get_GenericAccess
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_BodySensorLocation(RetVal'Access);
+         Hr := m_Factory.get_GenericAccess(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_CscFeature
+   function get_GenericAttribute
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_CscFeature(RetVal'Access);
+         Hr := m_Factory.get_GenericAttribute(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_CscMeasurement
+   function get_Glucose
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_CscMeasurement(RetVal'Access);
+         Hr := m_Factory.get_Glucose(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_GlucoseFeature
+   function get_HealthThermometer
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_GlucoseFeature(RetVal'Access);
+         Hr := m_Factory.get_HealthThermometer(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_GlucoseMeasurement
+   function get_HeartRate
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_GlucoseMeasurement(RetVal'Access);
+         Hr := m_Factory.get_HeartRate(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
    end;
    
-   function get_GlucoseMeasurementContext
+   function get_RunningSpeedAndCadence
    return Windows.Guid is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids");
+      m_Factory     : IGattServiceUuidsStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.Guid;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IGattServiceUuidsStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_GlucoseMeasurementContext(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HeartRateControlPoint
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HeartRateControlPoint(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_HeartRateMeasurement
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_HeartRateMeasurement(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IntermediateCuffPressure
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IntermediateCuffPressure(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IntermediateTemperature
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IntermediateTemperature(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_MeasurementInterval
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_MeasurementInterval(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RecordAccessControlPoint
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RecordAccessControlPoint(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RscFeature
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RscFeature(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_RscMeasurement
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_RscMeasurement(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SCControlPoint
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SCControlPoint(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_SensorLocation
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_SensorLocation(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TemperatureMeasurement
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TemperatureMeasurement(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_TemperatureType
-   return Windows.Guid is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
-      m_Factory     : IGattCharacteristicUuidsStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Guid;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_TemperatureType(RetVal'Access);
+         Hr := m_Factory.get_RunningSpeedAndCadence(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3253,6 +2896,363 @@ package body Windows.Devices.Bluetooth.GenericAttributeProfile is
       Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_UnreadAlertStatus(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_BatteryLevel
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_BatteryLevel(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_BloodPressureFeature
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_BloodPressureFeature(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_BloodPressureMeasurement
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_BloodPressureMeasurement(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_BodySensorLocation
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_BodySensorLocation(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CscFeature
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CscFeature(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CscMeasurement
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CscMeasurement(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_GlucoseFeature
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_GlucoseFeature(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_GlucoseMeasurement
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_GlucoseMeasurement(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_GlucoseMeasurementContext
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_GlucoseMeasurementContext(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HeartRateControlPoint
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HeartRateControlPoint(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HeartRateMeasurement
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HeartRateMeasurement(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IntermediateCuffPressure
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IntermediateCuffPressure(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IntermediateTemperature
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IntermediateTemperature(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MeasurementInterval
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MeasurementInterval(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RecordAccessControlPoint
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RecordAccessControlPoint(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RscFeature
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RscFeature(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_RscMeasurement
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_RscMeasurement(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SCControlPoint
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SCControlPoint(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SensorLocation
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SensorLocation(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TemperatureMeasurement
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TemperatureMeasurement(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TemperatureType
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids");
+      m_Factory     : IGattCharacteristicUuidsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicUuidsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TemperatureType(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

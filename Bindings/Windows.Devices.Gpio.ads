@@ -842,6 +842,9 @@ package Windows.Devices.Gpio is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetDefault
+   return Windows.Devices.Gpio.IGpioController;
+   
    function GetControllersAsync
    (
       provider : Windows.Devices.Gpio.Provider.IGpioProvider
@@ -850,8 +853,5 @@ package Windows.Devices.Gpio is
    
    function GetDefaultAsync
    return Windows.Devices.Gpio.IAsyncOperation_IGpioController;
-   
-   function GetDefault
-   return Windows.Devices.Gpio.IGpioController;
    
 end;

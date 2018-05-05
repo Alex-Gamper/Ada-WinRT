@@ -2609,7 +2609,13 @@ package Windows.Web.Syndication is
    ------------------------------------------------------------------------
    
    subtype SyndicationAttribute is Windows.Web.Syndication.ISyndicationAttribute;
-   function CreateSyndicationAttribute return Windows.Web.Syndication.ISyndicationAttribute;
+   function CreateSyndicationAttribute
+   (
+      attributeName : Windows.String
+      ; attributeNamespace : Windows.String
+      ; attributeValue : Windows.String
+   )
+   return Windows.Web.Syndication.ISyndicationAttribute;
    
    subtype SyndicationNode is Windows.Web.Syndication.ISyndicationNode;
    function CreateSyndicationNode
@@ -2621,14 +2627,21 @@ package Windows.Web.Syndication is
    return Windows.Web.Syndication.ISyndicationNode;
    
    subtype SyndicationGenerator is Windows.Web.Syndication.ISyndicationGenerator;
-   function CreateSyndicationGenerator
+   function CreateSyndicationGenerator return Windows.Web.Syndication.ISyndicationGenerator;
+   
+   subtype SyndicationText is Windows.Web.Syndication.ISyndicationText;
+   function CreateSyndicationText
    (
       text : Windows.String
    )
-   return Windows.Web.Syndication.ISyndicationGenerator;
+   return Windows.Web.Syndication.ISyndicationText;
    
-   subtype SyndicationText is Windows.Web.Syndication.ISyndicationText;
-   function CreateSyndicationText return Windows.Web.Syndication.ISyndicationText;
+   function CreateSyndicationTextEx
+   (
+      text : Windows.String
+      ; type_x : Windows.Web.Syndication.SyndicationTextType
+   )
+   return Windows.Web.Syndication.ISyndicationText;
    
    subtype SyndicationContent is Windows.Web.Syndication.ISyndicationContent;
    function CreateSyndicationContent
@@ -2645,40 +2658,36 @@ package Windows.Web.Syndication is
    return Windows.Web.Syndication.ISyndicationContent;
    
    subtype SyndicationLink is Windows.Web.Syndication.ISyndicationLink;
-   function CreateSyndicationLink return Windows.Web.Syndication.ISyndicationLink;
+   function CreateSyndicationLink
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Web.Syndication.ISyndicationLink;
+   
+   function CreateSyndicationLinkEx
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+      ; relationship : Windows.String
+      ; title : Windows.String
+      ; mediaType : Windows.String
+      ; length : Windows.UInt32
+   )
+   return Windows.Web.Syndication.ISyndicationLink;
    
    subtype SyndicationPerson is Windows.Web.Syndication.ISyndicationPerson;
-   function CreateSyndicationPerson
-   (
-      name : Windows.String
-   )
-   return Windows.Web.Syndication.ISyndicationPerson;
-   
-   function CreateSyndicationPersonEx
-   (
-      name : Windows.String
-      ; email : Windows.String
-      ; uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Web.Syndication.ISyndicationPerson;
+   function CreateSyndicationPerson return Windows.Web.Syndication.ISyndicationPerson;
    
    subtype SyndicationCategory is Windows.Web.Syndication.ISyndicationCategory;
-   function CreateSyndicationCategory
-   (
-      term : Windows.String
-   )
-   return Windows.Web.Syndication.ISyndicationCategory;
-   
-   function CreateSyndicationCategoryEx
-   (
-      term : Windows.String
-      ; scheme : Windows.String
-      ; label : Windows.String
-   )
-   return Windows.Web.Syndication.ISyndicationCategory;
+   function CreateSyndicationCategory return Windows.Web.Syndication.ISyndicationCategory;
    
    subtype SyndicationFeed is Windows.Web.Syndication.ISyndicationFeed;
-   function CreateSyndicationFeed return Windows.Web.Syndication.ISyndicationFeed;
+   function CreateSyndicationFeed
+   (
+      title : Windows.String
+      ; subtitle : Windows.String
+      ; uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Web.Syndication.ISyndicationFeed;
    
    subtype SyndicationItem is Windows.Web.Syndication.ISyndicationItem;
    function CreateSyndicationItem

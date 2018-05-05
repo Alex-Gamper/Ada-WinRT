@@ -21,6 +21,7 @@
 --------------------------------------------------------------------------------
 with Windows.Web.Http;
 with Windows.ApplicationModel.AppService;
+with Windows.Networking.Sockets;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.System.Diagnostics.DevicePortal is

@@ -170,6 +170,18 @@ package Windows.UI.Xaml.Input is
    
    type InputScopeNameValue_Ptr is access InputScopeNameValue;
    
+   type KeyboardAcceleratorPlacementMode is (
+      Auto,
+      Hidden
+   );
+   for KeyboardAcceleratorPlacementMode use (
+      Auto => 0,
+      Hidden => 1
+   );
+   for KeyboardAcceleratorPlacementMode'Size use 32;
+   
+   type KeyboardAcceleratorPlacementMode_Ptr is access KeyboardAcceleratorPlacementMode;
+   
    type KeyboardNavigationMode is (
       Local,
       Cycle,
@@ -329,6 +341,9 @@ package Windows.UI.Xaml.Input is
    type TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface;
    type TypedEventHandler_IKeyboardAccelerator_add_Invoked is access all TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface'Class;
    type TypedEventHandler_IKeyboardAccelerator_add_Invoked_Ptr is access all TypedEventHandler_IKeyboardAccelerator_add_Invoked;
+   type AsyncOperationCompletedHandler_IFocusMovementResult_Interface;
+   type AsyncOperationCompletedHandler_IFocusMovementResult is access all AsyncOperationCompletedHandler_IFocusMovementResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IFocusMovementResult_Ptr is access all AsyncOperationCompletedHandler_IFocusMovementResult;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -367,6 +382,9 @@ package Windows.UI.Xaml.Input is
    type IKeyboardAcceleratorInvokedEventArgs_Interface;
    type IKeyboardAcceleratorInvokedEventArgs is access all IKeyboardAcceleratorInvokedEventArgs_Interface'Class;
    type IKeyboardAcceleratorInvokedEventArgs_Ptr is access all IKeyboardAcceleratorInvokedEventArgs;
+   type IKeyboardAcceleratorInvokedEventArgs2_Interface;
+   type IKeyboardAcceleratorInvokedEventArgs2 is access all IKeyboardAcceleratorInvokedEventArgs2_Interface'Class;
+   type IKeyboardAcceleratorInvokedEventArgs2_Ptr is access all IKeyboardAcceleratorInvokedEventArgs2;
    type IManipulationPivot_Interface;
    type IManipulationPivot is access all IManipulationPivot_Interface'Class;
    type IManipulationPivot_Ptr is access all IManipulationPivot;
@@ -391,6 +409,9 @@ package Windows.UI.Xaml.Input is
    type IGettingFocusEventArgs_Interface;
    type IGettingFocusEventArgs is access all IGettingFocusEventArgs_Interface'Class;
    type IGettingFocusEventArgs_Ptr is access all IGettingFocusEventArgs;
+   type IGettingFocusEventArgs2_Interface;
+   type IGettingFocusEventArgs2 is access all IGettingFocusEventArgs2_Interface'Class;
+   type IGettingFocusEventArgs2_Ptr is access all IGettingFocusEventArgs2;
    type IHoldingRoutedEventArgs_Interface;
    type IHoldingRoutedEventArgs is access all IHoldingRoutedEventArgs_Interface'Class;
    type IHoldingRoutedEventArgs_Ptr is access all IHoldingRoutedEventArgs;
@@ -424,6 +445,9 @@ package Windows.UI.Xaml.Input is
    type ILosingFocusEventArgs_Interface;
    type ILosingFocusEventArgs is access all ILosingFocusEventArgs_Interface'Class;
    type ILosingFocusEventArgs_Ptr is access all ILosingFocusEventArgs;
+   type ILosingFocusEventArgs2_Interface;
+   type ILosingFocusEventArgs2 is access all ILosingFocusEventArgs2_Interface'Class;
+   type ILosingFocusEventArgs2_Ptr is access all ILosingFocusEventArgs2;
    type IManipulationCompletedRoutedEventArgs_Interface;
    type IManipulationCompletedRoutedEventArgs is access all IManipulationCompletedRoutedEventArgs_Interface'Class;
    type IManipulationCompletedRoutedEventArgs_Ptr is access all IManipulationCompletedRoutedEventArgs;
@@ -475,6 +499,12 @@ package Windows.UI.Xaml.Input is
    type IFocusManagerStatics4_Interface;
    type IFocusManagerStatics4 is access all IFocusManagerStatics4_Interface'Class;
    type IFocusManagerStatics4_Ptr is access all IFocusManagerStatics4;
+   type IFocusManagerStatics5_Interface;
+   type IFocusManagerStatics5 is access all IFocusManagerStatics5_Interface'Class;
+   type IFocusManagerStatics5_Ptr is access all IFocusManagerStatics5;
+   type IFocusMovementResult_Interface;
+   type IFocusMovementResult is access all IFocusMovementResult_Interface'Class;
+   type IFocusMovementResult_Ptr is access all IFocusMovementResult;
    type IIterator_IPointer_Interface;
    type IIterator_IPointer is access all IIterator_IPointer_Interface'Class;
    type IIterator_IPointer_Ptr is access all IIterator_IPointer;
@@ -508,6 +538,9 @@ package Windows.UI.Xaml.Input is
    type IVector_IInputScopeName_Interface;
    type IVector_IInputScopeName is access all IVector_IInputScopeName_Interface'Class;
    type IVector_IInputScopeName_Ptr is access all IVector_IInputScopeName;
+   type IAsyncOperation_IFocusMovementResult_Interface;
+   type IAsyncOperation_IFocusMovementResult is access all IAsyncOperation_IFocusMovementResult_Interface'Class;
+   type IAsyncOperation_IFocusMovementResult_Ptr is access all IAsyncOperation_IFocusMovementResult;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -774,6 +807,19 @@ package Windows.UI.Xaml.Input is
    (
       This       : access IKeyboardAcceleratorInvokedEventArgs_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IKeyboardAcceleratorInvokedEventArgs2 : aliased constant Windows.IID := (3204228280, 22791, 18670, (142, 33, 156, 150, 144, 120, 250, 17 ));
+   
+   type IKeyboardAcceleratorInvokedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyboardAccelerator
+   (
+      This       : access IKeyboardAcceleratorInvokedEventArgs2_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
    )
    return Windows.HRESULT is abstract;
    
@@ -1065,6 +1111,27 @@ package Windows.UI.Xaml.Input is
    (
       This       : access IGettingFocusEventArgs_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGettingFocusEventArgs2 : aliased constant Windows.IID := (2289388923, 46265, 18777, (139, 206, 137, 191, 33, 46, 212, 235 ));
+   
+   type IGettingFocusEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryCancel
+   (
+      This       : access IGettingFocusEventArgs2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TrySetNewFocusedElement
+   (
+      This       : access IGettingFocusEventArgs2_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1416,6 +1483,27 @@ package Windows.UI.Xaml.Input is
    (
       This       : access ILosingFocusEventArgs_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILosingFocusEventArgs2 : aliased constant Windows.IID := (76806873, 49791, 18079, (142, 98, 82, 179, 164, 247, 205, 84 ));
+   
+   type ILosingFocusEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryCancel
+   (
+      This       : access ILosingFocusEventArgs2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TrySetNewFocusedElement
+   (
+      This       : access ILosingFocusEventArgs2_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -2119,6 +2207,51 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IFocusManagerStatics5 : aliased constant Windows.IID := (672062561, 8314, 19835, (185, 143, 206, 22, 94, 27, 32, 21 ));
+   
+   type IFocusManagerStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryFocusAsync
+   (
+      This       : access IFocusManagerStatics5_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FocusState
+      ; RetVal : access Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryMoveFocusAsync
+   (
+      This       : access IFocusManagerStatics5_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; RetVal : access Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryMoveFocusWithOptionsAsync
+   (
+      This       : access IFocusManagerStatics5_Interface
+      ; focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
+      ; RetVal : access Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusMovementResult : aliased constant Windows.IID := (115337939, 49838, 17595, (191, 171, 156, 115, 222, 132, 7, 164 ));
+   
+   type IFocusMovementResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Succeeded
+   (
+      This       : access IFocusMovementResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IPointer : aliased constant Windows.IID := (2360423549, 34952, 24499, (191, 253, 230, 202, 246, 27, 79, 3 ));
    
    type IIterator_IPointer_Interface is interface and Windows.IInspectable_Interface;
@@ -2569,6 +2702,33 @@ package Windows.UI.Xaml.Input is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IFocusMovementResult : aliased constant Windows.IID := (245647723, 14302, 24152, (139, 13, 44, 57, 144, 196, 203, 178 ));
+   
+   type IAsyncOperation_IFocusMovementResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IFocusMovementResult_Interface
+      ; handler : Windows.UI.Xaml.Input.AsyncOperationCompletedHandler_IFocusMovementResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IFocusMovementResult_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.AsyncOperationCompletedHandler_IFocusMovementResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IFocusMovementResult_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IFocusMovementResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -2742,6 +2902,19 @@ package Windows.UI.Xaml.Input is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IFocusMovementResult : aliased constant Windows.IID := (464124808, 64573, 23133, (174, 132, 167, 69, 207, 180, 57, 123 ));
+   
+   type AsyncOperationCompletedHandler_IFocusMovementResult_Interface(Callback : access procedure (asyncInfo : Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IFocusMovementResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IFocusMovementResult_Interface
+      ; asyncInfo : Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -2756,13 +2929,18 @@ package Windows.UI.Xaml.Input is
    function CreateAccessKeyInvokedEventArgs return Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs;
    
    subtype ProcessKeyboardAcceleratorEventArgs is Windows.UI.Xaml.Input.IProcessKeyboardAcceleratorEventArgs;
+   subtype KeyboardAcceleratorInvokedEventArgs is Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs;
    subtype AccessKeyManager is Windows.UI.Xaml.Input.IAccessKeyManager;
    subtype InertiaExpansionBehavior is Windows.UI.Xaml.Input.IInertiaExpansionBehavior;
    subtype InertiaRotationBehavior is Windows.UI.Xaml.Input.IInertiaRotationBehavior;
    subtype InertiaTranslationBehavior is Windows.UI.Xaml.Input.IInertiaTranslationBehavior;
-   subtype KeyboardAcceleratorInvokedEventArgs is Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs;
    subtype ManipulationPivot is Windows.UI.Xaml.Input.IManipulationPivot;
-   function CreateManipulationPivot return Windows.UI.Xaml.Input.IManipulationPivot;
+   function CreateInstanceWithCenterAndRadius
+   (
+      center : Windows.Foundation.Point
+      ; radius : Windows.Double
+   )
+   return Windows.UI.Xaml.Input.IManipulationPivot;
    
    subtype CharacterReceivedRoutedEventArgs is Windows.UI.Xaml.Input.ICharacterReceivedRoutedEventArgs;
    subtype ContextRequestedEventArgs is Windows.UI.Xaml.Input.IContextRequestedEventArgs;
@@ -2779,11 +2957,7 @@ package Windows.UI.Xaml.Input is
    function CreateInputScope return Windows.UI.Xaml.Input.IInputScope;
    
    subtype InputScopeName is Windows.UI.Xaml.Input.IInputScopeName;
-   function CreateInstance
-   (
-      nameValue : Windows.UI.Xaml.Input.InputScopeNameValue
-   )
-   return Windows.UI.Xaml.Input.IInputScopeName;
+   function CreateInputScopeName return Windows.UI.Xaml.Input.IInputScopeName;
    
    subtype KeyboardAccelerator is Windows.UI.Xaml.Input.IKeyboardAccelerator;
    
@@ -3035,11 +3209,21 @@ package Windows.UI.Xaml.Input is
    subtype FindNextElementOptions is Windows.UI.Xaml.Input.IFindNextElementOptions;
    function CreateFindNextElementOptions return Windows.UI.Xaml.Input.IFindNextElementOptions;
    
+   subtype FocusMovementResult is Windows.UI.Xaml.Input.IFocusMovementResult;
    subtype FocusManager is Windows.UI.Xaml.Input.IFocusManager;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_AreKeyTipsEnabled
+   return Windows.Boolean;
+   
+   procedure put_AreKeyTipsEnabled
+   (
+      value : Windows.Boolean
+   )
+   ;
    
    function get_IsDisplayModeEnabled
    return Windows.Boolean;
@@ -3057,15 +3241,6 @@ package Windows.UI.Xaml.Input is
    ;
    
    procedure ExitDisplayMode
-   ;
-   
-   function get_AreKeyTipsEnabled
-   return Windows.Boolean;
-   
-   procedure put_AreKeyTipsEnabled
-   (
-      value : Windows.Boolean
-   )
    ;
    
    function CreateInstance
@@ -3094,11 +3269,8 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs;
    
-   function TryMoveFocus
-   (
-      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
-   )
-   return Windows.Boolean;
+   function GetFocusedElement
+   return Windows.Object;
    
    function FindNextFocusableElement
    (
@@ -3112,6 +3284,32 @@ package Windows.UI.Xaml.Input is
       ; hintRect : Windows.Foundation.Rect
    )
    return Windows.UI.Xaml.IUIElement;
+   
+   function TryFocusAsync
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.FocusState
+   )
+   return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
+   
+   function TryMoveFocusAsync
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+   )
+   return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
+   
+   function TryMoveFocusWithOptionsAsync
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+      ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
+   )
+   return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
+   
+   function TryMoveFocus
+   (
+      focusNavigationDirection : Windows.UI.Xaml.Input.FocusNavigationDirection
+   )
+   return Windows.Boolean;
    
    function TryMoveFocusWithOptions
    (
@@ -3144,8 +3342,5 @@ package Windows.UI.Xaml.Input is
       ; focusNavigationOptions : Windows.UI.Xaml.Input.IFindNextElementOptions
    )
    return Windows.UI.Xaml.IDependencyObject;
-   
-   function GetFocusedElement
-   return Windows.Object;
    
 end;

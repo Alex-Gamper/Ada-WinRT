@@ -62,11 +62,15 @@ package Windows.UI.Composition.Interactions is
    
    type VisualInteractionSourceRedirectionMode is (
       Off,
-      CapableTouchpadOnly
+      CapableTouchpadOnly,
+      PointerWheelOnly,
+      CapableTouchpadAndPointerWheel
    );
    for VisualInteractionSourceRedirectionMode use (
       Off => 0,
-      CapableTouchpadOnly => 1
+      CapableTouchpadOnly => 1,
+      PointerWheelOnly => 2,
+      CapableTouchpadAndPointerWheel => 3
    );
    for VisualInteractionSourceRedirectionMode'Size use 32;
    

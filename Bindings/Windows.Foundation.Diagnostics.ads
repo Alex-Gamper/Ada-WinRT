@@ -2160,11 +2160,7 @@ package Windows.Foundation.Diagnostics is
    
    subtype ErrorDetails is Windows.Foundation.Diagnostics.IErrorDetails;
    subtype LoggingOptions is Windows.Foundation.Diagnostics.ILoggingOptions;
-   function CreateWithKeywords
-   (
-      keywords : Windows.Int64
-   )
-   return Windows.Foundation.Diagnostics.ILoggingOptions;
+   function CreateLoggingOptions return Windows.Foundation.Diagnostics.ILoggingOptions;
    
    subtype LoggingChannelOptions is Windows.Foundation.Diagnostics.ILoggingChannelOptions;
    function CreateLoggingChannelOptions return Windows.Foundation.Diagnostics.ILoggingChannelOptions;

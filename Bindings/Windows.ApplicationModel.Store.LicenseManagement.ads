@@ -242,12 +242,6 @@ package Windows.ApplicationModel.Store.LicenseManagement is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function RefreshLicensesAsync
-   (
-      refreshOption : Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption
-   )
-   return Windows.Foundation.IAsyncAction;
-   
    function AddLicenseAsync
    (
       license : Windows.Storage.Streams.IBuffer
@@ -260,5 +254,11 @@ package Windows.ApplicationModel.Store.LicenseManagement is
       ; keyIds : Windows.Foundation.Collections.IIterable_String
    )
    return Windows.ApplicationModel.Store.LicenseManagement.IAsyncOperation_ILicenseSatisfactionResult;
+   
+   function RefreshLicensesAsync
+   (
+      refreshOption : Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption
+   )
+   return Windows.Foundation.IAsyncAction;
    
 end;

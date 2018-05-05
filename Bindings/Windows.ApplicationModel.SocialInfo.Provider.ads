@@ -312,4 +312,38 @@ package Windows.ApplicationModel.SocialInfo.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function CreateSocialFeedUpdaterAsync
+   (
+      kind : Windows.ApplicationModel.SocialInfo.SocialFeedKind
+      ; mode : Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode
+      ; ownerRemoteId : Windows.String
+   )
+   return Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialFeedUpdater;
+   
+   function CreateDashboardItemUpdaterAsync
+   (
+      ownerRemoteId : Windows.String
+   )
+   return Windows.ApplicationModel.SocialInfo.Provider.IAsyncOperation_ISocialDashboardItemUpdater;
+   
+   procedure UpdateBadgeCountValue
+   (
+      itemRemoteId : Windows.String
+      ; newCount : Windows.Int32
+   )
+   ;
+   
+   procedure ReportNewContentAvailable
+   (
+      contactRemoteId : Windows.String
+      ; kind : Windows.ApplicationModel.SocialInfo.SocialFeedKind
+   )
+   ;
+   
+   function ProvisionAsync
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function DeprovisionAsync
+   return Windows.Foundation.IAsyncAction;
+   
 end;

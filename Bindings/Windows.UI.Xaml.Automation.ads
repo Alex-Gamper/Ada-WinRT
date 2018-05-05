@@ -501,6 +501,9 @@ package Windows.UI.Xaml.Automation is
    type IAutomationElementIdentifiersStatics6_Interface;
    type IAutomationElementIdentifiersStatics6 is access all IAutomationElementIdentifiersStatics6_Interface'Class;
    type IAutomationElementIdentifiersStatics6_Ptr is access all IAutomationElementIdentifiersStatics6;
+   type IAutomationElementIdentifiersStatics7_Interface;
+   type IAutomationElementIdentifiersStatics7 is access all IAutomationElementIdentifiersStatics7_Interface'Class;
+   type IAutomationElementIdentifiersStatics7_Ptr is access all IAutomationElementIdentifiersStatics7;
    type IAutomationProperties_Interface;
    type IAutomationProperties is access all IAutomationProperties_Interface'Class;
    type IAutomationProperties_Ptr is access all IAutomationProperties;
@@ -522,6 +525,9 @@ package Windows.UI.Xaml.Automation is
    type IAutomationPropertiesStatics6_Interface;
    type IAutomationPropertiesStatics6 is access all IAutomationPropertiesStatics6_Interface'Class;
    type IAutomationPropertiesStatics6_Ptr is access all IAutomationPropertiesStatics6;
+   type IAutomationPropertiesStatics7_Interface;
+   type IAutomationPropertiesStatics7 is access all IAutomationPropertiesStatics7_Interface'Class;
+   type IAutomationPropertiesStatics7_Ptr is access all IAutomationPropertiesStatics7;
    type IAutomationProperty_Interface;
    type IAutomationProperty is access all IAutomationProperty_Interface'Class;
    type IAutomationProperty_Ptr is access all IAutomationProperty;
@@ -1015,6 +1021,19 @@ package Windows.UI.Xaml.Automation is
    function get_CultureProperty
    (
       This       : access IAutomationElementIdentifiersStatics6_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutomationElementIdentifiersStatics7 : aliased constant Windows.IID := (15838130, 29740, 17514, (168, 246, 22, 114, 177, 13, 40, 116 ));
+   
+   type IAutomationElementIdentifiersStatics7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HeadingLevelProperty
+   (
+      This       : access IAutomationElementIdentifiersStatics7_Interface
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
@@ -1616,6 +1635,35 @@ package Windows.UI.Xaml.Automation is
       This       : access IAutomationPropertiesStatics6_Interface
       ; element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutomationPropertiesStatics7 : aliased constant Windows.IID := (4159278067, 36753, 16488, (164, 173, 183, 180, 2, 209, 10, 44 ));
+   
+   type IAutomationPropertiesStatics7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HeadingLevelProperty
+   (
+      This       : access IAutomationPropertiesStatics7_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetHeadingLevel
+   (
+      This       : access IAutomationPropertiesStatics7_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetHeadingLevel
+   (
+      This       : access IAutomationPropertiesStatics7_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
    )
    return Windows.HRESULT is abstract;
    
@@ -2601,18 +2649,7 @@ package Windows.UI.Xaml.Automation is
    subtype ValuePatternIdentifiers is Windows.UI.Xaml.Automation.IValuePatternIdentifiers;
    subtype WindowPatternIdentifiers is Windows.UI.Xaml.Automation.IWindowPatternIdentifiers;
    subtype AutomationAnnotation is Windows.UI.Xaml.Automation.IAutomationAnnotation;
-   function CreateInstance
-   (
-      type_x : Windows.UI.Xaml.Automation.AnnotationType
-   )
-   return Windows.UI.Xaml.Automation.IAutomationAnnotation;
-   
-   function CreateWithElementParameter
-   (
-      type_x : Windows.UI.Xaml.Automation.AnnotationType
-      ; element : Windows.UI.Xaml.IUIElement
-   )
-   return Windows.UI.Xaml.Automation.IAutomationAnnotation;
+   function CreateAutomationAnnotation return Windows.UI.Xaml.Automation.IAutomationAnnotation;
    
    
    ------------------------------------------------------------------------
@@ -2634,16 +2671,10 @@ package Windows.UI.Xaml.Automation is
    function get_TargetProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_PositionInSetProperty
+   function get_LandmarkTypeProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_SizeOfSetProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_LevelProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_AnnotationsProperty
+   function get_LocalizedLandmarkTypeProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
    function get_IsPeripheralProperty
@@ -2662,9 +2693,6 @@ package Windows.UI.Xaml.Automation is
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
    function get_FlowsFromProperty
-   return Windows.UI.Xaml.Automation.IAutomationProperty;
-   
-   function get_ControlledPeersProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
    function get_CultureProperty
@@ -2739,134 +2767,23 @@ package Windows.UI.Xaml.Automation is
    function get_LiveSettingProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_LandmarkTypeProperty
+   function get_PositionInSetProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_LocalizedLandmarkTypeProperty
+   function get_SizeOfSetProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_IsPeripheralProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function get_LevelProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function GetIsPeripheral
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
+   function get_AnnotationsProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   procedure SetIsPeripheral
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
+   function get_HeadingLevelProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
    
-   function get_IsDataValidForFormProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetIsDataValidForForm
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Boolean;
-   
-   procedure SetIsDataValidForForm
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Boolean
-   )
-   ;
-   
-   function get_FullDescriptionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetFullDescription
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
-   
-   procedure SetFullDescription
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.String
-   )
-   ;
-   
-   function get_LocalizedControlTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetLocalizedControlType
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
-   
-   procedure SetLocalizedControlType
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.String
-   )
-   ;
-   
-   function get_DescribedByProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetDescribedBy
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IVector_IDependencyObject;
-   
-   function get_FlowsToProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetFlowsTo
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IVector_IDependencyObject;
-   
-   function get_FlowsFromProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetFlowsFrom
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.IVector_IDependencyObject;
-   
-   function get_LandmarkTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetLandmarkType
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType;
-   
-   procedure SetLandmarkType
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType
-   )
-   ;
-   
-   function get_LocalizedLandmarkTypeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetLocalizedLandmarkType
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.String;
-   
-   procedure SetLocalizedLandmarkType
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.String
-   )
-   ;
+   function get_ControlledPeersProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
    
    function get_AccessibilityViewProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -2892,22 +2809,6 @@ package Windows.UI.Xaml.Automation is
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.UI.Xaml.IVector_IUIElement;
-   
-   function get_CultureProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function GetCulture
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-   )
-   return Windows.Int32;
-   
-   procedure SetCulture
-   (
-      element : Windows.UI.Xaml.IDependencyObject
-      ; value : Windows.Int32
-   )
-   ;
    
    function get_AcceleratorKeyProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -3125,6 +3026,161 @@ package Windows.UI.Xaml.Automation is
       element : Windows.UI.Xaml.IDependencyObject
    )
    return Windows.UI.Xaml.Automation.IVector_IAutomationAnnotation;
+   
+   function get_HeadingLevelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetHeadingLevel
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel;
+   
+   procedure SetHeadingLevel
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
+   )
+   ;
+   
+   function get_LandmarkTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetLandmarkType
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType;
+   
+   procedure SetLandmarkType
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType
+   )
+   ;
+   
+   function get_LocalizedLandmarkTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetLocalizedLandmarkType
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
+   procedure SetLocalizedLandmarkType
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.String
+   )
+   ;
+   
+   function get_IsPeripheralProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetIsPeripheral
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   procedure SetIsPeripheral
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   function get_IsDataValidForFormProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetIsDataValidForForm
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   procedure SetIsDataValidForForm
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   ;
+   
+   function get_FullDescriptionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetFullDescription
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
+   procedure SetFullDescription
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.String
+   )
+   ;
+   
+   function get_LocalizedControlTypeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetLocalizedControlType
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.String;
+   
+   procedure SetLocalizedControlType
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.String
+   )
+   ;
+   
+   function get_DescribedByProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetDescribedBy
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IVector_IDependencyObject;
+   
+   function get_FlowsToProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetFlowsTo
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IVector_IDependencyObject;
+   
+   function get_FlowsFromProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetFlowsFrom
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.UI.Xaml.IVector_IDependencyObject;
+   
+   function get_CultureProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetCulture
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Int32;
+   
+   procedure SetCulture
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Int32
+   )
+   ;
    
    function get_DockPositionProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;

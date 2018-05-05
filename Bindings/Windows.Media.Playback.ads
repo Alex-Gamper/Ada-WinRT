@@ -29,6 +29,7 @@ limited with Windows.Devices.Enumeration;
 limited with Windows.Media.Casting;
 limited with Windows.UI.Composition;
 limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Media.Audio;
 limited with Windows.Media.MediaProperties;
 with Windows.Foundation.Numerics;
 --------------------------------------------------------------------------------
@@ -150,18 +151,6 @@ package Windows.Media.Playback is
    
    type StereoscopicVideoRenderMode_Ptr is access StereoscopicVideoRenderMode;
    
-   type SphericalVideoProjectionMode is (
-      Spherical,
-      Flat
-   );
-   for SphericalVideoProjectionMode use (
-      Spherical => 0,
-      Flat => 1
-   );
-   for SphericalVideoProjectionMode'Size use 32;
-   
-   type SphericalVideoProjectionMode_Ptr is access SphericalVideoProjectionMode;
-   
    type MediaCommandEnablingRule is (
       Auto,
       Always,
@@ -175,6 +164,40 @@ package Windows.Media.Playback is
    for MediaCommandEnablingRule'Size use 32;
    
    type MediaCommandEnablingRule_Ptr is access MediaCommandEnablingRule;
+   
+   type MediaPlaybackSessionVideoConstrictionReason is (
+      None,
+      VirtualMachine,
+      UnsupportedDisplayAdapter,
+      UnsignedDriver,
+      FrameServerEnabled,
+      OutputProtectionFailed,
+      Unknown
+   );
+   for MediaPlaybackSessionVideoConstrictionReason use (
+      None => 0,
+      VirtualMachine => 1,
+      UnsupportedDisplayAdapter => 2,
+      UnsignedDriver => 3,
+      FrameServerEnabled => 4,
+      OutputProtectionFailed => 5,
+      Unknown => 6
+   );
+   for MediaPlaybackSessionVideoConstrictionReason'Size use 32;
+   
+   type MediaPlaybackSessionVideoConstrictionReason_Ptr is access MediaPlaybackSessionVideoConstrictionReason;
+   
+   type SphericalVideoProjectionMode is (
+      Spherical,
+      Flat
+   );
+   for SphericalVideoProjectionMode use (
+      Spherical => 0,
+      Flat => 1
+   );
+   for SphericalVideoProjectionMode'Size use 32;
+   
+   type SphericalVideoProjectionMode_Ptr is access SphericalVideoProjectionMode;
    
    type MediaPlaybackItemErrorCode is (
       None,
@@ -480,6 +503,9 @@ package Windows.Media.Playback is
    type IMediaPlayer6_Interface;
    type IMediaPlayer6 is access all IMediaPlayer6_Interface'Class;
    type IMediaPlayer6_Ptr is access all IMediaPlayer6;
+   type IMediaPlayer7_Interface;
+   type IMediaPlayer7 is access all IMediaPlayer7_Interface'Class;
+   type IMediaPlayer7_Ptr is access all IMediaPlayer7;
    type IMediaPlaybackSession_Interface;
    type IMediaPlaybackSession is access all IMediaPlaybackSession_Interface'Class;
    type IMediaPlaybackSession_Ptr is access all IMediaPlaybackSession;
@@ -489,6 +515,12 @@ package Windows.Media.Playback is
    type IMediaPlaybackSession2_Interface;
    type IMediaPlaybackSession2 is access all IMediaPlaybackSession2_Interface'Class;
    type IMediaPlaybackSession2_Ptr is access all IMediaPlaybackSession2;
+   type IMediaPlaybackSessionOutputDegradationPolicyState_Interface;
+   type IMediaPlaybackSessionOutputDegradationPolicyState is access all IMediaPlaybackSessionOutputDegradationPolicyState_Interface'Class;
+   type IMediaPlaybackSessionOutputDegradationPolicyState_Ptr is access all IMediaPlaybackSessionOutputDegradationPolicyState;
+   type IMediaPlaybackSession3_Interface;
+   type IMediaPlaybackSession3 is access all IMediaPlaybackSession3_Interface'Class;
+   type IMediaPlaybackSession3_Ptr is access all IMediaPlaybackSession3;
    type IMediaPlaybackSessionBufferingStartedEventArgs_Interface;
    type IMediaPlaybackSessionBufferingStartedEventArgs is access all IMediaPlaybackSessionBufferingStartedEventArgs_Interface'Class;
    type IMediaPlaybackSessionBufferingStartedEventArgs_Ptr is access all IMediaPlaybackSessionBufferingStartedEventArgs;
@@ -1461,6 +1493,19 @@ package Windows.Media.Playback is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaPlayer7 : aliased constant Windows.IID := (1562231928, 17664, 17713, (179, 244, 119, 122, 113, 73, 31, 127 ));
+   
+   type IMediaPlayer7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AudioStateMonitor
+   (
+      This       : access IMediaPlayer7_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioStateMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaPlaybackSession : aliased constant Windows.IID := (3274401853, 1031, 16826, (137, 70, 139, 52, 90, 90, 84, 53 ));
    
    type IMediaPlaybackSession_Interface is interface and Windows.IInspectable_Interface;
@@ -1931,6 +1976,46 @@ package Windows.Media.Playback is
       ; rate1 : Windows.Double
       ; rate2 : Windows.Double
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaPlaybackSessionOutputDegradationPolicyState : aliased constant Windows.IID := (1435398781, 63027, 18937, (150, 90, 171, 170, 29, 183, 9, 190 ));
+   
+   type IMediaPlaybackSessionOutputDegradationPolicyState_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_VideoConstrictionReason
+   (
+      This       : access IMediaPlaybackSessionOutputDegradationPolicyState_Interface
+      ; RetVal : access Windows.Media.Playback.MediaPlaybackSessionVideoConstrictionReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaPlaybackSession3 : aliased constant Windows.IID := (2074260506, 41954, 16479, (183, 123, 164, 129, 44, 35, 139, 102 ));
+   
+   type IMediaPlaybackSession3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PlaybackRotation
+   (
+      This       : access IMediaPlaybackSession3_Interface
+      ; RetVal : access Windows.Media.MediaProperties.MediaRotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PlaybackRotation
+   (
+      This       : access IMediaPlaybackSession3_Interface
+      ; value : Windows.Media.MediaProperties.MediaRotation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetOutputDegradationPolicyState
+   (
+      This       : access IMediaPlaybackSession3_Interface
+      ; RetVal : access Windows.Media.Playback.IMediaPlaybackSessionOutputDegradationPolicyState
    )
    return Windows.HRESULT is abstract;
    
@@ -4894,6 +4979,7 @@ package Windows.Media.Playback is
    subtype MediaPlaybackSession is Windows.Media.Playback.IMediaPlaybackSession;
    subtype MediaPlayerSurface is Windows.Media.Playback.IMediaPlayerSurface;
    subtype MediaPlaybackSphericalVideoProjection is Windows.Media.Playback.IMediaPlaybackSphericalVideoProjection;
+   subtype MediaPlaybackSessionOutputDegradationPolicyState is Windows.Media.Playback.IMediaPlaybackSessionOutputDegradationPolicyState;
    subtype MediaPlaybackSessionBufferingStartedEventArgs is Windows.Media.Playback.IMediaPlaybackSessionBufferingStartedEventArgs;
    subtype MediaBreakSeekedOverEventArgs is Windows.Media.Playback.IMediaBreakSeekedOverEventArgs;
    subtype MediaBreakStartedEventArgs is Windows.Media.Playback.IMediaBreakStartedEventArgs;
@@ -4911,18 +4997,9 @@ package Windows.Media.Playback is
    subtype MediaPlaybackCommandManagerRateReceivedEventArgs is Windows.Media.Playback.IMediaPlaybackCommandManagerRateReceivedEventArgs;
    subtype MediaPlaybackCommandManagerCommandBehavior is Windows.Media.Playback.IMediaPlaybackCommandManagerCommandBehavior;
    subtype MediaPlaybackItem is Windows.Media.Playback.IMediaPlaybackItem;
-   function CreateWithStartTime
+   function Create
    (
       source : Windows.Media.Core.IMediaSource2
-      ; startTime : Windows.Foundation.TimeSpan
-   )
-   return Windows.Media.Playback.IMediaPlaybackItem;
-   
-   function CreateWithStartTimeAndDurationLimit
-   (
-      source : Windows.Media.Core.IMediaSource2
-      ; startTime : Windows.Foundation.TimeSpan
-      ; durationLimit : Windows.Foundation.TimeSpan
    )
    return Windows.Media.Playback.IMediaPlaybackItem;
    
@@ -4957,6 +5034,51 @@ package Windows.Media.Playback is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Current
+   return Windows.Media.Playback.IMediaPlayer;
+   
+   function add_MessageReceivedFromBackground
+   (
+      value : Windows.Media.Playback.EventHandler_IMediaPlayerDataReceivedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_MessageReceivedFromBackground
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_MessageReceivedFromForeground
+   (
+      value : Windows.Media.Playback.EventHandler_IMediaPlayerDataReceivedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_MessageReceivedFromForeground
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure SendMessageToBackground
+   (
+      value : Windows.Foundation.Collections.IPropertySet
+   )
+   ;
+   
+   procedure SendMessageToForeground
+   (
+      value : Windows.Foundation.Collections.IPropertySet
+   )
+   ;
+   
+   function IsMediaPlaying
+   return Windows.Boolean;
+   
+   procedure Shutdown
+   ;
    
    function FindFromMediaSource
    (

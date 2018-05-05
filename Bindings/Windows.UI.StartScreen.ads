@@ -97,6 +97,18 @@ package Windows.UI.StartScreen is
    
    type ForegroundText_Ptr is access ForegroundText;
    
+   type TileMixedRealityModelActivationBehavior is (
+      Default,
+      None
+   );
+   for TileMixedRealityModelActivationBehavior use (
+      Default => 0,
+      None => 1
+   );
+   for TileMixedRealityModelActivationBehavior'Size use 32;
+   
+   type TileMixedRealityModelActivationBehavior_Ptr is access TileMixedRealityModelActivationBehavior;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -142,6 +154,9 @@ package Windows.UI.StartScreen is
    type ITileMixedRealityModel_Interface;
    type ITileMixedRealityModel is access all ITileMixedRealityModel_Interface'Class;
    type ITileMixedRealityModel_Ptr is access all ITileMixedRealityModel;
+   type ITileMixedRealityModel2_Interface;
+   type ITileMixedRealityModel2 is access all ITileMixedRealityModel2_Interface'Class;
+   type ITileMixedRealityModel2_Ptr is access all ITileMixedRealityModel2;
    type ISecondaryTileVisualElements4_Interface;
    type ISecondaryTileVisualElements4 is access all ISecondaryTileVisualElements4_Interface'Class;
    type ISecondaryTileVisualElements4_Ptr is access all ISecondaryTileVisualElements4;
@@ -880,6 +895,26 @@ package Windows.UI.StartScreen is
    
    ------------------------------------------------------------------------
    
+   IID_ITileMixedRealityModel2 : aliased constant Windows.IID := (1133801650, 55237, 16651, (131, 25, 148, 134, 162, 123, 108, 103 ));
+   
+   type ITileMixedRealityModel2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_ActivationBehavior
+   (
+      This       : access ITileMixedRealityModel2_Interface
+      ; value : Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActivationBehavior
+   (
+      This       : access ITileMixedRealityModel2_Interface
+      ; RetVal : access Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISecondaryTileVisualElements4 : aliased constant Windows.IID := (1716936983, 46404, 16594, (141, 18, 116, 212, 236, 36, 208, 76 ));
    
    type ISecondaryTileVisualElements4_Interface is interface and Windows.IInspectable_Interface;
@@ -1437,7 +1472,15 @@ package Windows.UI.StartScreen is
    subtype JumpList is Windows.UI.StartScreen.IJumpList;
    subtype SecondaryTileVisualElements is Windows.UI.StartScreen.ISecondaryTileVisualElements;
    subtype SecondaryTile is Windows.UI.StartScreen.ISecondaryTile;
-   function CreateSecondaryTile return Windows.UI.StartScreen.ISecondaryTile;
+   function CreateMinimalTile
+   (
+      tileId : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; square150x150Logo : Windows.Foundation.IUriRuntimeClass
+      ; desiredSize : Windows.UI.StartScreen.TileSize
+   )
+   return Windows.UI.StartScreen.ISecondaryTile;
    
    subtype VisualElementsRequestedEventArgs is Windows.UI.StartScreen.IVisualElementsRequestedEventArgs;
    subtype TileMixedRealityModel is Windows.UI.StartScreen.ITileMixedRealityModel;

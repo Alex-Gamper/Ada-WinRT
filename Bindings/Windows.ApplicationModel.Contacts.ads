@@ -7062,7 +7062,18 @@ package Windows.ApplicationModel.Contacts is
    subtype ContactList is Windows.ApplicationModel.Contacts.IContactList;
    subtype ContactReader is Windows.ApplicationModel.Contacts.IContactReader;
    subtype ContactQueryOptions is Windows.ApplicationModel.Contacts.IContactQueryOptions;
-   function CreateContactQueryOptions return Windows.ApplicationModel.Contacts.IContactQueryOptions;
+   function CreateWithText
+   (
+      text : Windows.String
+   )
+   return Windows.ApplicationModel.Contacts.IContactQueryOptions;
+   
+   function CreateWithTextAndFields
+   (
+      text : Windows.String
+      ; fields : Windows.ApplicationModel.Contacts.ContactQuerySearchFields
+   )
+   return Windows.ApplicationModel.Contacts.IContactQueryOptions;
    
    subtype ContactListSyncManager is Windows.ApplicationModel.Contacts.IContactListSyncManager;
    subtype ContactListSyncConstraints is Windows.ApplicationModel.Contacts.IContactListSyncConstraints;
@@ -7217,8 +7228,23 @@ package Windows.ApplicationModel.Contacts is
    )
    return Windows.ApplicationModel.Contacts.IContactCardDelayedDataLoader;
    
-   function RequestStoreAsync
-   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
+   function IsShowFullContactCardSupportedAsync
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function get_IncludeMiddleNameInSystemDisplayAndSort
+   return Windows.Boolean;
+   
+   procedure put_IncludeMiddleNameInSystemDisplayAndSort
+   (
+      value : Windows.Boolean
+   )
+   ;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.ApplicationModel.Contacts.IContactManagerForUser;
    
    function ConvertContactToVCardAsync
    (
@@ -7300,23 +7326,8 @@ package Windows.ApplicationModel.Contacts is
    )
    ;
    
-   function IsShowFullContactCardSupportedAsync
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
-   function get_IncludeMiddleNameInSystemDisplayAndSort
-   return Windows.Boolean;
-   
-   procedure put_IncludeMiddleNameInSystemDisplayAndSort
-   (
-      value : Windows.Boolean
-   )
-   ;
-   
-   function GetForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.ApplicationModel.Contacts.IContactManagerForUser;
+   function RequestStoreAsync
+   return Windows.ApplicationModel.Contacts.IAsyncOperation_IContactStore;
    
    function get_Call
    return Windows.String;
@@ -7341,6 +7352,30 @@ package Windows.ApplicationModel.Contacts is
    
    function IsSupportedAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function get_Email
+   return Windows.String;
+   
+   function get_PhoneNumber
+   return Windows.String;
+   
+   function get_Location
+   return Windows.String;
+   
+   function get_InstantMessage
+   return Windows.String;
+   
+   function ConvertNameToType
+   (
+      name : Windows.String
+   )
+   return Windows.ApplicationModel.Contacts.ContactFieldType;
+   
+   function ConvertTypeToName
+   (
+      type_x : Windows.ApplicationModel.Contacts.ContactFieldType
+   )
+   return Windows.String;
    
    function GetDefault
    return Windows.ApplicationModel.Contacts.IPinnedContactManager;

@@ -19,12 +19,12 @@
 -- along with this program.If not, see < http://www.gnu.org/licenses/>.       --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Foundation.Collections;
-with Windows.Foundation;
-limited with Windows.Media.Devices.Core;
 limited with Windows.Devices.Enumeration;
+with Windows.Foundation.Collections;
 with Windows; use Windows;
 limited with Windows.Perception.Spatial;
+with Windows.Foundation;
+limited with Windows.Media.Devices.Core;
 limited with Windows.Media.Devices;
 limited with Windows.Media.MediaProperties;
 limited with Windows.Storage.Streams;
@@ -101,13 +101,17 @@ package Windows.Media.Capture.Frames is
       Custom,
       Color,
       Infrared,
-      Depth
+      Depth,
+      Audio,
+      Image
    );
    for MediaFrameSourceKind use (
       Custom => 0,
       Color => 1,
       Infrared => 2,
-      Depth => 3
+      Depth => 3,
+      Audio => 4,
+      Image => 5
    );
    for MediaFrameSourceKind'Size use 32;
    
@@ -191,6 +195,9 @@ package Windows.Media.Capture.Frames is
    type IMediaFrameSourceInfo_Interface;
    type IMediaFrameSourceInfo is access all IMediaFrameSourceInfo_Interface'Class;
    type IMediaFrameSourceInfo_Ptr is access all IMediaFrameSourceInfo;
+   type IMediaFrameSourceInfo2_Interface;
+   type IMediaFrameSourceInfo2 is access all IMediaFrameSourceInfo2_Interface'Class;
+   type IMediaFrameSourceInfo2_Ptr is access all IMediaFrameSourceInfo2;
    type IMediaFrameSource_Interface;
    type IMediaFrameSource is access all IMediaFrameSource_Interface'Class;
    type IMediaFrameSource_Ptr is access all IMediaFrameSource;
@@ -218,18 +225,27 @@ package Windows.Media.Capture.Frames is
    type IMediaFrameSourceController2_Interface;
    type IMediaFrameSourceController2 is access all IMediaFrameSourceController2_Interface'Class;
    type IMediaFrameSourceController2_Ptr is access all IMediaFrameSourceController2;
+   type IMediaFrameSourceController3_Interface;
+   type IMediaFrameSourceController3 is access all IMediaFrameSourceController3_Interface'Class;
+   type IMediaFrameSourceController3_Ptr is access all IMediaFrameSourceController3;
    type IMediaFrameSourceGetPropertyResult_Interface;
    type IMediaFrameSourceGetPropertyResult is access all IMediaFrameSourceGetPropertyResult_Interface'Class;
    type IMediaFrameSourceGetPropertyResult_Ptr is access all IMediaFrameSourceGetPropertyResult;
    type IMediaFrameFormat_Interface;
    type IMediaFrameFormat is access all IMediaFrameFormat_Interface'Class;
    type IMediaFrameFormat_Ptr is access all IMediaFrameFormat;
+   type IMediaFrameFormat2_Interface;
+   type IMediaFrameFormat2 is access all IMediaFrameFormat2_Interface'Class;
+   type IMediaFrameFormat2_Ptr is access all IMediaFrameFormat2;
    type IVideoMediaFrameFormat_Interface;
    type IVideoMediaFrameFormat is access all IVideoMediaFrameFormat_Interface'Class;
    type IVideoMediaFrameFormat_Ptr is access all IVideoMediaFrameFormat;
    type IMediaFrameReference_Interface;
    type IMediaFrameReference is access all IMediaFrameReference_Interface'Class;
    type IMediaFrameReference_Ptr is access all IMediaFrameReference;
+   type IMediaFrameReference2_Interface;
+   type IMediaFrameReference2 is access all IMediaFrameReference2_Interface'Class;
+   type IMediaFrameReference2_Ptr is access all IMediaFrameReference2;
    type IMultiSourceMediaFrameReference_Interface;
    type IMultiSourceMediaFrameReference is access all IMultiSourceMediaFrameReference_Interface'Class;
    type IMultiSourceMediaFrameReference_Ptr is access all IMultiSourceMediaFrameReference;
@@ -251,6 +267,18 @@ package Windows.Media.Capture.Frames is
    type IDepthMediaFrameFormat_Interface;
    type IDepthMediaFrameFormat is access all IDepthMediaFrameFormat_Interface'Class;
    type IDepthMediaFrameFormat_Ptr is access all IDepthMediaFrameFormat;
+   type IAudioMediaFrame_Interface;
+   type IAudioMediaFrame is access all IAudioMediaFrame_Interface'Class;
+   type IAudioMediaFrame_Ptr is access all IAudioMediaFrame;
+   type IIterator_IMediaFrameSourceInfo_Interface;
+   type IIterator_IMediaFrameSourceInfo is access all IIterator_IMediaFrameSourceInfo_Interface'Class;
+   type IIterator_IMediaFrameSourceInfo_Ptr is access all IIterator_IMediaFrameSourceInfo;
+   type IIterable_IMediaFrameSourceInfo_Interface;
+   type IIterable_IMediaFrameSourceInfo is access all IIterable_IMediaFrameSourceInfo_Interface'Class;
+   type IIterable_IMediaFrameSourceInfo_Ptr is access all IIterable_IMediaFrameSourceInfo;
+   type IVectorView_IMediaFrameSourceInfo_Interface;
+   type IVectorView_IMediaFrameSourceInfo is access all IVectorView_IMediaFrameSourceInfo_Interface'Class;
+   type IVectorView_IMediaFrameSourceInfo_Ptr is access all IVectorView_IMediaFrameSourceInfo;
    type IAsyncOperation_IMediaFrameReader_Interface;
    type IAsyncOperation_IMediaFrameReader is access all IAsyncOperation_IMediaFrameReader_Interface'Class;
    type IAsyncOperation_IMediaFrameReader_Ptr is access all IAsyncOperation_IMediaFrameReader;
@@ -263,15 +291,6 @@ package Windows.Media.Capture.Frames is
    type IIterable_IMediaFrameSource_Interface;
    type IIterable_IMediaFrameSource is access all IIterable_IMediaFrameSource_Interface'Class;
    type IIterable_IMediaFrameSource_Ptr is access all IIterable_IMediaFrameSource;
-   type IIterator_IMediaFrameSourceInfo_Interface;
-   type IIterator_IMediaFrameSourceInfo is access all IIterator_IMediaFrameSourceInfo_Interface'Class;
-   type IIterator_IMediaFrameSourceInfo_Ptr is access all IIterator_IMediaFrameSourceInfo;
-   type IIterable_IMediaFrameSourceInfo_Interface;
-   type IIterable_IMediaFrameSourceInfo is access all IIterable_IMediaFrameSourceInfo_Interface'Class;
-   type IIterable_IMediaFrameSourceInfo_Ptr is access all IIterable_IMediaFrameSourceInfo;
-   type IVectorView_IMediaFrameSourceInfo_Interface;
-   type IVectorView_IMediaFrameSourceInfo is access all IVectorView_IMediaFrameSourceInfo_Interface'Class;
-   type IVectorView_IMediaFrameSourceInfo_Ptr is access all IVectorView_IMediaFrameSourceInfo;
    type IAsyncOperation_IMediaFrameSourceGroup_Interface;
    type IAsyncOperation_IMediaFrameSourceGroup is access all IAsyncOperation_IMediaFrameSourceGroup_Interface'Class;
    type IAsyncOperation_IMediaFrameSourceGroup_Ptr is access all IAsyncOperation_IMediaFrameSourceGroup;
@@ -408,6 +427,26 @@ package Windows.Media.Capture.Frames is
    (
       This       : access IMediaFrameSourceInfo_Interface
       ; RetVal : access Windows.Perception.Spatial.ISpatialCoordinateSystem
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaFrameSourceInfo2 : aliased constant Windows.IID := (425359445, 25687, 17094, (167, 105, 25, 182, 91, 211, 46, 110 ));
+   
+   type IMediaFrameSourceInfo2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProfileId
+   (
+      This       : access IMediaFrameSourceInfo2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VideoProfileMediaDescription
+   (
+      This       : access IMediaFrameSourceInfo2_Interface
+      ; RetVal : access Windows.Media.Capture.IVectorView_IMediaCaptureVideoProfileMediaDescription -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -668,6 +707,19 @@ package Windows.Media.Capture.Frames is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaFrameSourceController3 : aliased constant Windows.IID := (520943637, 9316, 18001, (177, 232, 74, 130, 219, 219, 84, 222 ));
+   
+   type IMediaFrameSourceController3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AudioDeviceController
+   (
+      This       : access IMediaFrameSourceController3_Interface
+      ; RetVal : access Windows.Media.Devices.IAudioDeviceController
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaFrameSourceGetPropertyResult : aliased constant Windows.IID := (143005378, 14948, 19413, (189, 43, 231, 200, 152, 210, 243, 122 ));
    
    type IMediaFrameSourceGetPropertyResult_Interface is interface and Windows.IInspectable_Interface;
@@ -724,6 +776,19 @@ package Windows.Media.Capture.Frames is
    (
       This       : access IMediaFrameFormat_Interface
       ; RetVal : access Windows.Media.Capture.Frames.IVideoMediaFrameFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaFrameFormat2 : aliased constant Windows.IID := (1669686080, 24199, 19472, (134, 209, 109, 240, 151, 166, 198, 168 ));
+   
+   type IMediaFrameFormat2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AudioEncodingProperties
+   (
+      This       : access IMediaFrameFormat2_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IAudioEncodingProperties
    )
    return Windows.HRESULT is abstract;
    
@@ -820,6 +885,19 @@ package Windows.Media.Capture.Frames is
    (
       This       : access IMediaFrameReference_Interface
       ; RetVal : access Windows.Perception.Spatial.ISpatialCoordinateSystem
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaFrameReference2 : aliased constant Windows.IID := (3720101580, 54706, 18927, (131, 106, 148, 125, 152, 155, 128, 193 ));
+   
+   type IMediaFrameReference2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AudioMediaFrame
+   (
+      This       : access IMediaFrameReference2_Interface
+      ; RetVal : access Windows.Media.Capture.Frames.IAudioMediaFrame
    )
    return Windows.HRESULT is abstract;
    
@@ -1024,6 +1102,120 @@ package Windows.Media.Capture.Frames is
    
    ------------------------------------------------------------------------
    
+   IID_IAudioMediaFrame : aliased constant Windows.IID := (2745827071, 32801, 17435, (154, 70, 231, 240, 19, 123, 121, 129 ));
+   
+   type IAudioMediaFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FrameReference
+   (
+      This       : access IAudioMediaFrame_Interface
+      ; RetVal : access Windows.Media.Capture.Frames.IMediaFrameReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AudioEncodingProperties
+   (
+      This       : access IAudioMediaFrame_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IAudioEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetAudioFrame
+   (
+      This       : access IAudioMediaFrame_Interface
+      ; RetVal : access Windows.Media.IAudioFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IMediaFrameSourceInfo : aliased constant Windows.IID := (1144807640, 8334, 21401, (188, 68, 237, 198, 254, 240, 34, 147 ));
+   
+   type IIterator_IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IMediaFrameSourceInfo_Interface
+      ; RetVal : access Windows.Media.Capture.Frames.IMediaFrameSourceInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IMediaFrameSourceInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IMediaFrameSourceInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IMediaFrameSourceInfo_Interface
+      ; items : Windows.Media.Capture.Frames.IMediaFrameSourceInfo_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaFrameSourceInfo : aliased constant Windows.IID := (774489520, 27305, 20722, (145, 164, 91, 103, 165, 89, 143, 46 ));
+   
+   type IIterable_IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IMediaFrameSourceInfo_Interface
+      ; RetVal : access Windows.Media.Capture.Frames.IIterator_IMediaFrameSourceInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMediaFrameSourceInfo : aliased constant Windows.IID := (3688593734, 39728, 20944, (156, 140, 199, 16, 90, 246, 144, 224 ));
+   
+   type IVectorView_IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IMediaFrameSourceInfo_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Media.Capture.Frames.IMediaFrameSourceInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IMediaFrameSourceInfo_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IMediaFrameSourceInfo_Interface
+      ; value : Windows.Media.Capture.Frames.IMediaFrameSourceInfo
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IMediaFrameSourceInfo_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Media.Capture.Frames.IMediaFrameSourceInfo_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_IMediaFrameReader : aliased constant Windows.IID := (2701963597, 31029, 23687, (144, 38, 138, 190, 121, 42, 59, 229 ));
    
    type IAsyncOperation_IMediaFrameReader_Interface is interface and Windows.IInspectable_Interface;
@@ -1121,93 +1313,6 @@ package Windows.Media.Capture.Frames is
    (
       This       : access IIterable_IMediaFrameSource_Interface
       ; RetVal : access Windows.Media.Capture.Frames.IIterator_IMediaFrameSource
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterator_IMediaFrameSourceInfo : aliased constant Windows.IID := (1144807640, 8334, 21401, (188, 68, 237, 198, 254, 240, 34, 147 ));
-   
-   type IIterator_IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_Current
-   (
-      This       : access IIterator_IMediaFrameSourceInfo_Interface
-      ; RetVal : access Windows.Media.Capture.Frames.IMediaFrameSourceInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_HasCurrent
-   (
-      This       : access IIterator_IMediaFrameSourceInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function MoveNext
-   (
-      This       : access IIterator_IMediaFrameSourceInfo_Interface
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IIterator_IMediaFrameSourceInfo_Interface
-      ; items : Windows.Media.Capture.Frames.IMediaFrameSourceInfo_Ptr
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IIterable_IMediaFrameSourceInfo : aliased constant Windows.IID := (774489520, 27305, 20722, (145, 164, 91, 103, 165, 89, 143, 46 ));
-   
-   type IIterable_IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function First
-   (
-      This       : access IIterable_IMediaFrameSourceInfo_Interface
-      ; RetVal : access Windows.Media.Capture.Frames.IIterator_IMediaFrameSourceInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IVectorView_IMediaFrameSourceInfo : aliased constant Windows.IID := (3688593734, 39728, 20944, (156, 140, 199, 16, 90, 246, 144, 224 ));
-   
-   type IVectorView_IMediaFrameSourceInfo_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetAt
-   (
-      This       : access IVectorView_IMediaFrameSourceInfo_Interface
-      ; index : Windows.UInt32
-      ; RetVal : access Windows.Media.Capture.Frames.IMediaFrameSourceInfo
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Size
-   (
-      This       : access IVectorView_IMediaFrameSourceInfo_Interface
-      ; RetVal : access Windows.UInt32
-   )
-   return Windows.HRESULT is abstract;
-   
-   function IndexOf
-   (
-      This       : access IVectorView_IMediaFrameSourceInfo_Interface
-      ; value : Windows.Media.Capture.Frames.IMediaFrameSourceInfo
-      ; index : access Windows.UInt32
-      ; RetVal : access Windows.Boolean
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetMany
-   (
-      This       : access IVectorView_IMediaFrameSourceInfo_Interface
-      ; startIndex : Windows.UInt32
-      ; items : Windows.Media.Capture.Frames.IMediaFrameSourceInfo_Ptr
-      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1571,11 +1676,11 @@ package Windows.Media.Capture.Frames is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype MediaFrameSourceInfo is Windows.Media.Capture.Frames.IMediaFrameSourceInfo;
    subtype MediaFrameSourceGroup is Windows.Media.Capture.Frames.IMediaFrameSourceGroup;
    subtype MediaFrameSource is Windows.Media.Capture.Frames.IMediaFrameSource;
    subtype MediaFrameReader is Windows.Media.Capture.Frames.IMediaFrameReader;
    subtype MultiSourceMediaFrameReader is Windows.Media.Capture.Frames.IMultiSourceMediaFrameReader;
-   subtype MediaFrameSourceInfo is Windows.Media.Capture.Frames.IMediaFrameSourceInfo;
    subtype MediaFrameSourceController is Windows.Media.Capture.Frames.IMediaFrameSourceController;
    subtype MediaFrameFormat is Windows.Media.Capture.Frames.IMediaFrameFormat;
    subtype MediaFrameArrivedEventArgs is Windows.Media.Capture.Frames.IMediaFrameArrivedEventArgs;
@@ -1587,6 +1692,7 @@ package Windows.Media.Capture.Frames is
    subtype DepthMediaFrameFormat is Windows.Media.Capture.Frames.IDepthMediaFrameFormat;
    subtype BufferMediaFrame is Windows.Media.Capture.Frames.IBufferMediaFrame;
    subtype VideoMediaFrame is Windows.Media.Capture.Frames.IVideoMediaFrame;
+   subtype AudioMediaFrame is Windows.Media.Capture.Frames.IAudioMediaFrame;
    subtype InfraredMediaFrame is Windows.Media.Capture.Frames.IInfraredMediaFrame;
    subtype DepthMediaFrame is Windows.Media.Capture.Frames.IDepthMediaFrame;
    

@@ -21,6 +21,7 @@
 --------------------------------------------------------------------------------
 with Windows.Graphics.Imaging;
 with Windows.Graphics.DirectX.Direct3D11;
+with Windows.Graphics.DirectX;
 with Windows.Storage.Streams;
 with Windows.Storage;
 with Windows.ApplicationModel.AppService;
@@ -317,6 +318,91 @@ package body Windows.Media is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function CreateAsDirect3D11SurfaceBacked
+   (
+      format : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; width : Windows.Int32
+      ; height : Windows.Int32
+   )
+   return Windows.Media.IVideoFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
+      m_Factory     : IVideoFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.IVideoFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateAsDirect3D11SurfaceBacked(format, width, height, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateAsDirect3D11SurfaceBackedWithDevice
+   (
+      format : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; width : Windows.Int32
+      ; height : Windows.Int32
+      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+   )
+   return Windows.Media.IVideoFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
+      m_Factory     : IVideoFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.IVideoFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateAsDirect3D11SurfaceBackedWithDevice(format, width, height, device, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithSoftwareBitmap
+   (
+      bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
+   )
+   return Windows.Media.IVideoFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
+      m_Factory     : IVideoFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.IVideoFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithSoftwareBitmap(bitmap, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithDirect3D11Surface
+   (
+      surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+   )
+   return Windows.Media.IVideoFrame is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.VideoFrame");
+      m_Factory     : IVideoFrameStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.IVideoFrame;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVideoFrameStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithDirect3D11Surface(surface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Bookmark
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -362,6 +448,619 @@ package body Windows.Media is
       Hr := RoGetActivationFactory(m_hString, IID_IVideoEffectsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_VideoStabilization(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_SoundLevelChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_SoundLevelChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_SoundLevelChanged
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_SoundLevelChanged(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_PlayPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_PlayPressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_PlayPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_PlayPressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_PausePressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_PausePressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_PausePressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_PausePressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_StopPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_StopPressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_StopPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_StopPressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_PlayPauseTogglePressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_PlayPauseTogglePressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_PlayPauseTogglePressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_PlayPauseTogglePressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_RecordPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_RecordPressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_RecordPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_RecordPressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_NextTrackPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_NextTrackPressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_NextTrackPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_NextTrackPressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_PreviousTrackPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_PreviousTrackPressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_PreviousTrackPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_PreviousTrackPressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_FastForwardPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_FastForwardPressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_FastForwardPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_FastForwardPressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_RewindPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_RewindPressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_RewindPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_RewindPressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_ChannelUpPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_ChannelUpPressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_ChannelUpPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_ChannelUpPressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_ChannelDownPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_ChannelDownPressed(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_ChannelDownPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_ChannelDownPressed(cookie);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_SoundLevel
+   return Windows.Media.SoundLevel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.SoundLevel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SoundLevel(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_TrackName
+   (
+      value : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_TrackName(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_TrackName
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TrackName(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_ArtistName
+   (
+      value : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_ArtistName(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_ArtistName
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ArtistName(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_IsPlaying
+   (
+      value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_IsPlaying(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_IsPlaying
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsPlaying(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_AlbumArt
+   (
+      value : Windows.Foundation.IUriRuntimeClass
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_AlbumArt(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_AlbumArt
+   return Windows.Foundation.IUriRuntimeClass is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaControl");
+      m_Factory     : IMediaControl := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IUriRuntimeClass;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaControl'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AlbumArt(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

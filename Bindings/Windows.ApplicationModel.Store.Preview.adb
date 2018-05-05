@@ -95,142 +95,6 @@ package body Windows.ApplicationModel.Store.Preview is
       return RetVal;
    end;
    
-   function HasStoreWebAccount
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.HasStoreWebAccount(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function HasStoreWebAccountForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.HasStoreWebAccountForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetStoreLogDataAsync
-   (
-      options : Windows.ApplicationModel.Store.Preview.StoreLogOptions
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetStoreLogDataAsync(options, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetStoreWebAccountIdForUser(user, webAccountId);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function IsStoreWebAccountIdForUser
-   (
-      user : Windows.System.IUser
-      ; webAccountId : Windows.String
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.IsStoreWebAccountIdForUser(user, webAccountId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetPurchasePromptingPolicyForUser
-   (
-      user : Windows.System.IUser
-   )
-   return Windows.Foundation.IReference_UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IReference_UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetPurchasePromptingPolicyForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure SetPurchasePromptingPolicyForUser
-   (
-      user : Windows.System.IUser
-      ; value : Windows.Foundation.IReference_UInt32
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
-      m_Factory     : IStoreConfigurationStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.SetPurchasePromptingPolicyForUser(user, value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
    function GetStoreWebAccountId
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -525,6 +389,142 @@ package body Windows.ApplicationModel.Store.Preview is
       Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.put_PurchasePromptingPolicy(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function HasStoreWebAccount
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.HasStoreWebAccount(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function HasStoreWebAccountForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.HasStoreWebAccountForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetStoreLogDataAsync
+   (
+      options : Windows.ApplicationModel.Store.Preview.StoreLogOptions
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamReference;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetStoreLogDataAsync(options, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetStoreWebAccountIdForUser(user, webAccountId);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function IsStoreWebAccountIdForUser
+   (
+      user : Windows.System.IUser
+      ; webAccountId : Windows.String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsStoreWebAccountIdForUser(user, webAccountId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetPurchasePromptingPolicyForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.IReference_UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IReference_UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetPurchasePromptingPolicyForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetPurchasePromptingPolicyForUser
+   (
+      user : Windows.System.IUser
+      ; value : Windows.Foundation.IReference_UInt32
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetPurchasePromptingPolicyForUser(user, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

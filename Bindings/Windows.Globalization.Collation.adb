@@ -27,24 +27,21 @@ package body Windows.Globalization.Collation is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create
-   (
-      language : Windows.String
-   )
-   return Windows.Globalization.Collation.ICharacterGroupings is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateCharacterGroupings return Windows.Globalization.Collation.ICharacterGroupings is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.Collation.CharacterGroupings");
-      m_Factory     : Windows.Globalization.Collation.ICharacterGroupingsFactory := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Globalization.Collation.ICharacterGroupings := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.Collation.ICharacterGroupings) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICharacterGroupingsFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(language, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.Globalization.Collation.IID_ICharacterGroupings'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

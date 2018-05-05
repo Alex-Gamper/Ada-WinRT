@@ -1730,6 +1730,60 @@ package Windows.Security.EnterpriseData is
    )
    ;
    
+   function HasContentBeenRevokedSince
+   (
+      identity : Windows.String
+      ; since : Windows.Foundation.DateTime
+   )
+   return Windows.Boolean;
+   
+   function CheckAccessForApp
+   (
+      sourceIdentity : Windows.String
+      ; appPackageFamilyName : Windows.String
+   )
+   return Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;
+   
+   function RequestAccessForAppAsync
+   (
+      sourceIdentity : Windows.String
+      ; appPackageFamilyName : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
+   
+   function GetEnforcementLevel
+   (
+      identity : Windows.String
+   )
+   return Windows.Security.EnterpriseData.EnforcementLevel;
+   
+   function IsUserDecryptionAllowed
+   (
+      identity : Windows.String
+   )
+   return Windows.Boolean;
+   
+   function IsProtectionUnderLockRequired
+   (
+      identity : Windows.String
+   )
+   return Windows.Boolean;
+   
+   function add_PolicyChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_PolicyChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function get_IsProtectionEnabled
+   return Windows.Boolean;
+   
    function IsIdentityManaged
    (
       identity : Windows.String
@@ -1815,60 +1869,6 @@ package Windows.Security.EnterpriseData is
       ; targetIdentity : Windows.String
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
-   
-   function HasContentBeenRevokedSince
-   (
-      identity : Windows.String
-      ; since : Windows.Foundation.DateTime
-   )
-   return Windows.Boolean;
-   
-   function CheckAccessForApp
-   (
-      sourceIdentity : Windows.String
-      ; appPackageFamilyName : Windows.String
-   )
-   return Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;
-   
-   function RequestAccessForAppAsync
-   (
-      sourceIdentity : Windows.String
-      ; appPackageFamilyName : Windows.String
-   )
-   return Windows.Security.EnterpriseData.IAsyncOperation_ProtectionPolicyEvaluationResult;
-   
-   function GetEnforcementLevel
-   (
-      identity : Windows.String
-   )
-   return Windows.Security.EnterpriseData.EnforcementLevel;
-   
-   function IsUserDecryptionAllowed
-   (
-      identity : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function IsProtectionUnderLockRequired
-   (
-      identity : Windows.String
-   )
-   return Windows.Boolean;
-   
-   function add_PolicyChanged
-   (
-      handler : Windows.Foundation.EventHandler_Object
-   )
-   return Windows.Foundation.EventRegistrationToken;
-   
-   procedure remove_PolicyChanged
-   (
-      token : Windows.Foundation.EventRegistrationToken
-   )
-   ;
-   
-   function get_IsProtectionEnabled
-   return Windows.Boolean;
    
    function IsRoamableProtectionEnabled
    (
@@ -1958,12 +1958,38 @@ package Windows.Security.EnterpriseData is
    
    function ProtectAsync
    (
+      storageItem : Windows.Storage.IStorageItem
+      ; enterpriseIdentity : Windows.String
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus;
+   
+   function CopyProtectionAsync
+   (
+      sourceStorageItem : Windows.Storage.IStorageItem
+      ; targetStorageItem : Windows.Storage.IStorageItem
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   procedure Revoke
+   (
+      enterpriseIdentity : Windows.String
+   )
+   ;
+   
+   function GetStatusAsync
+   (
+      storageItem : Windows.Storage.IStorageItem
+   )
+   return Windows.Security.EnterpriseData.IAsyncOperation_FileProtectionStatus;
+   
+   function ProtectAsync
+   (
       target : Windows.Storage.IStorageItem
       ; identity : Windows.String
    )
    return Windows.Security.EnterpriseData.IAsyncOperation_IFileProtectionInfo;
    
-   function CopyProtectionAsync
+   function CopyProtectionAsync_FileProtectionManager
    (
       source : Windows.Storage.IStorageItem
       ; target : Windows.Storage.IStorageItem

@@ -35,23 +35,6 @@ package body Windows.ApplicationModel.CommunicationBlocking is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function RequestSetAsActiveBlockingAppAsync
-   return Windows.Foundation.IAsyncOperation_Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAppManager");
-      m_Factory     : ICommunicationBlockingAppManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ICommunicationBlockingAppManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestSetAsActiveBlockingAppAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_IsCurrentAppActiveBlockingApp
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -82,6 +65,23 @@ package body Windows.ApplicationModel.CommunicationBlocking is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function RequestSetAsActiveBlockingAppAsync
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAppManager");
+      m_Factory     : ICommunicationBlockingAppManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommunicationBlockingAppManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestSetAsActiveBlockingAppAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function get_IsBlockingActive

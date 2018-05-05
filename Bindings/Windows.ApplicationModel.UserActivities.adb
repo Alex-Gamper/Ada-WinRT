@@ -21,6 +21,7 @@
 --------------------------------------------------------------------------------
 with Windows.UI;
 with Windows.UI.Shell;
+with Windows.Security.Credentials;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.UserActivities is
@@ -42,25 +43,61 @@ package body Windows.ApplicationModel.UserActivities is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUserActivityRequestManager_add_UserActivityRequested_Interface
+      ; sender : Windows.ApplicationModel.UserActivities.IUserActivityRequestManager
+      ; args : Windows.ApplicationModel.UserActivities.IUserActivityRequestedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.UserActivities.IUserActivityRequestManager(sender), Windows.ApplicationModel.UserActivities.IUserActivityRequestedEventArgs(args));
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateUserActivityAttribution return Windows.ApplicationModel.UserActivities.IUserActivityAttribution is
-      Hr            : Windows.HResult := S_OK;
+   function CreateWithUri
+   (
+      iconUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.ApplicationModel.UserActivities.IUserActivityAttribution is
+      Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityAttribution");
-      Instance      : aliased IInspectable := null;
+      m_Factory     : Windows.ApplicationModel.UserActivities.IUserActivityAttributionFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.UserActivities.IUserActivityAttribution) with inline;
+      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivityAttribution := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityAttributionFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.UserActivities.IID_IUserActivityAttribution'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateWithUri(iconUri, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
+   end;
+   
+   function CreateWithActivityId
+   (
+      activityId : Windows.String
+   )
+   return Windows.ApplicationModel.UserActivities.IUserActivity is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivity");
+      m_Factory     : Windows.ApplicationModel.UserActivities.IUserActivityFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivity := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithActivityId(activityId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    ------------------------------------------------------------------------
@@ -91,6 +128,101 @@ package body Windows.ApplicationModel.UserActivities is
       return RetVal;
    end;
    
+   function TryParseFromJson
+   (
+      json : Windows.String
+   )
+   return Windows.ApplicationModel.UserActivities.IUserActivity is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivity");
+      m_Factory     : IUserActivityStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivity;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryParseFromJson(json, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryParseFromJsonArray
+   (
+      json : Windows.String
+   )
+   return Windows.ApplicationModel.UserActivities.IVector_IUserActivity is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivity");
+      m_Factory     : IUserActivityStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.UserActivities.IVector_IUserActivity;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryParseFromJsonArray(json, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ToJsonArray
+   (
+      activities : Windows.ApplicationModel.UserActivities.IIterable_IUserActivity
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivity");
+      m_Factory     : IUserActivityStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ToJsonArray(activities, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure DisableAutoSessionCreation
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityChannel");
+      m_Factory     : IUserActivityChannelStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityChannelStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DisableAutoSessionCreation;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function TryGetForWebAccount
+   (
+      account : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.ApplicationModel.UserActivities.IUserActivityChannel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityChannel");
+      m_Factory     : IUserActivityChannelStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivityChannel;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityChannelStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryGetForWebAccount(account, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDefault
    return Windows.ApplicationModel.UserActivities.IUserActivityChannel is
       Hr            : Windows.HRESULT := S_OK;
@@ -102,6 +234,23 @@ package body Windows.ApplicationModel.UserActivities is
       Hr := RoGetActivationFactory(m_hString, IID_IUserActivityChannelStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.ApplicationModel.UserActivities.IUserActivityRequestManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.UserActivities.UserActivityRequestManager");
+      m_Factory     : IUserActivityRequestManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.UserActivities.IUserActivityRequestManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUserActivityRequestManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

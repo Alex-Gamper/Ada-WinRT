@@ -451,14 +451,14 @@ package Windows.UI.Xaml.Printing is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function get_DocumentSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Printing.IPrintDocument;
+   
+   function get_DocumentSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
 end;

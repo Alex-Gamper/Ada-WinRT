@@ -807,23 +807,6 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
-   function get_PlayReadyCertificateSecurityLevel
-   return Windows.UInt32 is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
-      m_Factory     : IPlayReadyStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UInt32;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_PlayReadyCertificateSecurityLevel(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_InputTrustAuthorityToCreate
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;
@@ -852,6 +835,23 @@ package body Windows.Media.Protection.PlayReady is
       Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ProtectionSystemId(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PlayReadyCertificateSecurityLevel
+   return Windows.UInt32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
+      m_Factory     : IPlayReadyStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UInt32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PlayReadyCertificateSecurityLevel(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

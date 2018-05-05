@@ -114,6 +114,112 @@ package Windows.Services.Store is
    
    type StorePackageUpdateState_Ptr is access StorePackageUpdateState;
    
+   type StoreCanLicenseStatus is (
+      NotLicensableToUser,
+      Licensable,
+      LicenseActionNotApplicableToProduct,
+      NetworkError,
+      ServerError
+   );
+   for StoreCanLicenseStatus use (
+      NotLicensableToUser => 0,
+      Licensable => 1,
+      LicenseActionNotApplicableToProduct => 2,
+      NetworkError => 3,
+      ServerError => 4
+   );
+   for StoreCanLicenseStatus'Size use 32;
+   
+   type StoreCanLicenseStatus_Ptr is access StoreCanLicenseStatus;
+   
+   type StoreQueueItemState is (
+      Active,
+      Completed,
+      Canceled,
+      Error,
+      Paused
+   );
+   for StoreQueueItemState use (
+      Active => 0,
+      Completed => 1,
+      Canceled => 2,
+      Error => 3,
+      Paused => 4
+   );
+   for StoreQueueItemState'Size use 32;
+   
+   type StoreQueueItemState_Ptr is access StoreQueueItemState;
+   
+   type StoreQueueItemExtendedState is (
+      ActivePending,
+      ActiveStarting,
+      ActiveAcquiringLicense,
+      ActiveDownloading,
+      ActiveRestoringData,
+      ActiveInstalling,
+      Completed,
+      Canceled,
+      Paused,
+      Error,
+      PausedPackagesInUse,
+      PausedLowBattery,
+      PausedWiFiRecommended,
+      PausedWiFiRequired,
+      PausedReadyToInstall
+   );
+   for StoreQueueItemExtendedState use (
+      ActivePending => 0,
+      ActiveStarting => 1,
+      ActiveAcquiringLicense => 2,
+      ActiveDownloading => 3,
+      ActiveRestoringData => 4,
+      ActiveInstalling => 5,
+      Completed => 6,
+      Canceled => 7,
+      Paused => 8,
+      Error => 9,
+      PausedPackagesInUse => 10,
+      PausedLowBattery => 11,
+      PausedWiFiRecommended => 12,
+      PausedWiFiRequired => 13,
+      PausedReadyToInstall => 14
+   );
+   for StoreQueueItemExtendedState'Size use 32;
+   
+   type StoreQueueItemExtendedState_Ptr is access StoreQueueItemExtendedState;
+   
+   type StoreQueueItemKind is (
+      Install,
+      Update,
+      Repair
+   );
+   for StoreQueueItemKind use (
+      Install => 0,
+      Update => 1,
+      Repair => 2
+   );
+   for StoreQueueItemKind'Size use 32;
+   
+   type StoreQueueItemKind_Ptr is access StoreQueueItemKind;
+   
+   type StoreUninstallStorePackageStatus is (
+      Succeeded,
+      CanceledByUser,
+      NetworkError,
+      UninstallNotApplicable,
+      Error
+   );
+   for StoreUninstallStorePackageStatus use (
+      Succeeded => 0,
+      CanceledByUser => 1,
+      NetworkError => 2,
+      UninstallNotApplicable => 3,
+      Error => 4
+   );
+   for StoreUninstallStorePackageStatus'Size use 32;
+   
+   type StoreUninstallStorePackageStatus_Ptr is access StoreUninstallStorePackageStatus;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -166,6 +272,18 @@ package Windows.Services.Store is
    type AsyncOperationCompletedHandler_IStoreAcquireLicenseResult_Interface;
    type AsyncOperationCompletedHandler_IStoreAcquireLicenseResult is access all AsyncOperationCompletedHandler_IStoreAcquireLicenseResult_Interface'Class;
    type AsyncOperationCompletedHandler_IStoreAcquireLicenseResult_Ptr is access all AsyncOperationCompletedHandler_IStoreAcquireLicenseResult;
+   type AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult_Interface;
+   type AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult is access all AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult_Ptr is access all AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult;
+   type AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult_Interface;
+   type AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult is access all AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult_Ptr is access all AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult;
+   type TypedEventHandler_IStoreQueueItem_add_Completed_Interface;
+   type TypedEventHandler_IStoreQueueItem_add_Completed is access all TypedEventHandler_IStoreQueueItem_add_Completed_Interface'Class;
+   type TypedEventHandler_IStoreQueueItem_add_Completed_Ptr is access all TypedEventHandler_IStoreQueueItem_add_Completed;
+   type TypedEventHandler_IStoreQueueItem_add_StatusChanged_Interface;
+   type TypedEventHandler_IStoreQueueItem_add_StatusChanged is access all TypedEventHandler_IStoreQueueItem_add_StatusChanged_Interface'Class;
+   type TypedEventHandler_IStoreQueueItem_add_StatusChanged_Ptr is access all TypedEventHandler_IStoreQueueItem_add_StatusChanged;
    type TypedEventHandler_IStorePackageLicense_add_LicenseLost_Interface;
    type TypedEventHandler_IStorePackageLicense_add_LicenseLost is access all TypedEventHandler_IStorePackageLicense_add_LicenseLost_Interface'Class;
    type TypedEventHandler_IStorePackageLicense_add_LicenseLost_Ptr is access all TypedEventHandler_IStorePackageLicense_add_LicenseLost;
@@ -243,18 +361,45 @@ package Windows.Services.Store is
    type IStoreContext2_Interface;
    type IStoreContext2 is access all IStoreContext2_Interface'Class;
    type IStoreContext2_Ptr is access all IStoreContext2;
+   type IStoreContext3_Interface;
+   type IStoreContext3 is access all IStoreContext3_Interface'Class;
+   type IStoreContext3_Ptr is access all IStoreContext3;
+   type IStoreProductOptions_Interface;
+   type IStoreProductOptions is access all IStoreProductOptions_Interface'Class;
+   type IStoreProductOptions_Ptr is access all IStoreProductOptions;
+   type IStoreCanAcquireLicenseResult_Interface;
+   type IStoreCanAcquireLicenseResult is access all IStoreCanAcquireLicenseResult_Interface'Class;
+   type IStoreCanAcquireLicenseResult_Ptr is access all IStoreCanAcquireLicenseResult;
+   type IStorePackageInstallOptions_Interface;
+   type IStorePackageInstallOptions is access all IStorePackageInstallOptions_Interface'Class;
+   type IStorePackageInstallOptions_Ptr is access all IStorePackageInstallOptions;
    type IStorePackageUpdate_Interface;
    type IStorePackageUpdate is access all IStorePackageUpdate_Interface'Class;
    type IStorePackageUpdate_Ptr is access all IStorePackageUpdate;
    type IStorePackageUpdateResult_Interface;
    type IStorePackageUpdateResult is access all IStorePackageUpdateResult_Interface'Class;
    type IStorePackageUpdateResult_Ptr is access all IStorePackageUpdateResult;
+   type IStorePackageUpdateResult2_Interface;
+   type IStorePackageUpdateResult2 is access all IStorePackageUpdateResult2_Interface'Class;
+   type IStorePackageUpdateResult2_Ptr is access all IStorePackageUpdateResult2;
+   type IStoreQueueItemStatus_Interface;
+   type IStoreQueueItemStatus is access all IStoreQueueItemStatus_Interface'Class;
+   type IStoreQueueItemStatus_Ptr is access all IStoreQueueItemStatus;
+   type IStoreQueueItem_Interface;
+   type IStoreQueueItem is access all IStoreQueueItem_Interface'Class;
+   type IStoreQueueItem_Ptr is access all IStoreQueueItem;
+   type IStoreQueueItemCompletedEventArgs_Interface;
+   type IStoreQueueItemCompletedEventArgs is access all IStoreQueueItemCompletedEventArgs_Interface'Class;
+   type IStoreQueueItemCompletedEventArgs_Ptr is access all IStoreQueueItemCompletedEventArgs;
    type IStoreAcquireLicenseResult_Interface;
    type IStoreAcquireLicenseResult is access all IStoreAcquireLicenseResult_Interface'Class;
    type IStoreAcquireLicenseResult_Ptr is access all IStoreAcquireLicenseResult;
    type IStorePackageLicense_Interface;
    type IStorePackageLicense is access all IStorePackageLicense_Interface'Class;
    type IStorePackageLicense_Ptr is access all IStorePackageLicense;
+   type IStoreUninstallStorePackageResult_Interface;
+   type IStoreUninstallStorePackageResult is access all IStoreUninstallStorePackageResult_Interface'Class;
+   type IStoreUninstallStorePackageResult_Ptr is access all IStoreUninstallStorePackageResult;
    type IAsyncOperation_IStoreProductPagedQueryResult_Interface;
    type IAsyncOperation_IStoreProductPagedQueryResult is access all IAsyncOperation_IStoreProductPagedQueryResult_Interface'Class;
    type IAsyncOperation_IStoreProductPagedQueryResult_Ptr is access all IAsyncOperation_IStoreProductPagedQueryResult;
@@ -321,6 +466,12 @@ package Windows.Services.Store is
    type IIterable_IStorePackageUpdate_Interface;
    type IIterable_IStorePackageUpdate is access all IIterable_IStorePackageUpdate_Interface'Class;
    type IIterable_IStorePackageUpdate_Ptr is access all IIterable_IStorePackageUpdate;
+   type IAsyncOperation_IStoreCanAcquireLicenseResult_Interface;
+   type IAsyncOperation_IStoreCanAcquireLicenseResult is access all IAsyncOperation_IStoreCanAcquireLicenseResult_Interface'Class;
+   type IAsyncOperation_IStoreCanAcquireLicenseResult_Ptr is access all IAsyncOperation_IStoreCanAcquireLicenseResult;
+   type IAsyncOperation_IStoreUninstallStorePackageResult_Interface;
+   type IAsyncOperation_IStoreUninstallStorePackageResult is access all IAsyncOperation_IStoreUninstallStorePackageResult_Interface'Class;
+   type IAsyncOperation_IStoreUninstallStorePackageResult_Ptr is access all IAsyncOperation_IStoreUninstallStorePackageResult;
    type IIterator_StorePackageUpdateStatus_Interface;
    type IIterator_StorePackageUpdateStatus is access all IIterator_StorePackageUpdateStatus_Interface'Class;
    type IIterator_StorePackageUpdateStatus_Ptr is access all IIterator_StorePackageUpdateStatus;
@@ -330,6 +481,15 @@ package Windows.Services.Store is
    type IVectorView_StorePackageUpdateStatus_Interface;
    type IVectorView_StorePackageUpdateStatus is access all IVectorView_StorePackageUpdateStatus_Interface'Class;
    type IVectorView_StorePackageUpdateStatus_Ptr is access all IVectorView_StorePackageUpdateStatus;
+   type IIterator_IStoreQueueItem_Interface;
+   type IIterator_IStoreQueueItem is access all IIterator_IStoreQueueItem_Interface'Class;
+   type IIterator_IStoreQueueItem_Ptr is access all IIterator_IStoreQueueItem;
+   type IIterable_IStoreQueueItem_Interface;
+   type IIterable_IStoreQueueItem is access all IIterable_IStoreQueueItem_Interface'Class;
+   type IIterable_IStoreQueueItem_Ptr is access all IIterable_IStoreQueueItem;
+   type IVectorView_IStoreQueueItem_Interface;
+   type IVectorView_IStoreQueueItem is access all IVectorView_IStoreQueueItem_Interface'Class;
+   type IVectorView_IStoreQueueItem_Ptr is access all IVectorView_IStoreQueueItem;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1447,6 +1607,185 @@ package Windows.Services.Store is
    
    ------------------------------------------------------------------------
    
+   IID_IStoreContext3 : aliased constant Windows.IID := (3798083274, 6657, 18224, (133, 166, 236, 200, 150, 228, 174, 56 ));
+   
+   type IStoreContext3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanSilentlyDownloadStorePackageUpdates
+   (
+      This       : access IStoreContext3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TrySilentDownloadStorePackageUpdatesAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; storePackageUpdates : Windows.Services.Store.IIterable_IStorePackageUpdate
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TrySilentDownloadAndInstallStorePackageUpdatesAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; storePackageUpdates : Windows.Services.Store.IIterable_IStorePackageUpdate
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CanAcquireStoreLicenseForOptionalPackageAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; optionalPackage : Windows.ApplicationModel.IPackage
+      ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreCanAcquireLicenseResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CanAcquireStoreLicenseAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; productStoreId : Windows.String
+      ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreCanAcquireLicenseResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetStoreProductsWithOptionsAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; productKinds : Windows.Foundation.Collections.IIterable_String
+      ; storeIds : Windows.Foundation.Collections.IIterable_String
+      ; storeProductOptions : Windows.Services.Store.IStoreProductOptions
+      ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreProductQueryResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetAssociatedStoreQueueItemsAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetStoreQueueItemsAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; storeIds : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; storeIds : Windows.Foundation.Collections.IIterable_String
+      ; storePackageInstallOptions : Windows.Services.Store.IStorePackageInstallOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DownloadAndInstallStorePackagesAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; storeIds : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestUninstallStorePackageAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; package_x : Windows.ApplicationModel.IPackage
+      ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreUninstallStorePackageResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestUninstallStorePackageByStoreIdAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; storeId : Windows.String
+      ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreUninstallStorePackageResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function UninstallStorePackageAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; package_x : Windows.ApplicationModel.IPackage
+      ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreUninstallStorePackageResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function UninstallStorePackageByStoreIdAsync
+   (
+      This       : access IStoreContext3_Interface
+      ; storeId : Windows.String
+      ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreUninstallStorePackageResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStoreProductOptions : aliased constant Windows.IID := (1530175737, 41235, 18449, (131, 38, 22, 25, 156, 146, 127, 49 ));
+   
+   type IStoreProductOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ActionFilters
+   (
+      This       : access IStoreProductOptions_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStoreCanAcquireLicenseResult : aliased constant Windows.IID := (979975603, 136, 18479, (134, 213, 189, 70, 82, 38, 99, 173 ));
+   
+   type IStoreCanAcquireLicenseResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IStoreCanAcquireLicenseResult_Interface
+      ; RetVal : access Windows.Foundation.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LicensableSku
+   (
+      This       : access IStoreCanAcquireLicenseResult_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Status
+   (
+      This       : access IStoreCanAcquireLicenseResult_Interface
+      ; RetVal : access Windows.Services.Store.StoreCanLicenseStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorePackageInstallOptions : aliased constant Windows.IID := (490562316, 3277, 17629, (140, 89, 128, 129, 10, 114, 153, 115 ));
+   
+   type IStorePackageInstallOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AllowForcedAppRestart
+   (
+      This       : access IStorePackageInstallOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowForcedAppRestart
+   (
+      This       : access IStorePackageInstallOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStorePackageUpdate : aliased constant Windows.IID := (336568656, 15551, 18997, (185, 31, 72, 39, 28, 49, 176, 114 ));
    
    type IStorePackageUpdate_Interface is interface and Windows.IInspectable_Interface;
@@ -1482,6 +1821,130 @@ package Windows.Services.Store is
    (
       This       : access IStorePackageUpdateResult_Interface
       ; RetVal : access Windows.Services.Store.IVectorView_StorePackageUpdateStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorePackageUpdateResult2 : aliased constant Windows.IID := (119341358, 48226, 20270, (135, 234, 153, 216, 1, 174, 175, 152 ));
+   
+   type IStorePackageUpdateResult2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_StoreQueueItems
+   (
+      This       : access IStorePackageUpdateResult2_Interface
+      ; RetVal : access Windows.Services.Store.IVectorView_IStoreQueueItem -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStoreQueueItemStatus : aliased constant Windows.IID := (2614524271, 40131, 20163, (178, 239, 123, 228, 51, 179, 1, 116 ));
+   
+   type IStoreQueueItemStatus_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PackageInstallState
+   (
+      This       : access IStoreQueueItemStatus_Interface
+      ; RetVal : access Windows.Services.Store.StoreQueueItemState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PackageInstallExtendedState
+   (
+      This       : access IStoreQueueItemStatus_Interface
+      ; RetVal : access Windows.Services.Store.StoreQueueItemExtendedState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UpdateStatus
+   (
+      This       : access IStoreQueueItemStatus_Interface
+      ; RetVal : access Windows.Services.Store.StorePackageUpdateStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedError
+   (
+      This       : access IStoreQueueItemStatus_Interface
+      ; RetVal : access Windows.Foundation.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStoreQueueItem : aliased constant Windows.IID := (1456849707, 63536, 17043, (145, 136, 202, 210, 220, 222, 115, 87 ));
+   
+   type IStoreQueueItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProductId
+   (
+      This       : access IStoreQueueItem_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PackageFamilyName
+   (
+      This       : access IStoreQueueItem_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstallKind
+   (
+      This       : access IStoreQueueItem_Interface
+      ; RetVal : access Windows.Services.Store.StoreQueueItemKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetCurrentStatus
+   (
+      This       : access IStoreQueueItem_Interface
+      ; RetVal : access Windows.Services.Store.IStoreQueueItemStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Completed
+   (
+      This       : access IStoreQueueItem_Interface
+      ; handler : TypedEventHandler_IStoreQueueItem_add_Completed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Completed
+   (
+      This       : access IStoreQueueItem_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_StatusChanged
+   (
+      This       : access IStoreQueueItem_Interface
+      ; handler : TypedEventHandler_IStoreQueueItem_add_StatusChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_StatusChanged
+   (
+      This       : access IStoreQueueItem_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStoreQueueItemCompletedEventArgs : aliased constant Windows.IID := (306700140, 46154, 17307, (187, 7, 29, 48, 3, 208, 5, 194 ));
+   
+   type IStoreQueueItemCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IStoreQueueItemCompletedEventArgs_Interface
+      ; RetVal : access Windows.Services.Store.IStoreQueueItemStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -1543,6 +2006,26 @@ package Windows.Services.Store is
    function ReleaseLicense
    (
       This       : access IStorePackageLicense_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStoreUninstallStorePackageResult : aliased constant Windows.IID := (2680830461, 4719, 19674, (184, 1, 19, 70, 184, 208, 162, 96 ));
+   
+   type IStoreUninstallStorePackageResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IStoreUninstallStorePackageResult_Interface
+      ; RetVal : access Windows.Foundation.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Status
+   (
+      This       : access IStoreUninstallStorePackageResult_Interface
+      ; RetVal : access Windows.Services.Store.StoreUninstallStorePackageStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -2160,6 +2643,60 @@ package Windows.Services.Store is
    
    ------------------------------------------------------------------------
    
+   IID_IAsyncOperation_IStoreCanAcquireLicenseResult : aliased constant Windows.IID := (1907269486, 3344, 23515, (180, 65, 147, 18, 227, 210, 239, 194 ));
+   
+   type IAsyncOperation_IStoreCanAcquireLicenseResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IStoreCanAcquireLicenseResult_Interface
+      ; handler : Windows.Services.Store.AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IStoreCanAcquireLicenseResult_Interface
+      ; RetVal : access Windows.Services.Store.AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IStoreCanAcquireLicenseResult_Interface
+      ; RetVal : access Windows.Services.Store.IStoreCanAcquireLicenseResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IStoreUninstallStorePackageResult : aliased constant Windows.IID := (1437238013, 52821, 21770, (149, 236, 5, 84, 177, 145, 82, 8 ));
+   
+   type IAsyncOperation_IStoreUninstallStorePackageResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IStoreUninstallStorePackageResult_Interface
+      ; handler : Windows.Services.Store.AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IStoreUninstallStorePackageResult_Interface
+      ; RetVal : access Windows.Services.Store.AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IStoreUninstallStorePackageResult_Interface
+      ; RetVal : access Windows.Services.Store.IStoreUninstallStorePackageResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_StorePackageUpdateStatus : aliased constant Windows.IID := (1635899471, 63281, 22456, (154, 107, 138, 18, 252, 213, 141, 4 ));
    
    type IIterator_StorePackageUpdateStatus_Interface is interface and Windows.IInspectable_Interface;
@@ -2241,6 +2778,93 @@ package Windows.Services.Store is
       This       : access IVectorView_StorePackageUpdateStatus_Interface
       ; startIndex : Windows.UInt32
       ; items : Windows.Services.Store.StorePackageUpdateStatus_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IStoreQueueItem : aliased constant Windows.IID := (2424165481, 34233, 21223, (181, 47, 115, 16, 164, 71, 69, 239 ));
+   
+   type IIterator_IStoreQueueItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IStoreQueueItem_Interface
+      ; RetVal : access Windows.Services.Store.IStoreQueueItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IStoreQueueItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IStoreQueueItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IStoreQueueItem_Interface
+      ; items : Windows.Services.Store.IStoreQueueItem_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IStoreQueueItem : aliased constant Windows.IID := (1760269030, 15558, 21081, (154, 5, 189, 127, 141, 159, 184, 218 ));
+   
+   type IIterable_IStoreQueueItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IStoreQueueItem_Interface
+      ; RetVal : access Windows.Services.Store.IIterator_IStoreQueueItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IStoreQueueItem : aliased constant Windows.IID := (3000232351, 54188, 22397, (185, 119, 253, 182, 103, 210, 13, 239 ));
+   
+   type IVectorView_IStoreQueueItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IStoreQueueItem_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Services.Store.IStoreQueueItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IStoreQueueItem_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IStoreQueueItem_Interface
+      ; value : Windows.Services.Store.IStoreQueueItem
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IStoreQueueItem_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Services.Store.IStoreQueueItem_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
@@ -2368,6 +2992,58 @@ package Windows.Services.Store is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult : aliased constant Windows.IID := (1462378960, 29008, 20666, (165, 88, 217, 29, 255, 236, 26, 36 ));
+   
+   type AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreCanAcquireLicenseResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult_Interface
+      ; asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreCanAcquireLicenseResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult : aliased constant Windows.IID := (3302924214, 8153, 21033, (136, 24, 186, 101, 117, 29, 176, 70 ));
+   
+   type AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreUninstallStorePackageResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult_Interface
+      ; asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreUninstallStorePackageResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IStoreQueueItem_add_Completed : aliased constant Windows.IID := (732702848, 30973, 23742, (130, 113, 125, 88, 62, 78, 194, 196 ));
+   
+   type TypedEventHandler_IStoreQueueItem_add_Completed_Interface(Callback : access procedure (sender : Windows.Services.Store.IStoreQueueItem ; args : Windows.Services.Store.IStoreQueueItemCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStoreQueueItem_add_Completed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStoreQueueItem_add_Completed_Interface
+      ; sender : Windows.Services.Store.IStoreQueueItem
+      ; args : Windows.Services.Store.IStoreQueueItemCompletedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IStoreQueueItem_add_StatusChanged : aliased constant Windows.IID := (4172166800, 63963, 22504, (132, 62, 36, 76, 10, 106, 19, 224 ));
+   
+   type TypedEventHandler_IStoreQueueItem_add_StatusChanged_Interface(Callback : access procedure (sender : Windows.Services.Store.IStoreQueueItem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStoreQueueItem_add_StatusChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStoreQueueItem_add_StatusChanged_Interface
+      ; sender : Windows.Services.Store.IStoreQueueItem
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IStorePackageLicense_add_LicenseLost : aliased constant Windows.IID := (1817826871, 10608, 24420, (149, 17, 211, 154, 194, 69, 188, 148 ));
    
    type TypedEventHandler_IStorePackageLicense_add_LicenseLost_Interface(Callback : access procedure (sender : Windows.Services.Store.IStorePackageLicense ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IStorePackageLicense_add_LicenseLost'access) with null record;
@@ -2406,6 +3082,17 @@ package Windows.Services.Store is
    subtype StoreAcquireLicenseResult is Windows.Services.Store.IStoreAcquireLicenseResult;
    subtype StorePackageUpdate is Windows.Services.Store.IStorePackageUpdate;
    subtype StorePackageUpdateResult is Windows.Services.Store.IStorePackageUpdateResult;
+   subtype StoreCanAcquireLicenseResult is Windows.Services.Store.IStoreCanAcquireLicenseResult;
+   subtype StoreProductOptions is Windows.Services.Store.IStoreProductOptions;
+   function CreateStoreProductOptions return Windows.Services.Store.IStoreProductOptions;
+   
+   subtype StoreQueueItem is Windows.Services.Store.IStoreQueueItem;
+   subtype StorePackageInstallOptions is Windows.Services.Store.IStorePackageInstallOptions;
+   function CreateStorePackageInstallOptions return Windows.Services.Store.IStorePackageInstallOptions;
+   
+   subtype StoreUninstallStorePackageResult is Windows.Services.Store.IStoreUninstallStorePackageResult;
+   subtype StoreQueueItemStatus is Windows.Services.Store.IStoreQueueItemStatus;
+   subtype StoreQueueItemCompletedEventArgs is Windows.Services.Store.IStoreQueueItemCompletedEventArgs;
    subtype StorePackageLicense is Windows.Services.Store.IStorePackageLicense;
    
    ------------------------------------------------------------------------

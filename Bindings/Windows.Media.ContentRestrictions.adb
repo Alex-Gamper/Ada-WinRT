@@ -80,24 +80,21 @@ package body Windows.Media.ContentRestrictions is
       return RetVal;
    end;
    
-   function CreateWithMaxAgeRating
-   (
-      maxAgeRating : Windows.UInt32
-   )
-   return Windows.Media.ContentRestrictions.IRatedContentRestrictions is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateRatedContentRestrictions return Windows.Media.ContentRestrictions.IRatedContentRestrictions is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.ContentRestrictions.RatedContentRestrictions");
-      m_Factory     : Windows.Media.ContentRestrictions.IRatedContentRestrictionsFactory := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.ContentRestrictions.IRatedContentRestrictions := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.ContentRestrictions.IRatedContentRestrictions) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRatedContentRestrictionsFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithMaxAgeRating(maxAgeRating, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.Media.ContentRestrictions.IID_IRatedContentRestrictions'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

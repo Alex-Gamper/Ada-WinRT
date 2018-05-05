@@ -35,11 +35,13 @@ package Windows.UI.Core is
    
    type AppViewBackButtonVisibility is (
       Visible,
-      Collapsed
+      Collapsed,
+      Disabled
    );
    for AppViewBackButtonVisibility use (
       Visible => 0,
-      Collapsed => 1
+      Collapsed => 1,
+      Disabled => 2
    );
    for AppViewBackButtonVisibility'Size use 32;
    
@@ -508,6 +510,9 @@ package Windows.UI.Core is
    type ICorePointerInputSource_Interface;
    type ICorePointerInputSource is access all ICorePointerInputSource_Interface'Class;
    type ICorePointerInputSource_Ptr is access all ICorePointerInputSource;
+   type ICorePointerInputSource2_Interface;
+   type ICorePointerInputSource2 is access all ICorePointerInputSource2_Interface'Class;
+   type ICorePointerInputSource2_Ptr is access all ICorePointerInputSource2;
    type ICoreKeyboardInputSource_Interface;
    type ICoreKeyboardInputSource is access all ICoreKeyboardInputSource_Interface'Class;
    type ICoreKeyboardInputSource_Ptr is access all ICoreKeyboardInputSource;
@@ -1834,6 +1839,19 @@ package Windows.UI.Core is
    
    ------------------------------------------------------------------------
    
+   IID_ICorePointerInputSource2 : aliased constant Windows.IID := (3607326858, 17686, 18310, (177, 229, 39, 81, 213, 99, 249, 151 ));
+   
+   type ICorePointerInputSource2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DispatcherQueue
+   (
+      This       : access ICorePointerInputSource2_Interface
+      ; RetVal : access Windows.System.IDispatcherQueue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICoreKeyboardInputSource : aliased constant Windows.IID := (589074568, 58473, 19953, (178, 8, 110, 73, 13, 113, 203, 144 ));
    
    type ICoreKeyboardInputSource_Interface is interface and Windows.IInspectable_Interface;
@@ -2922,7 +2940,11 @@ package Windows.UI.Core is
    subtype CoreIndependentInputSource is Windows.UI.Core.ICoreInputSourceBase;
    subtype CoreWindowPopupShowingEventArgs is Windows.UI.Core.ICoreWindowPopupShowingEventArgs;
    subtype CoreWindowDialog is Windows.UI.Core.ICoreWindowDialog;
-   function CreateCoreWindowDialog return Windows.UI.Core.ICoreWindowDialog;
+   function CreateWithTitle
+   (
+      title : Windows.String
+   )
+   return Windows.UI.Core.ICoreWindowDialog;
    
    subtype CoreWindowFlyout is Windows.UI.Core.ICoreWindowFlyout;
    function Create

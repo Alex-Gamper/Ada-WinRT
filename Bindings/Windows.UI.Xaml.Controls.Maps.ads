@@ -446,6 +446,12 @@ package Windows.UI.Xaml.Controls.Maps is
    type IMapElementStatics3_Interface;
    type IMapElementStatics3 is access all IMapElementStatics3_Interface'Class;
    type IMapElementStatics3_Ptr is access all IMapElementStatics3;
+   type IMapElement4_Interface;
+   type IMapElement4 is access all IMapElement4_Interface'Class;
+   type IMapElement4_Ptr is access all IMapElement4;
+   type IMapElementStatics4_Interface;
+   type IMapElementStatics4 is access all IMapElementStatics4_Interface'Class;
+   type IMapElementStatics4_Ptr is access all IMapElementStatics4;
    type IMapInputEventArgs_Interface;
    type IMapInputEventArgs is access all IMapInputEventArgs_Interface'Class;
    type IMapInputEventArgs_Ptr is access all IMapInputEventArgs;
@@ -617,6 +623,12 @@ package Windows.UI.Xaml.Controls.Maps is
    type IMapControlStatics6_Interface;
    type IMapControlStatics6 is access all IMapControlStatics6_Interface'Class;
    type IMapControlStatics6_Ptr is access all IMapControlStatics6;
+   type IMapControl7_Interface;
+   type IMapControl7 is access all IMapControl7_Interface'Class;
+   type IMapControl7_Ptr is access all IMapControl7;
+   type IMapControlStatics7_Interface;
+   type IMapControlStatics7 is access all IMapControlStatics7_Interface'Class;
+   type IMapControlStatics7_Ptr is access all IMapControlStatics7;
    type IMapControlDataHelper_Interface;
    type IMapControlDataHelper is access all IMapControlDataHelper_Interface'Class;
    type IMapControlDataHelper_Ptr is access all IMapControlDataHelper;
@@ -1980,6 +1992,39 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_TagProperty
    (
       This       : access IMapElementStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapElement4 : aliased constant Windows.IID := (1683522486, 8129, 19691, (147, 189, 220, 44, 150, 0, 114, 233 ));
+   
+   type IMapElement4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsEnabled
+   (
+      This       : access IMapElement4_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsEnabled
+   (
+      This       : access IMapElement4_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapElementStatics4 : aliased constant Windows.IID := (2754178827, 57336, 18044, (147, 21, 111, 109, 185, 62, 226, 186 ));
+   
+   type IMapElementStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsEnabledProperty
+   (
+      This       : access IMapElementStatics4_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -5096,6 +5141,39 @@ package Windows.UI.Xaml.Controls.Maps is
    
    ------------------------------------------------------------------------
    
+   IID_IMapControl7 : aliased constant Windows.IID := (226944083, 3103, 20350, (174, 102, 74, 208, 180, 152, 120, 87 ));
+   
+   type IMapControl7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Region
+   (
+      This       : access IMapControl7_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Region
+   (
+      This       : access IMapControl7_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapControlStatics7 : aliased constant Windows.IID := (1441901645, 29378, 18098, (183, 174, 121, 2, 96, 190, 100, 27 ));
+   
+   type IMapControlStatics7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RegionProperty
+   (
+      This       : access IMapControlStatics7_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMapControlDataHelper : aliased constant Windows.IID := (2343628956, 5291, 18540, (157, 229, 90, 93, 239, 2, 5, 162 ));
    
    type IMapControlDataHelper_Interface is interface and Windows.IInspectable_Interface;
@@ -7899,14 +7977,15 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IMapCustomExperience;
    
-   function get_MapTabIndexProperty
+   function get_IsEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ZIndexProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Maps.IMapElement;
    
    function get_MapStyleSheetEntryProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7917,12 +7996,14 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_TagProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.Maps.IMapElement;
+   function get_ZIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MapTabIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ItemsSourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7932,6 +8013,13 @@ package Windows.UI.Xaml.Controls.Maps is
    
    function get_ItemTemplateProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Maps.IMapLayer;
    
    function get_MapTabIndexProperty_IMapLayer
    return Windows.UI.Xaml.IDependencyProperty;
@@ -7947,7 +8035,7 @@ package Windows.UI.Xaml.Controls.Maps is
       outer : Windows.Object
       ; inner : access Windows.Object
    )
-   return Windows.UI.Xaml.Controls.Maps.IMapLayer;
+   return Windows.UI.Xaml.Controls.Maps.IMapModel3D;
    
    function CreateFrom3MFAsync
    (
@@ -7961,13 +8049,6 @@ package Windows.UI.Xaml.Controls.Maps is
       ; shadingOption : Windows.UI.Xaml.Controls.Maps.MapModel3DShadingOption
    )
    return Windows.UI.Xaml.Controls.Maps.IAsyncOperation_IMapModel3D;
-   
-   function CreateInstance
-   (
-      outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Controls.Maps.IMapModel3D;
    
    function CreateInstanceWithMapRoute
    (
@@ -8085,6 +8166,39 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileDataSource;
    
+   function get_DataSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LayerProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZoomLevelRangeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BoundsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AllowOverstretchProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsFadingEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTransparencyEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsRetryEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZIndexProperty_IMapTileSource
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TilePixelSizeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VisibleProperty_IMapTileSource
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
@@ -8129,39 +8243,6 @@ package Windows.UI.Xaml.Controls.Maps is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource;
-   
-   function get_DataSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_LayerProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ZoomLevelRangeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BoundsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowOverstretchProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsFadingEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsTransparencyEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsRetryEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ZIndexProperty_IMapTileSource
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TilePixelSizeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_VisibleProperty_IMapTileSource
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function FindNearbyWithLocationAsync
    (
@@ -8240,6 +8321,9 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_MapElementsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_CollisionBehaviorDesiredProperty_IMapIcon
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_LocationProperty_IMapIcon
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -8247,9 +8331,6 @@ package Windows.UI.Xaml.Controls.Maps is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_NormalizedAnchorPointProperty_IMapIcon
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_CollisionBehaviorDesiredProperty_IMapIcon
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PathProperty
@@ -8265,6 +8346,51 @@ package Windows.UI.Xaml.Controls.Maps is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_StrokeDashedProperty_IMapPolyline
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MapProjectionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_StyleSheetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ViewPaddingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RegionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BusinessLandmarksEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TransitFeaturesEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BusinessLandmarksVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TransitFeaturesVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PanInteractionModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RotateInteractionModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TiltInteractionModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ZoomInteractionModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Is3DSupportedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsStreetsideSupportedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SceneProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CenterProperty
@@ -8353,49 +8479,7 @@ package Windows.UI.Xaml.Controls.Maps is
    )
    ;
    
-   function get_BusinessLandmarksVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TransitFeaturesVisibleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PanInteractionModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_RotateInteractionModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TiltInteractionModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ZoomInteractionModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_Is3DSupportedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_IsStreetsideSupportedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_SceneProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BusinessLandmarksEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TransitFeaturesEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_LayersProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_MapProjectionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_StyleSheetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ViewPaddingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateMapControl

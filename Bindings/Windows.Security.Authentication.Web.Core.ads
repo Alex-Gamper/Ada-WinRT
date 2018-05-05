@@ -44,6 +44,22 @@ package Windows.Security.Authentication.Web.Core is
    
    type WebTokenRequestPromptType_Ptr is access WebTokenRequestPromptType;
    
+   type FindAllWebAccountsStatus is (
+      Success,
+      NotAllowedByProvider,
+      NotSupportedByProvider,
+      ProviderError
+   );
+   for FindAllWebAccountsStatus use (
+      Success => 0,
+      NotAllowedByProvider => 1,
+      NotSupportedByProvider => 2,
+      ProviderError => 3
+   );
+   for FindAllWebAccountsStatus'Size use 32;
+   
+   type FindAllWebAccountsStatus_Ptr is access FindAllWebAccountsStatus;
+   
    type WebTokenRequestStatus is (
       Success,
       UserCancel,
@@ -71,6 +87,9 @@ package Windows.Security.Authentication.Web.Core is
    type AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface;
    type AsyncOperationCompletedHandler_IWebTokenRequestResult is access all AsyncOperationCompletedHandler_IWebTokenRequestResult_Interface'Class;
    type AsyncOperationCompletedHandler_IWebTokenRequestResult_Ptr is access all AsyncOperationCompletedHandler_IWebTokenRequestResult;
+   type AsyncOperationCompletedHandler_IFindAllAccountsResult_Interface;
+   type AsyncOperationCompletedHandler_IFindAllAccountsResult is access all AsyncOperationCompletedHandler_IFindAllAccountsResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IFindAllAccountsResult_Ptr is access all AsyncOperationCompletedHandler_IFindAllAccountsResult;
    type TypedEventHandler_IWebAccountMonitor_add_Updated_Interface;
    type TypedEventHandler_IWebAccountMonitor_add_Updated is access all TypedEventHandler_IWebAccountMonitor_add_Updated_Interface'Class;
    type TypedEventHandler_IWebAccountMonitor_add_Updated_Ptr is access all TypedEventHandler_IWebAccountMonitor_add_Updated;
@@ -100,6 +119,9 @@ package Windows.Security.Authentication.Web.Core is
    type IWebAccountEventArgs_Interface;
    type IWebAccountEventArgs is access all IWebAccountEventArgs_Interface'Class;
    type IWebAccountEventArgs_Ptr is access all IWebAccountEventArgs;
+   type IFindAllAccountsResult_Interface;
+   type IFindAllAccountsResult is access all IFindAllAccountsResult_Interface'Class;
+   type IFindAllAccountsResult_Ptr is access all IFindAllAccountsResult;
    type IWebAuthenticationCoreManagerStatics_Interface;
    type IWebAuthenticationCoreManagerStatics is access all IWebAuthenticationCoreManagerStatics_Interface'Class;
    type IWebAuthenticationCoreManagerStatics_Ptr is access all IWebAuthenticationCoreManagerStatics;
@@ -109,6 +131,9 @@ package Windows.Security.Authentication.Web.Core is
    type IWebAuthenticationCoreManagerStatics3_Interface;
    type IWebAuthenticationCoreManagerStatics3 is access all IWebAuthenticationCoreManagerStatics3_Interface'Class;
    type IWebAuthenticationCoreManagerStatics3_Ptr is access all IWebAuthenticationCoreManagerStatics3;
+   type IWebAuthenticationCoreManagerStatics4_Interface;
+   type IWebAuthenticationCoreManagerStatics4 is access all IWebAuthenticationCoreManagerStatics4_Interface'Class;
+   type IWebAuthenticationCoreManagerStatics4_Ptr is access all IWebAuthenticationCoreManagerStatics4;
    type IWebAccountMonitor_Interface;
    type IWebAccountMonitor is access all IWebAccountMonitor_Interface'Class;
    type IWebAccountMonitor_Ptr is access all IWebAccountMonitor;
@@ -130,6 +155,9 @@ package Windows.Security.Authentication.Web.Core is
    type IAsyncOperation_IWebTokenRequestResult_Interface;
    type IAsyncOperation_IWebTokenRequestResult is access all IAsyncOperation_IWebTokenRequestResult_Interface'Class;
    type IAsyncOperation_IWebTokenRequestResult_Ptr is access all IAsyncOperation_IWebTokenRequestResult;
+   type IAsyncOperation_IFindAllAccountsResult_Interface;
+   type IAsyncOperation_IFindAllAccountsResult is access all IAsyncOperation_IFindAllAccountsResult_Interface'Class;
+   type IAsyncOperation_IFindAllAccountsResult_Ptr is access all IAsyncOperation_IFindAllAccountsResult;
    type IIterator_IWebTokenResponse_Interface;
    type IIterator_IWebTokenResponse is access all IIterator_IWebTokenResponse_Interface'Class;
    type IIterator_IWebTokenResponse_Ptr is access all IIterator_IWebTokenResponse;
@@ -277,6 +305,33 @@ package Windows.Security.Authentication.Web.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IFindAllAccountsResult : aliased constant Windows.IID := (2776705885, 46894, 16908, (134, 171, 170, 192, 215, 183, 38, 31 ));
+   
+   type IFindAllAccountsResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Accounts
+   (
+      This       : access IFindAllAccountsResult_Interface
+      ; RetVal : access Windows.Security.Credentials.IVectorView_IWebAccount -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Status
+   (
+      This       : access IFindAllAccountsResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProviderError
+   (
+      This       : access IFindAllAccountsResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Core.IWebProviderError
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWebAuthenticationCoreManagerStatics : aliased constant Windows.IID := (1791655058, 42369, 17529, (156, 16, 117, 46, 255, 68, 253, 52 ));
    
    type IWebAuthenticationCoreManagerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -368,6 +423,56 @@ package Windows.Security.Authentication.Web.Core is
       This       : access IWebAuthenticationCoreManagerStatics3_Interface
       ; webAccounts : Windows.Security.Credentials.IIterable_IWebAccount
       ; RetVal : access Windows.Security.Authentication.Web.Core.IWebAccountMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebAuthenticationCoreManagerStatics4 : aliased constant Windows.IID := (1424372734, 38624, 16872, (152, 50, 18, 152, 137, 124, 42, 175 ));
+   
+   type IWebAuthenticationCoreManagerStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FindAllAccountsAsync
+   (
+      This       : access IWebAuthenticationCoreManagerStatics4_Interface
+      ; provider : Windows.Security.Credentials.IWebAccountProvider
+      ; RetVal : access Windows.Security.Authentication.Web.Core.IAsyncOperation_IFindAllAccountsResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindAllAccountsWithClientIdAsync
+   (
+      This       : access IWebAuthenticationCoreManagerStatics4_Interface
+      ; provider : Windows.Security.Credentials.IWebAccountProvider
+      ; clientId : Windows.String
+      ; RetVal : access Windows.Security.Authentication.Web.Core.IAsyncOperation_IFindAllAccountsResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindSystemAccountProviderAsync
+   (
+      This       : access IWebAuthenticationCoreManagerStatics4_Interface
+      ; webAccountProviderId : Windows.String
+      ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindSystemAccountProviderWithAuthorityAsync
+   (
+      This       : access IWebAuthenticationCoreManagerStatics4_Interface
+      ; webAccountProviderId : Windows.String
+      ; authority : Windows.String
+      ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindSystemAccountProviderWithAuthorityForUserAsync
+   (
+      This       : access IWebAuthenticationCoreManagerStatics4_Interface
+      ; webAccountProviderId : Windows.String
+      ; authority : Windows.String
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -594,6 +699,33 @@ package Windows.Security.Authentication.Web.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IAsyncOperation_IFindAllAccountsResult : aliased constant Windows.IID := (2600449394, 22723, 23660, (147, 151, 43, 119, 4, 170, 53, 195 ));
+   
+   type IAsyncOperation_IFindAllAccountsResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IFindAllAccountsResult_Interface
+      ; handler : Windows.Security.Authentication.Web.Core.AsyncOperationCompletedHandler_IFindAllAccountsResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IFindAllAccountsResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Core.AsyncOperationCompletedHandler_IFindAllAccountsResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IFindAllAccountsResult_Interface
+      ; RetVal : access Windows.Security.Authentication.Web.Core.IFindAllAccountsResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IWebTokenResponse : aliased constant Windows.IID := (4034965705, 41109, 23354, (161, 220, 209, 126, 125, 41, 130, 199 ));
    
    type IIterator_IWebTokenResponse_Interface is interface and Windows.IInspectable_Interface;
@@ -698,6 +830,19 @@ package Windows.Security.Authentication.Web.Core is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IFindAllAccountsResult : aliased constant Windows.IID := (1575598686, 2782, 21316, (159, 228, 152, 127, 29, 56, 126, 247 ));
+   
+   type AsyncOperationCompletedHandler_IFindAllAccountsResult_Interface(Callback : access procedure (asyncInfo : Windows.Security.Authentication.Web.Core.IAsyncOperation_IFindAllAccountsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IFindAllAccountsResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IFindAllAccountsResult_Interface
+      ; asyncInfo : Windows.Security.Authentication.Web.Core.IAsyncOperation_IFindAllAccountsResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IWebAccountMonitor_add_Updated : aliased constant Windows.IID := (4201664260, 34742, 20843, (149, 150, 205, 124, 192, 146, 22, 155 ));
    
    type TypedEventHandler_IWebAccountMonitor_add_Updated_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebAccountMonitor_add_Updated'access) with null record;
@@ -771,6 +916,7 @@ package Windows.Security.Authentication.Web.Core is
    return Windows.Security.Authentication.Web.Core.IWebTokenRequest;
    
    subtype WebAccountEventArgs is Windows.Security.Authentication.Web.Core.IWebAccountEventArgs;
+   subtype FindAllAccountsResult is Windows.Security.Authentication.Web.Core.IFindAllAccountsResult;
    subtype WebAccountMonitor is Windows.Security.Authentication.Web.Core.IWebAccountMonitor;
    subtype WebProviderError is Windows.Security.Authentication.Web.Core.IWebProviderError;
    function Create
@@ -788,6 +934,48 @@ package Windows.Security.Authentication.Web.Core is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function FindAccountProviderWithAuthorityForUserAsync
+   (
+      webAccountProviderId : Windows.String
+      ; authority : Windows.String
+      ; user : Windows.System.IUser
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
+   
+   function FindAllAccountsAsync
+   (
+      provider : Windows.Security.Credentials.IWebAccountProvider
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IFindAllAccountsResult;
+   
+   function FindAllAccountsWithClientIdAsync
+   (
+      provider : Windows.Security.Credentials.IWebAccountProvider
+      ; clientId : Windows.String
+   )
+   return Windows.Security.Authentication.Web.Core.IAsyncOperation_IFindAllAccountsResult;
+   
+   function FindSystemAccountProviderAsync
+   (
+      webAccountProviderId : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
+   
+   function FindSystemAccountProviderWithAuthorityAsync
+   (
+      webAccountProviderId : Windows.String
+      ; authority : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
+   
+   function FindSystemAccountProviderWithAuthorityForUserAsync
+   (
+      webAccountProviderId : Windows.String
+      ; authority : Windows.String
+      ; user : Windows.System.IUser
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
    
    function GetTokenSilentlyAsync
    (
@@ -840,13 +1028,5 @@ package Windows.Security.Authentication.Web.Core is
       webAccounts : Windows.Security.Credentials.IIterable_IWebAccount
    )
    return Windows.Security.Authentication.Web.Core.IWebAccountMonitor;
-   
-   function FindAccountProviderWithAuthorityForUserAsync
-   (
-      webAccountProviderId : Windows.String
-      ; authority : Windows.String
-      ; user : Windows.System.IUser
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccountProvider;
    
 end;

@@ -311,21 +311,25 @@ package body Windows.ApplicationModel.Calls is
       return Convert(RetVal);
    end;
    
-   function CreatePhoneCallHistoryEntryAddress return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress is
-      Hr            : Windows.HResult := S_OK;
+   function Create
+   (
+      rawAddress : Windows.String
+      ; rawAddressKind : Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind
+   )
+   return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress is
+      Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress");
-      Instance      : aliased IInspectable := null;
+      m_Factory     : Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddressFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress) with inline;
+      RetVal        : aliased Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallHistoryEntryAddressFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Calls.IID_IPhoneCallHistoryEntryAddress'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.Create(rawAddress, rawAddressKind, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function CreatePhoneCallHistoryEntry return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry is
@@ -388,6 +392,25 @@ package body Windows.ApplicationModel.Calls is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   procedure ShowPhoneCallUI
+   (
+      phoneNumber : Windows.String
+      ; displayName : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallManager");
+      m_Factory     : IPhoneCallManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowPhoneCallUI(phoneNumber, displayName);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function add_CallStateChanged
@@ -492,25 +515,6 @@ package body Windows.ApplicationModel.Calls is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
-   end;
-   
-   procedure ShowPhoneCallUI
-   (
-      phoneNumber : Windows.String
-      ; displayName : Windows.String
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneCallManager");
-      m_Factory     : IPhoneCallManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPhoneCallManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.ShowPhoneCallUI(phoneNumber, displayName);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
    end;
    
    function GetCapabilitiesAsync

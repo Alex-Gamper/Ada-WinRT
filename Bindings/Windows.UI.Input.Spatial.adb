@@ -23,6 +23,7 @@ with Windows.Perception.Spatial;
 with Windows.Perception;
 with Windows.Devices.Haptics;
 with Windows.Storage.Streams;
+with Windows.Devices.Power;
 with Windows.Perception.People;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------

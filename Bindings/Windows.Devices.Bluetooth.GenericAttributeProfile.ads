@@ -5360,33 +5360,6 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    function get_Struct
    return Windows.UInt8;
    
-   function get_Battery
-   return Windows.Guid;
-   
-   function get_BloodPressure
-   return Windows.Guid;
-   
-   function get_CyclingSpeedAndCadence
-   return Windows.Guid;
-   
-   function get_GenericAccess
-   return Windows.Guid;
-   
-   function get_GenericAttribute
-   return Windows.Guid;
-   
-   function get_Glucose
-   return Windows.Guid;
-   
-   function get_HealthThermometer
-   return Windows.Guid;
-   
-   function get_HeartRate
-   return Windows.Guid;
-   
-   function get_RunningSpeedAndCadence
-   return Windows.Guid;
-   
    function get_AlertNotification
    return Windows.Guid;
    
@@ -5426,67 +5399,31 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    function get_TxPower
    return Windows.Guid;
    
-   function get_BatteryLevel
+   function get_Battery
    return Windows.Guid;
    
-   function get_BloodPressureFeature
+   function get_BloodPressure
    return Windows.Guid;
    
-   function get_BloodPressureMeasurement
+   function get_CyclingSpeedAndCadence
    return Windows.Guid;
    
-   function get_BodySensorLocation
+   function get_GenericAccess
    return Windows.Guid;
    
-   function get_CscFeature
+   function get_GenericAttribute
    return Windows.Guid;
    
-   function get_CscMeasurement
+   function get_Glucose
    return Windows.Guid;
    
-   function get_GlucoseFeature
+   function get_HealthThermometer
    return Windows.Guid;
    
-   function get_GlucoseMeasurement
+   function get_HeartRate
    return Windows.Guid;
    
-   function get_GlucoseMeasurementContext
-   return Windows.Guid;
-   
-   function get_HeartRateControlPoint
-   return Windows.Guid;
-   
-   function get_HeartRateMeasurement
-   return Windows.Guid;
-   
-   function get_IntermediateCuffPressure
-   return Windows.Guid;
-   
-   function get_IntermediateTemperature
-   return Windows.Guid;
-   
-   function get_MeasurementInterval
-   return Windows.Guid;
-   
-   function get_RecordAccessControlPoint
-   return Windows.Guid;
-   
-   function get_RscFeature
-   return Windows.Guid;
-   
-   function get_RscMeasurement
-   return Windows.Guid;
-   
-   function get_SCControlPoint
-   return Windows.Guid;
-   
-   function get_SensorLocation
-   return Windows.Guid;
-   
-   function get_TemperatureMeasurement
-   return Windows.Guid;
-   
-   function get_TemperatureType
+   function get_RunningSpeedAndCadence
    return Windows.Guid;
    
    function get_AlertCategoryId
@@ -5667,6 +5604,69 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    return Windows.Guid;
    
    function get_UnreadAlertStatus
+   return Windows.Guid;
+   
+   function get_BatteryLevel
+   return Windows.Guid;
+   
+   function get_BloodPressureFeature
+   return Windows.Guid;
+   
+   function get_BloodPressureMeasurement
+   return Windows.Guid;
+   
+   function get_BodySensorLocation
+   return Windows.Guid;
+   
+   function get_CscFeature
+   return Windows.Guid;
+   
+   function get_CscMeasurement
+   return Windows.Guid;
+   
+   function get_GlucoseFeature
+   return Windows.Guid;
+   
+   function get_GlucoseMeasurement
+   return Windows.Guid;
+   
+   function get_GlucoseMeasurementContext
+   return Windows.Guid;
+   
+   function get_HeartRateControlPoint
+   return Windows.Guid;
+   
+   function get_HeartRateMeasurement
+   return Windows.Guid;
+   
+   function get_IntermediateCuffPressure
+   return Windows.Guid;
+   
+   function get_IntermediateTemperature
+   return Windows.Guid;
+   
+   function get_MeasurementInterval
+   return Windows.Guid;
+   
+   function get_RecordAccessControlPoint
+   return Windows.Guid;
+   
+   function get_RscFeature
+   return Windows.Guid;
+   
+   function get_RscMeasurement
+   return Windows.Guid;
+   
+   function get_SCControlPoint
+   return Windows.Guid;
+   
+   function get_SensorLocation
+   return Windows.Guid;
+   
+   function get_TemperatureMeasurement
+   return Windows.Guid;
+   
+   function get_TemperatureType
    return Windows.Guid;
    
    function get_CharacteristicAggregateFormat

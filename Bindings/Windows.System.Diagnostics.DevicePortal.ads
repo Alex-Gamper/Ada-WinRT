@@ -20,8 +20,10 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 limited with Windows.Web.Http;
-limited with Windows.ApplicationModel.AppService;
+with Windows.Foundation.Collections;
 with Windows.Foundation;
+limited with Windows.ApplicationModel.AppService;
+limited with Windows.Networking.Sockets;
 --------------------------------------------------------------------------------
 package Windows.System.Diagnostics.DevicePortal is
 
@@ -72,12 +74,18 @@ package Windows.System.Diagnostics.DevicePortal is
    type IDevicePortalConnectionRequestReceivedEventArgs_Interface;
    type IDevicePortalConnectionRequestReceivedEventArgs is access all IDevicePortalConnectionRequestReceivedEventArgs_Interface'Class;
    type IDevicePortalConnectionRequestReceivedEventArgs_Ptr is access all IDevicePortalConnectionRequestReceivedEventArgs;
+   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface;
+   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs is access all IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface'Class;
+   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Ptr is access all IDevicePortalWebSocketConnectionRequestReceivedEventArgs;
    type IDevicePortalConnectionStatics_Interface;
    type IDevicePortalConnectionStatics is access all IDevicePortalConnectionStatics_Interface'Class;
    type IDevicePortalConnectionStatics_Ptr is access all IDevicePortalConnectionStatics;
    type IDevicePortalConnection_Interface;
    type IDevicePortalConnection is access all IDevicePortalConnection_Interface'Class;
    type IDevicePortalConnection_Ptr is access all IDevicePortalConnection;
+   type IDevicePortalWebSocketConnection_Interface;
+   type IDevicePortalWebSocketConnection is access all IDevicePortalWebSocketConnection_Interface'Class;
+   type IDevicePortalWebSocketConnection_Ptr is access all IDevicePortalWebSocketConnection;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -113,6 +121,33 @@ package Windows.System.Diagnostics.DevicePortal is
    (
       This       : access IDevicePortalConnectionRequestReceivedEventArgs_Interface
       ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDevicePortalWebSocketConnectionRequestReceivedEventArgs : aliased constant Windows.IID := (2046675642, 5980, 18233, (159, 116, 221, 167, 151, 195, 91, 63 ));
+   
+   type IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsWebSocketUpgradeRequest
+   (
+      This       : access IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WebSocketProtocolsRequested
+   (
+      This       : access IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    
@@ -163,6 +198,62 @@ package Windows.System.Diagnostics.DevicePortal is
    (
       This       : access IDevicePortalConnection_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDevicePortalWebSocketConnection : aliased constant Windows.IID := (1734703392, 54874, 17136, (174, 244, 120, 120, 8, 9, 139, 123 ));
+   
+   type IDevicePortalWebSocketConnection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetServerMessageWebSocketForRequest
+   (
+      This       : access IDevicePortalWebSocketConnection_Interface
+      ; request : Windows.Web.Http.IHttpRequestMessage
+      ; RetVal : access Windows.Networking.Sockets.IServerMessageWebSocket
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetServerMessageWebSocketForRequest2
+   (
+      This       : access IDevicePortalWebSocketConnection_Interface
+      ; request : Windows.Web.Http.IHttpRequestMessage
+      ; messageType : Windows.Networking.Sockets.SocketMessageType
+      ; protocol : Windows.String
+      ; RetVal : access Windows.Networking.Sockets.IServerMessageWebSocket
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetServerMessageWebSocketForRequest3
+   (
+      This       : access IDevicePortalWebSocketConnection_Interface
+      ; request : Windows.Web.Http.IHttpRequestMessage
+      ; messageType : Windows.Networking.Sockets.SocketMessageType
+      ; protocol : Windows.String
+      ; outboundBufferSizeInBytes : Windows.UInt32
+      ; maxMessageSize : Windows.UInt32
+      ; receiveMode : Windows.Networking.Sockets.MessageWebSocketReceiveMode
+      ; RetVal : access Windows.Networking.Sockets.IServerMessageWebSocket
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetServerStreamWebSocketForRequest
+   (
+      This       : access IDevicePortalWebSocketConnection_Interface
+      ; request : Windows.Web.Http.IHttpRequestMessage
+      ; RetVal : access Windows.Networking.Sockets.IServerStreamWebSocket
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetServerStreamWebSocketForRequest2
+   (
+      This       : access IDevicePortalWebSocketConnection_Interface
+      ; request : Windows.Web.Http.IHttpRequestMessage
+      ; protocol : Windows.String
+      ; outboundBufferSizeInBytes : Windows.UInt32
+      ; noDelay : Windows.Boolean
+      ; RetVal : access Windows.Networking.Sockets.IServerStreamWebSocket
    )
    return Windows.HRESULT is abstract;
    

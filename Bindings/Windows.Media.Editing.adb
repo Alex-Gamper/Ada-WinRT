@@ -138,24 +138,21 @@ package body Windows.Media.Editing is
       return Convert(RetVal);
    end;
    
-   function CreateWithCompositorDefinition
-   (
-      compositorDefinition : Windows.Media.Effects.IVideoCompositorDefinition
-   )
-   return Windows.Media.Editing.IMediaOverlayLayer is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateMediaOverlayLayer return Windows.Media.Editing.IMediaOverlayLayer is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Editing.MediaOverlayLayer");
-      m_Factory     : Windows.Media.Editing.IMediaOverlayLayerFactory := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Media.Editing.IMediaOverlayLayer := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Editing.IMediaOverlayLayer) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMediaOverlayLayerFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithCompositorDefinition(compositorDefinition, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.Media.Editing.IID_IMediaOverlayLayer'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

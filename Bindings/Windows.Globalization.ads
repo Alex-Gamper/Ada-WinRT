@@ -21,6 +21,8 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation.Collections;
 with Windows.Foundation;
+limited with Windows.System;
+--------------------------------------------------------------------------------
 package Windows.Globalization is
 
    pragma preelaborate;
@@ -50,6 +52,22 @@ package Windows.Globalization is
    for DayOfWeek'Size use 32;
    
    type DayOfWeek_Ptr is access DayOfWeek;
+   
+   type LanguageLayoutDirection is (
+      Ltr,
+      Rtl,
+      TtbLtr,
+      TtbRtl
+   );
+   for LanguageLayoutDirection use (
+      Ltr => 0,
+      Rtl => 1,
+      TtbLtr => 2,
+      TtbRtl => 3
+   );
+   for LanguageLayoutDirection'Size use 32;
+   
+   type LanguageLayoutDirection_Ptr is access LanguageLayoutDirection;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -100,6 +118,9 @@ package Windows.Globalization is
    type ILanguage_Interface;
    type ILanguage is access all ILanguage_Interface'Class;
    type ILanguage_Ptr is access all ILanguage;
+   type ILanguage2_Interface;
+   type ILanguage2 is access all ILanguage2_Interface'Class;
+   type ILanguage2_Ptr is access all ILanguage2;
    type ILanguageExtensionSubtags_Interface;
    type ILanguageExtensionSubtags is access all ILanguageExtensionSubtags_Interface'Class;
    type ILanguageExtensionSubtags_Ptr is access all ILanguageExtensionSubtags;
@@ -127,6 +148,9 @@ package Windows.Globalization is
    type IApplicationLanguagesStatics_Interface;
    type IApplicationLanguagesStatics is access all IApplicationLanguagesStatics_Interface'Class;
    type IApplicationLanguagesStatics_Ptr is access all IApplicationLanguagesStatics;
+   type IApplicationLanguagesStatics2_Interface;
+   type IApplicationLanguagesStatics2 is access all IApplicationLanguagesStatics2_Interface'Class;
+   type IApplicationLanguagesStatics2_Ptr is access all IApplicationLanguagesStatics2;
    type IJapanesePhoneticAnalyzerStatics_Interface;
    type IJapanesePhoneticAnalyzerStatics is access all IJapanesePhoneticAnalyzerStatics_Interface'Class;
    type IJapanesePhoneticAnalyzerStatics_Ptr is access all IJapanesePhoneticAnalyzerStatics;
@@ -1884,6 +1908,19 @@ package Windows.Globalization is
    
    ------------------------------------------------------------------------
    
+   IID_ILanguage2 : aliased constant Windows.IID := (1783096757, 55629, 18566, (164, 4, 165, 165, 185, 213, 180, 148 ));
+   
+   type ILanguage2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LayoutDirection
+   (
+      This       : access ILanguage2_Interface
+      ; RetVal : access Windows.Globalization.LanguageLayoutDirection
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ILanguageExtensionSubtags : aliased constant Windows.IID := (2105388869, 13965, 17252, (133, 43, 222, 201, 39, 3, 123, 133 ));
    
    type ILanguageExtensionSubtags_Interface is interface and Windows.IInspectable_Interface;
@@ -2762,6 +2799,20 @@ package Windows.Globalization is
    
    ------------------------------------------------------------------------
    
+   IID_IApplicationLanguagesStatics2 : aliased constant Windows.IID := (502324815, 1835, 19835, (143, 6, 203, 45, 180, 15, 43, 181 ));
+   
+   type IApplicationLanguagesStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetLanguagesForUser
+   (
+      This       : access IApplicationLanguagesStatics2_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IJapanesePhoneticAnalyzerStatics : aliased constant Windows.IID := (2292948624, 37854, 16818, (180, 213, 142, 219, 34, 127, 209, 194 ));
    
    type IJapanesePhoneticAnalyzerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -2989,7 +3040,11 @@ package Windows.Globalization is
    ------------------------------------------------------------------------
    
    subtype GeographicRegion is Windows.Globalization.IGeographicRegion;
-   function CreateGeographicRegion return Windows.Globalization.IGeographicRegion;
+   function CreateGeographicRegion
+   (
+      geographicRegionCode : Windows.String
+   )
+   return Windows.Globalization.IGeographicRegion;
    
    subtype Language is Windows.Globalization.ILanguage;
    function CreateLanguage
@@ -2999,20 +3054,31 @@ package Windows.Globalization is
    return Windows.Globalization.ILanguage;
    
    subtype Calendar is Windows.Globalization.ICalendar;
-   function CreateCalendarWithTimeZone
-   (
-      languages : Windows.Foundation.Collections.IIterable_String
-      ; calendar : Windows.String
-      ; clock : Windows.String
-      ; timeZoneId : Windows.String
-   )
-   return Windows.Globalization.ICalendar;
+   function CreateCalendar return Windows.Globalization.ICalendar;
    
    subtype JapanesePhoneme is Windows.Globalization.IJapanesePhoneme;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Persian
+   return Windows.String;
+   
+   function get_ChineseLunar
+   return Windows.String;
+   
+   function get_JapaneseLunar
+   return Windows.String;
+   
+   function get_KoreanLunar
+   return Windows.String;
+   
+   function get_TaiwanLunar
+   return Windows.String;
+   
+   function get_VietnameseLunar
+   return Windows.String;
    
    function get_Gregorian
    return Windows.String;
@@ -3041,28 +3107,46 @@ package Windows.Globalization is
    function get_UmAlQura
    return Windows.String;
    
-   function get_ChineseLunar
-   return Windows.String;
-   
-   function get_JapaneseLunar
-   return Windows.String;
-   
-   function get_KoreanLunar
-   return Windows.String;
-   
-   function get_TaiwanLunar
-   return Windows.String;
-   
-   function get_VietnameseLunar
-   return Windows.String;
-   
-   function get_Persian
-   return Windows.String;
-   
    function get_TwelveHour
    return Windows.String;
    
    function get_TwentyFourHour
+   return Windows.String;
+   
+   function get_Brah
+   return Windows.String;
+   
+   function get_Osma
+   return Windows.String;
+   
+   function get_MathBold
+   return Windows.String;
+   
+   function get_MathDbl
+   return Windows.String;
+   
+   function get_MathSans
+   return Windows.String;
+   
+   function get_MathSanb
+   return Windows.String;
+   
+   function get_MathMono
+   return Windows.String;
+   
+   function get_ZmthBold
+   return Windows.String;
+   
+   function get_ZmthDbl
+   return Windows.String;
+   
+   function get_ZmthSans
+   return Windows.String;
+   
+   function get_ZmthSanb
+   return Windows.String;
+   
+   function get_ZmthMono
    return Windows.String;
    
    function get_Arab
@@ -3171,42 +3255,6 @@ package Windows.Globalization is
    return Windows.String;
    
    function get_Vaii
-   return Windows.String;
-   
-   function get_Brah
-   return Windows.String;
-   
-   function get_Osma
-   return Windows.String;
-   
-   function get_MathBold
-   return Windows.String;
-   
-   function get_MathDbl
-   return Windows.String;
-   
-   function get_MathSans
-   return Windows.String;
-   
-   function get_MathSanb
-   return Windows.String;
-   
-   function get_MathMono
-   return Windows.String;
-   
-   function get_ZmthBold
-   return Windows.String;
-   
-   function get_ZmthDbl
-   return Windows.String;
-   
-   function get_ZmthSans
-   return Windows.String;
-   
-   function get_ZmthSanb
-   return Windows.String;
-   
-   function get_ZmthMono
    return Windows.String;
    
    function get_BYN
@@ -3689,6 +3737,12 @@ package Windows.Globalization is
    )
    return Windows.Boolean;
    
+   function TrySetInputMethodLanguageTag
+   (
+      languageTag : Windows.String
+   )
+   return Windows.Boolean;
+   
    function IsWellFormed
    (
       languageTag : Windows.String
@@ -3697,12 +3751,6 @@ package Windows.Globalization is
    
    function get_CurrentInputMethodLanguageTag
    return Windows.String;
-   
-   function TrySetInputMethodLanguageTag
-   (
-      languageTag : Windows.String
-   )
-   return Windows.Boolean;
    
    function get_PrimaryLanguageOverride
    return Windows.String;
@@ -3717,6 +3765,12 @@ package Windows.Globalization is
    return Windows.Foundation.Collections.IVectorView_String;
    
    function get_ManifestLanguages
+   return Windows.Foundation.Collections.IVectorView_String;
+   
+   function GetLanguagesForUser
+   (
+      user : Windows.System.IUser
+   )
    return Windows.Foundation.Collections.IVectorView_String;
    
    function GetWords

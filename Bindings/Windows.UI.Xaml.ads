@@ -157,11 +157,13 @@ package Windows.UI.Xaml is
    
    type FocusVisualKind is (
       DottedLine,
-      HighVisibility
+      HighVisibility,
+      Reveal
    );
    for FocusVisualKind use (
       DottedLine => 0,
-      HighVisibility => 1
+      HighVisibility => 1,
+      Reveal => 2
    );
    for FocusVisualKind'Size use 32;
    
@@ -348,6 +350,20 @@ package Windows.UI.Xaml is
    for ElementSoundPlayerState'Size use 32;
    
    type ElementSoundPlayerState_Ptr is access ElementSoundPlayerState;
+   
+   type ElementSpatialAudioMode is (
+      Auto,
+      Off,
+      On
+   );
+   for ElementSpatialAudioMode use (
+      Auto => 0,
+      Off => 1,
+      On => 2
+   );
+   for ElementSpatialAudioMode'Size use 32;
+   
+   type ElementSpatialAudioMode_Ptr is access ElementSpatialAudioMode;
    
    type FontCapitals is (
       Normal,
@@ -721,6 +737,9 @@ package Windows.UI.Xaml is
    type TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators_Interface;
    type TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators is access all TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators_Interface'Class;
    type TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators_Ptr is access all TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators;
+   type TypedEventHandler_IUIElement8_add_BringIntoViewRequested_Interface;
+   type TypedEventHandler_IUIElement8_add_BringIntoViewRequested is access all TypedEventHandler_IUIElement8_add_BringIntoViewRequested_Interface'Class;
+   type TypedEventHandler_IUIElement8_add_BringIntoViewRequested_Ptr is access all TypedEventHandler_IUIElement8_add_BringIntoViewRequested;
    type TypedEventHandler_IFrameworkElement2_add_DataContextChanged_Interface;
    type TypedEventHandler_IFrameworkElement2_add_DataContextChanged is access all TypedEventHandler_IFrameworkElement2_add_DataContextChanged_Interface'Class;
    type TypedEventHandler_IFrameworkElement2_add_DataContextChanged_Ptr is access all TypedEventHandler_IFrameworkElement2_add_DataContextChanged;
@@ -777,6 +796,9 @@ package Windows.UI.Xaml is
    type IBringIntoViewOptions_Interface;
    type IBringIntoViewOptions is access all IBringIntoViewOptions_Interface'Class;
    type IBringIntoViewOptions_Ptr is access all IBringIntoViewOptions;
+   type IBringIntoViewOptions2_Interface;
+   type IBringIntoViewOptions2 is access all IBringIntoViewOptions2_Interface'Class;
+   type IBringIntoViewOptions2_Ptr is access all IBringIntoViewOptions2;
    type IDataContextChangedEventArgs_Interface;
    type IDataContextChangedEventArgs is access all IDataContextChangedEventArgs_Interface'Class;
    type IDataContextChangedEventArgs_Ptr is access all IDataContextChangedEventArgs;
@@ -867,6 +889,9 @@ package Windows.UI.Xaml is
    type IVisualStateChangedEventArgs_Interface;
    type IVisualStateChangedEventArgs is access all IVisualStateChangedEventArgs_Interface'Class;
    type IVisualStateChangedEventArgs_Ptr is access all IVisualStateChangedEventArgs;
+   type IBringIntoViewRequestedEventArgs_Interface;
+   type IBringIntoViewRequestedEventArgs is access all IBringIntoViewRequestedEventArgs_Interface'Class;
+   type IBringIntoViewRequestedEventArgs_Ptr is access all IBringIntoViewRequestedEventArgs;
    type IDependencyObjectCollectionFactory_Interface;
    type IDependencyObjectCollectionFactory is access all IDependencyObjectCollectionFactory_Interface'Class;
    type IDependencyObjectCollectionFactory_Ptr is access all IDependencyObjectCollectionFactory;
@@ -1011,6 +1036,15 @@ package Windows.UI.Xaml is
    type IUIElementStatics7_Interface;
    type IUIElementStatics7 is access all IUIElementStatics7_Interface'Class;
    type IUIElementStatics7_Ptr is access all IUIElementStatics7;
+   type IUIElement8_Interface;
+   type IUIElement8 is access all IUIElement8_Interface'Class;
+   type IUIElement8_Ptr is access all IUIElement8;
+   type IUIElementOverrides8_Interface;
+   type IUIElementOverrides8 is access all IUIElementOverrides8_Interface'Class;
+   type IUIElementOverrides8_Ptr is access all IUIElementOverrides8;
+   type IUIElementStatics8_Interface;
+   type IUIElementStatics8 is access all IUIElementStatics8_Interface'Class;
+   type IUIElementStatics8_Ptr is access all IUIElementStatics8;
    type IVisualState_Interface;
    type IVisualState is access all IVisualState_Interface'Class;
    type IVisualState_Ptr is access all IVisualState;
@@ -1119,6 +1153,9 @@ package Windows.UI.Xaml is
    type IElementSoundPlayerStatics_Interface;
    type IElementSoundPlayerStatics is access all IElementSoundPlayerStatics_Interface'Class;
    type IElementSoundPlayerStatics_Ptr is access all IElementSoundPlayerStatics;
+   type IElementSoundPlayerStatics2_Interface;
+   type IElementSoundPlayerStatics2 is access all IElementSoundPlayerStatics2_Interface'Class;
+   type IElementSoundPlayerStatics2_Ptr is access all IElementSoundPlayerStatics2;
    type IApplication_Interface;
    type IApplication is access all IApplication_Interface'Class;
    type IApplication_Ptr is access all IApplication;
@@ -1620,6 +1657,68 @@ package Windows.UI.Xaml is
    (
       This       : access IBringIntoViewOptions_Interface
       ; value : Windows.Foundation.IReference_Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBringIntoViewOptions2 : aliased constant Windows.IID := (3897942158, 25782, 4625, (189, 219, 31, 221, 187, 110, 130, 49 ));
+   
+   type IBringIntoViewOptions2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HorizontalAlignmentRatio
+   (
+      This       : access IBringIntoViewOptions2_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HorizontalAlignmentRatio
+   (
+      This       : access IBringIntoViewOptions2_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VerticalAlignmentRatio
+   (
+      This       : access IBringIntoViewOptions2_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_VerticalAlignmentRatio
+   (
+      This       : access IBringIntoViewOptions2_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HorizontalOffset
+   (
+      This       : access IBringIntoViewOptions2_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HorizontalOffset
+   (
+      This       : access IBringIntoViewOptions2_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VerticalOffset
+   (
+      This       : access IBringIntoViewOptions2_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_VerticalOffset
+   (
+      This       : access IBringIntoViewOptions2_Interface
+      ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -2604,6 +2703,110 @@ package Windows.UI.Xaml is
    (
       This       : access IVisualStateChangedEventArgs_Interface
       ; value : Windows.UI.Xaml.Controls.IControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBringIntoViewRequestedEventArgs : aliased constant Windows.IID := (241344196, 8710, 19595, (148, 174, 189, 182, 106, 78, 191, 209 ));
+   
+   type IBringIntoViewRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TargetElement
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TargetElement
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AnimationDesired
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AnimationDesired
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TargetRect
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TargetRect
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; value : Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HorizontalAlignmentRatio
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VerticalAlignmentRatio
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HorizontalOffset
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HorizontalOffset
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VerticalOffset
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_VerticalOffset
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Handled
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access IBringIntoViewRequestedEventArgs_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -5094,6 +5297,137 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IUIElement8 : aliased constant Windows.IID := (985075333, 54536, 17527, (182, 248, 14, 67, 87, 1, 200, 54 ));
+   
+   type IUIElement8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyTipTarget
+   (
+      This       : access IUIElement8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeyTipTarget
+   (
+      This       : access IUIElement8_Interface
+      ; value : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyboardAcceleratorPlacementTarget
+   (
+      This       : access IUIElement8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeyboardAcceleratorPlacementTarget
+   (
+      This       : access IUIElement8_Interface
+      ; value : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyboardAcceleratorPlacementMode
+   (
+      This       : access IUIElement8_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.KeyboardAcceleratorPlacementMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_KeyboardAcceleratorPlacementMode
+   (
+      This       : access IUIElement8_Interface
+      ; value : Windows.UI.Xaml.Input.KeyboardAcceleratorPlacementMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_BringIntoViewRequested
+   (
+      This       : access IUIElement8_Interface
+      ; value : TypedEventHandler_IUIElement8_add_BringIntoViewRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_BringIntoViewRequested
+   (
+      This       : access IUIElement8_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUIElementOverrides8 : aliased constant Windows.IID := (1247437916, 21645, 18639, (185, 152, 120, 68, 214, 226, 53, 161 ));
+   
+   type IUIElementOverrides8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function OnKeyboardAcceleratorInvoked
+   (
+      This       : access IUIElementOverrides8_Interface
+      ; args : Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   function OnBringIntoViewRequested
+   (
+      This       : access IUIElementOverrides8_Interface
+      ; e : Windows.UI.Xaml.IBringIntoViewRequestedEventArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUIElementStatics8 : aliased constant Windows.IID := (398341255, 18549, 18709, (176, 177, 164, 192, 248, 81, 223, 63 ));
+   
+   type IUIElementStatics8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BringIntoViewRequestedEvent
+   (
+      This       : access IUIElementStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IRoutedEvent
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContextRequestedEvent
+   (
+      This       : access IUIElementStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IRoutedEvent
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyTipTargetProperty
+   (
+      This       : access IUIElementStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyboardAcceleratorPlacementTargetProperty
+   (
+      This       : access IUIElementStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyboardAcceleratorPlacementModeProperty
+   (
+      This       : access IUIElementStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RegisterAsScrollPort
+   (
+      This       : access IUIElementStatics8_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVisualState : aliased constant Windows.IID := (1663086588, 49946, 17488, (175, 222, 246, 234, 123, 209, 245, 134 ));
    
    type IVisualState_Interface is interface and Windows.IInspectable_Interface;
@@ -6548,6 +6882,26 @@ package Windows.UI.Xaml is
    (
       This       : access IElementSoundPlayerStatics_Interface
       ; sound : Windows.UI.Xaml.ElementSoundKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElementSoundPlayerStatics2 : aliased constant Windows.IID := (4065352022, 60737, 18647, (170, 232, 242, 171, 203, 68, 73, 41 ));
+   
+   type IElementSoundPlayerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SpatialAudioMode
+   (
+      This       : access IElementSoundPlayerStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.ElementSpatialAudioMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SpatialAudioMode
+   (
+      This       : access IElementSoundPlayerStatics2_Interface
+      ; value : Windows.UI.Xaml.ElementSpatialAudioMode
    )
    return Windows.HRESULT is abstract;
    
@@ -9093,6 +9447,19 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IUIElement8_add_BringIntoViewRequested : aliased constant Windows.IID := (556191526, 37377, 23915, (132, 94, 151, 225, 196, 75, 159, 253 ));
+   
+   type TypedEventHandler_IUIElement8_add_BringIntoViewRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.IUIElement ; args : Windows.UI.Xaml.IBringIntoViewRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUIElement8_add_BringIntoViewRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUIElement8_add_BringIntoViewRequested_Interface
+      ; sender : Windows.UI.Xaml.IUIElement
+      ; args : Windows.UI.Xaml.IBringIntoViewRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IFrameworkElement2_add_DataContextChanged : aliased constant Windows.IID := (2954660385, 56943, 24285, (135, 150, 48, 14, 63, 230, 99, 130 ));
    
    type TypedEventHandler_IFrameworkElement2_add_DataContextChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.IFrameworkElement ; args : Windows.UI.Xaml.IDataContextChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFrameworkElement2_add_DataContextChanged'access) with null record;
@@ -9493,6 +9860,7 @@ package Windows.UI.Xaml is
    function CreateTriggerActionCollection return Windows.UI.Xaml.IVector_TriggerAction;
    
    subtype TriggerCollection is Windows.UI.Xaml.IVector_TriggerBase;
+   subtype BringIntoViewRequestedEventArgs is Windows.UI.Xaml.IBringIntoViewRequestedEventArgs;
    subtype DependencyObjectCollection is Windows.UI.Xaml.IObservableVector_DependencyObject;
    subtype DragEventArgs is Windows.UI.Xaml.IDragEventArgs;
    subtype DragStartingEventArgs is Windows.UI.Xaml.IDragStartingEventArgs;
@@ -10502,7 +10870,12 @@ package Windows.UI.Xaml is
    
    subtype MediaFailedRoutedEventArgs is Windows.UI.Xaml.IMediaFailedRoutedEventArgs;
    subtype Setter is Windows.UI.Xaml.ISetter;
-   function CreateSetter return Windows.UI.Xaml.ISetter;
+   function CreateInstance
+   (
+      targetProperty : Windows.UI.Xaml.IDependencyProperty
+      ; value : Windows.Object
+   )
+   return Windows.UI.Xaml.ISetter;
    
    subtype StateTrigger is Windows.UI.Xaml.IStateTrigger;
    function CreateStateTrigger return Windows.UI.Xaml.IStateTrigger;
@@ -11088,6 +11461,23 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IDataTemplateKey;
    
+   function CreateInstanceWithDefaultValue
+   (
+      defaultValue : Windows.Object
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.IPropertyMetadata;
+   
+   function CreateInstanceWithDefaultValueAndCallback
+   (
+      defaultValue : Windows.Object
+      ; propertyChangedCallback : Windows.UI.Xaml.PropertyChangedCallback
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.IPropertyMetadata;
+   
    function CreateWithDefaultValue
    (
       defaultValue : Windows.Object
@@ -11111,23 +11501,6 @@ package Windows.UI.Xaml is
    (
       createDefaultValueCallback : Windows.UI.Xaml.CreateDefaultValueCallback
       ; propertyChangedCallback : Windows.UI.Xaml.PropertyChangedCallback
-   )
-   return Windows.UI.Xaml.IPropertyMetadata;
-   
-   function CreateInstanceWithDefaultValue
-   (
-      defaultValue : Windows.Object
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.IPropertyMetadata;
-   
-   function CreateInstanceWithDefaultValueAndCallback
-   (
-      defaultValue : Windows.Object
-      ; propertyChangedCallback : Windows.UI.Xaml.PropertyChangedCallback
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.IPropertyMetadata;
    
@@ -11181,51 +11554,6 @@ package Windows.UI.Xaml is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.IStateTriggerBase;
-   
-   function get_CompositeModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_PreviewKeyDownEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_CharacterReceivedEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_PreviewKeyUpEvent
-   return Windows.UI.Xaml.IRoutedEvent;
-   
-   function get_LightsProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTipPlacementModeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTipHorizontalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_KeyTipVerticalOffsetProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusKeyboardNavigationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusUpNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusDownNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusLeftNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_XYFocusRightNavigationStrategyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_HighContrastAdjustmentProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_TabFocusNavigationProperty
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_KeyDownEvent
    return Windows.UI.Xaml.IRoutedEvent;
@@ -11347,17 +11675,26 @@ package Windows.UI.Xaml is
    function get_PointerCapturesProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_Transform3DProperty
+   function get_BringIntoViewRequestedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_ContextRequestedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_KeyTipTargetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_CanDragProperty
+   function get_KeyboardAcceleratorPlacementTargetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function TryStartDirectManipulation
+   function get_KeyboardAcceleratorPlacementModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   procedure RegisterAsScrollPort
    (
-      value : Windows.UI.Xaml.Input.IPointer
+      element : Windows.UI.Xaml.IUIElement
    )
-   return Windows.Boolean;
+   ;
    
    function get_ContextFlyoutProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -11374,6 +11711,18 @@ package Windows.UI.Xaml is
    function get_AccessKeyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_Transform3DProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanDragProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function TryStartDirectManipulation
+   (
+      value : Windows.UI.Xaml.Input.IPointer
+   )
+   return Windows.Boolean;
+   
    function get_GettingFocusEvent
    return Windows.UI.Xaml.IRoutedEvent;
    
@@ -11383,12 +11732,63 @@ package Windows.UI.Xaml is
    function get_NoFocusCandidateFoundEvent
    return Windows.UI.Xaml.IRoutedEvent;
    
+   function get_LightsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTipPlacementModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTipHorizontalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyTipVerticalOffsetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusKeyboardNavigationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusUpNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusDownNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusLeftNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusRightNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HighContrastAdjustmentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TabFocusNavigationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PreviewKeyDownEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_CharacterReceivedEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_PreviewKeyUpEvent
+   return Windows.UI.Xaml.IRoutedEvent;
+   
+   function get_CompositeModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.IVisualTransition;
+   
+   function get_MinWindowWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinWindowHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -11397,10 +11797,31 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.IAdaptiveTrigger;
    
-   function get_MinWindowWidthProperty
+   function get_AllowFocusOnInteractionProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_MinWindowHeightProperty
+   function get_FocusVisualMarginProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusVisualSecondaryThicknessProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusVisualPrimaryThicknessProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusVisualSecondaryBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FocusVisualPrimaryBrushProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AllowFocusWhenDisabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ActualThemeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_RequestedThemeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -11461,38 +11882,11 @@ package Windows.UI.Xaml is
    function get_FlowDirectionProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_RequestedThemeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowFocusOnInteractionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualMarginProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualSecondaryThicknessProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualPrimaryThicknessProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualSecondaryBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_FocusVisualPrimaryBrushProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AllowFocusWhenDisabledProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    procedure DeferTree
    (
       element : Windows.UI.Xaml.IDependencyObject
    )
    ;
-   
-   function get_ActualThemeProperty
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsActiveProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -11537,6 +11931,15 @@ package Windows.UI.Xaml is
       ; value : Windows.UI.Xaml.GridLength
    )
    return Windows.Boolean;
+   
+   function get_SpatialAudioMode
+   return Windows.UI.Xaml.ElementSpatialAudioMode;
+   
+   procedure put_SpatialAudioMode
+   (
+      value : Windows.UI.Xaml.ElementSpatialAudioMode
+   )
+   ;
    
    function get_Volume
    return Windows.Double;

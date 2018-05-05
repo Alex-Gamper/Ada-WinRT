@@ -654,18 +654,6 @@ package Windows.Devices.Bluetooth.Rfcomm is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService;
-   
-   function GetDeviceSelector
-   (
-      serviceId : Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId
-   )
-   return Windows.String;
-   
    function GetDeviceSelectorForBluetoothDevice
    (
       bluetoothDevice : Windows.Devices.Bluetooth.IBluetoothDevice
@@ -691,6 +679,18 @@ package Windows.Devices.Bluetooth.Rfcomm is
       bluetoothDevice : Windows.Devices.Bluetooth.IBluetoothDevice
       ; serviceId : Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId
       ; cacheMode : Windows.Devices.Bluetooth.BluetoothCacheMode
+   )
+   return Windows.String;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Bluetooth.Rfcomm.IAsyncOperation_IRfcommDeviceService;
+   
+   function GetDeviceSelector
+   (
+      serviceId : Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceId
    )
    return Windows.String;
    

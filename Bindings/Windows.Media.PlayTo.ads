@@ -1149,4 +1149,10 @@ package Windows.Media.PlayTo is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetForCurrentView
+   return Windows.Media.PlayTo.IPlayToManager;
+   
+   procedure ShowPlayToUI
+   ;
+   
 end;

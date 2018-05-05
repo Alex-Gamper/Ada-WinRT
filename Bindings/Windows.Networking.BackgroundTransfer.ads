@@ -208,12 +208,18 @@ package Windows.Networking.BackgroundTransfer is
    type IDownloadOperation3_Interface;
    type IDownloadOperation3 is access all IDownloadOperation3_Interface'Class;
    type IDownloadOperation3_Ptr is access all IDownloadOperation3;
+   type IDownloadOperation4_Interface;
+   type IDownloadOperation4 is access all IDownloadOperation4_Interface'Class;
+   type IDownloadOperation4_Ptr is access all IDownloadOperation4;
    type IUploadOperation_Interface;
    type IUploadOperation is access all IUploadOperation_Interface'Class;
    type IUploadOperation_Ptr is access all IUploadOperation;
    type IUploadOperation2_Interface;
    type IUploadOperation2 is access all IUploadOperation2_Interface'Class;
    type IUploadOperation2_Ptr is access all IUploadOperation2;
+   type IUploadOperation3_Interface;
+   type IUploadOperation3 is access all IUploadOperation3_Interface'Class;
+   type IUploadOperation3_Ptr is access all IUploadOperation3;
    type IBackgroundDownloaderFactory_Interface;
    type IBackgroundDownloaderFactory is access all IBackgroundDownloaderFactory_Interface'Class;
    type IBackgroundDownloaderFactory_Ptr is access all IBackgroundDownloaderFactory;
@@ -945,6 +951,18 @@ package Windows.Networking.BackgroundTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_IDownloadOperation4 : aliased constant Windows.IID := (215658228, 36079, 16458, (150, 109, 240, 88, 64, 11, 237, 128 ));
+   
+   type IDownloadOperation4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function MakeCurrentInTransferGroup
+   (
+      This       : access IDownloadOperation4_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUploadOperation : aliased constant Windows.IID := (1045832928, 29577, 17228, (139, 53, 66, 127, 211, 107, 189, 174 ));
    
    type IUploadOperation_Interface is interface and Windows.IInspectable_Interface;
@@ -987,6 +1005,18 @@ package Windows.Networking.BackgroundTransfer is
    (
       This       : access IUploadOperation2_Interface
       ; RetVal : access Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUploadOperation3 : aliased constant Windows.IID := (1120480419, 56889, 17734, (188, 98, 55, 116, 180, 41, 77, 227 ));
+   
+   type IUploadOperation3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function MakeCurrentInTransferGroup
+   (
+      This       : access IUploadOperation3_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -1872,7 +1902,11 @@ package Windows.Networking.BackgroundTransfer is
    subtype ResponseInformation is Windows.Networking.BackgroundTransfer.IResponseInformation;
    subtype BackgroundTransferRangesDownloadedEventArgs is Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs;
    subtype BackgroundDownloader is Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
-   function CreateBackgroundDownloader return Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
+   function CreateWithCompletionGroup
+   (
+      completionGroup : Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup
+   )
+   return Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
    
    subtype BackgroundUploader is Windows.Networking.BackgroundTransfer.IBackgroundUploader;
    function CreateWithCompletionGroup
@@ -1914,6 +1948,12 @@ package Windows.Networking.BackgroundTransfer is
    )
    return Windows.Address;
    
+   function RequestUnconstrainedUploadsAsync
+   (
+      operations : Windows.Networking.BackgroundTransfer.IIterable_IUploadOperation
+   )
+   return Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult;
+   
    function GetCurrentUploadsAsync
    return Windows.Address;
    
@@ -1922,12 +1962,6 @@ package Windows.Networking.BackgroundTransfer is
       group : Windows.String
    )
    return Windows.Address;
-   
-   function RequestUnconstrainedUploadsAsync
-   (
-      operations : Windows.Networking.BackgroundTransfer.IIterable_IUploadOperation
-   )
-   return Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult;
    
    function GetCurrentUploadsForTransferGroupAsync
    (
@@ -1941,6 +1975,9 @@ package Windows.Networking.BackgroundTransfer is
    )
    return Windows.Web.WebErrorStatus;
    
+   function get_LastSuccessfulPrefetchTime
+   return Windows.Foundation.IReference_DateTime;
+   
    function get_ContentUris
    return Windows.Foundation.IVector_IUriRuntimeClass;
    
@@ -1952,8 +1989,5 @@ package Windows.Networking.BackgroundTransfer is
    
    function get_IndirectContentUri
    return Windows.Foundation.IUriRuntimeClass;
-   
-   function get_LastSuccessfulPrefetchTime
-   return Windows.Foundation.IReference_DateTime;
    
 end;

@@ -5325,13 +5325,7 @@ package Windows.ApplicationModel.Email is
    return Windows.ApplicationModel.Email.IEmailIrmInfo;
    
    subtype EmailAttachment is Windows.ApplicationModel.Email.IEmailAttachment;
-   function Create
-   (
-      fileName : Windows.String
-      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
-      ; mimeType : Windows.String
-   )
-   return Windows.ApplicationModel.Email.IEmailAttachment;
+   function CreateEmailAttachment return Windows.ApplicationModel.Email.IEmailAttachment;
    
    subtype EmailMeetingInfo is Windows.ApplicationModel.Email.IEmailMeetingInfo;
    function CreateEmailMeetingInfo return Windows.ApplicationModel.Email.IEmailMeetingInfo;
@@ -5363,11 +5357,11 @@ package Windows.ApplicationModel.Email is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function RequestStoreAsync
+   function ShowComposeNewEmailAsync
    (
-      accessType : Windows.ApplicationModel.Email.EmailStoreAccessType
+      message : Windows.ApplicationModel.Email.IEmailMessage
    )
-   return Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore;
+   return Windows.Foundation.IAsyncAction;
    
    function GetForUser
    (
@@ -5375,10 +5369,10 @@ package Windows.ApplicationModel.Email is
    )
    return Windows.ApplicationModel.Email.IEmailManagerForUser;
    
-   function ShowComposeNewEmailAsync
+   function RequestStoreAsync
    (
-      message : Windows.ApplicationModel.Email.IEmailMessage
+      accessType : Windows.ApplicationModel.Email.EmailStoreAccessType
    )
-   return Windows.Foundation.IAsyncAction;
+   return Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore;
    
 end;

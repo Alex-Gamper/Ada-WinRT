@@ -229,6 +229,9 @@ package Windows.Storage.Search is
    type IStorageLibraryContentChangedTriggerDetails_Interface;
    type IStorageLibraryContentChangedTriggerDetails is access all IStorageLibraryContentChangedTriggerDetails_Interface'Class;
    type IStorageLibraryContentChangedTriggerDetails_Ptr is access all IStorageLibraryContentChangedTriggerDetails;
+   type IStorageLibraryChangeTrackerTriggerDetails_Interface;
+   type IStorageLibraryChangeTrackerTriggerDetails is access all IStorageLibraryChangeTrackerTriggerDetails_Interface'Class;
+   type IStorageLibraryChangeTrackerTriggerDetails_Ptr is access all IStorageLibraryChangeTrackerTriggerDetails;
    type IIterator_SortEntry_Interface;
    type IIterator_SortEntry is access all IIterator_SortEntry_Interface'Class;
    type IIterator_SortEntry_Ptr is access all IIterator_SortEntry;
@@ -1099,6 +1102,26 @@ package Windows.Storage.Search is
    
    ------------------------------------------------------------------------
    
+   IID_IStorageLibraryChangeTrackerTriggerDetails : aliased constant Windows.IID := (499622761, 47011, 19954, (157, 97, 235, 168, 90, 3, 67, 210 ));
+   
+   type IStorageLibraryChangeTrackerTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Folder
+   (
+      This       : access IStorageLibraryChangeTrackerTriggerDetails_Interface
+      ; RetVal : access Windows.Storage.IStorageFolder
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChangeTracker
+   (
+      This       : access IStorageLibraryChangeTrackerTriggerDetails_Interface
+      ; RetVal : access Windows.Storage.IStorageLibraryChangeTracker
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_SortEntry : aliased constant Windows.IID := (1376007330, 44279, 22729, (180, 122, 39, 65, 242, 250, 194, 194 ));
    
    type IIterator_SortEntry_Interface is interface and Windows.IInspectable_Interface;
@@ -1272,6 +1295,7 @@ package Windows.Storage.Search is
    subtype StorageItemQueryResult is Windows.Storage.Search.IStorageItemQueryResult;
    subtype SortEntryVector is Windows.Storage.Search.IVector_SortEntry;
    subtype StorageLibraryContentChangedTriggerDetails is Windows.Storage.Search.IStorageLibraryContentChangedTriggerDetails;
+   subtype StorageLibraryChangeTrackerTriggerDetails is Windows.Storage.Search.IStorageLibraryChangeTrackerTriggerDetails;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

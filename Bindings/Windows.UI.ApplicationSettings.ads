@@ -22,6 +22,7 @@
 limited with Windows.UI.Popups;
 limited with Windows.Security.Credentials;
 with Windows.Foundation.Collections;
+limited with Windows.System;
 with Windows.Foundation;
 --------------------------------------------------------------------------------
 package Windows.UI.ApplicationSettings is
@@ -148,12 +149,18 @@ package Windows.UI.ApplicationSettings is
    type IAccountsSettingsPaneCommandsRequestedEventArgs_Interface;
    type IAccountsSettingsPaneCommandsRequestedEventArgs is access all IAccountsSettingsPaneCommandsRequestedEventArgs_Interface'Class;
    type IAccountsSettingsPaneCommandsRequestedEventArgs_Ptr is access all IAccountsSettingsPaneCommandsRequestedEventArgs;
+   type IAccountsSettingsPaneCommandsRequestedEventArgs2_Interface;
+   type IAccountsSettingsPaneCommandsRequestedEventArgs2 is access all IAccountsSettingsPaneCommandsRequestedEventArgs2_Interface'Class;
+   type IAccountsSettingsPaneCommandsRequestedEventArgs2_Ptr is access all IAccountsSettingsPaneCommandsRequestedEventArgs2;
    type IAccountsSettingsPaneStatics_Interface;
    type IAccountsSettingsPaneStatics is access all IAccountsSettingsPaneStatics_Interface'Class;
    type IAccountsSettingsPaneStatics_Ptr is access all IAccountsSettingsPaneStatics;
    type IAccountsSettingsPaneStatics2_Interface;
    type IAccountsSettingsPaneStatics2 is access all IAccountsSettingsPaneStatics2_Interface'Class;
    type IAccountsSettingsPaneStatics2_Ptr is access all IAccountsSettingsPaneStatics2;
+   type IAccountsSettingsPaneStatics3_Interface;
+   type IAccountsSettingsPaneStatics3 is access all IAccountsSettingsPaneStatics3_Interface'Class;
+   type IAccountsSettingsPaneStatics3_Ptr is access all IAccountsSettingsPaneStatics3;
    type IAccountsSettingsPane_Interface;
    type IAccountsSettingsPane is access all IAccountsSettingsPane_Interface'Class;
    type IAccountsSettingsPane_Ptr is access all IAccountsSettingsPane;
@@ -445,6 +452,19 @@ package Windows.UI.ApplicationSettings is
    
    ------------------------------------------------------------------------
    
+   IID_IAccountsSettingsPaneCommandsRequestedEventArgs2 : aliased constant Windows.IID := (909081517, 20023, 18791, (140, 64, 231, 142, 231, 161, 229, 187 ));
+   
+   type IAccountsSettingsPaneCommandsRequestedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IAccountsSettingsPaneCommandsRequestedEventArgs2_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAccountsSettingsPaneStatics : aliased constant Windows.IID := (1444907872, 45292, 16720, (168, 220, 32, 142, 228, 75, 6, 138 ));
    
    type IAccountsSettingsPaneStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -478,6 +498,28 @@ package Windows.UI.ApplicationSettings is
    function ShowAddAccountAsync
    (
       This       : access IAccountsSettingsPaneStatics2_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAccountsSettingsPaneStatics3 : aliased constant Windows.IID := (138478680, 41658, 19567, (180, 172, 72, 245, 20, 51, 18, 22 ));
+   
+   type IAccountsSettingsPaneStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ShowManageAccountsForUserAsync
+   (
+      This       : access IAccountsSettingsPaneStatics3_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAddAccountForUserAsync
+   (
+      This       : access IAccountsSettingsPaneStatics3_Interface
+      ; user : Windows.System.IUser
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
@@ -1294,16 +1336,37 @@ package Windows.UI.ApplicationSettings is
    function get_AccountsCommand
    return Windows.UI.Popups.IUICommand;
    
+   function GetForCurrentView
+   return Windows.UI.ApplicationSettings.IAccountsSettingsPane;
+   
+   procedure Show
+   ;
+   
    function ShowManageAccountsAsync
    return Windows.Foundation.IAsyncAction;
    
    function ShowAddAccountAsync
    return Windows.Foundation.IAsyncAction;
    
-   function GetForCurrentView
-   return Windows.UI.ApplicationSettings.IAccountsSettingsPane;
+   function ShowManageAccountsForUserAsync
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.IAsyncAction;
    
-   procedure Show
+   function ShowAddAccountForUserAsync
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function GetForCurrentView
+   return Windows.UI.ApplicationSettings.ISettingsPane;
+   
+   procedure Show_ISettingsPane
    ;
+   
+   function get_Edge
+   return Windows.UI.ApplicationSettings.SettingsEdgeLocation;
    
 end;

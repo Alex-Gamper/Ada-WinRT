@@ -32,6 +32,7 @@ with Windows.Media.FaceAnalysis;
 with Windows.Media.Devices;
 with Windows.Media.Streaming.Adaptive;
 with Windows.Storage;
+with Windows.Networking.BackgroundTransfer;
 with Windows.Media.Capture.Frames;
 with Windows.Media.Playback;
 with Windows.Media.Effects;
@@ -704,6 +705,26 @@ package body Windows.Media.Core is
       RetVal        : aliased Windows.Media.Core.IVideoStreamDescriptor := null;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IVideoStreamDescriptorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(encodingProperties, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      encodingProperties : Windows.Media.MediaProperties.IMediaEncodingProperties
+   )
+   return Windows.Media.Core.IMediaStreamDescriptor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.TimedMetadataStreamDescriptor");
+      m_Factory     : Windows.Media.Core.ITimedMetadataStreamDescriptorFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.IMediaStreamDescriptor := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimedMetadataStreamDescriptorFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(encodingProperties, RetVal'Access);
          RefCount := m_Factory.Release;
@@ -2048,6 +2069,26 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromMediaBinder(binder, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromDownloadOperation
+   (
+      downloadOperation : Windows.Networking.BackgroundTransfer.IDownloadOperation
+   )
+   return Windows.Media.Core.IMediaSource2 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaSource");
+      m_Factory     : IMediaSourceStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.IMediaSource2;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaSourceStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromDownloadOperation(downloadOperation, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

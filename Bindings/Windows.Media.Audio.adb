@@ -19,12 +19,14 @@
 -- along with this program.If not, see < http://www.gnu.org/licenses/>.       --
 --                                                                            --
 --------------------------------------------------------------------------------
-with Windows.Media.MediaProperties;
+with Windows.Media.Render;
+with Windows.Media.Devices;
 with Windows.Media.Capture;
+with Windows.Media;
+with Windows.Media.MediaProperties;
 with Windows.Devices.Enumeration;
 with Windows.Storage;
-with Windows.Media;
-with Windows.Media.Render;
+with Windows.Media.Core;
 with Windows.Media.Effects;
 with Windows.Media.Transcoding;
 with Ada.Unchecked_Conversion;
@@ -34,6 +36,19 @@ package body Windows.Media.Audio is
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface
+      ; sender : Windows.Media.Audio.IAudioStateMonitor
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Audio.IAudioStateMonitor(sender), args);
+      return Hr;
+   end;
    
    function Invoke
    (
@@ -141,6 +156,19 @@ package body Windows.Media.Audio is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult_Interface
+      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateMediaSourceAudioInputNodeResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IAudioFrameInputNode_add_AudioFrameCompleted_Interface
       ; sender : Windows.Media.Audio.IAudioFrameInputNode
       ; args : Windows.Media.Audio.IAudioFrameCompletedEventArgs
@@ -178,6 +206,19 @@ package body Windows.Media.Audio is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted_Interface
+      ; sender : Windows.Media.Audio.IMediaSourceAudioInputNode
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Audio.IMediaSourceAudioInputNode(sender), args);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
@@ -202,21 +243,26 @@ package body Windows.Media.Audio is
       return RetVal;
    end;
    
-   function CreateAudioNodeEmitter return Windows.Media.Audio.IAudioNodeEmitter is
-      Hr            : Windows.HResult := S_OK;
+   function CreateAudioNodeEmitter
+   (
+      shape : Windows.Media.Audio.IAudioNodeEmitterShape
+      ; decayModel : Windows.Media.Audio.IAudioNodeEmitterDecayModel
+      ; settings : Windows.Media.Audio.AudioNodeEmitterSettings
+   )
+   return Windows.Media.Audio.IAudioNodeEmitter is
+      Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitter");
-      Instance      : aliased IInspectable := null;
+      m_Factory     : Windows.Media.Audio.IAudioNodeEmitterFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Audio.IAudioNodeEmitter) with inline;
+      RetVal        : aliased Windows.Media.Audio.IAudioNodeEmitter := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Media.Audio.IID_IAudioNodeEmitter'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateAudioNodeEmitter(shape, decayModel, settings, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function CreateAudioNodeListener return Windows.Media.Audio.IAudioNodeListener is
@@ -323,6 +369,164 @@ package body Windows.Media.Audio is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateForRenderMonitoring
+   return Windows.Media.Audio.IAudioStateMonitor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioStateMonitor");
+      m_Factory     : IAudioStateMonitorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioStateMonitor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForRenderMonitoring(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForRenderMonitoringWithCategory
+   (
+      category : Windows.Media.Render.AudioRenderCategory
+   )
+   return Windows.Media.Audio.IAudioStateMonitor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioStateMonitor");
+      m_Factory     : IAudioStateMonitorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioStateMonitor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForRenderMonitoringWithCategory(category, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForRenderMonitoringWithCategoryAndDeviceRole
+   (
+      category : Windows.Media.Render.AudioRenderCategory
+      ; role : Windows.Media.Devices.AudioDeviceRole
+   )
+   return Windows.Media.Audio.IAudioStateMonitor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioStateMonitor");
+      m_Factory     : IAudioStateMonitorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioStateMonitor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForRenderMonitoringWithCategoryAndDeviceRole(category, role, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForRenderMonitoringWithCategoryAndDeviceId
+   (
+      category : Windows.Media.Render.AudioRenderCategory
+      ; deviceId : Windows.String
+   )
+   return Windows.Media.Audio.IAudioStateMonitor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioStateMonitor");
+      m_Factory     : IAudioStateMonitorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioStateMonitor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForRenderMonitoringWithCategoryAndDeviceId(category, deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForCaptureMonitoring
+   return Windows.Media.Audio.IAudioStateMonitor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioStateMonitor");
+      m_Factory     : IAudioStateMonitorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioStateMonitor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForCaptureMonitoring(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForCaptureMonitoringWithCategory
+   (
+      category : Windows.Media.Capture.MediaCategory
+   )
+   return Windows.Media.Audio.IAudioStateMonitor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioStateMonitor");
+      m_Factory     : IAudioStateMonitorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioStateMonitor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForCaptureMonitoringWithCategory(category, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForCaptureMonitoringWithCategoryAndDeviceRole
+   (
+      category : Windows.Media.Capture.MediaCategory
+      ; role : Windows.Media.Devices.AudioDeviceRole
+   )
+   return Windows.Media.Audio.IAudioStateMonitor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioStateMonitor");
+      m_Factory     : IAudioStateMonitorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioStateMonitor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForCaptureMonitoringWithCategoryAndDeviceRole(category, role, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForCaptureMonitoringWithCategoryAndDeviceId
+   (
+      category : Windows.Media.Capture.MediaCategory
+      ; deviceId : Windows.String
+   )
+   return Windows.Media.Audio.IAudioStateMonitor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioStateMonitor");
+      m_Factory     : IAudioStateMonitorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioStateMonitor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForCaptureMonitoringWithCategoryAndDeviceId(category, deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function CreateAsync
    (

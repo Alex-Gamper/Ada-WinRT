@@ -25,6 +25,7 @@ with Windows.Foundation;
 limited with Windows.Perception;
 limited with Windows.Devices.Haptics;
 limited with Windows.Storage.Streams;
+limited with Windows.Devices.Power;
 limited with Windows.Perception.People;
 with Windows.Foundation.Collections;
 --------------------------------------------------------------------------------
@@ -281,6 +282,9 @@ package Windows.UI.Input.Spatial is
    type ISpatialInteractionController2_Interface;
    type ISpatialInteractionController2 is access all ISpatialInteractionController2_Interface'Class;
    type ISpatialInteractionController2_Ptr is access all ISpatialInteractionController2;
+   type ISpatialInteractionController3_Interface;
+   type ISpatialInteractionController3 is access all ISpatialInteractionController3_Interface'Class;
+   type ISpatialInteractionController3_Ptr is access all ISpatialInteractionController3;
    type ISpatialPointerPose_Interface;
    type ISpatialPointerPose is access all ISpatialPointerPose_Interface'Class;
    type ISpatialPointerPose_Ptr is access all ISpatialPointerPose;
@@ -1162,6 +1166,19 @@ package Windows.UI.Input.Spatial is
    (
       This       : access ISpatialInteractionController2_Interface
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IRandomAccessStreamWithContentType -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialInteractionController3 : aliased constant Windows.IID := (1652844192, 40337, 18955, (136, 141, 22, 94, 103, 10, 140, 213 ));
+   
+   type ISpatialInteractionController3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryGetBatteryReport
+   (
+      This       : access ISpatialInteractionController3_Interface
+      ; RetVal : access Windows.Devices.Power.IBatteryReport
    )
    return Windows.HRESULT is abstract;
    

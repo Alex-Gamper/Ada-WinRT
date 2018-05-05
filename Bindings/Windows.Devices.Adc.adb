@@ -53,23 +53,6 @@ package body Windows.Devices.Adc is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDefaultAsync
-   return Windows.Devices.Adc.IAsyncOperation_IAdcController is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.Adc.AdcController");
-      m_Factory     : IAdcControllerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.Adc.IAsyncOperation_IAdcController;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAdcControllerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function GetControllersAsync
    (
       provider : Windows.Devices.Adc.Provider.IAdcProvider
@@ -84,6 +67,23 @@ package body Windows.Devices.Adc is
       Hr := RoGetActivationFactory(m_hString, IID_IAdcControllerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetControllersAsync(provider, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultAsync
+   return Windows.Devices.Adc.IAsyncOperation_IAdcController is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Adc.AdcController");
+      m_Factory     : IAdcControllerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Adc.IAsyncOperation_IAdcController;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAdcControllerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

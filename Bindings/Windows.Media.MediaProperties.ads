@@ -64,11 +64,13 @@ package Windows.Media.MediaProperties is
    
    type MediaPixelFormat is (
       Nv12,
-      Bgra8
+      Bgra8,
+      P010
    );
    for MediaPixelFormat use (
       Nv12 => 0,
-      Bgra8 => 1
+      Bgra8 => 1,
+      P010 => 2
    );
    for MediaPixelFormat'Size use 32;
    
@@ -190,6 +192,9 @@ package Windows.Media.MediaProperties is
    type IAudioEncodingProperties2_Interface;
    type IAudioEncodingProperties2 is access all IAudioEncodingProperties2_Interface'Class;
    type IAudioEncodingProperties2_Ptr is access all IAudioEncodingProperties2;
+   type IAudioEncodingProperties3_Interface;
+   type IAudioEncodingProperties3 is access all IAudioEncodingProperties3_Interface'Class;
+   type IAudioEncodingProperties3_Ptr is access all IAudioEncodingProperties3;
    type IAudioEncodingPropertiesStatics_Interface;
    type IAudioEncodingPropertiesStatics is access all IAudioEncodingPropertiesStatics_Interface'Class;
    type IAudioEncodingPropertiesStatics_Ptr is access all IAudioEncodingPropertiesStatics;
@@ -208,6 +213,9 @@ package Windows.Media.MediaProperties is
    type IMediaEncodingSubtypesStatics3_Interface;
    type IMediaEncodingSubtypesStatics3 is access all IMediaEncodingSubtypesStatics3_Interface'Class;
    type IMediaEncodingSubtypesStatics3_Ptr is access all IMediaEncodingSubtypesStatics3;
+   type IMediaEncodingSubtypesStatics4_Interface;
+   type IMediaEncodingSubtypesStatics4 is access all IMediaEncodingSubtypesStatics4_Interface'Class;
+   type IMediaEncodingSubtypesStatics4_Ptr is access all IMediaEncodingSubtypesStatics4;
    type IH264ProfileIdsStatics_Interface;
    type IH264ProfileIdsStatics is access all IH264ProfileIdsStatics_Interface'Class;
    type IH264ProfileIdsStatics_Ptr is access all IH264ProfileIdsStatics;
@@ -223,15 +231,24 @@ package Windows.Media.MediaProperties is
    type IVideoEncodingProperties4_Interface;
    type IVideoEncodingProperties4 is access all IVideoEncodingProperties4_Interface'Class;
    type IVideoEncodingProperties4_Ptr is access all IVideoEncodingProperties4;
+   type IVideoEncodingProperties5_Interface;
+   type IVideoEncodingProperties5 is access all IVideoEncodingProperties5_Interface'Class;
+   type IVideoEncodingProperties5_Ptr is access all IVideoEncodingProperties5;
    type IVideoEncodingPropertiesStatics_Interface;
    type IVideoEncodingPropertiesStatics is access all IVideoEncodingPropertiesStatics_Interface'Class;
    type IVideoEncodingPropertiesStatics_Ptr is access all IVideoEncodingPropertiesStatics;
    type IVideoEncodingPropertiesStatics2_Interface;
    type IVideoEncodingPropertiesStatics2 is access all IVideoEncodingPropertiesStatics2_Interface'Class;
    type IVideoEncodingPropertiesStatics2_Ptr is access all IVideoEncodingPropertiesStatics2;
+   type ITimedMetadataEncodingProperties_Interface;
+   type ITimedMetadataEncodingProperties is access all ITimedMetadataEncodingProperties_Interface'Class;
+   type ITimedMetadataEncodingProperties_Ptr is access all ITimedMetadataEncodingProperties;
    type IImageEncodingProperties_Interface;
    type IImageEncodingProperties is access all IImageEncodingProperties_Interface'Class;
    type IImageEncodingProperties_Ptr is access all IImageEncodingProperties;
+   type IImageEncodingProperties2_Interface;
+   type IImageEncodingProperties2 is access all IImageEncodingProperties2_Interface'Class;
+   type IImageEncodingProperties2_Ptr is access all IImageEncodingProperties2;
    type IImageEncodingPropertiesStatics_Interface;
    type IImageEncodingPropertiesStatics is access all IImageEncodingPropertiesStatics_Interface'Class;
    type IImageEncodingPropertiesStatics_Ptr is access all IImageEncodingPropertiesStatics;
@@ -241,6 +258,9 @@ package Windows.Media.MediaProperties is
    type IContainerEncodingProperties_Interface;
    type IContainerEncodingProperties is access all IContainerEncodingProperties_Interface'Class;
    type IContainerEncodingProperties_Ptr is access all IContainerEncodingProperties;
+   type IContainerEncodingProperties2_Interface;
+   type IContainerEncodingProperties2 is access all IContainerEncodingProperties2_Interface'Class;
+   type IContainerEncodingProperties2_Ptr is access all IContainerEncodingProperties2;
    type IMediaEncodingProfileStatics_Interface;
    type IMediaEncodingProfileStatics is access all IMediaEncodingProfileStatics_Interface'Class;
    type IMediaEncodingProfileStatics_Ptr is access all IMediaEncodingProfileStatics;
@@ -256,6 +276,9 @@ package Windows.Media.MediaProperties is
    type IMediaEncodingProfile2_Interface;
    type IMediaEncodingProfile2 is access all IMediaEncodingProfile2_Interface'Class;
    type IMediaEncodingProfile2_Ptr is access all IMediaEncodingProfile2;
+   type IMediaEncodingProfile3_Interface;
+   type IMediaEncodingProfile3 is access all IMediaEncodingProfile3_Interface'Class;
+   type IMediaEncodingProfile3_Ptr is access all IMediaEncodingProfile3;
    type IAsyncOperation_IMediaEncodingProfile_Interface;
    type IAsyncOperation_IMediaEncodingProfile is access all IAsyncOperation_IMediaEncodingProfile_Interface'Class;
    type IAsyncOperation_IMediaEncodingProfile_Ptr is access all IAsyncOperation_IMediaEncodingProfile;
@@ -509,6 +532,19 @@ package Windows.Media.MediaProperties is
    (
       This       : access IAudioEncodingProperties2_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioEncodingProperties3 : aliased constant Windows.IID := (2271216449, 29836, 20365, (176, 253, 16, 202, 240, 143, 240, 135 ));
+   
+   type IAudioEncodingProperties3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Copy
+   (
+      This       : access IAudioEncodingProperties3_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IAudioEncodingProperties
    )
    return Windows.HRESULT is abstract;
    
@@ -998,6 +1034,19 @@ package Windows.Media.MediaProperties is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaEncodingSubtypesStatics4 : aliased constant Windows.IID := (3723289994, 14665, 17988, (138, 44, 89, 239, 2, 198, 66, 250 ));
+   
+   type IMediaEncodingSubtypesStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_P010
+   (
+      This       : access IMediaEncodingSubtypesStatics4_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IH264ProfileIdsStatics : aliased constant Windows.IID := (946162855, 33898, 20375, (162, 229, 195, 161, 91, 191, 112, 253 ));
    
    type IH264ProfileIdsStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1175,6 +1224,19 @@ package Windows.Media.MediaProperties is
    
    ------------------------------------------------------------------------
    
+   IID_IVideoEncodingProperties5 : aliased constant Windows.IID := (1230571535, 10031, 20174, (164, 223, 192, 204, 219, 51, 216, 64 ));
+   
+   type IVideoEncodingProperties5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Copy
+   (
+      This       : access IVideoEncodingProperties5_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IVideoEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVideoEncodingPropertiesStatics : aliased constant Windows.IID := (1021398340, 7621, 17371, (159, 56, 235, 235, 249, 1, 82, 203 ));
    
    type IVideoEncodingPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1218,6 +1280,33 @@ package Windows.Media.MediaProperties is
    
    ------------------------------------------------------------------------
    
+   IID_ITimedMetadataEncodingProperties : aliased constant Windows.IID := (1372401875, 54928, 19706, (151, 244, 74, 57, 142, 157, 180, 32 ));
+   
+   type ITimedMetadataEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetFormatUserData
+   (
+      This       : access ITimedMetadataEncodingProperties_Interface
+      ; value : Windows.UInt8_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetFormatUserData
+   (
+      This       : access ITimedMetadataEncodingProperties_Interface
+      ; value : access Windows.UInt8_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Copy
+   (
+      This       : access ITimedMetadataEncodingProperties_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IImageEncodingProperties : aliased constant Windows.IID := (2019710517, 62257, 16777, (177, 195, 180, 141, 90, 224, 52, 241 ));
    
    type IImageEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
@@ -1247,6 +1336,19 @@ package Windows.Media.MediaProperties is
    (
       This       : access IImageEncodingProperties_Interface
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IImageEncodingProperties2 : aliased constant Windows.IID := (3360989919, 51491, 18075, (172, 142, 106, 159, 60, 28, 217, 227 ));
+   
+   type IImageEncodingProperties2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Copy
+   (
+      This       : access IImageEncodingProperties2_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IImageEncodingProperties
    )
    return Windows.HRESULT is abstract;
    
@@ -1303,6 +1405,19 @@ package Windows.Media.MediaProperties is
    IID_IContainerEncodingProperties : aliased constant Windows.IID := (1504455255, 45866, 18334, (138, 97, 75, 127, 46, 158, 126, 160 ));
    
    type IContainerEncodingProperties_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContainerEncodingProperties2 : aliased constant Windows.IID := (2993864745, 44582, 18457, (186, 173, 173, 122, 73, 176, 168, 118 ));
+   
+   type IContainerEncodingProperties2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Copy
+   (
+      This       : access IContainerEncodingProperties2_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IContainerEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -1497,6 +1612,26 @@ package Windows.Media.MediaProperties is
    (
       This       : access IMediaEncodingProfile2_Interface
       ; RetVal : access Windows.Media.Core.IVector_IVideoStreamDescriptor -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaEncodingProfile3 : aliased constant Windows.IID := (3127819912, 30064, 20073, (172, 207, 86, 17, 173, 1, 95, 136 ));
+   
+   type IMediaEncodingProfile3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetTimedMetadataTracks
+   (
+      This       : access IMediaEncodingProfile3_Interface
+      ; value : Windows.Media.Core.IIterable_IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetTimedMetadataTracks
+   (
+      This       : access IMediaEncodingProfile3_Interface
+      ; RetVal : access Windows.Media.Core.IVector_IMediaStreamDescriptor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1819,6 +1954,9 @@ package Windows.Media.MediaProperties is
    subtype VideoEncodingProperties is Windows.Media.MediaProperties.IVideoEncodingProperties;
    function CreateVideoEncodingProperties return Windows.Media.MediaProperties.IVideoEncodingProperties;
    
+   subtype TimedMetadataEncodingProperties is Windows.Media.MediaProperties.IMediaEncodingProperties;
+   function CreateTimedMetadataEncodingProperties return Windows.Media.MediaProperties.IMediaEncodingProperties;
+   
    subtype ImageEncodingProperties is Windows.Media.MediaProperties.IImageEncodingProperties;
    function CreateImageEncodingProperties return Windows.Media.MediaProperties.IImageEncodingProperties;
    
@@ -1832,22 +1970,6 @@ package Windows.Media.MediaProperties is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
-   
-   function CreateAlac
-   (
-      sampleRate : Windows.UInt32
-      ; channelCount : Windows.UInt32
-      ; bitsPerSample : Windows.UInt32
-   )
-   return Windows.Media.MediaProperties.IAudioEncodingProperties;
-   
-   function CreateFlac
-   (
-      sampleRate : Windows.UInt32
-      ; channelCount : Windows.UInt32
-      ; bitsPerSample : Windows.UInt32
-   )
-   return Windows.Media.MediaProperties.IAudioEncodingProperties;
    
    function CreateAac
    (
@@ -1888,6 +2010,43 @@ package Windows.Media.MediaProperties is
       ; bitrate : Windows.UInt32
    )
    return Windows.Media.MediaProperties.IAudioEncodingProperties;
+   
+   function CreateAlac
+   (
+      sampleRate : Windows.UInt32
+      ; channelCount : Windows.UInt32
+      ; bitsPerSample : Windows.UInt32
+   )
+   return Windows.Media.MediaProperties.IAudioEncodingProperties;
+   
+   function CreateFlac
+   (
+      sampleRate : Windows.UInt32
+      ; channelCount : Windows.UInt32
+      ; bitsPerSample : Windows.UInt32
+   )
+   return Windows.Media.MediaProperties.IAudioEncodingProperties;
+   
+   function get_P010
+   return Windows.String;
+   
+   function get_Alac
+   return Windows.String;
+   
+   function get_Flac
+   return Windows.String;
+   
+   function get_Vp9
+   return Windows.String;
+   
+   function get_L8
+   return Windows.String;
+   
+   function get_L16
+   return Windows.String;
+   
+   function get_D16
+   return Windows.String;
    
    function get_Aac
    return Windows.String;
@@ -2009,24 +2168,6 @@ package Windows.Media.MediaProperties is
    function get_Yv12
    return Windows.String;
    
-   function get_Alac
-   return Windows.String;
-   
-   function get_Flac
-   return Windows.String;
-   
-   function get_Vp9
-   return Windows.String;
-   
-   function get_L8
-   return Windows.String;
-   
-   function get_L16
-   return Windows.String;
-   
-   function get_D16
-   return Windows.String;
-   
    function get_ConstrainedBaseline
    return Windows.Int32;
    
@@ -2072,6 +2213,9 @@ package Windows.Media.MediaProperties is
    function get_High_Mpeg2ProfileIds
    return Windows.Int32;
    
+   function CreateHevc
+   return Windows.Media.MediaProperties.IVideoEncodingProperties;
+   
    function CreateH264
    return Windows.Media.MediaProperties.IVideoEncodingProperties;
    
@@ -2086,8 +2230,14 @@ package Windows.Media.MediaProperties is
    )
    return Windows.Media.MediaProperties.IVideoEncodingProperties;
    
-   function CreateHevc
-   return Windows.Media.MediaProperties.IVideoEncodingProperties;
+   function CreateUncompressed
+   (
+      format : Windows.Media.MediaProperties.MediaPixelFormat
+   )
+   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   
+   function CreateBmp
+   return Windows.Media.MediaProperties.IImageEncodingProperties;
    
    function CreateJpeg
    return Windows.Media.MediaProperties.IImageEncodingProperties;
@@ -2098,14 +2248,23 @@ package Windows.Media.MediaProperties is
    function CreateJpegXR
    return Windows.Media.MediaProperties.IImageEncodingProperties;
    
-   function CreateUncompressed
+   function CreateAlac
    (
-      format : Windows.Media.MediaProperties.MediaPixelFormat
+      quality : Windows.Media.MediaProperties.AudioEncodingQuality
    )
-   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
    
-   function CreateBmp
-   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   function CreateFlac
+   (
+      quality : Windows.Media.MediaProperties.AudioEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
+   
+   function CreateHevc
+   (
+      quality : Windows.Media.MediaProperties.VideoEncodingQuality
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProfile;
    
    function CreateM4a
    (
@@ -2156,24 +2315,6 @@ package Windows.Media.MediaProperties is
    return Windows.Media.MediaProperties.IMediaEncodingProfile;
    
    function CreateAvi
-   (
-      quality : Windows.Media.MediaProperties.VideoEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateAlac
-   (
-      quality : Windows.Media.MediaProperties.AudioEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateFlac
-   (
-      quality : Windows.Media.MediaProperties.AudioEncodingQuality
-   )
-   return Windows.Media.MediaProperties.IMediaEncodingProfile;
-   
-   function CreateHevc
    (
       quality : Windows.Media.MediaProperties.VideoEncodingQuality
    )

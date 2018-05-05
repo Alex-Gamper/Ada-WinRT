@@ -149,6 +149,58 @@ package body Windows.Services.Store is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IStoreCanAcquireLicenseResult_Interface
+      ; asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreCanAcquireLicenseResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IStoreUninstallStorePackageResult_Interface
+      ; asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreUninstallStorePackageResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStoreQueueItem_add_Completed_Interface
+      ; sender : Windows.Services.Store.IStoreQueueItem
+      ; args : Windows.Services.Store.IStoreQueueItemCompletedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Services.Store.IStoreQueueItem(sender), Windows.Services.Store.IStoreQueueItemCompletedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IStoreQueueItem_add_StatusChanged_Interface
+      ; sender : Windows.Services.Store.IStoreQueueItem
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Services.Store.IStoreQueueItem(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IStorePackageLicense_add_LicenseLost_Interface
       ; sender : Windows.Services.Store.IStorePackageLicense
       ; args : Windows.Object
@@ -175,6 +227,40 @@ package body Windows.Services.Store is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Services.Store.IID_IStorePurchaseProperties'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateStoreProductOptions return Windows.Services.Store.IStoreProductOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Store.StoreProductOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Services.Store.IStoreProductOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Services.Store.IID_IStoreProductOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateStorePackageInstallOptions return Windows.Services.Store.IStorePackageInstallOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Store.StorePackageInstallOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Services.Store.IStorePackageInstallOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Services.Store.IID_IStorePackageInstallOptions'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

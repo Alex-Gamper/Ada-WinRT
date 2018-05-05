@@ -29,6 +29,8 @@ limited with Windows.Storage.Streams;
 limited with Windows.Media.MediaProperties;
 limited with Windows.UI;
 limited with Windows.Media.Transcoding;
+limited with Windows.Media.Playback;
+with Windows.Foundation.Numerics;
 --------------------------------------------------------------------------------
 package Windows.Media.Effects is
 
@@ -181,6 +183,12 @@ package Windows.Media.Effects is
    type IVideoTransformEffectDefinition_Interface;
    type IVideoTransformEffectDefinition is access all IVideoTransformEffectDefinition_Interface'Class;
    type IVideoTransformEffectDefinition_Ptr is access all IVideoTransformEffectDefinition;
+   type IVideoTransformSphericalProjection_Interface;
+   type IVideoTransformSphericalProjection is access all IVideoTransformSphericalProjection_Interface'Class;
+   type IVideoTransformSphericalProjection_Ptr is access all IVideoTransformSphericalProjection;
+   type IVideoTransformEffectDefinition2_Interface;
+   type IVideoTransformEffectDefinition2 is access all IVideoTransformEffectDefinition2_Interface'Class;
+   type IVideoTransformEffectDefinition2_Ptr is access all IVideoTransformEffectDefinition2;
    type ISlowMotionEffectDefinition_Interface;
    type ISlowMotionEffectDefinition is access all ISlowMotionEffectDefinition_Interface'Class;
    type ISlowMotionEffectDefinition_Ptr is access all ISlowMotionEffectDefinition;
@@ -807,6 +815,95 @@ package Windows.Media.Effects is
    
    ------------------------------------------------------------------------
    
+   IID_IVideoTransformSphericalProjection : aliased constant Windows.IID := (3477340656, 39922, 19513, (159, 65, 224, 34, 81, 74, 132, 104 ));
+   
+   type IVideoTransformSphericalProjection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsEnabled
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsEnabled
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FrameFormat
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Media.MediaProperties.SphericalVideoFrameFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FrameFormat
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Media.MediaProperties.SphericalVideoFrameFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProjectionMode
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Media.Playback.SphericalVideoProjectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ProjectionMode
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Media.Playback.SphericalVideoProjectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HorizontalFieldOfViewInDegrees
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HorizontalFieldOfViewInDegrees
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ViewOrientation
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Quaternion
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ViewOrientation
+   (
+      This       : access IVideoTransformSphericalProjection_Interface
+      ; value : Windows.Foundation.Numerics.Quaternion
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoTransformEffectDefinition2 : aliased constant Windows.IID := (4037544095, 26312, 18068, (159, 217, 17, 54, 171, 247, 68, 74 ));
+   
+   type IVideoTransformEffectDefinition2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SphericalProjection
+   (
+      This       : access IVideoTransformEffectDefinition2_Interface
+      ; RetVal : access Windows.Media.Effects.IVideoTransformSphericalProjection
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISlowMotionEffectDefinition : aliased constant Windows.IID := (889535696, 5996, 18275, (130, 196, 27, 2, 219, 227, 23, 55 ));
    
    type ISlowMotionEffectDefinition_Interface is interface and Windows.IInspectable_Interface;
@@ -1358,6 +1455,7 @@ package Windows.Media.Effects is
    
    subtype ProcessVideoFrameContext is Windows.Media.Effects.IProcessVideoFrameContext;
    subtype ProcessAudioFrameContext is Windows.Media.Effects.IProcessAudioFrameContext;
+   subtype VideoTransformSphericalProjection is Windows.Media.Effects.IVideoTransformSphericalProjection;
    subtype VideoTransformEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
    function CreateVideoTransformEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition;
    

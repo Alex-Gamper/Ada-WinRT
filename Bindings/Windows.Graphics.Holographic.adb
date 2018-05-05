@@ -58,6 +58,19 @@ package body Windows.Graphics.Holographic is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged_Interface
+      ; sender : Windows.Graphics.Holographic.IHolographicSpace
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Graphics.Holographic.IHolographicSpace(sender), args);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
@@ -111,6 +124,23 @@ package body Windows.Graphics.Holographic is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function get_IsConfigured
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Holographic.HolographicSpace");
+      m_Factory     : IHolographicSpaceStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHolographicSpaceStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsConfigured(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateForCoreWindow
    (
       window : Windows.UI.Core.ICoreWindow
@@ -125,23 +155,6 @@ package body Windows.Graphics.Holographic is
       Hr := RoGetActivationFactory(m_hString, IID_IHolographicSpaceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateForCoreWindow(window, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsConfigured
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Graphics.Holographic.HolographicSpace");
-      m_Factory     : IHolographicSpaceStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHolographicSpaceStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsConfigured(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

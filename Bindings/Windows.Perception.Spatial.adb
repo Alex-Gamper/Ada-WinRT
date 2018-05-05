@@ -310,6 +310,64 @@ package body Windows.Perception.Spatial is
       return RetVal;
    end;
    
+   function TryImportAnchorsAsync
+   (
+      stream : Windows.Storage.Streams.IInputStream
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchorTransferManager");
+      m_Factory     : ISpatialAnchorTransferManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorTransferManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryImportAnchorsAsync(stream, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryExportAnchorsAsync
+   (
+      anchors : Windows.Address
+      ; stream : Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchorTransferManager");
+      m_Factory     : ISpatialAnchorTransferManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorTransferManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryExportAnchorsAsync(anchors, stream, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessAsync
+   return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchorTransferManager");
+      m_Factory     : ISpatialAnchorTransferManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorTransferManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FromBox
    (
       coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem

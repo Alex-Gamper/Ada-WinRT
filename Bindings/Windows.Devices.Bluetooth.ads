@@ -206,6 +206,9 @@ package Windows.Devices.Bluetooth is
    type IBluetoothAdapter_Interface;
    type IBluetoothAdapter is access all IBluetoothAdapter_Interface'Class;
    type IBluetoothAdapter_Ptr is access all IBluetoothAdapter;
+   type IBluetoothAdapter2_Interface;
+   type IBluetoothAdapter2 is access all IBluetoothAdapter2_Interface'Class;
+   type IBluetoothAdapter2_Ptr is access all IBluetoothAdapter2;
    type IBluetoothDeviceIdStatics_Interface;
    type IBluetoothDeviceIdStatics is access all IBluetoothDeviceIdStatics_Interface'Class;
    type IBluetoothDeviceIdStatics_Ptr is access all IBluetoothDeviceIdStatics;
@@ -233,6 +236,9 @@ package Windows.Devices.Bluetooth is
    type IBluetoothDevice4_Interface;
    type IBluetoothDevice4 is access all IBluetoothDevice4_Interface'Class;
    type IBluetoothDevice4_Ptr is access all IBluetoothDevice4;
+   type IBluetoothDevice5_Interface;
+   type IBluetoothDevice5 is access all IBluetoothDevice5_Interface'Class;
+   type IBluetoothDevice5_Ptr is access all IBluetoothDevice5;
    type IBluetoothLEAppearanceCategoriesStatics_Interface;
    type IBluetoothLEAppearanceCategoriesStatics is access all IBluetoothLEAppearanceCategoriesStatics_Interface'Class;
    type IBluetoothLEAppearanceCategoriesStatics_Ptr is access all IBluetoothLEAppearanceCategoriesStatics;
@@ -263,6 +269,9 @@ package Windows.Devices.Bluetooth is
    type IBluetoothLEDevice4_Interface;
    type IBluetoothLEDevice4 is access all IBluetoothLEDevice4_Interface'Class;
    type IBluetoothLEDevice4_Ptr is access all IBluetoothLEDevice4;
+   type IBluetoothLEDevice5_Interface;
+   type IBluetoothLEDevice5 is access all IBluetoothLEDevice5_Interface'Class;
+   type IBluetoothLEDevice5_Ptr is access all IBluetoothLEDevice5;
    type IBluetoothClassOfDevice_Interface;
    type IBluetoothClassOfDevice is access all IBluetoothClassOfDevice_Interface'Class;
    type IBluetoothClassOfDevice_Ptr is access all IBluetoothClassOfDevice;
@@ -373,6 +382,26 @@ package Windows.Devices.Bluetooth is
    (
       This       : access IBluetoothAdapter_Interface
       ; RetVal : access Windows.Devices.Radios.IAsyncOperation_IRadio -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothAdapter2 : aliased constant Windows.IID := (2895433420, 9429, 16819, (145, 109, 16, 151, 197, 11, 16, 43 ));
+   
+   type IBluetoothAdapter2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AreClassicSecureConnectionsSupported
+   (
+      This       : access IBluetoothAdapter2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AreLowEnergySecureConnectionsSupported
+   (
+      This       : access IBluetoothAdapter2_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -704,6 +733,19 @@ package Windows.Devices.Bluetooth is
    (
       This       : access IBluetoothDevice4_Interface
       ; RetVal : access Windows.Devices.Bluetooth.IBluetoothDeviceId
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothDevice5 : aliased constant Windows.IID := (3051402117, 24197, 17753, (161, 13, 28, 114, 129, 55, 159, 150 ));
+   
+   type IBluetoothDevice5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_WasSecureConnectionUsedForPairing
+   (
+      This       : access IBluetoothDevice5_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1400,6 +1442,19 @@ package Windows.Devices.Bluetooth is
    
    ------------------------------------------------------------------------
    
+   IID_IBluetoothLEDevice5 : aliased constant Windows.IID := (2640974432, 21127, 17806, (149, 186, 23, 200, 183, 187, 50, 110 ));
+   
+   type IBluetoothLEDevice5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_WasSecureConnectionUsedForPairing
+   (
+      This       : access IBluetoothLEDevice5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBluetoothClassOfDevice : aliased constant Windows.IID := (3594527358, 55255, 18017, (148, 84, 101, 3, 156, 161, 122, 43 ));
    
    type IBluetoothClassOfDevice_Interface is interface and Windows.IInspectable_Interface;
@@ -1768,27 +1823,6 @@ package Windows.Devices.Bluetooth is
    )
    return Windows.Foundation.IReference_UInt32;
    
-   function FromIdAsync
-   (
-      deviceId : Windows.String
-   )
-   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
-   
-   function FromHostNameAsync
-   (
-      hostName : Windows.Networking.IHostName
-   )
-   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
-   
-   function FromBluetoothAddressAsync
-   (
-      address : Windows.UInt64
-   )
-   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
-   
-   function GetDeviceSelector_IBluetoothDevice
-   return Windows.String;
-   
    function GetDeviceSelectorFromPairingState
    (
       pairingState : Windows.Boolean
@@ -1817,6 +1851,27 @@ package Windows.Devices.Bluetooth is
    (
       classOfDevice : Windows.Devices.Bluetooth.IBluetoothClassOfDevice
    )
+   return Windows.String;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
+   
+   function FromHostNameAsync
+   (
+      hostName : Windows.Networking.IHostName
+   )
+   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
+   
+   function FromBluetoothAddressAsync
+   (
+      address : Windows.UInt64
+   )
+   return Windows.Devices.Bluetooth.IAsyncOperation_IBluetoothDevice;
+   
+   function GetDeviceSelector_IBluetoothDevice
    return Windows.String;
    
    function FromRawValue

@@ -156,21 +156,24 @@ package body Windows.UI.WebUI.Core is
       return Convert(RetVal);
    end;
    
-   function CreateWebUICommandBarSymbolIcon return Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon is
-      Hr            : Windows.HResult := S_OK;
+   function Create
+   (
+      symbol : Windows.String
+   )
+   return Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon is
+      Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon");
-      Instance      : aliased IInspectable := null;
+      m_Factory     : Windows.UI.WebUI.Core.IWebUICommandBarSymbolIconFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon) with inline;
+      RetVal        : aliased Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUICommandBarSymbolIconFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarSymbolIcon'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.Create(symbol, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    ------------------------------------------------------------------------

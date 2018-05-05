@@ -330,26 +330,21 @@ package body Windows.ApplicationModel.Email is
       return RetVal;
    end;
    
-   function Create
-   (
-      fileName : Windows.String
-      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
-      ; mimeType : Windows.String
-   )
-   return Windows.ApplicationModel.Email.IEmailAttachment is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateEmailAttachment return Windows.ApplicationModel.Email.IEmailAttachment is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
-      m_Factory     : Windows.ApplicationModel.Email.IEmailAttachmentFactory2 := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Email.IEmailAttachment := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailAttachment) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEmailAttachmentFactory2'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.Create(fileName, data, mimeType, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailAttachment'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateEmailMeetingInfo return Windows.ApplicationModel.Email.IEmailMeetingInfo is
@@ -411,20 +406,20 @@ package body Windows.ApplicationModel.Email is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function RequestStoreAsync
+   function ShowComposeNewEmailAsync
    (
-      accessType : Windows.ApplicationModel.Email.EmailStoreAccessType
+      message : Windows.ApplicationModel.Email.IEmailMessage
    )
-   return Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore is
+   return Windows.Foundation.IAsyncAction is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailManager");
-      m_Factory     : IEmailManagerStatics2 := null;
+      m_Factory     : IEmailManagerStatics := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEmailManagerStatics2'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.RequestStoreAsync(accessType, RetVal'Access);
+         Hr := m_Factory.ShowComposeNewEmailAsync(message, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -451,20 +446,20 @@ package body Windows.ApplicationModel.Email is
       return RetVal;
    end;
    
-   function ShowComposeNewEmailAsync
+   function RequestStoreAsync
    (
-      message : Windows.ApplicationModel.Email.IEmailMessage
+      accessType : Windows.ApplicationModel.Email.EmailStoreAccessType
    )
-   return Windows.Foundation.IAsyncAction is
+   return Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailManager");
-      m_Factory     : IEmailManagerStatics := null;
+      m_Factory     : IEmailManagerStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IAsyncAction;
+      RetVal        : aliased Windows.ApplicationModel.Email.IAsyncOperation_IEmailStore;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IEmailManagerStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.ShowComposeNewEmailAsync(message, RetVal'Access);
+         Hr := m_Factory.RequestStoreAsync(accessType, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

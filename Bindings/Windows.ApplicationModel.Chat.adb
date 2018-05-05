@@ -356,6 +356,23 @@ package body Windows.ApplicationModel.Chat is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function RequestSyncManagerAsync
+   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatMessageManager");
+      m_Factory     : IChatMessageManagerStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IChatMessageManagerStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestSyncManagerAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function RegisterTransportAsync
    return Windows.Foundation.IAsyncOperation_String is
       Hr            : Windows.HRESULT := S_OK;
@@ -387,23 +404,6 @@ package body Windows.ApplicationModel.Chat is
       Hr := RoGetActivationFactory(m_hString, IID_IChatMessageManager2Statics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetTransportAsync(transportId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestSyncManagerAsync
-   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatMessageManager");
-      m_Factory     : IChatMessageManagerStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.ApplicationModel.Chat.IAsyncOperation_IChatSyncManager;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IChatMessageManagerStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestSyncManagerAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

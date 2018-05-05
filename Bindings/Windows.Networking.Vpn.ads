@@ -24,6 +24,7 @@ with Windows.Foundation;
 limited with Windows.Security.Credentials;
 limited with Windows.Security.Cryptography.Certificates;
 limited with Windows.Storage.Streams;
+limited with Windows.Networking.Sockets;
 --------------------------------------------------------------------------------
 package Windows.Networking.Vpn is
 
@@ -352,6 +353,9 @@ package Windows.Networking.Vpn is
    type IVpnCustomPromptElement_Interface;
    type IVpnCustomPromptElement is access all IVpnCustomPromptElement_Interface'Class;
    type IVpnCustomPromptElement_Ptr is access all IVpnCustomPromptElement;
+   type IVpnChannel4_Interface;
+   type IVpnChannel4 is access all IVpnChannel4_Interface'Class;
+   type IVpnChannel4_Ptr is access all IVpnChannel4;
    type IVpnChannelStatics_Interface;
    type IVpnChannelStatics is access all IVpnChannelStatics_Interface'Class;
    type IVpnChannelStatics_Ptr is access all IVpnChannelStatics;
@@ -364,6 +368,9 @@ package Windows.Networking.Vpn is
    type IVpnPacketBuffer2_Interface;
    type IVpnPacketBuffer2 is access all IVpnPacketBuffer2_Interface'Class;
    type IVpnPacketBuffer2_Ptr is access all IVpnPacketBuffer2;
+   type IVpnPacketBuffer3_Interface;
+   type IVpnPacketBuffer3 is access all IVpnPacketBuffer3_Interface'Class;
+   type IVpnPacketBuffer3_Ptr is access all IVpnPacketBuffer3;
    type IVpnPacketBufferList_Interface;
    type IVpnPacketBufferList is access all IVpnPacketBufferList_Interface'Class;
    type IVpnPacketBufferList_Ptr is access all IVpnPacketBufferList;
@@ -1422,6 +1429,67 @@ package Windows.Networking.Vpn is
    
    ------------------------------------------------------------------------
    
+   IID_IVpnChannel4 : aliased constant Windows.IID := (3609620190, 10551, 16797, (149, 112, 72, 106, 235, 184, 24, 3 ));
+   
+   type IVpnChannel4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddAndAssociateTransport
+   (
+      This       : access IVpnChannel4_Interface
+      ; transport : Windows.Object
+      ; context : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartWithMultipleTransports
+   (
+      This       : access IVpnChannel4_Interface
+      ; assignedClientIpv4Addresses : Windows.Networking.IIterable_IHostName
+      ; assignedClientIpv6Addresses : Windows.Networking.IIterable_IHostName
+      ; vpninterfaceId : Windows.Networking.Vpn.IVpnInterfaceId
+      ; assignedRoutes : Windows.Networking.Vpn.IVpnRouteAssignment
+      ; assignedNamespace : Windows.Networking.Vpn.IVpnDomainNameAssignment
+      ; mtuSize : Windows.UInt32
+      ; maxFrameSize : Windows.UInt32
+      ; reserved : Windows.Boolean
+      ; transports : Windows.Foundation.Collections.IIterable_Object
+      ; assignedTrafficFilters : Windows.Networking.Vpn.IVpnTrafficFilterAssignment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAndAssociateTransport
+   (
+      This       : access IVpnChannel4_Interface
+      ; transport : Windows.Object
+      ; context : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartReconnectingTransport
+   (
+      This       : access IVpnChannel4_Interface
+      ; transport : Windows.Object
+      ; context : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetSlotTypeForTransportContext
+   (
+      This       : access IVpnChannel4_Interface
+      ; context : Windows.Object
+      ; RetVal : access Windows.Networking.Sockets.ControlChannelTriggerStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CurrentRequestTransportContext
+   (
+      This       : access IVpnChannel4_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVpnChannelStatics : aliased constant Windows.IID := (2297103917, 59416, 20477, (152, 166, 54, 62, 55, 54, 201, 93 ));
    
    type IVpnChannelStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1501,6 +1569,26 @@ package Windows.Networking.Vpn is
    (
       This       : access IVpnPacketBuffer2_Interface
       ; RetVal : access Windows.Networking.Vpn.IVpnAppId
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVpnPacketBuffer3 : aliased constant Windows.IID := (3797288751, 4219, 19520, (177, 39, 91, 197, 62, 10, 217, 96 ));
+   
+   type IVpnPacketBuffer3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_TransportContext
+   (
+      This       : access IVpnPacketBuffer3_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TransportContext
+   (
+      This       : access IVpnPacketBuffer3_Interface
+      ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
    

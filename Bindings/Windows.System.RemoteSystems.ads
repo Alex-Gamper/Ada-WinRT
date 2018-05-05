@@ -103,6 +103,38 @@ package Windows.System.RemoteSystems is
    
    type RemoteSystemAuthorizationKind_Ptr is access RemoteSystemAuthorizationKind;
    
+   type RemoteSystemPlatform is (
+      Unknown,
+      Windows_x,
+      Android,
+      Ios,
+      Linux
+   );
+   for RemoteSystemPlatform use (
+      Unknown => 0,
+      Windows_x => 1,
+      Android => 2,
+      Ios => 3,
+      Linux => 4
+   );
+   for RemoteSystemPlatform'Size use 32;
+   
+   type RemoteSystemPlatform_Ptr is access RemoteSystemPlatform;
+   
+   type RemoteSystemWatcherError is (
+      Unknown,
+      InternetNotAvailable,
+      AuthenticationError
+   );
+   for RemoteSystemWatcherError use (
+      Unknown => 0,
+      InternetNotAvailable => 1,
+      AuthenticationError => 2
+   );
+   for RemoteSystemWatcherError'Size use 32;
+   
+   type RemoteSystemWatcherError_Ptr is access RemoteSystemWatcherError;
+   
    type RemoteSystemSessionJoinStatus is (
       Success,
       SessionLimitsExceeded,
@@ -220,6 +252,12 @@ package Windows.System.RemoteSystems is
    type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface;
    type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved is access all TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Interface'Class;
    type TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved_Ptr is access all TypedEventHandler_IRemoteSystemWatcher_add_RemoteSystemRemoved;
+   type TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted_Interface;
+   type TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted is access all TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted_Interface'Class;
+   type TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted_Ptr is access all TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted;
+   type TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred_Interface;
+   type TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred is access all TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred_Interface'Class;
+   type TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred_Ptr is access all TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred;
    type AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface;
    type AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult is access all AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface'Class;
    type AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Ptr is access all AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult;
@@ -279,6 +317,9 @@ package Windows.System.RemoteSystems is
    type IRemoteSystem3_Interface;
    type IRemoteSystem3 is access all IRemoteSystem3_Interface'Class;
    type IRemoteSystem3_Ptr is access all IRemoteSystem3;
+   type IRemoteSystem4_Interface;
+   type IRemoteSystem4 is access all IRemoteSystem4_Interface'Class;
+   type IRemoteSystem4_Ptr is access all IRemoteSystem4;
    type IKnownRemoteSystemCapabilitiesStatics_Interface;
    type IKnownRemoteSystemCapabilitiesStatics is access all IKnownRemoteSystemCapabilitiesStatics_Interface'Class;
    type IKnownRemoteSystemCapabilitiesStatics_Ptr is access all IKnownRemoteSystemCapabilitiesStatics;
@@ -291,6 +332,9 @@ package Windows.System.RemoteSystems is
    type IRemoteSystemWatcher_Interface;
    type IRemoteSystemWatcher is access all IRemoteSystemWatcher_Interface'Class;
    type IRemoteSystemWatcher_Ptr is access all IRemoteSystemWatcher;
+   type IRemoteSystemWatcher2_Interface;
+   type IRemoteSystemWatcher2 is access all IRemoteSystemWatcher2_Interface'Class;
+   type IRemoteSystemWatcher2_Ptr is access all IRemoteSystemWatcher2;
    type IRemoteSystemAddedEventArgs_Interface;
    type IRemoteSystemAddedEventArgs is access all IRemoteSystemAddedEventArgs_Interface'Class;
    type IRemoteSystemAddedEventArgs_Ptr is access all IRemoteSystemAddedEventArgs;
@@ -300,6 +344,12 @@ package Windows.System.RemoteSystems is
    type IRemoteSystemRemovedEventArgs_Interface;
    type IRemoteSystemRemovedEventArgs is access all IRemoteSystemRemovedEventArgs_Interface'Class;
    type IRemoteSystemRemovedEventArgs_Ptr is access all IRemoteSystemRemovedEventArgs;
+   type IRemoteSystemEnumerationCompletedEventArgs_Interface;
+   type IRemoteSystemEnumerationCompletedEventArgs is access all IRemoteSystemEnumerationCompletedEventArgs_Interface'Class;
+   type IRemoteSystemEnumerationCompletedEventArgs_Ptr is access all IRemoteSystemEnumerationCompletedEventArgs;
+   type IRemoteSystemWatcherErrorOccurredEventArgs_Interface;
+   type IRemoteSystemWatcherErrorOccurredEventArgs is access all IRemoteSystemWatcherErrorOccurredEventArgs_Interface'Class;
+   type IRemoteSystemWatcherErrorOccurredEventArgs_Ptr is access all IRemoteSystemWatcherErrorOccurredEventArgs;
    type IRemoteSystemConnectionRequestFactory_Interface;
    type IRemoteSystemConnectionRequestFactory is access all IRemoteSystemConnectionRequestFactory_Interface'Class;
    type IRemoteSystemConnectionRequestFactory_Ptr is access all IRemoteSystemConnectionRequestFactory;
@@ -574,6 +624,19 @@ package Windows.System.RemoteSystems is
    
    ------------------------------------------------------------------------
    
+   IID_IRemoteSystem4 : aliased constant Windows.IID := (4049928165, 47495, 19621, (153, 38, 250, 4, 56, 190, 98, 115 ));
+   
+   type IRemoteSystem4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Platform
+   (
+      This       : access IRemoteSystem4_Interface
+      ; RetVal : access Windows.System.RemoteSystems.RemoteSystemPlatform
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IKnownRemoteSystemCapabilitiesStatics : aliased constant Windows.IID := (2164843392, 32650, 17636, (146, 205, 3, 182, 70, 155, 148, 163 ));
    
    type IKnownRemoteSystemCapabilitiesStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -698,6 +761,42 @@ package Windows.System.RemoteSystems is
    
    ------------------------------------------------------------------------
    
+   IID_IRemoteSystemWatcher2 : aliased constant Windows.IID := (1933797120, 6602, 18681, (164, 205, 120, 15, 122, 213, 140, 113 ));
+   
+   type IRemoteSystemWatcher2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_EnumerationCompleted
+   (
+      This       : access IRemoteSystemWatcher2_Interface
+      ; handler : TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_EnumerationCompleted
+   (
+      This       : access IRemoteSystemWatcher2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ErrorOccurred
+   (
+      This       : access IRemoteSystemWatcher2_Interface
+      ; handler : TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ErrorOccurred
+   (
+      This       : access IRemoteSystemWatcher2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRemoteSystemAddedEventArgs : aliased constant Windows.IID := (2402899471, 58676, 18071, (136, 54, 122, 190, 161, 81, 81, 110 ));
    
    type IRemoteSystemAddedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -732,6 +831,25 @@ package Windows.System.RemoteSystems is
    (
       This       : access IRemoteSystemRemovedEventArgs_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemEnumerationCompletedEventArgs : aliased constant Windows.IID := (3337108831, 16432, 17236, (160, 96, 20, 241, 178, 44, 84, 93 ));
+   
+   type IRemoteSystemEnumerationCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemWatcherErrorOccurredEventArgs : aliased constant Windows.IID := (1959118511, 20756, 17446, (146, 22, 32, 216, 31, 133, 25, 174 ));
+   
+   type IRemoteSystemWatcherErrorOccurredEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Error
+   (
+      This       : access IRemoteSystemWatcherErrorOccurredEventArgs_Interface
+      ; RetVal : access Windows.System.RemoteSystems.RemoteSystemWatcherError
    )
    return Windows.HRESULT is abstract;
    
@@ -1832,6 +1950,32 @@ package Windows.System.RemoteSystems is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted : aliased constant Windows.IID := (1118739794, 64781, 21521, (140, 140, 214, 118, 160, 151, 103, 233 ));
+   
+   type TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemEnumerationCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemWatcher2_add_EnumerationCompleted_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemEnumerationCompletedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred : aliased constant Windows.IID := (2761958324, 22139, 23883, (164, 200, 92, 164, 248, 134, 211, 163 ));
+   
+   type TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred_Interface(Callback : access procedure (sender : Windows.System.RemoteSystems.IRemoteSystemWatcher ; args : Windows.System.RemoteSystems.IRemoteSystemWatcherErrorOccurredEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRemoteSystemWatcher2_add_ErrorOccurred_Interface
+      ; sender : Windows.System.RemoteSystems.IRemoteSystemWatcher
+      ; args : Windows.System.RemoteSystems.IRemoteSystemWatcherErrorOccurredEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult : aliased constant Windows.IID := (932896565, 19636, 21039, (145, 190, 145, 59, 86, 144, 86, 143 ));
    
    type AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult_Interface(Callback : access procedure (asyncInfo : Windows.System.RemoteSystems.IAsyncOperation_IRemoteSystemSessionJoinResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IRemoteSystemSessionJoinResult'access) with null record;
@@ -2002,6 +2146,8 @@ package Windows.System.RemoteSystems is
    subtype RemoteSystemAddedEventArgs is Windows.System.RemoteSystems.IRemoteSystemAddedEventArgs;
    subtype RemoteSystemUpdatedEventArgs is Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs;
    subtype RemoteSystemRemovedEventArgs is Windows.System.RemoteSystems.IRemoteSystemRemovedEventArgs;
+   subtype RemoteSystemEnumerationCompletedEventArgs is Windows.System.RemoteSystems.IRemoteSystemEnumerationCompletedEventArgs;
+   subtype RemoteSystemWatcherErrorOccurredEventArgs is Windows.System.RemoteSystems.IRemoteSystemWatcherErrorOccurredEventArgs;
    subtype RemoteSystemConnectionRequest is Windows.System.RemoteSystems.IRemoteSystemConnectionRequest;
    function Create
    (
@@ -2089,12 +2235,6 @@ package Windows.System.RemoteSystems is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function IsAuthorizationKindEnabled
-   (
-      kind : Windows.System.RemoteSystems.RemoteSystemAuthorizationKind
-   )
-   return Windows.Boolean;
-   
    function FindByHostNameAsync
    (
       hostName : Windows.Networking.IHostName
@@ -2113,6 +2253,12 @@ package Windows.System.RemoteSystems is
    function RequestAccessAsync
    return Windows.System.RemoteSystems.IAsyncOperation_RemoteSystemAccessStatus;
    
+   function IsAuthorizationKindEnabled
+   (
+      kind : Windows.System.RemoteSystems.RemoteSystemAuthorizationKind
+   )
+   return Windows.Boolean;
+   
    function get_AppService
    return Windows.String;
    
@@ -2123,15 +2269,6 @@ package Windows.System.RemoteSystems is
    return Windows.String;
    
    function get_SpatialEntity
-   return Windows.String;
-   
-   function get_Iot
-   return Windows.String;
-   
-   function get_Tablet
-   return Windows.String;
-   
-   function get_Laptop
    return Windows.String;
    
    function get_Phone
@@ -2147,6 +2284,15 @@ package Windows.System.RemoteSystems is
    return Windows.String;
    
    function get_Xbox
+   return Windows.String;
+   
+   function get_Iot
+   return Windows.String;
+   
+   function get_Tablet
+   return Windows.String;
+   
+   function get_Laptop
    return Windows.String;
    
    function CreateWatcher

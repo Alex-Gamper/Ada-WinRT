@@ -358,23 +358,6 @@ package body Windows.UI.Xaml.Printing is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
-   function get_DocumentSourceProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Printing.PrintDocument");
-      m_Factory     : IPrintDocumentStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IPrintDocumentStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DocumentSourceProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -390,6 +373,23 @@ package body Windows.UI.Xaml.Printing is
       Hr := RoGetActivationFactory(m_hString, IID_IPrintDocumentFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DocumentSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Printing.PrintDocument");
+      m_Factory     : IPrintDocumentStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPrintDocumentStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DocumentSourceProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

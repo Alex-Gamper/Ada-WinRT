@@ -24,6 +24,7 @@ limited with Windows.UI.Xaml.Media;
 with Windows.Foundation;
 limited with Windows.UI.Text;
 limited with Windows.UI.Xaml.Input;
+limited with Windows.UI.Core;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Documents is
 
@@ -82,6 +83,9 @@ package Windows.UI.Xaml.Documents is
    type TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface;
    type TypedEventHandler_ITextElement4_add_AccessKeyInvoked is access all TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Interface'Class;
    type TypedEventHandler_ITextElement4_add_AccessKeyInvoked_Ptr is access all TypedEventHandler_ITextElement4_add_AccessKeyInvoked;
+   type TypedEventHandler_IContentLink_add_Invoked_Interface;
+   type TypedEventHandler_IContentLink_add_Invoked is access all TypedEventHandler_IContentLink_add_Invoked_Interface'Class;
+   type TypedEventHandler_IContentLink_add_Invoked_Ptr is access all TypedEventHandler_IContentLink_add_Invoked;
    type TypedEventHandler_IHyperlink_add_Click_Interface;
    type TypedEventHandler_IHyperlink_add_Click is access all TypedEventHandler_IHyperlink_add_Click_Interface'Class;
    type TypedEventHandler_IHyperlink_add_Click_Ptr is access all TypedEventHandler_IHyperlink_add_Click;
@@ -210,9 +214,39 @@ package Windows.UI.Xaml.Documents is
    type IUnderline_Interface;
    type IUnderline is access all IUnderline_Interface'Class;
    type IUnderline_Ptr is access all IUnderline;
+   type IContentLinkInvokedEventArgs_Interface;
+   type IContentLinkInvokedEventArgs is access all IContentLinkInvokedEventArgs_Interface'Class;
+   type IContentLinkInvokedEventArgs_Ptr is access all IContentLinkInvokedEventArgs;
+   type IContentLinkProviderCollection_Interface;
+   type IContentLinkProviderCollection is access all IContentLinkProviderCollection_Interface'Class;
+   type IContentLinkProviderCollection_Ptr is access all IContentLinkProviderCollection;
+   type IVector_ContentLinkProvider_Interface;
+   type IVector_ContentLinkProvider is access all IVector_ContentLinkProvider_Interface'Class;
+   type IVector_ContentLinkProvider_Ptr is access all IVector_ContentLinkProvider;
+   type IIterable_ContentLinkProvider_Interface;
+   type IIterable_ContentLinkProvider is access all IIterable_ContentLinkProvider_Interface'Class;
+   type IIterable_ContentLinkProvider_Ptr is access all IIterable_ContentLinkProvider;
+   type IContentLinkProvider_Interface;
+   type IContentLinkProvider is access all IContentLinkProvider_Interface'Class;
+   type IContentLinkProvider_Ptr is access all IContentLinkProvider;
+   type IContentLinkProviderFactory_Interface;
+   type IContentLinkProviderFactory is access all IContentLinkProviderFactory_Interface'Class;
+   type IContentLinkProviderFactory_Ptr is access all IContentLinkProviderFactory;
    type IHyperlinkClickEventArgs_Interface;
    type IHyperlinkClickEventArgs is access all IHyperlinkClickEventArgs_Interface'Class;
    type IHyperlinkClickEventArgs_Ptr is access all IHyperlinkClickEventArgs;
+   type IContactContentLinkProvider_Interface;
+   type IContactContentLinkProvider is access all IContactContentLinkProvider_Interface'Class;
+   type IContactContentLinkProvider_Ptr is access all IContactContentLinkProvider;
+   type IPlaceContentLinkProvider_Interface;
+   type IPlaceContentLinkProvider is access all IPlaceContentLinkProvider_Interface'Class;
+   type IPlaceContentLinkProvider_Ptr is access all IPlaceContentLinkProvider;
+   type IContentLink_Interface;
+   type IContentLink is access all IContentLink_Interface'Class;
+   type IContentLink_Ptr is access all IContentLink;
+   type IContentLinkStatics_Interface;
+   type IContentLinkStatics is access all IContentLinkStatics_Interface'Class;
+   type IContentLinkStatics_Ptr is access all IContentLinkStatics;
    type IGlyphs_Interface;
    type IGlyphs is access all IGlyphs_Interface'Class;
    type IGlyphs_Ptr is access all IGlyphs;
@@ -2505,9 +2539,549 @@ package Windows.UI.Xaml.Documents is
    
    ------------------------------------------------------------------------
    
+   IID_IContentLinkInvokedEventArgs : aliased constant Windows.IID := (1416042433, 59615, 17811, (150, 57, 151, 89, 95, 223, 131, 16 ));
+   
+   type IContentLinkInvokedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentLinkInfo
+   (
+      This       : access IContentLinkInvokedEventArgs_Interface
+      ; RetVal : access Windows.UI.Text.IContentLinkInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Handled
+   (
+      This       : access IContentLinkInvokedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access IContentLinkInvokedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContentLinkProviderCollection : aliased constant Windows.IID := (4122496268, 43508, 19738, (161, 60, 16, 222, 241, 132, 55, 52 ));
+   
+   type IContentLinkProviderCollection_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_ContentLinkProvider : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IVector_ContentLinkProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Documents.IContentLinkProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.Documents.IContentLinkProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; value : Windows.UI.Xaml.Documents.IContentLinkProvider
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Documents.IContentLinkProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Documents.IContentLinkProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; value : Windows.UI.Xaml.Documents.IContentLinkProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Documents.IContentLinkProvider_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_ContentLinkProvider_Interface
+      ; items : Windows.UI.Xaml.Documents.IContentLinkProvider_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ContentLinkProvider : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_ContentLinkProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ContentLinkProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.Documents.IContentLinkProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContentLinkProvider : aliased constant Windows.IID := (1929742333, 49116, 19635, (144, 77, 182, 90, 179, 57, 187, 245 ));
+   
+   type IContentLinkProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContentLinkProviderFactory : aliased constant Windows.IID := (1473645883, 61210, 20110, (131, 155, 211, 110, 243, 165, 3, 224 ));
+   
+   type IContentLinkProviderFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IContentLinkProviderFactory_Interface
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Documents.IContentLinkProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IHyperlinkClickEventArgs : aliased constant Windows.IID := (3344273771, 31708, 19431, (179, 115, 146, 64, 165, 3, 216, 112 ));
    
    type IHyperlinkClickEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContactContentLinkProvider : aliased constant Windows.IID := (4180660891, 22683, 19133, (157, 55, 53, 161, 70, 143, 2, 30 ));
+   
+   type IContactContentLinkProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPlaceContentLinkProvider : aliased constant Windows.IID := (271878732, 9062, 16830, (144, 200, 50, 88, 181, 59, 84, 131 ));
+   
+   type IPlaceContentLinkProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContentLink : aliased constant Windows.IID := (1818280929, 21132, 17144, (146, 190, 52, 184, 198, 139, 227, 4 ));
+   
+   type IContentLink_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Info
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Text.IContentLinkInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Info
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Text.IContentLinkInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Background
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Background
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Cursor
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Core.CoreCursorType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Cursor
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Core.CoreCursorType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusLeft
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XYFocusLeft
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusRight
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XYFocusRight
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusUp
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XYFocusUp
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusDown
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XYFocusDown
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ElementSoundMode
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.ElementSoundMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ElementSoundMode
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.ElementSoundMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FocusState
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.FocusState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusUpNavigationStrategy
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.XYFocusNavigationStrategy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XYFocusUpNavigationStrategy
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.Input.XYFocusNavigationStrategy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusDownNavigationStrategy
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.XYFocusNavigationStrategy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XYFocusDownNavigationStrategy
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.Input.XYFocusNavigationStrategy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusLeftNavigationStrategy
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.XYFocusNavigationStrategy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XYFocusLeftNavigationStrategy
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.Input.XYFocusNavigationStrategy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusRightNavigationStrategy
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.XYFocusNavigationStrategy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XYFocusRightNavigationStrategy
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.Input.XYFocusNavigationStrategy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsTabStop
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsTabStop
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TabIndex
+   (
+      This       : access IContentLink_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TabIndex
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Invoked
+   (
+      This       : access IContentLink_Interface
+      ; value : TypedEventHandler_IContentLink_add_Invoked
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Invoked
+   (
+      This       : access IContentLink_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_GotFocus
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_GotFocus
+   (
+      This       : access IContentLink_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_LostFocus
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_LostFocus
+   (
+      This       : access IContentLink_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Focus
+   (
+      This       : access IContentLink_Interface
+      ; value : Windows.UI.Xaml.FocusState
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContentLinkStatics : aliased constant Windows.IID := (2739810403, 60182, 18510, (163, 223, 82, 43, 154, 131, 46, 110 ));
+   
+   type IContentLinkStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CursorProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusLeftProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusRightProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusUpProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusDownProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ElementSoundModeProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FocusStateProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusUpNavigationStrategyProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusDownNavigationStrategyProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusLeftNavigationStrategyProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XYFocusRightNavigationStrategyProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsTabStopProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TabIndexProperty
+   (
+      This       : access IContentLinkStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -3552,6 +4126,19 @@ package Windows.UI.Xaml.Documents is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IContentLink_add_Invoked : aliased constant Windows.IID := (1371151088, 13646, 22632, (177, 11, 135, 72, 229, 90, 99, 112 ));
+   
+   type TypedEventHandler_IContentLink_add_Invoked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.IContentLink ; args : Windows.UI.Xaml.Documents.IContentLinkInvokedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IContentLink_add_Invoked'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IContentLink_add_Invoked_Interface
+      ; sender : Windows.UI.Xaml.Documents.IContentLink
+      ; args : Windows.UI.Xaml.Documents.IContentLinkInvokedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IHyperlink_add_Click : aliased constant Windows.IID := (1609224402, 58967, 23279, (169, 27, 127, 82, 234, 209, 127, 227 ));
    
    type TypedEventHandler_IHyperlink_add_Click_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Documents.IHyperlink ; args : Windows.UI.Xaml.Documents.IHyperlinkClickEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHyperlink_add_Click'access) with null record;
@@ -3659,6 +4246,10 @@ package Windows.UI.Xaml.Documents is
    
    subtype TextPointer is Windows.UI.Xaml.Documents.ITextPointer;
    subtype Typography is Windows.UI.Xaml.Documents.ITypography;
+   subtype ContentLinkInvokedEventArgs is Windows.UI.Xaml.Documents.IContentLinkInvokedEventArgs;
+   subtype ContentLinkProviderCollection is Windows.UI.Xaml.Documents.IContentLinkProviderCollection;
+   function CreateContentLinkProviderCollection return Windows.UI.Xaml.Documents.IContentLinkProviderCollection;
+   
    subtype TextElement is Windows.UI.Xaml.Documents.ITextElement;
    subtype TextHighlighterBase is Windows.UI.Xaml.Documents.ITextHighlighterBase;
    subtype Block is Windows.UI.Xaml.Documents.IBlock;
@@ -3911,6 +4502,68 @@ package Windows.UI.Xaml.Documents is
    subtype Underline is Windows.UI.Xaml.Documents.IUnderline;
    function CreateUnderline return Windows.UI.Xaml.Documents.IUnderline;
    
+   subtype ContentLinkProvider is Windows.UI.Xaml.Documents.IContentLinkProvider;
+   
+   type IContentLinkProvider_Interface_Impl is new IContentLinkProvider_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IContentLinkProvider := null;
+      m_IContentLinkProvider : IContentLinkProvider := null;
+   end record;
+   type IContentLinkProvider_Impl is access all IContentLinkProvider_Interface_Impl'Class;
+   type IContentLinkProvider_Impl_Ptr is access all IContentLinkProvider_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IContentLinkProvider_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IContentLinkProvider_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IContentLinkProvider_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IContentLinkProvider_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IContentLinkProvider_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IContentLinkProvider_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   subtype ContactContentLinkProvider is Windows.UI.Xaml.Documents.IContactContentLinkProvider;
+   function CreateContactContentLinkProvider return Windows.UI.Xaml.Documents.IContactContentLinkProvider;
+   
+   subtype PlaceContentLinkProvider is Windows.UI.Xaml.Documents.IPlaceContentLinkProvider;
+   function CreatePlaceContentLinkProvider return Windows.UI.Xaml.Documents.IPlaceContentLinkProvider;
+   
+   subtype ContentLink is Windows.UI.Xaml.Documents.IContentLink;
+   function CreateContentLink return Windows.UI.Xaml.Documents.IContentLink;
+   
    subtype Hyperlink is Windows.UI.Xaml.Documents.IHyperlink;
    function CreateHyperlink return Windows.UI.Xaml.Documents.IHyperlink;
    
@@ -3923,18 +4576,18 @@ package Windows.UI.Xaml.Documents is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_ForegroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_BackgroundProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       outer : Windows.Object
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.ITextHighlighter;
-   
-   function get_ForegroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_BackgroundProperty
-   return Windows.UI.Xaml.IDependencyProperty;
    
    function get_AnnotationAlternatesProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -4642,15 +5295,6 @@ package Windows.UI.Xaml.Documents is
    function get_KeyTipVerticalOffsetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_AllowFocusOnInteractionProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_AccessKeyProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
-   function get_ExitDisplayModeOnAccessKeyInvokedProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_FontSizeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -4673,6 +5317,15 @@ package Windows.UI.Xaml.Documents is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LanguageProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AllowFocusOnInteractionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AccessKeyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ExitDisplayModeOnAccessKeyInvokedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsTextScaleFactorEnabledProperty
@@ -4720,7 +5373,17 @@ package Windows.UI.Xaml.Documents is
    )
    return Windows.UI.Xaml.Documents.ISpan;
    
-   function get_NavigateUriProperty
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Documents.IContentLinkProvider;
+   
+   function get_BackgroundProperty_IContentLink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CursorProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_XYFocusLeftProperty
@@ -4753,19 +5416,52 @@ package Windows.UI.Xaml.Documents is
    function get_XYFocusRightNavigationStrategyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_UnderlineStyleProperty
-   return Windows.UI.Xaml.IDependencyProperty;
-   
    function get_IsTabStopProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TabIndexProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsColorFontEnabledProperty
+   function get_FocusStateProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_ColorFontPaletteIndexProperty
+   function get_XYFocusUpNavigationStrategyProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusDownNavigationStrategyProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusLeftNavigationStrategyProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusRightNavigationStrategyProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusLeftProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusRightProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusUpProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_XYFocusDownProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ElementSoundModeProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_UnderlineStyleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_NavigateUriProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsTabStopProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TabIndexProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_UnicodeStringProperty
@@ -4790,6 +5486,12 @@ package Windows.UI.Xaml.Documents is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_FillProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsColorFontEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ColorFontPaletteIndexProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
 end;

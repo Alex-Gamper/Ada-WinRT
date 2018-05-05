@@ -60,6 +60,20 @@ package Windows.Graphics.Holographic is
    
    type HolographicFramePresentWaitBehavior_Ptr is access HolographicFramePresentWaitBehavior;
    
+   type HolographicSpaceUserPresence is (
+      Absent,
+      PresentPassive,
+      PresentActive
+   );
+   for HolographicSpaceUserPresence use (
+      Absent => 0,
+      PresentPassive => 1,
+      PresentActive => 2
+   );
+   for HolographicSpaceUserPresence'Size use 32;
+   
+   type HolographicSpaceUserPresence_Ptr is access HolographicSpaceUserPresence;
+   
    type HolographicReprojectionMode is (
       PositionAndOrientation,
       OrientationOnly,
@@ -104,6 +118,9 @@ package Windows.Graphics.Holographic is
    type TypedEventHandler_IHolographicSpace_add_CameraRemoved_Interface;
    type TypedEventHandler_IHolographicSpace_add_CameraRemoved is access all TypedEventHandler_IHolographicSpace_add_CameraRemoved_Interface'Class;
    type TypedEventHandler_IHolographicSpace_add_CameraRemoved_Ptr is access all TypedEventHandler_IHolographicSpace_add_CameraRemoved;
+   type TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged_Interface;
+   type TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged is access all TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged_Interface'Class;
+   type TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged_Ptr is access all TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -121,6 +138,9 @@ package Windows.Graphics.Holographic is
    type IHolographicSpace_Interface;
    type IHolographicSpace is access all IHolographicSpace_Interface'Class;
    type IHolographicSpace_Ptr is access all IHolographicSpace;
+   type IHolographicSpace2_Interface;
+   type IHolographicSpace2 is access all IHolographicSpace2_Interface'Class;
+   type IHolographicSpace2_Ptr is access all IHolographicSpace2;
    type IHolographicSpaceStatics_Interface;
    type IHolographicSpaceStatics is access all IHolographicSpaceStatics_Interface'Class;
    type IHolographicSpaceStatics_Ptr is access all IHolographicSpaceStatics;
@@ -133,6 +153,9 @@ package Windows.Graphics.Holographic is
    type IHolographicCameraPose_Interface;
    type IHolographicCameraPose is access all IHolographicCameraPose_Interface'Class;
    type IHolographicCameraPose_Ptr is access all IHolographicCameraPose;
+   type IHolographicCameraPose2_Interface;
+   type IHolographicCameraPose2 is access all IHolographicCameraPose2_Interface'Class;
+   type IHolographicCameraPose2_Ptr is access all IHolographicCameraPose2;
    type IHolographicFramePrediction_Interface;
    type IHolographicFramePrediction is access all IHolographicFramePrediction_Interface'Class;
    type IHolographicFramePrediction_Ptr is access all IHolographicFramePrediction;
@@ -145,6 +168,12 @@ package Windows.Graphics.Holographic is
    type IHolographicFrame2_Interface;
    type IHolographicFrame2 is access all IHolographicFrame2_Interface'Class;
    type IHolographicFrame2_Ptr is access all IHolographicFrame2;
+   type IHolographicFramePresentationMonitor_Interface;
+   type IHolographicFramePresentationMonitor is access all IHolographicFramePresentationMonitor_Interface'Class;
+   type IHolographicFramePresentationMonitor_Ptr is access all IHolographicFramePresentationMonitor;
+   type IHolographicFramePresentationReport_Interface;
+   type IHolographicFramePresentationReport is access all IHolographicFramePresentationReport_Interface'Class;
+   type IHolographicFramePresentationReport_Ptr is access all IHolographicFramePresentationReport;
    type IHolographicCameraRenderingParameters2_Interface;
    type IHolographicCameraRenderingParameters2 is access all IHolographicCameraRenderingParameters2_Interface'Class;
    type IHolographicCameraRenderingParameters2_Ptr is access all IHolographicCameraRenderingParameters2;
@@ -160,6 +189,9 @@ package Windows.Graphics.Holographic is
    type IHolographicCamera3_Interface;
    type IHolographicCamera3 is access all IHolographicCamera3_Interface'Class;
    type IHolographicCamera3_Ptr is access all IHolographicCamera3;
+   type IHolographicCamera4_Interface;
+   type IHolographicCamera4 is access all IHolographicCamera4_Interface'Class;
+   type IHolographicCamera4_Ptr is access all IHolographicCamera4;
    type IHolographicDisplay_Interface;
    type IHolographicDisplay is access all IHolographicDisplay_Interface'Class;
    type IHolographicDisplay_Ptr is access all IHolographicDisplay;
@@ -199,6 +231,15 @@ package Windows.Graphics.Holographic is
    type IVectorView_IHolographicCamera_Interface;
    type IVectorView_IHolographicCamera is access all IVectorView_IHolographicCamera_Interface'Class;
    type IVectorView_IHolographicCamera_Ptr is access all IVectorView_IHolographicCamera;
+   type IIterator_IHolographicFramePresentationReport_Interface;
+   type IIterator_IHolographicFramePresentationReport is access all IIterator_IHolographicFramePresentationReport_Interface'Class;
+   type IIterator_IHolographicFramePresentationReport_Ptr is access all IIterator_IHolographicFramePresentationReport;
+   type IIterable_IHolographicFramePresentationReport_Interface;
+   type IIterable_IHolographicFramePresentationReport is access all IIterable_IHolographicFramePresentationReport_Interface'Class;
+   type IIterable_IHolographicFramePresentationReport_Ptr is access all IIterable_IHolographicFramePresentationReport;
+   type IVectorView_IHolographicFramePresentationReport_Interface;
+   type IVectorView_IHolographicFramePresentationReport is access all IVectorView_IHolographicFramePresentationReport_Interface'Class;
+   type IVectorView_IHolographicFramePresentationReport_Ptr is access all IVectorView_IHolographicFramePresentationReport;
    type IIterator_IHolographicQuadLayer_Interface;
    type IIterator_IHolographicQuadLayer is access all IIterator_IHolographicQuadLayer_Interface'Class;
    type IIterator_IHolographicQuadLayer_Ptr is access all IIterator_IHolographicQuadLayer;
@@ -363,6 +404,55 @@ package Windows.Graphics.Holographic is
    
    ------------------------------------------------------------------------
    
+   IID_IHolographicSpace2 : aliased constant Windows.IID := (1333897640, 47103, 18563, (152, 39, 125, 103, 114, 135, 234, 112 ));
+   
+   type IHolographicSpace2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UserPresence
+   (
+      This       : access IHolographicSpace2_Interface
+      ; RetVal : access Windows.Graphics.Holographic.HolographicSpaceUserPresence
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_UserPresenceChanged
+   (
+      This       : access IHolographicSpace2_Interface
+      ; handler : TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_UserPresenceChanged
+   (
+      This       : access IHolographicSpace2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function WaitForNextFrameReady
+   (
+      This       : access IHolographicSpace2_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function WaitForNextFrameReadyWithHeadStart
+   (
+      This       : access IHolographicSpace2_Interface
+      ; requestedHeadStartDuration : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFramePresentationMonitor
+   (
+      This       : access IHolographicSpace2_Interface
+      ; maxQueuedReports : Windows.UInt32
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicFramePresentationMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IHolographicSpaceStatics : aliased constant Windows.IID := (911106148, 51442, 15265, (131, 145, 102, 184, 72, 158, 103, 253 ));
    
    type IHolographicSpaceStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -485,6 +575,35 @@ package Windows.Graphics.Holographic is
    (
       This       : access IHolographicCameraPose_Interface
       ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicCameraPose2 : aliased constant Windows.IID := (590078067, 23853, 17760, (129, 78, 38, 151, 196, 252, 225, 107 ));
+   
+   type IHolographicCameraPose2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function OverrideViewTransform
+   (
+      This       : access IHolographicCameraPose2_Interface
+      ; coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; coordinateSystemToViewTransform : Windows.Graphics.Holographic.HolographicStereoTransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function OverrideProjectionTransform
+   (
+      This       : access IHolographicCameraPose2_Interface
+      ; projectionTransform : Windows.Graphics.Holographic.HolographicStereoTransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   function OverrideViewport
+   (
+      This       : access IHolographicCameraPose2_Interface
+      ; leftViewport : Windows.Foundation.Rect
+      ; rightViewport : Windows.Foundation.Rect
    )
    return Windows.HRESULT is abstract;
    
@@ -640,6 +759,60 @@ package Windows.Graphics.Holographic is
    
    ------------------------------------------------------------------------
    
+   IID_IHolographicFramePresentationMonitor : aliased constant Windows.IID := (3397854572, 28590, 17038, (187, 131, 37, 223, 238, 81, 19, 107 ));
+   
+   type IHolographicFramePresentationMonitor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReadReports
+   (
+      This       : access IHolographicFramePresentationMonitor_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IVectorView_IHolographicFramePresentationReport -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicFramePresentationReport : aliased constant Windows.IID := (2159736340, 62196, 19594, (141, 227, 6, 92, 120, 246, 213, 222 ));
+   
+   type IHolographicFramePresentationReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CompositorGpuDuration
+   (
+      This       : access IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AppGpuDuration
+   (
+      This       : access IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AppGpuOverrun
+   (
+      This       : access IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MissedPresentationOpportunityCount
+   (
+      This       : access IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PresentationCount
+   (
+      This       : access IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IHolographicCameraRenderingParameters2 : aliased constant Windows.IID := (638742755, 46742, 17972, (148, 214, 190, 6, 129, 100, 53, 153 ));
    
    type IHolographicCameraRenderingParameters2_Interface is interface and Windows.IInspectable_Interface;
@@ -763,6 +936,19 @@ package Windows.Graphics.Holographic is
    (
       This       : access IHolographicCamera3_Interface
       ; RetVal : access Windows.Graphics.Holographic.IVector_IHolographicQuadLayer -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicCamera4 : aliased constant Windows.IID := (2586128854, 18211, 20281, (169, 165, 157, 5, 24, 29, 155, 68 ));
+   
+   type IHolographicCamera4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanOverrideViewport
+   (
+      This       : access IHolographicCamera4_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1123,6 +1309,93 @@ package Windows.Graphics.Holographic is
    
    ------------------------------------------------------------------------
    
+   IID_IIterator_IHolographicFramePresentationReport : aliased constant Windows.IID := (4162631733, 54928, 21975, (173, 251, 123, 146, 185, 110, 41, 160 ));
+   
+   type IIterator_IHolographicFramePresentationReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicFramePresentationReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IHolographicFramePresentationReport_Interface
+      ; items : Windows.Graphics.Holographic.IHolographicFramePresentationReport_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IHolographicFramePresentationReport : aliased constant Windows.IID := (3506314463, 13229, 20561, (140, 91, 171, 154, 43, 44, 36, 191 ));
+   
+   type IIterable_IHolographicFramePresentationReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IIterator_IHolographicFramePresentationReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IHolographicFramePresentationReport : aliased constant Windows.IID := (21968826, 43969, 23941, (133, 94, 236, 5, 49, 131, 166, 53 ));
+   
+   type IVectorView_IHolographicFramePresentationReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IHolographicFramePresentationReport_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicFramePresentationReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IHolographicFramePresentationReport_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IHolographicFramePresentationReport_Interface
+      ; value : Windows.Graphics.Holographic.IHolographicFramePresentationReport
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IHolographicFramePresentationReport_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Graphics.Holographic.IHolographicFramePresentationReport_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IHolographicQuadLayer : aliased constant Windows.IID := (2239123824, 18779, 21532, (174, 240, 116, 146, 133, 109, 227, 223 ));
    
    type IIterator_IHolographicQuadLayer_Interface is interface and Windows.IInspectable_Interface;
@@ -1334,6 +1607,19 @@ package Windows.Graphics.Holographic is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged : aliased constant Windows.IID := (1739252466, 17112, 21763, (145, 49, 222, 235, 69, 166, 202, 3 ));
+   
+   type TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged_Interface(Callback : access procedure (sender : Windows.Graphics.Holographic.IHolographicSpace ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IHolographicSpace2_add_UserPresenceChanged_Interface
+      ; sender : Windows.Graphics.Holographic.IHolographicSpace
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -1342,6 +1628,7 @@ package Windows.Graphics.Holographic is
    subtype HolographicSpaceCameraAddedEventArgs is Windows.Graphics.Holographic.IHolographicSpaceCameraAddedEventArgs;
    subtype HolographicSpaceCameraRemovedEventArgs is Windows.Graphics.Holographic.IHolographicSpaceCameraRemovedEventArgs;
    subtype HolographicFrame is Windows.Graphics.Holographic.IHolographicFrame;
+   subtype HolographicFramePresentationMonitor is Windows.Graphics.Holographic.IHolographicFramePresentationMonitor;
    subtype HolographicCameraPose is Windows.Graphics.Holographic.IHolographicCameraPose;
    subtype HolographicCameraRenderingParameters is Windows.Graphics.Holographic.IHolographicCameraRenderingParameters;
    subtype HolographicFramePrediction is Windows.Graphics.Holographic.IHolographicFramePrediction;
@@ -1360,6 +1647,7 @@ package Windows.Graphics.Holographic is
    return Windows.Graphics.Holographic.IHolographicQuadLayer;
    
    subtype HolographicQuadLayerUpdateParameters is Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters;
+   subtype HolographicFramePresentationReport is Windows.Graphics.Holographic.IHolographicFramePresentationReport;
    subtype HolographicCameraViewportParameters is Windows.Graphics.Holographic.IHolographicCameraViewportParameters;
    subtype HolographicDisplay is Windows.Graphics.Holographic.IHolographicDisplay;
    
@@ -1367,14 +1655,14 @@ package Windows.Graphics.Holographic is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function get_IsConfigured
+   return Windows.Boolean;
+   
    function CreateForCoreWindow
    (
       window : Windows.UI.Core.ICoreWindow
    )
    return Windows.Graphics.Holographic.IHolographicSpace;
-   
-   function get_IsConfigured
-   return Windows.Boolean;
    
    function get_IsSupported
    return Windows.Boolean;

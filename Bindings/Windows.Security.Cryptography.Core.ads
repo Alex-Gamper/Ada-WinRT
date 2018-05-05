@@ -1791,6 +1791,43 @@ package Windows.Security.Cryptography.Core is
    )
    return Windows.Security.Cryptography.Core.ICryptographicKey;
    
+   function SignHashedData
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IBuffer;
+   
+   function VerifySignatureWithHashInput
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; signature : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Boolean;
+   
+   function DecryptAsync
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+      ; iv : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
+   
+   function SignAsync
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
+   
+   function SignHashedDataAsync
+   (
+      key : Windows.Security.Cryptography.Core.ICryptographicKey
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
+   
    function Encrypt
    (
       key : Windows.Security.Cryptography.Core.ICryptographicKey
@@ -1848,43 +1885,6 @@ package Windows.Security.Cryptography.Core is
       ; desiredKeySize : Windows.UInt32
    )
    return Windows.Storage.Streams.IBuffer;
-   
-   function SignHashedData
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IBuffer;
-   
-   function VerifySignatureWithHashInput
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; signature : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Boolean;
-   
-   function DecryptAsync
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-      ; iv : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
-   
-   function SignAsync
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
-   
-   function SignHashedDataAsync
-   (
-      key : Windows.Security.Cryptography.Core.ICryptographicKey
-      ; data : Windows.Storage.Streams.IBuffer
-   )
-   return Windows.Storage.Streams.IAsyncOperation_IBuffer;
    
    function OpenAlgorithm
    (
@@ -2006,15 +2006,6 @@ package Windows.Security.Cryptography.Core is
    function get_Rc4
    return Windows.String;
    
-   function get_EcdsaSha256
-   return Windows.String;
-   
-   function get_EcdsaSha384
-   return Windows.String;
-   
-   function get_EcdsaSha512
-   return Windows.String;
-   
    function get_RsaPkcs1
    return Windows.String;
    
@@ -2067,6 +2058,15 @@ package Windows.Security.Cryptography.Core is
    return Windows.String;
    
    function get_RsaSignPssSha512
+   return Windows.String;
+   
+   function get_EcdsaSha256
+   return Windows.String;
+   
+   function get_EcdsaSha384
+   return Windows.String;
+   
+   function get_EcdsaSha512
    return Windows.String;
    
    function get_BrainpoolP160r1

@@ -2930,14 +2930,6 @@ package Windows.Security.Cryptography.Certificates is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function ImportPfxDataToKspWithParametersAsync
-   (
-      pfxData : Windows.String
-      ; password : Windows.String
-      ; pfxImportParameters : Windows.Security.Cryptography.Certificates.IPfxImportParameters
-   )
-   return Windows.Foundation.IAsyncAction;
-   
    function CreateRequestAsync
    (
       request : Windows.Security.Cryptography.Certificates.ICertificateRequestProperties
@@ -2962,6 +2954,14 @@ package Windows.Security.Cryptography.Certificates is
    )
    return Windows.Foundation.IAsyncAction;
    
+   function ImportPfxDataToKspWithParametersAsync
+   (
+      pfxData : Windows.String
+      ; password : Windows.String
+      ; pfxImportParameters : Windows.Security.Cryptography.Certificates.IPfxImportParameters
+   )
+   return Windows.Foundation.IAsyncAction;
+   
    function get_UserCertificateEnrollmentManager
    return Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager;
    
@@ -2977,6 +2977,13 @@ package Windows.Security.Cryptography.Certificates is
    )
    return Windows.Foundation.IAsyncAction;
    
+   function DecryptTpmAttestationCredentialWithContainerNameAsync
+   (
+      credential : Windows.String
+      ; containerName : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_String;
+   
    function DecryptTpmAttestationCredentialAsync
    (
       credential : Windows.String
@@ -2988,13 +2995,6 @@ package Windows.Security.Cryptography.Certificates is
       credential : Windows.String
    )
    return Windows.String;
-   
-   function DecryptTpmAttestationCredentialWithContainerNameAsync
-   (
-      credential : Windows.String
-      ; containerName : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_String;
    
    function GetUserStoreByName
    (
@@ -3032,6 +3032,12 @@ package Windows.Security.Cryptography.Certificates is
    function get_IntermediateCertificationAuthorities
    return Windows.String;
    
+   function get_Ecdsa
+   return Windows.String;
+   
+   function get_Ecdh
+   return Windows.String;
+   
    function get_Rsa
    return Windows.String;
    
@@ -3054,12 +3060,6 @@ package Windows.Security.Cryptography.Certificates is
    return Windows.String;
    
    function get_Ecdsa521
-   return Windows.String;
-   
-   function get_Ecdsa
-   return Windows.String;
-   
-   function get_Ecdh
    return Windows.String;
    
    function get_SoftwareKeyStorageProvider

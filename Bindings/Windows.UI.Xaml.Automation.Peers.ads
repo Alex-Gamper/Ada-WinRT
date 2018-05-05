@@ -205,6 +205,34 @@ package Windows.UI.Xaml.Automation.Peers is
    
    type AutomationEvents_Ptr is access AutomationEvents;
    
+   type AutomationHeadingLevel is (
+      None,
+      Level1,
+      Level2,
+      Level3,
+      Level4,
+      Level5,
+      Level6,
+      Level7,
+      Level8,
+      Level9
+   );
+   for AutomationHeadingLevel use (
+      None => 0,
+      Level1 => 1,
+      Level2 => 2,
+      Level3 => 3,
+      Level4 => 4,
+      Level5 => 5,
+      Level6 => 6,
+      Level7 => 7,
+      Level8 => 8,
+      Level9 => 9
+   );
+   for AutomationHeadingLevel'Size use 32;
+   
+   type AutomationHeadingLevel_Ptr is access AutomationHeadingLevel;
+   
    type AutomationLandmarkType is (
       None,
       Custom,
@@ -449,6 +477,18 @@ package Windows.UI.Xaml.Automation.Peers is
    type IRatingControlAutomationPeerFactory_Interface;
    type IRatingControlAutomationPeerFactory is access all IRatingControlAutomationPeerFactory_Interface'Class;
    type IRatingControlAutomationPeerFactory_Ptr is access all IRatingControlAutomationPeerFactory;
+   type ITreeViewListAutomationPeer_Interface;
+   type ITreeViewListAutomationPeer is access all ITreeViewListAutomationPeer_Interface'Class;
+   type ITreeViewListAutomationPeer_Ptr is access all ITreeViewListAutomationPeer;
+   type ITreeViewListAutomationPeerFactory_Interface;
+   type ITreeViewListAutomationPeerFactory is access all ITreeViewListAutomationPeerFactory_Interface'Class;
+   type ITreeViewListAutomationPeerFactory_Ptr is access all ITreeViewListAutomationPeerFactory;
+   type ITreeViewItemAutomationPeer_Interface;
+   type ITreeViewItemAutomationPeer is access all ITreeViewItemAutomationPeer_Interface'Class;
+   type ITreeViewItemAutomationPeer_Ptr is access all ITreeViewItemAutomationPeer;
+   type ITreeViewItemAutomationPeerFactory_Interface;
+   type ITreeViewItemAutomationPeerFactory is access all ITreeViewItemAutomationPeerFactory_Interface'Class;
+   type ITreeViewItemAutomationPeerFactory_Ptr is access all ITreeViewItemAutomationPeerFactory;
    type IItemAutomationPeer_Interface;
    type IItemAutomationPeer is access all IItemAutomationPeer_Interface'Class;
    type IItemAutomationPeer_Ptr is access all IItemAutomationPeer;
@@ -695,6 +735,12 @@ package Windows.UI.Xaml.Automation.Peers is
    type IAutoSuggestBoxAutomationPeerFactory_Interface;
    type IAutoSuggestBoxAutomationPeerFactory is access all IAutoSuggestBoxAutomationPeerFactory_Interface'Class;
    type IAutoSuggestBoxAutomationPeerFactory_Ptr is access all IAutoSuggestBoxAutomationPeerFactory;
+   type ICalendarDatePickerAutomationPeer_Interface;
+   type ICalendarDatePickerAutomationPeer is access all ICalendarDatePickerAutomationPeer_Interface'Class;
+   type ICalendarDatePickerAutomationPeer_Ptr is access all ICalendarDatePickerAutomationPeer;
+   type ICalendarDatePickerAutomationPeerFactory_Interface;
+   type ICalendarDatePickerAutomationPeerFactory is access all ICalendarDatePickerAutomationPeerFactory_Interface'Class;
+   type ICalendarDatePickerAutomationPeerFactory_Ptr is access all ICalendarDatePickerAutomationPeerFactory;
    type IDatePickerAutomationPeer_Interface;
    type IDatePickerAutomationPeer is access all IDatePickerAutomationPeer_Interface'Class;
    type IDatePickerAutomationPeer_Ptr is access all IDatePickerAutomationPeer;
@@ -896,6 +942,12 @@ package Windows.UI.Xaml.Automation.Peers is
    type IAutomationPeer7_Interface;
    type IAutomationPeer7 is access all IAutomationPeer7_Interface'Class;
    type IAutomationPeer7_Ptr is access all IAutomationPeer7;
+   type IAutomationPeer8_Interface;
+   type IAutomationPeer8 is access all IAutomationPeer8_Interface'Class;
+   type IAutomationPeer8_Ptr is access all IAutomationPeer8;
+   type IAutomationPeerOverrides8_Interface;
+   type IAutomationPeerOverrides8 is access all IAutomationPeerOverrides8_Interface'Class;
+   type IAutomationPeerOverrides8_Ptr is access all IAutomationPeerOverrides8;
    type IAutomationPeerAnnotation_Interface;
    type IAutomationPeerAnnotation is access all IAutomationPeerAnnotation_Interface'Class;
    type IAutomationPeerAnnotation_Ptr is access all IAutomationPeerAnnotation;
@@ -959,6 +1011,9 @@ package Windows.UI.Xaml.Automation.Peers is
    type IPivotAutomationPeerFactory_Interface;
    type IPivotAutomationPeerFactory is access all IPivotAutomationPeerFactory_Interface'Class;
    type IPivotAutomationPeerFactory_Ptr is access all IPivotAutomationPeerFactory;
+   type IExpandCollapseProvider_Imported_Interface;
+   type IExpandCollapseProvider_Imported is access all IExpandCollapseProvider_Imported_Interface'Class;
+   type IExpandCollapseProvider_Imported_Ptr is access all IExpandCollapseProvider_Imported;
    type IInvokeProvider_Imported_Interface;
    type IInvokeProvider_Imported is access all IInvokeProvider_Imported_Interface'Class;
    type IInvokeProvider_Imported_Ptr is access all IInvokeProvider_Imported;
@@ -986,15 +1041,12 @@ package Windows.UI.Xaml.Automation.Peers is
    type ISelectionItemProvider_Imported_Interface;
    type ISelectionItemProvider_Imported is access all ISelectionItemProvider_Imported_Interface'Class;
    type ISelectionItemProvider_Imported_Ptr is access all ISelectionItemProvider_Imported;
-   type IVirtualizedItemProvider_Imported_Interface;
-   type IVirtualizedItemProvider_Imported is access all IVirtualizedItemProvider_Imported_Interface'Class;
-   type IVirtualizedItemProvider_Imported_Ptr is access all IVirtualizedItemProvider_Imported;
-   type IExpandCollapseProvider_Imported_Interface;
-   type IExpandCollapseProvider_Imported is access all IExpandCollapseProvider_Imported_Interface'Class;
-   type IExpandCollapseProvider_Imported_Ptr is access all IExpandCollapseProvider_Imported;
    type IValueProvider_Imported_Interface;
    type IValueProvider_Imported is access all IValueProvider_Imported_Interface'Class;
    type IValueProvider_Imported_Ptr is access all IValueProvider_Imported;
+   type IVirtualizedItemProvider_Imported_Interface;
+   type IVirtualizedItemProvider_Imported is access all IVirtualizedItemProvider_Imported_Interface'Class;
+   type IVirtualizedItemProvider_Imported_Ptr is access all IVirtualizedItemProvider_Imported;
    type IWindowProvider_Imported_Interface;
    type IWindowProvider_Imported is access all IWindowProvider_Imported_Interface'Class;
    type IWindowProvider_Imported_Ptr is access all IWindowProvider_Imported;
@@ -1140,6 +1192,50 @@ package Windows.UI.Xaml.Automation.Peers is
       ; outer : Windows.Object
       ; inner : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRatingControlAutomationPeer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITreeViewListAutomationPeer : aliased constant Windows.IID := (1908520380, 47913, 17529, (168, 168, 96, 107, 230, 184, 35, 174 ));
+   
+   type ITreeViewListAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITreeViewListAutomationPeerFactory : aliased constant Windows.IID := (16095202, 63505, 18266, (191, 230, 41, 15, 231, 7, 250, 136 ));
+   
+   type ITreeViewListAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstanceWithOwner
+   (
+      This       : access ITreeViewListAutomationPeerFactory_Interface
+      ; owner : Windows.UI.Xaml.Controls.ITreeViewList
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITreeViewItemAutomationPeer : aliased constant Windows.IID := (590468680, 46615, 17279, (146, 12, 113, 212, 80, 80, 62, 101 ));
+   
+   type ITreeViewItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITreeViewItemAutomationPeerFactory : aliased constant Windows.IID := (1943242943, 7425, 16729, (130, 192, 43, 41, 150, 219, 253, 206 ));
+   
+   type ITreeViewItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstanceWithOwner
+   (
+      This       : access ITreeViewItemAutomationPeerFactory_Interface
+      ; owner : Windows.UI.Xaml.Controls.ITreeViewItem
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
    
@@ -2065,6 +2161,28 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IAutoSuggestBoxAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IAutoSuggestBox
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICalendarDatePickerAutomationPeer : aliased constant Windows.IID := (1087935374, 56158, 19203, (190, 186, 209, 15, 98, 65, 151, 135 ));
+   
+   type ICalendarDatePickerAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICalendarDatePickerAutomationPeerFactory : aliased constant Windows.IID := (2876267986, 53907, 17855, (159, 25, 38, 247, 96, 58, 94, 155 ));
+   
+   type ICalendarDatePickerAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstanceWithOwner
+   (
+      This       : access ICalendarDatePickerAutomationPeerFactory_Interface
+      ; owner : Windows.UI.Xaml.Controls.ICalendarDatePicker
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeer
    )
    return Windows.HRESULT is abstract;
    
@@ -3453,6 +3571,32 @@ package Windows.UI.Xaml.Automation.Peers is
    
    ------------------------------------------------------------------------
    
+   IID_IAutomationPeer8 : aliased constant Windows.IID := (1550458854, 39509, 19839, (148, 152, 207, 228, 41, 233, 45, 168 ));
+   
+   type IAutomationPeer8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetHeadingLevel
+   (
+      This       : access IAutomationPeer8_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutomationPeerOverrides8 : aliased constant Windows.IID := (236895188, 40963, 18742, (129, 117, 245, 69, 124, 7, 240, 198 ));
+   
+   type IAutomationPeerOverrides8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetHeadingLevelCore
+   (
+      This       : access IAutomationPeerOverrides8_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAutomationPeerAnnotation : aliased constant Windows.IID := (205873249, 21199, 17402, (130, 248, 7, 241, 55, 53, 30, 90 ));
    
    type IAutomationPeerAnnotation_Interface is interface and Windows.IInspectable_Interface;
@@ -3691,6 +3835,29 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IPivotAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IPivot
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IPivotAutomationPeer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IExpandCollapseProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExpandCollapseState
+   (
+      This       : access IExpandCollapseProvider_Imported_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.ExpandCollapseState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Collapse
+   (
+      This       : access IExpandCollapseProvider_Imported_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Expand
+   (
+      This       : access IExpandCollapseProvider_Imported_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -3941,39 +4108,6 @@ package Windows.UI.Xaml.Automation.Peers is
    
    ------------------------------------------------------------------------
    
-   type IVirtualizedItemProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function Realize
-   (
-      This       : access IVirtualizedItemProvider_Imported_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   type IExpandCollapseProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ExpandCollapseState
-   (
-      This       : access IExpandCollapseProvider_Imported_Interface
-      ; RetVal : access Windows.UI.Xaml.Automation.ExpandCollapseState
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Collapse
-   (
-      This       : access IExpandCollapseProvider_Imported_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   function Expand
-   (
-      This       : access IExpandCollapseProvider_Imported_Interface
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    type IValueProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_IsReadOnly
@@ -3994,6 +4128,16 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IValueProvider_Imported_Interface
       ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IVirtualizedItemProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Realize
+   (
+      This       : access IVirtualizedItemProvider_Imported_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -5256,13 +5400,6 @@ package Windows.UI.Xaml.Automation.Peers is
    subtype TextBlockAutomationPeer is Windows.UI.Xaml.Automation.Peers.ITextBlockAutomationPeer;
    subtype TextBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.ITextBoxAutomationPeer;
    subtype ThumbAutomationPeer is Windows.UI.Xaml.Automation.Peers.IThumbAutomationPeer;
-   subtype AutoSuggestBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer;
-   function CreateInstanceWithOwner
-   (
-      owner : Windows.UI.Xaml.Controls.IAutoSuggestBox
-   )
-   return Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer;
-   
    subtype DatePickerAutomationPeer is Windows.UI.Xaml.Automation.Peers.IDatePickerAutomationPeer;
    subtype FlyoutPresenterAutomationPeer is Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeer;
    subtype GridViewItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IGridViewItemAutomationPeer;
@@ -5277,9 +5414,17 @@ package Windows.UI.Xaml.Automation.Peers is
    subtype TimePickerAutomationPeer is Windows.UI.Xaml.Automation.Peers.ITimePickerAutomationPeer;
    subtype GridViewHeaderItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IGridViewHeaderItemAutomationPeer;
    subtype ListViewHeaderItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListViewHeaderItemAutomationPeer;
+   subtype TreeViewItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeer;
    subtype ButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IButtonAutomationPeer;
    subtype HyperlinkButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IHyperlinkButtonAutomationPeer;
    subtype RepeatButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IRepeatButtonAutomationPeer;
+   subtype AutoSuggestBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer;
+   function CreateInstanceWithOwner
+   (
+      owner : Windows.UI.Xaml.Controls.IAutoSuggestBox
+   )
+   return Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer;
+   
    subtype MenuFlyoutItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeer;
    subtype AppBarButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IAppBarButtonAutomationPeer;
    subtype ItemsControlAutomationPeer is Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer;
@@ -5292,6 +5437,7 @@ package Windows.UI.Xaml.Automation.Peers is
    subtype HubSectionAutomationPeer is Windows.UI.Xaml.Automation.Peers.IHubSectionAutomationPeer;
    subtype ScrollViewerAutomationPeer is Windows.UI.Xaml.Automation.Peers.IScrollViewerAutomationPeer;
    subtype SelectorAutomationPeer is Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeer;
+   subtype TreeViewListAutomationPeer is Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeer;
    subtype FlipViewAutomationPeer is Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeer;
    subtype ListBoxAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeer;
    subtype ListViewBaseAutomationPeer is Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeer;
@@ -5304,6 +5450,7 @@ package Windows.UI.Xaml.Automation.Peers is
    subtype RadioButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IRadioButtonAutomationPeer;
    subtype ToggleMenuFlyoutItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IToggleMenuFlyoutItemAutomationPeer;
    subtype AppBarToggleButtonAutomationPeer is Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeer;
+   subtype CalendarDatePickerAutomationPeer is Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeer;
    subtype ItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IItemAutomationPeer;
    subtype SelectorItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.ISelectorItemAutomationPeer;
    subtype ComboBoxItemDataAutomationPeer is Windows.UI.Xaml.Automation.Peers.IComboBoxItemDataAutomationPeer;
@@ -5349,12 +5496,6 @@ package Windows.UI.Xaml.Automation.Peers is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function ListenerExists
-   (
-      eventId : Windows.UI.Xaml.Automation.Peers.AutomationEvents
-   )
-   return Windows.Boolean;
-   
    function CreateInstance
    (
       outer : Windows.Object
@@ -5365,19 +5506,17 @@ package Windows.UI.Xaml.Automation.Peers is
    function GenerateRawElementProviderRuntimeId
    return Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId;
    
+   function ListenerExists
+   (
+      eventId : Windows.UI.Xaml.Automation.Peers.AutomationEvents
+   )
+   return Windows.Boolean;
+   
    function get_TypeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PeerProperty
    return Windows.UI.Xaml.IDependencyProperty;
-   
-   function CreateInstanceWithOwner
-   (
-      owner : Windows.UI.Xaml.IFrameworkElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
-   )
-   return Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer;
    
    function FromElement
    (
@@ -5390,6 +5529,14 @@ package Windows.UI.Xaml.Automation.Peers is
       element : Windows.UI.Xaml.IUIElement
    )
    return Windows.UI.Xaml.Automation.Peers.IAutomationPeer;
+   
+   function CreateInstanceWithOwner
+   (
+      owner : Windows.UI.Xaml.IFrameworkElement
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer;
    
    function CreateInstanceWithOwner
    (
@@ -5657,6 +5804,14 @@ package Windows.UI.Xaml.Automation.Peers is
    
    function CreateInstanceWithOwner
    (
+      owner : Windows.UI.Xaml.Controls.ITreeViewItem
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeer;
+   
+   function CreateInstanceWithOwner
+   (
       owner : Windows.UI.Xaml.Controls.IButton
       ; outer : Windows.Object
       ; inner : access Windows.Object
@@ -5777,6 +5932,14 @@ package Windows.UI.Xaml.Automation.Peers is
    
    function CreateInstanceWithOwner
    (
+      owner : Windows.UI.Xaml.Controls.ITreeViewList
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeer;
+   
+   function CreateInstanceWithOwner
+   (
       owner : Windows.UI.Xaml.Controls.IFlipView
       ; outer : Windows.Object
       ; inner : access Windows.Object
@@ -5870,6 +6033,14 @@ package Windows.UI.Xaml.Automation.Peers is
       ; inner : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeer;
+   
+   function CreateInstanceWithOwner
+   (
+      owner : Windows.UI.Xaml.Controls.ICalendarDatePicker
+      ; outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeer;
    
    function CreateInstanceWithParentAndItem
    (

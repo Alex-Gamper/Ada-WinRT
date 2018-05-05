@@ -23,6 +23,7 @@ with Windows.UI.Xaml.Media;
 with Windows.UI.Xaml;
 with Windows.UI.Text;
 with Windows.UI.Xaml.Input;
+with Windows.UI.Core;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Xaml.Documents is
@@ -72,6 +73,19 @@ package body Windows.UI.Xaml.Documents is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IContentLink_add_Invoked_Interface
+      ; sender : Windows.UI.Xaml.Documents.IContentLink
+      ; args : Windows.UI.Xaml.Documents.IContentLinkInvokedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Xaml.Documents.IContentLink(sender), Windows.UI.Xaml.Documents.IContentLinkInvokedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IHyperlink_add_Click_Interface
       ; sender : Windows.UI.Xaml.Documents.IHyperlink
       ; args : Windows.UI.Xaml.Documents.IHyperlinkClickEventArgs
@@ -86,6 +100,23 @@ package body Windows.UI.Xaml.Documents is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function CreateContentLinkProviderCollection return Windows.UI.Xaml.Documents.IContentLinkProviderCollection is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLinkProviderCollection");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IContentLinkProviderCollection) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IContentLinkProviderCollection'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    function CreateInlineUIContainer return Windows.UI.Xaml.Documents.IInlineUIContainer is
       Hr            : Windows.HResult := S_OK;
@@ -200,6 +231,57 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IUnderline'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateContactContentLinkProvider return Windows.UI.Xaml.Documents.IContactContentLinkProvider is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContactContentLinkProvider");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IContactContentLinkProvider) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IContactContentLinkProvider'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreatePlaceContentLinkProvider return Windows.UI.Xaml.Documents.IPlaceContentLinkProvider is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.PlaceContentLinkProvider");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IPlaceContentLinkProvider) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IPlaceContentLinkProvider'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateContentLink return Windows.UI.Xaml.Documents.IContentLink is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Documents.IContentLink) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Documents.IID_IContentLink'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -778,29 +860,100 @@ package body Windows.UI.Xaml.Documents is
    end;
    
    ------------------------------------------------------------------------
-   -- Static procedures/functions
-   ------------------------------------------------------------------------
-   
-   function CreateInstance
+   function QueryInterface
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      This       : access IContentLinkProvider_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
    )
-   return Windows.UI.Xaml.Documents.ITextHighlighter is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextHighlighter");
-      m_Factory     : ITextHighlighterFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.Documents.ITextHighlighter;
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextHighlighterFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
-         RefCount := m_Factory.Release;
+      if riid.all = IID_IContentLinkProvider or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
       end if;
-      Hr := WindowsDeleteString(m_hString);
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IContentLinkProvider_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
       return RetVal;
    end;
+   
+   function Release
+   (
+      This       : access IContentLinkProvider_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IContentLinkProvider_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IContentLinkProvider_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Documents.IContentLinkProvider");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IContentLinkProvider_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   -- Static procedures/functions
+   ------------------------------------------------------------------------
    
    function get_ForegroundProperty
    return Windows.UI.Xaml.IDependencyProperty is
@@ -830,6 +983,27 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_ITextHighlighterStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_BackgroundProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Documents.ITextHighlighter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextHighlighter");
+      m_Factory     : ITextHighlighterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Documents.ITextHighlighter;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextHighlighterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3346,57 +3520,6 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_AllowFocusOnInteractionProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
-      m_Factory     : ITextElementStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AllowFocusOnInteractionProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AccessKeyProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
-      m_Factory     : ITextElementStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AccessKeyProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ExitDisplayModeOnAccessKeyInvokedProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
-      m_Factory     : ITextElementStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ExitDisplayModeOnAccessKeyInvokedProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_FontSizeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -3527,6 +3650,57 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_LanguageProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AllowFocusOnInteractionProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
+      m_Factory     : ITextElementStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AllowFocusOnInteractionProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AccessKeyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
+      m_Factory     : ITextElementStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AccessKeyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ExitDisplayModeOnAccessKeyInvokedProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.TextElement");
+      m_Factory     : ITextElementStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITextElementStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ExitDisplayModeOnAccessKeyInvokedProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3732,17 +3906,55 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_NavigateUriProperty
+   function CreateInstance
+   (
+      outer : Windows.Object
+      ; inner : access Windows.Object
+   )
+   return Windows.UI.Xaml.Documents.IContentLinkProvider is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLinkProvider");
+      m_Factory     : IContentLinkProviderFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Documents.IContentLinkProvider;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkProviderFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_BackgroundProperty_IContentLink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
-      m_Factory     : IHyperlinkStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.get_NavigateUriProperty(RetVal'Access);
+         Hr := m_Factory.get_BackgroundProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_CursorProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CursorProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3752,12 +3964,12 @@ package body Windows.UI.Xaml.Documents is
    function get_XYFocusLeftProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
-      m_Factory     : IHyperlinkStatics3 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_XYFocusLeftProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -3769,12 +3981,12 @@ package body Windows.UI.Xaml.Documents is
    function get_XYFocusRightProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
-      m_Factory     : IHyperlinkStatics3 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_XYFocusRightProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -3786,12 +3998,12 @@ package body Windows.UI.Xaml.Documents is
    function get_XYFocusUpProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
-      m_Factory     : IHyperlinkStatics3 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_XYFocusUpProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -3803,12 +4015,12 @@ package body Windows.UI.Xaml.Documents is
    function get_XYFocusDownProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
-      m_Factory     : IHyperlinkStatics3 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_XYFocusDownProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -3820,12 +4032,12 @@ package body Windows.UI.Xaml.Documents is
    function get_ElementSoundModeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
-      m_Factory     : IHyperlinkStatics3 := null;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ElementSoundModeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -3835,6 +4047,125 @@ package body Windows.UI.Xaml.Documents is
    end;
    
    function get_FocusStateProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FocusStateProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusUpNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusUpNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusDownNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusDownNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusLeftNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusLeftNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusRightNavigationStrategyProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusRightNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsTabStopProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsTabStopProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TabIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.ContentLink");
+      m_Factory     : IContentLinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentLinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TabIndexProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FocusStateProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
@@ -3851,7 +4182,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_XYFocusUpNavigationStrategyProperty
+   function get_XYFocusUpNavigationStrategyProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
@@ -3868,7 +4199,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_XYFocusDownNavigationStrategyProperty
+   function get_XYFocusDownNavigationStrategyProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
@@ -3885,7 +4216,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_XYFocusLeftNavigationStrategyProperty
+   function get_XYFocusLeftNavigationStrategyProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
@@ -3902,7 +4233,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_XYFocusRightNavigationStrategyProperty
+   function get_XYFocusRightNavigationStrategyProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
@@ -3913,6 +4244,91 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_XYFocusRightNavigationStrategyProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusLeftProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
+      m_Factory     : IHyperlinkStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusLeftProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusRightProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
+      m_Factory     : IHyperlinkStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusRightProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusUpProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
+      m_Factory     : IHyperlinkStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusUpProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_XYFocusDownProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
+      m_Factory     : IHyperlinkStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_XYFocusDownProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ElementSoundModeProperty_IHyperlink
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
+      m_Factory     : IHyperlinkStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ElementSoundModeProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3936,7 +4352,24 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_IsTabStopProperty
+   function get_NavigateUriProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
+      m_Factory     : IHyperlinkStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_NavigateUriProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsTabStopProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
@@ -3953,7 +4386,7 @@ package body Windows.UI.Xaml.Documents is
       return RetVal;
    end;
    
-   function get_TabIndexProperty
+   function get_TabIndexProperty_IHyperlink
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Hyperlink");
@@ -3964,40 +4397,6 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_IHyperlinkStatics5'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_TabIndexProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_IsColorFontEnabledProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
-      m_Factory     : IGlyphsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_IsColorFontEnabledProperty(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_ColorFontPaletteIndexProperty
-   return Windows.UI.Xaml.IDependencyProperty is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
-      m_Factory     : IGlyphsStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_ColorFontPaletteIndexProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4134,6 +4533,40 @@ package body Windows.UI.Xaml.Documents is
       Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_FillProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsColorFontEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
+      m_Factory     : IGlyphsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsColorFontEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ColorFontPaletteIndexProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Documents.Glyphs");
+      m_Factory     : IGlyphsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGlyphsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ColorFontPaletteIndexProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

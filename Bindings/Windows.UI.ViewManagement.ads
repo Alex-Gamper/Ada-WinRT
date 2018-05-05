@@ -2101,32 +2101,17 @@ package Windows.UI.ViewManagement is
    )
    ;
    
-   function get_Value
-   return Windows.UI.ViewManagement.ApplicationViewState;
-   
-   function TryUnsnap
-   return Windows.Boolean;
-   
    function GetApplicationViewIdForWindow
    (
       window : Windows.UI.Core.ICoreWindow
    )
    return Windows.Int32;
    
-   function TryShowAsViewModeAsync
-   (
-      viewId : Windows.Int32
-      ; viewMode : Windows.UI.ViewManagement.ApplicationViewMode
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
+   function get_Value
+   return Windows.UI.ViewManagement.ApplicationViewState;
    
-   function TryShowAsViewModeWithPreferencesAsync
-   (
-      viewId : Windows.Int32
-      ; viewMode : Windows.UI.ViewManagement.ApplicationViewMode
-      ; viewModePreferences : Windows.UI.ViewManagement.IViewModePreferences
-   )
-   return Windows.Foundation.IAsyncOperation_Boolean;
+   function TryUnsnap
+   return Windows.Boolean;
    
    procedure DisableShowingMainViewOnActivation
    ;
@@ -2184,6 +2169,21 @@ package Windows.UI.ViewManagement is
    
    procedure DisableSystemViewActivationPolicy
    ;
+   
+   function TryShowAsViewModeAsync
+   (
+      viewId : Windows.Int32
+      ; viewMode : Windows.UI.ViewManagement.ApplicationViewMode
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function TryShowAsViewModeWithPreferencesAsync
+   (
+      viewId : Windows.Int32
+      ; viewMode : Windows.UI.ViewManagement.ApplicationViewMode
+      ; viewModePreferences : Windows.UI.ViewManagement.IViewModePreferences
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function get_DataPackageFormatId
    return Windows.String;

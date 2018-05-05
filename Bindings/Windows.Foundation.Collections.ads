@@ -1195,7 +1195,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_UInt64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IIterator_UInt64 : aliased constant Windows.IID := (4221043532, 34487, 22559, (140, 217, 90, 208, 105, 34, 1, 169 ));
    
    type IIterator_UInt64_Interface is interface and Windows.IInspectable_Interface;
    
@@ -1230,7 +1230,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_UInt64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IIterable_UInt64 : aliased constant Windows.IID := (2005156478, 63948, 20877, (150, 75, 229, 13, 92, 231, 39, 241 ));
    
    type IIterable_UInt64_Interface is interface and Windows.IInspectable_Interface;
    
@@ -1915,7 +1915,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_Int64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IIterator_Int64 : aliased constant Windows.IID := (4221043532, 34487, 22559, (140, 217, 90, 208, 105, 34, 1, 169 ));
    
    type IIterator_Int64_Interface is interface and Windows.IInspectable_Interface;
    
@@ -1950,7 +1950,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_Int64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IIterable_Int64 : aliased constant Windows.IID := (2005156478, 63948, 20877, (150, 75, 229, 13, 92, 231, 39, 241 ));
    
    type IIterable_Int64_Interface is interface and Windows.IInspectable_Interface;
    

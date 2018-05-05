@@ -189,7 +189,16 @@ package Windows.Security.Authentication.Identity.Provider is
       TryAgain,
       SayPassphrase,
       ReadyToSignIn,
-      UseAnotherSignInOption
+      UseAnotherSignInOption,
+      ConnectionRequired,
+      TimeLimitExceeded,
+      CanceledByUser,
+      CenterHand,
+      MoveHandCloser,
+      MoveHandFarther,
+      PlaceHandAbove,
+      RecognitionFailed,
+      DeviceUnavailable
    );
    for SecondaryAuthenticationFactorAuthenticationMessage use (
       Invalid => 0,
@@ -211,7 +220,16 @@ package Windows.Security.Authentication.Identity.Provider is
       TryAgain => 16,
       SayPassphrase => 17,
       ReadyToSignIn => 18,
-      UseAnotherSignInOption => 19
+      UseAnotherSignInOption => 19,
+      ConnectionRequired => 20,
+      TimeLimitExceeded => 21,
+      CanceledByUser => 22,
+      CenterHand => 23,
+      MoveHandCloser => 24,
+      MoveHandFarther => 25,
+      PlaceHandAbove => 26,
+      RecognitionFailed => 27,
+      DeviceUnavailable => 28
    );
    for SecondaryAuthenticationFactorAuthenticationMessage'Size use 32;
    

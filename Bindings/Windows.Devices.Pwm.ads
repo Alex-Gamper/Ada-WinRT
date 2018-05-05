@@ -299,6 +299,15 @@ package Windows.Devices.Pwm is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function GetDefaultAsync
+   return Windows.Devices.Pwm.IAsyncOperation_IPwmController;
+   
+   function GetControllersAsync
+   (
+      provider : Windows.Devices.Pwm.Provider.IPwmProvider
+   )
+   return Windows.Address;
+   
    function GetDeviceSelector
    return Windows.String;
    
@@ -313,14 +322,5 @@ package Windows.Devices.Pwm is
       deviceId : Windows.String
    )
    return Windows.Devices.Pwm.IAsyncOperation_IPwmController;
-   
-   function GetDefaultAsync
-   return Windows.Devices.Pwm.IAsyncOperation_IPwmController;
-   
-   function GetControllersAsync
-   (
-      provider : Windows.Devices.Pwm.Provider.IPwmProvider
-   )
-   return Windows.Address;
    
 end;

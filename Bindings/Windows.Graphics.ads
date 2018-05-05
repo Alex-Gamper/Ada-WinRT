@@ -53,4 +53,30 @@ package Windows.Graphics is
    
    type RectInt32_Ptr is access RectInt32;
    
+   type DisplayAdapterId is record
+      LowPart : Windows.UInt32;
+      HighPart : Windows.Int32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , DisplayAdapterId);
+   
+   type DisplayAdapterId_Ptr is access DisplayAdapterId;
+   
+   ------------------------------------------------------------------------
+   -- Forward Declaration - Interfaces
+   ------------------------------------------------------------------------
+   
+   type IGeometrySource2D_Interface;
+   type IGeometrySource2D is access all IGeometrySource2D_Interface'Class;
+   type IGeometrySource2D_Ptr is access all IGeometrySource2D;
+   
+   ------------------------------------------------------------------------
+   -- Interfaces
+   ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGeometrySource2D : aliased constant Windows.IID := (3405740290, 26380, 16769, (166, 36, 218, 151, 114, 3, 184, 69 ));
+   
+   type IGeometrySource2D_Interface is interface and Windows.IInspectable_Interface;
+   
 end;

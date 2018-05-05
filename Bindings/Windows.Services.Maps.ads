@@ -376,6 +376,9 @@ package Windows.Services.Maps is
    type IMapRouteDrivingOptions_Interface;
    type IMapRouteDrivingOptions is access all IMapRouteDrivingOptions_Interface'Class;
    type IMapRouteDrivingOptions_Ptr is access all IMapRouteDrivingOptions;
+   type IMapRouteDrivingOptions2_Interface;
+   type IMapRouteDrivingOptions2 is access all IMapRouteDrivingOptions2_Interface'Class;
+   type IMapRouteDrivingOptions2_Ptr is access all IMapRouteDrivingOptions2;
    type IMapAddress_Interface;
    type IMapAddress is access all IMapAddress_Interface'Class;
    type IMapAddress_Ptr is access all IMapAddress;
@@ -466,6 +469,9 @@ package Windows.Services.Maps is
    type IPlaceInfoStatics_Interface;
    type IPlaceInfoStatics is access all IPlaceInfoStatics_Interface'Class;
    type IPlaceInfoStatics_Ptr is access all IPlaceInfoStatics;
+   type IPlaceInfoStatics2_Interface;
+   type IPlaceInfoStatics2 is access all IPlaceInfoStatics2_Interface'Class;
+   type IPlaceInfoStatics2_Ptr is access all IPlaceInfoStatics2;
    type IPlaceInfo_Interface;
    type IPlaceInfo is access all IPlaceInfo_Interface'Class;
    type IPlaceInfo_Ptr is access all IPlaceInfo;
@@ -590,6 +596,26 @@ package Windows.Services.Maps is
    (
       This       : access IMapRouteDrivingOptions_Interface
       ; value : Windows.Services.Maps.MapRouteRestrictions
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapRouteDrivingOptions2 : aliased constant Windows.IID := (903644784, 49816, 18640, (181, 173, 130, 84, 96, 100, 86, 3 ));
+   
+   type IMapRouteDrivingOptions2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DepartureTime
+   (
+      This       : access IMapRouteDrivingOptions2_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DepartureTime
+   (
+      This       : access IMapRouteDrivingOptions2_Interface
+      ; value : Windows.Foundation.IReference_DateTime
    )
    return Windows.HRESULT is abstract;
    
@@ -1475,6 +1501,29 @@ package Windows.Services.Maps is
    
    ------------------------------------------------------------------------
    
+   IID_IPlaceInfoStatics2 : aliased constant Windows.IID := (1930363465, 16455, 17571, (143, 129, 37, 80, 165, 33, 99, 112 ));
+   
+   type IPlaceInfoStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromAddress
+   (
+      This       : access IPlaceInfoStatics2_Interface
+      ; displayAddress : Windows.String
+      ; RetVal : access Windows.Services.Maps.IPlaceInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromAddressWithName
+   (
+      This       : access IPlaceInfoStatics2_Interface
+      ; displayAddress : Windows.String
+      ; displayName : Windows.String
+      ; RetVal : access Windows.Services.Maps.IPlaceInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPlaceInfo : aliased constant Windows.IID := (2584219830, 12744, 20330, (159, 24, 149, 11, 76, 56, 149, 26 ));
    
    type IPlaceInfo_Interface is interface and Windows.IInspectable_Interface;
@@ -2121,6 +2170,19 @@ package Windows.Services.Maps is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function CreateFromAddress
+   (
+      displayAddress : Windows.String
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
+   function CreateFromAddressWithName
+   (
+      displayAddress : Windows.String
+      ; displayName : Windows.String
+   )
+   return Windows.Services.Maps.IPlaceInfo;
+   
    function Create
    (
       referencePoint : Windows.Devices.Geolocation.IGeopoint
@@ -2184,6 +2246,19 @@ package Windows.Services.Maps is
       ; accuracy : Windows.Services.Maps.MapLocationDesiredAccuracy
    )
    return Windows.Services.Maps.IAsyncOperation_IMapLocationFinderResult;
+   
+   function GetDrivingRouteFromEnhancedWaypointsAsync
+   (
+      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   
+   function GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync
+   (
+      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
+      ; options : Windows.Services.Maps.IMapRouteDrivingOptions
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
    
    function GetDrivingRouteWithOptionsAsync
    (
@@ -2270,20 +2345,16 @@ package Windows.Services.Maps is
    )
    return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
    
-   function GetDrivingRouteFromEnhancedWaypointsAsync
+   procedure put_ServiceToken
    (
-      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
+      value : Windows.String
    )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   ;
    
-   function GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync
-   (
-      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
-      ; options : Windows.Services.Maps.IMapRouteDrivingOptions
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   function get_ServiceToken
+   return Windows.String;
    
-   function get_DataAttributions
+   function get_WorldViewRegionCode
    return Windows.String;
    
    procedure put_DataUsagePreference
@@ -2295,16 +2366,7 @@ package Windows.Services.Maps is
    function get_DataUsagePreference
    return Windows.Services.Maps.MapServiceDataUsagePreference;
    
-   procedure put_ServiceToken
-   (
-      value : Windows.String
-   )
-   ;
-   
-   function get_ServiceToken
-   return Windows.String;
-   
-   function get_WorldViewRegionCode
+   function get_DataAttributions
    return Windows.String;
    
    procedure ShowDownloadedMapsUI

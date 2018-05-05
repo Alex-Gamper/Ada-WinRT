@@ -142,14 +142,14 @@ package Windows.ApplicationModel.CommunicationBlocking is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function RequestSetAsActiveBlockingAppAsync
-   return Windows.Foundation.IAsyncOperation_Boolean;
-   
    function get_IsCurrentAppActiveBlockingApp
    return Windows.Boolean;
    
    procedure ShowCommunicationBlockingSettingsUI
    ;
+   
+   function RequestSetAsActiveBlockingAppAsync
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function get_IsBlockingActive
    return Windows.Boolean;

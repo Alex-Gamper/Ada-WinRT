@@ -122,6 +122,47 @@ package body Windows.Services.Maps is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function CreateFromAddress
+   (
+      displayAddress : Windows.String
+   )
+   return Windows.Services.Maps.IPlaceInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.PlaceInfo");
+      m_Factory     : IPlaceInfoStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Maps.IPlaceInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlaceInfoStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromAddress(displayAddress, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromAddressWithName
+   (
+      displayAddress : Windows.String
+      ; displayName : Windows.String
+   )
+   return Windows.Services.Maps.IPlaceInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.PlaceInfo");
+      m_Factory     : IPlaceInfoStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Maps.IPlaceInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlaceInfoStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromAddressWithName(displayAddress, displayName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    (
       referencePoint : Windows.Devices.Geolocation.IGeopoint
@@ -320,6 +361,47 @@ package body Windows.Services.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapLocationFinderStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FindLocationsAtWithAccuracyAsync(queryPoint, accuracy, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDrivingRouteFromEnhancedWaypointsAsync
+   (
+      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapRouteFinder");
+      m_Factory     : IMapRouteFinderStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapRouteFinderStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDrivingRouteFromEnhancedWaypointsAsync(waypoints, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync
+   (
+      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
+      ; options : Windows.Services.Maps.IMapRouteDrivingOptions
+   )
+   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapRouteFinder");
+      m_Factory     : IMapRouteFinderStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapRouteFinderStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync(waypoints, options, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -565,99 +647,6 @@ package body Windows.Services.Maps is
       return RetVal;
    end;
    
-   function GetDrivingRouteFromEnhancedWaypointsAsync
-   (
-      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapRouteFinder");
-      m_Factory     : IMapRouteFinderStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapRouteFinderStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDrivingRouteFromEnhancedWaypointsAsync(waypoints, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync
-   (
-      waypoints : Windows.Services.Maps.IIterable_IEnhancedWaypoint
-      ; options : Windows.Services.Maps.IMapRouteDrivingOptions
-   )
-   return Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapRouteFinder");
-      m_Factory     : IMapRouteFinderStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Services.Maps.IAsyncOperation_IMapRouteFinderResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapRouteFinderStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync(waypoints, options, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_DataAttributions
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapService");
-      m_Factory     : IMapServiceStatics3 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapServiceStatics3'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DataAttributions(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   procedure put_DataUsagePreference
-   (
-      value : Windows.Services.Maps.MapServiceDataUsagePreference
-   )
-   is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapService");
-      m_Factory     : IMapServiceStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapServiceStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.put_DataUsagePreference(value);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_DataUsagePreference
-   return Windows.Services.Maps.MapServiceDataUsagePreference is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapService");
-      m_Factory     : IMapServiceStatics4 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Services.Maps.MapServiceDataUsagePreference;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IMapServiceStatics4'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_DataUsagePreference(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    procedure put_ServiceToken
    (
       value : Windows.String
@@ -704,6 +693,58 @@ package body Windows.Services.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapServiceStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_WorldViewRegionCode(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure put_DataUsagePreference
+   (
+      value : Windows.Services.Maps.MapServiceDataUsagePreference
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapService");
+      m_Factory     : IMapServiceStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapServiceStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.put_DataUsagePreference(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_DataUsagePreference
+   return Windows.Services.Maps.MapServiceDataUsagePreference is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapService");
+      m_Factory     : IMapServiceStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Maps.MapServiceDataUsagePreference;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapServiceStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DataUsagePreference(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DataAttributions
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Maps.MapService");
+      m_Factory     : IMapServiceStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapServiceStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DataAttributions(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

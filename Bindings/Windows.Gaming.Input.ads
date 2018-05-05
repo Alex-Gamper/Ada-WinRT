@@ -2040,6 +2040,12 @@ package Windows.Gaming.Input is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function FromGameController
+   (
+      gameController : Windows.Gaming.Input.IGameController
+   )
+   return Windows.Gaming.Input.IArcadeStick;
+   
    function add_ArcadeStickAdded
    (
       value : Windows.Gaming.Input.EventHandler_IArcadeStick
@@ -2066,12 +2072,6 @@ package Windows.Gaming.Input is
    
    function get_ArcadeSticks
    return Windows.Gaming.Input.IVectorView_IArcadeStick;
-   
-   function FromGameController
-   (
-      gameController : Windows.Gaming.Input.IGameController
-   )
-   return Windows.Gaming.Input.IArcadeStick;
    
    function add_FlightStickAdded
    (
@@ -2139,12 +2139,6 @@ package Windows.Gaming.Input is
    )
    return Windows.Gaming.Input.IGamepad;
    
-   function FromGameController
-   (
-      gameController : Windows.Gaming.Input.IGameController
-   )
-   return Windows.Gaming.Input.IRacingWheel;
-   
    function add_RacingWheelAdded
    (
       value : Windows.Gaming.Input.EventHandler_IRacingWheel
@@ -2171,6 +2165,12 @@ package Windows.Gaming.Input is
    
    function get_RacingWheels
    return Windows.Gaming.Input.IVectorView_IRacingWheel;
+   
+   function FromGameController
+   (
+      gameController : Windows.Gaming.Input.IGameController
+   )
+   return Windows.Gaming.Input.IRacingWheel;
    
    function add_RawGameControllerAdded
    (
@@ -2205,12 +2205,6 @@ package Windows.Gaming.Input is
    )
    return Windows.Gaming.Input.IRawGameController;
    
-   function FromGameController
-   (
-      gameController : Windows.Gaming.Input.IGameController
-   )
-   return Windows.Gaming.Input.IUINavigationController;
-   
    function add_UINavigationControllerAdded
    (
       value : Windows.Gaming.Input.EventHandler_IUINavigationController
@@ -2237,5 +2231,11 @@ package Windows.Gaming.Input is
    
    function get_UINavigationControllers
    return Windows.Gaming.Input.IVectorView_IUINavigationController;
+   
+   function FromGameController
+   (
+      gameController : Windows.Gaming.Input.IGameController
+   )
+   return Windows.Gaming.Input.IUINavigationController;
    
 end;

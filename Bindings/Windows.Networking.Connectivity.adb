@@ -148,6 +148,26 @@ package body Windows.Networking.Connectivity is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function FindConnectionProfilesAsync
+   (
+      pProfileFilter : Windows.Networking.Connectivity.IConnectionProfileFilter
+   )
+   return Windows.Address is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.NetworkInformation");
+      m_Factory     : INetworkInformationStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Address;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FindConnectionProfilesAsync(pProfileFilter, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetConnectionProfiles
    return Windows.Networking.Connectivity.IVectorView_IConnectionProfile is
       Hr            : Windows.HRESULT := S_OK;
@@ -293,26 +313,6 @@ package body Windows.Networking.Connectivity is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function FindConnectionProfilesAsync
-   (
-      pProfileFilter : Windows.Networking.Connectivity.IConnectionProfileFilter
-   )
-   return Windows.Address is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.Connectivity.NetworkInformation");
-      m_Factory     : INetworkInformationStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Address;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INetworkInformationStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.FindConnectionProfilesAsync(pProfileFilter, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function AcquireConnectionAsync

@@ -32,42 +32,41 @@ package body Windows.Web.Http is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function Create
-   (
-      method : Windows.Web.Http.IHttpMethod
-      ; uri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.Web.Http.IHttpRequestMessage is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Web.Http.HttpRequestMessage");
-      m_Factory     : Windows.Web.Http.IHttpRequestMessageFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Web.Http.IHttpRequestMessage := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHttpRequestMessageFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.Create(method, uri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateHttpResponseMessage return Windows.Web.Http.IHttpResponseMessage is
+   function CreateHttpRequestMessage return Windows.Web.Http.IHttpRequestMessage is
       Hr            : Windows.HResult := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Web.Http.HttpResponseMessage");
+      m_hString     : Windows.String := To_String("Windows.Web.Http.HttpRequestMessage");
       Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
       RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Http.IHttpResponseMessage) with inline;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Http.IHttpRequestMessage) with inline;
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Web.Http.IID_IHttpResponseMessage'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.Web.Http.IID_IHttpRequestMessage'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      statusCode : Windows.Web.Http.HttpStatusCode
+   )
+   return Windows.Web.Http.IHttpResponseMessage is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Http.HttpResponseMessage");
+      m_Factory     : Windows.Web.Http.IHttpResponseMessageFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Web.Http.IHttpResponseMessage := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHttpResponseMessageFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(statusCode, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function CreateHttpClient return Windows.Web.Http.IHttpClient is
@@ -315,24 +314,21 @@ package body Windows.Web.Http is
       return RetVal;
    end;
    
-   function CreateWithBoundary
-   (
-      boundary : Windows.String
-   )
-   return Windows.Web.Http.IHttpContent is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateHttpMultipartFormDataContent return Windows.Web.Http.IHttpContent is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Http.HttpMultipartFormDataContent");
-      m_Factory     : Windows.Web.Http.IHttpMultipartFormDataContentFactory := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Web.Http.IHttpContent := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Http.IHttpContent) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IHttpMultipartFormDataContentFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithBoundary(boundary, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.Web.Http.IID_IHttpContent'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    ------------------------------------------------------------------------

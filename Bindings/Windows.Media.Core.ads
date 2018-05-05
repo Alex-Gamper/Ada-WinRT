@@ -35,6 +35,7 @@ limited with Windows.Media.FaceAnalysis;
 limited with Windows.Media.Devices;
 limited with Windows.Media.Streaming.Adaptive;
 limited with Windows.Storage;
+limited with Windows.Networking.BackgroundTransfer;
 limited with Windows.Media.Capture.Frames;
 limited with Windows.Media.Playback;
 limited with Windows.Media.Effects;
@@ -681,15 +682,27 @@ package Windows.Media.Core is
    type IAudioStreamDescriptor2_Interface;
    type IAudioStreamDescriptor2 is access all IAudioStreamDescriptor2_Interface'Class;
    type IAudioStreamDescriptor2_Ptr is access all IAudioStreamDescriptor2;
+   type IAudioStreamDescriptor3_Interface;
+   type IAudioStreamDescriptor3 is access all IAudioStreamDescriptor3_Interface'Class;
+   type IAudioStreamDescriptor3_Ptr is access all IAudioStreamDescriptor3;
    type IAudioStreamDescriptorFactory_Interface;
    type IAudioStreamDescriptorFactory is access all IAudioStreamDescriptorFactory_Interface'Class;
    type IAudioStreamDescriptorFactory_Ptr is access all IAudioStreamDescriptorFactory;
    type IVideoStreamDescriptor_Interface;
    type IVideoStreamDescriptor is access all IVideoStreamDescriptor_Interface'Class;
    type IVideoStreamDescriptor_Ptr is access all IVideoStreamDescriptor;
+   type IVideoStreamDescriptor2_Interface;
+   type IVideoStreamDescriptor2 is access all IVideoStreamDescriptor2_Interface'Class;
+   type IVideoStreamDescriptor2_Ptr is access all IVideoStreamDescriptor2;
    type IVideoStreamDescriptorFactory_Interface;
    type IVideoStreamDescriptorFactory is access all IVideoStreamDescriptorFactory_Interface'Class;
    type IVideoStreamDescriptorFactory_Ptr is access all IVideoStreamDescriptorFactory;
+   type ITimedMetadataStreamDescriptor_Interface;
+   type ITimedMetadataStreamDescriptor is access all ITimedMetadataStreamDescriptor_Interface'Class;
+   type ITimedMetadataStreamDescriptor_Ptr is access all ITimedMetadataStreamDescriptor;
+   type ITimedMetadataStreamDescriptorFactory_Interface;
+   type ITimedMetadataStreamDescriptorFactory is access all ITimedMetadataStreamDescriptorFactory_Interface'Class;
+   type ITimedMetadataStreamDescriptorFactory_Ptr is access all ITimedMetadataStreamDescriptorFactory;
    type IMediaSource_Interface;
    type IMediaSource is access all IMediaSource_Interface'Class;
    type IMediaSource_Ptr is access all IMediaSource;
@@ -834,6 +847,9 @@ package Windows.Media.Core is
    type IMediaSourceStatics3_Interface;
    type IMediaSourceStatics3 is access all IMediaSourceStatics3_Interface'Class;
    type IMediaSourceStatics3_Ptr is access all IMediaSourceStatics3;
+   type IMediaSourceStatics4_Interface;
+   type IMediaSourceStatics4 is access all IMediaSourceStatics4_Interface'Class;
+   type IMediaSourceStatics4_Ptr is access all IMediaSourceStatics4;
    type IMediaBinder_Interface;
    type IMediaBinder is access all IMediaBinder_Interface'Class;
    type IMediaBinder_Ptr is access all IMediaBinder;
@@ -843,6 +859,9 @@ package Windows.Media.Core is
    type IMediaBindingEventArgs2_Interface;
    type IMediaBindingEventArgs2 is access all IMediaBindingEventArgs2_Interface'Class;
    type IMediaBindingEventArgs2_Ptr is access all IMediaBindingEventArgs2;
+   type IMediaBindingEventArgs3_Interface;
+   type IMediaBindingEventArgs3 is access all IMediaBindingEventArgs3_Interface'Class;
+   type IMediaBindingEventArgs3_Ptr is access all IMediaBindingEventArgs3;
    type IMediaSource2_Interface;
    type IMediaSource2 is access all IMediaSource2_Interface'Class;
    type IMediaSource2_Ptr is access all IMediaSource2;
@@ -852,6 +871,9 @@ package Windows.Media.Core is
    type IMediaSource4_Interface;
    type IMediaSource4 is access all IMediaSource4_Interface'Class;
    type IMediaSource4_Ptr is access all IMediaSource4;
+   type IMediaSource5_Interface;
+   type IMediaSource5 is access all IMediaSource5_Interface'Class;
+   type IMediaSource5_Ptr is access all IMediaSource5;
    type ISingleSelectMediaTrackList_Interface;
    type ISingleSelectMediaTrackList is access all ISingleSelectMediaTrackList_Interface'Class;
    type ISingleSelectMediaTrackList_Ptr is access all ISingleSelectMediaTrackList;
@@ -963,6 +985,18 @@ package Windows.Media.Core is
    type IVector_IVideoStreamDescriptor_Interface;
    type IVector_IVideoStreamDescriptor is access all IVector_IVideoStreamDescriptor_Interface'Class;
    type IVector_IVideoStreamDescriptor_Ptr is access all IVector_IVideoStreamDescriptor;
+   type IIterator_IMediaStreamDescriptor_Interface;
+   type IIterator_IMediaStreamDescriptor is access all IIterator_IMediaStreamDescriptor_Interface'Class;
+   type IIterator_IMediaStreamDescriptor_Ptr is access all IIterator_IMediaStreamDescriptor;
+   type IIterable_IMediaStreamDescriptor_Interface;
+   type IIterable_IMediaStreamDescriptor is access all IIterable_IMediaStreamDescriptor_Interface'Class;
+   type IIterable_IMediaStreamDescriptor_Ptr is access all IIterable_IMediaStreamDescriptor;
+   type IVectorView_IMediaStreamDescriptor_Interface;
+   type IVectorView_IMediaStreamDescriptor is access all IVectorView_IMediaStreamDescriptor_Interface'Class;
+   type IVectorView_IMediaStreamDescriptor_Ptr is access all IVectorView_IMediaStreamDescriptor;
+   type IVector_IMediaStreamDescriptor_Interface;
+   type IVector_IMediaStreamDescriptor is access all IVector_IMediaStreamDescriptor_Interface'Class;
+   type IVector_IMediaStreamDescriptor_Ptr is access all IVector_IMediaStreamDescriptor;
    type IAsyncOperation_IMediaStreamSample_Interface;
    type IAsyncOperation_IMediaStreamSample is access all IAsyncOperation_IMediaStreamSample_Interface'Class;
    type IAsyncOperation_IMediaStreamSample_Ptr is access all IAsyncOperation_IMediaStreamSample;
@@ -2325,6 +2359,19 @@ package Windows.Media.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IAudioStreamDescriptor3 : aliased constant Windows.IID := (1294077345, 36483, 17647, (137, 115, 47, 99, 233, 147, 243, 107 ));
+   
+   type IAudioStreamDescriptor3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Copy
+   (
+      This       : access IAudioStreamDescriptor3_Interface
+      ; RetVal : access Windows.Media.Core.IAudioStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAudioStreamDescriptorFactory : aliased constant Windows.IID := (1250348702, 19633, 17280, (142, 12, 131, 80, 75, 127, 91, 243 ));
    
    type IAudioStreamDescriptorFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -2352,6 +2399,19 @@ package Windows.Media.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IVideoStreamDescriptor2 : aliased constant Windows.IID := (2335206928, 17726, 16520, (131, 45, 195, 111, 164, 249, 74, 243 ));
+   
+   type IVideoStreamDescriptor2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Copy
+   (
+      This       : access IVideoStreamDescriptor2_Interface
+      ; RetVal : access Windows.Media.Core.IVideoStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVideoStreamDescriptorFactory : aliased constant Windows.IID := (1229911761, 47989, 17362, (158, 94, 123, 121, 163, 175, 206, 212 ));
    
    type IVideoStreamDescriptorFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -2361,6 +2421,40 @@ package Windows.Media.Core is
       This       : access IVideoStreamDescriptorFactory_Interface
       ; encodingProperties : Windows.Media.MediaProperties.IVideoEncodingProperties
       ; RetVal : access Windows.Media.Core.IVideoStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITimedMetadataStreamDescriptor : aliased constant Windows.IID := (322123455, 10602, 17982, (159, 249, 1, 205, 37, 105, 20, 8 ));
+   
+   type ITimedMetadataStreamDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EncodingProperties
+   (
+      This       : access ITimedMetadataStreamDescriptor_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Copy
+   (
+      This       : access ITimedMetadataStreamDescriptor_Interface
+      ; RetVal : access Windows.Media.Core.IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITimedMetadataStreamDescriptorFactory : aliased constant Windows.IID := (3223838256, 29538, 20473, (152, 177, 45, 253, 11, 141, 28, 174 ));
+   
+   type ITimedMetadataStreamDescriptorFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITimedMetadataStreamDescriptorFactory_Interface
+      ; encodingProperties : Windows.Media.MediaProperties.IMediaEncodingProperties
+      ; RetVal : access Windows.Media.Core.IMediaStreamDescriptor
    )
    return Windows.HRESULT is abstract;
    
@@ -3977,6 +4071,20 @@ package Windows.Media.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaSourceStatics4 : aliased constant Windows.IID := (672873468, 58634, 17448, (165, 0, 156, 78, 217, 24, 211, 240 ));
+   
+   type IMediaSourceStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromDownloadOperation
+   (
+      This       : access IMediaSourceStatics4_Interface
+      ; downloadOperation : Windows.Networking.BackgroundTransfer.IDownloadOperation
+      ; RetVal : access Windows.Media.Core.IMediaSource2
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaBinder : aliased constant Windows.IID := (729694378, 56839, 16975, (131, 241, 241, 222, 70, 196, 250, 46 ));
    
    type IMediaBinder_Interface is interface and Windows.IInspectable_Interface;
@@ -4092,6 +4200,19 @@ package Windows.Media.Core is
    (
       This       : access IMediaBindingEventArgs2_Interface
       ; file : Windows.Storage.IStorageFile
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaBindingEventArgs3 : aliased constant Windows.IID := (4176168798, 6590, 17660, (165, 237, 122, 186, 49, 80, 55, 249 ));
+   
+   type IMediaBindingEventArgs3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetDownloadOperation
+   (
+      This       : access IMediaBindingEventArgs3_Interface
+      ; downloadOperation : Windows.Networking.BackgroundTransfer.IDownloadOperation
    )
    return Windows.HRESULT is abstract;
    
@@ -4223,6 +4344,19 @@ package Windows.Media.Core is
    (
       This       : access IMediaSource4_Interface
       ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaSource5 : aliased constant Windows.IID := (857350830, 60718, 18978, (148, 200, 183, 67, 169, 43, 48, 34 ));
+   
+   type IMediaSource5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DownloadOperation
+   (
+      This       : access IMediaSource5_Interface
+      ; RetVal : access Windows.Networking.BackgroundTransfer.IDownloadOperation
    )
    return Windows.HRESULT is abstract;
    
@@ -5545,6 +5679,188 @@ package Windows.Media.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IIterator_IMediaStreamDescriptor : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterator_IMediaStreamDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IMediaStreamDescriptor_Interface
+      ; RetVal : access Windows.Media.Core.IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IMediaStreamDescriptor_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IMediaStreamDescriptor_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IMediaStreamDescriptor_Interface
+      ; items : Windows.Media.Core.IMediaStreamDescriptor_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IMediaStreamDescriptor : aliased constant Windows.IID := (4090525761, 14418, 20637, (161, 43, 169, 242, 172, 137, 218, 147 ));
+   
+   type IIterable_IMediaStreamDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IMediaStreamDescriptor_Interface
+      ; RetVal : access Windows.Media.Core.IIterator_IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IMediaStreamDescriptor : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IVectorView_IMediaStreamDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IMediaStreamDescriptor_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Media.Core.IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IMediaStreamDescriptor_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IMediaStreamDescriptor_Interface
+      ; value : Windows.Media.Core.IMediaStreamDescriptor
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IMediaStreamDescriptor_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Media.Core.IMediaStreamDescriptor_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_IMediaStreamDescriptor : aliased constant Windows.IID := (515750863, 20341, 22085, (184, 188, 49, 167, 22, 151, 139, 204 ));
+   
+   type IVector_IMediaStreamDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Media.Core.IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; RetVal : access Windows.Media.Core.IVectorView_IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; value : Windows.Media.Core.IMediaStreamDescriptor
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Media.Core.IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Media.Core.IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; value : Windows.Media.Core.IMediaStreamDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Media.Core.IMediaStreamDescriptor_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_IMediaStreamDescriptor_Interface
+      ; items : Windows.Media.Core.IMediaStreamDescriptor_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_IMediaStreamSample : aliased constant Windows.IID := (1021075078, 19162, 24311, (150, 122, 225, 55, 164, 98, 25, 7 ));
    
    type IAsyncOperation_IMediaStreamSample_Interface is interface and Windows.IInspectable_Interface;
@@ -6759,6 +7075,13 @@ package Windows.Media.Core is
    )
    return Windows.Media.Core.IVideoStreamDescriptor;
    
+   subtype TimedMetadataStreamDescriptor is Windows.Media.Core.IMediaStreamDescriptor;
+   function Create
+   (
+      encodingProperties : Windows.Media.MediaProperties.IMediaEncodingProperties
+   )
+   return Windows.Media.Core.IMediaStreamDescriptor;
+   
    subtype MediaStreamSource is Windows.Media.Core.IMediaStreamSource;
    function CreateFromDescriptor
    (
@@ -7092,6 +7415,12 @@ package Windows.Media.Core is
    function CreateFromMediaBinder
    (
       binder : Windows.Media.Core.IMediaBinder
+   )
+   return Windows.Media.Core.IMediaSource2;
+   
+   function CreateFromDownloadOperation
+   (
+      downloadOperation : Windows.Networking.BackgroundTransfer.IDownloadOperation
    )
    return Windows.Media.Core.IMediaSource2;
    

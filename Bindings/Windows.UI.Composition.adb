@@ -126,6 +126,26 @@ package body Windows.UI.Composition is
       return Convert(RetVal);
    end;
    
+   function Create
+   (
+      source : Windows.Graphics.IGeometrySource2D
+   )
+   return Windows.UI.Composition.ICompositionPath is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.CompositionPath");
+      m_Factory     : Windows.UI.Composition.ICompositionPathFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Composition.ICompositionPath := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositionPathFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(source, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -145,6 +165,74 @@ package body Windows.UI.Composition is
       Hr := RoGetActivationFactory(m_hString, IID_ICompositionCapabilitiesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxGlobalPlaybackRate
+   return Windows.Single is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.Compositor");
+      m_Factory     : ICompositorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Single;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxGlobalPlaybackRate(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MinGlobalPlaybackRate
+   return Windows.Single is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.Compositor");
+      m_Factory     : ICompositorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Single;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MinGlobalPlaybackRate(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MaxPlaybackRate
+   return Windows.Single is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.AnimationController");
+      m_Factory     : IAnimationControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Single;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAnimationControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxPlaybackRate(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MinPlaybackRate
+   return Windows.Single is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.AnimationController");
+      m_Factory     : IAnimationControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Single;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAnimationControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MinPlaybackRate(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -1627,10 +1627,20 @@ package Windows.Devices.Bluetooth.Advertisement is
    ------------------------------------------------------------------------
    
    subtype BluetoothLEManufacturerData is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData;
-   function CreateBluetoothLEManufacturerData return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData;
+   function Create
+   (
+      companyId : Windows.UInt16
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData;
    
    subtype BluetoothLEAdvertisementDataSection is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection;
-   function CreateBluetoothLEAdvertisementDataSection return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection;
+   function Create
+   (
+      dataType : Windows.UInt8
+      ; data : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection;
    
    subtype BluetoothLEAdvertisement is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement;
    function CreateBluetoothLEAdvertisement return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement;

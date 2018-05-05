@@ -248,13 +248,13 @@ package Windows.Devices.Adc is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetDefaultAsync
-   return Windows.Devices.Adc.IAsyncOperation_IAdcController;
-   
    function GetControllersAsync
    (
       provider : Windows.Devices.Adc.Provider.IAdcProvider
    )
    return Windows.Address;
+   
+   function GetDefaultAsync
+   return Windows.Devices.Adc.IAsyncOperation_IAdcController;
    
 end;

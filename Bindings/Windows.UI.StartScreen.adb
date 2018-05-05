@@ -62,21 +62,28 @@ package body Windows.UI.StartScreen is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
-   function CreateSecondaryTile return Windows.UI.StartScreen.ISecondaryTile is
-      Hr            : Windows.HResult := S_OK;
+   function CreateMinimalTile
+   (
+      tileId : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; square150x150Logo : Windows.Foundation.IUriRuntimeClass
+      ; desiredSize : Windows.UI.StartScreen.TileSize
+   )
+   return Windows.UI.StartScreen.ISecondaryTile is
+      Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.StartScreen.SecondaryTile");
-      Instance      : aliased IInspectable := null;
+      m_Factory     : Windows.UI.StartScreen.ISecondaryTileFactory2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.StartScreen.ISecondaryTile) with inline;
+      RetVal        : aliased Windows.UI.StartScreen.ISecondaryTile := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryTileFactory2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.UI.StartScreen.IID_ISecondaryTile'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateMinimalTile(tileId, displayName, arguments, square150x150Logo, desiredSize, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    ------------------------------------------------------------------------

@@ -1473,6 +1473,22 @@ package Windows.Perception.Spatial is
    function RequestStoreAsync
    return Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore;
    
+   function TryImportAnchorsAsync
+   (
+      stream : Windows.Storage.Streams.IInputStream
+   )
+   return Windows.Address;
+   
+   function TryExportAnchorsAsync
+   (
+      anchors : Windows.Address
+      ; stream : Windows.Storage.Streams.IOutputStream
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function RequestAccessAsync
+   return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus;
+   
    function FromBox
    (
       coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem

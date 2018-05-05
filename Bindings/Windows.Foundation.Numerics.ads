@@ -106,6 +106,14 @@ package Windows.Foundation.Numerics is
    
    type Quaternion_Ptr is access Quaternion;
    
+   type Rational is record
+      Numerator : Windows.UInt32;
+      Denominator : Windows.UInt32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , Rational);
+   
+   type Rational_Ptr is access Rational;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------

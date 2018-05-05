@@ -26,6 +26,7 @@ limited with Windows.System;
 limited with Windows.Storage;
 limited with Windows.ApplicationModel.Core;
 with Windows; use Windows;
+limited with Windows.ApplicationModel.Activation;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel is
 
@@ -39,13 +40,15 @@ package Windows.ApplicationModel is
       Disabled,
       DisabledByUser,
       Enabled,
-      DisabledByPolicy
+      DisabledByPolicy,
+      EnabledByPolicy
    );
    for StartupTaskState use (
       Disabled => 0,
       DisabledByUser => 1,
       Enabled => 2,
-      DisabledByPolicy => 3
+      DisabledByPolicy => 3,
+      EnabledByPolicy => 4
    );
    for StartupTaskState'Size use 32;
    
@@ -68,6 +71,20 @@ package Windows.ApplicationModel is
    for PackageSignatureKind'Size use 32;
    
    type PackageSignatureKind_Ptr is access PackageSignatureKind;
+   
+   type AddResourcePackageOptions is (
+      None,
+      ForceTargetAppShutdown,
+      ApplyUpdateIfAvailable
+   );
+   for AddResourcePackageOptions use (
+      None => 0,
+      ForceTargetAppShutdown => 1,
+      ApplyUpdateIfAvailable => 2
+   );
+   for AddResourcePackageOptions'Size use 32;
+   
+   type AddResourcePackageOptions_Ptr is access AddResourcePackageOptions;
    
    type PackageContentGroupState is (
       NotStaged,
@@ -109,6 +126,13 @@ package Windows.ApplicationModel is
    
    type PackageVersion_Ptr is access PackageVersion;
    
+   type PackageInstallProgress is record
+      PercentComplete : Windows.UInt32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , PackageInstallProgress);
+   
+   type PackageInstallProgress_Ptr is access PackageInstallProgress;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -146,6 +170,9 @@ package Windows.ApplicationModel is
    type AsyncOperationCompletedHandler_IPackageCatalogRemoveOptionalPackagesResult_Interface;
    type AsyncOperationCompletedHandler_IPackageCatalogRemoveOptionalPackagesResult is access all AsyncOperationCompletedHandler_IPackageCatalogRemoveOptionalPackagesResult_Interface'Class;
    type AsyncOperationCompletedHandler_IPackageCatalogRemoveOptionalPackagesResult_Ptr is access all AsyncOperationCompletedHandler_IPackageCatalogRemoveOptionalPackagesResult;
+   type AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult_Interface;
+   type AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult is access all AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult_Ptr is access all AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult;
    type EventHandler_ISuspendingEventArgs_Interface;
    type EventHandler_ISuspendingEventArgs is access all EventHandler_ISuspendingEventArgs_Interface'Class;
    type EventHandler_ISuspendingEventArgs_Ptr is access all EventHandler_ISuspendingEventArgs;
@@ -241,6 +268,15 @@ package Windows.ApplicationModel is
    type IPackageCatalog3_Interface;
    type IPackageCatalog3 is access all IPackageCatalog3_Interface'Class;
    type IPackageCatalog3_Ptr is access all IPackageCatalog3;
+   type IPackageCatalogRemoveResourcePackagesResult_Interface;
+   type IPackageCatalogRemoveResourcePackagesResult is access all IPackageCatalogRemoveResourcePackagesResult_Interface'Class;
+   type IPackageCatalogRemoveResourcePackagesResult_Ptr is access all IPackageCatalogRemoveResourcePackagesResult;
+   type IPackageCatalogAddResourcePackageResult_Interface;
+   type IPackageCatalogAddResourcePackageResult is access all IPackageCatalogAddResourcePackageResult_Interface'Class;
+   type IPackageCatalogAddResourcePackageResult_Ptr is access all IPackageCatalogAddResourcePackageResult;
+   type IPackageCatalog4_Interface;
+   type IPackageCatalog4 is access all IPackageCatalog4_Interface'Class;
+   type IPackageCatalog4_Ptr is access all IPackageCatalog4;
    type IPackageCatalogStatics_Interface;
    type IPackageCatalogStatics is access all IPackageCatalogStatics_Interface'Class;
    type IPackageCatalogStatics_Ptr is access all IPackageCatalogStatics;
@@ -256,6 +292,12 @@ package Windows.ApplicationModel is
    type IDesignModeStatics2_Interface;
    type IDesignModeStatics2 is access all IDesignModeStatics2_Interface'Class;
    type IDesignModeStatics2_Ptr is access all IDesignModeStatics2;
+   type IAppInstance_Interface;
+   type IAppInstance is access all IAppInstance_Interface'Class;
+   type IAppInstance_Ptr is access all IAppInstance;
+   type IAppInstanceStatics_Interface;
+   type IAppInstanceStatics is access all IAppInstanceStatics_Interface'Class;
+   type IAppInstanceStatics_Ptr is access all IAppInstanceStatics;
    type ISuspendingDeferral_Interface;
    type ISuspendingDeferral is access all ISuspendingDeferral_Interface'Class;
    type ISuspendingDeferral_Ptr is access all ISuspendingDeferral;
@@ -301,6 +343,21 @@ package Windows.ApplicationModel is
    type IAsyncOperation_IPackageCatalogRemoveOptionalPackagesResult_Interface;
    type IAsyncOperation_IPackageCatalogRemoveOptionalPackagesResult is access all IAsyncOperation_IPackageCatalogRemoveOptionalPackagesResult_Interface'Class;
    type IAsyncOperation_IPackageCatalogRemoveOptionalPackagesResult_Ptr is access all IAsyncOperation_IPackageCatalogRemoveOptionalPackagesResult;
+   type IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult_Interface;
+   type IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult is access all IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult_Interface'Class;
+   type IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult_Ptr is access all IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult;
+   type IIterator_IAppInstance_Interface;
+   type IIterator_IAppInstance is access all IIterator_IAppInstance_Interface'Class;
+   type IIterator_IAppInstance_Ptr is access all IIterator_IAppInstance;
+   type IIterable_IAppInstance_Interface;
+   type IIterable_IAppInstance is access all IIterable_IAppInstance_Interface'Class;
+   type IIterable_IAppInstance_Ptr is access all IIterable_IAppInstance;
+   type IVectorView_IAppInstance_Interface;
+   type IVectorView_IAppInstance is access all IVectorView_IAppInstance_Interface'Class;
+   type IVectorView_IAppInstance_Ptr is access all IVectorView_IAppInstance;
+   type IVector_IAppInstance_Interface;
+   type IVector_IAppInstance is access all IVector_IAppInstance_Interface'Class;
+   type IVector_IAppInstance_Ptr is access all IVector_IAppInstance;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1279,6 +1336,77 @@ package Windows.ApplicationModel is
    
    ------------------------------------------------------------------------
    
+   IID_IPackageCatalogRemoveResourcePackagesResult : aliased constant Windows.IID := (2926679817, 6738, 17185, (135, 179, 229, 161, 161, 121, 129, 167 ));
+   
+   type IPackageCatalogRemoveResourcePackagesResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PackagesRemoved
+   (
+      This       : access IPackageCatalogRemoveResourcePackagesResult_Interface
+      ; RetVal : access Windows.ApplicationModel.IVectorView_IPackage -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedError
+   (
+      This       : access IPackageCatalogRemoveResourcePackagesResult_Interface
+      ; RetVal : access Windows.Foundation.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPackageCatalogAddResourcePackageResult : aliased constant Windows.IID := (2520174093, 15895, 18751, (170, 8, 204, 236, 111, 222, 246, 153 ));
+   
+   type IPackageCatalogAddResourcePackageResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Package
+   (
+      This       : access IPackageCatalogAddResourcePackageResult_Interface
+      ; RetVal : access Windows.ApplicationModel.IPackage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsComplete
+   (
+      This       : access IPackageCatalogAddResourcePackageResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedError
+   (
+      This       : access IPackageCatalogAddResourcePackageResult_Interface
+      ; RetVal : access Windows.Foundation.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPackageCatalog4 : aliased constant Windows.IID := (3279698331, 17612, 19323, (139, 175, 121, 108, 4, 234, 211, 185 ));
+   
+   type IPackageCatalog4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddResourcePackageAsync
+   (
+      This       : access IPackageCatalog4_Interface
+      ; resourcePackageFamilyName : Windows.String
+      ; resourceID : Windows.String
+      ; options : Windows.ApplicationModel.AddResourcePackageOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveResourcePackagesAsync
+   (
+      This       : access IPackageCatalog4_Interface
+      ; resourcePackages : Windows.ApplicationModel.IIterable_IPackage
+      ; RetVal : access Windows.ApplicationModel.IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPackageCatalogStatics : aliased constant Windows.IID := (2710345366, 58971, 17972, (186, 33, 94, 99, 235, 114, 68, 167 ));
    
    type IPackageCatalogStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1367,6 +1495,73 @@ package Windows.ApplicationModel is
    (
       This       : access IDesignModeStatics2_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppInstance : aliased constant Windows.IID := (1734290247, 62047, 17714, (159, 214, 54, 51, 224, 99, 77, 1 ));
+   
+   type IAppInstance_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Key
+   (
+      This       : access IAppInstance_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsCurrentInstance
+   (
+      This       : access IAppInstance_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RedirectActivationTo
+   (
+      This       : access IAppInstance_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppInstanceStatics : aliased constant Windows.IID := (2635196287, 40614, 18351, (166, 236, 70, 120, 76, 91, 162, 84 ));
+   
+   type IAppInstanceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RecommendedInstance
+   (
+      This       : access IAppInstanceStatics_Interface
+      ; RetVal : access Windows.ApplicationModel.IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetActivatedEventArgs
+   (
+      This       : access IAppInstanceStatics_Interface
+      ; RetVal : access Windows.ApplicationModel.Activation.IActivatedEventArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FindOrRegisterInstanceForKey
+   (
+      This       : access IAppInstanceStatics_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.ApplicationModel.IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Unregister
+   (
+      This       : access IAppInstanceStatics_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetInstances
+   (
+      This       : access IAppInstanceStatics_Interface
+      ; RetVal : access Windows.ApplicationModel.IVector_IAppInstance -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1771,6 +1966,215 @@ package Windows.ApplicationModel is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult : aliased constant Windows.IID := (875487356, 36206, 21412, (183, 70, 197, 183, 75, 182, 31, 109 ));
+   
+   type IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult_Interface
+      ; handler : Windows.ApplicationModel.AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult_Interface
+      ; RetVal : access Windows.ApplicationModel.AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult_Interface
+      ; RetVal : access Windows.ApplicationModel.IPackageCatalogRemoveResourcePackagesResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IAppInstance : aliased constant Windows.IID := (348735016, 31032, 22229, (137, 90, 143, 197, 46, 211, 187, 126 ));
+   
+   type IIterator_IAppInstance_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IAppInstance_Interface
+      ; RetVal : access Windows.ApplicationModel.IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IAppInstance_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IAppInstance_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IAppInstance_Interface
+      ; items : Windows.ApplicationModel.IAppInstance_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IAppInstance : aliased constant Windows.IID := (740865225, 25464, 21378, (161, 166, 121, 189, 110, 237, 150, 122 ));
+   
+   type IIterable_IAppInstance_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAppInstance_Interface
+      ; RetVal : access Windows.ApplicationModel.IIterator_IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAppInstance : aliased constant Windows.IID := (3515239974, 46635, 20613, (142, 147, 96, 203, 182, 235, 32, 209 ));
+   
+   type IVectorView_IAppInstance_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IAppInstance_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IAppInstance_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IAppInstance_Interface
+      ; value : Windows.ApplicationModel.IAppInstance
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IAppInstance_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.IAppInstance_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_IAppInstance : aliased constant Windows.IID := (2146983006, 30546, 24304, (191, 41, 2, 6, 72, 193, 153, 228 ));
+   
+   type IVector_IAppInstance_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; RetVal : access Windows.ApplicationModel.IVectorView_IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; value : Windows.ApplicationModel.IAppInstance
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.ApplicationModel.IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.ApplicationModel.IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; value : Windows.ApplicationModel.IAppInstance
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_IAppInstance_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_IAppInstance_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.IAppInstance_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_IAppInstance_Interface
+      ; items : Windows.ApplicationModel.IAppInstance_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -1919,6 +2323,19 @@ package Windows.ApplicationModel is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult : aliased constant Windows.IID := (338393303, 23747, 23360, (165, 141, 67, 165, 130, 202, 131, 234 ));
+   
+   type AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPackageCatalogRemoveResourcePackagesResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageCatalogRemoveResourcePackagesResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_EventHandler_ISuspendingEventArgs : aliased constant Windows.IID := (864385471, 6709, 23748, (166, 34, 166, 243, 132, 253, 137, 44 ));
    
    type EventHandler_ISuspendingEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.ISuspendingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_ISuspendingEventArgs'access) with null record;
@@ -1976,6 +2393,9 @@ package Windows.ApplicationModel is
    subtype PackageCatalog is Windows.ApplicationModel.IPackageCatalog;
    subtype PackageCatalogAddOptionalPackageResult is Windows.ApplicationModel.IPackageCatalogAddOptionalPackageResult;
    subtype PackageCatalogRemoveOptionalPackagesResult is Windows.ApplicationModel.IPackageCatalogRemoveOptionalPackagesResult;
+   subtype PackageCatalogRemoveResourcePackagesResult is Windows.ApplicationModel.IPackageCatalogRemoveResourcePackagesResult;
+   subtype PackageCatalogAddResourcePackageResult is Windows.ApplicationModel.IPackageCatalogAddResourcePackageResult;
+   subtype AppInstance is Windows.ApplicationModel.IAppInstance;
    subtype SuspendingEventArgs is Windows.ApplicationModel.ISuspendingEventArgs;
    subtype LeavingBackgroundEventArgs is Windows.ApplicationModel.ILeavingBackgroundEventArgs;
    subtype EnteredBackgroundEventArgs is Windows.ApplicationModel.IEnteredBackgroundEventArgs;
@@ -2034,6 +2454,24 @@ package Windows.ApplicationModel is
    
    function get_DesignMode2Enabled
    return Windows.Boolean;
+   
+   function get_RecommendedInstance
+   return Windows.ApplicationModel.IAppInstance;
+   
+   function GetActivatedEventArgs
+   return Windows.ApplicationModel.Activation.IActivatedEventArgs;
+   
+   function FindOrRegisterInstanceForKey
+   (
+      key : Windows.String
+   )
+   return Windows.ApplicationModel.IAppInstance;
+   
+   procedure Unregister
+   ;
+   
+   function GetInstances
+   return Windows.ApplicationModel.IVector_IAppInstance;
    
    procedure ShowInstalledApplicationsUI
    ;

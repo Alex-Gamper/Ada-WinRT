@@ -398,6 +398,27 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
+   function Create
+   (
+      triggerId : Windows.String
+      ; recurrence : Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence
+   )
+   return Windows.ApplicationModel.Background.ICustomSystemEventTrigger is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.CustomSystemEventTrigger");
+      m_Factory     : Windows.ApplicationModel.Background.ICustomSystemEventTriggerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Background.ICustomSystemEventTrigger := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICustomSystemEventTriggerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(triggerId, recurrence, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateCachedFileUpdaterTrigger return Windows.ApplicationModel.Background.ICachedFileUpdaterTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.CachedFileUpdaterTrigger");
@@ -685,6 +706,57 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
+   function CreateNetworkOperatorDataUsageTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateTetheringEntitlementCheckTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateMobileBroadbandPcoDataChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create
    (
       filterRules : Windows.Devices.Sms.ISmsFilterRules
@@ -699,6 +771,26 @@ package body Windows.ApplicationModel.Background is
       Hr := RoGetActivationFactory(m_hString, IID_ISmsMessageReceivedTriggerFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(filterRules, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      tracker : Windows.Storage.IStorageLibraryChangeTracker
+   )
+   return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger");
+      m_Factory     : Windows.ApplicationModel.Background.IStorageLibraryChangeTrackerTriggerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageLibraryChangeTrackerTriggerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(tracker, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -939,24 +1031,27 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function CreatePushNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
-      Hr            : Windows.HResult := S_OK;
+   function Create
+   (
+      applicationId : Windows.String
+   )
+   return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.PushNotificationTrigger");
-      Instance      : aliased IInspectable := null;
+      m_Factory     : Windows.ApplicationModel.Background.IPushNotificationTriggerFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
+      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IPushNotificationTriggerFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.Create(applicationId, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
-   function Create
+   function Create1
    (
       applicationId : Windows.String
    )
@@ -976,21 +1071,24 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
-   function CreateToastNotificationActionTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
-      Hr            : Windows.HResult := S_OK;
+   function Create2
+   (
+      applicationId : Windows.String
+   )
+   return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ToastNotificationActionTrigger");
-      Instance      : aliased IInspectable := null;
+      m_Factory     : Windows.ApplicationModel.Background.IToastNotificationActionTriggerFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
+      RetVal        : aliased Windows.ApplicationModel.Background.IBackgroundTrigger := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationActionTriggerFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.Create(applicationId, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function Create
@@ -1069,6 +1167,27 @@ package body Windows.ApplicationModel.Background is
       Hr := RoGetActivationFactory(m_hString, IID_IAlarmApplicationManagerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetAccessStatus(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessKindAsync
+   (
+      requestedAccess : Windows.ApplicationModel.Background.BackgroundAccessRequestKind
+      ; reason : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.BackgroundExecutionManager");
+      m_Factory     : IBackgroundExecutionManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncOperation_Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundExecutionManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessKindAsync(requestedAccess, reason, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

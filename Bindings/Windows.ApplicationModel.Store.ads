@@ -1064,9 +1064,6 @@ package Windows.ApplicationModel.Store is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetAppPurchaseCampaignIdAsync
-   return Windows.Foundation.IAsyncOperation_String;
-   
    function get_LicenseInformation
    return Windows.ApplicationModel.Store.ILicenseInformation;
    
@@ -1101,18 +1098,7 @@ package Windows.ApplicationModel.Store is
    )
    return Windows.Foundation.IAsyncOperation_String;
    
-   function GetCustomerPurchaseIdAsync
-   (
-      serviceTicket : Windows.String
-      ; publisherUserId : Windows.String
-   )
-   return Windows.Foundation.IAsyncOperation_String;
-   
-   function GetCustomerCollectionsIdAsync
-   (
-      serviceTicket : Windows.String
-      ; publisherUserId : Windows.String
-   )
+   function GetAppPurchaseCampaignIdAsync
    return Windows.Foundation.IAsyncOperation_String;
    
    function ReportConsumableFulfillmentAsync
@@ -1157,32 +1143,34 @@ package Windows.ApplicationModel.Store is
    )
    ;
    
-   function ReportConsumableFulfillmentAsync_CurrentAppSimulator
+   function GetCustomerPurchaseIdAsync
    (
-      productId : Windows.String
-      ; transactionId : Windows.Guid
+      serviceTicket : Windows.String
+      ; publisherUserId : Windows.String
    )
-   return Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult;
+   return Windows.Foundation.IAsyncOperation_String;
    
-   function RequestProductPurchaseWithResultsAsync_CurrentAppSimulator
+   function GetCustomerCollectionsIdAsync
    (
-      productId : Windows.String
+      serviceTicket : Windows.String
+      ; publisherUserId : Windows.String
    )
-   return Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults;
-   
-   function RequestProductPurchaseWithDisplayPropertiesAsync_CurrentAppSimulator
-   (
-      productId : Windows.String
-      ; offerId : Windows.String
-      ; displayProperties : Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties
-   )
-   return Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults;
-   
-   function GetUnfulfilledConsumablesAsync_CurrentAppSimulator
-   return Windows.Address;
+   return Windows.Foundation.IAsyncOperation_String;
    
    function GetAppPurchaseCampaignIdAsync_CurrentAppSimulator
    return Windows.Foundation.IAsyncOperation_String;
+   
+   function LoadListingInformationByProductIdsAsync_CurrentAppSimulator
+   (
+      productIds : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
+   
+   function LoadListingInformationByKeywordsAsync_CurrentAppSimulator
+   (
+      keywords : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
    
    function get_LicenseInformation_CurrentAppSimulator
    return Windows.ApplicationModel.Store.ILicenseInformation;
@@ -1224,16 +1212,28 @@ package Windows.ApplicationModel.Store is
    )
    return Windows.Foundation.IAsyncAction;
    
-   function LoadListingInformationByProductIdsAsync_CurrentAppSimulator
+   function ReportConsumableFulfillmentAsync_CurrentAppSimulator
    (
-      productIds : Windows.Foundation.Collections.IIterable_String
+      productId : Windows.String
+      ; transactionId : Windows.Guid
    )
-   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
+   return Windows.ApplicationModel.Store.IAsyncOperation_FulfillmentResult;
    
-   function LoadListingInformationByKeywordsAsync_CurrentAppSimulator
+   function RequestProductPurchaseWithResultsAsync_CurrentAppSimulator
    (
-      keywords : Windows.Foundation.Collections.IIterable_String
+      productId : Windows.String
    )
-   return Windows.ApplicationModel.Store.IAsyncOperation_IListingInformation;
+   return Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults;
+   
+   function RequestProductPurchaseWithDisplayPropertiesAsync_CurrentAppSimulator
+   (
+      productId : Windows.String
+      ; offerId : Windows.String
+      ; displayProperties : Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties
+   )
+   return Windows.ApplicationModel.Store.IAsyncOperation_IPurchaseResults;
+   
+   function GetUnfulfilledConsumablesAsync_CurrentAppSimulator
+   return Windows.Address;
    
 end;

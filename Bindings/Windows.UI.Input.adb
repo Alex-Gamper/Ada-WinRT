@@ -639,6 +639,23 @@ package body Windows.UI.Input is
       return RetVal;
    end;
    
+   function GetForCurrentView
+   return Windows.UI.Input.IRadialControllerConfiguration is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerConfiguration");
+      m_Factory     : IRadialControllerConfigurationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.IRadialControllerConfiguration;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerConfigurationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    procedure put_AppController
    (
       value : Windows.UI.Input.IRadialController
@@ -703,23 +720,6 @@ package body Windows.UI.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerConfigurationStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsAppControllerEnabled(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetForCurrentView
-   return Windows.UI.Input.IRadialControllerConfiguration is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Input.RadialControllerConfiguration");
-      m_Factory     : IRadialControllerConfigurationStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Input.IRadialControllerConfiguration;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerConfigurationStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -21,6 +21,7 @@
 --------------------------------------------------------------------------------
 with Windows.UI.Popups;
 with Windows.Security.Credentials;
+with Windows.System;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.ApplicationSettings is
@@ -227,6 +228,38 @@ package body Windows.UI.ApplicationSettings is
       return RetVal;
    end;
    
+   function GetForCurrentView
+   return Windows.UI.ApplicationSettings.IAccountsSettingsPane is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.AccountsSettingsPane");
+      m_Factory     : IAccountsSettingsPaneStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ApplicationSettings.IAccountsSettingsPane;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAccountsSettingsPaneStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure Show
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.AccountsSettingsPane");
+      m_Factory     : IAccountsSettingsPaneStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAccountsSettingsPaneStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Show;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function ShowManageAccountsAsync
    return Windows.Foundation.IAsyncAction is
       Hr            : Windows.HRESULT := S_OK;
@@ -261,15 +294,55 @@ package body Windows.UI.ApplicationSettings is
       return RetVal;
    end;
    
-   function GetForCurrentView
-   return Windows.UI.ApplicationSettings.IAccountsSettingsPane is
+   function ShowManageAccountsForUserAsync
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.IAsyncAction is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.AccountsSettingsPane");
-      m_Factory     : IAccountsSettingsPaneStatics := null;
+      m_Factory     : IAccountsSettingsPaneStatics3 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.ApplicationSettings.IAccountsSettingsPane;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAccountsSettingsPaneStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IAccountsSettingsPaneStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowManageAccountsForUserAsync(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ShowAddAccountForUserAsync
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Foundation.IAsyncAction is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.AccountsSettingsPane");
+      m_Factory     : IAccountsSettingsPaneStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IAsyncAction;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAccountsSettingsPaneStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowAddAccountForUserAsync(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.UI.ApplicationSettings.ISettingsPane is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.SettingsPane");
+      m_Factory     : ISettingsPaneStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ApplicationSettings.ISettingsPane;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISettingsPaneStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
@@ -278,19 +351,36 @@ package body Windows.UI.ApplicationSettings is
       return RetVal;
    end;
    
-   procedure Show
+   procedure Show_ISettingsPane
    is
       Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.AccountsSettingsPane");
-      m_Factory     : IAccountsSettingsPaneStatics := null;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.SettingsPane");
+      m_Factory     : ISettingsPaneStatics := null;
       RefCount      : Windows.UInt32 := 0;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAccountsSettingsPaneStatics'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ISettingsPaneStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Show;
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_Edge
+   return Windows.UI.ApplicationSettings.SettingsEdgeLocation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ApplicationSettings.SettingsPane");
+      m_Factory     : ISettingsPaneStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ApplicationSettings.SettingsEdgeLocation;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISettingsPaneStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Edge(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
 end;

@@ -173,6 +173,7 @@ package Windows.Graphics.Imaging is
       Gray8,
       Bgra8,
       Nv12,
+      P010,
       Yuy2
    );
    for BitmapPixelFormat use (
@@ -183,6 +184,7 @@ package Windows.Graphics.Imaging is
       Gray8 => 62,
       Bgra8 => 87,
       Nv12 => 103,
+      P010 => 104,
       Yuy2 => 107
    );
    for BitmapPixelFormat'Size use 32;
@@ -221,6 +223,14 @@ package Windows.Graphics.Imaging is
    -- Record types
    ------------------------------------------------------------------------
    
+   type BitmapSize is record
+      Width : Windows.UInt32;
+      Height : Windows.UInt32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , BitmapSize);
+   
+   type BitmapSize_Ptr is access BitmapSize;
+   
    type BitmapBounds is record
       X : Windows.UInt32;
       Y : Windows.UInt32;
@@ -230,14 +240,6 @@ package Windows.Graphics.Imaging is
    pragma Convention (C_Pass_By_Copy , BitmapBounds);
    
    type BitmapBounds_Ptr is access BitmapBounds;
-   
-   type BitmapSize is record
-      Width : Windows.UInt32;
-      Height : Windows.UInt32;
-   end record;
-   pragma Convention (C_Pass_By_Copy , BitmapSize);
-   
-   type BitmapSize_Ptr is access BitmapSize;
    
    type BitmapPlaneDescription is record
       StartIndex : Windows.Int32;
@@ -378,6 +380,9 @@ package Windows.Graphics.Imaging is
    type IAsyncOperation_IBitmapEncoder_Interface;
    type IAsyncOperation_IBitmapEncoder is access all IAsyncOperation_IBitmapEncoder_Interface'Class;
    type IAsyncOperation_IBitmapEncoder_Ptr is access all IAsyncOperation_IBitmapEncoder;
+   type IReference_BitmapBounds_Interface;
+   type IReference_BitmapBounds is access all IReference_BitmapBounds_Interface'Class;
+   type IReference_BitmapBounds_Ptr is access all IReference_BitmapBounds;
    type IIterator_BitmapPixelFormat_Interface;
    type IIterator_BitmapPixelFormat is access all IIterator_BitmapPixelFormat_Interface'Class;
    type IIterator_BitmapPixelFormat_Ptr is access all IIterator_BitmapPixelFormat;
@@ -1723,6 +1728,19 @@ package Windows.Graphics.Imaging is
    (
       This       : access IAsyncOperation_IBitmapEncoder_Interface
       ; RetVal : access Windows.Graphics.Imaging.IBitmapEncoder
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_BitmapBounds : aliased constant Windows.IID := (2853821040, 57062, 23362, (181, 98, 47, 205, 33, 140, 52, 202 ));
+   
+   type IReference_BitmapBounds_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_BitmapBounds_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapBounds
    )
    return Windows.HRESULT is abstract;
    

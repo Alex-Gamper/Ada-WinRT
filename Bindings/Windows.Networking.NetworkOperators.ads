@@ -147,6 +147,16 @@ package Windows.Networking.NetworkOperators is
    
    type MobileBroadbandRadioState_Ptr is access MobileBroadbandRadioState;
    
+   type NetworkOperatorDataUsageNotificationKind is (
+      DataUsageProgress
+   );
+   for NetworkOperatorDataUsageNotificationKind use (
+      DataUsageProgress => 0
+   );
+   for NetworkOperatorDataUsageNotificationKind'Size use 32;
+   
+   type NetworkOperatorDataUsageNotificationKind_Ptr is access NetworkOperatorDataUsageNotificationKind;
+   
    type NetworkOperatorEventMessageType is (
       Gsm,
       Cdma,
@@ -417,6 +427,142 @@ package Windows.Networking.NetworkOperators is
    
    type MobileBroadbandModemStatus_Ptr is access MobileBroadbandModemStatus;
    
+   type ESimAuthenticationPreference is (
+      OnEntry,
+      OnAction,
+      Never
+   );
+   for ESimAuthenticationPreference use (
+      OnEntry => 0,
+      OnAction => 1,
+      Never => 2
+   );
+   for ESimAuthenticationPreference'Size use 32;
+   
+   type ESimAuthenticationPreference_Ptr is access ESimAuthenticationPreference;
+   
+   type ESimProfileClass is (
+      Operational,
+      Test,
+      Provisioning
+   );
+   for ESimProfileClass use (
+      Operational => 0,
+      Test => 1,
+      Provisioning => 2
+   );
+   for ESimProfileClass'Size use 32;
+   
+   type ESimProfileClass_Ptr is access ESimProfileClass;
+   
+   type ESimOperationStatus is (
+      Success,
+      NotAuthorized,
+      NotFound,
+      PolicyViolation,
+      InsufficientSpaceOnCard,
+      ServerFailure,
+      ServerNotReachable,
+      TimeoutWaitingForUserConsent,
+      IncorrectConfirmationCode,
+      ConfirmationCodeMaxRetriesExceeded,
+      CardRemoved,
+      CardBusy,
+      Other
+   );
+   for ESimOperationStatus use (
+      Success => 0,
+      NotAuthorized => 1,
+      NotFound => 2,
+      PolicyViolation => 3,
+      InsufficientSpaceOnCard => 4,
+      ServerFailure => 5,
+      ServerNotReachable => 6,
+      TimeoutWaitingForUserConsent => 7,
+      IncorrectConfirmationCode => 8,
+      ConfirmationCodeMaxRetriesExceeded => 9,
+      CardRemoved => 10,
+      CardBusy => 11,
+      Other => 12
+   );
+   for ESimOperationStatus'Size use 32;
+   
+   type ESimOperationStatus_Ptr is access ESimOperationStatus;
+   
+   type ESimProfileMetadataState is (
+      Unknown,
+      WaitingForInstall,
+      Downloading,
+      Installing,
+      Expired,
+      RejectingDownload,
+      NoLongerAvailable,
+      DeniedByPolicy
+   );
+   for ESimProfileMetadataState use (
+      Unknown => 0,
+      WaitingForInstall => 1,
+      Downloading => 2,
+      Installing => 3,
+      Expired => 4,
+      RejectingDownload => 5,
+      NoLongerAvailable => 6,
+      DeniedByPolicy => 7
+   );
+   for ESimProfileMetadataState'Size use 32;
+   
+   type ESimProfileMetadataState_Ptr is access ESimProfileMetadataState;
+   
+   type ESimProfileState is (
+      Unknown,
+      Disabled,
+      Enabled,
+      Deleted
+   );
+   for ESimProfileState use (
+      Unknown => 0,
+      Disabled => 1,
+      Enabled => 2,
+      Deleted => 3
+   );
+   for ESimProfileState'Size use 32;
+   
+   type ESimProfileState_Ptr is access ESimProfileState;
+   
+   type ESimState is (
+      Unknown,
+      Idle,
+      Removed,
+      Busy
+   );
+   for ESimState use (
+      Unknown => 0,
+      Idle => 1,
+      Removed => 2,
+      Busy => 3
+   );
+   for ESimState'Size use 32;
+   
+   type ESimState_Ptr is access ESimState;
+   
+   type ESimWatcherStatus is (
+      Created,
+      Started,
+      EnumerationCompleted,
+      Stopping,
+      Stopped
+   );
+   for ESimWatcherStatus use (
+      Created => 0,
+      Started => 1,
+      EnumerationCompleted => 2,
+      Stopping => 3,
+      Stopped => 4
+   );
+   for ESimWatcherStatus'Size use 32;
+   
+   type ESimWatcherStatus_Ptr is access ESimWatcherStatus;
+   
    type HotspotAuthenticationResponseCode is (
       NoError,
       LoginSucceeded,
@@ -475,6 +621,14 @@ package Windows.Networking.NetworkOperators is
    -- Record types
    ------------------------------------------------------------------------
    
+   type ESimProfileInstallProgress is record
+      TotalSizeInBytes : Windows.Int32;
+      InstalledSizeInBytes : Windows.Int32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , ESimProfileInstallProgress);
+   
+   type ESimProfileInstallProgress_Ptr is access ESimProfileInstallProgress;
+   
    type ProfileUsage is record
       UsageInMegabytes : Windows.UInt32;
       LastSyncTime : Windows.Foundation.DateTime;
@@ -524,6 +678,12 @@ package Windows.Networking.NetworkOperators is
    type AsyncOperationCompletedHandler_MobileBroadbandModemStatus_Interface;
    type AsyncOperationCompletedHandler_MobileBroadbandModemStatus is access all AsyncOperationCompletedHandler_MobileBroadbandModemStatus_Interface'Class;
    type AsyncOperationCompletedHandler_MobileBroadbandModemStatus_Ptr is access all AsyncOperationCompletedHandler_MobileBroadbandModemStatus;
+   type AsyncOperationCompletedHandler_IMobileBroadbandPco_Interface;
+   type AsyncOperationCompletedHandler_IMobileBroadbandPco is access all AsyncOperationCompletedHandler_IMobileBroadbandPco_Interface'Class;
+   type AsyncOperationCompletedHandler_IMobileBroadbandPco_Ptr is access all AsyncOperationCompletedHandler_IMobileBroadbandPco;
+   type TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged_Interface;
+   type TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged is access all TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged_Interface'Class;
+   type TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged_Ptr is access all TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged;
    type AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Interface;
    type AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult is access all AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Interface'Class;
    type AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Ptr is access all AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult;
@@ -545,6 +705,33 @@ package Windows.Networking.NetworkOperators is
    type TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged_Interface;
    type TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged is access all TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged_Interface'Class;
    type TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged_Ptr is access all TypedEventHandler_IMobileBroadbandSarManager_add_TransmissionStateChanged;
+   type AsyncOperationCompletedHandler_IESimOperationResult_Interface;
+   type AsyncOperationCompletedHandler_IESimOperationResult is access all AsyncOperationCompletedHandler_IESimOperationResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IESimOperationResult_Ptr is access all AsyncOperationCompletedHandler_IESimOperationResult;
+   type AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Interface;
+   type AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult is access all AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Ptr is access all AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult;
+   type TypedEventHandler_IESim_add_ProfileChanged_Interface;
+   type TypedEventHandler_IESim_add_ProfileChanged is access all TypedEventHandler_IESim_add_ProfileChanged_Interface'Class;
+   type TypedEventHandler_IESim_add_ProfileChanged_Ptr is access all TypedEventHandler_IESim_add_ProfileChanged;
+   type TypedEventHandler_IESimProfileMetadata_add_StateChanged_Interface;
+   type TypedEventHandler_IESimProfileMetadata_add_StateChanged is access all TypedEventHandler_IESimProfileMetadata_add_StateChanged_Interface'Class;
+   type TypedEventHandler_IESimProfileMetadata_add_StateChanged_Ptr is access all TypedEventHandler_IESimProfileMetadata_add_StateChanged;
+   type TypedEventHandler_IESimWatcher_add_Added_Interface;
+   type TypedEventHandler_IESimWatcher_add_Added is access all TypedEventHandler_IESimWatcher_add_Added_Interface'Class;
+   type TypedEventHandler_IESimWatcher_add_Added_Ptr is access all TypedEventHandler_IESimWatcher_add_Added;
+   type TypedEventHandler_IESimWatcher_add_EnumerationCompleted_Interface;
+   type TypedEventHandler_IESimWatcher_add_EnumerationCompleted is access all TypedEventHandler_IESimWatcher_add_EnumerationCompleted_Interface'Class;
+   type TypedEventHandler_IESimWatcher_add_EnumerationCompleted_Ptr is access all TypedEventHandler_IESimWatcher_add_EnumerationCompleted;
+   type TypedEventHandler_IESimWatcher_add_Removed_Interface;
+   type TypedEventHandler_IESimWatcher_add_Removed is access all TypedEventHandler_IESimWatcher_add_Removed_Interface'Class;
+   type TypedEventHandler_IESimWatcher_add_Removed_Ptr is access all TypedEventHandler_IESimWatcher_add_Removed;
+   type TypedEventHandler_IESimWatcher_add_Stopped_Interface;
+   type TypedEventHandler_IESimWatcher_add_Stopped is access all TypedEventHandler_IESimWatcher_add_Stopped_Interface'Class;
+   type TypedEventHandler_IESimWatcher_add_Stopped_Ptr is access all TypedEventHandler_IESimWatcher_add_Stopped;
+   type TypedEventHandler_IESimWatcher_add_Updated_Interface;
+   type TypedEventHandler_IESimWatcher_add_Updated is access all TypedEventHandler_IESimWatcher_add_Updated_Interface'Class;
+   type TypedEventHandler_IESimWatcher_add_Updated_Ptr is access all TypedEventHandler_IESimWatcher_add_Updated;
    type AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Interface;
    type AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult is access all AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Interface'Class;
    type AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Ptr is access all AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult;
@@ -589,6 +776,12 @@ package Windows.Networking.NetworkOperators is
    type IMobileBroadbandNetwork3_Interface;
    type IMobileBroadbandNetwork3 is access all IMobileBroadbandNetwork3_Interface'Class;
    type IMobileBroadbandNetwork3_Ptr is access all IMobileBroadbandNetwork3;
+   type INetworkOperatorDataUsageTriggerDetails_Interface;
+   type INetworkOperatorDataUsageTriggerDetails is access all INetworkOperatorDataUsageTriggerDetails_Interface'Class;
+   type INetworkOperatorDataUsageTriggerDetails_Ptr is access all INetworkOperatorDataUsageTriggerDetails;
+   type ITetheringEntitlementCheckTriggerDetails_Interface;
+   type ITetheringEntitlementCheckTriggerDetails is access all ITetheringEntitlementCheckTriggerDetails_Interface'Class;
+   type ITetheringEntitlementCheckTriggerDetails_Ptr is access all ITetheringEntitlementCheckTriggerDetails;
    type INetworkOperatorTetheringAccessPointConfiguration_Interface;
    type INetworkOperatorTetheringAccessPointConfiguration is access all INetworkOperatorTetheringAccessPointConfiguration_Interface'Class;
    type INetworkOperatorTetheringAccessPointConfiguration_Ptr is access all INetworkOperatorTetheringAccessPointConfiguration;
@@ -637,6 +830,9 @@ package Windows.Networking.NetworkOperators is
    type IMobileBroadbandModem2_Interface;
    type IMobileBroadbandModem2 is access all IMobileBroadbandModem2_Interface'Class;
    type IMobileBroadbandModem2_Ptr is access all IMobileBroadbandModem2;
+   type IMobileBroadbandModem3_Interface;
+   type IMobileBroadbandModem3 is access all IMobileBroadbandModem3_Interface'Class;
+   type IMobileBroadbandModem3_Ptr is access all IMobileBroadbandModem3;
    type IMobileBroadbandPinManager_Interface;
    type IMobileBroadbandPinManager is access all IMobileBroadbandPinManager_Interface'Class;
    type IMobileBroadbandPinManager_Ptr is access all IMobileBroadbandPinManager;
@@ -730,6 +926,21 @@ package Windows.Networking.NetworkOperators is
    type IMobileBroadbandCellsInfo_Interface;
    type IMobileBroadbandCellsInfo is access all IMobileBroadbandCellsInfo_Interface'Class;
    type IMobileBroadbandCellsInfo_Ptr is access all IMobileBroadbandCellsInfo;
+   type IMobileBroadbandModemIsolationFactory_Interface;
+   type IMobileBroadbandModemIsolationFactory is access all IMobileBroadbandModemIsolationFactory_Interface'Class;
+   type IMobileBroadbandModemIsolationFactory_Ptr is access all IMobileBroadbandModemIsolationFactory;
+   type IMobileBroadbandModemIsolation_Interface;
+   type IMobileBroadbandModemIsolation is access all IMobileBroadbandModemIsolation_Interface'Class;
+   type IMobileBroadbandModemIsolation_Ptr is access all IMobileBroadbandModemIsolation;
+   type IMobileBroadbandPco_Interface;
+   type IMobileBroadbandPco is access all IMobileBroadbandPco_Interface'Class;
+   type IMobileBroadbandPco_Ptr is access all IMobileBroadbandPco;
+   type IMobileBroadbandPcoDataChangeTriggerDetails_Interface;
+   type IMobileBroadbandPcoDataChangeTriggerDetails is access all IMobileBroadbandPcoDataChangeTriggerDetails_Interface'Class;
+   type IMobileBroadbandPcoDataChangeTriggerDetails_Ptr is access all IMobileBroadbandPcoDataChangeTriggerDetails;
+   type IMobileBroadbandAntennaSarFactory_Interface;
+   type IMobileBroadbandAntennaSarFactory is access all IMobileBroadbandAntennaSarFactory_Interface'Class;
+   type IMobileBroadbandAntennaSarFactory_Ptr is access all IMobileBroadbandAntennaSarFactory;
    type IMobileBroadbandAntennaSar_Interface;
    type IMobileBroadbandAntennaSar is access all IMobileBroadbandAntennaSar_Interface'Class;
    type IMobileBroadbandAntennaSar_Ptr is access all IMobileBroadbandAntennaSar;
@@ -739,6 +950,45 @@ package Windows.Networking.NetworkOperators is
    type IMobileBroadbandTransmissionStateChangedEventArgs_Interface;
    type IMobileBroadbandTransmissionStateChangedEventArgs is access all IMobileBroadbandTransmissionStateChangedEventArgs_Interface'Class;
    type IMobileBroadbandTransmissionStateChangedEventArgs_Ptr is access all IMobileBroadbandTransmissionStateChangedEventArgs;
+   type IESim_Interface;
+   type IESim is access all IESim_Interface'Class;
+   type IESim_Ptr is access all IESim;
+   type IESimAddedEventArgs_Interface;
+   type IESimAddedEventArgs is access all IESimAddedEventArgs_Interface'Class;
+   type IESimAddedEventArgs_Ptr is access all IESimAddedEventArgs;
+   type IESimDownloadProfileMetadataResult_Interface;
+   type IESimDownloadProfileMetadataResult is access all IESimDownloadProfileMetadataResult_Interface'Class;
+   type IESimDownloadProfileMetadataResult_Ptr is access all IESimDownloadProfileMetadataResult;
+   type IESimManagerStatics_Interface;
+   type IESimManagerStatics is access all IESimManagerStatics_Interface'Class;
+   type IESimManagerStatics_Ptr is access all IESimManagerStatics;
+   type IESimPolicy_Interface;
+   type IESimPolicy is access all IESimPolicy_Interface'Class;
+   type IESimPolicy_Ptr is access all IESimPolicy;
+   type IESimOperationResult_Interface;
+   type IESimOperationResult is access all IESimOperationResult_Interface'Class;
+   type IESimOperationResult_Ptr is access all IESimOperationResult;
+   type IESimProfile_Interface;
+   type IESimProfile is access all IESimProfile_Interface'Class;
+   type IESimProfile_Ptr is access all IESimProfile;
+   type IESimProfileMetadata_Interface;
+   type IESimProfileMetadata is access all IESimProfileMetadata_Interface'Class;
+   type IESimProfileMetadata_Ptr is access all IESimProfileMetadata;
+   type IESimProfilePolicy_Interface;
+   type IESimProfilePolicy is access all IESimProfilePolicy_Interface'Class;
+   type IESimProfilePolicy_Ptr is access all IESimProfilePolicy;
+   type IESimRemovedEventArgs_Interface;
+   type IESimRemovedEventArgs is access all IESimRemovedEventArgs_Interface'Class;
+   type IESimRemovedEventArgs_Ptr is access all IESimRemovedEventArgs;
+   type IESimServiceInfo_Interface;
+   type IESimServiceInfo is access all IESimServiceInfo_Interface'Class;
+   type IESimServiceInfo_Ptr is access all IESimServiceInfo;
+   type IESimUpdatedEventArgs_Interface;
+   type IESimUpdatedEventArgs is access all IESimUpdatedEventArgs_Interface'Class;
+   type IESimUpdatedEventArgs_Ptr is access all IESimUpdatedEventArgs;
+   type IESimWatcher_Interface;
+   type IESimWatcher is access all IESimWatcher_Interface'Class;
+   type IESimWatcher_Ptr is access all IESimWatcher;
    type IHotspotAuthenticationEventDetails_Interface;
    type IHotspotAuthenticationEventDetails is access all IHotspotAuthenticationEventDetails_Interface'Class;
    type IHotspotAuthenticationEventDetails_Ptr is access all IHotspotAuthenticationEventDetails;
@@ -829,6 +1079,9 @@ package Windows.Networking.NetworkOperators is
    type IAsyncOperation_MobileBroadbandModemStatus_Interface;
    type IAsyncOperation_MobileBroadbandModemStatus is access all IAsyncOperation_MobileBroadbandModemStatus_Interface'Class;
    type IAsyncOperation_MobileBroadbandModemStatus_Ptr is access all IAsyncOperation_MobileBroadbandModemStatus;
+   type IAsyncOperation_IMobileBroadbandPco_Interface;
+   type IAsyncOperation_IMobileBroadbandPco is access all IAsyncOperation_IMobileBroadbandPco_Interface'Class;
+   type IAsyncOperation_IMobileBroadbandPco_Ptr is access all IAsyncOperation_IMobileBroadbandPco;
    type IIterator_MobileBroadbandPinType_Interface;
    type IIterator_MobileBroadbandPinType is access all IIterator_MobileBroadbandPinType_Interface'Class;
    type IIterator_MobileBroadbandPinType_Ptr is access all IIterator_MobileBroadbandPinType;
@@ -934,6 +1187,21 @@ package Windows.Networking.NetworkOperators is
    type IVectorView_IMobileBroadbandAntennaSar_Interface;
    type IVectorView_IMobileBroadbandAntennaSar is access all IVectorView_IMobileBroadbandAntennaSar_Interface'Class;
    type IVectorView_IMobileBroadbandAntennaSar_Ptr is access all IVectorView_IMobileBroadbandAntennaSar;
+   type IIterator_IESimProfile_Interface;
+   type IIterator_IESimProfile is access all IIterator_IESimProfile_Interface'Class;
+   type IIterator_IESimProfile_Ptr is access all IIterator_IESimProfile;
+   type IIterable_IESimProfile_Interface;
+   type IIterable_IESimProfile is access all IIterable_IESimProfile_Interface'Class;
+   type IIterable_IESimProfile_Ptr is access all IIterable_IESimProfile;
+   type IVectorView_IESimProfile_Interface;
+   type IVectorView_IESimProfile is access all IVectorView_IESimProfile_Interface'Class;
+   type IVectorView_IESimProfile_Ptr is access all IVectorView_IESimProfile;
+   type IAsyncOperation_IESimOperationResult_Interface;
+   type IAsyncOperation_IESimOperationResult is access all IAsyncOperation_IESimOperationResult_Interface'Class;
+   type IAsyncOperation_IESimOperationResult_Ptr is access all IAsyncOperation_IESimOperationResult;
+   type IAsyncOperation_IESimDownloadProfileMetadataResult_Interface;
+   type IAsyncOperation_IESimDownloadProfileMetadataResult is access all IAsyncOperation_IESimDownloadProfileMetadataResult_Interface'Class;
+   type IAsyncOperation_IESimDownloadProfileMetadataResult_Ptr is access all IAsyncOperation_IESimDownloadProfileMetadataResult;
    type IAsyncOperation_IHotspotCredentialsAuthenticationResult_Interface;
    type IAsyncOperation_IHotspotCredentialsAuthenticationResult is access all IAsyncOperation_IHotspotCredentialsAuthenticationResult_Interface'Class;
    type IAsyncOperation_IHotspotCredentialsAuthenticationResult_Ptr is access all IAsyncOperation_IHotspotCredentialsAuthenticationResult;
@@ -1299,6 +1567,45 @@ package Windows.Networking.NetworkOperators is
    (
       This       : access IMobileBroadbandNetwork3_Interface
       ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandCellsInfo -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INetworkOperatorDataUsageTriggerDetails : aliased constant Windows.IID := (1357058669, 42085, 20203, (147, 23, 40, 161, 103, 99, 12, 234 ));
+   
+   type INetworkOperatorDataUsageTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NotificationKind
+   (
+      This       : access INetworkOperatorDataUsageTriggerDetails_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITetheringEntitlementCheckTriggerDetails : aliased constant Windows.IID := (63331997, 22822, 16883, (169, 78, 181, 9, 38, 252, 66, 27 ));
+   
+   type ITetheringEntitlementCheckTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NetworkAccountId
+   (
+      This       : access ITetheringEntitlementCheckTriggerDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AllowTethering
+   (
+      This       : access ITetheringEntitlementCheckTriggerDetails_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DenyTethering
+   (
+      This       : access ITetheringEntitlementCheckTriggerDetails_Interface
+      ; entitlementFailureReason : Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1807,6 +2114,41 @@ package Windows.Networking.NetworkOperators is
       This       : access IMobileBroadbandModem2_Interface
       ; value : Windows.Boolean
       ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_MobileBroadbandModemStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMobileBroadbandModem3 : aliased constant Windows.IID := (3925788394, 12084, 17794, (145, 2, 195, 20, 210, 168, 126, 236 ));
+   
+   type IMobileBroadbandModem3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryGetPcoAsync
+   (
+      This       : access IMobileBroadbandModem3_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandPco -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsInEmergencyCallMode
+   (
+      This       : access IMobileBroadbandModem3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_IsInEmergencyCallModeChanged
+   (
+      This       : access IMobileBroadbandModem3_Interface
+      ; handler : TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_IsInEmergencyCallModeChanged
+   (
+      This       : access IMobileBroadbandModem3_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -2895,6 +3237,111 @@ package Windows.Networking.NetworkOperators is
    
    ------------------------------------------------------------------------
    
+   IID_IMobileBroadbandModemIsolationFactory : aliased constant Windows.IID := (567798872, 49841, 19503, (160, 48, 114, 130, 10, 36, 236, 217 ));
+   
+   type IMobileBroadbandModemIsolationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access IMobileBroadbandModemIsolationFactory_Interface
+      ; modemDeviceId : Windows.String
+      ; ruleGroupId : Windows.String
+      ; RetVal : access Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMobileBroadbandModemIsolation : aliased constant Windows.IID := (3043069932, 58977, 17200, (155, 180, 52, 128, 33, 46, 195, 84 ));
+   
+   type IMobileBroadbandModemIsolation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddAllowedHost
+   (
+      This       : access IMobileBroadbandModemIsolation_Interface
+      ; host : Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddAllowedHostRange
+   (
+      This       : access IMobileBroadbandModemIsolation_Interface
+      ; first : Windows.Networking.IHostName
+      ; last : Windows.Networking.IHostName
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ApplyConfigurationAsync
+   (
+      This       : access IMobileBroadbandModemIsolation_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearConfigurationAsync
+   (
+      This       : access IMobileBroadbandModemIsolation_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMobileBroadbandPco : aliased constant Windows.IID := (3571776702, 58275, 17349, (168, 123, 108, 134, 210, 41, 215, 250 ));
+   
+   type IMobileBroadbandPco_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Data
+   (
+      This       : access IMobileBroadbandPco_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsComplete
+   (
+      This       : access IMobileBroadbandPco_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeviceId
+   (
+      This       : access IMobileBroadbandPco_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMobileBroadbandPcoDataChangeTriggerDetails : aliased constant Windows.IID := (641683732, 25824, 17555, (144, 155, 45, 20, 160, 25, 98, 177 ));
+   
+   type IMobileBroadbandPcoDataChangeTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UpdatedData
+   (
+      This       : access IMobileBroadbandPcoDataChangeTriggerDetails_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IMobileBroadbandPco
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMobileBroadbandAntennaSarFactory : aliased constant Windows.IID := (2837321494, 49229, 18977, (134, 152, 20, 89, 220, 103, 44, 110 ));
+   
+   type IMobileBroadbandAntennaSarFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateWithIndex
+   (
+      This       : access IMobileBroadbandAntennaSarFactory_Interface
+      ; antennaIndex : Windows.Int32
+      ; sarBackoffIndex : Windows.Int32
+      ; RetVal : access Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSar
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMobileBroadbandAntennaSar : aliased constant Windows.IID := (3115273086, 52217, 16649, (144, 190, 92, 6, 191, 213, 19, 182 ));
    
    type IMobileBroadbandAntennaSar_Interface is interface and Windows.IInspectable_Interface;
@@ -3035,6 +3482,549 @@ package Windows.Networking.NetworkOperators is
    (
       This       : access IMobileBroadbandTransmissionStateChangedEventArgs_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESim : aliased constant Windows.IID := (1869508134, 61731, 17277, (140, 237, 220, 29, 43, 192, 195, 169 ));
+   
+   type IESim_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AvailableMemoryInBytes
+   (
+      This       : access IESim_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Eid
+   (
+      This       : access IESim_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FirmwareVersion
+   (
+      This       : access IESim_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MobileBroadbandModemDeviceId
+   (
+      This       : access IESim_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Policy
+   (
+      This       : access IESim_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimPolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_State
+   (
+      This       : access IESim_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.ESimState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetProfiles
+   (
+      This       : access IESim_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IVectorView_IESimProfile -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DeleteProfileAsync
+   (
+      This       : access IESim_Interface
+      ; profileId : Windows.String
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DownloadProfileMetadataAsync
+   (
+      This       : access IESim_Interface
+      ; activationCode : Windows.String
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimDownloadProfileMetadataResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ResetAsync
+   (
+      This       : access IESim_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ProfileChanged
+   (
+      This       : access IESim_Interface
+      ; handler : TypedEventHandler_IESim_add_ProfileChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ProfileChanged
+   (
+      This       : access IESim_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimAddedEventArgs : aliased constant Windows.IID := (951913048, 19802, 19720, (141, 167, 231, 62, 255, 54, 157, 221 ));
+   
+   type IESimAddedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ESim
+   (
+      This       : access IESimAddedEventArgs_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESim
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimDownloadProfileMetadataResult : aliased constant Windows.IID := (3290647966, 23254, 17005, (141, 0, 68, 52, 244, 73, 175, 236 ));
+   
+   type IESimDownloadProfileMetadataResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Result
+   (
+      This       : access IESimDownloadProfileMetadataResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimOperationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProfileMetadata
+   (
+      This       : access IESimDownloadProfileMetadataResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimProfileMetadata
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimManagerStatics : aliased constant Windows.IID := (200944652, 57224, 17969, (191, 4, 193, 46, 40, 27, 57, 98 ));
+   
+   type IESimManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ServiceInfo
+   (
+      This       : access IESimManagerStatics_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimServiceInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryCreateESimWatcher
+   (
+      This       : access IESimManagerStatics_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimWatcher
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ServiceInfoChanged
+   (
+      This       : access IESimManagerStatics_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ServiceInfoChanged
+   (
+      This       : access IESimManagerStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimPolicy : aliased constant Windows.IID := (1105312157, 53118, 17173, (136, 43, 111, 30, 116, 176, 211, 143 ));
+   
+   type IESimPolicy_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShouldEnableManagingUi
+   (
+      This       : access IESimPolicy_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimOperationResult : aliased constant Windows.IID := (2793104305, 12443, 20087, (158, 126, 205, 147, 241, 221, 199, 185 ));
+   
+   type IESimOperationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IESimOperationResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.ESimOperationStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimProfile : aliased constant Windows.IID := (3994974336, 1705, 16423, (180, 248, 221, 178, 61, 120, 16, 224 ));
+   
+   type IESimProfile_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Class
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.ESimProfileClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Nickname
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Policy
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimProfilePolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Id
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProviderIcon
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProviderId
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProviderName
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_State
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.ESimProfileState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DisableAsync
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function EnableAsync
+   (
+      This       : access IESimProfile_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetNicknameAsync
+   (
+      This       : access IESimProfile_Interface
+      ; newNickname : Windows.String
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimProfileMetadata : aliased constant Windows.IID := (3978658591, 37083, 18829, (167, 180, 235, 206, 128, 125, 60, 35 ));
+   
+   type IESimProfileMetadata_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsConfirmationCodeRequired
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Policy
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimProfilePolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Id
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProviderIcon
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProviderId
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProviderName
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_State
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.ESimProfileMetadataState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DenyInstallAsync
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ConfirmInstallAsync
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ConfirmInstallWithConfirmationCodeAsync
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; confirmationCode : Windows.String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PostponeInstallAsync
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_StateChanged
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; handler : TypedEventHandler_IESimProfileMetadata_add_StateChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_StateChanged
+   (
+      This       : access IESimProfileMetadata_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimProfilePolicy : aliased constant Windows.IID := (3873247005, 40028, 18117, (162, 137, 169, 72, 153, 155, 240, 98 ));
+   
+   type IESimProfilePolicy_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanDelete
+   (
+      This       : access IESimProfilePolicy_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanDisable
+   (
+      This       : access IESimProfilePolicy_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsManagedByEnterprise
+   (
+      This       : access IESimProfilePolicy_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimRemovedEventArgs : aliased constant Windows.IID := (3737462651, 12249, 20185, (131, 118, 217, 181, 228, 18, 120, 163 ));
+   
+   type IESimRemovedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ESim
+   (
+      This       : access IESimRemovedEventArgs_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESim
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimServiceInfo : aliased constant Windows.IID := (4050299855, 32601, 19025, (132, 148, 189, 137, 213, 255, 80, 238 ));
+   
+   type IESimServiceInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AuthenticationPreference
+   (
+      This       : access IESimServiceInfo_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.ESimAuthenticationPreference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsESimUiEnabled
+   (
+      This       : access IESimServiceInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimUpdatedEventArgs : aliased constant Windows.IID := (1276271852, 20621, 19336, (131, 203, 104, 190, 248, 22, 141, 18 ));
+   
+   type IESimUpdatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ESim
+   (
+      This       : access IESimUpdatedEventArgs_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESim
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimWatcher : aliased constant Windows.IID := (3254275307, 41613, 20415, (151, 113, 110, 49, 184, 28, 207, 34 ));
+   
+   type IESimWatcher_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IESimWatcher_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.ESimWatcherStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Start
+   (
+      This       : access IESimWatcher_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Stop
+   (
+      This       : access IESimWatcher_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Added
+   (
+      This       : access IESimWatcher_Interface
+      ; handler : TypedEventHandler_IESimWatcher_add_Added
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Added
+   (
+      This       : access IESimWatcher_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_EnumerationCompleted
+   (
+      This       : access IESimWatcher_Interface
+      ; handler : TypedEventHandler_IESimWatcher_add_EnumerationCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_EnumerationCompleted
+   (
+      This       : access IESimWatcher_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Removed
+   (
+      This       : access IESimWatcher_Interface
+      ; handler : TypedEventHandler_IESimWatcher_add_Removed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Removed
+   (
+      This       : access IESimWatcher_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Stopped
+   (
+      This       : access IESimWatcher_Interface
+      ; handler : TypedEventHandler_IESimWatcher_add_Stopped
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Stopped
+   (
+      This       : access IESimWatcher_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Updated
+   (
+      This       : access IESimWatcher_Interface
+      ; handler : TypedEventHandler_IESimWatcher_add_Updated
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Updated
+   (
+      This       : access IESimWatcher_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -3832,6 +4822,33 @@ package Windows.Networking.NetworkOperators is
    (
       This       : access IAsyncOperation_MobileBroadbandModemStatus_Interface
       ; RetVal : access Windows.Networking.NetworkOperators.MobileBroadbandModemStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IMobileBroadbandPco : aliased constant Windows.IID := (2925666912, 3403, 23353, (151, 107, 167, 171, 97, 10, 193, 133 ));
+   
+   type IAsyncOperation_IMobileBroadbandPco_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IMobileBroadbandPco_Interface
+      ; handler : Windows.Networking.NetworkOperators.AsyncOperationCompletedHandler_IMobileBroadbandPco
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IMobileBroadbandPco_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.AsyncOperationCompletedHandler_IMobileBroadbandPco
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IMobileBroadbandPco_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IMobileBroadbandPco
    )
    return Windows.HRESULT is abstract;
    
@@ -4842,6 +5859,147 @@ package Windows.Networking.NetworkOperators is
    
    ------------------------------------------------------------------------
    
+   IID_IIterator_IESimProfile : aliased constant Windows.IID := (3296775496, 22818, 23217, (187, 88, 241, 73, 174, 81, 84, 49 ));
+   
+   type IIterator_IESimProfile_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IESimProfile_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IESimProfile_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IESimProfile_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IESimProfile_Interface
+      ; items : Windows.Networking.NetworkOperators.IESimProfile_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IESimProfile : aliased constant Windows.IID := (753196328, 20820, 22490, (142, 146, 193, 201, 201, 100, 66, 123 ));
+   
+   type IIterable_IESimProfile_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IESimProfile_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IIterator_IESimProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IESimProfile : aliased constant Windows.IID := (3346461609, 28287, 20804, (137, 247, 143, 94, 193, 22, 91, 164 ));
+   
+   type IVectorView_IESimProfile_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IESimProfile_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimProfile
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IESimProfile_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IESimProfile_Interface
+      ; value : Windows.Networking.NetworkOperators.IESimProfile
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IESimProfile_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Networking.NetworkOperators.IESimProfile_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IESimOperationResult : aliased constant Windows.IID := (3709198969, 4726, 22667, (185, 240, 17, 185, 127, 39, 4, 82 ));
+   
+   type IAsyncOperation_IESimOperationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IESimOperationResult_Interface
+      ; handler : Windows.Networking.NetworkOperators.AsyncOperationCompletedHandler_IESimOperationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IESimOperationResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.AsyncOperationCompletedHandler_IESimOperationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IESimOperationResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimOperationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IESimDownloadProfileMetadataResult : aliased constant Windows.IID := (1593664406, 18064, 24146, (130, 124, 27, 82, 93, 35, 216, 152 ));
+   
+   type IAsyncOperation_IESimDownloadProfileMetadataResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IESimDownloadProfileMetadataResult_Interface
+      ; handler : Windows.Networking.NetworkOperators.AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IESimDownloadProfileMetadataResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IESimDownloadProfileMetadataResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimDownloadProfileMetadataResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_IHotspotCredentialsAuthenticationResult : aliased constant Windows.IID := (1378320856, 10696, 23945, (137, 55, 29, 28, 32, 50, 240, 200 ));
    
    type IAsyncOperation_IHotspotCredentialsAuthenticationResult_Interface is interface and Windows.IInspectable_Interface;
@@ -5044,6 +6202,32 @@ package Windows.Networking.NetworkOperators is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IMobileBroadbandPco : aliased constant Windows.IID := (3352558750, 50049, 21596, (168, 174, 106, 70, 78, 219, 22, 162 ));
+   
+   type AsyncOperationCompletedHandler_IMobileBroadbandPco_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandPco ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMobileBroadbandPco'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IMobileBroadbandPco_Interface
+      ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandPco
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged : aliased constant Windows.IID := (4074716303, 8373, 21852, (163, 129, 126, 41, 213, 171, 81, 215 ));
+   
+   type TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IMobileBroadbandModem ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMobileBroadbandModem3_add_IsInEmergencyCallModeChanged_Interface
+      ; sender : Windows.Networking.NetworkOperators.IMobileBroadbandModem
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult : aliased constant Windows.IID := (1499123860, 24803, 21321, (143, 230, 234, 142, 203, 187, 37, 65 ));
    
    type AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IMobileBroadbandPinOperationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IMobileBroadbandPinOperationResult'access) with null record;
@@ -5135,6 +6319,123 @@ package Windows.Networking.NetworkOperators is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IESimOperationResult : aliased constant Windows.IID := (361264424, 64063, 23266, (189, 127, 17, 25, 230, 45, 133, 182 ));
+   
+   type AsyncOperationCompletedHandler_IESimOperationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IESimOperationResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IESimOperationResult_Interface
+      ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimOperationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult : aliased constant Windows.IID := (2148349334, 64267, 20506, (189, 166, 128, 36, 9, 193, 234, 34 ));
+   
+   type AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimDownloadProfileMetadataResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Interface
+      ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimDownloadProfileMetadataResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IESim_add_ProfileChanged : aliased constant Windows.IID := (2627893211, 65090, 21425, (174, 59, 9, 142, 81, 250, 106, 155 ));
+   
+   type TypedEventHandler_IESim_add_ProfileChanged_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IESim ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IESim_add_ProfileChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESim_add_ProfileChanged_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESim
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IESimProfileMetadata_add_StateChanged : aliased constant Windows.IID := (4099434277, 60037, 23238, (132, 110, 168, 71, 224, 228, 90, 11 ));
+   
+   type TypedEventHandler_IESimProfileMetadata_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IESimProfileMetadata ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IESimProfileMetadata_add_StateChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimProfileMetadata_add_StateChanged_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimProfileMetadata
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IESimWatcher_add_Added : aliased constant Windows.IID := (4187722938, 54480, 23619, (177, 116, 255, 215, 230, 229, 19, 28 ));
+   
+   type TypedEventHandler_IESimWatcher_add_Added_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IESimWatcher ; args : Windows.Networking.NetworkOperators.IESimAddedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IESimWatcher_add_Added'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_Added_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Networking.NetworkOperators.IESimAddedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IESimWatcher_add_EnumerationCompleted : aliased constant Windows.IID := (3039641704, 7642, 23466, (183, 107, 167, 188, 71, 141, 181, 242 ));
+   
+   type TypedEventHandler_IESimWatcher_add_EnumerationCompleted_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IESimWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IESimWatcher_add_EnumerationCompleted'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_EnumerationCompleted_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IESimWatcher_add_Removed : aliased constant Windows.IID := (2830625047, 15043, 21729, (158, 38, 33, 248, 60, 96, 151, 210 ));
+   
+   type TypedEventHandler_IESimWatcher_add_Removed_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IESimWatcher ; args : Windows.Networking.NetworkOperators.IESimRemovedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IESimWatcher_add_Removed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_Removed_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Networking.NetworkOperators.IESimRemovedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IESimWatcher_add_Stopped : aliased constant Windows.IID := (3039641704, 7642, 23466, (183, 107, 167, 188, 71, 141, 181, 242 ));
+   
+   type TypedEventHandler_IESimWatcher_add_Stopped_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IESimWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IESimWatcher_add_Stopped'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_Stopped_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IESimWatcher_add_Updated : aliased constant Windows.IID := (3912574953, 59920, 23207, (184, 170, 254, 168, 102, 41, 71, 4 ));
+   
+   type TypedEventHandler_IESimWatcher_add_Updated_Interface(Callback : access procedure (sender : Windows.Networking.NetworkOperators.IESimWatcher ; args : Windows.Networking.NetworkOperators.IESimUpdatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IESimWatcher_add_Updated'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IESimWatcher_add_Updated_Interface
+      ; sender : Windows.Networking.NetworkOperators.IESimWatcher
+      ; args : Windows.Networking.NetworkOperators.IESimUpdatedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult : aliased constant Windows.IID := (2133150699, 18207, 20480, (148, 206, 16, 44, 195, 51, 5, 95 ));
    
    type AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IHotspotCredentialsAuthenticationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IHotspotCredentialsAuthenticationResult'access) with null record;
@@ -5182,6 +6483,8 @@ package Windows.Networking.NetworkOperators is
    subtype MobileBroadbandPinManager is Windows.Networking.NetworkOperators.IMobileBroadbandPinManager;
    subtype MobileBroadbandUiccApp is Windows.Networking.NetworkOperators.IMobileBroadbandUiccApp;
    subtype MobileBroadbandCellsInfo is Windows.Networking.NetworkOperators.IMobileBroadbandCellsInfo;
+   subtype NetworkOperatorDataUsageTriggerDetails is Windows.Networking.NetworkOperators.INetworkOperatorDataUsageTriggerDetails;
+   subtype TetheringEntitlementCheckTriggerDetails is Windows.Networking.NetworkOperators.ITetheringEntitlementCheckTriggerDetails;
    subtype NetworkOperatorTetheringAccessPointConfiguration is Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration;
    function CreateNetworkOperatorTetheringAccessPointConfiguration return Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration;
    
@@ -5199,6 +6502,7 @@ package Windows.Networking.NetworkOperators is
    subtype MobileBroadbandModemConfiguration is Windows.Networking.NetworkOperators.IMobileBroadbandModemConfiguration;
    subtype MobileBroadbandDeviceServiceInformation is Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceInformation;
    subtype MobileBroadbandDeviceService is Windows.Networking.NetworkOperators.IMobileBroadbandDeviceService;
+   subtype MobileBroadbandPco is Windows.Networking.NetworkOperators.IMobileBroadbandPco;
    subtype MobileBroadbandPin is Windows.Networking.NetworkOperators.IMobileBroadbandPin;
    subtype MobileBroadbandPinOperationResult is Windows.Networking.NetworkOperators.IMobileBroadbandPinOperationResult;
    subtype MobileBroadbandDeviceServiceDataSession is Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceDataSession;
@@ -5220,8 +6524,36 @@ package Windows.Networking.NetworkOperators is
    subtype MobileBroadbandCellLte is Windows.Networking.NetworkOperators.IMobileBroadbandCellLte;
    subtype MobileBroadbandCellTdscdma is Windows.Networking.NetworkOperators.IMobileBroadbandCellTdscdma;
    subtype MobileBroadbandCellUmts is Windows.Networking.NetworkOperators.IMobileBroadbandCellUmts;
+   subtype MobileBroadbandModemIsolation is Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolation;
+   function Create
+   (
+      modemDeviceId : Windows.String
+      ; ruleGroupId : Windows.String
+   )
+   return Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolation;
+   
+   subtype MobileBroadbandPcoDataChangeTriggerDetails is Windows.Networking.NetworkOperators.IMobileBroadbandPcoDataChangeTriggerDetails;
    subtype MobileBroadbandAntennaSar is Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSar;
+   function CreateWithIndex
+   (
+      antennaIndex : Windows.Int32
+      ; sarBackoffIndex : Windows.Int32
+   )
+   return Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSar;
+   
    subtype MobileBroadbandTransmissionStateChangedEventArgs is Windows.Networking.NetworkOperators.IMobileBroadbandTransmissionStateChangedEventArgs;
+   subtype ESimPolicy is Windows.Networking.NetworkOperators.IESimPolicy;
+   subtype ESimProfile is Windows.Networking.NetworkOperators.IESimProfile;
+   subtype ESimOperationResult is Windows.Networking.NetworkOperators.IESimOperationResult;
+   subtype ESimDownloadProfileMetadataResult is Windows.Networking.NetworkOperators.IESimDownloadProfileMetadataResult;
+   subtype ESim is Windows.Networking.NetworkOperators.IESim;
+   subtype ESimAddedEventArgs is Windows.Networking.NetworkOperators.IESimAddedEventArgs;
+   subtype ESimProfileMetadata is Windows.Networking.NetworkOperators.IESimProfileMetadata;
+   subtype ESimServiceInfo is Windows.Networking.NetworkOperators.IESimServiceInfo;
+   subtype ESimWatcher is Windows.Networking.NetworkOperators.IESimWatcher;
+   subtype ESimProfilePolicy is Windows.Networking.NetworkOperators.IESimProfilePolicy;
+   subtype ESimRemovedEventArgs is Windows.Networking.NetworkOperators.IESimRemovedEventArgs;
+   subtype ESimUpdatedEventArgs is Windows.Networking.NetworkOperators.IESimUpdatedEventArgs;
    subtype HotspotAuthenticationEventDetails is Windows.Networking.NetworkOperators.IHotspotAuthenticationEventDetails;
    subtype HotspotAuthenticationContext is Windows.Networking.NetworkOperators.IHotspotAuthenticationContext;
    subtype HotspotCredentialsAuthenticationResult is Windows.Networking.NetworkOperators.IHotspotCredentialsAuthenticationResult;
@@ -5261,18 +6593,6 @@ package Windows.Networking.NetworkOperators is
    )
    return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
    
-   function GetTetheringCapability
-   (
-      networkAccountId : Windows.String
-   )
-   return Windows.Networking.NetworkOperators.TetheringCapability;
-   
-   function CreateFromNetworkAccountId
-   (
-      networkAccountId : Windows.String
-   )
-   return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
-   
    function GetTetheringCapabilityFromConnectionProfile
    (
       profile : Windows.Networking.Connectivity.IConnectionProfile
@@ -5282,6 +6602,18 @@ package Windows.Networking.NetworkOperators is
    function CreateFromConnectionProfile
    (
       profile : Windows.Networking.Connectivity.IConnectionProfile
+   )
+   return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
+   
+   function GetTetheringCapability
+   (
+      networkAccountId : Windows.String
+   )
+   return Windows.Networking.NetworkOperators.TetheringCapability;
+   
+   function CreateFromNetworkAccountId
+   (
+      networkAccountId : Windows.String
    )
    return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
    
@@ -5341,6 +6673,24 @@ package Windows.Networking.NetworkOperators is
    
    function get_Gid2_KnownUSimFilePaths
    return Windows.Foundation.Collections.IVectorView_UInt32;
+   
+   function get_ServiceInfo
+   return Windows.Networking.NetworkOperators.IESimServiceInfo;
+   
+   function TryCreateESimWatcher
+   return Windows.Networking.NetworkOperators.IESimWatcher;
+   
+   function add_ServiceInfoChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_ServiceInfoChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
    function TryGetAuthenticationContext
    (

@@ -125,6 +125,45 @@ package body Windows.Networking.Sockets is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IServerMessageWebSocket_add_MessageReceived_Interface
+      ; sender : Windows.Networking.Sockets.IServerMessageWebSocket
+      ; args : Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.Sockets.IServerMessageWebSocket(sender), Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IServerMessageWebSocket_add_Closed_Interface
+      ; sender : Windows.Networking.Sockets.IServerMessageWebSocket
+      ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.Sockets.IServerMessageWebSocket(sender), Windows.Networking.Sockets.IWebSocketClosedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IServerStreamWebSocket_add_Closed_Interface
+      ; sender : Windows.Networking.Sockets.IServerStreamWebSocket
+      ; args : Windows.Networking.Sockets.IWebSocketClosedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Networking.Sockets.IServerStreamWebSocket(sender), Windows.Networking.Sockets.IWebSocketClosedEventArgs(args));
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------

@@ -941,12 +941,6 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function AddAndShowDeviceAccountsAsync
-   (
-      accounts : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IIterable_IDeviceAccountConfiguration
-   )
-   return Windows.Address;
-   
    function SuppressLocalAccountWithAccountAsync
    (
       userDataAccountId : Windows.String
@@ -970,5 +964,11 @@ package Windows.ApplicationModel.UserDataAccounts.SystemAccess is
       accountId : Windows.String
    )
    return Windows.ApplicationModel.UserDataAccounts.SystemAccess.IAsyncOperation_IDeviceAccountConfiguration;
+   
+   function AddAndShowDeviceAccountsAsync
+   (
+      accounts : Windows.ApplicationModel.UserDataAccounts.SystemAccess.IIterable_IDeviceAccountConfiguration
+   )
+   return Windows.Address;
    
 end;

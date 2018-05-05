@@ -143,21 +143,26 @@ package body Windows.Security.Credentials is
       return RetVal;
    end;
    
-   function CreatePasswordCredential return Windows.Security.Credentials.IPasswordCredential is
-      Hr            : Windows.HResult := S_OK;
+   function CreatePasswordCredential
+   (
+      resource : Windows.String
+      ; userName : Windows.String
+      ; password : Windows.String
+   )
+   return Windows.Security.Credentials.IPasswordCredential is
+      Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Security.Credentials.PasswordCredential");
-      Instance      : aliased IInspectable := null;
+      m_Factory     : Windows.Security.Credentials.ICredentialFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Security.Credentials.IPasswordCredential) with inline;
+      RetVal        : aliased Windows.Security.Credentials.IPasswordCredential := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_ICredentialFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Security.Credentials.IID_IPasswordCredential'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreatePasswordCredential(resource, userName, password, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function CreatePasswordVault return Windows.Security.Credentials.IPasswordVault is

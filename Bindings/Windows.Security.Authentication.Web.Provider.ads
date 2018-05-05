@@ -107,6 +107,9 @@ package Windows.Security.Authentication.Web.Provider is
    type IWebProviderTokenRequest2_Interface;
    type IWebProviderTokenRequest2 is access all IWebProviderTokenRequest2_Interface'Class;
    type IWebProviderTokenRequest2_Ptr is access all IWebProviderTokenRequest2;
+   type IWebProviderTokenRequest3_Interface;
+   type IWebProviderTokenRequest3 is access all IWebProviderTokenRequest3_Interface'Class;
+   type IWebProviderTokenRequest3_Ptr is access all IWebProviderTokenRequest3;
    type IWebProviderTokenResponse_Interface;
    type IWebProviderTokenResponse is access all IWebProviderTokenResponse_Interface'Class;
    type IWebProviderTokenResponse_Ptr is access all IWebProviderTokenResponse;
@@ -297,6 +300,34 @@ package Windows.Security.Authentication.Web.Provider is
       ; keyType : Windows.Security.Authentication.Web.TokenBindingKeyType
       ; target : Windows.Foundation.IUriRuntimeClass
       ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebProviderTokenRequest3 : aliased constant Windows.IID := (455546538, 17033, 17518, (146, 86, 218, 251, 111, 102, 165, 30 ));
+   
+   type IWebProviderTokenRequest3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ApplicationPackageFamilyName
+   (
+      This       : access IWebProviderTokenRequest3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ApplicationProcessName
+   (
+      This       : access IWebProviderTokenRequest3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CheckApplicationForCapabilityAsync
+   (
+      This       : access IWebProviderTokenRequest3_Interface
+      ; capabilityName : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1430,35 +1461,6 @@ package Windows.Security.Authentication.Web.Provider is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function AddWebAccountWithScopeAndMapAsync
-   (
-      webAccountId : Windows.String
-      ; webAccountUserName : Windows.String
-      ; props : IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync
-      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
-      ; perUserWebAccountId : Windows.String
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccount;
-   
-   function SetPerAppToPerUserAccountAsync
-   (
-      perAppAccount : Windows.Security.Credentials.IWebAccount
-      ; perUserWebAccountId : Windows.String
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function GetPerUserFromPerAppAccountAsync
-   (
-      perAppAccount : Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccount;
-   
-   function ClearPerUserFromPerAppAccountAsync
-   (
-      perAppAccount : Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.Foundation.IAsyncAction;
-   
    function UpdateWebAccountPropertiesAsync
    (
       webAccount : Windows.Security.Credentials.IWebAccount
@@ -1524,6 +1526,64 @@ package Windows.Security.Authentication.Web.Provider is
    )
    return Windows.Foundation.IAsyncAction;
    
+   function PullCookiesAsync
+   (
+      uriString : Windows.String
+      ; callerPFN : Windows.String
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function AddWebAccountWithScopeAndMapAsync
+   (
+      webAccountId : Windows.String
+      ; webAccountUserName : Windows.String
+      ; props : IMapView_IWebAccountMapManagerStatics_AddWebAccountWithScopeAndMapAsync
+      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
+      ; perUserWebAccountId : Windows.String
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccount;
+   
+   function SetPerAppToPerUserAccountAsync
+   (
+      perAppAccount : Windows.Security.Credentials.IWebAccount
+      ; perUserWebAccountId : Windows.String
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function GetPerUserFromPerAppAccountAsync
+   (
+      perAppAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccount;
+   
+   function ClearPerUserFromPerAppAccountAsync
+   (
+      perAppAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function AddWebAccountWithScopeAsync
+   (
+      webAccountId : Windows.String
+      ; webAccountUserName : Windows.String
+      ; props : IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync
+      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
+   )
+   return Windows.Security.Credentials.IAsyncOperation_IWebAccount;
+   
+   function SetScopeAsync
+   (
+      webAccount : Windows.Security.Credentials.IWebAccount
+      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
+   )
+   return Windows.Foundation.IAsyncAction;
+   
+   function GetScope
+   (
+      webAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Security.Authentication.Web.Provider.WebAccountScope;
+   
    function FindAllProviderWebAccountsForUserAsync
    (
       user : Windows.System.IUser
@@ -1566,35 +1626,6 @@ package Windows.Security.Authentication.Web.Provider is
    function InvalidateAppCacheForAccountAsync
    (
       webAccount : Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function AddWebAccountWithScopeAsync
-   (
-      webAccountId : Windows.String
-      ; webAccountUserName : Windows.String
-      ; props : IMapView_IWebAccountScopeManagerStatics_AddWebAccountWithScopeAsync
-      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
-   )
-   return Windows.Security.Credentials.IAsyncOperation_IWebAccount;
-   
-   function SetScopeAsync
-   (
-      webAccount : Windows.Security.Credentials.IWebAccount
-      ; scope : Windows.Security.Authentication.Web.Provider.WebAccountScope
-   )
-   return Windows.Foundation.IAsyncAction;
-   
-   function GetScope
-   (
-      webAccount : Windows.Security.Credentials.IWebAccount
-   )
-   return Windows.Security.Authentication.Web.Provider.WebAccountScope;
-   
-   function PullCookiesAsync
-   (
-      uriString : Windows.String
-      ; callerPFN : Windows.String
    )
    return Windows.Foundation.IAsyncAction;
    

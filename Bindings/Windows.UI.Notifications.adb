@@ -291,45 +291,21 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function CreateNotificationDataWithValuesAndSequenceNumber
-   (
-      initialValues : Windows.Address
-      ; sequenceNumber : Windows.UInt32
-   )
-   return Windows.UI.Notifications.INotificationData is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateNotificationData return Windows.UI.Notifications.INotificationData is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.NotificationData");
-      m_Factory     : Windows.UI.Notifications.INotificationDataFactory := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.INotificationData := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Notifications.INotificationData) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_INotificationDataFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateNotificationDataWithValuesAndSequenceNumber(initialValues, sequenceNumber, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.UI.Notifications.IID_INotificationData'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function CreateNotificationDataWithValues
-   (
-      initialValues : Windows.Address
-   )
-   return Windows.UI.Notifications.INotificationData is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.NotificationData");
-      m_Factory     : Windows.UI.Notifications.INotificationDataFactory := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.INotificationData := null;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_INotificationDataFactory'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.CreateNotificationDataWithValues(initialValues, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateInstance
@@ -1076,6 +1052,23 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
+   function GetDefault
+   return Windows.UI.Notifications.IToastNotificationManagerForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
+      m_Factory     : IToastNotificationManagerStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.IToastNotificationManagerForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetForUser
    (
       user : Windows.System.IUser
@@ -1112,23 +1105,6 @@ package body Windows.UI.Notifications is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-   end;
-   
-   function get_History
-   return Windows.UI.Notifications.IToastNotificationHistory is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
-      m_Factory     : IToastNotificationManagerStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IToastNotificationHistory;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_History(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
    end;
    
    function CreateToastNotifier
@@ -1188,17 +1164,17 @@ package body Windows.UI.Notifications is
       return RetVal;
    end;
    
-   function GetDefault
-   return Windows.UI.Notifications.IToastNotificationManagerForUser is
+   function get_History
+   return Windows.UI.Notifications.IToastNotificationHistory is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
-      m_Factory     : IToastNotificationManagerStatics5 := null;
+      m_Factory     : IToastNotificationManagerStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IToastNotificationManagerForUser;
+      RetVal        : aliased Windows.UI.Notifications.IToastNotificationHistory;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics5'Access , m_Factory'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
+         Hr := m_Factory.get_History(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

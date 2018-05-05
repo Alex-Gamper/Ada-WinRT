@@ -101,24 +101,21 @@ package body Windows.Foundation.Diagnostics is
       return Convert(RetVal);
    end;
    
-   function CreateWithKeywords
-   (
-      keywords : Windows.Int64
-   )
-   return Windows.Foundation.Diagnostics.ILoggingOptions is
-      Hr            : Windows.HRESULT := S_OK;
+   function CreateLoggingOptions return Windows.Foundation.Diagnostics.ILoggingOptions is
+      Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingOptions");
-      m_Factory     : Windows.Foundation.Diagnostics.ILoggingOptionsFactory := null;
+      Instance      : aliased IInspectable := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.Diagnostics.ILoggingOptions := null;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Foundation.Diagnostics.ILoggingOptions) with inline;
    begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILoggingOptionsFactory'Access , m_Factory'Address);
+      Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithKeywords(keywords, RetVal'Access);
-         RefCount := m_Factory.Release;
+         Hr := Instance.QueryInterface(Windows.Foundation.Diagnostics.IID_ILoggingOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return RetVal;
+      return Convert(RetVal);
    end;
    
    function CreateLoggingChannelOptions return Windows.Foundation.Diagnostics.ILoggingChannelOptions is

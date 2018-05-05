@@ -23,6 +23,7 @@ with Windows.Foundation.Collections;
 with Windows.Foundation;
 limited with Windows.Graphics.Imaging;
 limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Graphics.DirectX;
 limited with Windows.Storage.Streams;
 limited with Windows.Storage;
 with Windows; use Windows;
@@ -249,9 +250,15 @@ package Windows.Media is
    type IVideoFrame_Interface;
    type IVideoFrame is access all IVideoFrame_Interface'Class;
    type IVideoFrame_Ptr is access all IVideoFrame;
+   type IVideoFrame2_Interface;
+   type IVideoFrame2 is access all IVideoFrame2_Interface'Class;
+   type IVideoFrame2_Ptr is access all IVideoFrame2;
    type IVideoFrameFactory_Interface;
    type IVideoFrameFactory is access all IVideoFrameFactory_Interface'Class;
    type IVideoFrameFactory_Ptr is access all IVideoFrameFactory;
+   type IVideoFrameStatics_Interface;
+   type IVideoFrameStatics is access all IVideoFrameStatics_Interface'Class;
+   type IVideoFrameStatics_Ptr is access all IVideoFrameStatics;
    type IAudioFrame_Interface;
    type IAudioFrame is access all IAudioFrame_Interface'Class;
    type IAudioFrame_Ptr is access all IAudioFrame;
@@ -500,6 +507,22 @@ package Windows.Media is
    
    ------------------------------------------------------------------------
    
+   IID_IVideoFrame2 : aliased constant Windows.IID := (943162381, 13164, 17254, (141, 70, 6, 7, 152, 115, 108, 93 ));
+   
+   type IVideoFrame2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CopyToWithBoundsAsync
+   (
+      This       : access IVideoFrame2_Interface
+      ; frame : Windows.Media.IVideoFrame
+      ; sourceBounds : Windows.Graphics.Imaging.IReference_BitmapBounds
+      ; destinationBounds : Windows.Graphics.Imaging.IReference_BitmapBounds
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVideoFrameFactory : aliased constant Windows.IID := (21720425, 8744, 19602, (146, 255, 80, 195, 128, 211, 231, 118 ));
    
    type IVideoFrameFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -521,6 +544,49 @@ package Windows.Media is
       ; width : Windows.Int32
       ; height : Windows.Int32
       ; alpha : Windows.Graphics.Imaging.BitmapAlphaMode
+      ; RetVal : access Windows.Media.IVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVideoFrameStatics : aliased constant Windows.IID := (2871678319, 24849, 19251, (142, 195, 43, 32, 154, 2, 225, 122 ));
+   
+   type IVideoFrameStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateAsDirect3D11SurfaceBacked
+   (
+      This       : access IVideoFrameStatics_Interface
+      ; format : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; width : Windows.Int32
+      ; height : Windows.Int32
+      ; RetVal : access Windows.Media.IVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateAsDirect3D11SurfaceBackedWithDevice
+   (
+      This       : access IVideoFrameStatics_Interface
+      ; format : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; width : Windows.Int32
+      ; height : Windows.Int32
+      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+      ; RetVal : access Windows.Media.IVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithSoftwareBitmap
+   (
+      This       : access IVideoFrameStatics_Interface
+      ; bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
+      ; RetVal : access Windows.Media.IVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithDirect3D11Surface
+   (
+      This       : access IVideoFrameStatics_Interface
+      ; surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
       ; RetVal : access Windows.Media.IVideoFrame
    )
    return Windows.HRESULT is abstract;
@@ -2431,6 +2497,35 @@ package Windows.Media is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function CreateAsDirect3D11SurfaceBacked
+   (
+      format : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; width : Windows.Int32
+      ; height : Windows.Int32
+   )
+   return Windows.Media.IVideoFrame;
+   
+   function CreateAsDirect3D11SurfaceBackedWithDevice
+   (
+      format : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; width : Windows.Int32
+      ; height : Windows.Int32
+      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+   )
+   return Windows.Media.IVideoFrame;
+   
+   function CreateWithSoftwareBitmap
+   (
+      bitmap : Windows.Graphics.Imaging.ISoftwareBitmap
+   )
+   return Windows.Media.IVideoFrame;
+   
+   function CreateWithDirect3D11Surface
+   (
+      surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+   )
+   return Windows.Media.IVideoFrame;
+   
    function get_Bookmark
    return Windows.String;
    
@@ -2439,5 +2534,188 @@ package Windows.Media is
    
    function get_VideoStabilization
    return Windows.String;
+   
+   function add_SoundLevelChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_SoundLevelChanged
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_PlayPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_PlayPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_PausePressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_PausePressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_StopPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_StopPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_PlayPauseTogglePressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_PlayPauseTogglePressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_RecordPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_RecordPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_NextTrackPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_NextTrackPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_PreviousTrackPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_PreviousTrackPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_FastForwardPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_FastForwardPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_RewindPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_RewindPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_ChannelUpPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_ChannelUpPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_ChannelDownPressed
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_ChannelDownPressed
+   (
+      cookie : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function get_SoundLevel
+   return Windows.Media.SoundLevel;
+   
+   procedure put_TrackName
+   (
+      value : Windows.String
+   )
+   ;
+   
+   function get_TrackName
+   return Windows.String;
+   
+   procedure put_ArtistName
+   (
+      value : Windows.String
+   )
+   ;
+   
+   function get_ArtistName
+   return Windows.String;
+   
+   procedure put_IsPlaying
+   (
+      value : Windows.Boolean
+   )
+   ;
+   
+   function get_IsPlaying
+   return Windows.Boolean;
+   
+   procedure put_AlbumArt
+   (
+      value : Windows.Foundation.IUriRuntimeClass
+   )
+   ;
+   
+   function get_AlbumArt
+   return Windows.Foundation.IUriRuntimeClass;
    
 end;

@@ -123,21 +123,24 @@ package body Windows.Networking.BackgroundTransfer is
       return Convert(RetVal);
    end;
    
-   function CreateBackgroundDownloader return Windows.Networking.BackgroundTransfer.IBackgroundDownloader is
-      Hr            : Windows.HResult := S_OK;
+   function CreateWithCompletionGroup
+   (
+      completionGroup : Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup
+   )
+   return Windows.Networking.BackgroundTransfer.IBackgroundDownloader is
+      Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundDownloader");
-      Instance      : aliased IInspectable := null;
+      m_Factory     : Windows.Networking.BackgroundTransfer.IBackgroundDownloaderFactory := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased IUnknown := null;
-      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.BackgroundTransfer.IBackgroundDownloader) with inline;
+      RetVal        : aliased Windows.Networking.BackgroundTransfer.IBackgroundDownloader := null;
    begin
-      Hr := RoActivateInstance(m_hString, Instance'Address);
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundDownloaderFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.Networking.BackgroundTransfer.IID_IBackgroundDownloader'Access, RetVal'access);
-         RefCount := Instance.Release;
+         Hr := m_Factory.CreateWithCompletionGroup(completionGroup, RetVal'Access);
+         RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
-      return Convert(RetVal);
+      return RetVal;
    end;
    
    function CreateWithCompletionGroup
@@ -265,6 +268,26 @@ package body Windows.Networking.BackgroundTransfer is
       return RetVal;
    end;
    
+   function RequestUnconstrainedUploadsAsync
+   (
+      operations : Windows.Networking.BackgroundTransfer.IIterable_IUploadOperation
+   )
+   return Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundUploader");
+      m_Factory     : IBackgroundUploaderUserConsent := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundUploaderUserConsent'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestUnconstrainedUploadsAsync(operations, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetCurrentUploadsAsync
    return Windows.Address is
       Hr            : Windows.HRESULT := S_OK;
@@ -296,26 +319,6 @@ package body Windows.Networking.BackgroundTransfer is
       Hr := RoGetActivationFactory(m_hString, IID_IBackgroundUploaderStaticMethods'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetCurrentUploadsForGroupAsync(group, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestUnconstrainedUploadsAsync
-   (
-      operations : Windows.Networking.BackgroundTransfer.IIterable_IUploadOperation
-   )
-   return Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundUploader");
-      m_Factory     : IBackgroundUploaderUserConsent := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Networking.BackgroundTransfer.IAsyncOperation_IUnconstrainedTransferRequestResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundUploaderUserConsent'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestUnconstrainedUploadsAsync(operations, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -356,6 +359,23 @@ package body Windows.Networking.BackgroundTransfer is
       Hr := RoGetActivationFactory(m_hString, IID_IBackgroundTransferErrorStaticMethods'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetStatus(hresult, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_LastSuccessfulPrefetchTime
+   return Windows.Foundation.IReference_DateTime is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.ContentPrefetcher");
+      m_Factory     : IContentPrefetcherTime := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IReference_DateTime;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentPrefetcherTime'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LastSuccessfulPrefetchTime(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -408,23 +428,6 @@ package body Windows.Networking.BackgroundTransfer is
       Hr := RoGetActivationFactory(m_hString, IID_IContentPrefetcher'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IndirectContentUri(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_LastSuccessfulPrefetchTime
-   return Windows.Foundation.IReference_DateTime is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.ContentPrefetcher");
-      m_Factory     : IContentPrefetcherTime := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Foundation.IReference_DateTime;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IContentPrefetcherTime'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_LastSuccessfulPrefetchTime(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

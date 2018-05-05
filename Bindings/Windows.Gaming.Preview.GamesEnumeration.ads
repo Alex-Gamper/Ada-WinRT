@@ -554,19 +554,6 @@ package Windows.Gaming.Preview.GamesEnumeration is
    function GetDefault
    return Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration;
    
-   function MergeEntriesAsync
-   (
-      left : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
-      ; right : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
-   )
-   return Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry;
-   
-   function UnmergeEntryAsync
-   (
-      mergedEntry : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
-   )
-   return Windows.Address;
-   
    function FindAllAsync
    return Windows.Address;
    
@@ -611,5 +598,18 @@ package Windows.Gaming.Preview.GamesEnumeration is
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
+   
+   function MergeEntriesAsync
+   (
+      left : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
+      ; right : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
+   )
+   return Windows.Gaming.Preview.GamesEnumeration.IAsyncOperation_IGameListEntry;
+   
+   function UnmergeEntryAsync
+   (
+      mergedEntry : Windows.Gaming.Preview.GamesEnumeration.IGameListEntry
+   )
+   return Windows.Address;
    
 end;

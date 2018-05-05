@@ -230,6 +230,24 @@ package Windows.Networking.Connectivity is
    
    type WwanNetworkRegistrationState_Ptr is access WwanNetworkRegistrationState;
    
+   type WwanNetworkIPKind is (
+      None,
+      Ipv4,
+      Ipv6,
+      Ipv4v6,
+      Ipv4v6v4Xlat
+   );
+   for WwanNetworkIPKind use (
+      None => 0,
+      Ipv4 => 1,
+      Ipv6 => 2,
+      Ipv4v6 => 3,
+      Ipv4v6v4Xlat => 4
+   );
+   for WwanNetworkIPKind'Size use 32;
+   
+   type WwanNetworkIPKind_Ptr is access WwanNetworkIPKind;
+   
    type WwanDataClass is (
       None,
       Gprs,
@@ -366,6 +384,9 @@ package Windows.Networking.Connectivity is
    type IConnectionProfileFilter2_Interface;
    type IConnectionProfileFilter2 is access all IConnectionProfileFilter2_Interface'Class;
    type IConnectionProfileFilter2_Ptr is access all IConnectionProfileFilter2;
+   type IConnectionProfileFilter3_Interface;
+   type IConnectionProfileFilter3 is access all IConnectionProfileFilter3_Interface'Class;
+   type IConnectionProfileFilter3_Ptr is access all IConnectionProfileFilter3;
    type INetworkInformationStatics2_Interface;
    type INetworkInformationStatics2 is access all INetworkInformationStatics2_Interface'Class;
    type INetworkInformationStatics2_Ptr is access all INetworkInformationStatics2;
@@ -393,6 +414,9 @@ package Windows.Networking.Connectivity is
    type ICellularApnContext_Interface;
    type ICellularApnContext is access all ICellularApnContext_Interface'Class;
    type ICellularApnContext_Ptr is access all ICellularApnContext;
+   type ICellularApnContext2_Interface;
+   type ICellularApnContext2 is access all ICellularApnContext2_Interface'Class;
+   type ICellularApnContext2_Ptr is access all ICellularApnContext2;
    type IConnectivityManagerStatics_Interface;
    type IConnectivityManagerStatics is access all IConnectivityManagerStatics_Interface'Class;
    type IConnectivityManagerStatics_Ptr is access all IConnectivityManagerStatics;
@@ -405,6 +429,9 @@ package Windows.Networking.Connectivity is
    type IWwanConnectionProfileDetails_Interface;
    type IWwanConnectionProfileDetails is access all IWwanConnectionProfileDetails_Interface'Class;
    type IWwanConnectionProfileDetails_Ptr is access all IWwanConnectionProfileDetails;
+   type IWwanConnectionProfileDetails2_Interface;
+   type IWwanConnectionProfileDetails2 is access all IWwanConnectionProfileDetails2_Interface'Class;
+   type IWwanConnectionProfileDetails2_Ptr is access all IWwanConnectionProfileDetails2;
    type IIterator_IConnectionProfile_Interface;
    type IIterator_IConnectionProfile is access all IIterator_IConnectionProfile_Interface'Class;
    type IIterator_IConnectionProfile_Ptr is access all IIterator_IConnectionProfile;
@@ -1148,6 +1175,26 @@ package Windows.Networking.Connectivity is
    
    ------------------------------------------------------------------------
    
+   IID_IConnectionProfileFilter3 : aliased constant Windows.IID := (178915776, 20500, 17532, (136, 9, 174, 228, 203, 10, 249, 74 ));
+   
+   type IConnectionProfileFilter3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_PurposeGuid
+   (
+      This       : access IConnectionProfileFilter3_Interface
+      ; value : Windows.Foundation.IReference_Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PurposeGuid
+   (
+      This       : access IConnectionProfileFilter3_Interface
+      ; RetVal : access Windows.Foundation.IReference_Guid -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_INetworkInformationStatics2 : aliased constant Windows.IID := (1167912212, 10290, 18870, (186, 110, 226, 101, 240, 71, 134, 168 ));
    
    type INetworkInformationStatics2_Interface is interface and Windows.IInspectable_Interface;
@@ -1416,6 +1463,26 @@ package Windows.Networking.Connectivity is
    
    ------------------------------------------------------------------------
    
+   IID_ICellularApnContext2 : aliased constant Windows.IID := (1991306010, 44105, 17232, (177, 229, 220, 71, 99, 188, 105, 199 ));
+   
+   type ICellularApnContext2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProfileName
+   (
+      This       : access ICellularApnContext2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ProfileName
+   (
+      This       : access ICellularApnContext2_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IConnectivityManagerStatics : aliased constant Windows.IID := (1361106097, 20401, 18608, (175, 201, 66, 224, 9, 42, 129, 100 ));
    
    type IConnectivityManagerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1541,6 +1608,26 @@ package Windows.Networking.Connectivity is
    (
       This       : access IWwanConnectionProfileDetails_Interface
       ; RetVal : access Windows.Networking.Connectivity.WwanDataClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWwanConnectionProfileDetails2 : aliased constant Windows.IID := (2054508254, 41453, 18610, (142, 146, 180, 96, 3, 61, 82, 226 ));
+   
+   type IWwanConnectionProfileDetails2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IPKind
+   (
+      This       : access IWwanConnectionProfileDetails2_Interface
+      ; RetVal : access Windows.Networking.Connectivity.WwanNetworkIPKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PurposeGuids
+   (
+      This       : access IWwanConnectionProfileDetails2_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Guid -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1898,6 +1985,12 @@ package Windows.Networking.Connectivity is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
+   function FindConnectionProfilesAsync
+   (
+      pProfileFilter : Windows.Networking.Connectivity.IConnectionProfileFilter
+   )
+   return Windows.Address;
+   
    function GetConnectionProfiles
    return Windows.Networking.Connectivity.IVectorView_IConnectionProfile;
    
@@ -1934,12 +2027,6 @@ package Windows.Networking.Connectivity is
       eventCookie : Windows.Foundation.EventRegistrationToken
    )
    ;
-   
-   function FindConnectionProfilesAsync
-   (
-      pProfileFilter : Windows.Networking.Connectivity.IConnectionProfileFilter
-   )
-   return Windows.Address;
    
    function AcquireConnectionAsync
    (

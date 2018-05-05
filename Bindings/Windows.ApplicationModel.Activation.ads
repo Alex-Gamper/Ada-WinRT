@@ -29,11 +29,11 @@ limited with Windows.ApplicationModel.Appointments.AppointmentsProvider;
 limited with Windows.System;
 with Windows.Foundation;
 limited with Windows.ApplicationModel.Background;
+limited with Windows.ApplicationModel.DataTransfer.ShareTarget;
 limited with Windows.ApplicationModel.UserDataAccounts.Provider;
 with Windows.Foundation.Collections;
 limited with Windows.UI.Notifications;
 limited with Windows.ApplicationModel.Search;
-limited with Windows.ApplicationModel.DataTransfer.ShareTarget;
 limited with Windows.Storage;
 limited with Windows.Storage.Search;
 limited with Windows.Storage.Pickers.Provider;
@@ -108,7 +108,8 @@ package Windows.ApplicationModel.Activation is
       PrintWorkflowForegroundTask,
       GameUIProvider,
       StartupTask,
-      CommandLineLaunch
+      CommandLineLaunch,
+      BarcodeScannerProvider
    );
    for ActivationKind use (
       Launch => 0,
@@ -149,7 +150,8 @@ package Windows.ApplicationModel.Activation is
       PrintWorkflowForegroundTask => 1018,
       GameUIProvider => 1019,
       StartupTask => 1020,
-      CommandLineLaunch => 1021
+      CommandLineLaunch => 1021,
+      BarcodeScannerProvider => 1022
    );
    for ActivationKind'Size use 32;
    
@@ -260,6 +262,9 @@ package Windows.ApplicationModel.Activation is
    type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Interface;
    type IAppointmentsProviderShowTimeFrameActivatedEventArgs is access all IAppointmentsProviderShowTimeFrameActivatedEventArgs_Interface'Class;
    type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Ptr is access all IAppointmentsProviderShowTimeFrameActivatedEventArgs;
+   type IShareTargetActivatedEventArgs_Interface;
+   type IShareTargetActivatedEventArgs is access all IShareTargetActivatedEventArgs_Interface'Class;
+   type IShareTargetActivatedEventArgs_Ptr is access all IShareTargetActivatedEventArgs;
    type IUserDataAccountProviderActivatedEventArgs_Interface;
    type IUserDataAccountProviderActivatedEventArgs is access all IUserDataAccountProviderActivatedEventArgs_Interface'Class;
    type IUserDataAccountProviderActivatedEventArgs_Ptr is access all IUserDataAccountProviderActivatedEventArgs;
@@ -290,9 +295,6 @@ package Windows.ApplicationModel.Activation is
    type ISearchActivatedEventArgsWithLinguisticDetails_Interface;
    type ISearchActivatedEventArgsWithLinguisticDetails is access all ISearchActivatedEventArgsWithLinguisticDetails_Interface'Class;
    type ISearchActivatedEventArgsWithLinguisticDetails_Ptr is access all ISearchActivatedEventArgsWithLinguisticDetails;
-   type IShareTargetActivatedEventArgs_Interface;
-   type IShareTargetActivatedEventArgs is access all IShareTargetActivatedEventArgs_Interface'Class;
-   type IShareTargetActivatedEventArgs_Ptr is access all IShareTargetActivatedEventArgs;
    type IFileActivatedEventArgs_Interface;
    type IFileActivatedEventArgs is access all IFileActivatedEventArgs_Interface'Class;
    type IFileActivatedEventArgs_Ptr is access all IFileActivatedEventArgs;
@@ -374,6 +376,9 @@ package Windows.ApplicationModel.Activation is
    type IStartupTaskActivatedEventArgs_Interface;
    type IStartupTaskActivatedEventArgs is access all IStartupTaskActivatedEventArgs_Interface'Class;
    type IStartupTaskActivatedEventArgs_Ptr is access all IStartupTaskActivatedEventArgs;
+   type IBarcodeScannerPreviewActivatedEventArgs_Interface;
+   type IBarcodeScannerPreviewActivatedEventArgs is access all IBarcodeScannerPreviewActivatedEventArgs_Interface'Class;
+   type IBarcodeScannerPreviewActivatedEventArgs_Ptr is access all IBarcodeScannerPreviewActivatedEventArgs;
    type IDevicePairingActivatedEventArgs_Interface;
    type IDevicePairingActivatedEventArgs is access all IDevicePairingActivatedEventArgs_Interface'Class;
    type IDevicePairingActivatedEventArgs_Ptr is access all IDevicePairingActivatedEventArgs;
@@ -814,6 +819,19 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
+   IID_IShareTargetActivatedEventArgs : aliased constant Windows.IID := (1272641992, 52658, 19147, (191, 195, 102, 72, 86, 51, 120, 236 ));
+   
+   type IShareTargetActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShareOperation
+   (
+      This       : access IShareTargetActivatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUserDataAccountProviderActivatedEventArgs : aliased constant Windows.IID := (466220835, 36593, 19025, (166, 58, 254, 113, 30, 234, 182, 7 ));
    
    type IUserDataAccountProviderActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -953,19 +971,6 @@ package Windows.ApplicationModel.Activation is
    (
       This       : access ISearchActivatedEventArgsWithLinguisticDetails_Interface
       ; RetVal : access Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IShareTargetActivatedEventArgs : aliased constant Windows.IID := (1272641992, 52658, 19147, (191, 195, 102, 72, 86, 51, 120, 236 ));
-   
-   type IShareTargetActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
-   
-   function get_ShareOperation
-   (
-      This       : access IShareTargetActivatedEventArgs_Interface
-      ; RetVal : access Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation
    )
    return Windows.HRESULT is abstract;
    
@@ -1385,6 +1390,19 @@ package Windows.ApplicationModel.Activation is
    
    ------------------------------------------------------------------------
    
+   IID_IBarcodeScannerPreviewActivatedEventArgs : aliased constant Windows.IID := (1735555452, 39359, 17225, (175, 34, 228, 18, 53, 96, 55, 28 ));
+   
+   type IBarcodeScannerPreviewActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ConnectionId
+   (
+      This       : access IBarcodeScannerPreviewActivatedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDevicePairingActivatedEventArgs : aliased constant Windows.IID := (3953185252, 60614, 16712, (148, 237, 244, 179, 126, 192, 91, 62 ));
    
    type IDevicePairingActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1461,12 +1479,12 @@ package Windows.ApplicationModel.Activation is
    subtype AppointmentsProviderShowTimeFrameActivatedEventArgs is Windows.ApplicationModel.Activation.IAppointmentsProviderShowTimeFrameActivatedEventArgs;
    subtype BackgroundActivatedEventArgs is Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs;
    subtype ContactPanelActivatedEventArgs is Windows.ApplicationModel.Activation.IContactPanelActivatedEventArgs;
+   subtype ShareTargetActivatedEventArgs is Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs;
    subtype UserDataAccountProviderActivatedEventArgs is Windows.ApplicationModel.Activation.IUserDataAccountProviderActivatedEventArgs;
    subtype SplashScreen is Windows.ApplicationModel.Activation.ISplashScreen;
    subtype TileActivatedInfo is Windows.ApplicationModel.Activation.ITileActivatedInfo;
    subtype LaunchActivatedEventArgs is Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs;
    subtype SearchActivatedEventArgs is Windows.ApplicationModel.Activation.ISearchActivatedEventArgs;
-   subtype ShareTargetActivatedEventArgs is Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs;
    subtype FileActivatedEventArgs is Windows.ApplicationModel.Activation.IFileActivatedEventArgs;
    subtype ProtocolActivatedEventArgs is Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs;
    subtype ProtocolForResultsActivatedEventArgs is Windows.ApplicationModel.Activation.IProtocolForResultsActivatedEventArgs;
@@ -1488,6 +1506,7 @@ package Windows.ApplicationModel.Activation is
    subtype CommandLineActivationOperation is Windows.ApplicationModel.Activation.ICommandLineActivationOperation;
    subtype CommandLineActivatedEventArgs is Windows.ApplicationModel.Activation.ICommandLineActivatedEventArgs;
    subtype StartupTaskActivatedEventArgs is Windows.ApplicationModel.Activation.IStartupTaskActivatedEventArgs;
+   subtype BarcodeScannerPreviewActivatedEventArgs is Windows.ApplicationModel.Activation.IBarcodeScannerPreviewActivatedEventArgs;
    subtype DevicePairingActivatedEventArgs is Windows.ApplicationModel.Activation.IDevicePairingActivatedEventArgs;
    subtype VoiceCommandActivatedEventArgs is Windows.ApplicationModel.Activation.IVoiceCommandActivatedEventArgs;
    

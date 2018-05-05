@@ -239,4 +239,36 @@ package body Windows.Media.PlayTo is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetForCurrentView
+   return Windows.Media.PlayTo.IPlayToManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.PlayTo.PlayToManager");
+      m_Factory     : IPlayToManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.PlayTo.IPlayToManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayToManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure ShowPlayToUI
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.PlayTo.PlayToManager");
+      m_Factory     : IPlayToManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayToManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ShowPlayToUI;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
 end;

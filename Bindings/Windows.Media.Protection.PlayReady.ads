@@ -2571,13 +2571,13 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.Boolean;
    
-   function get_PlayReadyCertificateSecurityLevel
-   return Windows.UInt32;
-   
    function get_InputTrustAuthorityToCreate
    return Windows.String;
    
    function get_ProtectionSystemId
    return Windows.Guid;
+   
+   function get_PlayReadyCertificateSecurityLevel
+   return Windows.UInt32;
    
 end;

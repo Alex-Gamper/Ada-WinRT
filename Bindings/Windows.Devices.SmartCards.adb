@@ -562,23 +562,6 @@ package body Windows.Devices.SmartCards is
       return RetVal;
    end;
    
-   function GetDefaultAsync
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardEmulator");
-      m_Factory     : ISmartCardEmulatorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardEmulatorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function IsSupported
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -590,6 +573,23 @@ package body Windows.Devices.SmartCards is
       Hr := RoGetActivationFactory(m_hString, IID_ISmartCardEmulatorStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultAsync
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardEmulator");
+      m_Factory     : ISmartCardEmulatorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardEmulator;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardEmulatorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -613,23 +613,6 @@ package body Windows.Devices.SmartCards is
       return RetVal;
    end;
    
-   function GetSmartCardCryptogramGeneratorAsync
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardCryptogramGenerator");
-      m_Factory     : ISmartCardCryptogramGeneratorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardCryptogramGeneratorStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetSmartCardCryptogramGeneratorAsync(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function IsSupported_ISmartCardCryptogramGenerator
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;
@@ -641,6 +624,23 @@ package body Windows.Devices.SmartCards is
       Hr := RoGetActivationFactory(m_hString, IID_ISmartCardCryptogramGeneratorStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetSmartCardCryptogramGeneratorAsync
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardCryptogramGenerator");
+      m_Factory     : ISmartCardCryptogramGeneratorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardCryptogramGenerator;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardCryptogramGeneratorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetSmartCardCryptogramGeneratorAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -698,51 +698,6 @@ package body Windows.Devices.SmartCards is
       Hr := RoGetActivationFactory(m_hString, IID_ISmartCardReaderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestAttestedVirtualSmartCardCreationAsync
-   (
-      friendlyName : Windows.String
-      ; administrativeKey : Windows.Storage.Streams.IBuffer
-      ; pinPolicy : Windows.Devices.SmartCards.ISmartCardPinPolicy
-   )
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardProvisioning");
-      m_Factory     : ISmartCardProvisioningStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardProvisioningStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestAttestedVirtualSmartCardCreationAsync(friendlyName, administrativeKey, pinPolicy, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function RequestAttestedVirtualSmartCardCreationAsyncWithCardId
-   (
-      friendlyName : Windows.String
-      ; administrativeKey : Windows.Storage.Streams.IBuffer
-      ; pinPolicy : Windows.Devices.SmartCards.ISmartCardPinPolicy
-      ; cardId : Windows.Guid
-   )
-   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardProvisioning");
-      m_Factory     : ISmartCardProvisioningStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardProvisioningStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestAttestedVirtualSmartCardCreationAsyncWithCardId(friendlyName, administrativeKey, pinPolicy, cardId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -828,6 +783,51 @@ package body Windows.Devices.SmartCards is
       Hr := RoGetActivationFactory(m_hString, IID_ISmartCardProvisioningStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.RequestVirtualSmartCardDeletionAsync(card, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAttestedVirtualSmartCardCreationAsync
+   (
+      friendlyName : Windows.String
+      ; administrativeKey : Windows.Storage.Streams.IBuffer
+      ; pinPolicy : Windows.Devices.SmartCards.ISmartCardPinPolicy
+   )
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardProvisioning");
+      m_Factory     : ISmartCardProvisioningStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardProvisioningStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAttestedVirtualSmartCardCreationAsync(friendlyName, administrativeKey, pinPolicy, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAttestedVirtualSmartCardCreationAsyncWithCardId
+   (
+      friendlyName : Windows.String
+      ; administrativeKey : Windows.Storage.Streams.IBuffer
+      ; pinPolicy : Windows.Devices.SmartCards.ISmartCardPinPolicy
+      ; cardId : Windows.Guid
+   )
+   return Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardProvisioning");
+      m_Factory     : ISmartCardProvisioningStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.SmartCards.IAsyncOperation_ISmartCardProvisioning;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardProvisioningStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAttestedVirtualSmartCardCreationAsyncWithCardId(friendlyName, administrativeKey, pinPolicy, cardId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

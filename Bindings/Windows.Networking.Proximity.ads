@@ -923,27 +923,6 @@ package Windows.Networking.Proximity is
    )
    return Windows.Networking.Proximity.IProximityDevice;
    
-   function get_Role
-   return Windows.Networking.Proximity.PeerRole;
-   
-   procedure put_Role
-   (
-      value : Windows.Networking.Proximity.PeerRole
-   )
-   ;
-   
-   function get_DiscoveryData
-   return Windows.Storage.Streams.IBuffer;
-   
-   procedure put_DiscoveryData
-   (
-      value : Windows.Storage.Streams.IBuffer
-   )
-   ;
-   
-   function CreateWatcher
-   return Windows.Networking.Proximity.IPeerWatcher;
-   
    function get_AllowBluetooth
    return Windows.Boolean;
    
@@ -1030,5 +1009,26 @@ package Windows.Networking.Proximity is
       peerInformation : Windows.Networking.Proximity.IPeerInformation
    )
    return Windows.Networking.Sockets.IAsyncOperation_IStreamSocket;
+   
+   function get_Role
+   return Windows.Networking.Proximity.PeerRole;
+   
+   procedure put_Role
+   (
+      value : Windows.Networking.Proximity.PeerRole
+   )
+   ;
+   
+   function get_DiscoveryData
+   return Windows.Storage.Streams.IBuffer;
+   
+   procedure put_DiscoveryData
+   (
+      value : Windows.Storage.Streams.IBuffer
+   )
+   ;
+   
+   function CreateWatcher
+   return Windows.Networking.Proximity.IPeerWatcher;
    
 end;

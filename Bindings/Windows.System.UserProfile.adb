@@ -69,6 +69,23 @@ package body Windows.System.UserProfile is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function get_AdvertisingId
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.AdvertisingManager");
+      m_Factory     : IAdvertisingManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAdvertisingManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AdvertisingId(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetForUser
    (
       user : Windows.System.IUser
@@ -83,23 +100,6 @@ package body Windows.System.UserProfile is
       Hr := RoGetActivationFactory(m_hString, IID_IAdvertisingManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForUser(user, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function get_AdvertisingId
-   return Windows.String is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.AdvertisingManager");
-      m_Factory     : IAdvertisingManagerStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.String;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IAdvertisingManagerStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.get_AdvertisingId(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -171,6 +171,66 @@ package body Windows.System.UserProfile is
       Hr := RoGetActivationFactory(m_hString, IID_IUserProfilePersonalizationSettingsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.UserProfile.IGlobalizationPreferencesForUser is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.GlobalizationPreferences");
+      m_Factory     : IGlobalizationPreferencesStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.UserProfile.IGlobalizationPreferencesForUser;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGlobalizationPreferencesStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TrySetHomeGeographicRegion
+   (
+      region : Windows.String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.GlobalizationPreferences");
+      m_Factory     : IGlobalizationPreferencesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGlobalizationPreferencesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TrySetHomeGeographicRegion(region, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TrySetLanguages
+   (
+      languageTags : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.GlobalizationPreferences");
+      m_Factory     : IGlobalizationPreferencesStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGlobalizationPreferencesStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TrySetLanguages(languageTags, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -273,46 +333,6 @@ package body Windows.System.UserProfile is
       Hr := RoGetActivationFactory(m_hString, IID_IGlobalizationPreferencesStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_WeekStartsOn(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TrySetHomeGeographicRegion
-   (
-      region : Windows.String
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.GlobalizationPreferences");
-      m_Factory     : IGlobalizationPreferencesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGlobalizationPreferencesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TrySetHomeGeographicRegion(region, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TrySetLanguages
-   (
-      languageTags : Windows.Foundation.Collections.IIterable_String
-   )
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.GlobalizationPreferences");
-      m_Factory     : IGlobalizationPreferencesStatics2 := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGlobalizationPreferencesStatics2'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TrySetLanguages(languageTags, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -614,43 +634,6 @@ package body Windows.System.UserProfile is
       return RetVal;
    end;
    
-   function RequestSetImageFeedAsync
-   (
-      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
-      m_Factory     : ILockScreenImageFeedStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenImageFeedStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.RequestSetImageFeedAsync(syndicationFeedUri, RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function TryRemoveImageFeed
-   return Windows.Boolean is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
-      m_Factory     : ILockScreenImageFeedStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Boolean;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenImageFeedStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.TryRemoveImageFeed(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
    function get_OriginalImageFile
    return Windows.Foundation.IUriRuntimeClass is
       Hr            : Windows.HRESULT := S_OK;
@@ -719,6 +702,43 @@ package body Windows.System.UserProfile is
       Hr := RoGetActivationFactory(m_hString, IID_ILockScreenStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetImageStreamAsync(value, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestSetImageFeedAsync
+   (
+      syndicationFeedUri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
+      m_Factory     : ILockScreenImageFeedStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.UserProfile.IAsyncOperation_SetImageFeedResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenImageFeedStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestSetImageFeedAsync(syndicationFeedUri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryRemoveImageFeed
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.LockScreen");
+      m_Factory     : ILockScreenImageFeedStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILockScreenImageFeedStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryRemoveImageFeed(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

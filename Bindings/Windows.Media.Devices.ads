@@ -328,6 +328,20 @@ package Windows.Media.Devices is
    
    type OpticalImageStabilizationMode_Ptr is access OpticalImageStabilizationMode;
    
+   type VideoTemporalDenoisingMode is (
+      Off,
+      On,
+      Auto
+   );
+   for VideoTemporalDenoisingMode use (
+      Off => 0,
+      On => 1,
+      Auto => 2
+   );
+   for VideoTemporalDenoisingMode'Size use 32;
+   
+   type VideoTemporalDenoisingMode_Ptr is access VideoTemporalDenoisingMode;
+   
    type CaptureUse is (
       None,
       Photo,
@@ -578,6 +592,9 @@ package Windows.Media.Devices is
    type IOpticalImageStabilizationControl_Interface;
    type IOpticalImageStabilizationControl is access all IOpticalImageStabilizationControl_Interface'Class;
    type IOpticalImageStabilizationControl_Ptr is access all IOpticalImageStabilizationControl;
+   type IVideoTemporalDenoisingControl_Interface;
+   type IVideoTemporalDenoisingControl is access all IVideoTemporalDenoisingControl_Interface'Class;
+   type IVideoTemporalDenoisingControl_Ptr is access all IVideoTemporalDenoisingControl;
    type IMediaDeviceController_Interface;
    type IMediaDeviceController is access all IMediaDeviceController_Interface'Class;
    type IMediaDeviceController_Ptr is access all IMediaDeviceController;
@@ -602,6 +619,9 @@ package Windows.Media.Devices is
    type IAdvancedVideoCaptureDeviceController5_Interface;
    type IAdvancedVideoCaptureDeviceController5 is access all IAdvancedVideoCaptureDeviceController5_Interface'Class;
    type IAdvancedVideoCaptureDeviceController5_Ptr is access all IAdvancedVideoCaptureDeviceController5;
+   type IAdvancedVideoCaptureDeviceController6_Interface;
+   type IAdvancedVideoCaptureDeviceController6 is access all IAdvancedVideoCaptureDeviceController6_Interface'Class;
+   type IAdvancedVideoCaptureDeviceController6_Ptr is access all IAdvancedVideoCaptureDeviceController6;
    type IMediaDeviceControl_Interface;
    type IMediaDeviceControl is access all IMediaDeviceControl_Interface'Class;
    type IMediaDeviceControl_Ptr is access all IMediaDeviceControl;
@@ -752,6 +772,15 @@ package Windows.Media.Devices is
    type IVectorView_OpticalImageStabilizationMode_Interface;
    type IVectorView_OpticalImageStabilizationMode is access all IVectorView_OpticalImageStabilizationMode_Interface'Class;
    type IVectorView_OpticalImageStabilizationMode_Ptr is access all IVectorView_OpticalImageStabilizationMode;
+   type IIterator_VideoTemporalDenoisingMode_Interface;
+   type IIterator_VideoTemporalDenoisingMode is access all IIterator_VideoTemporalDenoisingMode_Interface'Class;
+   type IIterator_VideoTemporalDenoisingMode_Ptr is access all IIterator_VideoTemporalDenoisingMode;
+   type IIterable_VideoTemporalDenoisingMode_Interface;
+   type IIterable_VideoTemporalDenoisingMode is access all IIterable_VideoTemporalDenoisingMode_Interface'Class;
+   type IIterable_VideoTemporalDenoisingMode_Ptr is access all IIterable_VideoTemporalDenoisingMode;
+   type IVectorView_VideoTemporalDenoisingMode_Interface;
+   type IVectorView_VideoTemporalDenoisingMode is access all IVectorView_VideoTemporalDenoisingMode_Interface'Class;
+   type IVectorView_VideoTemporalDenoisingMode_Ptr is access all IVectorView_VideoTemporalDenoisingMode;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2124,6 +2153,40 @@ package Windows.Media.Devices is
    
    ------------------------------------------------------------------------
    
+   IID_IVideoTemporalDenoisingControl : aliased constant Windows.IID := (2058569525, 15914, 18994, (186, 255, 67, 88, 196, 251, 221, 87 ));
+   
+   type IVideoTemporalDenoisingControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Supported
+   (
+      This       : access IVideoTemporalDenoisingControl_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SupportedModes
+   (
+      This       : access IVideoTemporalDenoisingControl_Interface
+      ; RetVal : access Windows.Media.Devices.IVectorView_VideoTemporalDenoisingMode -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Mode
+   (
+      This       : access IVideoTemporalDenoisingControl_Interface
+      ; RetVal : access Windows.Media.Devices.VideoTemporalDenoisingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Mode
+   (
+      This       : access IVideoTemporalDenoisingControl_Interface
+      ; value : Windows.Media.Devices.VideoTemporalDenoisingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaDeviceController : aliased constant Windows.IID := (4143510990, 8346, 18683, (134, 252, 212, 69, 120, 243, 23, 230 ));
    
    type IMediaDeviceController_Interface is interface and Windows.IInspectable_Interface;
@@ -2524,6 +2587,19 @@ package Windows.Media.Devices is
       ; extendedPropertyId : Windows.UInt8_Ptr
       ; propertyValue : Windows.UInt8_Ptr
       ; RetVal : access Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdvancedVideoCaptureDeviceController6 : aliased constant Windows.IID := (3059104339, 26785, 17591, (159, 137, 181, 250, 151, 172, 12, 190 ));
+   
+   type IAdvancedVideoCaptureDeviceController6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_VideoTemporalDenoisingControl
+   (
+      This       : access IAdvancedVideoCaptureDeviceController6_Interface
+      ; RetVal : access Windows.Media.Devices.IVideoTemporalDenoisingControl
    )
    return Windows.HRESULT is abstract;
    
@@ -4142,6 +4218,93 @@ package Windows.Media.Devices is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IIterator_VideoTemporalDenoisingMode : aliased constant Windows.IID := (2600871250, 59228, 20830, (162, 164, 27, 8, 27, 100, 6, 20 ));
+   
+   type IIterator_VideoTemporalDenoisingMode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_VideoTemporalDenoisingMode_Interface
+      ; RetVal : access Windows.Media.Devices.VideoTemporalDenoisingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_VideoTemporalDenoisingMode_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_VideoTemporalDenoisingMode_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_VideoTemporalDenoisingMode_Interface
+      ; items : Windows.Media.Devices.VideoTemporalDenoisingMode_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_VideoTemporalDenoisingMode : aliased constant Windows.IID := (3404883497, 61060, 23884, (174, 55, 157, 196, 178, 105, 120, 235 ));
+   
+   type IIterable_VideoTemporalDenoisingMode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_VideoTemporalDenoisingMode_Interface
+      ; RetVal : access Windows.Media.Devices.IIterator_VideoTemporalDenoisingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_VideoTemporalDenoisingMode : aliased constant Windows.IID := (156065193, 37324, 21976, (183, 183, 82, 229, 151, 21, 105, 135 ));
+   
+   type IVectorView_VideoTemporalDenoisingMode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_VideoTemporalDenoisingMode_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Media.Devices.VideoTemporalDenoisingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_VideoTemporalDenoisingMode_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_VideoTemporalDenoisingMode_Interface
+      ; value : Windows.Media.Devices.VideoTemporalDenoisingMode
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_VideoTemporalDenoisingMode_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Media.Devices.VideoTemporalDenoisingMode_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -4290,6 +4453,7 @@ package Windows.Media.Devices is
    
    subtype AdvancedPhotoControl is Windows.Media.Devices.IAdvancedPhotoControl;
    subtype OpticalImageStabilizationControl is Windows.Media.Devices.IOpticalImageStabilizationControl;
+   subtype VideoTemporalDenoisingControl is Windows.Media.Devices.IVideoTemporalDenoisingControl;
    subtype MediaDeviceControl is Windows.Media.Devices.IMediaDeviceControl;
    subtype LowLagPhotoSequenceControl is Windows.Media.Devices.ILowLagPhotoSequenceControl;
    subtype LowLagPhotoControl is Windows.Media.Devices.ILowLagPhotoControl;

@@ -31,6 +31,7 @@ limited with Windows.Media.Effects;
 limited with Windows.Media.Capture.Frames;
 limited with Windows.Graphics.Imaging;
 limited with Windows.Media.Core;
+limited with Windows.Graphics.DirectX.Direct3D11;
 limited with Windows.Security.Authentication.Web;
 limited with Windows.System;
 --------------------------------------------------------------------------------
@@ -227,14 +228,24 @@ package Windows.Media.Capture is
       HighQualityPhoto,
       BalancedVideoAndPhoto,
       VideoConferencing,
-      PhotoSequence
+      PhotoSequence,
+      HighFrameRate,
+      VariablePhotoSequence,
+      HdrWithWcgVideo,
+      HdrWithWcgPhoto,
+      VideoHdr8
    );
    for KnownVideoProfile use (
       VideoRecording => 0,
       HighQualityPhoto => 1,
       BalancedVideoAndPhoto => 2,
       VideoConferencing => 3,
-      PhotoSequence => 4
+      PhotoSequence => 4,
+      HighFrameRate => 5,
+      VariablePhotoSequence => 6,
+      HdrWithWcgVideo => 7,
+      HdrWithWcgPhoto => 8,
+      VideoHdr8 => 9
    );
    for KnownVideoProfile'Size use 32;
    
@@ -930,9 +941,15 @@ package Windows.Media.Capture is
    type IMediaCaptureVideoProfileMediaDescription_Interface;
    type IMediaCaptureVideoProfileMediaDescription is access all IMediaCaptureVideoProfileMediaDescription_Interface'Class;
    type IMediaCaptureVideoProfileMediaDescription_Ptr is access all IMediaCaptureVideoProfileMediaDescription;
+   type IMediaCaptureVideoProfileMediaDescription2_Interface;
+   type IMediaCaptureVideoProfileMediaDescription2 is access all IMediaCaptureVideoProfileMediaDescription2_Interface'Class;
+   type IMediaCaptureVideoProfileMediaDescription2_Ptr is access all IMediaCaptureVideoProfileMediaDescription2;
    type IMediaCaptureVideoProfile_Interface;
    type IMediaCaptureVideoProfile is access all IMediaCaptureVideoProfile_Interface'Class;
    type IMediaCaptureVideoProfile_Ptr is access all IMediaCaptureVideoProfile;
+   type IMediaCaptureVideoProfile2_Interface;
+   type IMediaCaptureVideoProfile2 is access all IMediaCaptureVideoProfile2_Interface'Class;
+   type IMediaCaptureVideoProfile2_Ptr is access all IMediaCaptureVideoProfile2;
    type IMediaCaptureInitializationSettings_Interface;
    type IMediaCaptureInitializationSettings is access all IMediaCaptureInitializationSettings_Interface'Class;
    type IMediaCaptureInitializationSettings_Ptr is access all IMediaCaptureInitializationSettings;
@@ -1020,6 +1037,9 @@ package Windows.Media.Capture is
    type ICapturedFrame_Interface;
    type ICapturedFrame is access all ICapturedFrame_Interface'Class;
    type ICapturedFrame_Ptr is access all ICapturedFrame;
+   type ICapturedFrame2_Interface;
+   type ICapturedFrame2 is access all ICapturedFrame2_Interface'Class;
+   type ICapturedFrame2_Ptr is access all ICapturedFrame2;
    type ICapturedFrameWithSoftwareBitmap_Interface;
    type ICapturedFrameWithSoftwareBitmap is access all ICapturedFrameWithSoftwareBitmap_Interface'Class;
    type ICapturedFrameWithSoftwareBitmap_Ptr is access all ICapturedFrameWithSoftwareBitmap;
@@ -1032,6 +1052,9 @@ package Windows.Media.Capture is
    type IMediaCaptureSettings2_Interface;
    type IMediaCaptureSettings2 is access all IMediaCaptureSettings2_Interface'Class;
    type IMediaCaptureSettings2_Ptr is access all IMediaCaptureSettings2;
+   type IMediaCaptureSettings3_Interface;
+   type IMediaCaptureSettings3 is access all IMediaCaptureSettings3_Interface'Class;
+   type IMediaCaptureSettings3_Ptr is access all IMediaCaptureSettings3;
    type IMediaCaptureFocusChangedEventArgs_Interface;
    type IMediaCaptureFocusChangedEventArgs is access all IMediaCaptureFocusChangedEventArgs_Interface'Class;
    type IMediaCaptureFocusChangedEventArgs_Ptr is access all IMediaCaptureFocusChangedEventArgs;
@@ -1586,6 +1609,26 @@ package Windows.Media.Capture is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaCaptureVideoProfileMediaDescription2 : aliased constant Windows.IID := (3332828947, 12845, 16698, (184, 90, 104, 168, 142, 2, 244, 233 ));
+   
+   type IMediaCaptureVideoProfileMediaDescription2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Subtype
+   (
+      This       : access IMediaCaptureVideoProfileMediaDescription2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IMediaCaptureVideoProfileMediaDescription2_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaCaptureVideoProfile : aliased constant Windows.IID := (564163519, 41966, 20175, (158, 246, 80, 176, 188, 78, 19, 5 ));
    
    type IMediaCaptureVideoProfile_Interface is interface and Windows.IInspectable_Interface;
@@ -1629,6 +1672,26 @@ package Windows.Media.Capture is
    (
       This       : access IMediaCaptureVideoProfile_Interface
       ; RetVal : access Windows.Media.Capture.IVectorView_IMediaCaptureVideoProfile -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaCaptureVideoProfile2 : aliased constant Windows.IID := (2547894623, 38094, 18063, (147, 22, 252, 91, 194, 99, 143, 107 ));
+   
+   type IMediaCaptureVideoProfile2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FrameSourceInfos
+   (
+      This       : access IMediaCaptureVideoProfile2_Interface
+      ; RetVal : access Windows.Media.Capture.Frames.IVectorView_IMediaFrameSourceInfo -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IMediaCaptureVideoProfile2_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -2921,6 +2984,26 @@ package Windows.Media.Capture is
    
    ------------------------------------------------------------------------
    
+   IID_ICapturedFrame2 : aliased constant Windows.IID := (1413457617, 48504, 18534, (173, 218, 36, 49, 75, 198, 93, 234 ));
+   
+   type ICapturedFrame2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ControlValues
+   (
+      This       : access ICapturedFrame2_Interface
+      ; RetVal : access Windows.Media.Capture.ICapturedFrameControlValues
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BitmapProperties
+   (
+      This       : access ICapturedFrame2_Interface
+      ; RetVal : access Windows.Graphics.Imaging.IMap_String_BitmapTypedValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICapturedFrameWithSoftwareBitmap : aliased constant Windows.IID := (3046017902, 34051, 18869, (158, 134, 137, 125, 38, 163, 255, 61 ));
    
    type ICapturedFrameWithSoftwareBitmap_Interface is interface and Windows.IInspectable_Interface;
@@ -3071,6 +3154,19 @@ package Windows.Media.Capture is
    (
       This       : access IMediaCaptureSettings2_Interface
       ; RetVal : access Windows.Media.AudioProcessing
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaCaptureSettings3 : aliased constant Windows.IID := (809265090, 32856, 19227, (184, 119, 140, 46, 243, 82, 132, 64 ));
+   
+   type IMediaCaptureSettings3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Direct3D11Device
+   (
+      This       : access IMediaCaptureSettings3_Interface
+      ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
    )
    return Windows.HRESULT is abstract;
    
@@ -7468,14 +7564,14 @@ package Windows.Media.Capture is
    -- Static Procedures/functions
    ------------------------------------------------------------------------
    
-   function GetForCurrentView
-   return Windows.Media.Capture.IAppCapture;
-   
    function SetAllowedAsync
    (
       allowed : Windows.Boolean
    )
    return Windows.Foundation.IAsyncAction;
+   
+   function GetForCurrentView
+   return Windows.Media.Capture.IAppCapture;
    
    function IsVideoProfileSupported
    (
