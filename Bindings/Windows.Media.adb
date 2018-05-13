@@ -25,7 +25,6 @@ with Windows.Graphics.DirectX;
 with Windows.Storage.Streams;
 with Windows.Storage;
 with Windows.ApplicationModel.AppService;
-with Windows.Media.PlayTo;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media is

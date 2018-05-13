@@ -4007,6 +4007,15 @@ package Windows.Devices.SmartCards is
    subtype SmartCardAppletIdGroup is Windows.Devices.SmartCards.ISmartCardAppletIdGroup;
    function CreateSmartCardAppletIdGroup return Windows.Devices.SmartCards.ISmartCardAppletIdGroup;
    
+   function Create
+   (
+      displayName : Windows.String
+      ; appletIds : Windows.Storage.Streams.IVector_IBuffer
+      ; emulationCategory : Windows.Devices.SmartCards.SmartCardEmulationCategory
+      ; emulationType : Windows.Devices.SmartCards.SmartCardEmulationType
+   )
+   return Windows.Devices.SmartCards.ISmartCardAppletIdGroup;
+   
    subtype SmartCardEmulatorApduReceivedEventArgs is Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgs;
    subtype SmartCardEmulatorConnectionDeactivatedEventArgs is Windows.Devices.SmartCards.ISmartCardEmulatorConnectionDeactivatedEventArgs;
    subtype SmartCardEmulatorConnectionProperties is Windows.Devices.SmartCards.ISmartCardEmulatorConnectionProperties;

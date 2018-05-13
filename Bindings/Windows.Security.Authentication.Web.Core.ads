@@ -929,6 +929,27 @@ package Windows.Security.Authentication.Web.Core is
    subtype WebTokenResponse is Windows.Security.Authentication.Web.Core.IWebTokenResponse;
    function CreateWebTokenResponse return Windows.Security.Authentication.Web.Core.IWebTokenResponse;
    
+   function CreateWithToken
+   (
+      token : Windows.String
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenResponse;
+   
+   function CreateWithTokenAndAccount
+   (
+      token : Windows.String
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenResponse;
+   
+   function CreateWithTokenAccountAndError
+   (
+      token : Windows.String
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+      ; error : Windows.Security.Authentication.Web.Core.IWebProviderError
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenResponse;
+   
    subtype WebTokenRequestResult is Windows.Security.Authentication.Web.Core.IWebTokenRequestResult;
    
    ------------------------------------------------------------------------

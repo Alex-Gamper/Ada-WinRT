@@ -2463,6 +2463,12 @@ package Windows.Devices.Usb is
    subtype UsbSetupPacket is Windows.Devices.Usb.IUsbSetupPacket;
    function CreateUsbSetupPacket return Windows.Devices.Usb.IUsbSetupPacket;
    
+   function CreateWithEightByteBuffer
+   (
+      eightByteBuffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Devices.Usb.IUsbSetupPacket;
+   
    subtype UsbDeviceClass is Windows.Devices.Usb.IUsbDeviceClass;
    function CreateUsbDeviceClass return Windows.Devices.Usb.IUsbDeviceClass;
    

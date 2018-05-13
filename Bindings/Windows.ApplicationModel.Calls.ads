@@ -2645,6 +2645,8 @@ package Windows.ApplicationModel.Calls is
    subtype LockScreenCallUI is Windows.ApplicationModel.Calls.ILockScreenCallUI;
    subtype LockScreenCallEndRequestedEventArgs is Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs;
    subtype PhoneCallHistoryEntryAddress is Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress;
+   function CreatePhoneCallHistoryEntryAddress return Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress;
+   
    function Create
    (
       rawAddress : Windows.String

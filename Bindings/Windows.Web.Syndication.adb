@@ -59,6 +59,23 @@ package body Windows.Web.Syndication is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function CreateSyndicationAttribute return Windows.Web.Syndication.ISyndicationAttribute is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationAttribute");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Syndication.ISyndicationAttribute) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Web.Syndication.IID_ISyndicationAttribute'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateSyndicationAttribute
    (
       attributeName : Windows.String
@@ -79,6 +96,23 @@ package body Windows.Web.Syndication is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreateSyndicationNode return Windows.Web.Syndication.ISyndicationNode is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationNode");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Syndication.ISyndicationNode) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Web.Syndication.IID_ISyndicationNode'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function CreateSyndicationNode
@@ -114,6 +148,43 @@ package body Windows.Web.Syndication is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Web.Syndication.IID_ISyndicationGenerator'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateSyndicationGenerator
+   (
+      text : Windows.String
+   )
+   return Windows.Web.Syndication.ISyndicationGenerator is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationGenerator");
+      m_Factory     : Windows.Web.Syndication.ISyndicationGeneratorFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Web.Syndication.ISyndicationGenerator := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISyndicationGeneratorFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSyndicationGenerator(text, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateSyndicationText return Windows.Web.Syndication.ISyndicationText is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationText");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Syndication.ISyndicationText) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Web.Syndication.IID_ISyndicationText'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -161,6 +232,23 @@ package body Windows.Web.Syndication is
       return RetVal;
    end;
    
+   function CreateSyndicationContent return Windows.Web.Syndication.ISyndicationContent is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationContent");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Syndication.ISyndicationContent) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Web.Syndication.IID_ISyndicationContent'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateSyndicationContent
    (
       text : Windows.String
@@ -200,6 +288,23 @@ package body Windows.Web.Syndication is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreateSyndicationLink return Windows.Web.Syndication.ISyndicationLink is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationLink");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Syndication.ISyndicationLink) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Web.Syndication.IID_ISyndicationLink'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function CreateSyndicationLink
@@ -263,6 +368,48 @@ package body Windows.Web.Syndication is
       return Convert(RetVal);
    end;
    
+   function CreateSyndicationPerson
+   (
+      name : Windows.String
+   )
+   return Windows.Web.Syndication.ISyndicationPerson is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationPerson");
+      m_Factory     : Windows.Web.Syndication.ISyndicationPersonFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Web.Syndication.ISyndicationPerson := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISyndicationPersonFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSyndicationPerson(name, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateSyndicationPersonEx
+   (
+      name : Windows.String
+      ; email : Windows.String
+      ; uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Web.Syndication.ISyndicationPerson is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationPerson");
+      m_Factory     : Windows.Web.Syndication.ISyndicationPersonFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Web.Syndication.ISyndicationPerson := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISyndicationPersonFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSyndicationPersonEx(name, email, uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateSyndicationCategory return Windows.Web.Syndication.ISyndicationCategory is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationCategory");
@@ -274,6 +421,65 @@ package body Windows.Web.Syndication is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Web.Syndication.IID_ISyndicationCategory'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateSyndicationCategory
+   (
+      term : Windows.String
+   )
+   return Windows.Web.Syndication.ISyndicationCategory is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationCategory");
+      m_Factory     : Windows.Web.Syndication.ISyndicationCategoryFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Web.Syndication.ISyndicationCategory := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISyndicationCategoryFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSyndicationCategory(term, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateSyndicationCategoryEx
+   (
+      term : Windows.String
+      ; scheme : Windows.String
+      ; label : Windows.String
+   )
+   return Windows.Web.Syndication.ISyndicationCategory is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationCategory");
+      m_Factory     : Windows.Web.Syndication.ISyndicationCategoryFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Web.Syndication.ISyndicationCategory := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISyndicationCategoryFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSyndicationCategoryEx(term, scheme, label, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateSyndicationFeed return Windows.Web.Syndication.ISyndicationFeed is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationFeed");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Syndication.ISyndicationFeed) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Web.Syndication.IID_ISyndicationFeed'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -300,6 +506,23 @@ package body Windows.Web.Syndication is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreateSyndicationItem return Windows.Web.Syndication.ISyndicationItem is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationItem");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.Syndication.ISyndicationItem) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Web.Syndication.IID_ISyndicationItem'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function CreateSyndicationItem
@@ -339,6 +562,26 @@ package body Windows.Web.Syndication is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function CreateSyndicationClient
+   (
+      serverCredential : Windows.Security.Credentials.IPasswordCredential
+   )
+   return Windows.Web.Syndication.ISyndicationClient is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Syndication.SyndicationClient");
+      m_Factory     : Windows.Web.Syndication.ISyndicationClientFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Web.Syndication.ISyndicationClient := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISyndicationClientFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateSyndicationClient(serverCredential, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    ------------------------------------------------------------------------

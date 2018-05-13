@@ -2935,6 +2935,8 @@ package Windows.UI.Xaml.Input is
    subtype InertiaRotationBehavior is Windows.UI.Xaml.Input.IInertiaRotationBehavior;
    subtype InertiaTranslationBehavior is Windows.UI.Xaml.Input.IInertiaTranslationBehavior;
    subtype ManipulationPivot is Windows.UI.Xaml.Input.IManipulationPivot;
+   function CreateManipulationPivot return Windows.UI.Xaml.Input.IManipulationPivot;
+   
    function CreateInstanceWithCenterAndRadius
    (
       center : Windows.Foundation.Point
@@ -2958,6 +2960,12 @@ package Windows.UI.Xaml.Input is
    
    subtype InputScopeName is Windows.UI.Xaml.Input.IInputScopeName;
    function CreateInputScopeName return Windows.UI.Xaml.Input.IInputScopeName;
+   
+   function CreateInstance
+   (
+      nameValue : Windows.UI.Xaml.Input.InputScopeNameValue
+   )
+   return Windows.UI.Xaml.Input.IInputScopeName;
    
    subtype KeyboardAccelerator is Windows.UI.Xaml.Input.IKeyboardAccelerator;
    

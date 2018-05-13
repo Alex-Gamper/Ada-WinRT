@@ -118,6 +118,26 @@ package body Windows.Foundation.Diagnostics is
       return Convert(RetVal);
    end;
    
+   function CreateWithKeywords
+   (
+      keywords : Windows.Int64
+   )
+   return Windows.Foundation.Diagnostics.ILoggingOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingOptions");
+      m_Factory     : Windows.Foundation.Diagnostics.ILoggingOptionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Diagnostics.ILoggingOptions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILoggingOptionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithKeywords(keywords, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateLoggingChannelOptions return Windows.Foundation.Diagnostics.ILoggingChannelOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingChannelOptions");
@@ -133,6 +153,26 @@ package body Windows.Foundation.Diagnostics is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      group : Windows.Guid
+   )
+   return Windows.Foundation.Diagnostics.ILoggingChannelOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingChannelOptions");
+      m_Factory     : Windows.Foundation.Diagnostics.ILoggingChannelOptionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Diagnostics.ILoggingChannelOptions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILoggingChannelOptionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(group, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function CreateLoggingFields return Windows.Foundation.Diagnostics.ILoggingFields is
@@ -209,6 +249,49 @@ package body Windows.Foundation.Diagnostics is
       Hr := RoGetActivationFactory(m_hString, IID_ILoggingChannelFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(name, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithOptions
+   (
+      name : Windows.String
+      ; options : Windows.Foundation.Diagnostics.ILoggingChannelOptions
+   )
+   return Windows.Foundation.Diagnostics.ILoggingChannel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingChannel");
+      m_Factory     : Windows.Foundation.Diagnostics.ILoggingChannelFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Diagnostics.ILoggingChannel := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILoggingChannelFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithOptions(name, options, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithOptionsAndId
+   (
+      name : Windows.String
+      ; options : Windows.Foundation.Diagnostics.ILoggingChannelOptions
+      ; id : Windows.Guid
+   )
+   return Windows.Foundation.Diagnostics.ILoggingChannel is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Foundation.Diagnostics.LoggingChannel");
+      m_Factory     : Windows.Foundation.Diagnostics.ILoggingChannelFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Diagnostics.ILoggingChannel := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILoggingChannelFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithOptionsAndId(name, options, id, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

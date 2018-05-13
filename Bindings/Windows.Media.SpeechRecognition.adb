@@ -266,6 +266,26 @@ package body Windows.Media.SpeechRecognition is
       return Convert(RetVal);
    end;
    
+   function Create
+   (
+      language : Windows.Globalization.ILanguage
+   )
+   return Windows.Media.SpeechRecognition.ISpeechRecognizer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.SpeechRecognition.SpeechRecognizer");
+      m_Factory     : Windows.Media.SpeechRecognition.ISpeechRecognizerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.SpeechRecognition.ISpeechRecognizer := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpeechRecognizerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(language, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------

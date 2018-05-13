@@ -2940,6 +2940,8 @@ package Windows.UI.Core is
    subtype CoreIndependentInputSource is Windows.UI.Core.ICoreInputSourceBase;
    subtype CoreWindowPopupShowingEventArgs is Windows.UI.Core.ICoreWindowPopupShowingEventArgs;
    subtype CoreWindowDialog is Windows.UI.Core.ICoreWindowDialog;
+   function CreateCoreWindowDialog return Windows.UI.Core.ICoreWindowDialog;
+   
    function CreateWithTitle
    (
       title : Windows.String

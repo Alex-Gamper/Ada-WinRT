@@ -1899,9 +1899,24 @@ package Windows.Networking.BackgroundTransfer is
    subtype BackgroundTransferContentPart is Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart;
    function CreateBackgroundTransferContentPart return Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart;
    
+   function CreateWithName
+   (
+      name : Windows.String
+   )
+   return Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart;
+   
+   function CreateWithNameAndFileName
+   (
+      name : Windows.String
+      ; fileName : Windows.String
+   )
+   return Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart;
+   
    subtype ResponseInformation is Windows.Networking.BackgroundTransfer.IResponseInformation;
    subtype BackgroundTransferRangesDownloadedEventArgs is Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs;
    subtype BackgroundDownloader is Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
+   function CreateBackgroundDownloader return Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
+   
    function CreateWithCompletionGroup
    (
       completionGroup : Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup
@@ -1909,6 +1924,8 @@ package Windows.Networking.BackgroundTransfer is
    return Windows.Networking.BackgroundTransfer.IBackgroundDownloader;
    
    subtype BackgroundUploader is Windows.Networking.BackgroundTransfer.IBackgroundUploader;
+   function CreateBackgroundUploader return Windows.Networking.BackgroundTransfer.IBackgroundUploader;
+   
    function CreateWithCompletionGroup
    (
       completionGroup : Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup

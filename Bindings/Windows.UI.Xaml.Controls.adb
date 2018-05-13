@@ -2246,6 +2246,23 @@ package body Windows.UI.Xaml.Controls is
       return Convert(RetVal);
    end;
    
+   function CreateWebView return Windows.UI.Xaml.Controls.IWebView is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.WebView");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Controls.IWebView) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Controls.IID_IWebView'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateInstanceWithExecutionMode
    (
       executionMode : Windows.UI.Xaml.Controls.WebViewExecutionMode
@@ -2332,6 +2349,26 @@ package body Windows.UI.Xaml.Controls is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function CreateInstanceWithSymbol
+   (
+      symbol : Windows.UI.Xaml.Controls.Symbol
+   )
+   return Windows.UI.Xaml.Controls.ISymbolIcon is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.SymbolIcon");
+      m_Factory     : Windows.UI.Xaml.Controls.ISymbolIconFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ISymbolIcon := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISymbolIconFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithSymbol(symbol, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function CreateWrapGrid return Windows.UI.Xaml.Controls.IWrapGrid is

@@ -2609,6 +2609,8 @@ package Windows.Web.Syndication is
    ------------------------------------------------------------------------
    
    subtype SyndicationAttribute is Windows.Web.Syndication.ISyndicationAttribute;
+   function CreateSyndicationAttribute return Windows.Web.Syndication.ISyndicationAttribute;
+   
    function CreateSyndicationAttribute
    (
       attributeName : Windows.String
@@ -2618,6 +2620,8 @@ package Windows.Web.Syndication is
    return Windows.Web.Syndication.ISyndicationAttribute;
    
    subtype SyndicationNode is Windows.Web.Syndication.ISyndicationNode;
+   function CreateSyndicationNode return Windows.Web.Syndication.ISyndicationNode;
+   
    function CreateSyndicationNode
    (
       nodeName : Windows.String
@@ -2629,7 +2633,15 @@ package Windows.Web.Syndication is
    subtype SyndicationGenerator is Windows.Web.Syndication.ISyndicationGenerator;
    function CreateSyndicationGenerator return Windows.Web.Syndication.ISyndicationGenerator;
    
+   function CreateSyndicationGenerator
+   (
+      text : Windows.String
+   )
+   return Windows.Web.Syndication.ISyndicationGenerator;
+   
    subtype SyndicationText is Windows.Web.Syndication.ISyndicationText;
+   function CreateSyndicationText return Windows.Web.Syndication.ISyndicationText;
+   
    function CreateSyndicationText
    (
       text : Windows.String
@@ -2644,6 +2656,8 @@ package Windows.Web.Syndication is
    return Windows.Web.Syndication.ISyndicationText;
    
    subtype SyndicationContent is Windows.Web.Syndication.ISyndicationContent;
+   function CreateSyndicationContent return Windows.Web.Syndication.ISyndicationContent;
+   
    function CreateSyndicationContent
    (
       text : Windows.String
@@ -2658,6 +2672,8 @@ package Windows.Web.Syndication is
    return Windows.Web.Syndication.ISyndicationContent;
    
    subtype SyndicationLink is Windows.Web.Syndication.ISyndicationLink;
+   function CreateSyndicationLink return Windows.Web.Syndication.ISyndicationLink;
+   
    function CreateSyndicationLink
    (
       uri : Windows.Foundation.IUriRuntimeClass
@@ -2677,10 +2693,40 @@ package Windows.Web.Syndication is
    subtype SyndicationPerson is Windows.Web.Syndication.ISyndicationPerson;
    function CreateSyndicationPerson return Windows.Web.Syndication.ISyndicationPerson;
    
+   function CreateSyndicationPerson
+   (
+      name : Windows.String
+   )
+   return Windows.Web.Syndication.ISyndicationPerson;
+   
+   function CreateSyndicationPersonEx
+   (
+      name : Windows.String
+      ; email : Windows.String
+      ; uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Web.Syndication.ISyndicationPerson;
+   
    subtype SyndicationCategory is Windows.Web.Syndication.ISyndicationCategory;
    function CreateSyndicationCategory return Windows.Web.Syndication.ISyndicationCategory;
    
+   function CreateSyndicationCategory
+   (
+      term : Windows.String
+   )
+   return Windows.Web.Syndication.ISyndicationCategory;
+   
+   function CreateSyndicationCategoryEx
+   (
+      term : Windows.String
+      ; scheme : Windows.String
+      ; label : Windows.String
+   )
+   return Windows.Web.Syndication.ISyndicationCategory;
+   
    subtype SyndicationFeed is Windows.Web.Syndication.ISyndicationFeed;
+   function CreateSyndicationFeed return Windows.Web.Syndication.ISyndicationFeed;
+   
    function CreateSyndicationFeed
    (
       title : Windows.String
@@ -2690,6 +2736,8 @@ package Windows.Web.Syndication is
    return Windows.Web.Syndication.ISyndicationFeed;
    
    subtype SyndicationItem is Windows.Web.Syndication.ISyndicationItem;
+   function CreateSyndicationItem return Windows.Web.Syndication.ISyndicationItem;
+   
    function CreateSyndicationItem
    (
       title : Windows.String
@@ -2700,6 +2748,12 @@ package Windows.Web.Syndication is
    
    subtype SyndicationClient is Windows.Web.Syndication.ISyndicationClient;
    function CreateSyndicationClient return Windows.Web.Syndication.ISyndicationClient;
+   
+   function CreateSyndicationClient
+   (
+      serverCredential : Windows.Security.Credentials.IPasswordCredential
+   )
+   return Windows.Web.Syndication.ISyndicationClient;
    
    
    ------------------------------------------------------------------------

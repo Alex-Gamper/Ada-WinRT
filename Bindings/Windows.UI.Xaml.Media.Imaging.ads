@@ -1081,6 +1081,8 @@ package Windows.UI.Xaml.Media.Imaging is
    
    subtype SurfaceImageSource is Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
    subtype BitmapImage is Windows.UI.Xaml.Media.Imaging.IBitmapImage;
+   function CreateBitmapImage return Windows.UI.Xaml.Media.Imaging.IBitmapImage;
+   
    function CreateInstanceWithUriSource
    (
       uriSource : Windows.Foundation.IUriRuntimeClass

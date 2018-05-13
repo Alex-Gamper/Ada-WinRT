@@ -102,6 +102,12 @@ package Windows.Security.Cryptography.DataProtection is
    subtype DataProtectionProvider is Windows.Security.Cryptography.DataProtection.IDataProtectionProvider;
    function CreateDataProtectionProvider return Windows.Security.Cryptography.DataProtection.IDataProtectionProvider;
    
+   function CreateOverloadExplicit
+   (
+      protectionDescriptor : Windows.String
+   )
+   return Windows.Security.Cryptography.DataProtection.IDataProtectionProvider;
+   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

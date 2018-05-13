@@ -158,6 +158,43 @@ package body Windows.UI.WebUI.Core is
    
    function Create
    (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon");
+      m_Factory     : Windows.UI.WebUI.Core.IWebUICommandBarBitmapIconFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUICommandBarBitmapIconFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWebUICommandBarSymbolIcon return Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.WebUI.Core.IID_IWebUICommandBarSymbolIcon'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
       symbol : Windows.String
    )
    return Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon is

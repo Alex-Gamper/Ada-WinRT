@@ -588,6 +588,26 @@ package body Windows.UI.Xaml is
       return Convert(RetVal);
    end;
    
+   function CreateInstance
+   (
+      targetProperty : Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.UI.Xaml.ITargetPropertyPath is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.TargetPropertyPath");
+      m_Factory     : Windows.UI.Xaml.ITargetPropertyPathFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.ITargetPropertyPath := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITargetPropertyPathFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(targetProperty, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateTriggerActionCollection return Windows.UI.Xaml.IVector_TriggerAction is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.TriggerActionCollection");
@@ -623,6 +643,23 @@ package body Windows.UI.Xaml is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreateStyle return Windows.UI.Xaml.IStyle is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Style");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.IStyle) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.IID_IStyle'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function CreateInstance
@@ -690,6 +727,23 @@ package body Windows.UI.Xaml is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.IID_IEventTrigger'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateSetter return Windows.UI.Xaml.ISetter is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Setter");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.ISetter) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.IID_ISetter'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

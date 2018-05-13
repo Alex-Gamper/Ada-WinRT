@@ -1627,6 +1627,8 @@ package Windows.Devices.Bluetooth.Advertisement is
    ------------------------------------------------------------------------
    
    subtype BluetoothLEManufacturerData is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData;
+   function CreateBluetoothLEManufacturerData return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData;
+   
    function Create
    (
       companyId : Windows.UInt16
@@ -1635,6 +1637,8 @@ package Windows.Devices.Bluetooth.Advertisement is
    return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData;
    
    subtype BluetoothLEAdvertisementDataSection is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection;
+   function CreateBluetoothLEAdvertisementDataSection return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection;
+   
    function Create
    (
       dataType : Windows.UInt8
@@ -1646,6 +1650,8 @@ package Windows.Devices.Bluetooth.Advertisement is
    function CreateBluetoothLEAdvertisement return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement;
    
    subtype BluetoothLEAdvertisementBytePattern is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePattern;
+   function CreateBluetoothLEAdvertisementBytePattern return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePattern;
+   
    function Create
    (
       dataType : Windows.UInt8
@@ -1661,10 +1667,22 @@ package Windows.Devices.Bluetooth.Advertisement is
    subtype BluetoothLEAdvertisementWatcher is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher;
    function CreateBluetoothLEAdvertisementWatcher return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher;
    
+   function Create
+   (
+      advertisementFilter : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementFilter
+   )
+   return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher;
+   
    subtype BluetoothLEAdvertisementReceivedEventArgs is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementReceivedEventArgs;
    subtype BluetoothLEAdvertisementPublisherStatusChangedEventArgs is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherStatusChangedEventArgs;
    subtype BluetoothLEAdvertisementPublisher is Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher;
    function CreateBluetoothLEAdvertisementPublisher return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher;
+   
+   function Create
+   (
+      advertisement : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement
+   )
+   return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher;
    
    
    ------------------------------------------------------------------------

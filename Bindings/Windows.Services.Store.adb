@@ -233,6 +233,26 @@ package body Windows.Services.Store is
       return Convert(RetVal);
    end;
    
+   function Create
+   (
+      name : Windows.String
+   )
+   return Windows.Services.Store.IStorePurchaseProperties is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Store.StorePurchaseProperties");
+      m_Factory     : Windows.Services.Store.IStorePurchasePropertiesFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Store.IStorePurchaseProperties := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorePurchasePropertiesFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(name, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateStoreProductOptions return Windows.Services.Store.IStoreProductOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Services.Store.StoreProductOptions");

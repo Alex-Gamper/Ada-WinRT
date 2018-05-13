@@ -1009,6 +1009,12 @@ package Windows.UI.Input.Preview.Injection is
    subtype InjectedInputGamepadInfo is Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo;
    function CreateInjectedInputGamepadInfo return Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo;
    
+   function CreateInstanceFromGamepadReading
+   (
+      reading : Windows.Gaming.Input.GamepadReading
+   )
+   return Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo;
+   
    subtype InjectedInputKeyboardInfo is Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo;
    function CreateInjectedInputKeyboardInfo return Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo;
    

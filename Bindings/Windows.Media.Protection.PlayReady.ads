@@ -2408,6 +2408,19 @@ package Windows.Media.Protection.PlayReady is
    )
    return Windows.Media.Protection.PlayReady.IPlayReadyContentHeader;
    
+   function CreateInstanceFromComponents2
+   (
+      dwFlags : Windows.UInt32
+      ; contentKeyIds : Windows.Guid_Ptr
+      ; contentKeyIdStrings : Windows.String_Ptr
+      ; contentEncryptionAlgorithm : Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm
+      ; licenseAcquisitionUrl : Windows.Foundation.IUriRuntimeClass
+      ; licenseAcquisitionUserInterfaceUrl : Windows.Foundation.IUriRuntimeClass
+      ; customAttributes : Windows.String
+      ; domainServiceId : Windows.Guid
+   )
+   return Windows.Media.Protection.PlayReady.IPlayReadyContentHeader;
+   
    subtype PlayReadySoapMessage is Windows.Media.Protection.PlayReady.IPlayReadySoapMessage;
    subtype PlayReadyIndividualizationServiceRequest is Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest;
    function CreatePlayReadyIndividualizationServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest;
@@ -2419,6 +2432,8 @@ package Windows.Media.Protection.PlayReady is
    function CreatePlayReadyDomainLeaveServiceRequest return Windows.Media.Protection.PlayReady.IPlayReadyDomainLeaveServiceRequest;
    
    subtype PlayReadyLicenseIterable is Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense;
+   function CreatePlayReadyLicenseIterable return Windows.Media.Protection.PlayReady.IIterable_IPlayReadyLicense;
+   
    function CreateInstance
    (
       contentHeader : Windows.Media.Protection.PlayReady.IPlayReadyContentHeader

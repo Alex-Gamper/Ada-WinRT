@@ -45,6 +45,26 @@ package body Windows.UI.Input.Preview.Injection is
       return Convert(RetVal);
    end;
    
+   function CreateInstanceFromGamepadReading
+   (
+      reading : Windows.Gaming.Input.GamepadReading
+   )
+   return Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo");
+      m_Factory     : Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfoFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInjectedInputGamepadInfoFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceFromGamepadReading(reading, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInjectedInputKeyboardInfo return Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo");

@@ -44,6 +44,26 @@ package body Windows.ApplicationModel.Resources is
       return Convert(RetVal);
    end;
    
+   function CreateResourceLoaderByName
+   (
+      name : Windows.String
+   )
+   return Windows.ApplicationModel.Resources.IResourceLoader is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.ResourceLoader");
+      m_Factory     : Windows.ApplicationModel.Resources.IResourceLoaderFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Resources.IResourceLoader := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IResourceLoaderFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateResourceLoaderByName(name, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------

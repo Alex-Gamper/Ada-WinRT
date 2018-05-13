@@ -1763,6 +1763,8 @@ package Windows.Storage.Streams is
    
    subtype DataWriterStoreOperation is Windows.Storage.Streams.IAsyncOperation_UInt32;
    subtype DataWriter is Windows.Storage.Streams.IDataWriter;
+   function CreateDataWriter return Windows.Storage.Streams.IDataWriter;
+   
    function CreateDataWriter
    (
       outputStream : Windows.Storage.Streams.IOutputStream

@@ -72,6 +72,23 @@ package body Windows.Devices.Bluetooth.Advertisement is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function CreateBluetoothLEManufacturerData return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Bluetooth.Advertisement.IID_IBluetoothLEManufacturerData'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create
    (
       companyId : Windows.UInt16
@@ -91,6 +108,23 @@ package body Windows.Devices.Bluetooth.Advertisement is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreateBluetoothLEAdvertisementDataSection return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Bluetooth.Advertisement.IID_IBluetoothLEAdvertisementDataSection'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function Create
@@ -125,6 +159,23 @@ package body Windows.Devices.Bluetooth.Advertisement is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.Devices.Bluetooth.Advertisement.IID_IBluetoothLEAdvertisement'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateBluetoothLEAdvertisementBytePattern return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePattern is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePattern) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.Bluetooth.Advertisement.IID_IBluetoothLEAdvertisementBytePattern'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -187,6 +238,26 @@ package body Windows.Devices.Bluetooth.Advertisement is
       return Convert(RetVal);
    end;
    
+   function Create
+   (
+      advertisementFilter : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementFilter
+   )
+   return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher");
+      m_Factory     : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcherFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementWatcherFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(advertisementFilter, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateBluetoothLEAdvertisementPublisher return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher");
@@ -202,6 +273,26 @@ package body Windows.Devices.Bluetooth.Advertisement is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      advertisement : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement
+   )
+   return Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher");
+      m_Factory     : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBluetoothLEAdvertisementPublisherFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(advertisement, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    ------------------------------------------------------------------------

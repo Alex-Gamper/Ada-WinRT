@@ -3538,6 +3538,19 @@ package Windows.UI.Notifications is
    subtype NotificationData is Windows.UI.Notifications.INotificationData;
    function CreateNotificationData return Windows.UI.Notifications.INotificationData;
    
+   function CreateNotificationDataWithValuesAndSequenceNumber
+   (
+      initialValues : Windows.Address
+      ; sequenceNumber : Windows.UInt32
+   )
+   return Windows.UI.Notifications.INotificationData;
+   
+   function CreateNotificationDataWithValues
+   (
+      initialValues : Windows.Address
+   )
+   return Windows.UI.Notifications.INotificationData;
+   
    subtype ToastCollection is Windows.UI.Notifications.IToastCollection;
    function CreateInstance
    (

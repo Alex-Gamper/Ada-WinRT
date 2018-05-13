@@ -325,6 +325,29 @@ package body Windows.Devices.SmartCards is
    
    function Create
    (
+      displayName : Windows.String
+      ; appletIds : Windows.Storage.Streams.IVector_IBuffer
+      ; emulationCategory : Windows.Devices.SmartCards.SmartCardEmulationCategory
+      ; emulationType : Windows.Devices.SmartCards.SmartCardEmulationType
+   )
+   return Windows.Devices.SmartCards.ISmartCardAppletIdGroup is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.SmartCardAppletIdGroup");
+      m_Factory     : Windows.Devices.SmartCards.ISmartCardAppletIdGroupFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.SmartCards.ISmartCardAppletIdGroup := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISmartCardAppletIdGroupFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(displayName, appletIds, emulationCategory, emulationType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
       commandApdu : Windows.Storage.Streams.IBuffer
       ; responseApdu : Windows.Storage.Streams.IBuffer
    )

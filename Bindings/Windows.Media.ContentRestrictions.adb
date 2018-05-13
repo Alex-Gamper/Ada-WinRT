@@ -97,6 +97,26 @@ package body Windows.Media.ContentRestrictions is
       return Convert(RetVal);
    end;
    
+   function CreateWithMaxAgeRating
+   (
+      maxAgeRating : Windows.UInt32
+   )
+   return Windows.Media.ContentRestrictions.IRatedContentRestrictions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.ContentRestrictions.RatedContentRestrictions");
+      m_Factory     : Windows.Media.ContentRestrictions.IRatedContentRestrictionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.ContentRestrictions.IRatedContentRestrictions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRatedContentRestrictionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithMaxAgeRating(maxAgeRating, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------

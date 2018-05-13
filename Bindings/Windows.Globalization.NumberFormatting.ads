@@ -695,7 +695,16 @@ package Windows.Globalization.NumberFormatting is
    subtype DecimalFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    function CreateDecimalFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
+   function CreateDecimalFormatter
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+      ; geographicRegion : Windows.String
+   )
+   return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
+   
    subtype PercentFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
+   function CreatePercentFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
+   
    function CreatePercentFormatter
    (
       languages : Windows.Foundation.Collections.IIterable_String
@@ -704,6 +713,8 @@ package Windows.Globalization.NumberFormatting is
    return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
    
    subtype PermilleFormatter is Windows.Globalization.NumberFormatting.INumberFormatterOptions;
+   function CreatePermilleFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions;
+   
    function CreatePermilleFormatter
    (
       languages : Windows.Foundation.Collections.IIterable_String
@@ -727,6 +738,8 @@ package Windows.Globalization.NumberFormatting is
    return Windows.Globalization.NumberFormatting.ICurrencyFormatter;
    
    subtype NumeralSystemTranslator is Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
+   function CreateNumeralSystemTranslator return Windows.Globalization.NumberFormatting.INumeralSystemTranslator;
+   
    function Create
    (
       languages : Windows.Foundation.Collections.IIterable_String

@@ -5296,10 +5296,25 @@ package Windows.ApplicationModel.Email is
    subtype EmailQueryOptions is Windows.ApplicationModel.Email.IEmailQueryOptions;
    function CreateEmailQueryOptions return Windows.ApplicationModel.Email.IEmailQueryOptions;
    
+   function CreateWithText
+   (
+      text : Windows.String
+   )
+   return Windows.ApplicationModel.Email.IEmailQueryOptions;
+   
+   function CreateWithTextAndFields
+   (
+      text : Windows.String
+      ; fields : Windows.ApplicationModel.Email.EmailQuerySearchFields
+   )
+   return Windows.ApplicationModel.Email.IEmailQueryOptions;
+   
    subtype EmailMessageReader is Windows.ApplicationModel.Email.IEmailMessageReader;
    subtype EmailConversation is Windows.ApplicationModel.Email.IEmailConversation;
    subtype EmailFolder is Windows.ApplicationModel.Email.IEmailFolder;
    subtype EmailRecipient is Windows.ApplicationModel.Email.IEmailRecipient;
+   function CreateEmailRecipient return Windows.ApplicationModel.Email.IEmailRecipient;
+   
    function Create
    (
       address : Windows.String
@@ -5316,7 +5331,17 @@ package Windows.ApplicationModel.Email is
    subtype EmailIrmTemplate is Windows.ApplicationModel.Email.IEmailIrmTemplate;
    function CreateEmailIrmTemplate return Windows.ApplicationModel.Email.IEmailIrmTemplate;
    
+   function Create
+   (
+      id : Windows.String
+      ; name : Windows.String
+      ; description : Windows.String
+   )
+   return Windows.ApplicationModel.Email.IEmailIrmTemplate;
+   
    subtype EmailIrmInfo is Windows.ApplicationModel.Email.IEmailIrmInfo;
+   function CreateEmailIrmInfo return Windows.ApplicationModel.Email.IEmailIrmInfo;
+   
    function Create
    (
       expiration : Windows.Foundation.DateTime
@@ -5326,6 +5351,21 @@ package Windows.ApplicationModel.Email is
    
    subtype EmailAttachment is Windows.ApplicationModel.Email.IEmailAttachment;
    function CreateEmailAttachment return Windows.ApplicationModel.Email.IEmailAttachment;
+   
+   function Create
+   (
+      fileName : Windows.String
+      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.ApplicationModel.Email.IEmailAttachment;
+   
+   function Create
+   (
+      fileName : Windows.String
+      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; mimeType : Windows.String
+   )
+   return Windows.ApplicationModel.Email.IEmailAttachment;
    
    subtype EmailMeetingInfo is Windows.ApplicationModel.Email.IEmailMeetingInfo;
    function CreateEmailMeetingInfo return Windows.ApplicationModel.Email.IEmailMeetingInfo;

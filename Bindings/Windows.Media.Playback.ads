@@ -5003,6 +5003,21 @@ package Windows.Media.Playback is
    )
    return Windows.Media.Playback.IMediaPlaybackItem;
    
+   function CreateWithStartTime
+   (
+      source : Windows.Media.Core.IMediaSource2
+      ; startTime : Windows.Foundation.TimeSpan
+   )
+   return Windows.Media.Playback.IMediaPlaybackItem;
+   
+   function CreateWithStartTimeAndDurationLimit
+   (
+      source : Windows.Media.Core.IMediaSource2
+      ; startTime : Windows.Foundation.TimeSpan
+      ; durationLimit : Windows.Foundation.TimeSpan
+   )
+   return Windows.Media.Playback.IMediaPlaybackItem;
+   
    subtype MediaPlaybackAudioTrackList is Windows.Media.Playback.IVectorView_AudioTrack;
    subtype MediaPlaybackVideoTrackList is Windows.Media.Playback.IVectorView_VideoTrack;
    subtype MediaPlaybackTimedMetadataTrackList is Windows.Media.Playback.IVectorView_TimedMetadataTrack;

@@ -92,6 +92,26 @@ package body Windows.Devices.Usb is
       return Convert(RetVal);
    end;
    
+   function CreateWithEightByteBuffer
+   (
+      eightByteBuffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.Devices.Usb.IUsbSetupPacket is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbSetupPacket");
+      m_Factory     : Windows.Devices.Usb.IUsbSetupPacketFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Usb.IUsbSetupPacket := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUsbSetupPacketFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithEightByteBuffer(eightByteBuffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateUsbDeviceClass return Windows.Devices.Usb.IUsbDeviceClass is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Usb.UsbDeviceClass");

@@ -78,6 +78,23 @@ package body Windows.Web.UI.Interop is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function CreateWebViewControlProcess return Windows.Web.UI.Interop.IWebViewControlProcess is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.UI.Interop.WebViewControlProcess");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.UI.Interop.IWebViewControlProcess) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Web.UI.Interop.IID_IWebViewControlProcess'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateWithOptions
    (
       processOptions : Windows.Web.UI.Interop.IWebViewControlProcessOptions

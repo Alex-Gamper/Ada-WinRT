@@ -31,6 +31,23 @@ package body Windows.Web.AtomPub is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function CreateAtomPubClient return Windows.Web.AtomPub.IAtomPubClient is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.AtomPub.AtomPubClient");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Web.AtomPub.IAtomPubClient) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Web.AtomPub.IID_IAtomPubClient'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateAtomPubClientWithCredentials
    (
       serverCredential : Windows.Security.Credentials.IPasswordCredential

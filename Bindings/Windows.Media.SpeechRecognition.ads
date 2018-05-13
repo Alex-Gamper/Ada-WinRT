@@ -1597,6 +1597,12 @@ package Windows.Media.SpeechRecognition is
    subtype SpeechRecognizer is Windows.Media.SpeechRecognition.ISpeechRecognizer;
    function CreateSpeechRecognizer return Windows.Media.SpeechRecognition.ISpeechRecognizer;
    
+   function Create
+   (
+      language : Windows.Globalization.ILanguage
+   )
+   return Windows.Media.SpeechRecognition.ISpeechRecognizer;
+   
    subtype SpeechRecognitionQualityDegradingEventArgs is Windows.Media.SpeechRecognition.ISpeechRecognitionQualityDegradingEventArgs;
    subtype SpeechRecognizerStateChangedEventArgs is Windows.Media.SpeechRecognition.ISpeechRecognizerStateChangedEventArgs;
    subtype SpeechRecognitionVoiceCommandDefinitionConstraint is Windows.Media.SpeechRecognition.ISpeechRecognitionVoiceCommandDefinitionConstraint;

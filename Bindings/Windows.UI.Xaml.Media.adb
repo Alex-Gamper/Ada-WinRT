@@ -328,6 +328,26 @@ package body Windows.UI.Xaml.Media is
       return Convert(RetVal);
    end;
    
+   function CreateInstanceWithColor
+   (
+      color : Windows.UI.Color
+   )
+   return Windows.UI.Xaml.Media.ISolidColorBrush is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.SolidColorBrush");
+      m_Factory     : Windows.UI.Xaml.Media.ISolidColorBrushFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Media.ISolidColorBrush := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISolidColorBrushFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstanceWithColor(color, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateCompositeTransform return Windows.UI.Xaml.Media.ICompositeTransform is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.CompositeTransform");
@@ -747,6 +767,23 @@ package body Windows.UI.Xaml.Media is
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
          Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.IID_IImageBrush'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function CreateLinearGradientBrush return Windows.UI.Xaml.Media.ILinearGradientBrush is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.LinearGradientBrush");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.ILinearGradientBrush) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.IID_ILinearGradientBrush'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

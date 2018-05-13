@@ -123,6 +123,64 @@ package body Windows.Networking.BackgroundTransfer is
       return Convert(RetVal);
    end;
    
+   function CreateWithName
+   (
+      name : Windows.String
+   )
+   return Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart");
+      m_Factory     : Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundTransferContentPartFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithName(name, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithNameAndFileName
+   (
+      name : Windows.String
+      ; fileName : Windows.String
+   )
+   return Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart");
+      m_Factory     : Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBackgroundTransferContentPartFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithNameAndFileName(name, fileName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateBackgroundDownloader return Windows.Networking.BackgroundTransfer.IBackgroundDownloader is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundDownloader");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.BackgroundTransfer.IBackgroundDownloader) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Networking.BackgroundTransfer.IID_IBackgroundDownloader'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateWithCompletionGroup
    (
       completionGroup : Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup
@@ -141,6 +199,23 @@ package body Windows.Networking.BackgroundTransfer is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreateBackgroundUploader return Windows.Networking.BackgroundTransfer.IBackgroundUploader is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.BackgroundTransfer.BackgroundUploader");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Networking.BackgroundTransfer.IBackgroundUploader) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Networking.BackgroundTransfer.IID_IBackgroundUploader'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function CreateWithCompletionGroup

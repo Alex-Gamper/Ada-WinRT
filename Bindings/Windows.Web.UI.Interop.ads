@@ -436,6 +436,8 @@ package Windows.Web.UI.Interop is
    ------------------------------------------------------------------------
    
    subtype WebViewControlProcess is Windows.Web.UI.Interop.IWebViewControlProcess;
+   function CreateWebViewControlProcess return Windows.Web.UI.Interop.IWebViewControlProcess;
+   
    function CreateWithOptions
    (
       processOptions : Windows.Web.UI.Interop.IWebViewControlProcessOptions

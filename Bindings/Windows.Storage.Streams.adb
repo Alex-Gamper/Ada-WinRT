@@ -131,6 +131,23 @@ package body Windows.Storage.Streams is
       return RetVal;
    end;
    
+   function CreateDataWriter return Windows.Storage.Streams.IDataWriter is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Streams.DataWriter");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Storage.Streams.IDataWriter) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Storage.Streams.IID_IDataWriter'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateDataWriter
    (
       outputStream : Windows.Storage.Streams.IOutputStream

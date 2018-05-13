@@ -1195,6 +1195,8 @@ package Windows.Security.Credentials is
    return Windows.Security.Credentials.IWebAccount;
    
    subtype PasswordCredential is Windows.Security.Credentials.IPasswordCredential;
+   function CreatePasswordCredential return Windows.Security.Credentials.IPasswordCredential;
+   
    function CreatePasswordCredential
    (
       resource : Windows.String

@@ -1277,6 +1277,8 @@ package Windows.Storage.Search is
    function CreateIndexableContent return Windows.Storage.Search.IIndexableContent;
    
    subtype QueryOptions is Windows.Storage.Search.IQueryOptions;
+   function CreateQueryOptions return Windows.Storage.Search.IQueryOptions;
+   
    function CreateCommonFileQuery
    (
       query : Windows.Storage.Search.CommonFileQuery

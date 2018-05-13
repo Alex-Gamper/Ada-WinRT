@@ -41189,6 +41189,8 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype WebView is Windows.UI.Xaml.Controls.IWebView;
+   function CreateWebView return Windows.UI.Xaml.Controls.IWebView;
+   
    function CreateInstanceWithExecutionMode
    (
       executionMode : Windows.UI.Xaml.Controls.WebViewExecutionMode
@@ -41463,6 +41465,12 @@ package Windows.UI.Xaml.Controls is
    
    subtype SymbolIcon is Windows.UI.Xaml.Controls.ISymbolIcon;
    function CreateSymbolIcon return Windows.UI.Xaml.Controls.ISymbolIcon;
+   
+   function CreateInstanceWithSymbol
+   (
+      symbol : Windows.UI.Xaml.Controls.Symbol
+   )
+   return Windows.UI.Xaml.Controls.ISymbolIcon;
    
    subtype SwapChainBackgroundPanel is Windows.UI.Xaml.Controls.ISwapChainBackgroundPanel;
    

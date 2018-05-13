@@ -45,6 +45,26 @@ package body Windows.Security.Cryptography.DataProtection is
       return Convert(RetVal);
    end;
    
+   function CreateOverloadExplicit
+   (
+      protectionDescriptor : Windows.String
+   )
+   return Windows.Security.Cryptography.DataProtection.IDataProtectionProvider is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Cryptography.DataProtection.DataProtectionProvider");
+      m_Factory     : Windows.Security.Cryptography.DataProtection.IDataProtectionProviderFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Cryptography.DataProtection.IDataProtectionProvider := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDataProtectionProviderFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateOverloadExplicit(protectionDescriptor, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------

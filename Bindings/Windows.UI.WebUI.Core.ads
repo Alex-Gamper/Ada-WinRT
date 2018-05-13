@@ -830,7 +830,15 @@ package Windows.UI.WebUI.Core is
    subtype WebUICommandBarBitmapIcon is Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon;
    function CreateWebUICommandBarBitmapIcon return Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon;
    
+   function Create
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon;
+   
    subtype WebUICommandBarSymbolIcon is Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon;
+   function CreateWebUICommandBarSymbolIcon return Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon;
+   
    function Create
    (
       symbol : Windows.String

@@ -224,6 +224,26 @@ package body Windows.Devices.AllJoyn is
    
    function Create
    (
+      connectionSpecification : Windows.String
+   )
+   return Windows.Devices.AllJoyn.IAllJoynBusAttachment is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynBusAttachment");
+      m_Factory     : Windows.Devices.AllJoyn.IAllJoynBusAttachmentFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.AllJoyn.IAllJoynBusAttachment := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAllJoynBusAttachmentFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(connectionSpecification, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
       uniqueName : Windows.String
       ; objectPath : Windows.String
       ; sessionPort : Windows.UInt16
@@ -346,6 +366,23 @@ package body Windows.Devices.AllJoyn is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreateAllJoynBusObject return Windows.Devices.AllJoyn.IAllJoynBusObject is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.AllJoyn.AllJoynBusObject");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Devices.AllJoyn.IAllJoynBusObject) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Devices.AllJoyn.IID_IAllJoynBusObject'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function Create

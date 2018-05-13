@@ -269,6 +269,23 @@ package body Windows.UI.Xaml.Input is
       return Convert(RetVal);
    end;
    
+   function CreateManipulationPivot return Windows.UI.Xaml.Input.IManipulationPivot is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.ManipulationPivot");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Input.IManipulationPivot) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Input.IID_IManipulationPivot'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateInstanceWithCenterAndRadius
    (
       center : Windows.Foundation.Point
@@ -373,6 +390,26 @@ package body Windows.UI.Xaml.Input is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function CreateInstance
+   (
+      nameValue : Windows.UI.Xaml.Input.InputScopeNameValue
+   )
+   return Windows.UI.Xaml.Input.IInputScopeName is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.InputScopeName");
+      m_Factory     : Windows.UI.Xaml.Input.IInputScopeNameFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Input.IInputScopeName := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInputScopeNameFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(nameValue, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function CreateManipulationCompletedRoutedEventArgs return Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs is

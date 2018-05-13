@@ -2762,6 +2762,12 @@ package Windows.ApplicationModel.Background is
    subtype ContentPrefetchTrigger is Windows.ApplicationModel.Background.IContentPrefetchTrigger;
    function CreateContentPrefetchTrigger return Windows.ApplicationModel.Background.IContentPrefetchTrigger;
    
+   function Create
+   (
+      waitInterval : Windows.Foundation.TimeSpan
+   )
+   return Windows.ApplicationModel.Background.IContentPrefetchTrigger;
+   
    subtype SecondaryAuthenticationFactorAuthenticationTrigger is Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger;
    function CreateSecondaryAuthenticationFactorAuthenticationTrigger return Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger;
    
@@ -2919,6 +2925,12 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger;
    
+   function Create
+   (
+      characteristic : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
+   )
+   return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger;
+   
    subtype GattServiceProviderTrigger is Windows.ApplicationModel.Background.IGattServiceProviderTrigger;
    subtype GattServiceProviderTriggerResult is Windows.ApplicationModel.Background.IGattServiceProviderTriggerResult;
    subtype BluetoothLEAdvertisementWatcherTrigger is Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger;
@@ -2959,6 +2971,8 @@ package Windows.ApplicationModel.Background is
    function CreateSocketActivityTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype PushNotificationTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreatePushNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
    function Create
    (
       applicationId : Windows.String
@@ -2966,6 +2980,8 @@ package Windows.ApplicationModel.Background is
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype ToastNotificationHistoryChangedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateToastNotificationHistoryChangedTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
    function Create1
    (
       applicationId : Windows.String
@@ -2973,6 +2989,8 @@ package Windows.ApplicationModel.Background is
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype ToastNotificationActionTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateToastNotificationActionTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
    function Create2
    (
       applicationId : Windows.String

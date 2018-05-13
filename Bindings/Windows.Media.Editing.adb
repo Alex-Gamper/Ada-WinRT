@@ -155,6 +155,26 @@ package body Windows.Media.Editing is
       return Convert(RetVal);
    end;
    
+   function CreateWithCompositorDefinition
+   (
+      compositorDefinition : Windows.Media.Effects.IVideoCompositorDefinition
+   )
+   return Windows.Media.Editing.IMediaOverlayLayer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Editing.MediaOverlayLayer");
+      m_Factory     : Windows.Media.Editing.IMediaOverlayLayerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Editing.IMediaOverlayLayer := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaOverlayLayerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithCompositorDefinition(compositorDefinition, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------

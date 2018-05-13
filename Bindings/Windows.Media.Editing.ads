@@ -1772,6 +1772,12 @@ package Windows.Media.Editing is
    subtype MediaOverlayLayer is Windows.Media.Editing.IMediaOverlayLayer;
    function CreateMediaOverlayLayer return Windows.Media.Editing.IMediaOverlayLayer;
    
+   function CreateWithCompositorDefinition
+   (
+      compositorDefinition : Windows.Media.Effects.IVideoCompositorDefinition
+   )
+   return Windows.Media.Editing.IMediaOverlayLayer;
+   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

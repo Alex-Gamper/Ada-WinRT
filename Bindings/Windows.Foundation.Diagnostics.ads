@@ -2162,8 +2162,20 @@ package Windows.Foundation.Diagnostics is
    subtype LoggingOptions is Windows.Foundation.Diagnostics.ILoggingOptions;
    function CreateLoggingOptions return Windows.Foundation.Diagnostics.ILoggingOptions;
    
+   function CreateWithKeywords
+   (
+      keywords : Windows.Int64
+   )
+   return Windows.Foundation.Diagnostics.ILoggingOptions;
+   
    subtype LoggingChannelOptions is Windows.Foundation.Diagnostics.ILoggingChannelOptions;
    function CreateLoggingChannelOptions return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
+   
+   function Create
+   (
+      group : Windows.Guid
+   )
+   return Windows.Foundation.Diagnostics.ILoggingChannelOptions;
    
    subtype LoggingFields is Windows.Foundation.Diagnostics.ILoggingFields;
    function CreateLoggingFields return Windows.Foundation.Diagnostics.ILoggingFields;
@@ -2188,6 +2200,21 @@ package Windows.Foundation.Diagnostics is
    function Create
    (
       name : Windows.String
+   )
+   return Windows.Foundation.Diagnostics.ILoggingChannel;
+   
+   function CreateWithOptions
+   (
+      name : Windows.String
+      ; options : Windows.Foundation.Diagnostics.ILoggingChannelOptions
+   )
+   return Windows.Foundation.Diagnostics.ILoggingChannel;
+   
+   function CreateWithOptionsAndId
+   (
+      name : Windows.String
+      ; options : Windows.Foundation.Diagnostics.ILoggingChannelOptions
+      ; id : Windows.Guid
    )
    return Windows.Foundation.Diagnostics.ILoggingChannel;
    

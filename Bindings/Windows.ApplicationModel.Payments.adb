@@ -100,6 +100,26 @@ package body Windows.ApplicationModel.Payments is
       return Convert(RetVal);
    end;
    
+   function Create
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.ApplicationModel.Payments.IPaymentMerchantInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentMerchantInfo");
+      m_Factory     : Windows.ApplicationModel.Payments.IPaymentMerchantInfoFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Payments.IPaymentMerchantInfo := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPaymentMerchantInfoFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(uri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreatePaymentDetails return Windows.ApplicationModel.Payments.IPaymentDetails is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentDetails");
@@ -115,6 +135,47 @@ package body Windows.ApplicationModel.Payments is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      total : Windows.ApplicationModel.Payments.IPaymentItem
+   )
+   return Windows.ApplicationModel.Payments.IPaymentDetails is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentDetails");
+      m_Factory     : Windows.ApplicationModel.Payments.IPaymentDetailsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Payments.IPaymentDetails := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPaymentDetailsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(total, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithDisplayItems
+   (
+      total : Windows.ApplicationModel.Payments.IPaymentItem
+      ; displayItems : Windows.ApplicationModel.Payments.IIterable_IPaymentItem
+   )
+   return Windows.ApplicationModel.Payments.IPaymentDetails is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentDetails");
+      m_Factory     : Windows.ApplicationModel.Payments.IPaymentDetailsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Payments.IPaymentDetails := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPaymentDetailsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithDisplayItems(total, displayItems, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function Create
@@ -235,6 +296,30 @@ package body Windows.ApplicationModel.Payments is
       Hr := RoGetActivationFactory(m_hString, IID_IPaymentRequestFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateWithMerchantInfoAndOptions(details, methodData, merchantInfo, options, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithMerchantInfoOptionsAndId
+   (
+      details : Windows.ApplicationModel.Payments.IPaymentDetails
+      ; methodData : Windows.ApplicationModel.Payments.IIterable_IPaymentMethodData
+      ; merchantInfo : Windows.ApplicationModel.Payments.IPaymentMerchantInfo
+      ; options : Windows.ApplicationModel.Payments.IPaymentOptions
+      ; id : Windows.String
+   )
+   return Windows.ApplicationModel.Payments.IPaymentRequest is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Payments.PaymentRequest");
+      m_Factory     : Windows.ApplicationModel.Payments.IPaymentRequestFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Payments.IPaymentRequest := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPaymentRequestFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithMerchantInfoOptionsAndId(details, methodData, merchantInfo, options, id, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

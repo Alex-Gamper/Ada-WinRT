@@ -3064,6 +3064,12 @@ package Windows.Services.Store is
    subtype StorePurchaseProperties is Windows.Services.Store.IStorePurchaseProperties;
    function CreateStorePurchaseProperties return Windows.Services.Store.IStorePurchaseProperties;
    
+   function Create
+   (
+      name : Windows.String
+   )
+   return Windows.Services.Store.IStorePurchaseProperties;
+   
    subtype StoreLicense is Windows.Services.Store.IStoreLicense;
    subtype StoreImage is Windows.Services.Store.IStoreImage;
    subtype StoreVideo is Windows.Services.Store.IStoreVideo;

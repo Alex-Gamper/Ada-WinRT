@@ -1472,6 +1472,8 @@ package Windows.UI.StartScreen is
    subtype JumpList is Windows.UI.StartScreen.IJumpList;
    subtype SecondaryTileVisualElements is Windows.UI.StartScreen.ISecondaryTileVisualElements;
    subtype SecondaryTile is Windows.UI.StartScreen.ISecondaryTile;
+   function CreateSecondaryTile return Windows.UI.StartScreen.ISecondaryTile;
+   
    function CreateMinimalTile
    (
       tileId : Windows.String
@@ -1479,6 +1481,35 @@ package Windows.UI.StartScreen is
       ; arguments : Windows.String
       ; square150x150Logo : Windows.Foundation.IUriRuntimeClass
       ; desiredSize : Windows.UI.StartScreen.TileSize
+   )
+   return Windows.UI.StartScreen.ISecondaryTile;
+   
+   function CreateTile
+   (
+      tileId : Windows.String
+      ; shortName : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; tileOptions : Windows.UI.StartScreen.TileOptions
+      ; logoReference : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.StartScreen.ISecondaryTile;
+   
+   function CreateWideTile
+   (
+      tileId : Windows.String
+      ; shortName : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; tileOptions : Windows.UI.StartScreen.TileOptions
+      ; logoReference : Windows.Foundation.IUriRuntimeClass
+      ; wideLogoReference : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.StartScreen.ISecondaryTile;
+   
+   function CreateWithId
+   (
+      tileId : Windows.String
    )
    return Windows.UI.StartScreen.ISecondaryTile;
    

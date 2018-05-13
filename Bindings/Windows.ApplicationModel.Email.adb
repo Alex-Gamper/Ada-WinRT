@@ -251,6 +251,64 @@ package body Windows.ApplicationModel.Email is
       return Convert(RetVal);
    end;
    
+   function CreateWithText
+   (
+      text : Windows.String
+   )
+   return Windows.ApplicationModel.Email.IEmailQueryOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailQueryOptions");
+      m_Factory     : Windows.ApplicationModel.Email.IEmailQueryOptionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailQueryOptions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailQueryOptionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithText(text, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithTextAndFields
+   (
+      text : Windows.String
+      ; fields : Windows.ApplicationModel.Email.EmailQuerySearchFields
+   )
+   return Windows.ApplicationModel.Email.IEmailQueryOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailQueryOptions");
+      m_Factory     : Windows.ApplicationModel.Email.IEmailQueryOptionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailQueryOptions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailQueryOptionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithTextAndFields(text, fields, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateEmailRecipient return Windows.ApplicationModel.Email.IEmailRecipient is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailRecipient");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailRecipient) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailRecipient'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create
    (
       address : Windows.String
@@ -311,6 +369,45 @@ package body Windows.ApplicationModel.Email is
    
    function Create
    (
+      id : Windows.String
+      ; name : Windows.String
+      ; description : Windows.String
+   )
+   return Windows.ApplicationModel.Email.IEmailIrmTemplate is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmTemplate");
+      m_Factory     : Windows.ApplicationModel.Email.IEmailIrmTemplateFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailIrmTemplate := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailIrmTemplateFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(id, name, description, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateEmailIrmInfo return Windows.ApplicationModel.Email.IEmailIrmInfo is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailIrmInfo");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Email.IEmailIrmInfo) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Email.IID_IEmailIrmInfo'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
+   function Create
+   (
       expiration : Windows.Foundation.DateTime
       ; irmTemplate : Windows.ApplicationModel.Email.IEmailIrmTemplate
    )
@@ -345,6 +442,49 @@ package body Windows.ApplicationModel.Email is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function Create
+   (
+      fileName : Windows.String
+      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.ApplicationModel.Email.IEmailAttachment is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
+      m_Factory     : Windows.ApplicationModel.Email.IEmailAttachmentFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailAttachment := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailAttachmentFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(fileName, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create
+   (
+      fileName : Windows.String
+      ; data : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; mimeType : Windows.String
+   )
+   return Windows.ApplicationModel.Email.IEmailAttachment is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Email.EmailAttachment");
+      m_Factory     : Windows.ApplicationModel.Email.IEmailAttachmentFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Email.IEmailAttachment := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IEmailAttachmentFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(fileName, data, mimeType, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function CreateEmailMeetingInfo return Windows.ApplicationModel.Email.IEmailMeetingInfo is

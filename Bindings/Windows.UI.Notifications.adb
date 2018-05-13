@@ -308,6 +308,47 @@ package body Windows.UI.Notifications is
       return Convert(RetVal);
    end;
    
+   function CreateNotificationDataWithValuesAndSequenceNumber
+   (
+      initialValues : Windows.Address
+      ; sequenceNumber : Windows.UInt32
+   )
+   return Windows.UI.Notifications.INotificationData is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.NotificationData");
+      m_Factory     : Windows.UI.Notifications.INotificationDataFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.INotificationData := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INotificationDataFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateNotificationDataWithValuesAndSequenceNumber(initialValues, sequenceNumber, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateNotificationDataWithValues
+   (
+      initialValues : Windows.Address
+   )
+   return Windows.UI.Notifications.INotificationData is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Notifications.NotificationData");
+      m_Factory     : Windows.UI.Notifications.INotificationDataFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Notifications.INotificationData := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INotificationDataFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateNotificationDataWithValues(initialValues, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       collectionId : Windows.String

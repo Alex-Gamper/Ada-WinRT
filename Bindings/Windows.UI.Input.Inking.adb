@@ -268,6 +268,27 @@ package body Windows.UI.Input.Inking is
       return RetVal;
    end;
    
+   function CreateInkPoint
+   (
+      position : Windows.Foundation.Point
+      ; pressure : Windows.Single
+   )
+   return Windows.UI.Input.Inking.IInkPoint is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkPoint");
+      m_Factory     : Windows.UI.Input.Inking.IInkPointFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.Inking.IInkPoint := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInkPointFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInkPoint(position, pressure, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInkDrawingAttributes return Windows.UI.Input.Inking.IInkDrawingAttributes is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Input.Inking.InkDrawingAttributes");

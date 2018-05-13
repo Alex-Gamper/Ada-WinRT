@@ -2713,6 +2713,13 @@ package Windows.UI.Input.Inking is
    )
    return Windows.UI.Input.Inking.IInkPoint;
    
+   function CreateInkPoint
+   (
+      position : Windows.Foundation.Point
+      ; pressure : Windows.Single
+   )
+   return Windows.UI.Input.Inking.IInkPoint;
+   
    subtype InkDrawingAttributesPencilProperties is Windows.UI.Input.Inking.IInkDrawingAttributesPencilProperties;
    subtype InkDrawingAttributes is Windows.UI.Input.Inking.IInkDrawingAttributes;
    function CreateInkDrawingAttributes return Windows.UI.Input.Inking.IInkDrawingAttributes;

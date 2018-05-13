@@ -6189,6 +6189,12 @@ package Windows.UI.Xaml.Media is
    subtype SolidColorBrush is Windows.UI.Xaml.Media.ISolidColorBrush;
    function CreateSolidColorBrush return Windows.UI.Xaml.Media.ISolidColorBrush;
    
+   function CreateInstanceWithColor
+   (
+      color : Windows.UI.Color
+   )
+   return Windows.UI.Xaml.Media.ISolidColorBrush;
+   
    subtype Transform is Windows.UI.Xaml.Media.ITransform;
    subtype CompositeTransform is Windows.UI.Xaml.Media.ICompositeTransform;
    function CreateCompositeTransform return Windows.UI.Xaml.Media.ICompositeTransform;
@@ -6927,6 +6933,8 @@ package Windows.UI.Xaml.Media is
    function CreateImageBrush return Windows.UI.Xaml.Media.IImageBrush;
    
    subtype LinearGradientBrush is Windows.UI.Xaml.Media.ILinearGradientBrush;
+   function CreateLinearGradientBrush return Windows.UI.Xaml.Media.ILinearGradientBrush;
+   
    function CreateInstanceWithGradientStopCollectionAndAngle
    (
       gradientStopCollection : Windows.UI.Xaml.Media.IVector_GradientStop

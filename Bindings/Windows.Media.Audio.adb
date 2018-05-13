@@ -243,6 +243,23 @@ package body Windows.Media.Audio is
       return RetVal;
    end;
    
+   function CreateAudioNodeEmitter return Windows.Media.Audio.IAudioNodeEmitter is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioNodeEmitter");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Media.Audio.IAudioNodeEmitter) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Media.Audio.IID_IAudioNodeEmitter'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateAudioNodeEmitter
    (
       shape : Windows.Media.Audio.IAudioNodeEmitterShape

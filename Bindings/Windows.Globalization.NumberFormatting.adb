@@ -78,6 +78,44 @@ package body Windows.Globalization.NumberFormatting is
       return Convert(RetVal);
    end;
    
+   function CreateDecimalFormatter
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+      ; geographicRegion : Windows.String
+   )
+   return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.DecimalFormatter");
+      m_Factory     : Windows.Globalization.NumberFormatting.IDecimalFormatterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.NumberFormatting.INumberFormatterOptions := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDecimalFormatterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateDecimalFormatter(languages, geographicRegion, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreatePercentFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.PercentFormatter");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumberFormatterOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberFormatterOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreatePercentFormatter
    (
       languages : Windows.Foundation.Collections.IIterable_String
@@ -97,6 +135,23 @@ package body Windows.Globalization.NumberFormatting is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreatePermilleFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.PermilleFormatter");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumberFormatterOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumberFormatterOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function CreatePermilleFormatter
@@ -160,6 +215,23 @@ package body Windows.Globalization.NumberFormatting is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreateNumeralSystemTranslator return Windows.Globalization.NumberFormatting.INumeralSystemTranslator is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.NumeralSystemTranslator");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.NumberFormatting.INumeralSystemTranslator) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Globalization.NumberFormatting.IID_INumeralSystemTranslator'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function Create

@@ -46,6 +46,47 @@ package body Windows.UI.Xaml.Automation is
       return Convert(RetVal);
    end;
    
+   function CreateInstance
+   (
+      type_x : Windows.UI.Xaml.Automation.AnnotationType
+   )
+   return Windows.UI.Xaml.Automation.IAutomationAnnotation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationAnnotation");
+      m_Factory     : Windows.UI.Xaml.Automation.IAutomationAnnotationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationAnnotation := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationAnnotationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(type_x, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithElementParameter
+   (
+      type_x : Windows.UI.Xaml.Automation.AnnotationType
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.Automation.IAutomationAnnotation is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationAnnotation");
+      m_Factory     : Windows.UI.Xaml.Automation.IAutomationAnnotationFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationAnnotation := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationAnnotationFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithElementParameter(type_x, element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------

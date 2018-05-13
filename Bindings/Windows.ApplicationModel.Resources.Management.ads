@@ -305,6 +305,12 @@ package Windows.ApplicationModel.Resources.Management is
    )
    return Windows.ApplicationModel.Resources.Management.IResourceIndexer;
    
+   function CreateResourceIndexer
+   (
+      projectRoot : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.ApplicationModel.Resources.Management.IResourceIndexer;
+   
    subtype IndexedResourceQualifier is Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier;
    
    ------------------------------------------------------------------------

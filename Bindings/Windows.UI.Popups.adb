@@ -114,6 +114,69 @@ package body Windows.UI.Popups is
       return Convert(RetVal);
    end;
    
+   function Create
+   (
+      label : Windows.String
+   )
+   return Windows.UI.Popups.IUICommand is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Popups.UICommand");
+      m_Factory     : Windows.UI.Popups.IUICommandFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Popups.IUICommand := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUICommandFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(label, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithHandler
+   (
+      label : Windows.String
+      ; action : Windows.UI.Popups.UICommandInvokedHandler
+   )
+   return Windows.UI.Popups.IUICommand is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Popups.UICommand");
+      m_Factory     : Windows.UI.Popups.IUICommandFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Popups.IUICommand := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUICommandFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithHandler(label, action, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithHandlerAndId
+   (
+      label : Windows.String
+      ; action : Windows.UI.Popups.UICommandInvokedHandler
+      ; commandId : Windows.Object
+   )
+   return Windows.UI.Popups.IUICommand is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Popups.UICommand");
+      m_Factory     : Windows.UI.Popups.IUICommandFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Popups.IUICommand := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUICommandFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithHandlerAndId(label, action, commandId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateUICommandSeparator return Windows.UI.Popups.IUICommand is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Popups.UICommandSeparator");

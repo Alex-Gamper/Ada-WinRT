@@ -810,6 +810,49 @@ package body Windows.Media.Playback is
       return RetVal;
    end;
    
+   function CreateWithStartTime
+   (
+      source : Windows.Media.Core.IMediaSource2
+      ; startTime : Windows.Foundation.TimeSpan
+   )
+   return Windows.Media.Playback.IMediaPlaybackItem is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.MediaPlaybackItem");
+      m_Factory     : Windows.Media.Playback.IMediaPlaybackItemFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Playback.IMediaPlaybackItem := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaPlaybackItemFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithStartTime(source, startTime, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithStartTimeAndDurationLimit
+   (
+      source : Windows.Media.Core.IMediaSource2
+      ; startTime : Windows.Foundation.TimeSpan
+      ; durationLimit : Windows.Foundation.TimeSpan
+   )
+   return Windows.Media.Playback.IMediaPlaybackItem is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Playback.MediaPlaybackItem");
+      m_Factory     : Windows.Media.Playback.IMediaPlaybackItemFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Playback.IMediaPlaybackItem := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaPlaybackItemFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithStartTimeAndDurationLimit(source, startTime, durationLimit, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    (
       insertionMethod : Windows.Media.Playback.MediaBreakInsertionMethod

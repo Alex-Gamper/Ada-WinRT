@@ -99,6 +99,26 @@ package body Windows.ApplicationModel.Store is
       return Convert(RetVal);
    end;
    
+   function CreateProductPurchaseDisplayProperties
+   (
+      name : Windows.String
+   )
+   return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties");
+      m_Factory     : Windows.ApplicationModel.Store.IProductPurchaseDisplayPropertiesFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IProductPurchaseDisplayPropertiesFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateProductPurchaseDisplayProperties(name, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------

@@ -299,6 +299,26 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
+   function Create
+   (
+      waitInterval : Windows.Foundation.TimeSpan
+   )
+   return Windows.ApplicationModel.Background.IContentPrefetchTrigger is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ContentPrefetchTrigger");
+      m_Factory     : Windows.ApplicationModel.Background.IContentPrefetchTriggerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Background.IContentPrefetchTrigger := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IContentPrefetchTriggerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(waitInterval, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateSecondaryAuthenticationFactorAuthenticationTrigger return Windows.ApplicationModel.Background.ISecondaryAuthenticationFactorAuthenticationTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger");
@@ -886,6 +906,26 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
+   function Create
+   (
+      characteristic : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
+   )
+   return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger");
+      m_Factory     : Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGattCharacteristicNotificationTriggerFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(characteristic, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateBluetoothLEAdvertisementWatcherTrigger return Windows.ApplicationModel.Background.IBluetoothLEAdvertisementWatcherTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger");
@@ -1031,6 +1071,23 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
+   function CreatePushNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.PushNotificationTrigger");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create
    (
       applicationId : Windows.String
@@ -1051,6 +1108,23 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
+   function CreateToastNotificationHistoryChangedTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create1
    (
       applicationId : Windows.String
@@ -1069,6 +1143,23 @@ package body Windows.ApplicationModel.Background is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function CreateToastNotificationActionTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ToastNotificationActionTrigger");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
    end;
    
    function Create2

@@ -1390,7 +1390,16 @@ package Windows.Web.Http is
    subtype HttpRequestMessage is Windows.Web.Http.IHttpRequestMessage;
    function CreateHttpRequestMessage return Windows.Web.Http.IHttpRequestMessage;
    
+   function Create
+   (
+      method : Windows.Web.Http.IHttpMethod
+      ; uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.Web.Http.IHttpRequestMessage;
+   
    subtype HttpResponseMessage is Windows.Web.Http.IHttpResponseMessage;
+   function CreateHttpResponseMessage return Windows.Web.Http.IHttpResponseMessage;
+   
    function Create
    (
       statusCode : Windows.Web.Http.HttpStatusCode
@@ -1399,6 +1408,12 @@ package Windows.Web.Http is
    
    subtype HttpClient is Windows.Web.Http.IHttpClient;
    function CreateHttpClient return Windows.Web.Http.IHttpClient;
+   
+   function Create
+   (
+      filter : Windows.Web.Http.Filters.IHttpFilter
+   )
+   return Windows.Web.Http.IHttpClient;
    
    subtype HttpCookie is Windows.Web.Http.IHttpCookie;
    function Create
@@ -1470,6 +1485,8 @@ package Windows.Web.Http is
    return Windows.Web.Http.IHttpContent;
    
    subtype HttpMultipartContent is Windows.Web.Http.IHttpContent;
+   function CreateHttpMultipartContent return Windows.Web.Http.IHttpContent;
+   
    function CreateWithSubtype
    (
       subtype_x : Windows.String
@@ -1485,6 +1502,12 @@ package Windows.Web.Http is
    
    subtype HttpMultipartFormDataContent is Windows.Web.Http.IHttpContent;
    function CreateHttpMultipartFormDataContent return Windows.Web.Http.IHttpContent;
+   
+   function CreateWithBoundary
+   (
+      boundary : Windows.String
+   )
+   return Windows.Web.Http.IHttpContent;
    
    subtype HttpCookieManager is Windows.Web.Http.IHttpCookieManager;
    

@@ -624,6 +624,23 @@ package body Windows.UI.Core is
       return RetVal;
    end;
    
+   function CreateCoreWindowDialog return Windows.UI.Core.ICoreWindowDialog is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Core.CoreWindowDialog");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Core.ICoreWindowDialog) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Core.IID_ICoreWindowDialog'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateWithTitle
    (
       title : Windows.String

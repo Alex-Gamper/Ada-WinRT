@@ -28,6 +28,23 @@ package body Windows.Globalization is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function CreateGeographicRegion return Windows.Globalization.IGeographicRegion is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.GeographicRegion");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Globalization.IGeographicRegion) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Globalization.IID_IGeographicRegion'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateGeographicRegion
    (
       geographicRegionCode : Windows.String
@@ -83,6 +100,71 @@ package body Windows.Globalization is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return Convert(RetVal);
+   end;
+   
+   function CreateCalendarDefaultCalendarAndClock
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Globalization.ICalendar is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.Calendar");
+      m_Factory     : Windows.Globalization.ICalendarFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.ICalendar := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICalendarFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateCalendarDefaultCalendarAndClock(languages, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateCalendar
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+      ; calendar : Windows.String
+      ; clock : Windows.String
+   )
+   return Windows.Globalization.ICalendar is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.Calendar");
+      m_Factory     : Windows.Globalization.ICalendarFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.ICalendar := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICalendarFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateCalendar(languages, calendar, clock, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateCalendarWithTimeZone
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+      ; calendar : Windows.String
+      ; clock : Windows.String
+      ; timeZoneId : Windows.String
+   )
+   return Windows.Globalization.ICalendar is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.Calendar");
+      m_Factory     : Windows.Globalization.ICalendarFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.ICalendar := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICalendarFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateCalendarWithTimeZone(languages, calendar, clock, timeZoneId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    ------------------------------------------------------------------------

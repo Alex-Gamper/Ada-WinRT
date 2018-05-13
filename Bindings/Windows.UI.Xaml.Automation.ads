@@ -2651,6 +2651,19 @@ package Windows.UI.Xaml.Automation is
    subtype AutomationAnnotation is Windows.UI.Xaml.Automation.IAutomationAnnotation;
    function CreateAutomationAnnotation return Windows.UI.Xaml.Automation.IAutomationAnnotation;
    
+   function CreateInstance
+   (
+      type_x : Windows.UI.Xaml.Automation.AnnotationType
+   )
+   return Windows.UI.Xaml.Automation.IAutomationAnnotation;
+   
+   function CreateWithElementParameter
+   (
+      type_x : Windows.UI.Xaml.Automation.AnnotationType
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.UI.Xaml.Automation.IAutomationAnnotation;
+   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

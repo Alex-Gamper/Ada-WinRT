@@ -1880,8 +1880,27 @@ package Windows.ApplicationModel.Payments is
    subtype PaymentMerchantInfo is Windows.ApplicationModel.Payments.IPaymentMerchantInfo;
    function CreatePaymentMerchantInfo return Windows.ApplicationModel.Payments.IPaymentMerchantInfo;
    
+   function Create
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.ApplicationModel.Payments.IPaymentMerchantInfo;
+   
    subtype PaymentDetails is Windows.ApplicationModel.Payments.IPaymentDetails;
    function CreatePaymentDetails return Windows.ApplicationModel.Payments.IPaymentDetails;
+   
+   function Create
+   (
+      total : Windows.ApplicationModel.Payments.IPaymentItem
+   )
+   return Windows.ApplicationModel.Payments.IPaymentDetails;
+   
+   function CreateWithDisplayItems
+   (
+      total : Windows.ApplicationModel.Payments.IPaymentItem
+      ; displayItems : Windows.ApplicationModel.Payments.IIterable_IPaymentItem
+   )
+   return Windows.ApplicationModel.Payments.IPaymentDetails;
    
    subtype PaymentMethodData is Windows.ApplicationModel.Payments.IPaymentMethodData;
    function Create
@@ -1922,6 +1941,16 @@ package Windows.ApplicationModel.Payments is
       ; methodData : Windows.ApplicationModel.Payments.IIterable_IPaymentMethodData
       ; merchantInfo : Windows.ApplicationModel.Payments.IPaymentMerchantInfo
       ; options : Windows.ApplicationModel.Payments.IPaymentOptions
+   )
+   return Windows.ApplicationModel.Payments.IPaymentRequest;
+   
+   function CreateWithMerchantInfoOptionsAndId
+   (
+      details : Windows.ApplicationModel.Payments.IPaymentDetails
+      ; methodData : Windows.ApplicationModel.Payments.IIterable_IPaymentMethodData
+      ; merchantInfo : Windows.ApplicationModel.Payments.IPaymentMerchantInfo
+      ; options : Windows.ApplicationModel.Payments.IPaymentOptions
+      ; id : Windows.String
    )
    return Windows.ApplicationModel.Payments.IPaymentRequest;
    

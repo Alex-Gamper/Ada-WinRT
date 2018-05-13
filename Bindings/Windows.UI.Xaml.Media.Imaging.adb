@@ -104,6 +104,23 @@ package body Windows.UI.Xaml.Media.Imaging is
       return Convert(RetVal);
    end;
    
+   function CreateBitmapImage return Windows.UI.Xaml.Media.Imaging.IBitmapImage is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Media.Imaging.BitmapImage");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Xaml.Media.Imaging.IBitmapImage) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.Media.Imaging.IID_IBitmapImage'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateInstanceWithUriSource
    (
       uriSource : Windows.Foundation.IUriRuntimeClass

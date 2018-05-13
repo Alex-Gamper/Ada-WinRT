@@ -222,6 +222,69 @@ package body Windows.Security.Authentication.Web.Core is
       return Convert(RetVal);
    end;
    
+   function CreateWithToken
+   (
+      token : Windows.String
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenResponse is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebTokenResponse");
+      m_Factory     : Windows.Security.Authentication.Web.Core.IWebTokenResponseFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebTokenResponse := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebTokenResponseFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithToken(token, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithTokenAndAccount
+   (
+      token : Windows.String
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenResponse is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebTokenResponse");
+      m_Factory     : Windows.Security.Authentication.Web.Core.IWebTokenResponseFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebTokenResponse := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebTokenResponseFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithTokenAndAccount(token, webAccount, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithTokenAccountAndError
+   (
+      token : Windows.String
+      ; webAccount : Windows.Security.Credentials.IWebAccount
+      ; error : Windows.Security.Authentication.Web.Core.IWebProviderError
+   )
+   return Windows.Security.Authentication.Web.Core.IWebTokenResponse is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Security.Authentication.Web.Core.WebTokenResponse");
+      m_Factory     : Windows.Security.Authentication.Web.Core.IWebTokenResponseFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Security.Authentication.Web.Core.IWebTokenResponse := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebTokenResponseFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithTokenAccountAndError(token, webAccount, error, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------

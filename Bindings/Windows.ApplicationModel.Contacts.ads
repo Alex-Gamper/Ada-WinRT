@@ -7062,6 +7062,8 @@ package Windows.ApplicationModel.Contacts is
    subtype ContactList is Windows.ApplicationModel.Contacts.IContactList;
    subtype ContactReader is Windows.ApplicationModel.Contacts.IContactReader;
    subtype ContactQueryOptions is Windows.ApplicationModel.Contacts.IContactQueryOptions;
+   function CreateContactQueryOptions return Windows.ApplicationModel.Contacts.IContactQueryOptions;
+   
    function CreateWithText
    (
       text : Windows.String

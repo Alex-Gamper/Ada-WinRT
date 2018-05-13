@@ -62,6 +62,23 @@ package body Windows.UI.StartScreen is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function CreateSecondaryTile return Windows.UI.StartScreen.ISecondaryTile is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.SecondaryTile");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.StartScreen.ISecondaryTile) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.StartScreen.IID_ISecondaryTile'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function CreateMinimalTile
    (
       tileId : Windows.String
@@ -80,6 +97,77 @@ package body Windows.UI.StartScreen is
       Hr := RoGetActivationFactory(m_hString, IID_ISecondaryTileFactory2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateMinimalTile(tileId, displayName, arguments, square150x150Logo, desiredSize, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateTile
+   (
+      tileId : Windows.String
+      ; shortName : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; tileOptions : Windows.UI.StartScreen.TileOptions
+      ; logoReference : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.StartScreen.ISecondaryTile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.SecondaryTile");
+      m_Factory     : Windows.UI.StartScreen.ISecondaryTileFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.StartScreen.ISecondaryTile := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryTileFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateTile(tileId, shortName, displayName, arguments, tileOptions, logoReference, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWideTile
+   (
+      tileId : Windows.String
+      ; shortName : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; tileOptions : Windows.UI.StartScreen.TileOptions
+      ; logoReference : Windows.Foundation.IUriRuntimeClass
+      ; wideLogoReference : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.StartScreen.ISecondaryTile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.SecondaryTile");
+      m_Factory     : Windows.UI.StartScreen.ISecondaryTileFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.StartScreen.ISecondaryTile := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryTileFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWideTile(tileId, shortName, displayName, arguments, tileOptions, logoReference, wideLogoReference, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithId
+   (
+      tileId : Windows.String
+   )
+   return Windows.UI.StartScreen.ISecondaryTile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.StartScreen.SecondaryTile");
+      m_Factory     : Windows.UI.StartScreen.ISecondaryTileFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.StartScreen.ISecondaryTile := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISecondaryTileFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithId(tileId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

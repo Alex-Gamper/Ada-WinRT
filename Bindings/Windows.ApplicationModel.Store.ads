@@ -1056,6 +1056,12 @@ package Windows.ApplicationModel.Store is
    subtype ProductPurchaseDisplayProperties is Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties;
    function CreateProductPurchaseDisplayProperties return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties;
    
+   function CreateProductPurchaseDisplayProperties
+   (
+      name : Windows.String
+   )
+   return Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties;
+   
    subtype UnfulfilledConsumable is Windows.ApplicationModel.Store.IUnfulfilledConsumable;
    subtype ProductLicense is Windows.ApplicationModel.Store.IProductLicense;
    subtype ProductListing is Windows.ApplicationModel.Store.IProductListing;

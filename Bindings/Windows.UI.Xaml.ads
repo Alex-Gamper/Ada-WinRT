@@ -9856,6 +9856,12 @@ package Windows.UI.Xaml is
    subtype TargetPropertyPath is Windows.UI.Xaml.ITargetPropertyPath;
    function CreateTargetPropertyPath return Windows.UI.Xaml.ITargetPropertyPath;
    
+   function CreateInstance
+   (
+      targetProperty : Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.UI.Xaml.ITargetPropertyPath;
+   
    subtype TriggerActionCollection is Windows.UI.Xaml.IVector_TriggerAction;
    function CreateTriggerActionCollection return Windows.UI.Xaml.IVector_TriggerAction;
    
@@ -10123,6 +10129,8 @@ package Windows.UI.Xaml is
    return Windows.HRESULT;
    
    subtype Style is Windows.UI.Xaml.IStyle;
+   function CreateStyle return Windows.UI.Xaml.IStyle;
+   
    function CreateInstance
    (
       targetType : Windows.UI.Xaml.Interop.TypeName
@@ -10870,6 +10878,8 @@ package Windows.UI.Xaml is
    
    subtype MediaFailedRoutedEventArgs is Windows.UI.Xaml.IMediaFailedRoutedEventArgs;
    subtype Setter is Windows.UI.Xaml.ISetter;
+   function CreateSetter return Windows.UI.Xaml.ISetter;
+   
    function CreateInstance
    (
       targetProperty : Windows.UI.Xaml.IDependencyProperty

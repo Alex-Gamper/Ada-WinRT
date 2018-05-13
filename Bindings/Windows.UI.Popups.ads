@@ -600,6 +600,27 @@ package Windows.UI.Popups is
    subtype UICommand is Windows.UI.Popups.IUICommand;
    function CreateUICommand return Windows.UI.Popups.IUICommand;
    
+   function Create
+   (
+      label : Windows.String
+   )
+   return Windows.UI.Popups.IUICommand;
+   
+   function CreateWithHandler
+   (
+      label : Windows.String
+      ; action : Windows.UI.Popups.UICommandInvokedHandler
+   )
+   return Windows.UI.Popups.IUICommand;
+   
+   function CreateWithHandlerAndId
+   (
+      label : Windows.String
+      ; action : Windows.UI.Popups.UICommandInvokedHandler
+      ; commandId : Windows.Object
+   )
+   return Windows.UI.Popups.IUICommand;
+   
    subtype UICommandSeparator is Windows.UI.Popups.IUICommand;
    function CreateUICommandSeparator return Windows.UI.Popups.IUICommand;
    

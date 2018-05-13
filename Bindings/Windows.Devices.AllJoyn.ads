@@ -2154,6 +2154,12 @@ package Windows.Devices.AllJoyn is
    subtype AllJoynBusAttachment is Windows.Devices.AllJoyn.IAllJoynBusAttachment;
    function CreateAllJoynBusAttachment return Windows.Devices.AllJoyn.IAllJoynBusAttachment;
    
+   function Create
+   (
+      connectionSpecification : Windows.String
+   )
+   return Windows.Devices.AllJoyn.IAllJoynBusAttachment;
+   
    subtype AllJoynBusAttachmentStateChangedEventArgs is Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs;
    subtype AllJoynCredentialsRequestedEventArgs is Windows.Devices.AllJoyn.IAllJoynCredentialsRequestedEventArgs;
    subtype AllJoynCredentialsVerificationRequestedEventArgs is Windows.Devices.AllJoyn.IAllJoynCredentialsVerificationRequestedEventArgs;
@@ -2210,6 +2216,8 @@ package Windows.Devices.AllJoyn is
    return Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs;
    
    subtype AllJoynBusObject is Windows.Devices.AllJoyn.IAllJoynBusObject;
+   function CreateAllJoynBusObject return Windows.Devices.AllJoyn.IAllJoynBusObject;
+   
    function Create
    (
       objectPath : Windows.String

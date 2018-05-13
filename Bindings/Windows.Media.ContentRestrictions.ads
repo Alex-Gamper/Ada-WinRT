@@ -386,6 +386,12 @@ package Windows.Media.ContentRestrictions is
    subtype RatedContentRestrictions is Windows.Media.ContentRestrictions.IRatedContentRestrictions;
    function CreateRatedContentRestrictions return Windows.Media.ContentRestrictions.IRatedContentRestrictions;
    
+   function CreateWithMaxAgeRating
+   (
+      maxAgeRating : Windows.UInt32
+   )
+   return Windows.Media.ContentRestrictions.IRatedContentRestrictions;
+   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
