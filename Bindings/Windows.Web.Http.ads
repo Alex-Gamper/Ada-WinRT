@@ -1501,7 +1501,7 @@ package Windows.Web.Http is
    return Windows.Web.Http.IHttpContent;
    
    subtype HttpMultipartFormDataContent is Windows.Web.Http.IHttpContent;
-   function Create1 return Windows.Web.Http.IHttpContent;
+   function CreateHttpMultipartFormDataContent return Windows.Web.Http.IHttpContent;
    
    function CreateWithBoundary
    (

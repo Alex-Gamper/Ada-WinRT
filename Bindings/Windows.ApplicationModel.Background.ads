@@ -2872,22 +2872,22 @@ package Windows.ApplicationModel.Background is
    function Create return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype MobileBroadbandRadioStateChangeTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create1 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateMobileBroadbandRadioStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype MobileBroadbandPinLockStateChangeTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create2 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateMobileBroadbandPinLockStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype MobileBroadbandDeviceServiceNotificationTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create3 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateMobileBroadbandDeviceServiceNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype NetworkOperatorDataUsageTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create4 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateNetworkOperatorDataUsageTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype TetheringEntitlementCheckTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create5 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateTetheringEntitlementCheckTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype MobileBroadbandPcoDataChangeTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create6 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateMobileBroadbandPcoDataChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype SmsMessageReceivedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
    function Create
@@ -2905,7 +2905,7 @@ package Windows.ApplicationModel.Background is
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype PaymentAppCanMakePaymentTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create7 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreatePaymentAppCanMakePaymentTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype DeviceUseTrigger is Windows.ApplicationModel.Background.IDeviceUseTrigger;
    function Create return Windows.ApplicationModel.Background.IDeviceUseTrigger;
@@ -2968,10 +2968,10 @@ package Windows.ApplicationModel.Background is
    function Create return Windows.ApplicationModel.Background.INetworkOperatorHotspotAuthenticationTrigger;
    
    subtype SocketActivityTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create8 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateSocketActivityTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype PushNotificationTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create9 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreatePushNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    function Create
    (
@@ -2980,7 +2980,7 @@ package Windows.ApplicationModel.Background is
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype ToastNotificationHistoryChangedTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create10 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateToastNotificationHistoryChangedTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    function Create1
    (
@@ -2989,7 +2989,7 @@ package Windows.ApplicationModel.Background is
    return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype ToastNotificationActionTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create11 return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateToastNotificationActionTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    function Create2
    (

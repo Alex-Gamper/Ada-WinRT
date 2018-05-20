@@ -675,7 +675,7 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function Create1 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateMobileBroadbandRadioStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger");
       Instance      : aliased IInspectable := null;
@@ -692,7 +692,7 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function Create2 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateMobileBroadbandPinLockStateChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger");
       Instance      : aliased IInspectable := null;
@@ -709,7 +709,7 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function Create3 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateMobileBroadbandDeviceServiceNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger");
       Instance      : aliased IInspectable := null;
@@ -726,7 +726,7 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function Create4 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateNetworkOperatorDataUsageTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger");
       Instance      : aliased IInspectable := null;
@@ -743,7 +743,7 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function Create5 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateTetheringEntitlementCheckTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger");
       Instance      : aliased IInspectable := null;
@@ -760,7 +760,7 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function Create6 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateMobileBroadbandPcoDataChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger");
       Instance      : aliased IInspectable := null;
@@ -817,7 +817,7 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
-   function Create7 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreatePaymentAppCanMakePaymentTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger");
       Instance      : aliased IInspectable := null;
@@ -1054,7 +1054,7 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function Create8 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateSocketActivityTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.SocketActivityTrigger");
       Instance      : aliased IInspectable := null;
@@ -1071,7 +1071,7 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function Create9 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreatePushNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.PushNotificationTrigger");
       Instance      : aliased IInspectable := null;
@@ -1108,7 +1108,7 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
-   function Create10 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateToastNotificationHistoryChangedTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger");
       Instance      : aliased IInspectable := null;
@@ -1145,7 +1145,7 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
-   function Create11 return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateToastNotificationActionTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ToastNotificationActionTrigger");
       Instance      : aliased IInspectable := null;

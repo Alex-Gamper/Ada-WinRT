@@ -1008,22 +1008,22 @@ package Windows.Devices.Midi is
    function Create return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiTimingClockMessage is Windows.Devices.Midi.IMidiMessage;
-   function Create1 return Windows.Devices.Midi.IMidiMessage;
+   function CreateMidiTimingClockMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiStartMessage is Windows.Devices.Midi.IMidiMessage;
-   function Create2 return Windows.Devices.Midi.IMidiMessage;
+   function CreateMidiStartMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiContinueMessage is Windows.Devices.Midi.IMidiMessage;
-   function Create3 return Windows.Devices.Midi.IMidiMessage;
+   function CreateMidiContinueMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiStopMessage is Windows.Devices.Midi.IMidiMessage;
-   function Create4 return Windows.Devices.Midi.IMidiMessage;
+   function CreateMidiStopMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiActiveSensingMessage is Windows.Devices.Midi.IMidiMessage;
-   function Create5 return Windows.Devices.Midi.IMidiMessage;
+   function CreateMidiActiveSensingMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiSystemResetMessage is Windows.Devices.Midi.IMidiMessage;
-   function Create6 return Windows.Devices.Midi.IMidiMessage;
+   function CreateMidiSystemResetMessage return Windows.Devices.Midi.IMidiMessage;
    
    subtype MidiMessageReceivedEventArgs is Windows.Devices.Midi.IMidiMessageReceivedEventArgs;
    subtype MidiInPort is Windows.Devices.Midi.IMidiInPort;

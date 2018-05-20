@@ -334,7 +334,7 @@ package body Windows.Devices.Midi is
       return Convert(RetVal);
    end;
    
-   function Create1 return Windows.Devices.Midi.IMidiMessage is
+   function CreateMidiTimingClockMessage return Windows.Devices.Midi.IMidiMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiTimingClockMessage");
       Instance      : aliased IInspectable := null;
@@ -351,7 +351,7 @@ package body Windows.Devices.Midi is
       return Convert(RetVal);
    end;
    
-   function Create2 return Windows.Devices.Midi.IMidiMessage is
+   function CreateMidiStartMessage return Windows.Devices.Midi.IMidiMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiStartMessage");
       Instance      : aliased IInspectable := null;
@@ -368,7 +368,7 @@ package body Windows.Devices.Midi is
       return Convert(RetVal);
    end;
    
-   function Create3 return Windows.Devices.Midi.IMidiMessage is
+   function CreateMidiContinueMessage return Windows.Devices.Midi.IMidiMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiContinueMessage");
       Instance      : aliased IInspectable := null;
@@ -385,7 +385,7 @@ package body Windows.Devices.Midi is
       return Convert(RetVal);
    end;
    
-   function Create4 return Windows.Devices.Midi.IMidiMessage is
+   function CreateMidiStopMessage return Windows.Devices.Midi.IMidiMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiStopMessage");
       Instance      : aliased IInspectable := null;
@@ -402,7 +402,7 @@ package body Windows.Devices.Midi is
       return Convert(RetVal);
    end;
    
-   function Create5 return Windows.Devices.Midi.IMidiMessage is
+   function CreateMidiActiveSensingMessage return Windows.Devices.Midi.IMidiMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiActiveSensingMessage");
       Instance      : aliased IInspectable := null;
@@ -419,7 +419,7 @@ package body Windows.Devices.Midi is
       return Convert(RetVal);
    end;
    
-   function Create6 return Windows.Devices.Midi.IMidiMessage is
+   function CreateMidiSystemResetMessage return Windows.Devices.Midi.IMidiMessage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Devices.Midi.MidiSystemResetMessage");
       Instance      : aliased IInspectable := null;

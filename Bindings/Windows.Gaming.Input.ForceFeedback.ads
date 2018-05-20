@@ -606,7 +606,7 @@ package Windows.Gaming.Input.ForceFeedback is
    function Create return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
    subtype RampForceEffect is Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
-   function Create1 return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
+   function CreateRampForceEffect return Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect;
    
    subtype ForceFeedbackMotor is Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor;
    

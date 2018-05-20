@@ -828,7 +828,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function Create1 return Windows.Media.Effects.IVideoEffectDefinition is
+   function CreateFaceDetectionEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.FaceDetectionEffectDefinition");
       Instance      : aliased IInspectable := null;
@@ -845,7 +845,7 @@ package body Windows.Media.Core is
       return Convert(RetVal);
    end;
    
-   function Create2 return Windows.Media.Effects.IVideoEffectDefinition is
+   function CreateVideoStabilizationEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Core.VideoStabilizationEffectDefinition");
       Instance      : aliased IInspectable := null;

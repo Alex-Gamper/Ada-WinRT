@@ -7136,12 +7136,12 @@ package Windows.Media.Core is
    subtype FaceDetectedEventArgs is Windows.Media.Core.IFaceDetectedEventArgs;
    subtype FaceDetectionEffect is Windows.Media.Core.IFaceDetectionEffect;
    subtype FaceDetectionEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
-   function Create1 return Windows.Media.Effects.IVideoEffectDefinition;
+   function CreateFaceDetectionEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition;
    
    subtype VideoStabilizationEffectEnabledChangedEventArgs is Windows.Media.Core.IVideoStabilizationEffectEnabledChangedEventArgs;
    subtype VideoStabilizationEffect is Windows.Media.Core.IVideoStabilizationEffect;
    subtype VideoStabilizationEffectDefinition is Windows.Media.Effects.IVideoEffectDefinition;
-   function Create2 return Windows.Media.Effects.IVideoEffectDefinition;
+   function CreateVideoStabilizationEffectDefinition return Windows.Media.Effects.IVideoEffectDefinition;
    
    subtype MediaSourceError is Windows.Media.Core.IMediaSourceError;
    subtype MediaSource is Windows.Media.Core.IMediaSource2;

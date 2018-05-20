@@ -44,7 +44,7 @@ package body Windows.Globalization.NumberFormatting is
       return Convert(RetVal);
    end;
    
-   function Create1 return Windows.Globalization.NumberFormatting.INumberRounder is
+   function CreateIncrementNumberRounder return Windows.Globalization.NumberFormatting.INumberRounder is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.IncrementNumberRounder");
       Instance      : aliased IInspectable := null;
@@ -99,7 +99,7 @@ package body Windows.Globalization.NumberFormatting is
       return RetVal;
    end;
    
-   function Create1 return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
+   function CreatePercentFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.PercentFormatter");
       Instance      : aliased IInspectable := null;
@@ -137,7 +137,7 @@ package body Windows.Globalization.NumberFormatting is
       return RetVal;
    end;
    
-   function Create2 return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
+   function CreatePermilleFormatter return Windows.Globalization.NumberFormatting.INumberFormatterOptions is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.NumberFormatting.PermilleFormatter");
       Instance      : aliased IInspectable := null;

@@ -389,7 +389,7 @@ package body Windows.Web.Http is
       return RetVal;
    end;
    
-   function Create1 return Windows.Web.Http.IHttpContent is
+   function CreateHttpMultipartFormDataContent return Windows.Web.Http.IHttpContent is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Web.Http.HttpMultipartFormDataContent");
       Instance      : aliased IInspectable := null;

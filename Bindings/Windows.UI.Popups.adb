@@ -177,7 +177,7 @@ package body Windows.UI.Popups is
       return RetVal;
    end;
    
-   function Create1 return Windows.UI.Popups.IUICommand is
+   function CreateUICommandSeparator return Windows.UI.Popups.IUICommand is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Popups.UICommandSeparator");
       Instance      : aliased IInspectable := null;

@@ -61,7 +61,7 @@ package body Windows.Foundation.Collections is
       return Convert(RetVal);
    end;
    
-   function Create1 return Windows.Foundation.Collections.IPropertySet is
+   function CreateValueSet return Windows.Foundation.Collections.IPropertySet is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Foundation.Collections.ValueSet");
       Instance      : aliased IInspectable := null;
