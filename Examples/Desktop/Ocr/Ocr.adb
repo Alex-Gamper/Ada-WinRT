@@ -88,7 +88,7 @@ procedure Ocr is
         m_IAsyncOperation_ISoftwareBitmap   : aliased IAsyncOperation_ISoftwareBitmap;
         RetVal                              : aliased ISoftwareBitmap := null;
     begin
-        m_IBitmapFrameWithSoftwareBitmap := QI(p_IBitmapDecoder); --Hr := p_IBitmapDecoder.QueryInterface(IID_IBitmapFrameWithSoftwareBitmap'access, m_IBitmapFrameWithSoftwareBitmap'Access);
+        m_IBitmapFrameWithSoftwareBitmap := QI(p_IBitmapDecoder);
         Hr := m_IBitmapFrameWithSoftwareBitmap.GetSoftwareBitmapAsync(m_IAsyncOperation_ISoftwareBitmap'access);
         if m_IAsyncOperation_ISoftwareBitmap /= null then
             if Await(m_IAsyncOperation_ISoftwareBitmap) = true then
