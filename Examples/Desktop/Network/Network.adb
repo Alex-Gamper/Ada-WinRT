@@ -43,7 +43,7 @@ procedure Network is
         end;
 
         m_IHostName             : IHostName := CreateHostName(To_String("www.microsoft.com"));
-        m_StreamSocket          : IStreamSocket := CreateStreamSocket;
+        m_StreamSocket          : IStreamSocket := Create;
         m_IAsyncAction          : aliased IAsyncAction := null;
         m_AsyncActionCompleted  : AsyncActionCompletedHandler := new AsyncActionCompletedHandler_Interface(ConnectAsync_Callback'access);
 
